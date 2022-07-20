@@ -132,7 +132,7 @@ module AWS::SDK::SSMIncidents
     class GetIncidentRecord
       def self.default(visited=[])
         {
-          incident_record: Stubs::IncidentRecord.default(visited),
+          incident_record: IncidentRecord.default(visited),
         }
       end
 
@@ -160,11 +160,11 @@ module AWS::SDK::SSMIncidents
           resolved_time: Time.now,
           last_modified_time: Time.now,
           last_modified_by: 'last_modified_by',
-          automation_executions: Stubs::AutomationExecutionSet.default(visited),
-          incident_record_source: Stubs::IncidentRecordSource.default(visited),
+          automation_executions: AutomationExecutionSet.default(visited),
+          incident_record_source: IncidentRecordSource.default(visited),
           dedupe_string: 'dedupe_string',
-          chat_channel: Stubs::ChatChannel.default(visited),
-          notification_targets: Stubs::NotificationTargetSet.default(visited),
+          chat_channel: ChatChannel.default(visited),
+          notification_targets: NotificationTargetSet.default(visited),
         }
       end
 
@@ -195,7 +195,7 @@ module AWS::SDK::SSMIncidents
         return nil if visited.include?('NotificationTargetSet')
         visited = visited + ['NotificationTargetSet']
         [
-          Stubs::NotificationTargetItem.default(visited)
+          NotificationTargetItem.default(visited)
         ]
       end
 
@@ -239,7 +239,7 @@ module AWS::SDK::SSMIncidents
         return nil if visited.include?('ChatChannel')
         visited = visited + ['ChatChannel']
         {
-          empty: Stubs::EmptyChatChannel.default(visited),
+          empty: EmptyChatChannel.default(visited),
         }
       end
 
@@ -259,7 +259,7 @@ module AWS::SDK::SSMIncidents
       end
     end
 
-    # Set Stubber for ChatbotSnsConfigurationSet
+    # List Stubber for ChatbotSnsConfigurationSet
     class ChatbotSnsConfigurationSet
       def self.default(visited=[])
         return nil if visited.include?('ChatbotSnsConfigurationSet')
@@ -271,11 +271,11 @@ module AWS::SDK::SSMIncidents
 
       def self.stub(stub)
         stub ||= []
-        data = Set.new
+        data = []
         stub.each do |element|
           data << element unless element.nil?
         end
-        data.to_a
+        data
       end
     end
 
@@ -325,7 +325,7 @@ module AWS::SDK::SSMIncidents
         return nil if visited.include?('AutomationExecutionSet')
         visited = visited + ['AutomationExecutionSet']
         [
-          Stubs::AutomationExecution.default(visited)
+          AutomationExecution.default(visited)
         ]
       end
 
@@ -367,7 +367,7 @@ module AWS::SDK::SSMIncidents
     class GetReplicationSet
       def self.default(visited=[])
         {
-          replication_set: Stubs::ReplicationSet.default(visited),
+          replication_set: ReplicationSet.default(visited),
         }
       end
 
@@ -387,7 +387,7 @@ module AWS::SDK::SSMIncidents
         visited = visited + ['ReplicationSet']
         {
           arn: 'arn',
-          region_map: Stubs::RegionInfoMap.default(visited),
+          region_map: RegionInfoMap.default(visited),
           status: 'status',
           deletion_protected: false,
           created_time: Time.now,
@@ -418,7 +418,7 @@ module AWS::SDK::SSMIncidents
         return nil if visited.include?('RegionInfoMap')
         visited = visited + ['RegionInfoMap']
         {
-          test_key: Stubs::RegionInfo.default(visited)
+          test_key: RegionInfo.default(visited)
         }
       end
 
@@ -460,7 +460,7 @@ module AWS::SDK::SSMIncidents
     class GetResourcePolicies
       def self.default(visited=[])
         {
-          resource_policies: Stubs::ResourcePolicyList.default(visited),
+          resource_policies: ResourcePolicyList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -481,7 +481,7 @@ module AWS::SDK::SSMIncidents
         return nil if visited.include?('ResourcePolicyList')
         visited = visited + ['ResourcePolicyList']
         [
-          Stubs::ResourcePolicy.default(visited)
+          ResourcePolicy.default(visited)
         ]
       end
 
@@ -524,10 +524,10 @@ module AWS::SDK::SSMIncidents
           arn: 'arn',
           name: 'name',
           display_name: 'display_name',
-          incident_template: Stubs::IncidentTemplate.default(visited),
-          chat_channel: Stubs::ChatChannel.default(visited),
-          engagements: Stubs::EngagementSet.default(visited),
-          actions: Stubs::ActionsList.default(visited),
+          incident_template: IncidentTemplate.default(visited),
+          chat_channel: ChatChannel.default(visited),
+          engagements: EngagementSet.default(visited),
+          actions: ActionsList.default(visited),
         }
       end
 
@@ -552,7 +552,7 @@ module AWS::SDK::SSMIncidents
         return nil if visited.include?('ActionsList')
         visited = visited + ['ActionsList']
         [
-          Stubs::Action.default(visited)
+          Action.default(visited)
         ]
       end
 
@@ -572,7 +572,7 @@ module AWS::SDK::SSMIncidents
         return nil if visited.include?('Action')
         visited = visited + ['Action']
         {
-          ssm_automation: Stubs::SsmAutomation.default(visited),
+          ssm_automation: SsmAutomation.default(visited),
         }
       end
 
@@ -600,8 +600,8 @@ module AWS::SDK::SSMIncidents
           document_name: 'document_name',
           document_version: 'document_version',
           target_account: 'target_account',
-          parameters: Stubs::SsmParameters.default(visited),
-          dynamic_parameters: Stubs::DynamicSsmParameters.default(visited),
+          parameters: SsmParameters.default(visited),
+          dynamic_parameters: DynamicSsmParameters.default(visited),
         }
       end
 
@@ -624,7 +624,7 @@ module AWS::SDK::SSMIncidents
         return nil if visited.include?('DynamicSsmParameters')
         visited = visited + ['DynamicSsmParameters']
         {
-          test_key: Stubs::DynamicSsmParameterValue.default(visited)
+          test_key: DynamicSsmParameterValue.default(visited)
         }
       end
 
@@ -668,7 +668,7 @@ module AWS::SDK::SSMIncidents
         return nil if visited.include?('SsmParameters')
         visited = visited + ['SsmParameters']
         {
-          test_key: Stubs::SsmParameterValues.default(visited)
+          test_key: SsmParameterValues.default(visited)
         }
       end
 
@@ -702,7 +702,7 @@ module AWS::SDK::SSMIncidents
       end
     end
 
-    # Set Stubber for EngagementSet
+    # List Stubber for EngagementSet
     class EngagementSet
       def self.default(visited=[])
         return nil if visited.include?('EngagementSet')
@@ -714,11 +714,11 @@ module AWS::SDK::SSMIncidents
 
       def self.stub(stub)
         stub ||= []
-        data = Set.new
+        data = []
         stub.each do |element|
           data << element unless element.nil?
         end
-        data.to_a
+        data
       end
     end
 
@@ -732,7 +732,7 @@ module AWS::SDK::SSMIncidents
           impact: 1,
           summary: 'summary',
           dedupe_string: 'dedupe_string',
-          notification_targets: Stubs::NotificationTargetSet.default(visited),
+          notification_targets: NotificationTargetSet.default(visited),
         }
       end
 
@@ -752,7 +752,7 @@ module AWS::SDK::SSMIncidents
     class GetTimelineEvent
       def self.default(visited=[])
         {
-          event: Stubs::TimelineEvent.default(visited),
+          event: TimelineEvent.default(visited),
         }
       end
 
@@ -797,7 +797,7 @@ module AWS::SDK::SSMIncidents
     class ListIncidentRecords
       def self.default(visited=[])
         {
-          incident_record_summaries: Stubs::IncidentRecordSummaryList.default(visited),
+          incident_record_summaries: IncidentRecordSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -818,7 +818,7 @@ module AWS::SDK::SSMIncidents
         return nil if visited.include?('IncidentRecordSummaryList')
         visited = visited + ['IncidentRecordSummaryList']
         [
-          Stubs::IncidentRecordSummary.default(visited)
+          IncidentRecordSummary.default(visited)
         ]
       end
 
@@ -844,7 +844,7 @@ module AWS::SDK::SSMIncidents
           impact: 1,
           creation_time: Time.now,
           resolved_time: Time.now,
-          incident_record_source: Stubs::IncidentRecordSource.default(visited),
+          incident_record_source: IncidentRecordSource.default(visited),
         }
       end
 
@@ -866,7 +866,7 @@ module AWS::SDK::SSMIncidents
     class ListRelatedItems
       def self.default(visited=[])
         {
-          related_items: Stubs::RelatedItemList.default(visited),
+          related_items: RelatedItemList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -887,7 +887,7 @@ module AWS::SDK::SSMIncidents
         return nil if visited.include?('RelatedItemList')
         visited = visited + ['RelatedItemList']
         [
-          Stubs::RelatedItem.default(visited)
+          RelatedItem.default(visited)
         ]
       end
 
@@ -907,7 +907,7 @@ module AWS::SDK::SSMIncidents
         return nil if visited.include?('RelatedItem')
         visited = visited + ['RelatedItem']
         {
-          identifier: Stubs::ItemIdentifier.default(visited),
+          identifier: ItemIdentifier.default(visited),
           title: 'title',
         }
       end
@@ -927,7 +927,7 @@ module AWS::SDK::SSMIncidents
         return nil if visited.include?('ItemIdentifier')
         visited = visited + ['ItemIdentifier']
         {
-          value: Stubs::ItemValue.default(visited),
+          value: ItemValue.default(visited),
           type: 'type',
         }
       end
@@ -973,7 +973,7 @@ module AWS::SDK::SSMIncidents
     class ListReplicationSets
       def self.default(visited=[])
         {
-          replication_set_arns: Stubs::ReplicationSetArnList.default(visited),
+          replication_set_arns: ReplicationSetArnList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1012,7 +1012,7 @@ module AWS::SDK::SSMIncidents
     class ListResponsePlans
       def self.default(visited=[])
         {
-          response_plan_summaries: Stubs::ResponsePlanSummaryList.default(visited),
+          response_plan_summaries: ResponsePlanSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1033,7 +1033,7 @@ module AWS::SDK::SSMIncidents
         return nil if visited.include?('ResponsePlanSummaryList')
         visited = visited + ['ResponsePlanSummaryList']
         [
-          Stubs::ResponsePlanSummary.default(visited)
+          ResponsePlanSummary.default(visited)
         ]
       end
 
@@ -1073,7 +1073,7 @@ module AWS::SDK::SSMIncidents
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -1110,7 +1110,7 @@ module AWS::SDK::SSMIncidents
     class ListTimelineEvents
       def self.default(visited=[])
         {
-          event_summaries: Stubs::EventSummaryList.default(visited),
+          event_summaries: EventSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1131,7 +1131,7 @@ module AWS::SDK::SSMIncidents
         return nil if visited.include?('EventSummaryList')
         visited = visited + ['EventSummaryList']
         [
-          Stubs::EventSummary.default(visited)
+          EventSummary.default(visited)
         ]
       end
 

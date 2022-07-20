@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::Route53Domains
@@ -80,7 +82,7 @@ module AWS::SDK::Route53Domains
     def accept_domain_transfer_from_another_aws_account(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AcceptDomainTransferFromAnotherAwsAccountInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AcceptDomainTransferFromAnotherAwsAccountInput,
         validate_input: @config.validate_input
@@ -164,7 +166,7 @@ module AWS::SDK::Route53Domains
     def cancel_domain_transfer_to_another_aws_account(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelDomainTransferToAnotherAwsAccountInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelDomainTransferToAnotherAwsAccountInput,
         validate_input: @config.validate_input
@@ -262,7 +264,7 @@ module AWS::SDK::Route53Domains
     def check_domain_availability(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CheckDomainAvailabilityInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CheckDomainAvailabilityInput,
         validate_input: @config.validate_input
@@ -355,7 +357,7 @@ module AWS::SDK::Route53Domains
     def check_domain_transferability(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CheckDomainTransferabilityInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CheckDomainTransferabilityInput,
         validate_input: @config.validate_input
@@ -442,7 +444,7 @@ module AWS::SDK::Route53Domains
     def delete_domain(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDomainInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDomainInput,
         validate_input: @config.validate_input
@@ -517,7 +519,7 @@ module AWS::SDK::Route53Domains
     def delete_tags_for_domain(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteTagsForDomainInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteTagsForDomainInput,
         validate_input: @config.validate_input
@@ -585,7 +587,7 @@ module AWS::SDK::Route53Domains
     def disable_domain_auto_renew(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisableDomainAutoRenewInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisableDomainAutoRenewInput,
         validate_input: @config.validate_input
@@ -659,7 +661,7 @@ module AWS::SDK::Route53Domains
     def disable_domain_transfer_lock(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisableDomainTransferLockInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisableDomainTransferLockInput,
         validate_input: @config.validate_input
@@ -732,7 +734,7 @@ module AWS::SDK::Route53Domains
     def enable_domain_auto_renew(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::EnableDomainAutoRenewInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::EnableDomainAutoRenewInput,
         validate_input: @config.validate_input
@@ -803,7 +805,7 @@ module AWS::SDK::Route53Domains
     def enable_domain_transfer_lock(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::EnableDomainTransferLockInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::EnableDomainTransferLockInput,
         validate_input: @config.validate_input
@@ -875,7 +877,7 @@ module AWS::SDK::Route53Domains
     def get_contact_reachability_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetContactReachabilityStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetContactReachabilityStatusInput,
         validate_input: @config.validate_input
@@ -987,7 +989,7 @@ module AWS::SDK::Route53Domains
     def get_domain_detail(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDomainDetailInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDomainDetailInput,
         validate_input: @config.validate_input
@@ -1092,7 +1094,7 @@ module AWS::SDK::Route53Domains
     def get_domain_suggestions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDomainSuggestionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDomainSuggestionsInput,
         validate_input: @config.validate_input
@@ -1167,7 +1169,7 @@ module AWS::SDK::Route53Domains
     def get_operation_detail(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetOperationDetailInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetOperationDetailInput,
         validate_input: @config.validate_input
@@ -1273,7 +1275,7 @@ module AWS::SDK::Route53Domains
     def list_domains(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDomainsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDomainsInput,
         validate_input: @config.validate_input
@@ -1363,7 +1365,7 @@ module AWS::SDK::Route53Domains
     def list_operations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListOperationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListOperationsInput,
         validate_input: @config.validate_input
@@ -1475,7 +1477,7 @@ module AWS::SDK::Route53Domains
     def list_prices(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPricesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPricesInput,
         validate_input: @config.validate_input
@@ -1548,7 +1550,7 @@ module AWS::SDK::Route53Domains
     def list_tags_for_domain(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForDomainInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForDomainInput,
         validate_input: @config.validate_input
@@ -1757,7 +1759,7 @@ module AWS::SDK::Route53Domains
     def register_domain(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RegisterDomainInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RegisterDomainInput,
         validate_input: @config.validate_input
@@ -1839,7 +1841,7 @@ module AWS::SDK::Route53Domains
     def reject_domain_transfer_from_another_aws_account(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RejectDomainTransferFromAnotherAwsAccountInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RejectDomainTransferFromAnotherAwsAccountInput,
         validate_input: @config.validate_input
@@ -1924,7 +1926,7 @@ module AWS::SDK::Route53Domains
     def renew_domain(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RenewDomainInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RenewDomainInput,
         validate_input: @config.validate_input
@@ -1996,7 +1998,7 @@ module AWS::SDK::Route53Domains
     def resend_contact_reachability_email(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ResendContactReachabilityEmailInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ResendContactReachabilityEmailInput,
         validate_input: @config.validate_input
@@ -2065,7 +2067,7 @@ module AWS::SDK::Route53Domains
     def retrieve_domain_auth_code(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RetrieveDomainAuthCodeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RetrieveDomainAuthCodeInput,
         validate_input: @config.validate_input
@@ -2282,7 +2284,7 @@ module AWS::SDK::Route53Domains
     def transfer_domain(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TransferDomainInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TransferDomainInput,
         validate_input: @config.validate_input
@@ -2390,7 +2392,7 @@ module AWS::SDK::Route53Domains
     def transfer_domain_to_another_aws_account(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TransferDomainToAnotherAwsAccountInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TransferDomainToAnotherAwsAccountInput,
         validate_input: @config.validate_input
@@ -2492,7 +2494,7 @@ module AWS::SDK::Route53Domains
     def update_domain_contact(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDomainContactInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDomainContactInput,
         validate_input: @config.validate_input
@@ -2608,7 +2610,7 @@ module AWS::SDK::Route53Domains
     def update_domain_contact_privacy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDomainContactPrivacyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDomainContactPrivacyInput,
         validate_input: @config.validate_input
@@ -2695,7 +2697,7 @@ module AWS::SDK::Route53Domains
     def update_domain_nameservers(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDomainNameserversInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDomainNameserversInput,
         validate_input: @config.validate_input
@@ -2774,7 +2776,7 @@ module AWS::SDK::Route53Domains
     def update_tags_for_domain(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateTagsForDomainInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateTagsForDomainInput,
         validate_input: @config.validate_input
@@ -2871,7 +2873,7 @@ module AWS::SDK::Route53Domains
     def view_billing(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ViewBillingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ViewBillingInput,
         validate_input: @config.validate_input

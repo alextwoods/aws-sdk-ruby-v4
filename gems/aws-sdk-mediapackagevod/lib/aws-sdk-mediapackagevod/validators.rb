@@ -20,7 +20,7 @@ module AWS::SDK::MediaPackageVod
         Hearth::Validator.validate!(input[:resource_id], ::String, context: "#{context}[:resource_id]")
         Hearth::Validator.validate!(input[:source_arn], ::String, context: "#{context}[:source_arn]")
         Hearth::Validator.validate!(input[:source_role_arn], ::String, context: "#{context}[:source_role_arn]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -36,15 +36,15 @@ module AWS::SDK::MediaPackageVod
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CmafEncryption, context: context)
         Hearth::Validator.validate!(input[:constant_initialization_vector], ::String, context: "#{context}[:constant_initialization_vector]")
-        Validators::SpekeKeyProvider.validate!(input[:speke_key_provider], context: "#{context}[:speke_key_provider]") unless input[:speke_key_provider].nil?
+        SpekeKeyProvider.validate!(input[:speke_key_provider], context: "#{context}[:speke_key_provider]") unless input[:speke_key_provider].nil?
       end
     end
 
     class CmafPackage
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CmafPackage, context: context)
-        Validators::CmafEncryption.validate!(input[:encryption], context: "#{context}[:encryption]") unless input[:encryption].nil?
-        Validators::List____listOfHlsManifest.validate!(input[:hls_manifests], context: "#{context}[:hls_manifests]") unless input[:hls_manifests].nil?
+        CmafEncryption.validate!(input[:encryption], context: "#{context}[:encryption]") unless input[:encryption].nil?
+        List____listOfHlsManifest.validate!(input[:hls_manifests], context: "#{context}[:hls_manifests]") unless input[:hls_manifests].nil?
         Hearth::Validator.validate!(input[:include_encoder_configuration_in_segments], ::TrueClass, ::FalseClass, context: "#{context}[:include_encoder_configuration_in_segments]")
         Hearth::Validator.validate!(input[:segment_duration_seconds], ::Integer, context: "#{context}[:segment_duration_seconds]")
       end
@@ -53,7 +53,7 @@ module AWS::SDK::MediaPackageVod
     class ConfigureLogsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ConfigureLogsInput, context: context)
-        Validators::EgressAccessLogs.validate!(input[:egress_access_logs], context: "#{context}[:egress_access_logs]") unless input[:egress_access_logs].nil?
+        EgressAccessLogs.validate!(input[:egress_access_logs], context: "#{context}[:egress_access_logs]") unless input[:egress_access_logs].nil?
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
       end
     end
@@ -62,11 +62,11 @@ module AWS::SDK::MediaPackageVod
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ConfigureLogsOutput, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Validators::Authorization.validate!(input[:authorization], context: "#{context}[:authorization]") unless input[:authorization].nil?
+        Authorization.validate!(input[:authorization], context: "#{context}[:authorization]") unless input[:authorization].nil?
         Hearth::Validator.validate!(input[:domain_name], ::String, context: "#{context}[:domain_name]")
-        Validators::EgressAccessLogs.validate!(input[:egress_access_logs], context: "#{context}[:egress_access_logs]") unless input[:egress_access_logs].nil?
+        EgressAccessLogs.validate!(input[:egress_access_logs], context: "#{context}[:egress_access_logs]") unless input[:egress_access_logs].nil?
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -78,7 +78,7 @@ module AWS::SDK::MediaPackageVod
         Hearth::Validator.validate!(input[:resource_id], ::String, context: "#{context}[:resource_id]")
         Hearth::Validator.validate!(input[:source_arn], ::String, context: "#{context}[:source_arn]")
         Hearth::Validator.validate!(input[:source_role_arn], ::String, context: "#{context}[:source_role_arn]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -87,26 +87,26 @@ module AWS::SDK::MediaPackageVod
         Hearth::Validator.validate!(input, Types::CreateAssetOutput, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:created_at], ::String, context: "#{context}[:created_at]")
-        Validators::List____listOfEgressEndpoint.validate!(input[:egress_endpoints], context: "#{context}[:egress_endpoints]") unless input[:egress_endpoints].nil?
+        List____listOfEgressEndpoint.validate!(input[:egress_endpoints], context: "#{context}[:egress_endpoints]") unless input[:egress_endpoints].nil?
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:packaging_group_id], ::String, context: "#{context}[:packaging_group_id]")
         Hearth::Validator.validate!(input[:resource_id], ::String, context: "#{context}[:resource_id]")
         Hearth::Validator.validate!(input[:source_arn], ::String, context: "#{context}[:source_arn]")
         Hearth::Validator.validate!(input[:source_role_arn], ::String, context: "#{context}[:source_role_arn]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreatePackagingConfigurationInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreatePackagingConfigurationInput, context: context)
-        Validators::CmafPackage.validate!(input[:cmaf_package], context: "#{context}[:cmaf_package]") unless input[:cmaf_package].nil?
-        Validators::DashPackage.validate!(input[:dash_package], context: "#{context}[:dash_package]") unless input[:dash_package].nil?
-        Validators::HlsPackage.validate!(input[:hls_package], context: "#{context}[:hls_package]") unless input[:hls_package].nil?
+        CmafPackage.validate!(input[:cmaf_package], context: "#{context}[:cmaf_package]") unless input[:cmaf_package].nil?
+        DashPackage.validate!(input[:dash_package], context: "#{context}[:dash_package]") unless input[:dash_package].nil?
+        HlsPackage.validate!(input[:hls_package], context: "#{context}[:hls_package]") unless input[:hls_package].nil?
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
-        Validators::MssPackage.validate!(input[:mss_package], context: "#{context}[:mss_package]") unless input[:mss_package].nil?
+        MssPackage.validate!(input[:mss_package], context: "#{context}[:mss_package]") unless input[:mss_package].nil?
         Hearth::Validator.validate!(input[:packaging_group_id], ::String, context: "#{context}[:packaging_group_id]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -114,23 +114,23 @@ module AWS::SDK::MediaPackageVod
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreatePackagingConfigurationOutput, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Validators::CmafPackage.validate!(input[:cmaf_package], context: "#{context}[:cmaf_package]") unless input[:cmaf_package].nil?
-        Validators::DashPackage.validate!(input[:dash_package], context: "#{context}[:dash_package]") unless input[:dash_package].nil?
-        Validators::HlsPackage.validate!(input[:hls_package], context: "#{context}[:hls_package]") unless input[:hls_package].nil?
+        CmafPackage.validate!(input[:cmaf_package], context: "#{context}[:cmaf_package]") unless input[:cmaf_package].nil?
+        DashPackage.validate!(input[:dash_package], context: "#{context}[:dash_package]") unless input[:dash_package].nil?
+        HlsPackage.validate!(input[:hls_package], context: "#{context}[:hls_package]") unless input[:hls_package].nil?
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
-        Validators::MssPackage.validate!(input[:mss_package], context: "#{context}[:mss_package]") unless input[:mss_package].nil?
+        MssPackage.validate!(input[:mss_package], context: "#{context}[:mss_package]") unless input[:mss_package].nil?
         Hearth::Validator.validate!(input[:packaging_group_id], ::String, context: "#{context}[:packaging_group_id]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreatePackagingGroupInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreatePackagingGroupInput, context: context)
-        Validators::Authorization.validate!(input[:authorization], context: "#{context}[:authorization]") unless input[:authorization].nil?
-        Validators::EgressAccessLogs.validate!(input[:egress_access_logs], context: "#{context}[:egress_access_logs]") unless input[:egress_access_logs].nil?
+        Authorization.validate!(input[:authorization], context: "#{context}[:authorization]") unless input[:authorization].nil?
+        EgressAccessLogs.validate!(input[:egress_access_logs], context: "#{context}[:egress_access_logs]") unless input[:egress_access_logs].nil?
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -138,18 +138,18 @@ module AWS::SDK::MediaPackageVod
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreatePackagingGroupOutput, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Validators::Authorization.validate!(input[:authorization], context: "#{context}[:authorization]") unless input[:authorization].nil?
+        Authorization.validate!(input[:authorization], context: "#{context}[:authorization]") unless input[:authorization].nil?
         Hearth::Validator.validate!(input[:domain_name], ::String, context: "#{context}[:domain_name]")
-        Validators::EgressAccessLogs.validate!(input[:egress_access_logs], context: "#{context}[:egress_access_logs]") unless input[:egress_access_logs].nil?
+        EgressAccessLogs.validate!(input[:egress_access_logs], context: "#{context}[:egress_access_logs]") unless input[:egress_access_logs].nil?
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class DashEncryption
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DashEncryption, context: context)
-        Validators::SpekeKeyProvider.validate!(input[:speke_key_provider], context: "#{context}[:speke_key_provider]") unless input[:speke_key_provider].nil?
+        SpekeKeyProvider.validate!(input[:speke_key_provider], context: "#{context}[:speke_key_provider]") unless input[:speke_key_provider].nil?
       end
     end
 
@@ -161,17 +161,17 @@ module AWS::SDK::MediaPackageVod
         Hearth::Validator.validate!(input[:min_buffer_time_seconds], ::Integer, context: "#{context}[:min_buffer_time_seconds]")
         Hearth::Validator.validate!(input[:profile], ::String, context: "#{context}[:profile]")
         Hearth::Validator.validate!(input[:scte_markers_source], ::String, context: "#{context}[:scte_markers_source]")
-        Validators::StreamSelection.validate!(input[:stream_selection], context: "#{context}[:stream_selection]") unless input[:stream_selection].nil?
+        StreamSelection.validate!(input[:stream_selection], context: "#{context}[:stream_selection]") unless input[:stream_selection].nil?
       end
     end
 
     class DashPackage
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DashPackage, context: context)
-        Validators::List____listOfDashManifest.validate!(input[:dash_manifests], context: "#{context}[:dash_manifests]") unless input[:dash_manifests].nil?
-        Validators::DashEncryption.validate!(input[:encryption], context: "#{context}[:encryption]") unless input[:encryption].nil?
+        List____listOfDashManifest.validate!(input[:dash_manifests], context: "#{context}[:dash_manifests]") unless input[:dash_manifests].nil?
+        DashEncryption.validate!(input[:encryption], context: "#{context}[:encryption]") unless input[:encryption].nil?
         Hearth::Validator.validate!(input[:include_encoder_configuration_in_segments], ::TrueClass, ::FalseClass, context: "#{context}[:include_encoder_configuration_in_segments]")
-        Validators::List____listOf__PeriodTriggersElement.validate!(input[:period_triggers], context: "#{context}[:period_triggers]") unless input[:period_triggers].nil?
+        List____listOf__PeriodTriggersElement.validate!(input[:period_triggers], context: "#{context}[:period_triggers]") unless input[:period_triggers].nil?
         Hearth::Validator.validate!(input[:segment_duration_seconds], ::Integer, context: "#{context}[:segment_duration_seconds]")
         Hearth::Validator.validate!(input[:segment_template_format], ::String, context: "#{context}[:segment_template_format]")
       end
@@ -228,13 +228,13 @@ module AWS::SDK::MediaPackageVod
         Hearth::Validator.validate!(input, Types::DescribeAssetOutput, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:created_at], ::String, context: "#{context}[:created_at]")
-        Validators::List____listOfEgressEndpoint.validate!(input[:egress_endpoints], context: "#{context}[:egress_endpoints]") unless input[:egress_endpoints].nil?
+        List____listOfEgressEndpoint.validate!(input[:egress_endpoints], context: "#{context}[:egress_endpoints]") unless input[:egress_endpoints].nil?
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:packaging_group_id], ::String, context: "#{context}[:packaging_group_id]")
         Hearth::Validator.validate!(input[:resource_id], ::String, context: "#{context}[:resource_id]")
         Hearth::Validator.validate!(input[:source_arn], ::String, context: "#{context}[:source_arn]")
         Hearth::Validator.validate!(input[:source_role_arn], ::String, context: "#{context}[:source_role_arn]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -249,13 +249,13 @@ module AWS::SDK::MediaPackageVod
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribePackagingConfigurationOutput, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Validators::CmafPackage.validate!(input[:cmaf_package], context: "#{context}[:cmaf_package]") unless input[:cmaf_package].nil?
-        Validators::DashPackage.validate!(input[:dash_package], context: "#{context}[:dash_package]") unless input[:dash_package].nil?
-        Validators::HlsPackage.validate!(input[:hls_package], context: "#{context}[:hls_package]") unless input[:hls_package].nil?
+        CmafPackage.validate!(input[:cmaf_package], context: "#{context}[:cmaf_package]") unless input[:cmaf_package].nil?
+        DashPackage.validate!(input[:dash_package], context: "#{context}[:dash_package]") unless input[:dash_package].nil?
+        HlsPackage.validate!(input[:hls_package], context: "#{context}[:hls_package]") unless input[:hls_package].nil?
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
-        Validators::MssPackage.validate!(input[:mss_package], context: "#{context}[:mss_package]") unless input[:mss_package].nil?
+        MssPackage.validate!(input[:mss_package], context: "#{context}[:mss_package]") unless input[:mss_package].nil?
         Hearth::Validator.validate!(input[:packaging_group_id], ::String, context: "#{context}[:packaging_group_id]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -270,11 +270,11 @@ module AWS::SDK::MediaPackageVod
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribePackagingGroupOutput, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Validators::Authorization.validate!(input[:authorization], context: "#{context}[:authorization]") unless input[:authorization].nil?
+        Authorization.validate!(input[:authorization], context: "#{context}[:authorization]") unless input[:authorization].nil?
         Hearth::Validator.validate!(input[:domain_name], ::String, context: "#{context}[:domain_name]")
-        Validators::EgressAccessLogs.validate!(input[:egress_access_logs], context: "#{context}[:egress_access_logs]") unless input[:egress_access_logs].nil?
+        EgressAccessLogs.validate!(input[:egress_access_logs], context: "#{context}[:egress_access_logs]") unless input[:egress_access_logs].nil?
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -306,7 +306,7 @@ module AWS::SDK::MediaPackageVod
         Hearth::Validator.validate!(input, Types::HlsEncryption, context: context)
         Hearth::Validator.validate!(input[:constant_initialization_vector], ::String, context: "#{context}[:constant_initialization_vector]")
         Hearth::Validator.validate!(input[:encryption_method], ::String, context: "#{context}[:encryption_method]")
-        Validators::SpekeKeyProvider.validate!(input[:speke_key_provider], context: "#{context}[:speke_key_provider]") unless input[:speke_key_provider].nil?
+        SpekeKeyProvider.validate!(input[:speke_key_provider], context: "#{context}[:speke_key_provider]") unless input[:speke_key_provider].nil?
       end
     end
 
@@ -318,15 +318,15 @@ module AWS::SDK::MediaPackageVod
         Hearth::Validator.validate!(input[:manifest_name], ::String, context: "#{context}[:manifest_name]")
         Hearth::Validator.validate!(input[:program_date_time_interval_seconds], ::Integer, context: "#{context}[:program_date_time_interval_seconds]")
         Hearth::Validator.validate!(input[:repeat_ext_x_key], ::TrueClass, ::FalseClass, context: "#{context}[:repeat_ext_x_key]")
-        Validators::StreamSelection.validate!(input[:stream_selection], context: "#{context}[:stream_selection]") unless input[:stream_selection].nil?
+        StreamSelection.validate!(input[:stream_selection], context: "#{context}[:stream_selection]") unless input[:stream_selection].nil?
       end
     end
 
     class HlsPackage
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::HlsPackage, context: context)
-        Validators::HlsEncryption.validate!(input[:encryption], context: "#{context}[:encryption]") unless input[:encryption].nil?
-        Validators::List____listOfHlsManifest.validate!(input[:hls_manifests], context: "#{context}[:hls_manifests]") unless input[:hls_manifests].nil?
+        HlsEncryption.validate!(input[:encryption], context: "#{context}[:encryption]") unless input[:encryption].nil?
+        List____listOfHlsManifest.validate!(input[:hls_manifests], context: "#{context}[:hls_manifests]") unless input[:hls_manifests].nil?
         Hearth::Validator.validate!(input[:include_dvb_subtitles], ::TrueClass, ::FalseClass, context: "#{context}[:include_dvb_subtitles]")
         Hearth::Validator.validate!(input[:segment_duration_seconds], ::Integer, context: "#{context}[:segment_duration_seconds]")
         Hearth::Validator.validate!(input[:use_audio_rendition_group], ::TrueClass, ::FalseClass, context: "#{context}[:use_audio_rendition_group]")
@@ -352,7 +352,7 @@ module AWS::SDK::MediaPackageVod
     class ListAssetsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAssetsOutput, context: context)
-        Validators::List____listOfAssetShallow.validate!(input[:assets], context: "#{context}[:assets]") unless input[:assets].nil?
+        List____listOfAssetShallow.validate!(input[:assets], context: "#{context}[:assets]") unless input[:assets].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -370,7 +370,7 @@ module AWS::SDK::MediaPackageVod
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListPackagingConfigurationsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::List____listOfPackagingConfiguration.validate!(input[:packaging_configurations], context: "#{context}[:packaging_configurations]") unless input[:packaging_configurations].nil?
+        List____listOfPackagingConfiguration.validate!(input[:packaging_configurations], context: "#{context}[:packaging_configurations]") unless input[:packaging_configurations].nil?
       end
     end
 
@@ -386,7 +386,7 @@ module AWS::SDK::MediaPackageVod
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListPackagingGroupsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::List____listOfPackagingGroup.validate!(input[:packaging_groups], context: "#{context}[:packaging_groups]") unless input[:packaging_groups].nil?
+        List____listOfPackagingGroup.validate!(input[:packaging_groups], context: "#{context}[:packaging_groups]") unless input[:packaging_groups].nil?
       end
     end
 
@@ -400,14 +400,14 @@ module AWS::SDK::MediaPackageVod
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::Map____mapOf__string.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Map____mapOf__string.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class MssEncryption
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::MssEncryption, context: context)
-        Validators::SpekeKeyProvider.validate!(input[:speke_key_provider], context: "#{context}[:speke_key_provider]") unless input[:speke_key_provider].nil?
+        SpekeKeyProvider.validate!(input[:speke_key_provider], context: "#{context}[:speke_key_provider]") unless input[:speke_key_provider].nil?
       end
     end
 
@@ -415,15 +415,15 @@ module AWS::SDK::MediaPackageVod
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::MssManifest, context: context)
         Hearth::Validator.validate!(input[:manifest_name], ::String, context: "#{context}[:manifest_name]")
-        Validators::StreamSelection.validate!(input[:stream_selection], context: "#{context}[:stream_selection]") unless input[:stream_selection].nil?
+        StreamSelection.validate!(input[:stream_selection], context: "#{context}[:stream_selection]") unless input[:stream_selection].nil?
       end
     end
 
     class MssPackage
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::MssPackage, context: context)
-        Validators::MssEncryption.validate!(input[:encryption], context: "#{context}[:encryption]") unless input[:encryption].nil?
-        Validators::List____listOfMssManifest.validate!(input[:mss_manifests], context: "#{context}[:mss_manifests]") unless input[:mss_manifests].nil?
+        MssEncryption.validate!(input[:encryption], context: "#{context}[:encryption]") unless input[:encryption].nil?
+        List____listOfMssManifest.validate!(input[:mss_manifests], context: "#{context}[:mss_manifests]") unless input[:mss_manifests].nil?
         Hearth::Validator.validate!(input[:segment_duration_seconds], ::Integer, context: "#{context}[:segment_duration_seconds]")
       end
     end
@@ -439,13 +439,13 @@ module AWS::SDK::MediaPackageVod
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PackagingConfiguration, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Validators::CmafPackage.validate!(input[:cmaf_package], context: "#{context}[:cmaf_package]") unless input[:cmaf_package].nil?
-        Validators::DashPackage.validate!(input[:dash_package], context: "#{context}[:dash_package]") unless input[:dash_package].nil?
-        Validators::HlsPackage.validate!(input[:hls_package], context: "#{context}[:hls_package]") unless input[:hls_package].nil?
+        CmafPackage.validate!(input[:cmaf_package], context: "#{context}[:cmaf_package]") unless input[:cmaf_package].nil?
+        DashPackage.validate!(input[:dash_package], context: "#{context}[:dash_package]") unless input[:dash_package].nil?
+        HlsPackage.validate!(input[:hls_package], context: "#{context}[:hls_package]") unless input[:hls_package].nil?
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
-        Validators::MssPackage.validate!(input[:mss_package], context: "#{context}[:mss_package]") unless input[:mss_package].nil?
+        MssPackage.validate!(input[:mss_package], context: "#{context}[:mss_package]") unless input[:mss_package].nil?
         Hearth::Validator.validate!(input[:packaging_group_id], ::String, context: "#{context}[:packaging_group_id]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -453,11 +453,11 @@ module AWS::SDK::MediaPackageVod
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PackagingGroup, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Validators::Authorization.validate!(input[:authorization], context: "#{context}[:authorization]") unless input[:authorization].nil?
+        Authorization.validate!(input[:authorization], context: "#{context}[:authorization]") unless input[:authorization].nil?
         Hearth::Validator.validate!(input[:domain_name], ::String, context: "#{context}[:domain_name]")
-        Validators::EgressAccessLogs.validate!(input[:egress_access_logs], context: "#{context}[:egress_access_logs]") unless input[:egress_access_logs].nil?
+        EgressAccessLogs.validate!(input[:egress_access_logs], context: "#{context}[:egress_access_logs]") unless input[:egress_access_logs].nil?
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -472,7 +472,7 @@ module AWS::SDK::MediaPackageVod
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SpekeKeyProvider, context: context)
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
-        Validators::List____listOf__string.validate!(input[:system_ids], context: "#{context}[:system_ids]") unless input[:system_ids].nil?
+        List____listOf__string.validate!(input[:system_ids], context: "#{context}[:system_ids]") unless input[:system_ids].nil?
         Hearth::Validator.validate!(input[:url], ::String, context: "#{context}[:url]")
       end
     end
@@ -490,7 +490,7 @@ module AWS::SDK::MediaPackageVod
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::Map____mapOf__string.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Map____mapOf__string.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -528,7 +528,7 @@ module AWS::SDK::MediaPackageVod
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::List____listOf__string.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        List____listOf__string.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -541,7 +541,7 @@ module AWS::SDK::MediaPackageVod
     class UpdatePackagingGroupInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdatePackagingGroupInput, context: context)
-        Validators::Authorization.validate!(input[:authorization], context: "#{context}[:authorization]") unless input[:authorization].nil?
+        Authorization.validate!(input[:authorization], context: "#{context}[:authorization]") unless input[:authorization].nil?
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
       end
     end
@@ -550,11 +550,11 @@ module AWS::SDK::MediaPackageVod
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdatePackagingGroupOutput, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Validators::Authorization.validate!(input[:authorization], context: "#{context}[:authorization]") unless input[:authorization].nil?
+        Authorization.validate!(input[:authorization], context: "#{context}[:authorization]") unless input[:authorization].nil?
         Hearth::Validator.validate!(input[:domain_name], ::String, context: "#{context}[:domain_name]")
-        Validators::EgressAccessLogs.validate!(input[:egress_access_logs], context: "#{context}[:egress_access_logs]") unless input[:egress_access_logs].nil?
+        EgressAccessLogs.validate!(input[:egress_access_logs], context: "#{context}[:egress_access_logs]") unless input[:egress_access_logs].nil?
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -562,7 +562,7 @@ module AWS::SDK::MediaPackageVod
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AssetShallow.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AssetShallow.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -571,7 +571,7 @@ module AWS::SDK::MediaPackageVod
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DashManifest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DashManifest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -580,7 +580,7 @@ module AWS::SDK::MediaPackageVod
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EgressEndpoint.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EgressEndpoint.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -589,7 +589,7 @@ module AWS::SDK::MediaPackageVod
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::HlsManifest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          HlsManifest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -598,7 +598,7 @@ module AWS::SDK::MediaPackageVod
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MssManifest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MssManifest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -607,7 +607,7 @@ module AWS::SDK::MediaPackageVod
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PackagingConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PackagingConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -616,7 +616,7 @@ module AWS::SDK::MediaPackageVod
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PackagingGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PackagingGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

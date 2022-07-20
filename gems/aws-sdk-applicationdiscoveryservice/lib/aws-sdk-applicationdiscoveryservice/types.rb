@@ -39,11 +39,11 @@ module AWS::SDK::ApplicationDiscoveryService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.operation_succeeded ||= false
       end
-
     end
 
     # <p>Information about agents or connectors associated with the user’s Amazon Web Services account.
@@ -668,6 +668,7 @@ module AWS::SDK::ApplicationDiscoveryService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.active_agents ||= 0
@@ -678,7 +679,6 @@ module AWS::SDK::ApplicationDiscoveryService
         self.total_agents ||= 0
         self.unknown_agents ||= 0
       end
-
     end
 
     # <p>Inventory data for installed discovery connectors.</p>
@@ -729,6 +729,7 @@ module AWS::SDK::ApplicationDiscoveryService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.active_connectors ||= 0
@@ -739,7 +740,6 @@ module AWS::SDK::ApplicationDiscoveryService
         self.total_connectors ||= 0
         self.unknown_connectors ||= 0
       end
-
     end
 
     # <p>
@@ -806,6 +806,7 @@ module AWS::SDK::ApplicationDiscoveryService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.active_me_collectors ||= 0
@@ -816,7 +817,6 @@ module AWS::SDK::ApplicationDiscoveryService
         self.total_me_collectors ||= 0
         self.unknown_me_collectors ||= 0
       end
-
     end
 
     # Includes enum constants for DataSource
@@ -914,11 +914,11 @@ module AWS::SDK::ApplicationDiscoveryService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute agents_info
@@ -1035,11 +1035,11 @@ module AWS::SDK::ApplicationDiscoveryService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute exports_info
@@ -1102,11 +1102,11 @@ module AWS::SDK::ApplicationDiscoveryService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute exports_info
@@ -1203,11 +1203,11 @@ module AWS::SDK::ApplicationDiscoveryService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute tags
@@ -1380,11 +1380,11 @@ module AWS::SDK::ApplicationDiscoveryService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_truncated ||= false
       end
-
     end
 
     # Includes enum constants for ExportStatus
@@ -1494,6 +1494,7 @@ module AWS::SDK::ApplicationDiscoveryService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.servers ||= 0
@@ -1501,7 +1502,6 @@ module AWS::SDK::ApplicationDiscoveryService
         self.servers_mapped_to_applications ||= 0
         self.servers_mappedto_tags ||= 0
       end
-
     end
 
     # <p>The home region is not set. Set the home region to continue.</p>
@@ -1677,6 +1677,7 @@ module AWS::SDK::ApplicationDiscoveryService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.server_import_success ||= 0
@@ -1684,7 +1685,6 @@ module AWS::SDK::ApplicationDiscoveryService
         self.application_import_success ||= 0
         self.application_import_failure ||= 0
       end
-
     end
 
     # <p>A name-values pair of elements you can use to filter the results when querying your import
@@ -1806,11 +1806,11 @@ module AWS::SDK::ApplicationDiscoveryService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute configurations
@@ -1874,12 +1874,12 @@ module AWS::SDK::ApplicationDiscoveryService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.port_information_needed ||= false
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute neighbors
@@ -1908,11 +1908,11 @@ module AWS::SDK::ApplicationDiscoveryService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.known_dependency_count ||= 0
       end
-
     end
 
     # <p>Details about neighboring servers.</p>
@@ -1951,11 +1951,11 @@ module AWS::SDK::ApplicationDiscoveryService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.connections_count ||= 0
       end
-
     end
 
     # <p>This operation is not permitted.</p>

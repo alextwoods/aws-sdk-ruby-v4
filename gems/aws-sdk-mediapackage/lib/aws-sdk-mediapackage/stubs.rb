@@ -16,11 +16,11 @@ module AWS::SDK::MediaPackage
         {
           arn: 'arn',
           description: 'description',
-          egress_access_logs: Stubs::EgressAccessLogs.default(visited),
-          hls_ingest: Stubs::HlsIngest.default(visited),
+          egress_access_logs: EgressAccessLogs.default(visited),
+          hls_ingest: HlsIngest.default(visited),
           id: 'id',
-          ingress_access_logs: Stubs::IngressAccessLogs.default(visited),
-          tags: Stubs::Tags.default(visited),
+          ingress_access_logs: IngressAccessLogs.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -83,7 +83,7 @@ module AWS::SDK::MediaPackage
         return nil if visited.include?('HlsIngest')
         visited = visited + ['HlsIngest']
         {
-          ingest_endpoints: Stubs::List____listOfIngestEndpoint.default(visited),
+          ingest_endpoints: List____listOfIngestEndpoint.default(visited),
         }
       end
 
@@ -101,7 +101,7 @@ module AWS::SDK::MediaPackage
         return nil if visited.include?('List____listOfIngestEndpoint')
         visited = visited + ['List____listOfIngestEndpoint']
         [
-          Stubs::IngestEndpoint.default(visited)
+          IngestEndpoint.default(visited)
         ]
       end
 
@@ -163,11 +163,11 @@ module AWS::SDK::MediaPackage
         {
           arn: 'arn',
           description: 'description',
-          egress_access_logs: Stubs::EgressAccessLogs.default(visited),
-          hls_ingest: Stubs::HlsIngest.default(visited),
+          egress_access_logs: EgressAccessLogs.default(visited),
+          hls_ingest: HlsIngest.default(visited),
           id: 'id',
-          ingress_access_logs: Stubs::IngressAccessLogs.default(visited),
-          tags: Stubs::Tags.default(visited),
+          ingress_access_logs: IngressAccessLogs.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -196,7 +196,7 @@ module AWS::SDK::MediaPackage
           end_time: 'end_time',
           id: 'id',
           origin_endpoint_id: 'origin_endpoint_id',
-          s3_destination: Stubs::S3Destination.default(visited),
+          s3_destination: S3Destination.default(visited),
           start_time: 'start_time',
           status: 'status',
         }
@@ -246,21 +246,21 @@ module AWS::SDK::MediaPackage
       def self.default(visited=[])
         {
           arn: 'arn',
-          authorization: Stubs::Authorization.default(visited),
+          authorization: Authorization.default(visited),
           channel_id: 'channel_id',
-          cmaf_package: Stubs::CmafPackage.default(visited),
-          dash_package: Stubs::DashPackage.default(visited),
+          cmaf_package: CmafPackage.default(visited),
+          dash_package: DashPackage.default(visited),
           description: 'description',
-          hls_package: Stubs::HlsPackage.default(visited),
+          hls_package: HlsPackage.default(visited),
           id: 'id',
           manifest_name: 'manifest_name',
-          mss_package: Stubs::MssPackage.default(visited),
+          mss_package: MssPackage.default(visited),
           origination: 'origination',
           startover_window_seconds: 1,
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
           time_delay_seconds: 1,
           url: 'url',
-          whitelist: Stubs::List____listOf__string.default(visited),
+          whitelist: List____listOf__string.default(visited),
         }
       end
 
@@ -314,10 +314,10 @@ module AWS::SDK::MediaPackage
         return nil if visited.include?('MssPackage')
         visited = visited + ['MssPackage']
         {
-          encryption: Stubs::MssEncryption.default(visited),
+          encryption: MssEncryption.default(visited),
           manifest_window_seconds: 1,
           segment_duration_seconds: 1,
-          stream_selection: Stubs::StreamSelection.default(visited),
+          stream_selection: StreamSelection.default(visited),
         }
       end
 
@@ -360,7 +360,7 @@ module AWS::SDK::MediaPackage
         return nil if visited.include?('MssEncryption')
         visited = visited + ['MssEncryption']
         {
-          speke_key_provider: Stubs::SpekeKeyProvider.default(visited),
+          speke_key_provider: SpekeKeyProvider.default(visited),
         }
       end
 
@@ -379,10 +379,10 @@ module AWS::SDK::MediaPackage
         visited = visited + ['SpekeKeyProvider']
         {
           certificate_arn: 'certificate_arn',
-          encryption_contract_configuration: Stubs::EncryptionContractConfiguration.default(visited),
+          encryption_contract_configuration: EncryptionContractConfiguration.default(visited),
           resource_id: 'resource_id',
           role_arn: 'role_arn',
-          system_ids: Stubs::List____listOf__string.default(visited),
+          system_ids: List____listOf__string.default(visited),
           url: 'url',
         }
       end
@@ -427,16 +427,16 @@ module AWS::SDK::MediaPackage
         visited = visited + ['HlsPackage']
         {
           ad_markers: 'ad_markers',
-          ad_triggers: Stubs::AdTriggers.default(visited),
+          ad_triggers: AdTriggers.default(visited),
           ads_on_delivery_restrictions: 'ads_on_delivery_restrictions',
-          encryption: Stubs::HlsEncryption.default(visited),
+          encryption: HlsEncryption.default(visited),
           include_dvb_subtitles: false,
           include_iframe_only_stream: false,
           playlist_type: 'playlist_type',
           playlist_window_seconds: 1,
           program_date_time_interval_seconds: 1,
           segment_duration_seconds: 1,
-          stream_selection: Stubs::StreamSelection.default(visited),
+          stream_selection: StreamSelection.default(visited),
           use_audio_rendition_group: false,
         }
       end
@@ -470,7 +470,7 @@ module AWS::SDK::MediaPackage
           encryption_method: 'encryption_method',
           key_rotation_interval_seconds: 1,
           repeat_ext_x_key: false,
-          speke_key_provider: Stubs::SpekeKeyProvider.default(visited),
+          speke_key_provider: SpekeKeyProvider.default(visited),
         }
       end
 
@@ -512,18 +512,18 @@ module AWS::SDK::MediaPackage
         return nil if visited.include?('DashPackage')
         visited = visited + ['DashPackage']
         {
-          ad_triggers: Stubs::AdTriggers.default(visited),
+          ad_triggers: AdTriggers.default(visited),
           ads_on_delivery_restrictions: 'ads_on_delivery_restrictions',
-          encryption: Stubs::DashEncryption.default(visited),
+          encryption: DashEncryption.default(visited),
           manifest_layout: 'manifest_layout',
           manifest_window_seconds: 1,
           min_buffer_time_seconds: 1,
           min_update_period_seconds: 1,
-          period_triggers: Stubs::List____listOf__PeriodTriggersElement.default(visited),
+          period_triggers: List____listOf__PeriodTriggersElement.default(visited),
           profile: 'profile',
           segment_duration_seconds: 1,
           segment_template_format: 'segment_template_format',
-          stream_selection: Stubs::StreamSelection.default(visited),
+          stream_selection: StreamSelection.default(visited),
           suggested_presentation_delay_seconds: 1,
           utc_timing: 'utc_timing',
           utc_timing_uri: 'utc_timing_uri',
@@ -579,7 +579,7 @@ module AWS::SDK::MediaPackage
         visited = visited + ['DashEncryption']
         {
           key_rotation_interval_seconds: 1,
-          speke_key_provider: Stubs::SpekeKeyProvider.default(visited),
+          speke_key_provider: SpekeKeyProvider.default(visited),
         }
       end
 
@@ -598,11 +598,11 @@ module AWS::SDK::MediaPackage
         return nil if visited.include?('CmafPackage')
         visited = visited + ['CmafPackage']
         {
-          encryption: Stubs::CmafEncryption.default(visited),
-          hls_manifests: Stubs::List____listOfHlsManifest.default(visited),
+          encryption: CmafEncryption.default(visited),
+          hls_manifests: List____listOfHlsManifest.default(visited),
           segment_duration_seconds: 1,
           segment_prefix: 'segment_prefix',
-          stream_selection: Stubs::StreamSelection.default(visited),
+          stream_selection: StreamSelection.default(visited),
         }
       end
 
@@ -624,7 +624,7 @@ module AWS::SDK::MediaPackage
         return nil if visited.include?('List____listOfHlsManifest')
         visited = visited + ['List____listOfHlsManifest']
         [
-          Stubs::HlsManifest.default(visited)
+          HlsManifest.default(visited)
         ]
       end
 
@@ -678,7 +678,7 @@ module AWS::SDK::MediaPackage
         {
           constant_initialization_vector: 'constant_initialization_vector',
           key_rotation_interval_seconds: 1,
-          speke_key_provider: Stubs::SpekeKeyProvider.default(visited),
+          speke_key_provider: SpekeKeyProvider.default(visited),
         }
       end
 
@@ -744,11 +744,11 @@ module AWS::SDK::MediaPackage
         {
           arn: 'arn',
           description: 'description',
-          egress_access_logs: Stubs::EgressAccessLogs.default(visited),
-          hls_ingest: Stubs::HlsIngest.default(visited),
+          egress_access_logs: EgressAccessLogs.default(visited),
+          hls_ingest: HlsIngest.default(visited),
           id: 'id',
-          ingress_access_logs: Stubs::IngressAccessLogs.default(visited),
-          tags: Stubs::Tags.default(visited),
+          ingress_access_logs: IngressAccessLogs.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -777,7 +777,7 @@ module AWS::SDK::MediaPackage
           end_time: 'end_time',
           id: 'id',
           origin_endpoint_id: 'origin_endpoint_id',
-          s3_destination: Stubs::S3Destination.default(visited),
+          s3_destination: S3Destination.default(visited),
           start_time: 'start_time',
           status: 'status',
         }
@@ -805,21 +805,21 @@ module AWS::SDK::MediaPackage
       def self.default(visited=[])
         {
           arn: 'arn',
-          authorization: Stubs::Authorization.default(visited),
+          authorization: Authorization.default(visited),
           channel_id: 'channel_id',
-          cmaf_package: Stubs::CmafPackage.default(visited),
-          dash_package: Stubs::DashPackage.default(visited),
+          cmaf_package: CmafPackage.default(visited),
+          dash_package: DashPackage.default(visited),
           description: 'description',
-          hls_package: Stubs::HlsPackage.default(visited),
+          hls_package: HlsPackage.default(visited),
           id: 'id',
           manifest_name: 'manifest_name',
-          mss_package: Stubs::MssPackage.default(visited),
+          mss_package: MssPackage.default(visited),
           origination: 'origination',
           startover_window_seconds: 1,
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
           time_delay_seconds: 1,
           url: 'url',
-          whitelist: Stubs::List____listOf__string.default(visited),
+          whitelist: List____listOf__string.default(visited),
         }
       end
 
@@ -851,7 +851,7 @@ module AWS::SDK::MediaPackage
     class ListChannels
       def self.default(visited=[])
         {
-          channels: Stubs::List____listOfChannel.default(visited),
+          channels: List____listOfChannel.default(visited),
           next_token: 'next_token',
         }
       end
@@ -872,7 +872,7 @@ module AWS::SDK::MediaPackage
         return nil if visited.include?('List____listOfChannel')
         visited = visited + ['List____listOfChannel']
         [
-          Stubs::Channel.default(visited)
+          Channel.default(visited)
         ]
       end
 
@@ -894,11 +894,11 @@ module AWS::SDK::MediaPackage
         {
           arn: 'arn',
           description: 'description',
-          egress_access_logs: Stubs::EgressAccessLogs.default(visited),
-          hls_ingest: Stubs::HlsIngest.default(visited),
+          egress_access_logs: EgressAccessLogs.default(visited),
+          hls_ingest: HlsIngest.default(visited),
           id: 'id',
-          ingress_access_logs: Stubs::IngressAccessLogs.default(visited),
-          tags: Stubs::Tags.default(visited),
+          ingress_access_logs: IngressAccessLogs.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -920,7 +920,7 @@ module AWS::SDK::MediaPackage
     class ListHarvestJobs
       def self.default(visited=[])
         {
-          harvest_jobs: Stubs::List____listOfHarvestJob.default(visited),
+          harvest_jobs: List____listOfHarvestJob.default(visited),
           next_token: 'next_token',
         }
       end
@@ -941,7 +941,7 @@ module AWS::SDK::MediaPackage
         return nil if visited.include?('List____listOfHarvestJob')
         visited = visited + ['List____listOfHarvestJob']
         [
-          Stubs::HarvestJob.default(visited)
+          HarvestJob.default(visited)
         ]
       end
 
@@ -967,7 +967,7 @@ module AWS::SDK::MediaPackage
           end_time: 'end_time',
           id: 'id',
           origin_endpoint_id: 'origin_endpoint_id',
-          s3_destination: Stubs::S3Destination.default(visited),
+          s3_destination: S3Destination.default(visited),
           start_time: 'start_time',
           status: 'status',
         }
@@ -994,7 +994,7 @@ module AWS::SDK::MediaPackage
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          origin_endpoints: Stubs::List____listOfOriginEndpoint.default(visited),
+          origin_endpoints: List____listOfOriginEndpoint.default(visited),
         }
       end
 
@@ -1014,7 +1014,7 @@ module AWS::SDK::MediaPackage
         return nil if visited.include?('List____listOfOriginEndpoint')
         visited = visited + ['List____listOfOriginEndpoint']
         [
-          Stubs::OriginEndpoint.default(visited)
+          OriginEndpoint.default(visited)
         ]
       end
 
@@ -1035,21 +1035,21 @@ module AWS::SDK::MediaPackage
         visited = visited + ['OriginEndpoint']
         {
           arn: 'arn',
-          authorization: Stubs::Authorization.default(visited),
+          authorization: Authorization.default(visited),
           channel_id: 'channel_id',
-          cmaf_package: Stubs::CmafPackage.default(visited),
-          dash_package: Stubs::DashPackage.default(visited),
+          cmaf_package: CmafPackage.default(visited),
+          dash_package: DashPackage.default(visited),
           description: 'description',
-          hls_package: Stubs::HlsPackage.default(visited),
+          hls_package: HlsPackage.default(visited),
           id: 'id',
           manifest_name: 'manifest_name',
-          mss_package: Stubs::MssPackage.default(visited),
+          mss_package: MssPackage.default(visited),
           origination: 'origination',
           startover_window_seconds: 1,
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
           time_delay_seconds: 1,
           url: 'url',
-          whitelist: Stubs::List____listOf__string.default(visited),
+          whitelist: List____listOf__string.default(visited),
         }
       end
 
@@ -1080,7 +1080,7 @@ module AWS::SDK::MediaPackage
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::Map____mapOf__string.default(visited),
+          tags: Map____mapOf__string.default(visited),
         }
       end
 
@@ -1119,11 +1119,11 @@ module AWS::SDK::MediaPackage
         {
           arn: 'arn',
           description: 'description',
-          egress_access_logs: Stubs::EgressAccessLogs.default(visited),
-          hls_ingest: Stubs::HlsIngest.default(visited),
+          egress_access_logs: EgressAccessLogs.default(visited),
+          hls_ingest: HlsIngest.default(visited),
           id: 'id',
-          ingress_access_logs: Stubs::IngressAccessLogs.default(visited),
-          tags: Stubs::Tags.default(visited),
+          ingress_access_logs: IngressAccessLogs.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -1148,11 +1148,11 @@ module AWS::SDK::MediaPackage
         {
           arn: 'arn',
           description: 'description',
-          egress_access_logs: Stubs::EgressAccessLogs.default(visited),
-          hls_ingest: Stubs::HlsIngest.default(visited),
+          egress_access_logs: EgressAccessLogs.default(visited),
+          hls_ingest: HlsIngest.default(visited),
           id: 'id',
-          ingress_access_logs: Stubs::IngressAccessLogs.default(visited),
-          tags: Stubs::Tags.default(visited),
+          ingress_access_logs: IngressAccessLogs.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -1203,11 +1203,11 @@ module AWS::SDK::MediaPackage
         {
           arn: 'arn',
           description: 'description',
-          egress_access_logs: Stubs::EgressAccessLogs.default(visited),
-          hls_ingest: Stubs::HlsIngest.default(visited),
+          egress_access_logs: EgressAccessLogs.default(visited),
+          hls_ingest: HlsIngest.default(visited),
           id: 'id',
-          ingress_access_logs: Stubs::IngressAccessLogs.default(visited),
-          tags: Stubs::Tags.default(visited),
+          ingress_access_logs: IngressAccessLogs.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -1231,21 +1231,21 @@ module AWS::SDK::MediaPackage
       def self.default(visited=[])
         {
           arn: 'arn',
-          authorization: Stubs::Authorization.default(visited),
+          authorization: Authorization.default(visited),
           channel_id: 'channel_id',
-          cmaf_package: Stubs::CmafPackage.default(visited),
-          dash_package: Stubs::DashPackage.default(visited),
+          cmaf_package: CmafPackage.default(visited),
+          dash_package: DashPackage.default(visited),
           description: 'description',
-          hls_package: Stubs::HlsPackage.default(visited),
+          hls_package: HlsPackage.default(visited),
           id: 'id',
           manifest_name: 'manifest_name',
-          mss_package: Stubs::MssPackage.default(visited),
+          mss_package: MssPackage.default(visited),
           origination: 'origination',
           startover_window_seconds: 1,
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
           time_delay_seconds: 1,
           url: 'url',
-          whitelist: Stubs::List____listOf__string.default(visited),
+          whitelist: List____listOf__string.default(visited),
         }
       end
 

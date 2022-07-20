@@ -31,8 +31,8 @@ module AWS::SDK::Inspector2
     class BatchGetAccountStatus
       def self.default(visited=[])
         {
-          accounts: Stubs::AccountStateList.default(visited),
-          failed_accounts: Stubs::FailedAccountList.default(visited),
+          accounts: AccountStateList.default(visited),
+          failed_accounts: FailedAccountList.default(visited),
         }
       end
 
@@ -52,7 +52,7 @@ module AWS::SDK::Inspector2
         return nil if visited.include?('FailedAccountList')
         visited = visited + ['FailedAccountList']
         [
-          Stubs::FailedAccount.default(visited)
+          FailedAccount.default(visited)
         ]
       end
 
@@ -74,7 +74,7 @@ module AWS::SDK::Inspector2
         {
           account_id: 'account_id',
           status: 'status',
-          resource_status: Stubs::ResourceStatus.default(visited),
+          resource_status: ResourceStatus.default(visited),
           error_code: 'error_code',
           error_message: 'error_message',
         }
@@ -118,7 +118,7 @@ module AWS::SDK::Inspector2
         return nil if visited.include?('AccountStateList')
         visited = visited + ['AccountStateList']
         [
-          Stubs::AccountState.default(visited)
+          AccountState.default(visited)
         ]
       end
 
@@ -139,8 +139,8 @@ module AWS::SDK::Inspector2
         visited = visited + ['AccountState']
         {
           account_id: 'account_id',
-          state: Stubs::State.default(visited),
-          resource_state: Stubs::ResourceState.default(visited),
+          state: State.default(visited),
+          resource_state: ResourceState.default(visited),
         }
       end
 
@@ -160,8 +160,8 @@ module AWS::SDK::Inspector2
         return nil if visited.include?('ResourceState')
         visited = visited + ['ResourceState']
         {
-          ec2: Stubs::State.default(visited),
-          ecr: Stubs::State.default(visited),
+          ec2: State.default(visited),
+          ecr: State.default(visited),
         }
       end
 
@@ -200,8 +200,8 @@ module AWS::SDK::Inspector2
     class BatchGetFreeTrialInfo
       def self.default(visited=[])
         {
-          accounts: Stubs::FreeTrialAccountInfoList.default(visited),
-          failed_accounts: Stubs::FreeTrialInfoErrorList.default(visited),
+          accounts: FreeTrialAccountInfoList.default(visited),
+          failed_accounts: FreeTrialInfoErrorList.default(visited),
         }
       end
 
@@ -221,7 +221,7 @@ module AWS::SDK::Inspector2
         return nil if visited.include?('FreeTrialInfoErrorList')
         visited = visited + ['FreeTrialInfoErrorList']
         [
-          Stubs::FreeTrialInfoError.default(visited)
+          FreeTrialInfoError.default(visited)
         ]
       end
 
@@ -263,7 +263,7 @@ module AWS::SDK::Inspector2
         return nil if visited.include?('FreeTrialAccountInfoList')
         visited = visited + ['FreeTrialAccountInfoList']
         [
-          Stubs::FreeTrialAccountInfo.default(visited)
+          FreeTrialAccountInfo.default(visited)
         ]
       end
 
@@ -284,7 +284,7 @@ module AWS::SDK::Inspector2
         visited = visited + ['FreeTrialAccountInfo']
         {
           account_id: 'account_id',
-          free_trial_info: Stubs::FreeTrialInfoList.default(visited),
+          free_trial_info: FreeTrialInfoList.default(visited),
         }
       end
 
@@ -303,7 +303,7 @@ module AWS::SDK::Inspector2
         return nil if visited.include?('FreeTrialInfoList')
         visited = visited + ['FreeTrialInfoList']
         [
-          Stubs::FreeTrialInfo.default(visited)
+          FreeTrialInfo.default(visited)
         ]
       end
 
@@ -413,7 +413,7 @@ module AWS::SDK::Inspector2
     class DescribeOrganizationConfiguration
       def self.default(visited=[])
         {
-          auto_enable: Stubs::AutoEnable.default(visited),
+          auto_enable: AutoEnable.default(visited),
           max_account_limit_reached: false,
         }
       end
@@ -452,8 +452,8 @@ module AWS::SDK::Inspector2
     class Disable
       def self.default(visited=[])
         {
-          accounts: Stubs::AccountList.default(visited),
-          failed_accounts: Stubs::FailedAccountList.default(visited),
+          accounts: AccountList.default(visited),
+          failed_accounts: FailedAccountList.default(visited),
         }
       end
 
@@ -473,7 +473,7 @@ module AWS::SDK::Inspector2
         return nil if visited.include?('AccountList')
         visited = visited + ['AccountList']
         [
-          Stubs::Account.default(visited)
+          Account.default(visited)
         ]
       end
 
@@ -495,7 +495,7 @@ module AWS::SDK::Inspector2
         {
           account_id: 'account_id',
           status: 'status',
-          resource_status: Stubs::ResourceStatus.default(visited),
+          resource_status: ResourceStatus.default(visited),
         }
       end
 
@@ -547,8 +547,8 @@ module AWS::SDK::Inspector2
     class Enable
       def self.default(visited=[])
         {
-          accounts: Stubs::AccountList.default(visited),
-          failed_accounts: Stubs::FailedAccountList.default(visited),
+          accounts: AccountList.default(visited),
+          failed_accounts: FailedAccountList.default(visited),
         }
       end
 
@@ -583,7 +583,7 @@ module AWS::SDK::Inspector2
     class GetDelegatedAdminAccount
       def self.default(visited=[])
         {
-          delegated_admin: Stubs::DelegatedAdmin.default(visited),
+          delegated_admin: DelegatedAdmin.default(visited),
         }
       end
 
@@ -624,8 +624,8 @@ module AWS::SDK::Inspector2
           status: 'status',
           error_code: 'error_code',
           error_message: 'error_message',
-          destination: Stubs::Destination.default(visited),
-          filter_criteria: Stubs::FilterCriteria.default(visited),
+          destination: Destination.default(visited),
+          filter_criteria: FilterCriteria.default(visited),
         }
       end
 
@@ -649,37 +649,37 @@ module AWS::SDK::Inspector2
         return nil if visited.include?('FilterCriteria')
         visited = visited + ['FilterCriteria']
         {
-          finding_arn: Stubs::StringFilterList.default(visited),
-          aws_account_id: Stubs::StringFilterList.default(visited),
-          finding_type: Stubs::StringFilterList.default(visited),
-          severity: Stubs::StringFilterList.default(visited),
-          first_observed_at: Stubs::DateFilterList.default(visited),
-          last_observed_at: Stubs::DateFilterList.default(visited),
-          updated_at: Stubs::DateFilterList.default(visited),
-          finding_status: Stubs::StringFilterList.default(visited),
-          title: Stubs::StringFilterList.default(visited),
-          inspector_score: Stubs::NumberFilterList.default(visited),
-          resource_type: Stubs::StringFilterList.default(visited),
-          resource_id: Stubs::StringFilterList.default(visited),
-          resource_tags: Stubs::MapFilterList.default(visited),
-          ec2_instance_image_id: Stubs::StringFilterList.default(visited),
-          ec2_instance_vpc_id: Stubs::StringFilterList.default(visited),
-          ec2_instance_subnet_id: Stubs::StringFilterList.default(visited),
-          ecr_image_pushed_at: Stubs::DateFilterList.default(visited),
-          ecr_image_architecture: Stubs::StringFilterList.default(visited),
-          ecr_image_registry: Stubs::StringFilterList.default(visited),
-          ecr_image_repository_name: Stubs::StringFilterList.default(visited),
-          ecr_image_tags: Stubs::StringFilterList.default(visited),
-          ecr_image_hash: Stubs::StringFilterList.default(visited),
-          port_range: Stubs::PortRangeFilterList.default(visited),
-          network_protocol: Stubs::StringFilterList.default(visited),
-          component_id: Stubs::StringFilterList.default(visited),
-          component_type: Stubs::StringFilterList.default(visited),
-          vulnerability_id: Stubs::StringFilterList.default(visited),
-          vulnerability_source: Stubs::StringFilterList.default(visited),
-          vendor_severity: Stubs::StringFilterList.default(visited),
-          vulnerable_packages: Stubs::PackageFilterList.default(visited),
-          related_vulnerabilities: Stubs::StringFilterList.default(visited),
+          finding_arn: StringFilterList.default(visited),
+          aws_account_id: StringFilterList.default(visited),
+          finding_type: StringFilterList.default(visited),
+          severity: StringFilterList.default(visited),
+          first_observed_at: DateFilterList.default(visited),
+          last_observed_at: DateFilterList.default(visited),
+          updated_at: DateFilterList.default(visited),
+          finding_status: StringFilterList.default(visited),
+          title: StringFilterList.default(visited),
+          inspector_score: NumberFilterList.default(visited),
+          resource_type: StringFilterList.default(visited),
+          resource_id: StringFilterList.default(visited),
+          resource_tags: MapFilterList.default(visited),
+          ec2_instance_image_id: StringFilterList.default(visited),
+          ec2_instance_vpc_id: StringFilterList.default(visited),
+          ec2_instance_subnet_id: StringFilterList.default(visited),
+          ecr_image_pushed_at: DateFilterList.default(visited),
+          ecr_image_architecture: StringFilterList.default(visited),
+          ecr_image_registry: StringFilterList.default(visited),
+          ecr_image_repository_name: StringFilterList.default(visited),
+          ecr_image_tags: StringFilterList.default(visited),
+          ecr_image_hash: StringFilterList.default(visited),
+          port_range: PortRangeFilterList.default(visited),
+          network_protocol: StringFilterList.default(visited),
+          component_id: StringFilterList.default(visited),
+          component_type: StringFilterList.default(visited),
+          vulnerability_id: StringFilterList.default(visited),
+          vulnerability_source: StringFilterList.default(visited),
+          vendor_severity: StringFilterList.default(visited),
+          vulnerable_packages: PackageFilterList.default(visited),
+          related_vulnerabilities: StringFilterList.default(visited),
         }
       end
 
@@ -727,7 +727,7 @@ module AWS::SDK::Inspector2
         return nil if visited.include?('StringFilterList')
         visited = visited + ['StringFilterList']
         [
-          Stubs::StringFilter.default(visited)
+          StringFilter.default(visited)
         ]
       end
 
@@ -767,7 +767,7 @@ module AWS::SDK::Inspector2
         return nil if visited.include?('PackageFilterList')
         visited = visited + ['PackageFilterList']
         [
-          Stubs::PackageFilter.default(visited)
+          PackageFilter.default(visited)
         ]
       end
 
@@ -787,12 +787,12 @@ module AWS::SDK::Inspector2
         return nil if visited.include?('PackageFilter')
         visited = visited + ['PackageFilter']
         {
-          name: Stubs::StringFilter.default(visited),
-          version: Stubs::StringFilter.default(visited),
-          epoch: Stubs::NumberFilter.default(visited),
-          release: Stubs::StringFilter.default(visited),
-          architecture: Stubs::StringFilter.default(visited),
-          source_layer_hash: Stubs::StringFilter.default(visited),
+          name: StringFilter.default(visited),
+          version: StringFilter.default(visited),
+          epoch: NumberFilter.default(visited),
+          release: StringFilter.default(visited),
+          architecture: StringFilter.default(visited),
+          source_layer_hash: StringFilter.default(visited),
         }
       end
 
@@ -835,7 +835,7 @@ module AWS::SDK::Inspector2
         return nil if visited.include?('PortRangeFilterList')
         visited = visited + ['PortRangeFilterList']
         [
-          Stubs::PortRangeFilter.default(visited)
+          PortRangeFilter.default(visited)
         ]
       end
 
@@ -875,7 +875,7 @@ module AWS::SDK::Inspector2
         return nil if visited.include?('DateFilterList')
         visited = visited + ['DateFilterList']
         [
-          Stubs::DateFilter.default(visited)
+          DateFilter.default(visited)
         ]
       end
 
@@ -915,7 +915,7 @@ module AWS::SDK::Inspector2
         return nil if visited.include?('MapFilterList')
         visited = visited + ['MapFilterList']
         [
-          Stubs::MapFilter.default(visited)
+          MapFilter.default(visited)
         ]
       end
 
@@ -957,7 +957,7 @@ module AWS::SDK::Inspector2
         return nil if visited.include?('NumberFilterList')
         visited = visited + ['NumberFilterList']
         [
-          Stubs::NumberFilter.default(visited)
+          NumberFilter.default(visited)
         ]
       end
 
@@ -997,7 +997,7 @@ module AWS::SDK::Inspector2
     class GetMember
       def self.default(visited=[])
         {
-          member: Stubs::Member.default(visited),
+          member: Member.default(visited),
         }
       end
 
@@ -1038,7 +1038,7 @@ module AWS::SDK::Inspector2
     class ListAccountPermissions
       def self.default(visited=[])
         {
-          permissions: Stubs::Permissions.default(visited),
+          permissions: Permissions.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1059,7 +1059,7 @@ module AWS::SDK::Inspector2
         return nil if visited.include?('Permissions')
         visited = visited + ['Permissions']
         [
-          Stubs::Permission.default(visited)
+          Permission.default(visited)
         ]
       end
 
@@ -1098,7 +1098,7 @@ module AWS::SDK::Inspector2
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          covered_resources: Stubs::CoveredResources.default(visited),
+          covered_resources: CoveredResources.default(visited),
         }
       end
 
@@ -1118,7 +1118,7 @@ module AWS::SDK::Inspector2
         return nil if visited.include?('CoveredResources')
         visited = visited + ['CoveredResources']
         [
-          Stubs::CoveredResource.default(visited)
+          CoveredResource.default(visited)
         ]
       end
 
@@ -1142,8 +1142,8 @@ module AWS::SDK::Inspector2
           resource_id: 'resource_id',
           account_id: 'account_id',
           scan_type: 'scan_type',
-          scan_status: Stubs::ScanStatus.default(visited),
-          resource_metadata: Stubs::ResourceScanMetadata.default(visited),
+          scan_status: ScanStatus.default(visited),
+          resource_metadata: ResourceScanMetadata.default(visited),
         }
       end
 
@@ -1166,9 +1166,9 @@ module AWS::SDK::Inspector2
         return nil if visited.include?('ResourceScanMetadata')
         visited = visited + ['ResourceScanMetadata']
         {
-          ecr_repository: Stubs::EcrRepositoryMetadata.default(visited),
-          ecr_image: Stubs::EcrContainerImageMetadata.default(visited),
-          ec2: Stubs::Ec2Metadata.default(visited),
+          ecr_repository: EcrRepositoryMetadata.default(visited),
+          ecr_image: EcrContainerImageMetadata.default(visited),
+          ec2: Ec2Metadata.default(visited),
         }
       end
 
@@ -1188,7 +1188,7 @@ module AWS::SDK::Inspector2
         return nil if visited.include?('Ec2Metadata')
         visited = visited + ['Ec2Metadata']
         {
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
           ami_id: 'ami_id',
           platform: 'platform',
         }
@@ -1230,7 +1230,7 @@ module AWS::SDK::Inspector2
         return nil if visited.include?('EcrContainerImageMetadata')
         visited = visited + ['EcrContainerImageMetadata']
         {
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -1306,7 +1306,7 @@ module AWS::SDK::Inspector2
     class ListCoverageStatistics
       def self.default(visited=[])
         {
-          counts_by_group: Stubs::CountsList.default(visited),
+          counts_by_group: CountsList.default(visited),
           total_counts: 1,
           next_token: 'next_token',
         }
@@ -1329,7 +1329,7 @@ module AWS::SDK::Inspector2
         return nil if visited.include?('CountsList')
         visited = visited + ['CountsList']
         [
-          Stubs::Counts.default(visited)
+          Counts.default(visited)
         ]
       end
 
@@ -1367,7 +1367,7 @@ module AWS::SDK::Inspector2
     class ListDelegatedAdminAccounts
       def self.default(visited=[])
         {
-          delegated_admin_accounts: Stubs::DelegatedAdminAccountList.default(visited),
+          delegated_admin_accounts: DelegatedAdminAccountList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1388,7 +1388,7 @@ module AWS::SDK::Inspector2
         return nil if visited.include?('DelegatedAdminAccountList')
         visited = visited + ['DelegatedAdminAccountList']
         [
-          Stubs::DelegatedAdminAccount.default(visited)
+          DelegatedAdminAccount.default(visited)
         ]
       end
 
@@ -1426,7 +1426,7 @@ module AWS::SDK::Inspector2
     class ListFilters
       def self.default(visited=[])
         {
-          filters: Stubs::FilterList.default(visited),
+          filters: FilterList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1447,7 +1447,7 @@ module AWS::SDK::Inspector2
         return nil if visited.include?('FilterList')
         visited = visited + ['FilterList']
         [
-          Stubs::Filter.default(visited)
+          Filter.default(visited)
         ]
       end
 
@@ -1470,13 +1470,13 @@ module AWS::SDK::Inspector2
           arn: 'arn',
           owner_id: 'owner_id',
           name: 'name',
-          criteria: Stubs::FilterCriteria.default(visited),
+          criteria: FilterCriteria.default(visited),
           action: 'action',
           created_at: Time.now,
           updated_at: Time.now,
           description: 'description',
           reason: 'reason',
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -1502,7 +1502,7 @@ module AWS::SDK::Inspector2
       def self.default(visited=[])
         {
           aggregation_type: 'aggregation_type',
-          responses: Stubs::AggregationResponseList.default(visited),
+          responses: AggregationResponseList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1524,7 +1524,7 @@ module AWS::SDK::Inspector2
         return nil if visited.include?('AggregationResponseList')
         visited = visited + ['AggregationResponseList']
         [
-          Stubs::AggregationResponse.default(visited)
+          AggregationResponse.default(visited)
         ]
       end
 
@@ -1544,7 +1544,7 @@ module AWS::SDK::Inspector2
         return nil if visited.include?('AggregationResponse')
         visited = visited + ['AggregationResponse']
         {
-          account_aggregation: Stubs::AccountAggregationResponse.default(visited),
+          account_aggregation: AccountAggregationResponse.default(visited),
         }
       end
 
@@ -1587,7 +1587,7 @@ module AWS::SDK::Inspector2
           title: 'title',
           vulnerability_id: 'vulnerability_id',
           account_id: 'account_id',
-          severity_counts: Stubs::SeverityCounts.default(visited),
+          severity_counts: SeverityCounts.default(visited),
         }
       end
 
@@ -1634,7 +1634,7 @@ module AWS::SDK::Inspector2
         {
           repository: 'repository',
           account_id: 'account_id',
-          severity_counts: Stubs::SeverityCounts.default(visited),
+          severity_counts: SeverityCounts.default(visited),
           affected_images: 1,
         }
       end
@@ -1658,7 +1658,7 @@ module AWS::SDK::Inspector2
         {
           package_name: 'package_name',
           account_id: 'account_id',
-          severity_counts: Stubs::SeverityCounts.default(visited),
+          severity_counts: SeverityCounts.default(visited),
         }
       end
 
@@ -1682,7 +1682,7 @@ module AWS::SDK::Inspector2
           resource_id: 'resource_id',
           layer_hash: 'layer_hash',
           account_id: 'account_id',
-          severity_counts: Stubs::SeverityCounts.default(visited),
+          severity_counts: SeverityCounts.default(visited),
         }
       end
 
@@ -1705,7 +1705,7 @@ module AWS::SDK::Inspector2
         visited = visited + ['FindingTypeAggregationResponse']
         {
           account_id: 'account_id',
-          severity_counts: Stubs::SeverityCounts.default(visited),
+          severity_counts: SeverityCounts.default(visited),
         }
       end
 
@@ -1727,9 +1727,9 @@ module AWS::SDK::Inspector2
           instance_id: 'instance_id',
           ami: 'ami',
           operating_system: 'operating_system',
-          instance_tags: Stubs::TagMap.default(visited),
+          instance_tags: TagMap.default(visited),
           account_id: 'account_id',
-          severity_counts: Stubs::SeverityCounts.default(visited),
+          severity_counts: SeverityCounts.default(visited),
           network_findings: 1,
         }
       end
@@ -1758,9 +1758,9 @@ module AWS::SDK::Inspector2
           image_sha: 'image_sha',
           repository: 'repository',
           architecture: 'architecture',
-          image_tags: Stubs::StringList.default(visited),
+          image_tags: StringList.default(visited),
           account_id: 'account_id',
-          severity_counts: Stubs::SeverityCounts.default(visited),
+          severity_counts: SeverityCounts.default(visited),
         }
       end
 
@@ -1806,7 +1806,7 @@ module AWS::SDK::Inspector2
         {
           ami: 'ami',
           account_id: 'account_id',
-          severity_counts: Stubs::SeverityCounts.default(visited),
+          severity_counts: SeverityCounts.default(visited),
           affected_instances: 1,
         }
       end
@@ -1829,7 +1829,7 @@ module AWS::SDK::Inspector2
         visited = visited + ['AccountAggregationResponse']
         {
           account_id: 'account_id',
-          severity_counts: Stubs::SeverityCounts.default(visited),
+          severity_counts: SeverityCounts.default(visited),
         }
       end
 
@@ -1847,7 +1847,7 @@ module AWS::SDK::Inspector2
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          findings: Stubs::FindingList.default(visited),
+          findings: FindingList.default(visited),
         }
       end
 
@@ -1867,7 +1867,7 @@ module AWS::SDK::Inspector2
         return nil if visited.include?('FindingList')
         visited = visited + ['FindingList']
         [
-          Stubs::Finding.default(visited)
+          Finding.default(visited)
         ]
       end
 
@@ -1892,17 +1892,17 @@ module AWS::SDK::Inspector2
           type: 'type',
           description: 'description',
           title: 'title',
-          remediation: Stubs::Remediation.default(visited),
+          remediation: Remediation.default(visited),
           severity: 'severity',
           first_observed_at: Time.now,
           last_observed_at: Time.now,
           updated_at: Time.now,
           status: 'status',
-          resources: Stubs::ResourceList.default(visited),
+          resources: ResourceList.default(visited),
           inspector_score: 1.0,
-          inspector_score_details: Stubs::InspectorScoreDetails.default(visited),
-          network_reachability_details: Stubs::NetworkReachabilityDetails.default(visited),
-          package_vulnerability_details: Stubs::PackageVulnerabilityDetails.default(visited),
+          inspector_score_details: InspectorScoreDetails.default(visited),
+          network_reachability_details: NetworkReachabilityDetails.default(visited),
+          package_vulnerability_details: PackageVulnerabilityDetails.default(visited),
         }
       end
 
@@ -1936,15 +1936,15 @@ module AWS::SDK::Inspector2
         visited = visited + ['PackageVulnerabilityDetails']
         {
           vulnerability_id: 'vulnerability_id',
-          vulnerable_packages: Stubs::VulnerablePackageList.default(visited),
+          vulnerable_packages: VulnerablePackageList.default(visited),
           source: 'source',
-          cvss: Stubs::CvssScoreList.default(visited),
-          related_vulnerabilities: Stubs::VulnerabilityIdList.default(visited),
+          cvss: CvssScoreList.default(visited),
+          related_vulnerabilities: VulnerabilityIdList.default(visited),
           source_url: 'source_url',
           vendor_severity: 'vendor_severity',
           vendor_created_at: Time.now,
           vendor_updated_at: Time.now,
-          reference_urls: Stubs::NonEmptyStringList.default(visited),
+          reference_urls: NonEmptyStringList.default(visited),
         }
       end
 
@@ -2011,7 +2011,7 @@ module AWS::SDK::Inspector2
         return nil if visited.include?('CvssScoreList')
         visited = visited + ['CvssScoreList']
         [
-          Stubs::CvssScore.default(visited)
+          CvssScore.default(visited)
         ]
       end
 
@@ -2055,7 +2055,7 @@ module AWS::SDK::Inspector2
         return nil if visited.include?('VulnerablePackageList')
         visited = visited + ['VulnerablePackageList']
         [
-          Stubs::VulnerablePackage.default(visited)
+          VulnerablePackage.default(visited)
         ]
       end
 
@@ -2109,9 +2109,9 @@ module AWS::SDK::Inspector2
         return nil if visited.include?('NetworkReachabilityDetails')
         visited = visited + ['NetworkReachabilityDetails']
         {
-          open_port_range: Stubs::PortRange.default(visited),
+          open_port_range: PortRange.default(visited),
           protocol: 'protocol',
-          network_path: Stubs::NetworkPath.default(visited),
+          network_path: NetworkPath.default(visited),
         }
       end
 
@@ -2131,7 +2131,7 @@ module AWS::SDK::Inspector2
         return nil if visited.include?('NetworkPath')
         visited = visited + ['NetworkPath']
         {
-          steps: Stubs::StepList.default(visited),
+          steps: StepList.default(visited),
         }
       end
 
@@ -2149,7 +2149,7 @@ module AWS::SDK::Inspector2
         return nil if visited.include?('StepList')
         visited = visited + ['StepList']
         [
-          Stubs::Step.default(visited)
+          Step.default(visited)
         ]
       end
 
@@ -2209,7 +2209,7 @@ module AWS::SDK::Inspector2
         return nil if visited.include?('InspectorScoreDetails')
         visited = visited + ['InspectorScoreDetails']
         {
-          adjusted_cvss: Stubs::CvssScoreDetails.default(visited),
+          adjusted_cvss: CvssScoreDetails.default(visited),
         }
       end
 
@@ -2232,7 +2232,7 @@ module AWS::SDK::Inspector2
           version: 'version',
           score: 1.0,
           scoring_vector: 'scoring_vector',
-          adjustments: Stubs::CvssScoreAdjustmentList.default(visited),
+          adjustments: CvssScoreAdjustmentList.default(visited),
         }
       end
 
@@ -2255,7 +2255,7 @@ module AWS::SDK::Inspector2
         return nil if visited.include?('CvssScoreAdjustmentList')
         visited = visited + ['CvssScoreAdjustmentList']
         [
-          Stubs::CvssScoreAdjustment.default(visited)
+          CvssScoreAdjustment.default(visited)
         ]
       end
 
@@ -2295,7 +2295,7 @@ module AWS::SDK::Inspector2
         return nil if visited.include?('ResourceList')
         visited = visited + ['ResourceList']
         [
-          Stubs::Resource.default(visited)
+          Resource.default(visited)
         ]
       end
 
@@ -2319,8 +2319,8 @@ module AWS::SDK::Inspector2
           id: 'id',
           partition: 'partition',
           region: 'region',
-          tags: Stubs::TagMap.default(visited),
-          details: Stubs::ResourceDetails.default(visited),
+          tags: TagMap.default(visited),
+          details: ResourceDetails.default(visited),
         }
       end
 
@@ -2343,8 +2343,8 @@ module AWS::SDK::Inspector2
         return nil if visited.include?('ResourceDetails')
         visited = visited + ['ResourceDetails']
         {
-          aws_ec2_instance: Stubs::AwsEc2InstanceDetails.default(visited),
-          aws_ecr_container_image: Stubs::AwsEcrContainerImageDetails.default(visited),
+          aws_ec2_instance: AwsEc2InstanceDetails.default(visited),
+          aws_ecr_container_image: AwsEcrContainerImageDetails.default(visited),
         }
       end
 
@@ -2364,7 +2364,7 @@ module AWS::SDK::Inspector2
         visited = visited + ['AwsEcrContainerImageDetails']
         {
           repository_name: 'repository_name',
-          image_tags: Stubs::ImageTagList.default(visited),
+          image_tags: ImageTagList.default(visited),
           pushed_at: Time.now,
           author: 'author',
           architecture: 'architecture',
@@ -2417,8 +2417,8 @@ module AWS::SDK::Inspector2
         {
           type: 'type',
           image_id: 'image_id',
-          ip_v4_addresses: Stubs::IpV4AddressList.default(visited),
-          ip_v6_addresses: Stubs::IpV6AddressList.default(visited),
+          ip_v4_addresses: IpV4AddressList.default(visited),
+          ip_v6_addresses: IpV6AddressList.default(visited),
           key_name: 'key_name',
           iam_instance_profile_arn: 'iam_instance_profile_arn',
           vpc_id: 'vpc_id',
@@ -2491,7 +2491,7 @@ module AWS::SDK::Inspector2
         return nil if visited.include?('Remediation')
         visited = visited + ['Remediation']
         {
-          recommendation: Stubs::Recommendation.default(visited),
+          recommendation: Recommendation.default(visited),
         }
       end
 
@@ -2527,7 +2527,7 @@ module AWS::SDK::Inspector2
     class ListMembers
       def self.default(visited=[])
         {
-          members: Stubs::MemberList.default(visited),
+          members: MemberList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2548,7 +2548,7 @@ module AWS::SDK::Inspector2
         return nil if visited.include?('MemberList')
         visited = visited + ['MemberList']
         [
-          Stubs::Member.default(visited)
+          Member.default(visited)
         ]
       end
 
@@ -2566,7 +2566,7 @@ module AWS::SDK::Inspector2
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -2584,7 +2584,7 @@ module AWS::SDK::Inspector2
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          totals: Stubs::UsageTotalList.default(visited),
+          totals: UsageTotalList.default(visited),
         }
       end
 
@@ -2604,7 +2604,7 @@ module AWS::SDK::Inspector2
         return nil if visited.include?('UsageTotalList')
         visited = visited + ['UsageTotalList']
         [
-          Stubs::UsageTotal.default(visited)
+          UsageTotal.default(visited)
         ]
       end
 
@@ -2625,7 +2625,7 @@ module AWS::SDK::Inspector2
         visited = visited + ['UsageTotal']
         {
           account_id: 'account_id',
-          usage: Stubs::UsageList.default(visited),
+          usage: UsageList.default(visited),
         }
       end
 
@@ -2644,7 +2644,7 @@ module AWS::SDK::Inspector2
         return nil if visited.include?('UsageList')
         visited = visited + ['UsageList']
         [
-          Stubs::Usage.default(visited)
+          Usage.default(visited)
         ]
       end
 
@@ -2729,7 +2729,7 @@ module AWS::SDK::Inspector2
     class UpdateOrganizationConfiguration
       def self.default(visited=[])
         {
-          auto_enable: Stubs::AutoEnable.default(visited),
+          auto_enable: AutoEnable.default(visited),
         }
       end
 

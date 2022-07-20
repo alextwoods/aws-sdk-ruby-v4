@@ -33,8 +33,8 @@ module AWS::SDK::SQS
         Hearth::Validator.validate!(input, Types::AddPermissionInput, context: context)
         Hearth::Validator.validate!(input[:queue_url], ::String, context: "#{context}[:queue_url]")
         Hearth::Validator.validate!(input[:label], ::String, context: "#{context}[:label]")
-        Validators::AWSAccountIdList.validate!(input[:aws_account_ids], context: "#{context}[:aws_account_ids]") unless input[:aws_account_ids].nil?
-        Validators::ActionNameList.validate!(input[:actions], context: "#{context}[:actions]") unless input[:actions].nil?
+        AWSAccountIdList.validate!(input[:aws_account_ids], context: "#{context}[:aws_account_ids]") unless input[:aws_account_ids].nil?
+        ActionNameList.validate!(input[:actions], context: "#{context}[:actions]") unless input[:actions].nil?
       end
     end
 
@@ -79,7 +79,7 @@ module AWS::SDK::SQS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BatchResultErrorEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BatchResultErrorEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -97,15 +97,15 @@ module AWS::SDK::SQS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ChangeMessageVisibilityBatchInput, context: context)
         Hearth::Validator.validate!(input[:queue_url], ::String, context: "#{context}[:queue_url]")
-        Validators::ChangeMessageVisibilityBatchRequestEntryList.validate!(input[:entries], context: "#{context}[:entries]") unless input[:entries].nil?
+        ChangeMessageVisibilityBatchRequestEntryList.validate!(input[:entries], context: "#{context}[:entries]") unless input[:entries].nil?
       end
     end
 
     class ChangeMessageVisibilityBatchOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ChangeMessageVisibilityBatchOutput, context: context)
-        Validators::ChangeMessageVisibilityBatchResultEntryList.validate!(input[:successful], context: "#{context}[:successful]") unless input[:successful].nil?
-        Validators::BatchResultErrorEntryList.validate!(input[:failed], context: "#{context}[:failed]") unless input[:failed].nil?
+        ChangeMessageVisibilityBatchResultEntryList.validate!(input[:successful], context: "#{context}[:successful]") unless input[:successful].nil?
+        BatchResultErrorEntryList.validate!(input[:failed], context: "#{context}[:failed]") unless input[:failed].nil?
       end
     end
 
@@ -122,7 +122,7 @@ module AWS::SDK::SQS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ChangeMessageVisibilityBatchRequestEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ChangeMessageVisibilityBatchRequestEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -138,7 +138,7 @@ module AWS::SDK::SQS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ChangeMessageVisibilityBatchResultEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ChangeMessageVisibilityBatchResultEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -162,8 +162,8 @@ module AWS::SDK::SQS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateQueueInput, context: context)
         Hearth::Validator.validate!(input[:queue_name], ::String, context: "#{context}[:queue_name]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::QueueAttributeMap.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        QueueAttributeMap.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
       end
     end
 
@@ -178,15 +178,15 @@ module AWS::SDK::SQS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteMessageBatchInput, context: context)
         Hearth::Validator.validate!(input[:queue_url], ::String, context: "#{context}[:queue_url]")
-        Validators::DeleteMessageBatchRequestEntryList.validate!(input[:entries], context: "#{context}[:entries]") unless input[:entries].nil?
+        DeleteMessageBatchRequestEntryList.validate!(input[:entries], context: "#{context}[:entries]") unless input[:entries].nil?
       end
     end
 
     class DeleteMessageBatchOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteMessageBatchOutput, context: context)
-        Validators::DeleteMessageBatchResultEntryList.validate!(input[:successful], context: "#{context}[:successful]") unless input[:successful].nil?
-        Validators::BatchResultErrorEntryList.validate!(input[:failed], context: "#{context}[:failed]") unless input[:failed].nil?
+        DeleteMessageBatchResultEntryList.validate!(input[:successful], context: "#{context}[:successful]") unless input[:successful].nil?
+        BatchResultErrorEntryList.validate!(input[:failed], context: "#{context}[:failed]") unless input[:failed].nil?
       end
     end
 
@@ -202,7 +202,7 @@ module AWS::SDK::SQS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DeleteMessageBatchRequestEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DeleteMessageBatchRequestEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -218,7 +218,7 @@ module AWS::SDK::SQS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DeleteMessageBatchResultEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DeleteMessageBatchResultEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -260,14 +260,14 @@ module AWS::SDK::SQS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetQueueAttributesInput, context: context)
         Hearth::Validator.validate!(input[:queue_url], ::String, context: "#{context}[:queue_url]")
-        Validators::AttributeNameList.validate!(input[:attribute_names], context: "#{context}[:attribute_names]") unless input[:attribute_names].nil?
+        AttributeNameList.validate!(input[:attribute_names], context: "#{context}[:attribute_names]") unless input[:attribute_names].nil?
       end
     end
 
     class GetQueueAttributesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetQueueAttributesOutput, context: context)
-        Validators::QueueAttributeMap.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        QueueAttributeMap.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
       end
     end
 
@@ -322,7 +322,7 @@ module AWS::SDK::SQS
     class ListDeadLetterSourceQueuesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDeadLetterSourceQueuesOutput, context: context)
-        Validators::QueueUrlList.validate!(input[:queue_urls], context: "#{context}[:queue_urls]") unless input[:queue_urls].nil?
+        QueueUrlList.validate!(input[:queue_urls], context: "#{context}[:queue_urls]") unless input[:queue_urls].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -337,7 +337,7 @@ module AWS::SDK::SQS
     class ListQueueTagsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListQueueTagsOutput, context: context)
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -354,7 +354,7 @@ module AWS::SDK::SQS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListQueuesOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::QueueUrlList.validate!(input[:queue_urls], context: "#{context}[:queue_urls]") unless input[:queue_urls].nil?
+        QueueUrlList.validate!(input[:queue_urls], context: "#{context}[:queue_urls]") unless input[:queue_urls].nil?
       end
     end
 
@@ -365,9 +365,9 @@ module AWS::SDK::SQS
         Hearth::Validator.validate!(input[:receipt_handle], ::String, context: "#{context}[:receipt_handle]")
         Hearth::Validator.validate!(input[:md5_of_body], ::String, context: "#{context}[:md5_of_body]")
         Hearth::Validator.validate!(input[:body], ::String, context: "#{context}[:body]")
-        Validators::MessageSystemAttributeMap.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        MessageSystemAttributeMap.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
         Hearth::Validator.validate!(input[:md5_of_message_attributes], ::String, context: "#{context}[:md5_of_message_attributes]")
-        Validators::MessageBodyAttributeMap.validate!(input[:message_attributes], context: "#{context}[:message_attributes]") unless input[:message_attributes].nil?
+        MessageBodyAttributeMap.validate!(input[:message_attributes], context: "#{context}[:message_attributes]") unless input[:message_attributes].nil?
       end
     end
 
@@ -385,8 +385,8 @@ module AWS::SDK::SQS
         Hearth::Validator.validate!(input, Types::MessageAttributeValue, context: context)
         Hearth::Validator.validate!(input[:string_value], ::String, context: "#{context}[:string_value]")
         Hearth::Validator.validate!(input[:binary_value], ::String, context: "#{context}[:binary_value]")
-        Validators::StringList.validate!(input[:string_list_values], context: "#{context}[:string_list_values]") unless input[:string_list_values].nil?
-        Validators::BinaryList.validate!(input[:binary_list_values], context: "#{context}[:binary_list_values]") unless input[:binary_list_values].nil?
+        StringList.validate!(input[:string_list_values], context: "#{context}[:string_list_values]") unless input[:string_list_values].nil?
+        BinaryList.validate!(input[:binary_list_values], context: "#{context}[:binary_list_values]") unless input[:binary_list_values].nil?
         Hearth::Validator.validate!(input[:data_type], ::String, context: "#{context}[:data_type]")
       end
     end
@@ -396,7 +396,7 @@ module AWS::SDK::SQS
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::MessageAttributeValue.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          MessageAttributeValue.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -406,7 +406,7 @@ module AWS::SDK::SQS
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::MessageSystemAttributeValue.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          MessageSystemAttributeValue.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -415,7 +415,7 @@ module AWS::SDK::SQS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Message.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Message.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -441,8 +441,8 @@ module AWS::SDK::SQS
         Hearth::Validator.validate!(input, Types::MessageSystemAttributeValue, context: context)
         Hearth::Validator.validate!(input[:string_value], ::String, context: "#{context}[:string_value]")
         Hearth::Validator.validate!(input[:binary_value], ::String, context: "#{context}[:binary_value]")
-        Validators::StringList.validate!(input[:string_list_values], context: "#{context}[:string_list_values]") unless input[:string_list_values].nil?
-        Validators::BinaryList.validate!(input[:binary_list_values], context: "#{context}[:binary_list_values]") unless input[:binary_list_values].nil?
+        StringList.validate!(input[:string_list_values], context: "#{context}[:string_list_values]") unless input[:string_list_values].nil?
+        BinaryList.validate!(input[:binary_list_values], context: "#{context}[:binary_list_values]") unless input[:binary_list_values].nil?
         Hearth::Validator.validate!(input[:data_type], ::String, context: "#{context}[:data_type]")
       end
     end
@@ -519,8 +519,8 @@ module AWS::SDK::SQS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ReceiveMessageInput, context: context)
         Hearth::Validator.validate!(input[:queue_url], ::String, context: "#{context}[:queue_url]")
-        Validators::AttributeNameList.validate!(input[:attribute_names], context: "#{context}[:attribute_names]") unless input[:attribute_names].nil?
-        Validators::MessageAttributeNameList.validate!(input[:message_attribute_names], context: "#{context}[:message_attribute_names]") unless input[:message_attribute_names].nil?
+        AttributeNameList.validate!(input[:attribute_names], context: "#{context}[:attribute_names]") unless input[:attribute_names].nil?
+        MessageAttributeNameList.validate!(input[:message_attribute_names], context: "#{context}[:message_attribute_names]") unless input[:message_attribute_names].nil?
         Hearth::Validator.validate!(input[:max_number_of_messages], ::Integer, context: "#{context}[:max_number_of_messages]")
         Hearth::Validator.validate!(input[:visibility_timeout], ::Integer, context: "#{context}[:visibility_timeout]")
         Hearth::Validator.validate!(input[:wait_time_seconds], ::Integer, context: "#{context}[:wait_time_seconds]")
@@ -531,7 +531,7 @@ module AWS::SDK::SQS
     class ReceiveMessageOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ReceiveMessageOutput, context: context)
-        Validators::MessageList.validate!(input[:messages], context: "#{context}[:messages]") unless input[:messages].nil?
+        MessageList.validate!(input[:messages], context: "#{context}[:messages]") unless input[:messages].nil?
       end
     end
 
@@ -553,15 +553,15 @@ module AWS::SDK::SQS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SendMessageBatchInput, context: context)
         Hearth::Validator.validate!(input[:queue_url], ::String, context: "#{context}[:queue_url]")
-        Validators::SendMessageBatchRequestEntryList.validate!(input[:entries], context: "#{context}[:entries]") unless input[:entries].nil?
+        SendMessageBatchRequestEntryList.validate!(input[:entries], context: "#{context}[:entries]") unless input[:entries].nil?
       end
     end
 
     class SendMessageBatchOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SendMessageBatchOutput, context: context)
-        Validators::SendMessageBatchResultEntryList.validate!(input[:successful], context: "#{context}[:successful]") unless input[:successful].nil?
-        Validators::BatchResultErrorEntryList.validate!(input[:failed], context: "#{context}[:failed]") unless input[:failed].nil?
+        SendMessageBatchResultEntryList.validate!(input[:successful], context: "#{context}[:successful]") unless input[:successful].nil?
+        BatchResultErrorEntryList.validate!(input[:failed], context: "#{context}[:failed]") unless input[:failed].nil?
       end
     end
 
@@ -571,8 +571,8 @@ module AWS::SDK::SQS
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:message_body], ::String, context: "#{context}[:message_body]")
         Hearth::Validator.validate!(input[:delay_seconds], ::Integer, context: "#{context}[:delay_seconds]")
-        Validators::MessageBodyAttributeMap.validate!(input[:message_attributes], context: "#{context}[:message_attributes]") unless input[:message_attributes].nil?
-        Validators::MessageBodySystemAttributeMap.validate!(input[:message_system_attributes], context: "#{context}[:message_system_attributes]") unless input[:message_system_attributes].nil?
+        MessageBodyAttributeMap.validate!(input[:message_attributes], context: "#{context}[:message_attributes]") unless input[:message_attributes].nil?
+        MessageBodySystemAttributeMap.validate!(input[:message_system_attributes], context: "#{context}[:message_system_attributes]") unless input[:message_system_attributes].nil?
         Hearth::Validator.validate!(input[:message_deduplication_id], ::String, context: "#{context}[:message_deduplication_id]")
         Hearth::Validator.validate!(input[:message_group_id], ::String, context: "#{context}[:message_group_id]")
       end
@@ -582,7 +582,7 @@ module AWS::SDK::SQS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SendMessageBatchRequestEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SendMessageBatchRequestEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -603,7 +603,7 @@ module AWS::SDK::SQS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SendMessageBatchResultEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SendMessageBatchResultEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -614,8 +614,8 @@ module AWS::SDK::SQS
         Hearth::Validator.validate!(input[:queue_url], ::String, context: "#{context}[:queue_url]")
         Hearth::Validator.validate!(input[:message_body], ::String, context: "#{context}[:message_body]")
         Hearth::Validator.validate!(input[:delay_seconds], ::Integer, context: "#{context}[:delay_seconds]")
-        Validators::MessageBodyAttributeMap.validate!(input[:message_attributes], context: "#{context}[:message_attributes]") unless input[:message_attributes].nil?
-        Validators::MessageBodySystemAttributeMap.validate!(input[:message_system_attributes], context: "#{context}[:message_system_attributes]") unless input[:message_system_attributes].nil?
+        MessageBodyAttributeMap.validate!(input[:message_attributes], context: "#{context}[:message_attributes]") unless input[:message_attributes].nil?
+        MessageBodySystemAttributeMap.validate!(input[:message_system_attributes], context: "#{context}[:message_system_attributes]") unless input[:message_system_attributes].nil?
         Hearth::Validator.validate!(input[:message_deduplication_id], ::String, context: "#{context}[:message_deduplication_id]")
         Hearth::Validator.validate!(input[:message_group_id], ::String, context: "#{context}[:message_group_id]")
       end
@@ -636,7 +636,7 @@ module AWS::SDK::SQS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SetQueueAttributesInput, context: context)
         Hearth::Validator.validate!(input[:queue_url], ::String, context: "#{context}[:queue_url]")
-        Validators::QueueAttributeMap.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        QueueAttributeMap.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
       end
     end
 
@@ -678,7 +678,7 @@ module AWS::SDK::SQS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagQueueInput, context: context)
         Hearth::Validator.validate!(input[:queue_url], ::String, context: "#{context}[:queue_url]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -704,7 +704,7 @@ module AWS::SDK::SQS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagQueueInput, context: context)
         Hearth::Validator.validate!(input[:queue_url], ::String, context: "#{context}[:queue_url]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 

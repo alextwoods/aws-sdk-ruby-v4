@@ -158,8 +158,8 @@ module AWS::SDK::CodeGuruProfiler
 
     module Channels
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Set, ::Array, context: context)
-        data = Set.new
+        Hearth::Validator.validate!(params, ::Array, context: context)
+        data = []
         params.each_with_index do |element, index|
           data << Channel.build(element, context: "#{context}[#{index}]") unless element.nil?
         end
@@ -202,7 +202,7 @@ module AWS::SDK::CodeGuruProfiler
         type = Types::CreateProfilingGroupInput.new
         type.profiling_group_name = params[:profiling_group_name]
         type.compute_platform = params[:compute_platform]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.agent_orchestration_config = AgentOrchestrationConfig.build(params[:agent_orchestration_config], context: "#{context}[:agent_orchestration_config]") unless params[:agent_orchestration_config].nil?
         type.tags = TagsMap.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type
@@ -255,8 +255,8 @@ module AWS::SDK::CodeGuruProfiler
 
     module EventPublishers
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Set, ::Array, context: context)
-        data = Set.new
+        Hearth::Validator.validate!(params, ::Array, context: context)
+        data = []
         params.each do |element|
           data << element
         end
@@ -633,7 +633,7 @@ module AWS::SDK::CodeGuruProfiler
         type = Types::PostAgentProfileInput.new
         type.profiling_group_name = params[:profiling_group_name]
         type.agent_profile = params[:agent_profile]
-        type.profile_token = params[:profile_token] || SecureRandom.uuid
+        type.profile_token = params[:profile_token] || ::SecureRandom.uuid
         type.content_type = params[:content_type]
         type
       end

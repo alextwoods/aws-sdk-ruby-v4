@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::CloudWatch
   module Validators
 
@@ -26,7 +28,7 @@ module AWS::SDK::CloudWatch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AlarmHistoryItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AlarmHistoryItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -54,19 +56,19 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate!(input, Types::AnomalyDetector, context: context)
         Hearth::Validator.validate!(input[:namespace], ::String, context: "#{context}[:namespace]")
         Hearth::Validator.validate!(input[:metric_name], ::String, context: "#{context}[:metric_name]")
-        Validators::Dimensions.validate!(input[:dimensions], context: "#{context}[:dimensions]") unless input[:dimensions].nil?
+        Dimensions.validate!(input[:dimensions], context: "#{context}[:dimensions]") unless input[:dimensions].nil?
         Hearth::Validator.validate!(input[:stat], ::String, context: "#{context}[:stat]")
-        Validators::AnomalyDetectorConfiguration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
+        AnomalyDetectorConfiguration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
         Hearth::Validator.validate!(input[:state_value], ::String, context: "#{context}[:state_value]")
-        Validators::SingleMetricAnomalyDetector.validate!(input[:single_metric_anomaly_detector], context: "#{context}[:single_metric_anomaly_detector]") unless input[:single_metric_anomaly_detector].nil?
-        Validators::MetricMathAnomalyDetector.validate!(input[:metric_math_anomaly_detector], context: "#{context}[:metric_math_anomaly_detector]") unless input[:metric_math_anomaly_detector].nil?
+        SingleMetricAnomalyDetector.validate!(input[:single_metric_anomaly_detector], context: "#{context}[:single_metric_anomaly_detector]") unless input[:single_metric_anomaly_detector].nil?
+        MetricMathAnomalyDetector.validate!(input[:metric_math_anomaly_detector], context: "#{context}[:metric_math_anomaly_detector]") unless input[:metric_math_anomaly_detector].nil?
       end
     end
 
     class AnomalyDetectorConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AnomalyDetectorConfiguration, context: context)
-        Validators::AnomalyDetectorExcludedTimeRanges.validate!(input[:excluded_time_ranges], context: "#{context}[:excluded_time_ranges]") unless input[:excluded_time_ranges].nil?
+        AnomalyDetectorExcludedTimeRanges.validate!(input[:excluded_time_ranges], context: "#{context}[:excluded_time_ranges]") unless input[:excluded_time_ranges].nil?
         Hearth::Validator.validate!(input[:metric_timezone], ::String, context: "#{context}[:metric_timezone]")
       end
     end
@@ -75,7 +77,7 @@ module AWS::SDK::CloudWatch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Range.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Range.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -93,7 +95,7 @@ module AWS::SDK::CloudWatch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AnomalyDetector.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AnomalyDetector.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -102,7 +104,7 @@ module AWS::SDK::CloudWatch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PartialFailure.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PartialFailure.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -111,14 +113,14 @@ module AWS::SDK::CloudWatch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CompositeAlarm, context: context)
         Hearth::Validator.validate!(input[:actions_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:actions_enabled]")
-        Validators::ResourceList.validate!(input[:alarm_actions], context: "#{context}[:alarm_actions]") unless input[:alarm_actions].nil?
+        ResourceList.validate!(input[:alarm_actions], context: "#{context}[:alarm_actions]") unless input[:alarm_actions].nil?
         Hearth::Validator.validate!(input[:alarm_arn], ::String, context: "#{context}[:alarm_arn]")
         Hearth::Validator.validate!(input[:alarm_configuration_updated_timestamp], ::Time, context: "#{context}[:alarm_configuration_updated_timestamp]")
         Hearth::Validator.validate!(input[:alarm_description], ::String, context: "#{context}[:alarm_description]")
         Hearth::Validator.validate!(input[:alarm_name], ::String, context: "#{context}[:alarm_name]")
         Hearth::Validator.validate!(input[:alarm_rule], ::String, context: "#{context}[:alarm_rule]")
-        Validators::ResourceList.validate!(input[:insufficient_data_actions], context: "#{context}[:insufficient_data_actions]") unless input[:insufficient_data_actions].nil?
-        Validators::ResourceList.validate!(input[:ok_actions], context: "#{context}[:ok_actions]") unless input[:ok_actions].nil?
+        ResourceList.validate!(input[:insufficient_data_actions], context: "#{context}[:insufficient_data_actions]") unless input[:insufficient_data_actions].nil?
+        ResourceList.validate!(input[:ok_actions], context: "#{context}[:ok_actions]") unless input[:ok_actions].nil?
         Hearth::Validator.validate!(input[:state_reason], ::String, context: "#{context}[:state_reason]")
         Hearth::Validator.validate!(input[:state_reason_data], ::String, context: "#{context}[:state_reason_data]")
         Hearth::Validator.validate!(input[:state_updated_timestamp], ::Time, context: "#{context}[:state_updated_timestamp]")
@@ -130,7 +132,7 @@ module AWS::SDK::CloudWatch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CompositeAlarm.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CompositeAlarm.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -155,7 +157,7 @@ module AWS::SDK::CloudWatch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DashboardEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DashboardEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -174,7 +176,7 @@ module AWS::SDK::CloudWatch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DashboardInvalidInputError, context: context)
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
-        Validators::DashboardValidationMessages.validate!(input[:dashboard_validation_messages], context: "#{context}[:dashboard_validation_messages]") unless input[:dashboard_validation_messages].nil?
+        DashboardValidationMessages.validate!(input[:dashboard_validation_messages], context: "#{context}[:dashboard_validation_messages]") unless input[:dashboard_validation_messages].nil?
       end
     end
 
@@ -206,7 +208,7 @@ module AWS::SDK::CloudWatch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DashboardValidationMessage.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DashboardValidationMessage.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -221,7 +223,7 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate!(input[:minimum], ::Float, context: "#{context}[:minimum]")
         Hearth::Validator.validate!(input[:maximum], ::Float, context: "#{context}[:maximum]")
         Hearth::Validator.validate!(input[:unit], ::String, context: "#{context}[:unit]")
-        Validators::DatapointValueMap.validate!(input[:extended_statistics], context: "#{context}[:extended_statistics]") unless input[:extended_statistics].nil?
+        DatapointValueMap.validate!(input[:extended_statistics], context: "#{context}[:extended_statistics]") unless input[:extended_statistics].nil?
       end
     end
 
@@ -248,7 +250,7 @@ module AWS::SDK::CloudWatch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Datapoint.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Datapoint.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -256,7 +258,7 @@ module AWS::SDK::CloudWatch
     class DeleteAlarmsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteAlarmsInput, context: context)
-        Validators::AlarmNames.validate!(input[:alarm_names], context: "#{context}[:alarm_names]") unless input[:alarm_names].nil?
+        AlarmNames.validate!(input[:alarm_names], context: "#{context}[:alarm_names]") unless input[:alarm_names].nil?
       end
     end
 
@@ -271,10 +273,10 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate!(input, Types::DeleteAnomalyDetectorInput, context: context)
         Hearth::Validator.validate!(input[:namespace], ::String, context: "#{context}[:namespace]")
         Hearth::Validator.validate!(input[:metric_name], ::String, context: "#{context}[:metric_name]")
-        Validators::Dimensions.validate!(input[:dimensions], context: "#{context}[:dimensions]") unless input[:dimensions].nil?
+        Dimensions.validate!(input[:dimensions], context: "#{context}[:dimensions]") unless input[:dimensions].nil?
         Hearth::Validator.validate!(input[:stat], ::String, context: "#{context}[:stat]")
-        Validators::SingleMetricAnomalyDetector.validate!(input[:single_metric_anomaly_detector], context: "#{context}[:single_metric_anomaly_detector]") unless input[:single_metric_anomaly_detector].nil?
-        Validators::MetricMathAnomalyDetector.validate!(input[:metric_math_anomaly_detector], context: "#{context}[:metric_math_anomaly_detector]") unless input[:metric_math_anomaly_detector].nil?
+        SingleMetricAnomalyDetector.validate!(input[:single_metric_anomaly_detector], context: "#{context}[:single_metric_anomaly_detector]") unless input[:single_metric_anomaly_detector].nil?
+        MetricMathAnomalyDetector.validate!(input[:metric_math_anomaly_detector], context: "#{context}[:metric_math_anomaly_detector]") unless input[:metric_math_anomaly_detector].nil?
       end
     end
 
@@ -287,7 +289,7 @@ module AWS::SDK::CloudWatch
     class DeleteDashboardsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteDashboardsInput, context: context)
-        Validators::DashboardNames.validate!(input[:dashboard_names], context: "#{context}[:dashboard_names]") unless input[:dashboard_names].nil?
+        DashboardNames.validate!(input[:dashboard_names], context: "#{context}[:dashboard_names]") unless input[:dashboard_names].nil?
       end
     end
 
@@ -300,14 +302,14 @@ module AWS::SDK::CloudWatch
     class DeleteInsightRulesInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteInsightRulesInput, context: context)
-        Validators::InsightRuleNames.validate!(input[:rule_names], context: "#{context}[:rule_names]") unless input[:rule_names].nil?
+        InsightRuleNames.validate!(input[:rule_names], context: "#{context}[:rule_names]") unless input[:rule_names].nil?
       end
     end
 
     class DeleteInsightRulesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteInsightRulesOutput, context: context)
-        Validators::BatchFailures.validate!(input[:failures], context: "#{context}[:failures]") unless input[:failures].nil?
+        BatchFailures.validate!(input[:failures], context: "#{context}[:failures]") unless input[:failures].nil?
       end
     end
 
@@ -328,7 +330,7 @@ module AWS::SDK::CloudWatch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeAlarmHistoryInput, context: context)
         Hearth::Validator.validate!(input[:alarm_name], ::String, context: "#{context}[:alarm_name]")
-        Validators::AlarmTypes.validate!(input[:alarm_types], context: "#{context}[:alarm_types]") unless input[:alarm_types].nil?
+        AlarmTypes.validate!(input[:alarm_types], context: "#{context}[:alarm_types]") unless input[:alarm_types].nil?
         Hearth::Validator.validate!(input[:history_item_type], ::String, context: "#{context}[:history_item_type]")
         Hearth::Validator.validate!(input[:start_date], ::Time, context: "#{context}[:start_date]")
         Hearth::Validator.validate!(input[:end_date], ::Time, context: "#{context}[:end_date]")
@@ -341,7 +343,7 @@ module AWS::SDK::CloudWatch
     class DescribeAlarmHistoryOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeAlarmHistoryOutput, context: context)
-        Validators::AlarmHistoryItems.validate!(input[:alarm_history_items], context: "#{context}[:alarm_history_items]") unless input[:alarm_history_items].nil?
+        AlarmHistoryItems.validate!(input[:alarm_history_items], context: "#{context}[:alarm_history_items]") unless input[:alarm_history_items].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -353,7 +355,7 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate!(input[:namespace], ::String, context: "#{context}[:namespace]")
         Hearth::Validator.validate!(input[:statistic], ::String, context: "#{context}[:statistic]")
         Hearth::Validator.validate!(input[:extended_statistic], ::String, context: "#{context}[:extended_statistic]")
-        Validators::Dimensions.validate!(input[:dimensions], context: "#{context}[:dimensions]") unless input[:dimensions].nil?
+        Dimensions.validate!(input[:dimensions], context: "#{context}[:dimensions]") unless input[:dimensions].nil?
         Hearth::Validator.validate!(input[:period], ::Integer, context: "#{context}[:period]")
         Hearth::Validator.validate!(input[:unit], ::String, context: "#{context}[:unit]")
       end
@@ -362,16 +364,16 @@ module AWS::SDK::CloudWatch
     class DescribeAlarmsForMetricOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeAlarmsForMetricOutput, context: context)
-        Validators::MetricAlarms.validate!(input[:metric_alarms], context: "#{context}[:metric_alarms]") unless input[:metric_alarms].nil?
+        MetricAlarms.validate!(input[:metric_alarms], context: "#{context}[:metric_alarms]") unless input[:metric_alarms].nil?
       end
     end
 
     class DescribeAlarmsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeAlarmsInput, context: context)
-        Validators::AlarmNames.validate!(input[:alarm_names], context: "#{context}[:alarm_names]") unless input[:alarm_names].nil?
+        AlarmNames.validate!(input[:alarm_names], context: "#{context}[:alarm_names]") unless input[:alarm_names].nil?
         Hearth::Validator.validate!(input[:alarm_name_prefix], ::String, context: "#{context}[:alarm_name_prefix]")
-        Validators::AlarmTypes.validate!(input[:alarm_types], context: "#{context}[:alarm_types]") unless input[:alarm_types].nil?
+        AlarmTypes.validate!(input[:alarm_types], context: "#{context}[:alarm_types]") unless input[:alarm_types].nil?
         Hearth::Validator.validate!(input[:children_of_alarm_name], ::String, context: "#{context}[:children_of_alarm_name]")
         Hearth::Validator.validate!(input[:parents_of_alarm_name], ::String, context: "#{context}[:parents_of_alarm_name]")
         Hearth::Validator.validate!(input[:state_value], ::String, context: "#{context}[:state_value]")
@@ -384,8 +386,8 @@ module AWS::SDK::CloudWatch
     class DescribeAlarmsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeAlarmsOutput, context: context)
-        Validators::CompositeAlarms.validate!(input[:composite_alarms], context: "#{context}[:composite_alarms]") unless input[:composite_alarms].nil?
-        Validators::MetricAlarms.validate!(input[:metric_alarms], context: "#{context}[:metric_alarms]") unless input[:metric_alarms].nil?
+        CompositeAlarms.validate!(input[:composite_alarms], context: "#{context}[:composite_alarms]") unless input[:composite_alarms].nil?
+        MetricAlarms.validate!(input[:metric_alarms], context: "#{context}[:metric_alarms]") unless input[:metric_alarms].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -397,15 +399,15 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:namespace], ::String, context: "#{context}[:namespace]")
         Hearth::Validator.validate!(input[:metric_name], ::String, context: "#{context}[:metric_name]")
-        Validators::Dimensions.validate!(input[:dimensions], context: "#{context}[:dimensions]") unless input[:dimensions].nil?
-        Validators::AnomalyDetectorTypes.validate!(input[:anomaly_detector_types], context: "#{context}[:anomaly_detector_types]") unless input[:anomaly_detector_types].nil?
+        Dimensions.validate!(input[:dimensions], context: "#{context}[:dimensions]") unless input[:dimensions].nil?
+        AnomalyDetectorTypes.validate!(input[:anomaly_detector_types], context: "#{context}[:anomaly_detector_types]") unless input[:anomaly_detector_types].nil?
       end
     end
 
     class DescribeAnomalyDetectorsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeAnomalyDetectorsOutput, context: context)
-        Validators::AnomalyDetectors.validate!(input[:anomaly_detectors], context: "#{context}[:anomaly_detectors]") unless input[:anomaly_detectors].nil?
+        AnomalyDetectors.validate!(input[:anomaly_detectors], context: "#{context}[:anomaly_detectors]") unless input[:anomaly_detectors].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -422,7 +424,7 @@ module AWS::SDK::CloudWatch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeInsightRulesOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::InsightRules.validate!(input[:insight_rules], context: "#{context}[:insight_rules]") unless input[:insight_rules].nil?
+        InsightRules.validate!(input[:insight_rules], context: "#{context}[:insight_rules]") unless input[:insight_rules].nil?
       end
     end
 
@@ -446,7 +448,7 @@ module AWS::SDK::CloudWatch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DimensionFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DimensionFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -455,7 +457,7 @@ module AWS::SDK::CloudWatch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Dimension.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Dimension.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -463,7 +465,7 @@ module AWS::SDK::CloudWatch
     class DisableAlarmActionsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DisableAlarmActionsInput, context: context)
-        Validators::AlarmNames.validate!(input[:alarm_names], context: "#{context}[:alarm_names]") unless input[:alarm_names].nil?
+        AlarmNames.validate!(input[:alarm_names], context: "#{context}[:alarm_names]") unless input[:alarm_names].nil?
       end
     end
 
@@ -476,21 +478,21 @@ module AWS::SDK::CloudWatch
     class DisableInsightRulesInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DisableInsightRulesInput, context: context)
-        Validators::InsightRuleNames.validate!(input[:rule_names], context: "#{context}[:rule_names]") unless input[:rule_names].nil?
+        InsightRuleNames.validate!(input[:rule_names], context: "#{context}[:rule_names]") unless input[:rule_names].nil?
       end
     end
 
     class DisableInsightRulesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DisableInsightRulesOutput, context: context)
-        Validators::BatchFailures.validate!(input[:failures], context: "#{context}[:failures]") unless input[:failures].nil?
+        BatchFailures.validate!(input[:failures], context: "#{context}[:failures]") unless input[:failures].nil?
       end
     end
 
     class EnableAlarmActionsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::EnableAlarmActionsInput, context: context)
-        Validators::AlarmNames.validate!(input[:alarm_names], context: "#{context}[:alarm_names]") unless input[:alarm_names].nil?
+        AlarmNames.validate!(input[:alarm_names], context: "#{context}[:alarm_names]") unless input[:alarm_names].nil?
       end
     end
 
@@ -503,14 +505,14 @@ module AWS::SDK::CloudWatch
     class EnableInsightRulesInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::EnableInsightRulesInput, context: context)
-        Validators::InsightRuleNames.validate!(input[:rule_names], context: "#{context}[:rule_names]") unless input[:rule_names].nil?
+        InsightRuleNames.validate!(input[:rule_names], context: "#{context}[:rule_names]") unless input[:rule_names].nil?
       end
     end
 
     class EnableInsightRulesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::EnableInsightRulesOutput, context: context)
-        Validators::BatchFailures.validate!(input[:failures], context: "#{context}[:failures]") unless input[:failures].nil?
+        BatchFailures.validate!(input[:failures], context: "#{context}[:failures]") unless input[:failures].nil?
       end
     end
 
@@ -547,7 +549,7 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate!(input[:end_time], ::Time, context: "#{context}[:end_time]")
         Hearth::Validator.validate!(input[:period], ::Integer, context: "#{context}[:period]")
         Hearth::Validator.validate!(input[:max_contributor_count], ::Integer, context: "#{context}[:max_contributor_count]")
-        Validators::InsightRuleMetricList.validate!(input[:metrics], context: "#{context}[:metrics]") unless input[:metrics].nil?
+        InsightRuleMetricList.validate!(input[:metrics], context: "#{context}[:metrics]") unless input[:metrics].nil?
         Hearth::Validator.validate!(input[:order_by], ::String, context: "#{context}[:order_by]")
       end
     end
@@ -555,34 +557,34 @@ module AWS::SDK::CloudWatch
     class GetInsightRuleReportOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetInsightRuleReportOutput, context: context)
-        Validators::InsightRuleContributorKeyLabels.validate!(input[:key_labels], context: "#{context}[:key_labels]") unless input[:key_labels].nil?
+        InsightRuleContributorKeyLabels.validate!(input[:key_labels], context: "#{context}[:key_labels]") unless input[:key_labels].nil?
         Hearth::Validator.validate!(input[:aggregation_statistic], ::String, context: "#{context}[:aggregation_statistic]")
         Hearth::Validator.validate!(input[:aggregate_value], ::Float, context: "#{context}[:aggregate_value]")
         Hearth::Validator.validate!(input[:approximate_unique_count], ::Integer, context: "#{context}[:approximate_unique_count]")
-        Validators::InsightRuleContributors.validate!(input[:contributors], context: "#{context}[:contributors]") unless input[:contributors].nil?
-        Validators::InsightRuleMetricDatapoints.validate!(input[:metric_datapoints], context: "#{context}[:metric_datapoints]") unless input[:metric_datapoints].nil?
+        InsightRuleContributors.validate!(input[:contributors], context: "#{context}[:contributors]") unless input[:contributors].nil?
+        InsightRuleMetricDatapoints.validate!(input[:metric_datapoints], context: "#{context}[:metric_datapoints]") unless input[:metric_datapoints].nil?
       end
     end
 
     class GetMetricDataInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetMetricDataInput, context: context)
-        Validators::MetricDataQueries.validate!(input[:metric_data_queries], context: "#{context}[:metric_data_queries]") unless input[:metric_data_queries].nil?
+        MetricDataQueries.validate!(input[:metric_data_queries], context: "#{context}[:metric_data_queries]") unless input[:metric_data_queries].nil?
         Hearth::Validator.validate!(input[:start_time], ::Time, context: "#{context}[:start_time]")
         Hearth::Validator.validate!(input[:end_time], ::Time, context: "#{context}[:end_time]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:scan_by], ::String, context: "#{context}[:scan_by]")
         Hearth::Validator.validate!(input[:max_datapoints], ::Integer, context: "#{context}[:max_datapoints]")
-        Validators::LabelOptions.validate!(input[:label_options], context: "#{context}[:label_options]") unless input[:label_options].nil?
+        LabelOptions.validate!(input[:label_options], context: "#{context}[:label_options]") unless input[:label_options].nil?
       end
     end
 
     class GetMetricDataOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetMetricDataOutput, context: context)
-        Validators::MetricDataResults.validate!(input[:metric_data_results], context: "#{context}[:metric_data_results]") unless input[:metric_data_results].nil?
+        MetricDataResults.validate!(input[:metric_data_results], context: "#{context}[:metric_data_results]") unless input[:metric_data_results].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::MetricDataResultMessages.validate!(input[:messages], context: "#{context}[:messages]") unless input[:messages].nil?
+        MetricDataResultMessages.validate!(input[:messages], context: "#{context}[:messages]") unless input[:messages].nil?
       end
     end
 
@@ -591,12 +593,12 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate!(input, Types::GetMetricStatisticsInput, context: context)
         Hearth::Validator.validate!(input[:namespace], ::String, context: "#{context}[:namespace]")
         Hearth::Validator.validate!(input[:metric_name], ::String, context: "#{context}[:metric_name]")
-        Validators::Dimensions.validate!(input[:dimensions], context: "#{context}[:dimensions]") unless input[:dimensions].nil?
+        Dimensions.validate!(input[:dimensions], context: "#{context}[:dimensions]") unless input[:dimensions].nil?
         Hearth::Validator.validate!(input[:start_time], ::Time, context: "#{context}[:start_time]")
         Hearth::Validator.validate!(input[:end_time], ::Time, context: "#{context}[:end_time]")
         Hearth::Validator.validate!(input[:period], ::Integer, context: "#{context}[:period]")
-        Validators::Statistics.validate!(input[:statistics], context: "#{context}[:statistics]") unless input[:statistics].nil?
-        Validators::ExtendedStatistics.validate!(input[:extended_statistics], context: "#{context}[:extended_statistics]") unless input[:extended_statistics].nil?
+        Statistics.validate!(input[:statistics], context: "#{context}[:statistics]") unless input[:statistics].nil?
+        ExtendedStatistics.validate!(input[:extended_statistics], context: "#{context}[:extended_statistics]") unless input[:extended_statistics].nil?
         Hearth::Validator.validate!(input[:unit], ::String, context: "#{context}[:unit]")
       end
     end
@@ -605,7 +607,7 @@ module AWS::SDK::CloudWatch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetMetricStatisticsOutput, context: context)
         Hearth::Validator.validate!(input[:label], ::String, context: "#{context}[:label]")
-        Validators::Datapoints.validate!(input[:datapoints], context: "#{context}[:datapoints]") unless input[:datapoints].nil?
+        Datapoints.validate!(input[:datapoints], context: "#{context}[:datapoints]") unless input[:datapoints].nil?
       end
     end
 
@@ -621,15 +623,15 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate!(input, Types::GetMetricStreamOutput, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::MetricStreamFilters.validate!(input[:include_filters], context: "#{context}[:include_filters]") unless input[:include_filters].nil?
-        Validators::MetricStreamFilters.validate!(input[:exclude_filters], context: "#{context}[:exclude_filters]") unless input[:exclude_filters].nil?
+        MetricStreamFilters.validate!(input[:include_filters], context: "#{context}[:include_filters]") unless input[:include_filters].nil?
+        MetricStreamFilters.validate!(input[:exclude_filters], context: "#{context}[:exclude_filters]") unless input[:exclude_filters].nil?
         Hearth::Validator.validate!(input[:firehose_arn], ::String, context: "#{context}[:firehose_arn]")
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
         Hearth::Validator.validate!(input[:creation_date], ::Time, context: "#{context}[:creation_date]")
         Hearth::Validator.validate!(input[:last_update_date], ::Time, context: "#{context}[:last_update_date]")
         Hearth::Validator.validate!(input[:output_format], ::String, context: "#{context}[:output_format]")
-        Validators::MetricStreamStatisticsConfigurations.validate!(input[:statistics_configurations], context: "#{context}[:statistics_configurations]") unless input[:statistics_configurations].nil?
+        MetricStreamStatisticsConfigurations.validate!(input[:statistics_configurations], context: "#{context}[:statistics_configurations]") unless input[:statistics_configurations].nil?
       end
     end
 
@@ -661,9 +663,9 @@ module AWS::SDK::CloudWatch
     class InsightRuleContributor
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::InsightRuleContributor, context: context)
-        Validators::InsightRuleContributorKeys.validate!(input[:keys], context: "#{context}[:keys]") unless input[:keys].nil?
+        InsightRuleContributorKeys.validate!(input[:keys], context: "#{context}[:keys]") unless input[:keys].nil?
         Hearth::Validator.validate!(input[:approximate_aggregate_value], ::Float, context: "#{context}[:approximate_aggregate_value]")
-        Validators::InsightRuleContributorDatapoints.validate!(input[:datapoints], context: "#{context}[:datapoints]") unless input[:datapoints].nil?
+        InsightRuleContributorDatapoints.validate!(input[:datapoints], context: "#{context}[:datapoints]") unless input[:datapoints].nil?
       end
     end
 
@@ -679,7 +681,7 @@ module AWS::SDK::CloudWatch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::InsightRuleContributorDatapoint.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          InsightRuleContributorDatapoint.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -706,7 +708,7 @@ module AWS::SDK::CloudWatch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::InsightRuleContributor.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          InsightRuleContributor.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -729,7 +731,7 @@ module AWS::SDK::CloudWatch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::InsightRuleMetricDatapoint.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          InsightRuleMetricDatapoint.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -756,7 +758,7 @@ module AWS::SDK::CloudWatch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::InsightRule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          InsightRule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -828,7 +830,7 @@ module AWS::SDK::CloudWatch
     class ListDashboardsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDashboardsOutput, context: context)
-        Validators::DashboardEntries.validate!(input[:dashboard_entries], context: "#{context}[:dashboard_entries]") unless input[:dashboard_entries].nil?
+        DashboardEntries.validate!(input[:dashboard_entries], context: "#{context}[:dashboard_entries]") unless input[:dashboard_entries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -845,7 +847,7 @@ module AWS::SDK::CloudWatch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListMetricStreamsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::MetricStreamEntries.validate!(input[:entries], context: "#{context}[:entries]") unless input[:entries].nil?
+        MetricStreamEntries.validate!(input[:entries], context: "#{context}[:entries]") unless input[:entries].nil?
       end
     end
 
@@ -854,7 +856,7 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate!(input, Types::ListMetricsInput, context: context)
         Hearth::Validator.validate!(input[:namespace], ::String, context: "#{context}[:namespace]")
         Hearth::Validator.validate!(input[:metric_name], ::String, context: "#{context}[:metric_name]")
-        Validators::DimensionFilters.validate!(input[:dimensions], context: "#{context}[:dimensions]") unless input[:dimensions].nil?
+        DimensionFilters.validate!(input[:dimensions], context: "#{context}[:dimensions]") unless input[:dimensions].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:recently_active], ::String, context: "#{context}[:recently_active]")
       end
@@ -863,7 +865,7 @@ module AWS::SDK::CloudWatch
     class ListMetricsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListMetricsOutput, context: context)
-        Validators::Metrics.validate!(input[:metrics], context: "#{context}[:metrics]") unless input[:metrics].nil?
+        Metrics.validate!(input[:metrics], context: "#{context}[:metrics]") unless input[:metrics].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -878,7 +880,7 @@ module AWS::SDK::CloudWatch
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -895,7 +897,7 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate!(input, Types::Metric, context: context)
         Hearth::Validator.validate!(input[:namespace], ::String, context: "#{context}[:namespace]")
         Hearth::Validator.validate!(input[:metric_name], ::String, context: "#{context}[:metric_name]")
-        Validators::Dimensions.validate!(input[:dimensions], context: "#{context}[:dimensions]") unless input[:dimensions].nil?
+        Dimensions.validate!(input[:dimensions], context: "#{context}[:dimensions]") unless input[:dimensions].nil?
       end
     end
 
@@ -907,9 +909,9 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate!(input[:alarm_description], ::String, context: "#{context}[:alarm_description]")
         Hearth::Validator.validate!(input[:alarm_configuration_updated_timestamp], ::Time, context: "#{context}[:alarm_configuration_updated_timestamp]")
         Hearth::Validator.validate!(input[:actions_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:actions_enabled]")
-        Validators::ResourceList.validate!(input[:ok_actions], context: "#{context}[:ok_actions]") unless input[:ok_actions].nil?
-        Validators::ResourceList.validate!(input[:alarm_actions], context: "#{context}[:alarm_actions]") unless input[:alarm_actions].nil?
-        Validators::ResourceList.validate!(input[:insufficient_data_actions], context: "#{context}[:insufficient_data_actions]") unless input[:insufficient_data_actions].nil?
+        ResourceList.validate!(input[:ok_actions], context: "#{context}[:ok_actions]") unless input[:ok_actions].nil?
+        ResourceList.validate!(input[:alarm_actions], context: "#{context}[:alarm_actions]") unless input[:alarm_actions].nil?
+        ResourceList.validate!(input[:insufficient_data_actions], context: "#{context}[:insufficient_data_actions]") unless input[:insufficient_data_actions].nil?
         Hearth::Validator.validate!(input[:state_value], ::String, context: "#{context}[:state_value]")
         Hearth::Validator.validate!(input[:state_reason], ::String, context: "#{context}[:state_reason]")
         Hearth::Validator.validate!(input[:state_reason_data], ::String, context: "#{context}[:state_reason_data]")
@@ -918,7 +920,7 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate!(input[:namespace], ::String, context: "#{context}[:namespace]")
         Hearth::Validator.validate!(input[:statistic], ::String, context: "#{context}[:statistic]")
         Hearth::Validator.validate!(input[:extended_statistic], ::String, context: "#{context}[:extended_statistic]")
-        Validators::Dimensions.validate!(input[:dimensions], context: "#{context}[:dimensions]") unless input[:dimensions].nil?
+        Dimensions.validate!(input[:dimensions], context: "#{context}[:dimensions]") unless input[:dimensions].nil?
         Hearth::Validator.validate!(input[:period], ::Integer, context: "#{context}[:period]")
         Hearth::Validator.validate!(input[:unit], ::String, context: "#{context}[:unit]")
         Hearth::Validator.validate!(input[:evaluation_periods], ::Integer, context: "#{context}[:evaluation_periods]")
@@ -927,7 +929,7 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate!(input[:comparison_operator], ::String, context: "#{context}[:comparison_operator]")
         Hearth::Validator.validate!(input[:treat_missing_data], ::String, context: "#{context}[:treat_missing_data]")
         Hearth::Validator.validate!(input[:evaluate_low_sample_count_percentile], ::String, context: "#{context}[:evaluate_low_sample_count_percentile]")
-        Validators::MetricDataQueries.validate!(input[:metrics], context: "#{context}[:metrics]") unless input[:metrics].nil?
+        MetricDataQueries.validate!(input[:metrics], context: "#{context}[:metrics]") unless input[:metrics].nil?
         Hearth::Validator.validate!(input[:threshold_metric_id], ::String, context: "#{context}[:threshold_metric_id]")
       end
     end
@@ -936,7 +938,7 @@ module AWS::SDK::CloudWatch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MetricAlarm.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MetricAlarm.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -945,7 +947,7 @@ module AWS::SDK::CloudWatch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MetricDatum.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MetricDatum.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -954,7 +956,7 @@ module AWS::SDK::CloudWatch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MetricDataQuery.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MetricDataQuery.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -963,7 +965,7 @@ module AWS::SDK::CloudWatch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::MetricDataQuery, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
-        Validators::MetricStat.validate!(input[:metric_stat], context: "#{context}[:metric_stat]") unless input[:metric_stat].nil?
+        MetricStat.validate!(input[:metric_stat], context: "#{context}[:metric_stat]") unless input[:metric_stat].nil?
         Hearth::Validator.validate!(input[:expression], ::String, context: "#{context}[:expression]")
         Hearth::Validator.validate!(input[:label], ::String, context: "#{context}[:label]")
         Hearth::Validator.validate!(input[:return_data], ::TrueClass, ::FalseClass, context: "#{context}[:return_data]")
@@ -977,10 +979,10 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate!(input, Types::MetricDataResult, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:label], ::String, context: "#{context}[:label]")
-        Validators::Timestamps.validate!(input[:timestamps], context: "#{context}[:timestamps]") unless input[:timestamps].nil?
-        Validators::DatapointValues.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        Timestamps.validate!(input[:timestamps], context: "#{context}[:timestamps]") unless input[:timestamps].nil?
+        DatapointValues.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
         Hearth::Validator.validate!(input[:status_code], ::String, context: "#{context}[:status_code]")
-        Validators::MetricDataResultMessages.validate!(input[:messages], context: "#{context}[:messages]") unless input[:messages].nil?
+        MetricDataResultMessages.validate!(input[:messages], context: "#{context}[:messages]") unless input[:messages].nil?
       end
     end
 
@@ -988,7 +990,7 @@ module AWS::SDK::CloudWatch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MessageData.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MessageData.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -997,7 +999,7 @@ module AWS::SDK::CloudWatch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MetricDataResult.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MetricDataResult.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1006,12 +1008,12 @@ module AWS::SDK::CloudWatch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::MetricDatum, context: context)
         Hearth::Validator.validate!(input[:metric_name], ::String, context: "#{context}[:metric_name]")
-        Validators::Dimensions.validate!(input[:dimensions], context: "#{context}[:dimensions]") unless input[:dimensions].nil?
+        Dimensions.validate!(input[:dimensions], context: "#{context}[:dimensions]") unless input[:dimensions].nil?
         Hearth::Validator.validate!(input[:timestamp], ::Time, context: "#{context}[:timestamp]")
         Hearth::Validator.validate!(input[:value], ::Float, context: "#{context}[:value]")
-        Validators::StatisticSet.validate!(input[:statistic_values], context: "#{context}[:statistic_values]") unless input[:statistic_values].nil?
-        Validators::Values.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
-        Validators::Counts.validate!(input[:counts], context: "#{context}[:counts]") unless input[:counts].nil?
+        StatisticSet.validate!(input[:statistic_values], context: "#{context}[:statistic_values]") unless input[:statistic_values].nil?
+        Values.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        Counts.validate!(input[:counts], context: "#{context}[:counts]") unless input[:counts].nil?
         Hearth::Validator.validate!(input[:unit], ::String, context: "#{context}[:unit]")
         Hearth::Validator.validate!(input[:storage_resolution], ::Integer, context: "#{context}[:storage_resolution]")
       end
@@ -1020,14 +1022,14 @@ module AWS::SDK::CloudWatch
     class MetricMathAnomalyDetector
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::MetricMathAnomalyDetector, context: context)
-        Validators::MetricDataQueries.validate!(input[:metric_data_queries], context: "#{context}[:metric_data_queries]") unless input[:metric_data_queries].nil?
+        MetricDataQueries.validate!(input[:metric_data_queries], context: "#{context}[:metric_data_queries]") unless input[:metric_data_queries].nil?
       end
     end
 
     class MetricStat
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::MetricStat, context: context)
-        Validators::Metric.validate!(input[:metric], context: "#{context}[:metric]") unless input[:metric].nil?
+        Metric.validate!(input[:metric], context: "#{context}[:metric]") unless input[:metric].nil?
         Hearth::Validator.validate!(input[:period], ::Integer, context: "#{context}[:period]")
         Hearth::Validator.validate!(input[:stat], ::String, context: "#{context}[:stat]")
         Hearth::Validator.validate!(input[:unit], ::String, context: "#{context}[:unit]")
@@ -1038,7 +1040,7 @@ module AWS::SDK::CloudWatch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MetricStreamEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MetricStreamEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1067,7 +1069,7 @@ module AWS::SDK::CloudWatch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MetricStreamFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MetricStreamFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1093,8 +1095,8 @@ module AWS::SDK::CloudWatch
     class MetricStreamStatisticsConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::MetricStreamStatisticsConfiguration, context: context)
-        Validators::MetricStreamStatisticsIncludeMetrics.validate!(input[:include_metrics], context: "#{context}[:include_metrics]") unless input[:include_metrics].nil?
-        Validators::MetricStreamStatisticsAdditionalStatistics.validate!(input[:additional_statistics], context: "#{context}[:additional_statistics]") unless input[:additional_statistics].nil?
+        MetricStreamStatisticsIncludeMetrics.validate!(input[:include_metrics], context: "#{context}[:include_metrics]") unless input[:include_metrics].nil?
+        MetricStreamStatisticsAdditionalStatistics.validate!(input[:additional_statistics], context: "#{context}[:additional_statistics]") unless input[:additional_statistics].nil?
       end
     end
 
@@ -1102,7 +1104,7 @@ module AWS::SDK::CloudWatch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MetricStreamStatisticsConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MetricStreamStatisticsConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1111,7 +1113,7 @@ module AWS::SDK::CloudWatch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MetricStreamStatisticsMetric.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MetricStreamStatisticsMetric.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1128,7 +1130,7 @@ module AWS::SDK::CloudWatch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Metric.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Metric.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1155,11 +1157,11 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate!(input, Types::PutAnomalyDetectorInput, context: context)
         Hearth::Validator.validate!(input[:namespace], ::String, context: "#{context}[:namespace]")
         Hearth::Validator.validate!(input[:metric_name], ::String, context: "#{context}[:metric_name]")
-        Validators::Dimensions.validate!(input[:dimensions], context: "#{context}[:dimensions]") unless input[:dimensions].nil?
+        Dimensions.validate!(input[:dimensions], context: "#{context}[:dimensions]") unless input[:dimensions].nil?
         Hearth::Validator.validate!(input[:stat], ::String, context: "#{context}[:stat]")
-        Validators::AnomalyDetectorConfiguration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
-        Validators::SingleMetricAnomalyDetector.validate!(input[:single_metric_anomaly_detector], context: "#{context}[:single_metric_anomaly_detector]") unless input[:single_metric_anomaly_detector].nil?
-        Validators::MetricMathAnomalyDetector.validate!(input[:metric_math_anomaly_detector], context: "#{context}[:metric_math_anomaly_detector]") unless input[:metric_math_anomaly_detector].nil?
+        AnomalyDetectorConfiguration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
+        SingleMetricAnomalyDetector.validate!(input[:single_metric_anomaly_detector], context: "#{context}[:single_metric_anomaly_detector]") unless input[:single_metric_anomaly_detector].nil?
+        MetricMathAnomalyDetector.validate!(input[:metric_math_anomaly_detector], context: "#{context}[:metric_math_anomaly_detector]") unless input[:metric_math_anomaly_detector].nil?
       end
     end
 
@@ -1173,13 +1175,13 @@ module AWS::SDK::CloudWatch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutCompositeAlarmInput, context: context)
         Hearth::Validator.validate!(input[:actions_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:actions_enabled]")
-        Validators::ResourceList.validate!(input[:alarm_actions], context: "#{context}[:alarm_actions]") unless input[:alarm_actions].nil?
+        ResourceList.validate!(input[:alarm_actions], context: "#{context}[:alarm_actions]") unless input[:alarm_actions].nil?
         Hearth::Validator.validate!(input[:alarm_description], ::String, context: "#{context}[:alarm_description]")
         Hearth::Validator.validate!(input[:alarm_name], ::String, context: "#{context}[:alarm_name]")
         Hearth::Validator.validate!(input[:alarm_rule], ::String, context: "#{context}[:alarm_rule]")
-        Validators::ResourceList.validate!(input[:insufficient_data_actions], context: "#{context}[:insufficient_data_actions]") unless input[:insufficient_data_actions].nil?
-        Validators::ResourceList.validate!(input[:ok_actions], context: "#{context}[:ok_actions]") unless input[:ok_actions].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ResourceList.validate!(input[:insufficient_data_actions], context: "#{context}[:insufficient_data_actions]") unless input[:insufficient_data_actions].nil?
+        ResourceList.validate!(input[:ok_actions], context: "#{context}[:ok_actions]") unless input[:ok_actions].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1200,7 +1202,7 @@ module AWS::SDK::CloudWatch
     class PutDashboardOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutDashboardOutput, context: context)
-        Validators::DashboardValidationMessages.validate!(input[:dashboard_validation_messages], context: "#{context}[:dashboard_validation_messages]") unless input[:dashboard_validation_messages].nil?
+        DashboardValidationMessages.validate!(input[:dashboard_validation_messages], context: "#{context}[:dashboard_validation_messages]") unless input[:dashboard_validation_messages].nil?
       end
     end
 
@@ -1210,7 +1212,7 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate!(input[:rule_name], ::String, context: "#{context}[:rule_name]")
         Hearth::Validator.validate!(input[:rule_state], ::String, context: "#{context}[:rule_state]")
         Hearth::Validator.validate!(input[:rule_definition], ::String, context: "#{context}[:rule_definition]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1226,14 +1228,14 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate!(input[:alarm_name], ::String, context: "#{context}[:alarm_name]")
         Hearth::Validator.validate!(input[:alarm_description], ::String, context: "#{context}[:alarm_description]")
         Hearth::Validator.validate!(input[:actions_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:actions_enabled]")
-        Validators::ResourceList.validate!(input[:ok_actions], context: "#{context}[:ok_actions]") unless input[:ok_actions].nil?
-        Validators::ResourceList.validate!(input[:alarm_actions], context: "#{context}[:alarm_actions]") unless input[:alarm_actions].nil?
-        Validators::ResourceList.validate!(input[:insufficient_data_actions], context: "#{context}[:insufficient_data_actions]") unless input[:insufficient_data_actions].nil?
+        ResourceList.validate!(input[:ok_actions], context: "#{context}[:ok_actions]") unless input[:ok_actions].nil?
+        ResourceList.validate!(input[:alarm_actions], context: "#{context}[:alarm_actions]") unless input[:alarm_actions].nil?
+        ResourceList.validate!(input[:insufficient_data_actions], context: "#{context}[:insufficient_data_actions]") unless input[:insufficient_data_actions].nil?
         Hearth::Validator.validate!(input[:metric_name], ::String, context: "#{context}[:metric_name]")
         Hearth::Validator.validate!(input[:namespace], ::String, context: "#{context}[:namespace]")
         Hearth::Validator.validate!(input[:statistic], ::String, context: "#{context}[:statistic]")
         Hearth::Validator.validate!(input[:extended_statistic], ::String, context: "#{context}[:extended_statistic]")
-        Validators::Dimensions.validate!(input[:dimensions], context: "#{context}[:dimensions]") unless input[:dimensions].nil?
+        Dimensions.validate!(input[:dimensions], context: "#{context}[:dimensions]") unless input[:dimensions].nil?
         Hearth::Validator.validate!(input[:period], ::Integer, context: "#{context}[:period]")
         Hearth::Validator.validate!(input[:unit], ::String, context: "#{context}[:unit]")
         Hearth::Validator.validate!(input[:evaluation_periods], ::Integer, context: "#{context}[:evaluation_periods]")
@@ -1242,8 +1244,8 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate!(input[:comparison_operator], ::String, context: "#{context}[:comparison_operator]")
         Hearth::Validator.validate!(input[:treat_missing_data], ::String, context: "#{context}[:treat_missing_data]")
         Hearth::Validator.validate!(input[:evaluate_low_sample_count_percentile], ::String, context: "#{context}[:evaluate_low_sample_count_percentile]")
-        Validators::MetricDataQueries.validate!(input[:metrics], context: "#{context}[:metrics]") unless input[:metrics].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        MetricDataQueries.validate!(input[:metrics], context: "#{context}[:metrics]") unless input[:metrics].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:threshold_metric_id], ::String, context: "#{context}[:threshold_metric_id]")
       end
     end
@@ -1258,7 +1260,7 @@ module AWS::SDK::CloudWatch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutMetricDataInput, context: context)
         Hearth::Validator.validate!(input[:namespace], ::String, context: "#{context}[:namespace]")
-        Validators::MetricData.validate!(input[:metric_data], context: "#{context}[:metric_data]") unless input[:metric_data].nil?
+        MetricData.validate!(input[:metric_data], context: "#{context}[:metric_data]") unless input[:metric_data].nil?
       end
     end
 
@@ -1272,13 +1274,13 @@ module AWS::SDK::CloudWatch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutMetricStreamInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::MetricStreamFilters.validate!(input[:include_filters], context: "#{context}[:include_filters]") unless input[:include_filters].nil?
-        Validators::MetricStreamFilters.validate!(input[:exclude_filters], context: "#{context}[:exclude_filters]") unless input[:exclude_filters].nil?
+        MetricStreamFilters.validate!(input[:include_filters], context: "#{context}[:include_filters]") unless input[:include_filters].nil?
+        MetricStreamFilters.validate!(input[:exclude_filters], context: "#{context}[:exclude_filters]") unless input[:exclude_filters].nil?
         Hearth::Validator.validate!(input[:firehose_arn], ::String, context: "#{context}[:firehose_arn]")
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
         Hearth::Validator.validate!(input[:output_format], ::String, context: "#{context}[:output_format]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::MetricStreamStatisticsConfigurations.validate!(input[:statistics_configurations], context: "#{context}[:statistics_configurations]") unless input[:statistics_configurations].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        MetricStreamStatisticsConfigurations.validate!(input[:statistics_configurations], context: "#{context}[:statistics_configurations]") unless input[:statistics_configurations].nil?
       end
     end
 
@@ -1343,7 +1345,7 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate!(input, Types::SingleMetricAnomalyDetector, context: context)
         Hearth::Validator.validate!(input[:namespace], ::String, context: "#{context}[:namespace]")
         Hearth::Validator.validate!(input[:metric_name], ::String, context: "#{context}[:metric_name]")
-        Validators::Dimensions.validate!(input[:dimensions], context: "#{context}[:dimensions]") unless input[:dimensions].nil?
+        Dimensions.validate!(input[:dimensions], context: "#{context}[:dimensions]") unless input[:dimensions].nil?
         Hearth::Validator.validate!(input[:stat], ::String, context: "#{context}[:stat]")
       end
     end
@@ -1351,7 +1353,7 @@ module AWS::SDK::CloudWatch
     class StartMetricStreamsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StartMetricStreamsInput, context: context)
-        Validators::MetricStreamNames.validate!(input[:names], context: "#{context}[:names]") unless input[:names].nil?
+        MetricStreamNames.validate!(input[:names], context: "#{context}[:names]") unless input[:names].nil?
       end
     end
 
@@ -1383,7 +1385,7 @@ module AWS::SDK::CloudWatch
     class StopMetricStreamsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StopMetricStreamsInput, context: context)
-        Validators::MetricStreamNames.validate!(input[:names], context: "#{context}[:names]") unless input[:names].nil?
+        MetricStreamNames.validate!(input[:names], context: "#{context}[:names]") unless input[:names].nil?
       end
     end
 
@@ -1414,7 +1416,7 @@ module AWS::SDK::CloudWatch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1423,7 +1425,7 @@ module AWS::SDK::CloudWatch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1446,7 +1448,7 @@ module AWS::SDK::CloudWatch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 

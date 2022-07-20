@@ -28,7 +28,7 @@ module AWS::SDK::ComputeOptimizer
     class DescribeRecommendationExportJobs
       def self.default(visited=[])
         {
-          recommendation_export_jobs: Stubs::RecommendationExportJobs.default(visited),
+          recommendation_export_jobs: RecommendationExportJobs.default(visited),
           next_token: 'next_token',
         }
       end
@@ -48,7 +48,7 @@ module AWS::SDK::ComputeOptimizer
         return nil if visited.include?('RecommendationExportJobs')
         visited = visited + ['RecommendationExportJobs']
         [
-          Stubs::RecommendationExportJob.default(visited)
+          RecommendationExportJob.default(visited)
         ]
       end
 
@@ -69,7 +69,7 @@ module AWS::SDK::ComputeOptimizer
         visited = visited + ['RecommendationExportJob']
         {
           job_id: 'job_id',
-          destination: Stubs::ExportDestination.default(visited),
+          destination: ExportDestination.default(visited),
           resource_type: 'resource_type',
           status: 'status',
           creation_timestamp: Time.now,
@@ -98,7 +98,7 @@ module AWS::SDK::ComputeOptimizer
         return nil if visited.include?('ExportDestination')
         visited = visited + ['ExportDestination']
         {
-          s3: Stubs::S3Destination.default(visited),
+          s3: S3Destination.default(visited),
         }
       end
 
@@ -137,7 +137,7 @@ module AWS::SDK::ComputeOptimizer
       def self.default(visited=[])
         {
           job_id: 'job_id',
-          s3_destination: Stubs::S3Destination.default(visited),
+          s3_destination: S3Destination.default(visited),
         }
       end
 
@@ -155,7 +155,7 @@ module AWS::SDK::ComputeOptimizer
       def self.default(visited=[])
         {
           job_id: 'job_id',
-          s3_destination: Stubs::S3Destination.default(visited),
+          s3_destination: S3Destination.default(visited),
         }
       end
 
@@ -173,7 +173,7 @@ module AWS::SDK::ComputeOptimizer
       def self.default(visited=[])
         {
           job_id: 'job_id',
-          s3_destination: Stubs::S3Destination.default(visited),
+          s3_destination: S3Destination.default(visited),
         }
       end
 
@@ -191,7 +191,7 @@ module AWS::SDK::ComputeOptimizer
       def self.default(visited=[])
         {
           job_id: 'job_id',
-          s3_destination: Stubs::S3Destination.default(visited),
+          s3_destination: S3Destination.default(visited),
         }
       end
 
@@ -209,8 +209,8 @@ module AWS::SDK::ComputeOptimizer
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          auto_scaling_group_recommendations: Stubs::AutoScalingGroupRecommendations.default(visited),
-          errors: Stubs::GetRecommendationErrors.default(visited),
+          auto_scaling_group_recommendations: AutoScalingGroupRecommendations.default(visited),
+          errors: GetRecommendationErrors.default(visited),
         }
       end
 
@@ -230,7 +230,7 @@ module AWS::SDK::ComputeOptimizer
         return nil if visited.include?('GetRecommendationErrors')
         visited = visited + ['GetRecommendationErrors']
         [
-          Stubs::GetRecommendationError.default(visited)
+          GetRecommendationError.default(visited)
         ]
       end
 
@@ -272,7 +272,7 @@ module AWS::SDK::ComputeOptimizer
         return nil if visited.include?('AutoScalingGroupRecommendations')
         visited = visited + ['AutoScalingGroupRecommendations']
         [
-          Stubs::AutoScalingGroupRecommendation.default(visited)
+          AutoScalingGroupRecommendation.default(visited)
         ]
       end
 
@@ -296,14 +296,14 @@ module AWS::SDK::ComputeOptimizer
           auto_scaling_group_arn: 'auto_scaling_group_arn',
           auto_scaling_group_name: 'auto_scaling_group_name',
           finding: 'finding',
-          utilization_metrics: Stubs::UtilizationMetrics.default(visited),
+          utilization_metrics: UtilizationMetrics.default(visited),
           look_back_period_in_days: 1.0,
-          current_configuration: Stubs::AutoScalingGroupConfiguration.default(visited),
-          recommendation_options: Stubs::AutoScalingGroupRecommendationOptions.default(visited),
+          current_configuration: AutoScalingGroupConfiguration.default(visited),
+          recommendation_options: AutoScalingGroupRecommendationOptions.default(visited),
           last_refresh_timestamp: Time.now,
           current_performance_risk: 'current_performance_risk',
-          effective_recommendation_preferences: Stubs::EffectiveRecommendationPreferences.default(visited),
-          inferred_workload_types: Stubs::InferredWorkloadTypes.default(visited),
+          effective_recommendation_preferences: EffectiveRecommendationPreferences.default(visited),
+          inferred_workload_types: InferredWorkloadTypes.default(visited),
         }
       end
 
@@ -352,7 +352,7 @@ module AWS::SDK::ComputeOptimizer
         return nil if visited.include?('EffectiveRecommendationPreferences')
         visited = visited + ['EffectiveRecommendationPreferences']
         {
-          cpu_vendor_architectures: Stubs::CpuVendorArchitectures.default(visited),
+          cpu_vendor_architectures: CpuVendorArchitectures.default(visited),
           enhanced_infrastructure_metrics: 'enhanced_infrastructure_metrics',
           inferred_workload_types: 'inferred_workload_types',
         }
@@ -394,7 +394,7 @@ module AWS::SDK::ComputeOptimizer
         return nil if visited.include?('AutoScalingGroupRecommendationOptions')
         visited = visited + ['AutoScalingGroupRecommendationOptions']
         [
-          Stubs::AutoScalingGroupRecommendationOption.default(visited)
+          AutoScalingGroupRecommendationOption.default(visited)
         ]
       end
 
@@ -414,11 +414,11 @@ module AWS::SDK::ComputeOptimizer
         return nil if visited.include?('AutoScalingGroupRecommendationOption')
         visited = visited + ['AutoScalingGroupRecommendationOption']
         {
-          configuration: Stubs::AutoScalingGroupConfiguration.default(visited),
-          projected_utilization_metrics: Stubs::ProjectedUtilizationMetrics.default(visited),
+          configuration: AutoScalingGroupConfiguration.default(visited),
+          projected_utilization_metrics: ProjectedUtilizationMetrics.default(visited),
           performance_risk: 1.0,
           rank: 1,
-          savings_opportunity: Stubs::SavingsOpportunity.default(visited),
+          savings_opportunity: SavingsOpportunity.default(visited),
           migration_effort: 'migration_effort',
         }
       end
@@ -443,7 +443,7 @@ module AWS::SDK::ComputeOptimizer
         visited = visited + ['SavingsOpportunity']
         {
           savings_opportunity_percentage: 1.0,
-          estimated_monthly_savings: Stubs::EstimatedMonthlySavings.default(visited),
+          estimated_monthly_savings: EstimatedMonthlySavings.default(visited),
         }
       end
 
@@ -482,7 +482,7 @@ module AWS::SDK::ComputeOptimizer
         return nil if visited.include?('ProjectedUtilizationMetrics')
         visited = visited + ['ProjectedUtilizationMetrics']
         [
-          Stubs::UtilizationMetric.default(visited)
+          UtilizationMetric.default(visited)
         ]
       end
 
@@ -548,7 +548,7 @@ module AWS::SDK::ComputeOptimizer
         return nil if visited.include?('UtilizationMetrics')
         visited = visited + ['UtilizationMetrics']
         [
-          Stubs::UtilizationMetric.default(visited)
+          UtilizationMetric.default(visited)
         ]
       end
 
@@ -567,8 +567,8 @@ module AWS::SDK::ComputeOptimizer
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          volume_recommendations: Stubs::VolumeRecommendations.default(visited),
-          errors: Stubs::GetRecommendationErrors.default(visited),
+          volume_recommendations: VolumeRecommendations.default(visited),
+          errors: GetRecommendationErrors.default(visited),
         }
       end
 
@@ -588,7 +588,7 @@ module AWS::SDK::ComputeOptimizer
         return nil if visited.include?('VolumeRecommendations')
         visited = visited + ['VolumeRecommendations']
         [
-          Stubs::VolumeRecommendation.default(visited)
+          VolumeRecommendation.default(visited)
         ]
       end
 
@@ -610,11 +610,11 @@ module AWS::SDK::ComputeOptimizer
         {
           volume_arn: 'volume_arn',
           account_id: 'account_id',
-          current_configuration: Stubs::VolumeConfiguration.default(visited),
+          current_configuration: VolumeConfiguration.default(visited),
           finding: 'finding',
-          utilization_metrics: Stubs::EBSUtilizationMetrics.default(visited),
+          utilization_metrics: EBSUtilizationMetrics.default(visited),
           look_back_period_in_days: 1.0,
-          volume_recommendation_options: Stubs::VolumeRecommendationOptions.default(visited),
+          volume_recommendation_options: VolumeRecommendationOptions.default(visited),
           last_refresh_timestamp: Time.now,
           current_performance_risk: 'current_performance_risk',
         }
@@ -642,7 +642,7 @@ module AWS::SDK::ComputeOptimizer
         return nil if visited.include?('VolumeRecommendationOptions')
         visited = visited + ['VolumeRecommendationOptions']
         [
-          Stubs::VolumeRecommendationOption.default(visited)
+          VolumeRecommendationOption.default(visited)
         ]
       end
 
@@ -662,10 +662,10 @@ module AWS::SDK::ComputeOptimizer
         return nil if visited.include?('VolumeRecommendationOption')
         visited = visited + ['VolumeRecommendationOption']
         {
-          configuration: Stubs::VolumeConfiguration.default(visited),
+          configuration: VolumeConfiguration.default(visited),
           performance_risk: 1.0,
           rank: 1,
-          savings_opportunity: Stubs::SavingsOpportunity.default(visited),
+          savings_opportunity: SavingsOpportunity.default(visited),
         }
       end
 
@@ -714,7 +714,7 @@ module AWS::SDK::ComputeOptimizer
         return nil if visited.include?('EBSUtilizationMetrics')
         visited = visited + ['EBSUtilizationMetrics']
         [
-          Stubs::EBSUtilizationMetric.default(visited)
+          EBSUtilizationMetric.default(visited)
         ]
       end
 
@@ -755,8 +755,8 @@ module AWS::SDK::ComputeOptimizer
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          instance_recommendations: Stubs::InstanceRecommendations.default(visited),
-          errors: Stubs::GetRecommendationErrors.default(visited),
+          instance_recommendations: InstanceRecommendations.default(visited),
+          errors: GetRecommendationErrors.default(visited),
         }
       end
 
@@ -776,7 +776,7 @@ module AWS::SDK::ComputeOptimizer
         return nil if visited.include?('InstanceRecommendations')
         visited = visited + ['InstanceRecommendations']
         [
-          Stubs::InstanceRecommendation.default(visited)
+          InstanceRecommendation.default(visited)
         ]
       end
 
@@ -801,15 +801,15 @@ module AWS::SDK::ComputeOptimizer
           instance_name: 'instance_name',
           current_instance_type: 'current_instance_type',
           finding: 'finding',
-          finding_reason_codes: Stubs::InstanceRecommendationFindingReasonCodes.default(visited),
-          utilization_metrics: Stubs::UtilizationMetrics.default(visited),
+          finding_reason_codes: InstanceRecommendationFindingReasonCodes.default(visited),
+          utilization_metrics: UtilizationMetrics.default(visited),
           look_back_period_in_days: 1.0,
-          recommendation_options: Stubs::RecommendationOptions.default(visited),
-          recommendation_sources: Stubs::RecommendationSources.default(visited),
+          recommendation_options: RecommendationOptions.default(visited),
+          recommendation_sources: RecommendationSources.default(visited),
           last_refresh_timestamp: Time.now,
           current_performance_risk: 'current_performance_risk',
-          effective_recommendation_preferences: Stubs::EffectiveRecommendationPreferences.default(visited),
-          inferred_workload_types: Stubs::InferredWorkloadTypes.default(visited),
+          effective_recommendation_preferences: EffectiveRecommendationPreferences.default(visited),
+          inferred_workload_types: InferredWorkloadTypes.default(visited),
         }
       end
 
@@ -840,7 +840,7 @@ module AWS::SDK::ComputeOptimizer
         return nil if visited.include?('RecommendationSources')
         visited = visited + ['RecommendationSources']
         [
-          Stubs::RecommendationSource.default(visited)
+          RecommendationSource.default(visited)
         ]
       end
 
@@ -880,7 +880,7 @@ module AWS::SDK::ComputeOptimizer
         return nil if visited.include?('RecommendationOptions')
         visited = visited + ['RecommendationOptions']
         [
-          Stubs::InstanceRecommendationOption.default(visited)
+          InstanceRecommendationOption.default(visited)
         ]
       end
 
@@ -901,11 +901,11 @@ module AWS::SDK::ComputeOptimizer
         visited = visited + ['InstanceRecommendationOption']
         {
           instance_type: 'instance_type',
-          projected_utilization_metrics: Stubs::ProjectedUtilizationMetrics.default(visited),
-          platform_differences: Stubs::PlatformDifferences.default(visited),
+          projected_utilization_metrics: ProjectedUtilizationMetrics.default(visited),
+          platform_differences: PlatformDifferences.default(visited),
           performance_risk: 1.0,
           rank: 1,
-          savings_opportunity: Stubs::SavingsOpportunity.default(visited),
+          savings_opportunity: SavingsOpportunity.default(visited),
           migration_effort: 'migration_effort',
         }
       end
@@ -968,7 +968,7 @@ module AWS::SDK::ComputeOptimizer
     class GetEC2RecommendationProjectedMetrics
       def self.default(visited=[])
         {
-          recommended_option_projected_metrics: Stubs::RecommendedOptionProjectedMetrics.default(visited),
+          recommended_option_projected_metrics: RecommendedOptionProjectedMetrics.default(visited),
         }
       end
 
@@ -986,7 +986,7 @@ module AWS::SDK::ComputeOptimizer
         return nil if visited.include?('RecommendedOptionProjectedMetrics')
         visited = visited + ['RecommendedOptionProjectedMetrics']
         [
-          Stubs::RecommendedOptionProjectedMetric.default(visited)
+          RecommendedOptionProjectedMetric.default(visited)
         ]
       end
 
@@ -1008,7 +1008,7 @@ module AWS::SDK::ComputeOptimizer
         {
           recommended_instance_type: 'recommended_instance_type',
           rank: 1,
-          projected_metrics: Stubs::ProjectedMetrics.default(visited),
+          projected_metrics: ProjectedMetrics.default(visited),
         }
       end
 
@@ -1028,7 +1028,7 @@ module AWS::SDK::ComputeOptimizer
         return nil if visited.include?('ProjectedMetrics')
         visited = visited + ['ProjectedMetrics']
         [
-          Stubs::ProjectedMetric.default(visited)
+          ProjectedMetric.default(visited)
         ]
       end
 
@@ -1049,8 +1049,8 @@ module AWS::SDK::ComputeOptimizer
         visited = visited + ['ProjectedMetric']
         {
           name: 'name',
-          timestamps: Stubs::Timestamps.default(visited),
-          values: Stubs::MetricValues.default(visited),
+          timestamps: Timestamps.default(visited),
+          values: MetricValues.default(visited),
         }
       end
 
@@ -1148,7 +1148,7 @@ module AWS::SDK::ComputeOptimizer
     class GetEnrollmentStatusesForOrganization
       def self.default(visited=[])
         {
-          account_enrollment_statuses: Stubs::AccountEnrollmentStatuses.default(visited),
+          account_enrollment_statuses: AccountEnrollmentStatuses.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1168,7 +1168,7 @@ module AWS::SDK::ComputeOptimizer
         return nil if visited.include?('AccountEnrollmentStatuses')
         visited = visited + ['AccountEnrollmentStatuses']
         [
-          Stubs::AccountEnrollmentStatus.default(visited)
+          AccountEnrollmentStatus.default(visited)
         ]
       end
 
@@ -1211,7 +1211,7 @@ module AWS::SDK::ComputeOptimizer
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          lambda_function_recommendations: Stubs::LambdaFunctionRecommendations.default(visited),
+          lambda_function_recommendations: LambdaFunctionRecommendations.default(visited),
         }
       end
 
@@ -1230,7 +1230,7 @@ module AWS::SDK::ComputeOptimizer
         return nil if visited.include?('LambdaFunctionRecommendations')
         visited = visited + ['LambdaFunctionRecommendations']
         [
-          Stubs::LambdaFunctionRecommendation.default(visited)
+          LambdaFunctionRecommendation.default(visited)
         ]
       end
 
@@ -1255,12 +1255,12 @@ module AWS::SDK::ComputeOptimizer
           account_id: 'account_id',
           current_memory_size: 1,
           number_of_invocations: 1,
-          utilization_metrics: Stubs::LambdaFunctionUtilizationMetrics.default(visited),
+          utilization_metrics: LambdaFunctionUtilizationMetrics.default(visited),
           lookback_period_in_days: 1.0,
           last_refresh_timestamp: Time.now,
           finding: 'finding',
-          finding_reason_codes: Stubs::LambdaFunctionRecommendationFindingReasonCodes.default(visited),
-          memory_size_recommendation_options: Stubs::LambdaFunctionMemoryRecommendationOptions.default(visited),
+          finding_reason_codes: LambdaFunctionRecommendationFindingReasonCodes.default(visited),
+          memory_size_recommendation_options: LambdaFunctionMemoryRecommendationOptions.default(visited),
           current_performance_risk: 'current_performance_risk',
         }
       end
@@ -1290,7 +1290,7 @@ module AWS::SDK::ComputeOptimizer
         return nil if visited.include?('LambdaFunctionMemoryRecommendationOptions')
         visited = visited + ['LambdaFunctionMemoryRecommendationOptions']
         [
-          Stubs::LambdaFunctionMemoryRecommendationOption.default(visited)
+          LambdaFunctionMemoryRecommendationOption.default(visited)
         ]
       end
 
@@ -1312,8 +1312,8 @@ module AWS::SDK::ComputeOptimizer
         {
           rank: 1,
           memory_size: 1,
-          projected_utilization_metrics: Stubs::LambdaFunctionMemoryProjectedMetrics.default(visited),
-          savings_opportunity: Stubs::SavingsOpportunity.default(visited),
+          projected_utilization_metrics: LambdaFunctionMemoryProjectedMetrics.default(visited),
+          savings_opportunity: SavingsOpportunity.default(visited),
         }
       end
 
@@ -1334,7 +1334,7 @@ module AWS::SDK::ComputeOptimizer
         return nil if visited.include?('LambdaFunctionMemoryProjectedMetrics')
         visited = visited + ['LambdaFunctionMemoryProjectedMetrics']
         [
-          Stubs::LambdaFunctionMemoryProjectedMetric.default(visited)
+          LambdaFunctionMemoryProjectedMetric.default(visited)
         ]
       end
 
@@ -1396,7 +1396,7 @@ module AWS::SDK::ComputeOptimizer
         return nil if visited.include?('LambdaFunctionUtilizationMetrics')
         visited = visited + ['LambdaFunctionUtilizationMetrics']
         [
-          Stubs::LambdaFunctionUtilizationMetric.default(visited)
+          LambdaFunctionUtilizationMetric.default(visited)
         ]
       end
 
@@ -1437,7 +1437,7 @@ module AWS::SDK::ComputeOptimizer
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          recommendation_preferences_details: Stubs::RecommendationPreferencesDetails.default(visited),
+          recommendation_preferences_details: RecommendationPreferencesDetails.default(visited),
         }
       end
 
@@ -1456,7 +1456,7 @@ module AWS::SDK::ComputeOptimizer
         return nil if visited.include?('RecommendationPreferencesDetails')
         visited = visited + ['RecommendationPreferencesDetails']
         [
-          Stubs::RecommendationPreferencesDetail.default(visited)
+          RecommendationPreferencesDetail.default(visited)
         ]
       end
 
@@ -1476,7 +1476,7 @@ module AWS::SDK::ComputeOptimizer
         return nil if visited.include?('RecommendationPreferencesDetail')
         visited = visited + ['RecommendationPreferencesDetail']
         {
-          scope: Stubs::Scope.default(visited),
+          scope: Scope.default(visited),
           resource_type: 'resource_type',
           enhanced_infrastructure_metrics: 'enhanced_infrastructure_metrics',
           inferred_workload_types: 'inferred_workload_types',
@@ -1519,7 +1519,7 @@ module AWS::SDK::ComputeOptimizer
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          recommendation_summaries: Stubs::RecommendationSummaries.default(visited),
+          recommendation_summaries: RecommendationSummaries.default(visited),
         }
       end
 
@@ -1538,7 +1538,7 @@ module AWS::SDK::ComputeOptimizer
         return nil if visited.include?('RecommendationSummaries')
         visited = visited + ['RecommendationSummaries']
         [
-          Stubs::RecommendationSummary.default(visited)
+          RecommendationSummary.default(visited)
         ]
       end
 
@@ -1558,11 +1558,11 @@ module AWS::SDK::ComputeOptimizer
         return nil if visited.include?('RecommendationSummary')
         visited = visited + ['RecommendationSummary']
         {
-          summaries: Stubs::Summaries.default(visited),
+          summaries: Summaries.default(visited),
           recommendation_resource_type: 'recommendation_resource_type',
           account_id: 'account_id',
-          savings_opportunity: Stubs::SavingsOpportunity.default(visited),
-          current_performance_risk_ratings: Stubs::CurrentPerformanceRiskRatings.default(visited),
+          savings_opportunity: SavingsOpportunity.default(visited),
+          current_performance_risk_ratings: CurrentPerformanceRiskRatings.default(visited),
         }
       end
 
@@ -1608,7 +1608,7 @@ module AWS::SDK::ComputeOptimizer
         return nil if visited.include?('Summaries')
         visited = visited + ['Summaries']
         [
-          Stubs::Summary.default(visited)
+          Summary.default(visited)
         ]
       end
 
@@ -1630,7 +1630,7 @@ module AWS::SDK::ComputeOptimizer
         {
           name: 'name',
           value: 1.0,
-          reason_code_summaries: Stubs::ReasonCodeSummaries.default(visited),
+          reason_code_summaries: ReasonCodeSummaries.default(visited),
         }
       end
 
@@ -1650,7 +1650,7 @@ module AWS::SDK::ComputeOptimizer
         return nil if visited.include?('ReasonCodeSummaries')
         visited = visited + ['ReasonCodeSummaries']
         [
-          Stubs::ReasonCodeSummary.default(visited)
+          ReasonCodeSummary.default(visited)
         ]
       end
 

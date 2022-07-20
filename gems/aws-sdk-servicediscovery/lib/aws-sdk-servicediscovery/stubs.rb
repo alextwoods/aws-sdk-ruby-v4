@@ -62,7 +62,7 @@ module AWS::SDK::ServiceDiscovery
     class CreateService
       def self.default(visited=[])
         {
-          service: Stubs::Service.default(visited),
+          service: Service.default(visited),
         }
       end
 
@@ -86,10 +86,10 @@ module AWS::SDK::ServiceDiscovery
           namespace_id: 'namespace_id',
           description: 'description',
           instance_count: 1,
-          dns_config: Stubs::DnsConfig.default(visited),
+          dns_config: DnsConfig.default(visited),
           type: 'type',
-          health_check_config: Stubs::HealthCheckConfig.default(visited),
-          health_check_custom_config: Stubs::HealthCheckCustomConfig.default(visited),
+          health_check_config: HealthCheckConfig.default(visited),
+          health_check_custom_config: HealthCheckCustomConfig.default(visited),
           create_date: Time.now,
           creator_request_id: 'creator_request_id',
         }
@@ -162,7 +162,7 @@ module AWS::SDK::ServiceDiscovery
         {
           namespace_id: 'namespace_id',
           routing_policy: 'routing_policy',
-          dns_records: Stubs::DnsRecordList.default(visited),
+          dns_records: DnsRecordList.default(visited),
         }
       end
 
@@ -182,7 +182,7 @@ module AWS::SDK::ServiceDiscovery
         return nil if visited.include?('DnsRecordList')
         visited = visited + ['DnsRecordList']
         [
-          Stubs::DnsRecord.default(visited)
+          DnsRecord.default(visited)
         ]
       end
 
@@ -266,7 +266,7 @@ module AWS::SDK::ServiceDiscovery
     class DiscoverInstances
       def self.default(visited=[])
         {
-          instances: Stubs::HttpInstanceSummaryList.default(visited),
+          instances: HttpInstanceSummaryList.default(visited),
         }
       end
 
@@ -284,7 +284,7 @@ module AWS::SDK::ServiceDiscovery
         return nil if visited.include?('HttpInstanceSummaryList')
         visited = visited + ['HttpInstanceSummaryList']
         [
-          Stubs::HttpInstanceSummary.default(visited)
+          HttpInstanceSummary.default(visited)
         ]
       end
 
@@ -308,7 +308,7 @@ module AWS::SDK::ServiceDiscovery
           namespace_name: 'namespace_name',
           service_name: 'service_name',
           health_status: 'health_status',
-          attributes: Stubs::Attributes.default(visited),
+          attributes: Attributes.default(visited),
         }
       end
 
@@ -348,7 +348,7 @@ module AWS::SDK::ServiceDiscovery
     class GetInstance
       def self.default(visited=[])
         {
-          instance: Stubs::Instance.default(visited),
+          instance: Instance.default(visited),
         }
       end
 
@@ -368,7 +368,7 @@ module AWS::SDK::ServiceDiscovery
         {
           id: 'id',
           creator_request_id: 'creator_request_id',
-          attributes: Stubs::Attributes.default(visited),
+          attributes: Attributes.default(visited),
         }
       end
 
@@ -386,7 +386,7 @@ module AWS::SDK::ServiceDiscovery
     class GetInstancesHealthStatus
       def self.default(visited=[])
         {
-          status: Stubs::InstanceHealthStatusMap.default(visited),
+          status: InstanceHealthStatusMap.default(visited),
           next_token: 'next_token',
         }
       end
@@ -424,7 +424,7 @@ module AWS::SDK::ServiceDiscovery
     class GetNamespace
       def self.default(visited=[])
         {
-          namespace: Stubs::Namespace.default(visited),
+          namespace: Namespace.default(visited),
         }
       end
 
@@ -448,7 +448,7 @@ module AWS::SDK::ServiceDiscovery
           type: 'type',
           description: 'description',
           service_count: 1,
-          properties: Stubs::NamespaceProperties.default(visited),
+          properties: NamespaceProperties.default(visited),
           create_date: Time.now,
           creator_request_id: 'creator_request_id',
         }
@@ -476,8 +476,8 @@ module AWS::SDK::ServiceDiscovery
         return nil if visited.include?('NamespaceProperties')
         visited = visited + ['NamespaceProperties']
         {
-          dns_properties: Stubs::DnsProperties.default(visited),
-          http_properties: Stubs::HttpProperties.default(visited),
+          dns_properties: DnsProperties.default(visited),
+          http_properties: HttpProperties.default(visited),
         }
       end
 
@@ -515,7 +515,7 @@ module AWS::SDK::ServiceDiscovery
         visited = visited + ['DnsProperties']
         {
           hosted_zone_id: 'hosted_zone_id',
-          soa: Stubs::SOA.default(visited),
+          soa: SOA.default(visited),
         }
       end
 
@@ -550,7 +550,7 @@ module AWS::SDK::ServiceDiscovery
     class GetOperation
       def self.default(visited=[])
         {
-          operation: Stubs::Operation.default(visited),
+          operation: Operation.default(visited),
         }
       end
 
@@ -575,7 +575,7 @@ module AWS::SDK::ServiceDiscovery
           error_code: 'error_code',
           create_date: Time.now,
           update_date: Time.now,
-          targets: Stubs::OperationTargetsMap.default(visited),
+          targets: OperationTargetsMap.default(visited),
         }
       end
 
@@ -618,7 +618,7 @@ module AWS::SDK::ServiceDiscovery
     class GetService
       def self.default(visited=[])
         {
-          service: Stubs::Service.default(visited),
+          service: Service.default(visited),
         }
       end
 
@@ -634,7 +634,7 @@ module AWS::SDK::ServiceDiscovery
     class ListInstances
       def self.default(visited=[])
         {
-          instances: Stubs::InstanceSummaryList.default(visited),
+          instances: InstanceSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -654,7 +654,7 @@ module AWS::SDK::ServiceDiscovery
         return nil if visited.include?('InstanceSummaryList')
         visited = visited + ['InstanceSummaryList']
         [
-          Stubs::InstanceSummary.default(visited)
+          InstanceSummary.default(visited)
         ]
       end
 
@@ -675,7 +675,7 @@ module AWS::SDK::ServiceDiscovery
         visited = visited + ['InstanceSummary']
         {
           id: 'id',
-          attributes: Stubs::Attributes.default(visited),
+          attributes: Attributes.default(visited),
         }
       end
 
@@ -692,7 +692,7 @@ module AWS::SDK::ServiceDiscovery
     class ListNamespaces
       def self.default(visited=[])
         {
-          namespaces: Stubs::NamespaceSummariesList.default(visited),
+          namespaces: NamespaceSummariesList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -712,7 +712,7 @@ module AWS::SDK::ServiceDiscovery
         return nil if visited.include?('NamespaceSummariesList')
         visited = visited + ['NamespaceSummariesList']
         [
-          Stubs::NamespaceSummary.default(visited)
+          NamespaceSummary.default(visited)
         ]
       end
 
@@ -738,7 +738,7 @@ module AWS::SDK::ServiceDiscovery
           type: 'type',
           description: 'description',
           service_count: 1,
-          properties: Stubs::NamespaceProperties.default(visited),
+          properties: NamespaceProperties.default(visited),
           create_date: Time.now,
         }
       end
@@ -762,7 +762,7 @@ module AWS::SDK::ServiceDiscovery
     class ListOperations
       def self.default(visited=[])
         {
-          operations: Stubs::OperationSummaryList.default(visited),
+          operations: OperationSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -782,7 +782,7 @@ module AWS::SDK::ServiceDiscovery
         return nil if visited.include?('OperationSummaryList')
         visited = visited + ['OperationSummaryList']
         [
-          Stubs::OperationSummary.default(visited)
+          OperationSummary.default(visited)
         ]
       end
 
@@ -820,7 +820,7 @@ module AWS::SDK::ServiceDiscovery
     class ListServices
       def self.default(visited=[])
         {
-          services: Stubs::ServiceSummariesList.default(visited),
+          services: ServiceSummariesList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -840,7 +840,7 @@ module AWS::SDK::ServiceDiscovery
         return nil if visited.include?('ServiceSummariesList')
         visited = visited + ['ServiceSummariesList']
         [
-          Stubs::ServiceSummary.default(visited)
+          ServiceSummary.default(visited)
         ]
       end
 
@@ -866,9 +866,9 @@ module AWS::SDK::ServiceDiscovery
           type: 'type',
           description: 'description',
           instance_count: 1,
-          dns_config: Stubs::DnsConfig.default(visited),
-          health_check_config: Stubs::HealthCheckConfig.default(visited),
-          health_check_custom_config: Stubs::HealthCheckCustomConfig.default(visited),
+          dns_config: DnsConfig.default(visited),
+          health_check_config: HealthCheckConfig.default(visited),
+          health_check_custom_config: HealthCheckCustomConfig.default(visited),
           create_date: Time.now,
         }
       end
@@ -894,7 +894,7 @@ module AWS::SDK::ServiceDiscovery
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -912,7 +912,7 @@ module AWS::SDK::ServiceDiscovery
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 

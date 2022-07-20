@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::ChimeSDKIdentity
@@ -81,7 +83,7 @@ module AWS::SDK::ChimeSDKIdentity
     def create_app_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateAppInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateAppInstanceInput,
         validate_input: @config.validate_input
@@ -173,7 +175,7 @@ module AWS::SDK::ChimeSDKIdentity
     def create_app_instance_admin(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateAppInstanceAdminInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateAppInstanceAdminInput,
         validate_input: @config.validate_input
@@ -268,7 +270,7 @@ module AWS::SDK::ChimeSDKIdentity
     def create_app_instance_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateAppInstanceUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateAppInstanceUserInput,
         validate_input: @config.validate_input
@@ -336,7 +338,7 @@ module AWS::SDK::ChimeSDKIdentity
     def delete_app_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAppInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAppInstanceInput,
         validate_input: @config.validate_input
@@ -408,7 +410,7 @@ module AWS::SDK::ChimeSDKIdentity
     def delete_app_instance_admin(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAppInstanceAdminInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAppInstanceAdminInput,
         validate_input: @config.validate_input
@@ -475,7 +477,7 @@ module AWS::SDK::ChimeSDKIdentity
     def delete_app_instance_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAppInstanceUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAppInstanceUserInput,
         validate_input: @config.validate_input
@@ -546,7 +548,7 @@ module AWS::SDK::ChimeSDKIdentity
     def deregister_app_instance_user_endpoint(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeregisterAppInstanceUserEndpointInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeregisterAppInstanceUserEndpointInput,
         validate_input: @config.validate_input
@@ -619,7 +621,7 @@ module AWS::SDK::ChimeSDKIdentity
     def describe_app_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAppInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAppInstanceInput,
         validate_input: @config.validate_input
@@ -696,7 +698,7 @@ module AWS::SDK::ChimeSDKIdentity
     def describe_app_instance_admin(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAppInstanceAdminInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAppInstanceAdminInput,
         validate_input: @config.validate_input
@@ -769,7 +771,7 @@ module AWS::SDK::ChimeSDKIdentity
     def describe_app_instance_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAppInstanceUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAppInstanceUserInput,
         validate_input: @config.validate_input
@@ -855,7 +857,7 @@ module AWS::SDK::ChimeSDKIdentity
     def describe_app_instance_user_endpoint(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAppInstanceUserEndpointInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAppInstanceUserEndpointInput,
         validate_input: @config.validate_input
@@ -926,7 +928,7 @@ module AWS::SDK::ChimeSDKIdentity
     def get_app_instance_retention_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAppInstanceRetentionSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAppInstanceRetentionSettingsInput,
         validate_input: @config.validate_input
@@ -1009,7 +1011,7 @@ module AWS::SDK::ChimeSDKIdentity
     def list_app_instance_admins(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAppInstanceAdminsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAppInstanceAdminsInput,
         validate_input: @config.validate_input
@@ -1095,7 +1097,7 @@ module AWS::SDK::ChimeSDKIdentity
     def list_app_instance_user_endpoints(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAppInstanceUserEndpointsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAppInstanceUserEndpointsInput,
         validate_input: @config.validate_input
@@ -1178,7 +1180,7 @@ module AWS::SDK::ChimeSDKIdentity
     def list_app_instance_users(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAppInstanceUsersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAppInstanceUsersInput,
         validate_input: @config.validate_input
@@ -1257,7 +1259,7 @@ module AWS::SDK::ChimeSDKIdentity
     def list_app_instances(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAppInstancesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAppInstancesInput,
         validate_input: @config.validate_input
@@ -1328,7 +1330,7 @@ module AWS::SDK::ChimeSDKIdentity
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -1408,7 +1410,7 @@ module AWS::SDK::ChimeSDKIdentity
     def put_app_instance_retention_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutAppInstanceRetentionSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutAppInstanceRetentionSettingsInput,
         validate_input: @config.validate_input
@@ -1521,7 +1523,7 @@ module AWS::SDK::ChimeSDKIdentity
     def register_app_instance_user_endpoint(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RegisterAppInstanceUserEndpointInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RegisterAppInstanceUserEndpointInput,
         validate_input: @config.validate_input
@@ -1598,7 +1600,7 @@ module AWS::SDK::ChimeSDKIdentity
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -1672,7 +1674,7 @@ module AWS::SDK::ChimeSDKIdentity
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -1749,7 +1751,7 @@ module AWS::SDK::ChimeSDKIdentity
     def update_app_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateAppInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateAppInstanceInput,
         validate_input: @config.validate_input
@@ -1827,7 +1829,7 @@ module AWS::SDK::ChimeSDKIdentity
     def update_app_instance_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateAppInstanceUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateAppInstanceUserInput,
         validate_input: @config.validate_input
@@ -1910,7 +1912,7 @@ module AWS::SDK::ChimeSDKIdentity
     def update_app_instance_user_endpoint(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateAppInstanceUserEndpointInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateAppInstanceUserEndpointInput,
         validate_input: @config.validate_input

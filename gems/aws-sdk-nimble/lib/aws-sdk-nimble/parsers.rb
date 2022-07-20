@@ -7,8 +7,6 @@
 #
 # WARNING ABOUT GENERATED CODE
 
-require 'base64'
-
 module AWS::SDK::Nimble
   module Parsers
 
@@ -478,6 +476,8 @@ module AWS::SDK::Nimble
         data.type = map['type']
         data.updated_at = Time.parse(map['updatedAt']) if map['updatedAt']
         data.updated_by = map['updatedBy']
+        data.secure_initialization_role_arn = map['secureInitializationRoleArn']
+        data.runtime_role_arn = map['runtimeRoleArn']
         return data
       end
     end
@@ -802,6 +802,8 @@ module AWS::SDK::Nimble
         data.script = map['script']
         data.studio_component_id = map['studioComponentId']
         data.studio_component_name = map['studioComponentName']
+        data.secure_initialization_role_arn = map['secureInitializationRoleArn']
+        data.runtime_role_arn = map['runtimeRoleArn']
         return data
       end
     end

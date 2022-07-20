@@ -89,13 +89,13 @@ module AWS::SDK::KafkaConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_worker_count ||= 0
         self.mcu_count ||= 0
         self.min_worker_count ||= 0
       end
-
     end
 
     # <p>Information about the auto scaling parameters for the connector.</p>
@@ -135,13 +135,13 @@ module AWS::SDK::KafkaConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_worker_count ||= 0
         self.mcu_count ||= 0
         self.min_worker_count ||= 0
       end
-
     end
 
     # <p>The updates to the auto scaling parameters for the connector.</p>
@@ -181,13 +181,13 @@ module AWS::SDK::KafkaConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_worker_count ||= 0
         self.mcu_count ||= 0
         self.min_worker_count ||= 0
       end
-
     end
 
     # <p>HTTP Status Code 400: Bad request due to incorrect input. Correct your request and then
@@ -284,11 +284,11 @@ module AWS::SDK::KafkaConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # <p>A description of the log delivery settings.</p>
@@ -309,11 +309,11 @@ module AWS::SDK::KafkaConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # <p>HTTP Status Code 409: Conflict. A resource with this name already exists. Retry your
@@ -644,11 +644,11 @@ module AWS::SDK::KafkaConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.revision ||= 0
       end
-
     end
 
     # @!attribute description
@@ -731,11 +731,11 @@ module AWS::SDK::KafkaConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.revision ||= 0
       end
-
     end
 
     # Includes enum constants for CustomPluginContentType
@@ -768,11 +768,11 @@ module AWS::SDK::KafkaConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.revision ||= 0
       end
-
     end
 
     # <p>Details about a custom plugin file.</p>
@@ -794,11 +794,11 @@ module AWS::SDK::KafkaConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.file_size ||= 0
       end
-
     end
 
     # <p>Information about the location of a custom plugin.</p>
@@ -875,11 +875,11 @@ module AWS::SDK::KafkaConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.revision ||= 0
       end
-
     end
 
     # Includes enum constants for CustomPluginState
@@ -1304,11 +1304,11 @@ module AWS::SDK::KafkaConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # <p>A description of the settings for delivering logs to Amazon Kinesis Data
@@ -1331,11 +1331,11 @@ module AWS::SDK::KafkaConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # <p>HTTP Status Code 403: Access forbidden. Correct your credentials and then retry your
@@ -1510,11 +1510,11 @@ module AWS::SDK::KafkaConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute connectors
@@ -1555,11 +1555,11 @@ module AWS::SDK::KafkaConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute custom_plugins
@@ -1600,11 +1600,11 @@ module AWS::SDK::KafkaConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute next_token
@@ -1719,12 +1719,12 @@ module AWS::SDK::KafkaConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.mcu_count ||= 0
         self.worker_count ||= 0
       end
-
     end
 
     # <p>The description of a connector's provisioned capacity.</p>
@@ -1746,12 +1746,12 @@ module AWS::SDK::KafkaConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.mcu_count ||= 0
         self.worker_count ||= 0
       end
-
     end
 
     # <p>An update to a connector's fixed capacity.</p>
@@ -1773,12 +1773,12 @@ module AWS::SDK::KafkaConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.mcu_count ||= 0
         self.worker_count ||= 0
       end
-
     end
 
     # <p>The location of an object in Amazon S3.</p>
@@ -1857,11 +1857,11 @@ module AWS::SDK::KafkaConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # <p>The description of the details about delivering logs to Amazon S3.</p>
@@ -1888,11 +1888,11 @@ module AWS::SDK::KafkaConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # <p>The scale-in policy for the connector.</p>
@@ -1908,11 +1908,11 @@ module AWS::SDK::KafkaConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.cpu_utilization_percentage ||= 0
       end
-
     end
 
     # <p>The description of the scale-in policy for the connector.</p>
@@ -1928,11 +1928,11 @@ module AWS::SDK::KafkaConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.cpu_utilization_percentage ||= 0
       end
-
     end
 
     # <p>An update to the connector's scale-in policy.</p>
@@ -1948,11 +1948,11 @@ module AWS::SDK::KafkaConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.cpu_utilization_percentage ||= 0
       end
-
     end
 
     # <p>The scale-out policy for the connector.</p>
@@ -1968,11 +1968,11 @@ module AWS::SDK::KafkaConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.cpu_utilization_percentage ||= 0
       end
-
     end
 
     # <p>The description of the scale-out policy for the connector.</p>
@@ -1988,11 +1988,11 @@ module AWS::SDK::KafkaConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.cpu_utilization_percentage ||= 0
       end
-
     end
 
     # <p>An update to the connector's scale-out policy.</p>
@@ -2008,11 +2008,11 @@ module AWS::SDK::KafkaConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.cpu_utilization_percentage ||= 0
       end
-
     end
 
     # <p>HTTP Status Code 503: Service Unavailable. Retrying your request in some time might
@@ -2179,11 +2179,11 @@ module AWS::SDK::KafkaConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.revision ||= 0
       end
-
     end
 
     # <p>The description of the worker configuration.</p>
@@ -2204,11 +2204,11 @@ module AWS::SDK::KafkaConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.revision ||= 0
       end
-
     end
 
     # <p>The description of the worker configuration revision.</p>
@@ -2241,6 +2241,7 @@ module AWS::SDK::KafkaConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.revision ||= 0
@@ -2279,11 +2280,11 @@ module AWS::SDK::KafkaConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.revision ||= 0
       end
-
     end
 
     # <p>The summary of a worker configuration.</p>

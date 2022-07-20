@@ -121,11 +121,11 @@ module AWS::SDK::WellArchitected
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_applicable ||= false
       end
-
     end
 
     # Includes enum constants for AnswerReason
@@ -218,11 +218,11 @@ module AWS::SDK::WellArchitected
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_applicable ||= false
       end
-
     end
 
     # <p>Input to associate lens reviews.</p>
@@ -584,11 +584,11 @@ module AWS::SDK::WellArchitected
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_major_version ||= false
       end
-
     end
 
     # @!attribute lens_arn
@@ -664,11 +664,11 @@ module AWS::SDK::WellArchitected
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.milestone_number ||= 0
       end
-
     end
 
     # <p>Input for workload creation.</p>
@@ -1275,11 +1275,11 @@ module AWS::SDK::WellArchitected
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.milestone_number ||= 0
       end
-
     end
 
     # <p>Output of a get answer call.</p>
@@ -1320,11 +1320,11 @@ module AWS::SDK::WellArchitected
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.milestone_number ||= 0
       end
-
     end
 
     # @!attribute lens_alias
@@ -1384,11 +1384,11 @@ module AWS::SDK::WellArchitected
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.milestone_number ||= 0
       end
-
     end
 
     # <p>Output of a get lens review call.</p>
@@ -1416,11 +1416,11 @@ module AWS::SDK::WellArchitected
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.milestone_number ||= 0
       end
-
     end
 
     # <p>Input to get lens review report.</p>
@@ -1449,11 +1449,11 @@ module AWS::SDK::WellArchitected
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.milestone_number ||= 0
       end
-
     end
 
     # <p>Output of a get lens review report call.</p>
@@ -1481,11 +1481,11 @@ module AWS::SDK::WellArchitected
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.milestone_number ||= 0
       end
-
     end
 
     # @!attribute lens_alias
@@ -1575,11 +1575,11 @@ module AWS::SDK::WellArchitected
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.milestone_number ||= 0
       end
-
     end
 
     # <p>Output of a get milestone call.</p>
@@ -2213,12 +2213,12 @@ module AWS::SDK::WellArchitected
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.milestone_number ||= 0
         self.max_results ||= 0
       end
-
     end
 
     # <p>Output of a list answers call.</p>
@@ -2265,11 +2265,11 @@ module AWS::SDK::WellArchitected
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.milestone_number ||= 0
       end
-
     end
 
     # <p>Input to list lens review improvements.</p>
@@ -2317,12 +2317,12 @@ module AWS::SDK::WellArchitected
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.milestone_number ||= 0
         self.max_results ||= 0
       end
-
     end
 
     # <p>Output of a list lens review improvements call.</p>
@@ -2369,11 +2369,11 @@ module AWS::SDK::WellArchitected
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.milestone_number ||= 0
       end
-
     end
 
     # <p>Input to list lens reviews.</p>
@@ -2407,12 +2407,12 @@ module AWS::SDK::WellArchitected
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.milestone_number ||= 0
         self.max_results ||= 0
       end
-
     end
 
     # <p>Output of a list lens reviews call.</p>
@@ -2446,11 +2446,11 @@ module AWS::SDK::WellArchitected
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.milestone_number ||= 0
       end
-
     end
 
     # @!attribute lens_alias
@@ -2482,11 +2482,11 @@ module AWS::SDK::WellArchitected
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute lens_share_summaries
@@ -2547,11 +2547,11 @@ module AWS::SDK::WellArchitected
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # <p>Output of a list lenses call.</p>
@@ -2598,11 +2598,11 @@ module AWS::SDK::WellArchitected
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # <p>Output of a list milestones call.</p>
@@ -2653,11 +2653,11 @@ module AWS::SDK::WellArchitected
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute notification_summaries
@@ -2717,11 +2717,11 @@ module AWS::SDK::WellArchitected
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # <p>Input for List Share Invitations</p>
@@ -2798,11 +2798,11 @@ module AWS::SDK::WellArchitected
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # <p>Input for List Workload Share</p>
@@ -2856,11 +2856,11 @@ module AWS::SDK::WellArchitected
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # <p>Output of a list workloads call.</p>
@@ -2915,11 +2915,11 @@ module AWS::SDK::WellArchitected
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.milestone_number ||= 0
       end
-
     end
 
     # <p>A milestone summary return object.</p>
@@ -2954,11 +2954,11 @@ module AWS::SDK::WellArchitected
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.milestone_number ||= 0
       end
-
     end
 
     # <p>A notification summary return object.</p>
@@ -3484,11 +3484,11 @@ module AWS::SDK::WellArchitected
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_applicable ||= false
       end
-
     end
 
     # <p>Output of a update answer call.</p>
@@ -3858,11 +3858,11 @@ module AWS::SDK::WellArchitected
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_review_owner_update_acknowledged ||= false
       end
-
     end
 
     # <p>Output of an update workload call.</p>
@@ -4352,11 +4352,11 @@ module AWS::SDK::WellArchitected
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_review_owner_update_acknowledged ||= false
       end
-
     end
 
     # Includes enum constants for WorkloadEnvironment

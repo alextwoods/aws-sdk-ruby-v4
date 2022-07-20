@@ -416,7 +416,7 @@ module AWS::SDK::Macie2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::CreateClassificationJobInput, context: context)
         type = Types::CreateClassificationJobInput.new
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.custom_data_identifier_ids = List____listOf__string.build(params[:custom_data_identifier_ids], context: "#{context}[:custom_data_identifier_ids]") unless params[:custom_data_identifier_ids].nil?
         type.description = params[:description]
         type.initial_run = params[:initial_run]
@@ -446,7 +446,7 @@ module AWS::SDK::Macie2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::CreateCustomDataIdentifierInput, context: context)
         type = Types::CreateCustomDataIdentifierInput.new
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.description = params[:description]
         type.ignore_words = List____listOf__string.build(params[:ignore_words], context: "#{context}[:ignore_words]") unless params[:ignore_words].nil?
         type.keywords = List____listOf__string.build(params[:keywords], context: "#{context}[:keywords]") unless params[:keywords].nil?
@@ -473,7 +473,7 @@ module AWS::SDK::Macie2
         Hearth::Validator.validate!(params, ::Hash, Types::CreateFindingsFilterInput, context: context)
         type = Types::CreateFindingsFilterInput.new
         type.action = params[:action]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.description = params[:description]
         type.finding_criteria = FindingCriteria.build(params[:finding_criteria], context: "#{context}[:finding_criteria]") unless params[:finding_criteria].nil?
         type.name = params[:name]
@@ -792,7 +792,7 @@ module AWS::SDK::Macie2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::DescribeClassificationJobOutput, context: context)
         type = Types::DescribeClassificationJobOutput.new
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.created_at = params[:created_at]
         type.custom_data_identifier_ids = List____listOf__string.build(params[:custom_data_identifier_ids], context: "#{context}[:custom_data_identifier_ids]") unless params[:custom_data_identifier_ids].nil?
         type.description = params[:description]
@@ -929,7 +929,7 @@ module AWS::SDK::Macie2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::EnableMacieInput, context: context)
         type = Types::EnableMacieInput.new
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.finding_publishing_frequency = params[:finding_publishing_frequency]
         type.status = params[:status]
         type
@@ -949,7 +949,7 @@ module AWS::SDK::Macie2
         Hearth::Validator.validate!(params, ::Hash, Types::EnableOrganizationAdminAccountInput, context: context)
         type = Types::EnableOrganizationAdminAccountInput.new
         type.admin_account_id = params[:admin_account_id]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -1909,7 +1909,7 @@ module AWS::SDK::Macie2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::PutFindingsPublicationConfigurationInput, context: context)
         type = Types::PutFindingsPublicationConfigurationInput.new
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.security_hub_configuration = SecurityHubConfiguration.build(params[:security_hub_configuration], context: "#{context}[:security_hub_configuration]") unless params[:security_hub_configuration].nil?
         type
       end
@@ -2513,7 +2513,7 @@ module AWS::SDK::Macie2
         type.id = params[:id]
         type.name = params[:name]
         type.position = params[:position]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end

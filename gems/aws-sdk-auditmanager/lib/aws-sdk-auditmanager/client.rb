@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::AuditManager
@@ -97,7 +99,7 @@ module AWS::SDK::AuditManager
     def associate_assessment_report_evidence_folder(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateAssessmentReportEvidenceFolderInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateAssessmentReportEvidenceFolderInput,
         validate_input: @config.validate_input
@@ -183,7 +185,7 @@ module AWS::SDK::AuditManager
     def batch_associate_assessment_report_evidence(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchAssociateAssessmentReportEvidenceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchAssociateAssessmentReportEvidenceInput,
         validate_input: @config.validate_input
@@ -284,7 +286,7 @@ module AWS::SDK::AuditManager
     def batch_create_delegation_by_assessment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchCreateDelegationByAssessmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchCreateDelegationByAssessmentInput,
         validate_input: @config.validate_input
@@ -363,7 +365,7 @@ module AWS::SDK::AuditManager
     def batch_delete_delegation_by_assessment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchDeleteDelegationByAssessmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchDeleteDelegationByAssessmentInput,
         validate_input: @config.validate_input
@@ -449,7 +451,7 @@ module AWS::SDK::AuditManager
     def batch_disassociate_assessment_report_evidence(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchDisassociateAssessmentReportEvidenceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchDisassociateAssessmentReportEvidenceInput,
         validate_input: @config.validate_input
@@ -540,7 +542,7 @@ module AWS::SDK::AuditManager
     def batch_import_evidence_to_assessment_control(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchImportEvidenceToAssessmentControlInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchImportEvidenceToAssessmentControlInput,
         validate_input: @config.validate_input
@@ -730,7 +732,7 @@ module AWS::SDK::AuditManager
     def create_assessment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateAssessmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateAssessmentInput,
         validate_input: @config.validate_input
@@ -873,7 +875,7 @@ module AWS::SDK::AuditManager
     def create_assessment_framework(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateAssessmentFrameworkInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateAssessmentFrameworkInput,
         validate_input: @config.validate_input
@@ -959,7 +961,7 @@ module AWS::SDK::AuditManager
     def create_assessment_report(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateAssessmentReportInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateAssessmentReportInput,
         validate_input: @config.validate_input
@@ -1094,7 +1096,7 @@ module AWS::SDK::AuditManager
     def create_control(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateControlInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateControlInput,
         validate_input: @config.validate_input
@@ -1162,7 +1164,7 @@ module AWS::SDK::AuditManager
     def delete_assessment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAssessmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAssessmentInput,
         validate_input: @config.validate_input
@@ -1229,7 +1231,7 @@ module AWS::SDK::AuditManager
     def delete_assessment_framework(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAssessmentFrameworkInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAssessmentFrameworkInput,
         validate_input: @config.validate_input
@@ -1302,7 +1304,7 @@ module AWS::SDK::AuditManager
     def delete_assessment_framework_share(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAssessmentFrameworkShareInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAssessmentFrameworkShareInput,
         validate_input: @config.validate_input
@@ -1393,7 +1395,7 @@ module AWS::SDK::AuditManager
     def delete_assessment_report(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAssessmentReportInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAssessmentReportInput,
         validate_input: @config.validate_input
@@ -1460,7 +1462,7 @@ module AWS::SDK::AuditManager
     def delete_control(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteControlInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteControlInput,
         validate_input: @config.validate_input
@@ -1562,7 +1564,7 @@ module AWS::SDK::AuditManager
     def deregister_account(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeregisterAccountInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeregisterAccountInput,
         validate_input: @config.validate_input
@@ -1677,7 +1679,7 @@ module AWS::SDK::AuditManager
     def deregister_organization_admin_account(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeregisterOrganizationAdminAccountInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeregisterOrganizationAdminAccountInput,
         validate_input: @config.validate_input
@@ -1749,7 +1751,7 @@ module AWS::SDK::AuditManager
     def disassociate_assessment_report_evidence_folder(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateAssessmentReportEvidenceFolderInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateAssessmentReportEvidenceFolderInput,
         validate_input: @config.validate_input
@@ -1813,7 +1815,7 @@ module AWS::SDK::AuditManager
     def get_account_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAccountStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAccountStatusInput,
         validate_input: @config.validate_input
@@ -1955,7 +1957,7 @@ module AWS::SDK::AuditManager
     def get_assessment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAssessmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAssessmentInput,
         validate_input: @config.validate_input
@@ -2069,7 +2071,7 @@ module AWS::SDK::AuditManager
     def get_assessment_framework(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAssessmentFrameworkInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAssessmentFrameworkInput,
         validate_input: @config.validate_input
@@ -2143,7 +2145,7 @@ module AWS::SDK::AuditManager
     def get_assessment_report_url(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAssessmentReportUrlInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAssessmentReportUrlInput,
         validate_input: @config.validate_input
@@ -2234,7 +2236,7 @@ module AWS::SDK::AuditManager
     def get_change_logs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetChangeLogsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetChangeLogsInput,
         validate_input: @config.validate_input
@@ -2329,7 +2331,7 @@ module AWS::SDK::AuditManager
     def get_control(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetControlInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetControlInput,
         validate_input: @config.validate_input
@@ -2410,7 +2412,7 @@ module AWS::SDK::AuditManager
     def get_delegations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDelegationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDelegationsInput,
         validate_input: @config.validate_input
@@ -2509,7 +2511,7 @@ module AWS::SDK::AuditManager
     def get_evidence(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetEvidenceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetEvidenceInput,
         validate_input: @config.validate_input
@@ -2614,7 +2616,7 @@ module AWS::SDK::AuditManager
     def get_evidence_by_evidence_folder(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetEvidenceByEvidenceFolderInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetEvidenceByEvidenceFolderInput,
         validate_input: @config.validate_input
@@ -2709,7 +2711,7 @@ module AWS::SDK::AuditManager
     def get_evidence_folder(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetEvidenceFolderInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetEvidenceFolderInput,
         validate_input: @config.validate_input
@@ -2806,7 +2808,7 @@ module AWS::SDK::AuditManager
     def get_evidence_folders_by_assessment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetEvidenceFoldersByAssessmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetEvidenceFoldersByAssessmentInput,
         validate_input: @config.validate_input
@@ -2911,7 +2913,7 @@ module AWS::SDK::AuditManager
     def get_evidence_folders_by_assessment_control(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetEvidenceFoldersByAssessmentControlInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetEvidenceFoldersByAssessmentControlInput,
         validate_input: @config.validate_input
@@ -2981,7 +2983,7 @@ module AWS::SDK::AuditManager
     def get_insights(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetInsightsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetInsightsInput,
         validate_input: @config.validate_input
@@ -3055,7 +3057,7 @@ module AWS::SDK::AuditManager
     def get_insights_by_assessment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetInsightsByAssessmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetInsightsByAssessmentInput,
         validate_input: @config.validate_input
@@ -3120,7 +3122,7 @@ module AWS::SDK::AuditManager
     def get_organization_admin_account(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetOrganizationAdminAccountInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetOrganizationAdminAccountInput,
         validate_input: @config.validate_input
@@ -3189,7 +3191,7 @@ module AWS::SDK::AuditManager
     def get_services_in_scope(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetServicesInScopeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetServicesInScopeInput,
         validate_input: @config.validate_input
@@ -3267,7 +3269,7 @@ module AWS::SDK::AuditManager
     def get_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSettingsInput,
         validate_input: @config.validate_input
@@ -3364,7 +3366,7 @@ module AWS::SDK::AuditManager
     def list_assessment_control_insights_by_control_domain(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAssessmentControlInsightsByControlDomainInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAssessmentControlInsightsByControlDomainInput,
         validate_input: @config.validate_input
@@ -3457,7 +3459,7 @@ module AWS::SDK::AuditManager
     def list_assessment_framework_share_requests(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAssessmentFrameworkShareRequestsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAssessmentFrameworkShareRequestsInput,
         validate_input: @config.validate_input
@@ -3547,7 +3549,7 @@ module AWS::SDK::AuditManager
     def list_assessment_frameworks(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAssessmentFrameworksInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAssessmentFrameworksInput,
         validate_input: @config.validate_input
@@ -3629,7 +3631,7 @@ module AWS::SDK::AuditManager
     def list_assessment_reports(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAssessmentReportsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAssessmentReportsInput,
         validate_input: @config.validate_input
@@ -3730,7 +3732,7 @@ module AWS::SDK::AuditManager
     def list_assessments(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAssessmentsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAssessmentsInput,
         validate_input: @config.validate_input
@@ -3819,7 +3821,7 @@ module AWS::SDK::AuditManager
     def list_control_domain_insights(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListControlDomainInsightsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListControlDomainInsightsInput,
         validate_input: @config.validate_input
@@ -3911,7 +3913,7 @@ module AWS::SDK::AuditManager
     def list_control_domain_insights_by_assessment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListControlDomainInsightsByAssessmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListControlDomainInsightsByAssessmentInput,
         validate_input: @config.validate_input
@@ -4003,7 +4005,7 @@ module AWS::SDK::AuditManager
     def list_control_insights_by_control_domain(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListControlInsightsByControlDomainInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListControlInsightsByControlDomainInput,
         validate_input: @config.validate_input
@@ -4087,7 +4089,7 @@ module AWS::SDK::AuditManager
     def list_controls(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListControlsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListControlsInput,
         validate_input: @config.validate_input
@@ -4165,7 +4167,7 @@ module AWS::SDK::AuditManager
     def list_keywords_for_data_source(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListKeywordsForDataSourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListKeywordsForDataSourceInput,
         validate_input: @config.validate_input
@@ -4247,7 +4249,7 @@ module AWS::SDK::AuditManager
     def list_notifications(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListNotificationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListNotificationsInput,
         validate_input: @config.validate_input
@@ -4316,7 +4318,7 @@ module AWS::SDK::AuditManager
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -4388,7 +4390,7 @@ module AWS::SDK::AuditManager
     def register_account(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RegisterAccountInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RegisterAccountInput,
         validate_input: @config.validate_input
@@ -4459,7 +4461,7 @@ module AWS::SDK::AuditManager
     def register_organization_admin_account(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RegisterOrganizationAdminAccountInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RegisterOrganizationAdminAccountInput,
         validate_input: @config.validate_input
@@ -4589,7 +4591,7 @@ module AWS::SDK::AuditManager
     def start_assessment_framework_share(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartAssessmentFrameworkShareInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartAssessmentFrameworkShareInput,
         validate_input: @config.validate_input
@@ -4663,7 +4665,7 @@ module AWS::SDK::AuditManager
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -4737,7 +4739,7 @@ module AWS::SDK::AuditManager
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -4920,7 +4922,7 @@ module AWS::SDK::AuditManager
     def update_assessment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateAssessmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateAssessmentInput,
         validate_input: @config.validate_input
@@ -5019,7 +5021,7 @@ module AWS::SDK::AuditManager
     def update_assessment_control(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateAssessmentControlInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateAssessmentControlInput,
         validate_input: @config.validate_input
@@ -5138,7 +5140,7 @@ module AWS::SDK::AuditManager
     def update_assessment_control_set_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateAssessmentControlSetStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateAssessmentControlSetStatusInput,
         validate_input: @config.validate_input
@@ -5280,7 +5282,7 @@ module AWS::SDK::AuditManager
     def update_assessment_framework(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateAssessmentFrameworkInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateAssessmentFrameworkInput,
         validate_input: @config.validate_input
@@ -5372,7 +5374,7 @@ module AWS::SDK::AuditManager
     def update_assessment_framework_share(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateAssessmentFrameworkShareInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateAssessmentFrameworkShareInput,
         validate_input: @config.validate_input
@@ -5518,7 +5520,7 @@ module AWS::SDK::AuditManager
     def update_assessment_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateAssessmentStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateAssessmentStatusInput,
         validate_input: @config.validate_input
@@ -5652,7 +5654,7 @@ module AWS::SDK::AuditManager
     def update_control(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateControlInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateControlInput,
         validate_input: @config.validate_input
@@ -5752,7 +5754,7 @@ module AWS::SDK::AuditManager
     def update_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateSettingsInput,
         validate_input: @config.validate_input
@@ -5827,7 +5829,7 @@ module AWS::SDK::AuditManager
     def validate_assessment_report_integrity(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ValidateAssessmentReportIntegrityInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ValidateAssessmentReportIntegrityInput,
         validate_input: @config.validate_input

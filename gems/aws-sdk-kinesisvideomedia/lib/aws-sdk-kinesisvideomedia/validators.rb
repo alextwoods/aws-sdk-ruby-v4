@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::KinesisVideoMedia
   module Validators
 
@@ -29,7 +31,7 @@ module AWS::SDK::KinesisVideoMedia
         Hearth::Validator.validate!(input, Types::GetMediaInput, context: context)
         Hearth::Validator.validate!(input[:stream_name], ::String, context: "#{context}[:stream_name]")
         Hearth::Validator.validate!(input[:stream_arn], ::String, context: "#{context}[:stream_arn]")
-        Validators::StartSelector.validate!(input[:start_selector], context: "#{context}[:start_selector]") unless input[:start_selector].nil?
+        StartSelector.validate!(input[:start_selector], context: "#{context}[:start_selector]") unless input[:start_selector].nil?
       end
     end
 

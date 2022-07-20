@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::Fis
@@ -200,7 +202,7 @@ module AWS::SDK::Fis
     def create_experiment_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateExperimentTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateExperimentTemplateInput,
         validate_input: @config.validate_input
@@ -311,7 +313,7 @@ module AWS::SDK::Fis
     def delete_experiment_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteExperimentTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteExperimentTemplateInput,
         validate_input: @config.validate_input
@@ -390,7 +392,7 @@ module AWS::SDK::Fis
     def get_action(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetActionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetActionInput,
         validate_input: @config.validate_input
@@ -509,7 +511,7 @@ module AWS::SDK::Fis
     def get_experiment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetExperimentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetExperimentInput,
         validate_input: @config.validate_input
@@ -619,7 +621,7 @@ module AWS::SDK::Fis
     def get_experiment_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetExperimentTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetExperimentTemplateInput,
         validate_input: @config.validate_input
@@ -693,7 +695,7 @@ module AWS::SDK::Fis
     def get_target_resource_type(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetTargetResourceTypeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetTargetResourceTypeInput,
         validate_input: @config.validate_input
@@ -774,7 +776,7 @@ module AWS::SDK::Fis
     def list_actions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListActionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListActionsInput,
         validate_input: @config.validate_input
@@ -854,7 +856,7 @@ module AWS::SDK::Fis
     def list_experiment_templates(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListExperimentTemplatesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListExperimentTemplatesInput,
         validate_input: @config.validate_input
@@ -936,7 +938,7 @@ module AWS::SDK::Fis
     def list_experiments(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListExperimentsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListExperimentsInput,
         validate_input: @config.validate_input
@@ -1005,7 +1007,7 @@ module AWS::SDK::Fis
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -1081,7 +1083,7 @@ module AWS::SDK::Fis
     def list_target_resource_types(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTargetResourceTypesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTargetResourceTypesInput,
         validate_input: @config.validate_input
@@ -1210,7 +1212,7 @@ module AWS::SDK::Fis
     def start_experiment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartExperimentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartExperimentInput,
         validate_input: @config.validate_input
@@ -1330,7 +1332,7 @@ module AWS::SDK::Fis
     def stop_experiment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopExperimentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopExperimentInput,
         validate_input: @config.validate_input
@@ -1403,7 +1405,7 @@ module AWS::SDK::Fis
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -1477,7 +1479,7 @@ module AWS::SDK::Fis
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -1661,7 +1663,7 @@ module AWS::SDK::Fis
     def update_experiment_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateExperimentTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateExperimentTemplateInput,
         validate_input: @config.validate_input

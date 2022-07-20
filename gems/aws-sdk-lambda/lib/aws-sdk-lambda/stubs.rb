@@ -54,7 +54,7 @@ module AWS::SDK::Lambda
           name: 'name',
           function_version: 'function_version',
           description: 'description',
-          routing_config: Stubs::AliasRoutingConfiguration.default(visited),
+          routing_config: AliasRoutingConfiguration.default(visited),
           revision_id: 'revision_id',
         }
       end
@@ -79,7 +79,7 @@ module AWS::SDK::Lambda
         return nil if visited.include?('AliasRoutingConfiguration')
         visited = visited + ['AliasRoutingConfiguration']
         {
-          additional_version_weights: Stubs::AdditionalVersionWeights.default(visited),
+          additional_version_weights: AdditionalVersionWeights.default(visited),
         }
       end
 
@@ -115,7 +115,7 @@ module AWS::SDK::Lambda
     class CreateCodeSigningConfig
       def self.default(visited=[])
         {
-          code_signing_config: Stubs::CodeSigningConfig.default(visited),
+          code_signing_config: CodeSigningConfig.default(visited),
         }
       end
 
@@ -137,8 +137,8 @@ module AWS::SDK::Lambda
           code_signing_config_id: 'code_signing_config_id',
           code_signing_config_arn: 'code_signing_config_arn',
           description: 'description',
-          allowed_publishers: Stubs::AllowedPublishers.default(visited),
-          code_signing_policies: Stubs::CodeSigningPolicies.default(visited),
+          allowed_publishers: AllowedPublishers.default(visited),
+          code_signing_policies: CodeSigningPolicies.default(visited),
           last_modified: 'last_modified',
         }
       end
@@ -180,7 +180,7 @@ module AWS::SDK::Lambda
         return nil if visited.include?('AllowedPublishers')
         visited = visited + ['AllowedPublishers']
         {
-          signing_profile_version_arns: Stubs::SigningProfileVersionArns.default(visited),
+          signing_profile_version_arns: SigningProfileVersionArns.default(visited),
         }
       end
 
@@ -223,22 +223,22 @@ module AWS::SDK::Lambda
           maximum_batching_window_in_seconds: 1,
           parallelization_factor: 1,
           event_source_arn: 'event_source_arn',
-          filter_criteria: Stubs::FilterCriteria.default(visited),
+          filter_criteria: FilterCriteria.default(visited),
           function_arn: 'function_arn',
           last_modified: Time.now,
           last_processing_result: 'last_processing_result',
           state: 'state',
           state_transition_reason: 'state_transition_reason',
-          destination_config: Stubs::DestinationConfig.default(visited),
-          topics: Stubs::Topics.default(visited),
-          queues: Stubs::Queues.default(visited),
-          source_access_configurations: Stubs::SourceAccessConfigurations.default(visited),
-          self_managed_event_source: Stubs::SelfManagedEventSource.default(visited),
+          destination_config: DestinationConfig.default(visited),
+          topics: Topics.default(visited),
+          queues: Queues.default(visited),
+          source_access_configurations: SourceAccessConfigurations.default(visited),
+          self_managed_event_source: SelfManagedEventSource.default(visited),
           maximum_record_age_in_seconds: 1,
           bisect_batch_on_function_error: false,
           maximum_retry_attempts: 1,
           tumbling_window_in_seconds: 1,
-          function_response_types: Stubs::FunctionResponseTypeList.default(visited),
+          function_response_types: FunctionResponseTypeList.default(visited),
         }
       end
 
@@ -299,7 +299,7 @@ module AWS::SDK::Lambda
         return nil if visited.include?('SelfManagedEventSource')
         visited = visited + ['SelfManagedEventSource']
         {
-          endpoints: Stubs::Endpoints.default(visited),
+          endpoints: Endpoints.default(visited),
         }
       end
 
@@ -317,7 +317,7 @@ module AWS::SDK::Lambda
         return nil if visited.include?('Endpoints')
         visited = visited + ['Endpoints']
         {
-          test_key: Stubs::EndpointLists.default(visited)
+          test_key: EndpointLists.default(visited)
         }
       end
 
@@ -357,7 +357,7 @@ module AWS::SDK::Lambda
         return nil if visited.include?('SourceAccessConfigurations')
         visited = visited + ['SourceAccessConfigurations']
         [
-          Stubs::SourceAccessConfiguration.default(visited)
+          SourceAccessConfiguration.default(visited)
         ]
       end
 
@@ -437,8 +437,8 @@ module AWS::SDK::Lambda
         return nil if visited.include?('DestinationConfig')
         visited = visited + ['DestinationConfig']
         {
-          on_success: Stubs::OnSuccess.default(visited),
-          on_failure: Stubs::OnFailure.default(visited),
+          on_success: OnSuccess.default(visited),
+          on_failure: OnFailure.default(visited),
         }
       end
 
@@ -493,7 +493,7 @@ module AWS::SDK::Lambda
         return nil if visited.include?('FilterCriteria')
         visited = visited + ['FilterCriteria']
         {
-          filters: Stubs::FilterList.default(visited),
+          filters: FilterList.default(visited),
         }
       end
 
@@ -511,7 +511,7 @@ module AWS::SDK::Lambda
         return nil if visited.include?('FilterList')
         visited = visited + ['FilterList']
         [
-          Stubs::Filter.default(visited)
+          Filter.default(visited)
         ]
       end
 
@@ -559,27 +559,27 @@ module AWS::SDK::Lambda
           last_modified: 'last_modified',
           code_sha256: 'code_sha256',
           version: 'version',
-          vpc_config: Stubs::VpcConfigResponse.default(visited),
-          dead_letter_config: Stubs::DeadLetterConfig.default(visited),
-          environment: Stubs::EnvironmentResponse.default(visited),
+          vpc_config: VpcConfigResponse.default(visited),
+          dead_letter_config: DeadLetterConfig.default(visited),
+          environment: EnvironmentResponse.default(visited),
           kms_key_arn: 'kms_key_arn',
-          tracing_config: Stubs::TracingConfigResponse.default(visited),
+          tracing_config: TracingConfigResponse.default(visited),
           master_arn: 'master_arn',
           revision_id: 'revision_id',
-          layers: Stubs::LayersReferenceList.default(visited),
+          layers: LayersReferenceList.default(visited),
           state: 'state',
           state_reason: 'state_reason',
           state_reason_code: 'state_reason_code',
           last_update_status: 'last_update_status',
           last_update_status_reason: 'last_update_status_reason',
           last_update_status_reason_code: 'last_update_status_reason_code',
-          file_system_configs: Stubs::FileSystemConfigList.default(visited),
+          file_system_configs: FileSystemConfigList.default(visited),
           package_type: 'package_type',
-          image_config_response: Stubs::ImageConfigResponse.default(visited),
+          image_config_response: ImageConfigResponse.default(visited),
           signing_profile_version_arn: 'signing_profile_version_arn',
           signing_job_arn: 'signing_job_arn',
-          architectures: Stubs::ArchitecturesList.default(visited),
-          ephemeral_storage: Stubs::EphemeralStorage.default(visited),
+          architectures: ArchitecturesList.default(visited),
+          ephemeral_storage: EphemeralStorage.default(visited),
         }
       end
 
@@ -668,8 +668,8 @@ module AWS::SDK::Lambda
         return nil if visited.include?('ImageConfigResponse')
         visited = visited + ['ImageConfigResponse']
         {
-          image_config: Stubs::ImageConfig.default(visited),
-          error: Stubs::ImageConfigError.default(visited),
+          image_config: ImageConfig.default(visited),
+          error: ImageConfigError.default(visited),
         }
       end
 
@@ -708,8 +708,8 @@ module AWS::SDK::Lambda
         return nil if visited.include?('ImageConfig')
         visited = visited + ['ImageConfig']
         {
-          entry_point: Stubs::StringList.default(visited),
-          command: Stubs::StringList.default(visited),
+          entry_point: StringList.default(visited),
+          command: StringList.default(visited),
           working_directory: 'working_directory',
         }
       end
@@ -750,7 +750,7 @@ module AWS::SDK::Lambda
         return nil if visited.include?('FileSystemConfigList')
         visited = visited + ['FileSystemConfigList']
         [
-          Stubs::FileSystemConfig.default(visited)
+          FileSystemConfig.default(visited)
         ]
       end
 
@@ -790,7 +790,7 @@ module AWS::SDK::Lambda
         return nil if visited.include?('LayersReferenceList')
         visited = visited + ['LayersReferenceList']
         [
-          Stubs::Layer.default(visited)
+          Layer.default(visited)
         ]
       end
 
@@ -852,8 +852,8 @@ module AWS::SDK::Lambda
         return nil if visited.include?('EnvironmentResponse')
         visited = visited + ['EnvironmentResponse']
         {
-          variables: Stubs::EnvironmentVariables.default(visited),
-          error: Stubs::EnvironmentError.default(visited),
+          variables: EnvironmentVariables.default(visited),
+          error: EnvironmentError.default(visited),
         }
       end
 
@@ -930,8 +930,8 @@ module AWS::SDK::Lambda
         return nil if visited.include?('VpcConfigResponse')
         visited = visited + ['VpcConfigResponse']
         {
-          subnet_ids: Stubs::SubnetIds.default(visited),
-          security_group_ids: Stubs::SecurityGroupIds.default(visited),
+          subnet_ids: SubnetIds.default(visited),
+          security_group_ids: SecurityGroupIds.default(visited),
           vpc_id: 'vpc_id',
         }
       end
@@ -993,7 +993,7 @@ module AWS::SDK::Lambda
           function_url: 'function_url',
           function_arn: 'function_arn',
           auth_type: 'auth_type',
-          cors: Stubs::Cors.default(visited),
+          cors: Cors.default(visited),
           creation_time: 'creation_time',
         }
       end
@@ -1018,10 +1018,10 @@ module AWS::SDK::Lambda
         visited = visited + ['Cors']
         {
           allow_credentials: false,
-          allow_headers: Stubs::HeadersList.default(visited),
-          allow_methods: Stubs::AllowMethodsList.default(visited),
-          allow_origins: Stubs::AllowOriginsList.default(visited),
-          expose_headers: Stubs::HeadersList.default(visited),
+          allow_headers: HeadersList.default(visited),
+          allow_methods: AllowMethodsList.default(visited),
+          allow_origins: AllowOriginsList.default(visited),
+          expose_headers: HeadersList.default(visited),
           max_age: 1,
         }
       end
@@ -1136,22 +1136,22 @@ module AWS::SDK::Lambda
           maximum_batching_window_in_seconds: 1,
           parallelization_factor: 1,
           event_source_arn: 'event_source_arn',
-          filter_criteria: Stubs::FilterCriteria.default(visited),
+          filter_criteria: FilterCriteria.default(visited),
           function_arn: 'function_arn',
           last_modified: Time.now,
           last_processing_result: 'last_processing_result',
           state: 'state',
           state_transition_reason: 'state_transition_reason',
-          destination_config: Stubs::DestinationConfig.default(visited),
-          topics: Stubs::Topics.default(visited),
-          queues: Stubs::Queues.default(visited),
-          source_access_configurations: Stubs::SourceAccessConfigurations.default(visited),
-          self_managed_event_source: Stubs::SelfManagedEventSource.default(visited),
+          destination_config: DestinationConfig.default(visited),
+          topics: Topics.default(visited),
+          queues: Queues.default(visited),
+          source_access_configurations: SourceAccessConfigurations.default(visited),
+          self_managed_event_source: SelfManagedEventSource.default(visited),
           maximum_record_age_in_seconds: 1,
           bisect_batch_on_function_error: false,
           maximum_retry_attempts: 1,
           tumbling_window_in_seconds: 1,
-          function_response_types: Stubs::FunctionResponseTypeList.default(visited),
+          function_response_types: FunctionResponseTypeList.default(visited),
         }
       end
 
@@ -1281,8 +1281,8 @@ module AWS::SDK::Lambda
     class GetAccountSettings
       def self.default(visited=[])
         {
-          account_limit: Stubs::AccountLimit.default(visited),
-          account_usage: Stubs::AccountUsage.default(visited),
+          account_limit: AccountLimit.default(visited),
+          account_usage: AccountUsage.default(visited),
         }
       end
 
@@ -1350,7 +1350,7 @@ module AWS::SDK::Lambda
           name: 'name',
           function_version: 'function_version',
           description: 'description',
-          routing_config: Stubs::AliasRoutingConfiguration.default(visited),
+          routing_config: AliasRoutingConfiguration.default(visited),
           revision_id: 'revision_id',
         }
       end
@@ -1373,7 +1373,7 @@ module AWS::SDK::Lambda
     class GetCodeSigningConfig
       def self.default(visited=[])
         {
-          code_signing_config: Stubs::CodeSigningConfig.default(visited),
+          code_signing_config: CodeSigningConfig.default(visited),
         }
       end
 
@@ -1397,22 +1397,22 @@ module AWS::SDK::Lambda
           maximum_batching_window_in_seconds: 1,
           parallelization_factor: 1,
           event_source_arn: 'event_source_arn',
-          filter_criteria: Stubs::FilterCriteria.default(visited),
+          filter_criteria: FilterCriteria.default(visited),
           function_arn: 'function_arn',
           last_modified: Time.now,
           last_processing_result: 'last_processing_result',
           state: 'state',
           state_transition_reason: 'state_transition_reason',
-          destination_config: Stubs::DestinationConfig.default(visited),
-          topics: Stubs::Topics.default(visited),
-          queues: Stubs::Queues.default(visited),
-          source_access_configurations: Stubs::SourceAccessConfigurations.default(visited),
-          self_managed_event_source: Stubs::SelfManagedEventSource.default(visited),
+          destination_config: DestinationConfig.default(visited),
+          topics: Topics.default(visited),
+          queues: Queues.default(visited),
+          source_access_configurations: SourceAccessConfigurations.default(visited),
+          self_managed_event_source: SelfManagedEventSource.default(visited),
           maximum_record_age_in_seconds: 1,
           bisect_batch_on_function_error: false,
           maximum_retry_attempts: 1,
           tumbling_window_in_seconds: 1,
-          function_response_types: Stubs::FunctionResponseTypeList.default(visited),
+          function_response_types: FunctionResponseTypeList.default(visited),
         }
       end
 
@@ -1451,10 +1451,10 @@ module AWS::SDK::Lambda
     class GetFunction
       def self.default(visited=[])
         {
-          configuration: Stubs::FunctionConfiguration.default(visited),
-          code: Stubs::FunctionCodeLocation.default(visited),
-          tags: Stubs::Tags.default(visited),
-          concurrency: Stubs::Concurrency.default(visited),
+          configuration: FunctionConfiguration.default(visited),
+          code: FunctionCodeLocation.default(visited),
+          tags: Tags.default(visited),
+          concurrency: Concurrency.default(visited),
         }
       end
 
@@ -1550,27 +1550,27 @@ module AWS::SDK::Lambda
           last_modified: 'last_modified',
           code_sha256: 'code_sha256',
           version: 'version',
-          vpc_config: Stubs::VpcConfigResponse.default(visited),
-          dead_letter_config: Stubs::DeadLetterConfig.default(visited),
-          environment: Stubs::EnvironmentResponse.default(visited),
+          vpc_config: VpcConfigResponse.default(visited),
+          dead_letter_config: DeadLetterConfig.default(visited),
+          environment: EnvironmentResponse.default(visited),
           kms_key_arn: 'kms_key_arn',
-          tracing_config: Stubs::TracingConfigResponse.default(visited),
+          tracing_config: TracingConfigResponse.default(visited),
           master_arn: 'master_arn',
           revision_id: 'revision_id',
-          layers: Stubs::LayersReferenceList.default(visited),
+          layers: LayersReferenceList.default(visited),
           state: 'state',
           state_reason: 'state_reason',
           state_reason_code: 'state_reason_code',
           last_update_status: 'last_update_status',
           last_update_status_reason: 'last_update_status_reason',
           last_update_status_reason_code: 'last_update_status_reason_code',
-          file_system_configs: Stubs::FileSystemConfigList.default(visited),
+          file_system_configs: FileSystemConfigList.default(visited),
           package_type: 'package_type',
-          image_config_response: Stubs::ImageConfigResponse.default(visited),
+          image_config_response: ImageConfigResponse.default(visited),
           signing_profile_version_arn: 'signing_profile_version_arn',
           signing_job_arn: 'signing_job_arn',
-          architectures: Stubs::ArchitecturesList.default(visited),
-          ephemeral_storage: Stubs::EphemeralStorage.default(visited),
+          architectures: ArchitecturesList.default(visited),
+          ephemeral_storage: EphemeralStorage.default(visited),
         }
       end
 
@@ -1666,27 +1666,27 @@ module AWS::SDK::Lambda
           last_modified: 'last_modified',
           code_sha256: 'code_sha256',
           version: 'version',
-          vpc_config: Stubs::VpcConfigResponse.default(visited),
-          dead_letter_config: Stubs::DeadLetterConfig.default(visited),
-          environment: Stubs::EnvironmentResponse.default(visited),
+          vpc_config: VpcConfigResponse.default(visited),
+          dead_letter_config: DeadLetterConfig.default(visited),
+          environment: EnvironmentResponse.default(visited),
           kms_key_arn: 'kms_key_arn',
-          tracing_config: Stubs::TracingConfigResponse.default(visited),
+          tracing_config: TracingConfigResponse.default(visited),
           master_arn: 'master_arn',
           revision_id: 'revision_id',
-          layers: Stubs::LayersReferenceList.default(visited),
+          layers: LayersReferenceList.default(visited),
           state: 'state',
           state_reason: 'state_reason',
           state_reason_code: 'state_reason_code',
           last_update_status: 'last_update_status',
           last_update_status_reason: 'last_update_status_reason',
           last_update_status_reason_code: 'last_update_status_reason_code',
-          file_system_configs: Stubs::FileSystemConfigList.default(visited),
+          file_system_configs: FileSystemConfigList.default(visited),
           package_type: 'package_type',
-          image_config_response: Stubs::ImageConfigResponse.default(visited),
+          image_config_response: ImageConfigResponse.default(visited),
           signing_profile_version_arn: 'signing_profile_version_arn',
           signing_job_arn: 'signing_job_arn',
-          architectures: Stubs::ArchitecturesList.default(visited),
-          ephemeral_storage: Stubs::EphemeralStorage.default(visited),
+          architectures: ArchitecturesList.default(visited),
+          ephemeral_storage: EphemeralStorage.default(visited),
         }
       end
 
@@ -1739,7 +1739,7 @@ module AWS::SDK::Lambda
           function_arn: 'function_arn',
           maximum_retry_attempts: 1,
           maximum_event_age_in_seconds: 1,
-          destination_config: Stubs::DestinationConfig.default(visited),
+          destination_config: DestinationConfig.default(visited),
         }
       end
 
@@ -1763,7 +1763,7 @@ module AWS::SDK::Lambda
           function_url: 'function_url',
           function_arn: 'function_arn',
           auth_type: 'auth_type',
-          cors: Stubs::Cors.default(visited),
+          cors: Cors.default(visited),
           creation_time: 'creation_time',
           last_modified_time: 'last_modified_time',
         }
@@ -1787,15 +1787,15 @@ module AWS::SDK::Lambda
     class GetLayerVersion
       def self.default(visited=[])
         {
-          content: Stubs::LayerVersionContentOutput.default(visited),
+          content: LayerVersionContentOutput.default(visited),
           layer_arn: 'layer_arn',
           layer_version_arn: 'layer_version_arn',
           description: 'description',
           created_date: 'created_date',
           version: 1,
-          compatible_runtimes: Stubs::CompatibleRuntimes.default(visited),
+          compatible_runtimes: CompatibleRuntimes.default(visited),
           license_info: 'license_info',
-          compatible_architectures: Stubs::CompatibleArchitectures.default(visited),
+          compatible_architectures: CompatibleArchitectures.default(visited),
         }
       end
 
@@ -1886,15 +1886,15 @@ module AWS::SDK::Lambda
     class GetLayerVersionByArn
       def self.default(visited=[])
         {
-          content: Stubs::LayerVersionContentOutput.default(visited),
+          content: LayerVersionContentOutput.default(visited),
           layer_arn: 'layer_arn',
           layer_version_arn: 'layer_version_arn',
           description: 'description',
           created_date: 'created_date',
           version: 1,
-          compatible_runtimes: Stubs::CompatibleRuntimes.default(visited),
+          compatible_runtimes: CompatibleRuntimes.default(visited),
           license_info: 'license_info',
-          compatible_architectures: Stubs::CompatibleArchitectures.default(visited),
+          compatible_architectures: CompatibleArchitectures.default(visited),
         }
       end
 
@@ -2024,7 +2024,7 @@ module AWS::SDK::Lambda
       def self.default(visited=[])
         {
           next_marker: 'next_marker',
-          aliases: Stubs::AliasList.default(visited),
+          aliases: AliasList.default(visited),
         }
       end
 
@@ -2044,7 +2044,7 @@ module AWS::SDK::Lambda
         return nil if visited.include?('AliasList')
         visited = visited + ['AliasList']
         [
-          Stubs::AliasConfiguration.default(visited)
+          AliasConfiguration.default(visited)
         ]
       end
 
@@ -2068,7 +2068,7 @@ module AWS::SDK::Lambda
           name: 'name',
           function_version: 'function_version',
           description: 'description',
-          routing_config: Stubs::AliasRoutingConfiguration.default(visited),
+          routing_config: AliasRoutingConfiguration.default(visited),
           revision_id: 'revision_id',
         }
       end
@@ -2091,7 +2091,7 @@ module AWS::SDK::Lambda
       def self.default(visited=[])
         {
           next_marker: 'next_marker',
-          code_signing_configs: Stubs::CodeSigningConfigList.default(visited),
+          code_signing_configs: CodeSigningConfigList.default(visited),
         }
       end
 
@@ -2111,7 +2111,7 @@ module AWS::SDK::Lambda
         return nil if visited.include?('CodeSigningConfigList')
         visited = visited + ['CodeSigningConfigList']
         [
-          Stubs::CodeSigningConfig.default(visited)
+          CodeSigningConfig.default(visited)
         ]
       end
 
@@ -2130,7 +2130,7 @@ module AWS::SDK::Lambda
       def self.default(visited=[])
         {
           next_marker: 'next_marker',
-          event_source_mappings: Stubs::EventSourceMappingsList.default(visited),
+          event_source_mappings: EventSourceMappingsList.default(visited),
         }
       end
 
@@ -2150,7 +2150,7 @@ module AWS::SDK::Lambda
         return nil if visited.include?('EventSourceMappingsList')
         visited = visited + ['EventSourceMappingsList']
         [
-          Stubs::EventSourceMappingConfiguration.default(visited)
+          EventSourceMappingConfiguration.default(visited)
         ]
       end
 
@@ -2177,22 +2177,22 @@ module AWS::SDK::Lambda
           maximum_batching_window_in_seconds: 1,
           parallelization_factor: 1,
           event_source_arn: 'event_source_arn',
-          filter_criteria: Stubs::FilterCriteria.default(visited),
+          filter_criteria: FilterCriteria.default(visited),
           function_arn: 'function_arn',
           last_modified: Time.now,
           last_processing_result: 'last_processing_result',
           state: 'state',
           state_transition_reason: 'state_transition_reason',
-          destination_config: Stubs::DestinationConfig.default(visited),
-          topics: Stubs::Topics.default(visited),
-          queues: Stubs::Queues.default(visited),
-          source_access_configurations: Stubs::SourceAccessConfigurations.default(visited),
-          self_managed_event_source: Stubs::SelfManagedEventSource.default(visited),
+          destination_config: DestinationConfig.default(visited),
+          topics: Topics.default(visited),
+          queues: Queues.default(visited),
+          source_access_configurations: SourceAccessConfigurations.default(visited),
+          self_managed_event_source: SelfManagedEventSource.default(visited),
           maximum_record_age_in_seconds: 1,
           bisect_batch_on_function_error: false,
           maximum_retry_attempts: 1,
           tumbling_window_in_seconds: 1,
-          function_response_types: Stubs::FunctionResponseTypeList.default(visited),
+          function_response_types: FunctionResponseTypeList.default(visited),
         }
       end
 
@@ -2230,7 +2230,7 @@ module AWS::SDK::Lambda
     class ListFunctionEventInvokeConfigs
       def self.default(visited=[])
         {
-          function_event_invoke_configs: Stubs::FunctionEventInvokeConfigList.default(visited),
+          function_event_invoke_configs: FunctionEventInvokeConfigList.default(visited),
           next_marker: 'next_marker',
         }
       end
@@ -2251,7 +2251,7 @@ module AWS::SDK::Lambda
         return nil if visited.include?('FunctionEventInvokeConfigList')
         visited = visited + ['FunctionEventInvokeConfigList']
         [
-          Stubs::FunctionEventInvokeConfig.default(visited)
+          FunctionEventInvokeConfig.default(visited)
         ]
       end
 
@@ -2275,7 +2275,7 @@ module AWS::SDK::Lambda
           function_arn: 'function_arn',
           maximum_retry_attempts: 1,
           maximum_event_age_in_seconds: 1,
-          destination_config: Stubs::DestinationConfig.default(visited),
+          destination_config: DestinationConfig.default(visited),
         }
       end
 
@@ -2295,7 +2295,7 @@ module AWS::SDK::Lambda
     class ListFunctionUrlConfigs
       def self.default(visited=[])
         {
-          function_url_configs: Stubs::FunctionUrlConfigList.default(visited),
+          function_url_configs: FunctionUrlConfigList.default(visited),
           next_marker: 'next_marker',
         }
       end
@@ -2316,7 +2316,7 @@ module AWS::SDK::Lambda
         return nil if visited.include?('FunctionUrlConfigList')
         visited = visited + ['FunctionUrlConfigList']
         [
-          Stubs::FunctionUrlConfig.default(visited)
+          FunctionUrlConfig.default(visited)
         ]
       end
 
@@ -2340,7 +2340,7 @@ module AWS::SDK::Lambda
           function_arn: 'function_arn',
           creation_time: 'creation_time',
           last_modified_time: 'last_modified_time',
-          cors: Stubs::Cors.default(visited),
+          cors: Cors.default(visited),
           auth_type: 'auth_type',
         }
       end
@@ -2363,7 +2363,7 @@ module AWS::SDK::Lambda
       def self.default(visited=[])
         {
           next_marker: 'next_marker',
-          functions: Stubs::FunctionList.default(visited),
+          functions: FunctionList.default(visited),
         }
       end
 
@@ -2383,7 +2383,7 @@ module AWS::SDK::Lambda
         return nil if visited.include?('FunctionList')
         visited = visited + ['FunctionList']
         [
-          Stubs::FunctionConfiguration.default(visited)
+          FunctionConfiguration.default(visited)
         ]
       end
 
@@ -2402,7 +2402,7 @@ module AWS::SDK::Lambda
       def self.default(visited=[])
         {
           next_marker: 'next_marker',
-          function_arns: Stubs::FunctionArnList.default(visited),
+          function_arns: FunctionArnList.default(visited),
         }
       end
 
@@ -2441,7 +2441,7 @@ module AWS::SDK::Lambda
       def self.default(visited=[])
         {
           next_marker: 'next_marker',
-          layer_versions: Stubs::LayerVersionsList.default(visited),
+          layer_versions: LayerVersionsList.default(visited),
         }
       end
 
@@ -2461,7 +2461,7 @@ module AWS::SDK::Lambda
         return nil if visited.include?('LayerVersionsList')
         visited = visited + ['LayerVersionsList']
         [
-          Stubs::LayerVersionsListItem.default(visited)
+          LayerVersionsListItem.default(visited)
         ]
       end
 
@@ -2485,9 +2485,9 @@ module AWS::SDK::Lambda
           version: 1,
           description: 'description',
           created_date: 'created_date',
-          compatible_runtimes: Stubs::CompatibleRuntimes.default(visited),
+          compatible_runtimes: CompatibleRuntimes.default(visited),
           license_info: 'license_info',
-          compatible_architectures: Stubs::CompatibleArchitectures.default(visited),
+          compatible_architectures: CompatibleArchitectures.default(visited),
         }
       end
 
@@ -2510,7 +2510,7 @@ module AWS::SDK::Lambda
       def self.default(visited=[])
         {
           next_marker: 'next_marker',
-          layers: Stubs::LayersList.default(visited),
+          layers: LayersList.default(visited),
         }
       end
 
@@ -2530,7 +2530,7 @@ module AWS::SDK::Lambda
         return nil if visited.include?('LayersList')
         visited = visited + ['LayersList']
         [
-          Stubs::LayersListItem.default(visited)
+          LayersListItem.default(visited)
         ]
       end
 
@@ -2552,7 +2552,7 @@ module AWS::SDK::Lambda
         {
           layer_name: 'layer_name',
           layer_arn: 'layer_arn',
-          latest_matching_version: Stubs::LayerVersionsListItem.default(visited),
+          latest_matching_version: LayerVersionsListItem.default(visited),
         }
       end
 
@@ -2570,7 +2570,7 @@ module AWS::SDK::Lambda
     class ListProvisionedConcurrencyConfigs
       def self.default(visited=[])
         {
-          provisioned_concurrency_configs: Stubs::ProvisionedConcurrencyConfigList.default(visited),
+          provisioned_concurrency_configs: ProvisionedConcurrencyConfigList.default(visited),
           next_marker: 'next_marker',
         }
       end
@@ -2591,7 +2591,7 @@ module AWS::SDK::Lambda
         return nil if visited.include?('ProvisionedConcurrencyConfigList')
         visited = visited + ['ProvisionedConcurrencyConfigList']
         [
-          Stubs::ProvisionedConcurrencyConfigListItem.default(visited)
+          ProvisionedConcurrencyConfigListItem.default(visited)
         ]
       end
 
@@ -2639,7 +2639,7 @@ module AWS::SDK::Lambda
     class ListTags
       def self.default(visited=[])
         {
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -2657,7 +2657,7 @@ module AWS::SDK::Lambda
       def self.default(visited=[])
         {
           next_marker: 'next_marker',
-          versions: Stubs::FunctionList.default(visited),
+          versions: FunctionList.default(visited),
         }
       end
 
@@ -2675,15 +2675,15 @@ module AWS::SDK::Lambda
     class PublishLayerVersion
       def self.default(visited=[])
         {
-          content: Stubs::LayerVersionContentOutput.default(visited),
+          content: LayerVersionContentOutput.default(visited),
           layer_arn: 'layer_arn',
           layer_version_arn: 'layer_version_arn',
           description: 'description',
           created_date: 'created_date',
           version: 1,
-          compatible_runtimes: Stubs::CompatibleRuntimes.default(visited),
+          compatible_runtimes: CompatibleRuntimes.default(visited),
           license_info: 'license_info',
-          compatible_architectures: Stubs::CompatibleArchitectures.default(visited),
+          compatible_architectures: CompatibleArchitectures.default(visited),
         }
       end
 
@@ -2720,27 +2720,27 @@ module AWS::SDK::Lambda
           last_modified: 'last_modified',
           code_sha256: 'code_sha256',
           version: 'version',
-          vpc_config: Stubs::VpcConfigResponse.default(visited),
-          dead_letter_config: Stubs::DeadLetterConfig.default(visited),
-          environment: Stubs::EnvironmentResponse.default(visited),
+          vpc_config: VpcConfigResponse.default(visited),
+          dead_letter_config: DeadLetterConfig.default(visited),
+          environment: EnvironmentResponse.default(visited),
           kms_key_arn: 'kms_key_arn',
-          tracing_config: Stubs::TracingConfigResponse.default(visited),
+          tracing_config: TracingConfigResponse.default(visited),
           master_arn: 'master_arn',
           revision_id: 'revision_id',
-          layers: Stubs::LayersReferenceList.default(visited),
+          layers: LayersReferenceList.default(visited),
           state: 'state',
           state_reason: 'state_reason',
           state_reason_code: 'state_reason_code',
           last_update_status: 'last_update_status',
           last_update_status_reason: 'last_update_status_reason',
           last_update_status_reason_code: 'last_update_status_reason_code',
-          file_system_configs: Stubs::FileSystemConfigList.default(visited),
+          file_system_configs: FileSystemConfigList.default(visited),
           package_type: 'package_type',
-          image_config_response: Stubs::ImageConfigResponse.default(visited),
+          image_config_response: ImageConfigResponse.default(visited),
           signing_profile_version_arn: 'signing_profile_version_arn',
           signing_job_arn: 'signing_job_arn',
-          architectures: Stubs::ArchitecturesList.default(visited),
-          ephemeral_storage: Stubs::EphemeralStorage.default(visited),
+          architectures: ArchitecturesList.default(visited),
+          ephemeral_storage: EphemeralStorage.default(visited),
         }
       end
 
@@ -2829,7 +2829,7 @@ module AWS::SDK::Lambda
           function_arn: 'function_arn',
           maximum_retry_attempts: 1,
           maximum_event_age_in_seconds: 1,
-          destination_config: Stubs::DestinationConfig.default(visited),
+          destination_config: DestinationConfig.default(visited),
         }
       end
 
@@ -2933,7 +2933,7 @@ module AWS::SDK::Lambda
           name: 'name',
           function_version: 'function_version',
           description: 'description',
-          routing_config: Stubs::AliasRoutingConfiguration.default(visited),
+          routing_config: AliasRoutingConfiguration.default(visited),
           revision_id: 'revision_id',
         }
       end
@@ -2956,7 +2956,7 @@ module AWS::SDK::Lambda
     class UpdateCodeSigningConfig
       def self.default(visited=[])
         {
-          code_signing_config: Stubs::CodeSigningConfig.default(visited),
+          code_signing_config: CodeSigningConfig.default(visited),
         }
       end
 
@@ -2980,22 +2980,22 @@ module AWS::SDK::Lambda
           maximum_batching_window_in_seconds: 1,
           parallelization_factor: 1,
           event_source_arn: 'event_source_arn',
-          filter_criteria: Stubs::FilterCriteria.default(visited),
+          filter_criteria: FilterCriteria.default(visited),
           function_arn: 'function_arn',
           last_modified: Time.now,
           last_processing_result: 'last_processing_result',
           state: 'state',
           state_transition_reason: 'state_transition_reason',
-          destination_config: Stubs::DestinationConfig.default(visited),
-          topics: Stubs::Topics.default(visited),
-          queues: Stubs::Queues.default(visited),
-          source_access_configurations: Stubs::SourceAccessConfigurations.default(visited),
-          self_managed_event_source: Stubs::SelfManagedEventSource.default(visited),
+          destination_config: DestinationConfig.default(visited),
+          topics: Topics.default(visited),
+          queues: Queues.default(visited),
+          source_access_configurations: SourceAccessConfigurations.default(visited),
+          self_managed_event_source: SelfManagedEventSource.default(visited),
           maximum_record_age_in_seconds: 1,
           bisect_batch_on_function_error: false,
           maximum_retry_attempts: 1,
           tumbling_window_in_seconds: 1,
-          function_response_types: Stubs::FunctionResponseTypeList.default(visited),
+          function_response_types: FunctionResponseTypeList.default(visited),
         }
       end
 
@@ -3046,27 +3046,27 @@ module AWS::SDK::Lambda
           last_modified: 'last_modified',
           code_sha256: 'code_sha256',
           version: 'version',
-          vpc_config: Stubs::VpcConfigResponse.default(visited),
-          dead_letter_config: Stubs::DeadLetterConfig.default(visited),
-          environment: Stubs::EnvironmentResponse.default(visited),
+          vpc_config: VpcConfigResponse.default(visited),
+          dead_letter_config: DeadLetterConfig.default(visited),
+          environment: EnvironmentResponse.default(visited),
           kms_key_arn: 'kms_key_arn',
-          tracing_config: Stubs::TracingConfigResponse.default(visited),
+          tracing_config: TracingConfigResponse.default(visited),
           master_arn: 'master_arn',
           revision_id: 'revision_id',
-          layers: Stubs::LayersReferenceList.default(visited),
+          layers: LayersReferenceList.default(visited),
           state: 'state',
           state_reason: 'state_reason',
           state_reason_code: 'state_reason_code',
           last_update_status: 'last_update_status',
           last_update_status_reason: 'last_update_status_reason',
           last_update_status_reason_code: 'last_update_status_reason_code',
-          file_system_configs: Stubs::FileSystemConfigList.default(visited),
+          file_system_configs: FileSystemConfigList.default(visited),
           package_type: 'package_type',
-          image_config_response: Stubs::ImageConfigResponse.default(visited),
+          image_config_response: ImageConfigResponse.default(visited),
           signing_profile_version_arn: 'signing_profile_version_arn',
           signing_job_arn: 'signing_job_arn',
-          architectures: Stubs::ArchitecturesList.default(visited),
-          ephemeral_storage: Stubs::EphemeralStorage.default(visited),
+          architectures: ArchitecturesList.default(visited),
+          ephemeral_storage: EphemeralStorage.default(visited),
         }
       end
 
@@ -3127,27 +3127,27 @@ module AWS::SDK::Lambda
           last_modified: 'last_modified',
           code_sha256: 'code_sha256',
           version: 'version',
-          vpc_config: Stubs::VpcConfigResponse.default(visited),
-          dead_letter_config: Stubs::DeadLetterConfig.default(visited),
-          environment: Stubs::EnvironmentResponse.default(visited),
+          vpc_config: VpcConfigResponse.default(visited),
+          dead_letter_config: DeadLetterConfig.default(visited),
+          environment: EnvironmentResponse.default(visited),
           kms_key_arn: 'kms_key_arn',
-          tracing_config: Stubs::TracingConfigResponse.default(visited),
+          tracing_config: TracingConfigResponse.default(visited),
           master_arn: 'master_arn',
           revision_id: 'revision_id',
-          layers: Stubs::LayersReferenceList.default(visited),
+          layers: LayersReferenceList.default(visited),
           state: 'state',
           state_reason: 'state_reason',
           state_reason_code: 'state_reason_code',
           last_update_status: 'last_update_status',
           last_update_status_reason: 'last_update_status_reason',
           last_update_status_reason_code: 'last_update_status_reason_code',
-          file_system_configs: Stubs::FileSystemConfigList.default(visited),
+          file_system_configs: FileSystemConfigList.default(visited),
           package_type: 'package_type',
-          image_config_response: Stubs::ImageConfigResponse.default(visited),
+          image_config_response: ImageConfigResponse.default(visited),
           signing_profile_version_arn: 'signing_profile_version_arn',
           signing_job_arn: 'signing_job_arn',
-          architectures: Stubs::ArchitecturesList.default(visited),
-          ephemeral_storage: Stubs::EphemeralStorage.default(visited),
+          architectures: ArchitecturesList.default(visited),
+          ephemeral_storage: EphemeralStorage.default(visited),
         }
       end
 
@@ -3200,7 +3200,7 @@ module AWS::SDK::Lambda
           function_arn: 'function_arn',
           maximum_retry_attempts: 1,
           maximum_event_age_in_seconds: 1,
-          destination_config: Stubs::DestinationConfig.default(visited),
+          destination_config: DestinationConfig.default(visited),
         }
       end
 
@@ -3224,7 +3224,7 @@ module AWS::SDK::Lambda
           function_url: 'function_url',
           function_arn: 'function_arn',
           auth_type: 'auth_type',
-          cors: Stubs::Cors.default(visited),
+          cors: Cors.default(visited),
           creation_time: 'creation_time',
           last_modified_time: 'last_modified_time',
         }

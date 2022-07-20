@@ -66,7 +66,7 @@ module AWS::SDK::PinpointSMSVoice
     class GetConfigurationSetEventDestinations
       def self.default(visited=[])
         {
-          event_destinations: Stubs::EventDestinations.default(visited),
+          event_destinations: EventDestinations.default(visited),
         }
       end
 
@@ -85,7 +85,7 @@ module AWS::SDK::PinpointSMSVoice
         return nil if visited.include?('EventDestinations')
         visited = visited + ['EventDestinations']
         [
-          Stubs::EventDestination.default(visited)
+          EventDestination.default(visited)
         ]
       end
 
@@ -105,12 +105,12 @@ module AWS::SDK::PinpointSMSVoice
         return nil if visited.include?('EventDestination')
         visited = visited + ['EventDestination']
         {
-          cloud_watch_logs_destination: Stubs::CloudWatchLogsDestination.default(visited),
+          cloud_watch_logs_destination: CloudWatchLogsDestination.default(visited),
           enabled: false,
-          kinesis_firehose_destination: Stubs::KinesisFirehoseDestination.default(visited),
-          matching_event_types: Stubs::EventTypes.default(visited),
+          kinesis_firehose_destination: KinesisFirehoseDestination.default(visited),
+          matching_event_types: EventTypes.default(visited),
           name: 'name',
-          sns_destination: Stubs::SnsDestination.default(visited),
+          sns_destination: SnsDestination.default(visited),
         }
       end
 
@@ -209,7 +209,7 @@ module AWS::SDK::PinpointSMSVoice
     class ListConfigurationSets
       def self.default(visited=[])
         {
-          configuration_sets: Stubs::ConfigurationSets.default(visited),
+          configuration_sets: ConfigurationSets.default(visited),
           next_token: 'next_token',
         }
       end

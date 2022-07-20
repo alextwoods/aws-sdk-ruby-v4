@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::ApplicationAutoScaling
   module Validators
 
@@ -22,7 +24,7 @@ module AWS::SDK::ApplicationAutoScaling
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Alarm.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Alarm.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -39,7 +41,7 @@ module AWS::SDK::ApplicationAutoScaling
         Hearth::Validator.validate!(input, Types::CustomizedMetricSpecification, context: context)
         Hearth::Validator.validate!(input[:metric_name], ::String, context: "#{context}[:metric_name]")
         Hearth::Validator.validate!(input[:namespace], ::String, context: "#{context}[:namespace]")
-        Validators::MetricDimensions.validate!(input[:dimensions], context: "#{context}[:dimensions]") unless input[:dimensions].nil?
+        MetricDimensions.validate!(input[:dimensions], context: "#{context}[:dimensions]") unless input[:dimensions].nil?
         Hearth::Validator.validate!(input[:statistic], ::String, context: "#{context}[:statistic]")
         Hearth::Validator.validate!(input[:unit], ::String, context: "#{context}[:unit]")
       end
@@ -96,7 +98,7 @@ module AWS::SDK::ApplicationAutoScaling
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeScalableTargetsInput, context: context)
         Hearth::Validator.validate!(input[:service_namespace], ::String, context: "#{context}[:service_namespace]")
-        Validators::ResourceIdsMaxLen1600.validate!(input[:resource_ids], context: "#{context}[:resource_ids]") unless input[:resource_ids].nil?
+        ResourceIdsMaxLen1600.validate!(input[:resource_ids], context: "#{context}[:resource_ids]") unless input[:resource_ids].nil?
         Hearth::Validator.validate!(input[:scalable_dimension], ::String, context: "#{context}[:scalable_dimension]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
@@ -106,7 +108,7 @@ module AWS::SDK::ApplicationAutoScaling
     class DescribeScalableTargetsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeScalableTargetsOutput, context: context)
-        Validators::ScalableTargets.validate!(input[:scalable_targets], context: "#{context}[:scalable_targets]") unless input[:scalable_targets].nil?
+        ScalableTargets.validate!(input[:scalable_targets], context: "#{context}[:scalable_targets]") unless input[:scalable_targets].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -125,7 +127,7 @@ module AWS::SDK::ApplicationAutoScaling
     class DescribeScalingActivitiesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeScalingActivitiesOutput, context: context)
-        Validators::ScalingActivities.validate!(input[:scaling_activities], context: "#{context}[:scaling_activities]") unless input[:scaling_activities].nil?
+        ScalingActivities.validate!(input[:scaling_activities], context: "#{context}[:scaling_activities]") unless input[:scaling_activities].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -133,7 +135,7 @@ module AWS::SDK::ApplicationAutoScaling
     class DescribeScalingPoliciesInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeScalingPoliciesInput, context: context)
-        Validators::ResourceIdsMaxLen1600.validate!(input[:policy_names], context: "#{context}[:policy_names]") unless input[:policy_names].nil?
+        ResourceIdsMaxLen1600.validate!(input[:policy_names], context: "#{context}[:policy_names]") unless input[:policy_names].nil?
         Hearth::Validator.validate!(input[:service_namespace], ::String, context: "#{context}[:service_namespace]")
         Hearth::Validator.validate!(input[:resource_id], ::String, context: "#{context}[:resource_id]")
         Hearth::Validator.validate!(input[:scalable_dimension], ::String, context: "#{context}[:scalable_dimension]")
@@ -145,7 +147,7 @@ module AWS::SDK::ApplicationAutoScaling
     class DescribeScalingPoliciesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeScalingPoliciesOutput, context: context)
-        Validators::ScalingPolicies.validate!(input[:scaling_policies], context: "#{context}[:scaling_policies]") unless input[:scaling_policies].nil?
+        ScalingPolicies.validate!(input[:scaling_policies], context: "#{context}[:scaling_policies]") unless input[:scaling_policies].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -153,7 +155,7 @@ module AWS::SDK::ApplicationAutoScaling
     class DescribeScheduledActionsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeScheduledActionsInput, context: context)
-        Validators::ResourceIdsMaxLen1600.validate!(input[:scheduled_action_names], context: "#{context}[:scheduled_action_names]") unless input[:scheduled_action_names].nil?
+        ResourceIdsMaxLen1600.validate!(input[:scheduled_action_names], context: "#{context}[:scheduled_action_names]") unless input[:scheduled_action_names].nil?
         Hearth::Validator.validate!(input[:service_namespace], ::String, context: "#{context}[:service_namespace]")
         Hearth::Validator.validate!(input[:resource_id], ::String, context: "#{context}[:resource_id]")
         Hearth::Validator.validate!(input[:scalable_dimension], ::String, context: "#{context}[:scalable_dimension]")
@@ -165,7 +167,7 @@ module AWS::SDK::ApplicationAutoScaling
     class DescribeScheduledActionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeScheduledActionsOutput, context: context)
-        Validators::ScheduledActions.validate!(input[:scheduled_actions], context: "#{context}[:scheduled_actions]") unless input[:scheduled_actions].nil?
+        ScheduledActions.validate!(input[:scheduled_actions], context: "#{context}[:scheduled_actions]") unless input[:scheduled_actions].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -210,7 +212,7 @@ module AWS::SDK::ApplicationAutoScaling
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MetricDimension.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MetricDimension.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -238,8 +240,8 @@ module AWS::SDK::ApplicationAutoScaling
         Hearth::Validator.validate!(input[:resource_id], ::String, context: "#{context}[:resource_id]")
         Hearth::Validator.validate!(input[:scalable_dimension], ::String, context: "#{context}[:scalable_dimension]")
         Hearth::Validator.validate!(input[:policy_type], ::String, context: "#{context}[:policy_type]")
-        Validators::StepScalingPolicyConfiguration.validate!(input[:step_scaling_policy_configuration], context: "#{context}[:step_scaling_policy_configuration]") unless input[:step_scaling_policy_configuration].nil?
-        Validators::TargetTrackingScalingPolicyConfiguration.validate!(input[:target_tracking_scaling_policy_configuration], context: "#{context}[:target_tracking_scaling_policy_configuration]") unless input[:target_tracking_scaling_policy_configuration].nil?
+        StepScalingPolicyConfiguration.validate!(input[:step_scaling_policy_configuration], context: "#{context}[:step_scaling_policy_configuration]") unless input[:step_scaling_policy_configuration].nil?
+        TargetTrackingScalingPolicyConfiguration.validate!(input[:target_tracking_scaling_policy_configuration], context: "#{context}[:target_tracking_scaling_policy_configuration]") unless input[:target_tracking_scaling_policy_configuration].nil?
       end
     end
 
@@ -247,7 +249,7 @@ module AWS::SDK::ApplicationAutoScaling
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutScalingPolicyOutput, context: context)
         Hearth::Validator.validate!(input[:policy_arn], ::String, context: "#{context}[:policy_arn]")
-        Validators::Alarms.validate!(input[:alarms], context: "#{context}[:alarms]") unless input[:alarms].nil?
+        Alarms.validate!(input[:alarms], context: "#{context}[:alarms]") unless input[:alarms].nil?
       end
     end
 
@@ -262,7 +264,7 @@ module AWS::SDK::ApplicationAutoScaling
         Hearth::Validator.validate!(input[:scalable_dimension], ::String, context: "#{context}[:scalable_dimension]")
         Hearth::Validator.validate!(input[:start_time], ::Time, context: "#{context}[:start_time]")
         Hearth::Validator.validate!(input[:end_time], ::Time, context: "#{context}[:end_time]")
-        Validators::ScalableTargetAction.validate!(input[:scalable_target_action], context: "#{context}[:scalable_target_action]") unless input[:scalable_target_action].nil?
+        ScalableTargetAction.validate!(input[:scalable_target_action], context: "#{context}[:scalable_target_action]") unless input[:scalable_target_action].nil?
       end
     end
 
@@ -281,7 +283,7 @@ module AWS::SDK::ApplicationAutoScaling
         Hearth::Validator.validate!(input[:min_capacity], ::Integer, context: "#{context}[:min_capacity]")
         Hearth::Validator.validate!(input[:max_capacity], ::Integer, context: "#{context}[:max_capacity]")
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
-        Validators::SuspendedState.validate!(input[:suspended_state], context: "#{context}[:suspended_state]") unless input[:suspended_state].nil?
+        SuspendedState.validate!(input[:suspended_state], context: "#{context}[:suspended_state]") unless input[:suspended_state].nil?
       end
     end
 
@@ -310,7 +312,7 @@ module AWS::SDK::ApplicationAutoScaling
         Hearth::Validator.validate!(input[:max_capacity], ::Integer, context: "#{context}[:max_capacity]")
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
         Hearth::Validator.validate!(input[:creation_time], ::Time, context: "#{context}[:creation_time]")
-        Validators::SuspendedState.validate!(input[:suspended_state], context: "#{context}[:suspended_state]") unless input[:suspended_state].nil?
+        SuspendedState.validate!(input[:suspended_state], context: "#{context}[:suspended_state]") unless input[:suspended_state].nil?
       end
     end
 
@@ -326,7 +328,7 @@ module AWS::SDK::ApplicationAutoScaling
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ScalableTarget.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ScalableTarget.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -335,7 +337,7 @@ module AWS::SDK::ApplicationAutoScaling
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ScalingActivity.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ScalingActivity.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -361,7 +363,7 @@ module AWS::SDK::ApplicationAutoScaling
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ScalingPolicy.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ScalingPolicy.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -375,9 +377,9 @@ module AWS::SDK::ApplicationAutoScaling
         Hearth::Validator.validate!(input[:resource_id], ::String, context: "#{context}[:resource_id]")
         Hearth::Validator.validate!(input[:scalable_dimension], ::String, context: "#{context}[:scalable_dimension]")
         Hearth::Validator.validate!(input[:policy_type], ::String, context: "#{context}[:policy_type]")
-        Validators::StepScalingPolicyConfiguration.validate!(input[:step_scaling_policy_configuration], context: "#{context}[:step_scaling_policy_configuration]") unless input[:step_scaling_policy_configuration].nil?
-        Validators::TargetTrackingScalingPolicyConfiguration.validate!(input[:target_tracking_scaling_policy_configuration], context: "#{context}[:target_tracking_scaling_policy_configuration]") unless input[:target_tracking_scaling_policy_configuration].nil?
-        Validators::Alarms.validate!(input[:alarms], context: "#{context}[:alarms]") unless input[:alarms].nil?
+        StepScalingPolicyConfiguration.validate!(input[:step_scaling_policy_configuration], context: "#{context}[:step_scaling_policy_configuration]") unless input[:step_scaling_policy_configuration].nil?
+        TargetTrackingScalingPolicyConfiguration.validate!(input[:target_tracking_scaling_policy_configuration], context: "#{context}[:target_tracking_scaling_policy_configuration]") unless input[:target_tracking_scaling_policy_configuration].nil?
+        Alarms.validate!(input[:alarms], context: "#{context}[:alarms]") unless input[:alarms].nil?
         Hearth::Validator.validate!(input[:creation_time], ::Time, context: "#{context}[:creation_time]")
       end
     end
@@ -394,7 +396,7 @@ module AWS::SDK::ApplicationAutoScaling
         Hearth::Validator.validate!(input[:scalable_dimension], ::String, context: "#{context}[:scalable_dimension]")
         Hearth::Validator.validate!(input[:start_time], ::Time, context: "#{context}[:start_time]")
         Hearth::Validator.validate!(input[:end_time], ::Time, context: "#{context}[:end_time]")
-        Validators::ScalableTargetAction.validate!(input[:scalable_target_action], context: "#{context}[:scalable_target_action]") unless input[:scalable_target_action].nil?
+        ScalableTargetAction.validate!(input[:scalable_target_action], context: "#{context}[:scalable_target_action]") unless input[:scalable_target_action].nil?
         Hearth::Validator.validate!(input[:creation_time], ::Time, context: "#{context}[:creation_time]")
       end
     end
@@ -403,7 +405,7 @@ module AWS::SDK::ApplicationAutoScaling
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ScheduledAction.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ScheduledAction.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -421,7 +423,7 @@ module AWS::SDK::ApplicationAutoScaling
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::StepAdjustment.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          StepAdjustment.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -430,7 +432,7 @@ module AWS::SDK::ApplicationAutoScaling
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StepScalingPolicyConfiguration, context: context)
         Hearth::Validator.validate!(input[:adjustment_type], ::String, context: "#{context}[:adjustment_type]")
-        Validators::StepAdjustments.validate!(input[:step_adjustments], context: "#{context}[:step_adjustments]") unless input[:step_adjustments].nil?
+        StepAdjustments.validate!(input[:step_adjustments], context: "#{context}[:step_adjustments]") unless input[:step_adjustments].nil?
         Hearth::Validator.validate!(input[:min_adjustment_magnitude], ::Integer, context: "#{context}[:min_adjustment_magnitude]")
         Hearth::Validator.validate!(input[:cooldown], ::Integer, context: "#{context}[:cooldown]")
         Hearth::Validator.validate!(input[:metric_aggregation_type], ::String, context: "#{context}[:metric_aggregation_type]")
@@ -450,8 +452,8 @@ module AWS::SDK::ApplicationAutoScaling
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TargetTrackingScalingPolicyConfiguration, context: context)
         Hearth::Validator.validate!(input[:target_value], ::Float, context: "#{context}[:target_value]")
-        Validators::PredefinedMetricSpecification.validate!(input[:predefined_metric_specification], context: "#{context}[:predefined_metric_specification]") unless input[:predefined_metric_specification].nil?
-        Validators::CustomizedMetricSpecification.validate!(input[:customized_metric_specification], context: "#{context}[:customized_metric_specification]") unless input[:customized_metric_specification].nil?
+        PredefinedMetricSpecification.validate!(input[:predefined_metric_specification], context: "#{context}[:predefined_metric_specification]") unless input[:predefined_metric_specification].nil?
+        CustomizedMetricSpecification.validate!(input[:customized_metric_specification], context: "#{context}[:customized_metric_specification]") unless input[:customized_metric_specification].nil?
         Hearth::Validator.validate!(input[:scale_out_cooldown], ::Integer, context: "#{context}[:scale_out_cooldown]")
         Hearth::Validator.validate!(input[:scale_in_cooldown], ::Integer, context: "#{context}[:scale_in_cooldown]")
         Hearth::Validator.validate!(input[:disable_scale_in], ::TrueClass, ::FalseClass, context: "#{context}[:disable_scale_in]")

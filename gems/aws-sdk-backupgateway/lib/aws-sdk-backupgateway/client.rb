@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::BackupGateway
@@ -72,7 +74,7 @@ module AWS::SDK::BackupGateway
     def associate_gateway_to_server(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateGatewayToServerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateGatewayToServerInput,
         validate_input: @config.validate_input
@@ -159,7 +161,7 @@ module AWS::SDK::BackupGateway
     def create_gateway(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateGatewayInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateGatewayInput,
         validate_input: @config.validate_input
@@ -228,7 +230,7 @@ module AWS::SDK::BackupGateway
     def delete_gateway(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteGatewayInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteGatewayInput,
         validate_input: @config.validate_input
@@ -297,7 +299,7 @@ module AWS::SDK::BackupGateway
     def delete_hypervisor(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteHypervisorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteHypervisorInput,
         validate_input: @config.validate_input
@@ -367,7 +369,7 @@ module AWS::SDK::BackupGateway
     def disassociate_gateway_from_server(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateGatewayFromServerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateGatewayFromServerInput,
         validate_input: @config.validate_input
@@ -444,7 +446,7 @@ module AWS::SDK::BackupGateway
     def get_gateway(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetGatewayInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetGatewayInput,
         validate_input: @config.validate_input
@@ -539,7 +541,7 @@ module AWS::SDK::BackupGateway
     def import_hypervisor_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ImportHypervisorConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ImportHypervisorConfigurationInput,
         validate_input: @config.validate_input
@@ -622,7 +624,7 @@ module AWS::SDK::BackupGateway
     def list_gateways(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListGatewaysInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListGatewaysInput,
         validate_input: @config.validate_input
@@ -705,7 +707,7 @@ module AWS::SDK::BackupGateway
     def list_hypervisors(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListHypervisorsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListHypervisorsInput,
         validate_input: @config.validate_input
@@ -779,7 +781,7 @@ module AWS::SDK::BackupGateway
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -863,7 +865,7 @@ module AWS::SDK::BackupGateway
     def list_virtual_machines(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListVirtualMachinesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListVirtualMachinesInput,
         validate_input: @config.validate_input
@@ -950,7 +952,7 @@ module AWS::SDK::BackupGateway
     def put_maintenance_start_time(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutMaintenanceStartTimeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutMaintenanceStartTimeInput,
         validate_input: @config.validate_input
@@ -1028,7 +1030,7 @@ module AWS::SDK::BackupGateway
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -1110,7 +1112,7 @@ module AWS::SDK::BackupGateway
     def test_hypervisor_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TestHypervisorConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TestHypervisorConfigurationInput,
         validate_input: @config.validate_input
@@ -1185,7 +1187,7 @@ module AWS::SDK::BackupGateway
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -1259,7 +1261,7 @@ module AWS::SDK::BackupGateway
     def update_gateway_information(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateGatewayInformationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateGatewayInformationInput,
         validate_input: @config.validate_input
@@ -1335,7 +1337,7 @@ module AWS::SDK::BackupGateway
     def update_gateway_software_now(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateGatewaySoftwareNowInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateGatewaySoftwareNowInput,
         validate_input: @config.validate_input
@@ -1423,7 +1425,7 @@ module AWS::SDK::BackupGateway
     def update_hypervisor(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateHypervisorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateHypervisorInput,
         validate_input: @config.validate_input

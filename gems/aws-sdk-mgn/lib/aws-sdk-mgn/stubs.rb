@@ -17,11 +17,11 @@ module AWS::SDK::Mgn
           source_server_id: 'source_server_id',
           arn: 'arn',
           is_archived: false,
-          tags: Stubs::TagsMap.default(visited),
-          launched_instance: Stubs::LaunchedInstance.default(visited),
-          data_replication_info: Stubs::DataReplicationInfo.default(visited),
-          life_cycle: Stubs::LifeCycle.default(visited),
-          source_properties: Stubs::SourceProperties.default(visited),
+          tags: TagsMap.default(visited),
+          launched_instance: LaunchedInstance.default(visited),
+          data_replication_info: DataReplicationInfo.default(visited),
+          life_cycle: LifeCycle.default(visited),
+          source_properties: SourceProperties.default(visited),
           replication_type: 'replication_type',
           vcenter_client_id: 'vcenter_client_id',
         }
@@ -53,12 +53,12 @@ module AWS::SDK::Mgn
         {
           last_updated_date_time: 'last_updated_date_time',
           recommended_instance_type: 'recommended_instance_type',
-          identification_hints: Stubs::IdentificationHints.default(visited),
-          network_interfaces: Stubs::NetworkInterfaces.default(visited),
-          disks: Stubs::Disks.default(visited),
-          cpus: Stubs::Cpus.default(visited),
+          identification_hints: IdentificationHints.default(visited),
+          network_interfaces: NetworkInterfaces.default(visited),
+          disks: Disks.default(visited),
+          cpus: Cpus.default(visited),
           ram_bytes: 1,
-          os: Stubs::OS.default(visited),
+          os: OS.default(visited),
         }
       end
 
@@ -101,7 +101,7 @@ module AWS::SDK::Mgn
         return nil if visited.include?('Cpus')
         visited = visited + ['Cpus']
         [
-          Stubs::CPU.default(visited)
+          CPU.default(visited)
         ]
       end
 
@@ -141,7 +141,7 @@ module AWS::SDK::Mgn
         return nil if visited.include?('Disks')
         visited = visited + ['Disks']
         [
-          Stubs::Disk.default(visited)
+          Disk.default(visited)
         ]
       end
 
@@ -181,7 +181,7 @@ module AWS::SDK::Mgn
         return nil if visited.include?('NetworkInterfaces')
         visited = visited + ['NetworkInterfaces']
         [
-          Stubs::NetworkInterface.default(visited)
+          NetworkInterface.default(visited)
         ]
       end
 
@@ -202,7 +202,7 @@ module AWS::SDK::Mgn
         visited = visited + ['NetworkInterface']
         {
           mac_address: 'mac_address',
-          ips: Stubs::IPsList.default(visited),
+          ips: IPsList.default(visited),
           is_primary: false,
         }
       end
@@ -273,8 +273,8 @@ module AWS::SDK::Mgn
           first_byte_date_time: 'first_byte_date_time',
           elapsed_replication_duration: 'elapsed_replication_duration',
           last_seen_by_service_date_time: 'last_seen_by_service_date_time',
-          last_test: Stubs::LifeCycleLastTest.default(visited),
-          last_cutover: Stubs::LifeCycleLastCutover.default(visited),
+          last_test: LifeCycleLastTest.default(visited),
+          last_cutover: LifeCycleLastCutover.default(visited),
           state: 'state',
         }
       end
@@ -299,9 +299,9 @@ module AWS::SDK::Mgn
         return nil if visited.include?('LifeCycleLastCutover')
         visited = visited + ['LifeCycleLastCutover']
         {
-          initiated: Stubs::LifeCycleLastCutoverInitiated.default(visited),
-          reverted: Stubs::LifeCycleLastCutoverReverted.default(visited),
-          finalized: Stubs::LifeCycleLastCutoverFinalized.default(visited),
+          initiated: LifeCycleLastCutoverInitiated.default(visited),
+          reverted: LifeCycleLastCutoverReverted.default(visited),
+          finalized: LifeCycleLastCutoverFinalized.default(visited),
         }
       end
 
@@ -377,9 +377,9 @@ module AWS::SDK::Mgn
         return nil if visited.include?('LifeCycleLastTest')
         visited = visited + ['LifeCycleLastTest']
         {
-          initiated: Stubs::LifeCycleLastTestInitiated.default(visited),
-          reverted: Stubs::LifeCycleLastTestReverted.default(visited),
-          finalized: Stubs::LifeCycleLastTestFinalized.default(visited),
+          initiated: LifeCycleLastTestInitiated.default(visited),
+          reverted: LifeCycleLastTestReverted.default(visited),
+          finalized: LifeCycleLastTestFinalized.default(visited),
         }
       end
 
@@ -457,10 +457,10 @@ module AWS::SDK::Mgn
         {
           lag_duration: 'lag_duration',
           eta_date_time: 'eta_date_time',
-          replicated_disks: Stubs::DataReplicationInfoReplicatedDisks.default(visited),
+          replicated_disks: DataReplicationInfoReplicatedDisks.default(visited),
           data_replication_state: 'data_replication_state',
-          data_replication_initiation: Stubs::DataReplicationInitiation.default(visited),
-          data_replication_error: Stubs::DataReplicationError.default(visited),
+          data_replication_initiation: DataReplicationInitiation.default(visited),
+          data_replication_error: DataReplicationError.default(visited),
           last_snapshot_date_time: 'last_snapshot_date_time',
         }
       end
@@ -507,7 +507,7 @@ module AWS::SDK::Mgn
         {
           start_date_time: 'start_date_time',
           next_attempt_date_time: 'next_attempt_date_time',
-          steps: Stubs::DataReplicationInitiationSteps.default(visited),
+          steps: DataReplicationInitiationSteps.default(visited),
         }
       end
 
@@ -527,7 +527,7 @@ module AWS::SDK::Mgn
         return nil if visited.include?('DataReplicationInitiationSteps')
         visited = visited + ['DataReplicationInitiationSteps']
         [
-          Stubs::DataReplicationInitiationStep.default(visited)
+          DataReplicationInitiationStep.default(visited)
         ]
       end
 
@@ -567,7 +567,7 @@ module AWS::SDK::Mgn
         return nil if visited.include?('DataReplicationInfoReplicatedDisks')
         visited = visited + ['DataReplicationInfoReplicatedDisks']
         [
-          Stubs::DataReplicationInfoReplicatedDisk.default(visited)
+          DataReplicationInfoReplicatedDisk.default(visited)
         ]
       end
 
@@ -657,7 +657,7 @@ module AWS::SDK::Mgn
           arn: 'arn',
           staging_area_subnet_id: 'staging_area_subnet_id',
           associate_default_security_group: false,
-          replication_servers_security_groups_i_ds: Stubs::ReplicationServersSecurityGroupsIDs.default(visited),
+          replication_servers_security_groups_i_ds: ReplicationServersSecurityGroupsIDs.default(visited),
           replication_server_instance_type: 'replication_server_instance_type',
           use_dedicated_replication_server: false,
           default_large_staging_disk_type: 'default_large_staging_disk_type',
@@ -666,8 +666,8 @@ module AWS::SDK::Mgn
           bandwidth_throttling: 1,
           data_plane_routing: 'data_plane_routing',
           create_public_ip: false,
-          staging_area_tags: Stubs::TagsMap.default(visited),
-          tags: Stubs::TagsMap.default(visited),
+          staging_area_tags: TagsMap.default(visited),
+          tags: TagsMap.default(visited),
         }
       end
 
@@ -770,7 +770,7 @@ module AWS::SDK::Mgn
     class DescribeJobLogItems
       def self.default(visited=[])
         {
-          items: Stubs::JobLogs.default(visited),
+          items: JobLogs.default(visited),
           next_token: 'next_token',
         }
       end
@@ -791,7 +791,7 @@ module AWS::SDK::Mgn
         return nil if visited.include?('JobLogs')
         visited = visited + ['JobLogs']
         [
-          Stubs::JobLog.default(visited)
+          JobLog.default(visited)
         ]
       end
 
@@ -813,7 +813,7 @@ module AWS::SDK::Mgn
         {
           log_date_time: 'log_date_time',
           event: 'event',
-          event_data: Stubs::JobLogEventData.default(visited),
+          event_data: JobLogEventData.default(visited),
         }
       end
 
@@ -855,7 +855,7 @@ module AWS::SDK::Mgn
     class DescribeJobs
       def self.default(visited=[])
         {
-          items: Stubs::JobsList.default(visited),
+          items: JobsList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -876,7 +876,7 @@ module AWS::SDK::Mgn
         return nil if visited.include?('JobsList')
         visited = visited + ['JobsList']
         [
-          Stubs::Job.default(visited)
+          Job.default(visited)
         ]
       end
 
@@ -903,8 +903,8 @@ module AWS::SDK::Mgn
           creation_date_time: 'creation_date_time',
           end_date_time: 'end_date_time',
           status: 'status',
-          participating_servers: Stubs::ParticipatingServers.default(visited),
-          tags: Stubs::TagsMap.default(visited),
+          participating_servers: ParticipatingServers.default(visited),
+          tags: TagsMap.default(visited),
         }
       end
 
@@ -930,7 +930,7 @@ module AWS::SDK::Mgn
         return nil if visited.include?('ParticipatingServers')
         visited = visited + ['ParticipatingServers']
         [
-          Stubs::ParticipatingServer.default(visited)
+          ParticipatingServer.default(visited)
         ]
       end
 
@@ -968,7 +968,7 @@ module AWS::SDK::Mgn
     class DescribeReplicationConfigurationTemplates
       def self.default(visited=[])
         {
-          items: Stubs::ReplicationConfigurationTemplates.default(visited),
+          items: ReplicationConfigurationTemplates.default(visited),
           next_token: 'next_token',
         }
       end
@@ -989,7 +989,7 @@ module AWS::SDK::Mgn
         return nil if visited.include?('ReplicationConfigurationTemplates')
         visited = visited + ['ReplicationConfigurationTemplates']
         [
-          Stubs::ReplicationConfigurationTemplate.default(visited)
+          ReplicationConfigurationTemplate.default(visited)
         ]
       end
 
@@ -1013,7 +1013,7 @@ module AWS::SDK::Mgn
           arn: 'arn',
           staging_area_subnet_id: 'staging_area_subnet_id',
           associate_default_security_group: false,
-          replication_servers_security_groups_i_ds: Stubs::ReplicationServersSecurityGroupsIDs.default(visited),
+          replication_servers_security_groups_i_ds: ReplicationServersSecurityGroupsIDs.default(visited),
           replication_server_instance_type: 'replication_server_instance_type',
           use_dedicated_replication_server: false,
           default_large_staging_disk_type: 'default_large_staging_disk_type',
@@ -1022,8 +1022,8 @@ module AWS::SDK::Mgn
           bandwidth_throttling: 1,
           data_plane_routing: 'data_plane_routing',
           create_public_ip: false,
-          staging_area_tags: Stubs::TagsMap.default(visited),
-          tags: Stubs::TagsMap.default(visited),
+          staging_area_tags: TagsMap.default(visited),
+          tags: TagsMap.default(visited),
         }
       end
 
@@ -1053,7 +1053,7 @@ module AWS::SDK::Mgn
     class DescribeSourceServers
       def self.default(visited=[])
         {
-          items: Stubs::SourceServersList.default(visited),
+          items: SourceServersList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1074,7 +1074,7 @@ module AWS::SDK::Mgn
         return nil if visited.include?('SourceServersList')
         visited = visited + ['SourceServersList']
         [
-          Stubs::SourceServer.default(visited)
+          SourceServer.default(visited)
         ]
       end
 
@@ -1097,11 +1097,11 @@ module AWS::SDK::Mgn
           source_server_id: 'source_server_id',
           arn: 'arn',
           is_archived: false,
-          tags: Stubs::TagsMap.default(visited),
-          launched_instance: Stubs::LaunchedInstance.default(visited),
-          data_replication_info: Stubs::DataReplicationInfo.default(visited),
-          life_cycle: Stubs::LifeCycle.default(visited),
-          source_properties: Stubs::SourceProperties.default(visited),
+          tags: TagsMap.default(visited),
+          launched_instance: LaunchedInstance.default(visited),
+          data_replication_info: DataReplicationInfo.default(visited),
+          life_cycle: LifeCycle.default(visited),
+          source_properties: SourceProperties.default(visited),
           replication_type: 'replication_type',
           vcenter_client_id: 'vcenter_client_id',
         }
@@ -1128,7 +1128,7 @@ module AWS::SDK::Mgn
     class DescribeVcenterClients
       def self.default(visited=[])
         {
-          items: Stubs::VcenterClientList.default(visited),
+          items: VcenterClientList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1149,7 +1149,7 @@ module AWS::SDK::Mgn
         return nil if visited.include?('VcenterClientList')
         visited = visited + ['VcenterClientList']
         [
-          Stubs::VcenterClient.default(visited)
+          VcenterClient.default(visited)
         ]
       end
 
@@ -1175,8 +1175,8 @@ module AWS::SDK::Mgn
           vcenter_uuid: 'vcenter_uuid',
           datacenter_name: 'datacenter_name',
           last_seen_datetime: 'last_seen_datetime',
-          source_server_tags: Stubs::TagsMap.default(visited),
-          tags: Stubs::TagsMap.default(visited),
+          source_server_tags: TagsMap.default(visited),
+          tags: TagsMap.default(visited),
         }
       end
 
@@ -1202,11 +1202,11 @@ module AWS::SDK::Mgn
           source_server_id: 'source_server_id',
           arn: 'arn',
           is_archived: false,
-          tags: Stubs::TagsMap.default(visited),
-          launched_instance: Stubs::LaunchedInstance.default(visited),
-          data_replication_info: Stubs::DataReplicationInfo.default(visited),
-          life_cycle: Stubs::LifeCycle.default(visited),
-          source_properties: Stubs::SourceProperties.default(visited),
+          tags: TagsMap.default(visited),
+          launched_instance: LaunchedInstance.default(visited),
+          data_replication_info: DataReplicationInfo.default(visited),
+          life_cycle: LifeCycle.default(visited),
+          source_properties: SourceProperties.default(visited),
           replication_type: 'replication_type',
           vcenter_client_id: 'vcenter_client_id',
         }
@@ -1237,11 +1237,11 @@ module AWS::SDK::Mgn
           source_server_id: 'source_server_id',
           arn: 'arn',
           is_archived: false,
-          tags: Stubs::TagsMap.default(visited),
-          launched_instance: Stubs::LaunchedInstance.default(visited),
-          data_replication_info: Stubs::DataReplicationInfo.default(visited),
-          life_cycle: Stubs::LifeCycle.default(visited),
-          source_properties: Stubs::SourceProperties.default(visited),
+          tags: TagsMap.default(visited),
+          launched_instance: LaunchedInstance.default(visited),
+          data_replication_info: DataReplicationInfo.default(visited),
+          life_cycle: LifeCycle.default(visited),
+          source_properties: SourceProperties.default(visited),
           replication_type: 'replication_type',
           vcenter_client_id: 'vcenter_client_id',
         }
@@ -1276,7 +1276,7 @@ module AWS::SDK::Mgn
           target_instance_type_right_sizing_method: 'target_instance_type_right_sizing_method',
           copy_private_ip: false,
           copy_tags: false,
-          licensing: Stubs::Licensing.default(visited),
+          licensing: Licensing.default(visited),
           boot_mode: 'boot_mode',
         }
       end
@@ -1324,17 +1324,17 @@ module AWS::SDK::Mgn
           name: 'name',
           staging_area_subnet_id: 'staging_area_subnet_id',
           associate_default_security_group: false,
-          replication_servers_security_groups_i_ds: Stubs::ReplicationServersSecurityGroupsIDs.default(visited),
+          replication_servers_security_groups_i_ds: ReplicationServersSecurityGroupsIDs.default(visited),
           replication_server_instance_type: 'replication_server_instance_type',
           use_dedicated_replication_server: false,
           default_large_staging_disk_type: 'default_large_staging_disk_type',
-          replicated_disks: Stubs::ReplicationConfigurationReplicatedDisks.default(visited),
+          replicated_disks: ReplicationConfigurationReplicatedDisks.default(visited),
           ebs_encryption: 'ebs_encryption',
           ebs_encryption_key_arn: 'ebs_encryption_key_arn',
           bandwidth_throttling: 1,
           data_plane_routing: 'data_plane_routing',
           create_public_ip: false,
-          staging_area_tags: Stubs::TagsMap.default(visited),
+          staging_area_tags: TagsMap.default(visited),
         }
       end
 
@@ -1367,7 +1367,7 @@ module AWS::SDK::Mgn
         return nil if visited.include?('ReplicationConfigurationReplicatedDisks')
         visited = visited + ['ReplicationConfigurationReplicatedDisks']
         [
-          Stubs::ReplicationConfigurationReplicatedDisk.default(visited)
+          ReplicationConfigurationReplicatedDisk.default(visited)
         ]
       end
 
@@ -1424,7 +1424,7 @@ module AWS::SDK::Mgn
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagsMap.default(visited),
+          tags: TagsMap.default(visited),
         }
       end
 
@@ -1444,11 +1444,11 @@ module AWS::SDK::Mgn
           source_server_id: 'source_server_id',
           arn: 'arn',
           is_archived: false,
-          tags: Stubs::TagsMap.default(visited),
-          launched_instance: Stubs::LaunchedInstance.default(visited),
-          data_replication_info: Stubs::DataReplicationInfo.default(visited),
-          life_cycle: Stubs::LifeCycle.default(visited),
-          source_properties: Stubs::SourceProperties.default(visited),
+          tags: TagsMap.default(visited),
+          launched_instance: LaunchedInstance.default(visited),
+          data_replication_info: DataReplicationInfo.default(visited),
+          life_cycle: LifeCycle.default(visited),
+          source_properties: SourceProperties.default(visited),
           replication_type: 'replication_type',
           vcenter_client_id: 'vcenter_client_id',
         }
@@ -1479,11 +1479,11 @@ module AWS::SDK::Mgn
           source_server_id: 'source_server_id',
           arn: 'arn',
           is_archived: false,
-          tags: Stubs::TagsMap.default(visited),
-          launched_instance: Stubs::LaunchedInstance.default(visited),
-          data_replication_info: Stubs::DataReplicationInfo.default(visited),
-          life_cycle: Stubs::LifeCycle.default(visited),
-          source_properties: Stubs::SourceProperties.default(visited),
+          tags: TagsMap.default(visited),
+          launched_instance: LaunchedInstance.default(visited),
+          data_replication_info: DataReplicationInfo.default(visited),
+          life_cycle: LifeCycle.default(visited),
+          source_properties: SourceProperties.default(visited),
           replication_type: 'replication_type',
           vcenter_client_id: 'vcenter_client_id',
         }
@@ -1511,7 +1511,7 @@ module AWS::SDK::Mgn
     class StartCutover
       def self.default(visited=[])
         {
-          job: Stubs::Job.default(visited),
+          job: Job.default(visited),
         }
       end
 
@@ -1531,11 +1531,11 @@ module AWS::SDK::Mgn
           source_server_id: 'source_server_id',
           arn: 'arn',
           is_archived: false,
-          tags: Stubs::TagsMap.default(visited),
-          launched_instance: Stubs::LaunchedInstance.default(visited),
-          data_replication_info: Stubs::DataReplicationInfo.default(visited),
-          life_cycle: Stubs::LifeCycle.default(visited),
-          source_properties: Stubs::SourceProperties.default(visited),
+          tags: TagsMap.default(visited),
+          launched_instance: LaunchedInstance.default(visited),
+          data_replication_info: DataReplicationInfo.default(visited),
+          life_cycle: LifeCycle.default(visited),
+          source_properties: SourceProperties.default(visited),
           replication_type: 'replication_type',
           vcenter_client_id: 'vcenter_client_id',
         }
@@ -1563,7 +1563,7 @@ module AWS::SDK::Mgn
     class StartTest
       def self.default(visited=[])
         {
-          job: Stubs::Job.default(visited),
+          job: Job.default(visited),
         }
       end
 
@@ -1593,7 +1593,7 @@ module AWS::SDK::Mgn
     class TerminateTargetInstances
       def self.default(visited=[])
         {
-          job: Stubs::Job.default(visited),
+          job: Job.default(visited),
         }
       end
 
@@ -1630,7 +1630,7 @@ module AWS::SDK::Mgn
           target_instance_type_right_sizing_method: 'target_instance_type_right_sizing_method',
           copy_private_ip: false,
           copy_tags: false,
-          licensing: Stubs::Licensing.default(visited),
+          licensing: Licensing.default(visited),
           boot_mode: 'boot_mode',
         }
       end
@@ -1660,17 +1660,17 @@ module AWS::SDK::Mgn
           name: 'name',
           staging_area_subnet_id: 'staging_area_subnet_id',
           associate_default_security_group: false,
-          replication_servers_security_groups_i_ds: Stubs::ReplicationServersSecurityGroupsIDs.default(visited),
+          replication_servers_security_groups_i_ds: ReplicationServersSecurityGroupsIDs.default(visited),
           replication_server_instance_type: 'replication_server_instance_type',
           use_dedicated_replication_server: false,
           default_large_staging_disk_type: 'default_large_staging_disk_type',
-          replicated_disks: Stubs::ReplicationConfigurationReplicatedDisks.default(visited),
+          replicated_disks: ReplicationConfigurationReplicatedDisks.default(visited),
           ebs_encryption: 'ebs_encryption',
           ebs_encryption_key_arn: 'ebs_encryption_key_arn',
           bandwidth_throttling: 1,
           data_plane_routing: 'data_plane_routing',
           create_public_ip: false,
-          staging_area_tags: Stubs::TagsMap.default(visited),
+          staging_area_tags: TagsMap.default(visited),
         }
       end
 
@@ -1705,7 +1705,7 @@ module AWS::SDK::Mgn
           arn: 'arn',
           staging_area_subnet_id: 'staging_area_subnet_id',
           associate_default_security_group: false,
-          replication_servers_security_groups_i_ds: Stubs::ReplicationServersSecurityGroupsIDs.default(visited),
+          replication_servers_security_groups_i_ds: ReplicationServersSecurityGroupsIDs.default(visited),
           replication_server_instance_type: 'replication_server_instance_type',
           use_dedicated_replication_server: false,
           default_large_staging_disk_type: 'default_large_staging_disk_type',
@@ -1714,8 +1714,8 @@ module AWS::SDK::Mgn
           bandwidth_throttling: 1,
           data_plane_routing: 'data_plane_routing',
           create_public_ip: false,
-          staging_area_tags: Stubs::TagsMap.default(visited),
-          tags: Stubs::TagsMap.default(visited),
+          staging_area_tags: TagsMap.default(visited),
+          tags: TagsMap.default(visited),
         }
       end
 
@@ -1749,11 +1749,11 @@ module AWS::SDK::Mgn
           source_server_id: 'source_server_id',
           arn: 'arn',
           is_archived: false,
-          tags: Stubs::TagsMap.default(visited),
-          launched_instance: Stubs::LaunchedInstance.default(visited),
-          data_replication_info: Stubs::DataReplicationInfo.default(visited),
-          life_cycle: Stubs::LifeCycle.default(visited),
-          source_properties: Stubs::SourceProperties.default(visited),
+          tags: TagsMap.default(visited),
+          launched_instance: LaunchedInstance.default(visited),
+          data_replication_info: DataReplicationInfo.default(visited),
+          life_cycle: LifeCycle.default(visited),
+          source_properties: SourceProperties.default(visited),
           replication_type: 'replication_type',
           vcenter_client_id: 'vcenter_client_id',
         }

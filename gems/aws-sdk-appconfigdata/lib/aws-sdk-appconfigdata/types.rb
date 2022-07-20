@@ -124,6 +124,7 @@ module AWS::SDK::AppConfigData
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.next_poll_interval_in_seconds ||= 0

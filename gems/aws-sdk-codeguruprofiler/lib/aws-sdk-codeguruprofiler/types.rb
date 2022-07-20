@@ -28,7 +28,7 @@ module AWS::SDK::CodeGuruProfiler
     # @!attribute channels
     #   <p>One or 2 channels to report to when anomalies are detected.</p>
     #
-    #   @return [Set<Channel>]
+    #   @return [Array<Channel>]
     #
     AddNotificationChannelsInput = ::Struct.new(
       :profiling_group_name,
@@ -514,7 +514,7 @@ module AWS::SDK::CodeGuruProfiler
     # @!attribute event_publishers
     #   <p>List of publishers for different type of events that may be detected in an application from the profile. Anomaly detection is the only event publisher in Profiler.</p>
     #
-    #   @return [Set<String>]
+    #   @return [Array<String>]
     #
     Channel = ::Struct.new(
       :id,
@@ -1769,7 +1769,7 @@ module AWS::SDK::CodeGuruProfiler
     #   <p>List of up to two channels to be used for sending notifications for events detected from
     #            the application profile.</p>
     #
-    #   @return [Set<Channel>]
+    #   @return [Array<Channel>]
     #
     NotificationConfiguration = ::Struct.new(
       :channels,
@@ -1850,11 +1850,11 @@ module AWS::SDK::CodeGuruProfiler
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.threshold_percent ||= 0
       end
-
     end
 
     # <p>The structure representing the postAgentProfileRequest.</p>

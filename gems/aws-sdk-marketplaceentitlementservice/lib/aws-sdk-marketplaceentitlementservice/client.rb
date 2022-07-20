@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::MarketplaceEntitlementService
@@ -97,14 +99,18 @@ module AWS::SDK::MarketplaceEntitlementService
     #   resp.data.entitlements[0].product_code #=> String
     #   resp.data.entitlements[0].dimension #=> String
     #   resp.data.entitlements[0].customer_identifier #=> String
-    #   resp.data.entitlements[0].value #=> EntitlementValue
+    #   resp.data.entitlements[0].value #=> Types::EntitlementValue, one of [IntegerValue, DoubleValue, BooleanValue, StringValue]
+    #   resp.data.entitlements[0].value.integer_value #=> Integer
+    #   resp.data.entitlements[0].value.double_value #=> Float
+    #   resp.data.entitlements[0].value.boolean_value #=> Boolean
+    #   resp.data.entitlements[0].value.string_value #=> String
     #   resp.data.entitlements[0].expiration_date #=> Time
     #   resp.data.next_token #=> String
     #
     def get_entitlements(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetEntitlementsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetEntitlementsInput,
         validate_input: @config.validate_input

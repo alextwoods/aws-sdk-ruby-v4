@@ -71,12 +71,12 @@ module AWS::SDK::DevOpsGuru
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.open_proactive_insights ||= 0
         self.open_reactive_insights ||= 0
       end
-
     end
 
     # @!attribute config
@@ -449,11 +449,11 @@ module AWS::SDK::DevOpsGuru
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.period ||= 0
       end
-
     end
 
     # <p> The dimension of am Amazon CloudWatch metric that is used when DevOps Guru analyzes the resources in
@@ -701,13 +701,13 @@ module AWS::SDK::DevOpsGuru
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.open_reactive_insights ||= 0
         self.open_proactive_insights ||= 0
         self.metrics_analyzed ||= 0
       end
-
     end
 
     # @!attribute from_time
@@ -757,12 +757,12 @@ module AWS::SDK::DevOpsGuru
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.reactive_insights ||= 0
         self.proactive_insights ||= 0
       end
-
     end
 
     # @!attribute id
@@ -930,13 +930,13 @@ module AWS::SDK::DevOpsGuru
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.open_reactive_insights ||= 0
         self.open_proactive_insights ||= 0
         self.metrics_analyzed ||= 0
       end
-
     end
 
     # @!attribute from_time
@@ -991,12 +991,12 @@ module AWS::SDK::DevOpsGuru
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.reactive_insights ||= 0
         self.proactive_insights ||= 0
       end
-
     end
 
     # @!attribute organization_resource_collection_type
@@ -1490,11 +1490,11 @@ module AWS::SDK::DevOpsGuru
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.total_cost ||= 0
       end
-
     end
 
     # @!attribute resource_collection_type
@@ -1612,12 +1612,12 @@ module AWS::SDK::DevOpsGuru
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.open_proactive_insights ||= 0
         self.open_reactive_insights ||= 0
       end
-
     end
 
     # Includes enum constants for InsightSeverity
@@ -1699,11 +1699,11 @@ module AWS::SDK::DevOpsGuru
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.retry_after_seconds ||= 0
       end
-
     end
 
     # @!attribute insight_id
@@ -4348,12 +4348,12 @@ module AWS::SDK::DevOpsGuru
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.open_proactive_insights ||= 0
         self.open_reactive_insights ||= 0
       end
-
     end
 
     # <p> Information about the integration of DevOps Guru with another Amazon Web Services service, such as
@@ -4540,13 +4540,13 @@ module AWS::SDK::DevOpsGuru
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.count ||= 0
         self.unit_cost ||= 0
         self.cost ||= 0
       end
-
     end
 
     # <p> Contains the Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic. </p>
@@ -4851,11 +4851,11 @@ module AWS::SDK::DevOpsGuru
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.retry_after_seconds ||= 0
       end
-
     end
 
     # <p>A pair that contains metric values at the respective timestamp.</p>

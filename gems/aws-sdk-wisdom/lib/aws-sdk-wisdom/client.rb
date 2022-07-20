@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::Wisdom
@@ -95,7 +97,7 @@ module AWS::SDK::Wisdom
     def create_assistant(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateAssistantInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateAssistantInput,
         validate_input: @config.validate_input
@@ -189,14 +191,17 @@ module AWS::SDK::Wisdom
     #   resp.data.assistant_association.assistant_id #=> String
     #   resp.data.assistant_association.assistant_arn #=> String
     #   resp.data.assistant_association.association_type #=> String, one of ["KNOWLEDGE_BASE"]
-    #   resp.data.assistant_association.association_data #=> AssistantAssociationOutputData
+    #   resp.data.assistant_association.association_data #=> Types::AssistantAssociationOutputData, one of [KnowledgeBaseAssociation]
+    #   resp.data.assistant_association.association_data.knowledge_base_association #=> Types::KnowledgeBaseAssociationData
+    #   resp.data.assistant_association.association_data.knowledge_base_association.knowledge_base_id #=> String
+    #   resp.data.assistant_association.association_data.knowledge_base_association.knowledge_base_arn #=> String
     #   resp.data.assistant_association.tags #=> Hash<String, String>
     #   resp.data.assistant_association.tags['key'] #=> String
     #
     def create_assistant_association(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateAssistantAssociationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateAssistantAssociationInput,
         validate_input: @config.validate_input
@@ -319,7 +324,7 @@ module AWS::SDK::Wisdom
     def create_content(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateContentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateContentInput,
         validate_input: @config.validate_input
@@ -460,7 +465,11 @@ module AWS::SDK::Wisdom
     #   resp.data.knowledge_base.knowledge_base_type #=> String, one of ["EXTERNAL", "CUSTOM"]
     #   resp.data.knowledge_base.status #=> String, one of ["CREATE_IN_PROGRESS", "CREATE_FAILED", "ACTIVE", "DELETE_IN_PROGRESS", "DELETE_FAILED", "DELETED"]
     #   resp.data.knowledge_base.last_content_modification_time #=> Time
-    #   resp.data.knowledge_base.source_configuration #=> SourceConfiguration
+    #   resp.data.knowledge_base.source_configuration #=> Types::SourceConfiguration, one of [AppIntegrations]
+    #   resp.data.knowledge_base.source_configuration.app_integrations #=> Types::AppIntegrationsConfiguration
+    #   resp.data.knowledge_base.source_configuration.app_integrations.app_integration_arn #=> String
+    #   resp.data.knowledge_base.source_configuration.app_integrations.object_fields #=> Array<String>
+    #   resp.data.knowledge_base.source_configuration.app_integrations.object_fields[0] #=> String
     #   resp.data.knowledge_base.rendering_configuration #=> Types::RenderingConfiguration
     #   resp.data.knowledge_base.rendering_configuration.template_uri #=> String
     #   resp.data.knowledge_base.server_side_encryption_configuration #=> Types::ServerSideEncryptionConfiguration
@@ -472,7 +481,7 @@ module AWS::SDK::Wisdom
     def create_knowledge_base(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateKnowledgeBaseInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateKnowledgeBaseInput,
         validate_input: @config.validate_input
@@ -568,7 +577,7 @@ module AWS::SDK::Wisdom
     def create_session(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateSessionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateSessionInput,
         validate_input: @config.validate_input
@@ -636,7 +645,7 @@ module AWS::SDK::Wisdom
     def delete_assistant(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAssistantInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAssistantInput,
         validate_input: @config.validate_input
@@ -707,7 +716,7 @@ module AWS::SDK::Wisdom
     def delete_assistant_association(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAssistantAssociationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAssistantAssociationInput,
         validate_input: @config.validate_input
@@ -778,7 +787,7 @@ module AWS::SDK::Wisdom
     def delete_content(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteContentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteContentInput,
         validate_input: @config.validate_input
@@ -852,7 +861,7 @@ module AWS::SDK::Wisdom
     def delete_knowledge_base(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteKnowledgeBaseInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteKnowledgeBaseInput,
         validate_input: @config.validate_input
@@ -930,7 +939,7 @@ module AWS::SDK::Wisdom
     def get_assistant(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAssistantInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAssistantInput,
         validate_input: @config.validate_input
@@ -1003,14 +1012,17 @@ module AWS::SDK::Wisdom
     #   resp.data.assistant_association.assistant_id #=> String
     #   resp.data.assistant_association.assistant_arn #=> String
     #   resp.data.assistant_association.association_type #=> String, one of ["KNOWLEDGE_BASE"]
-    #   resp.data.assistant_association.association_data #=> AssistantAssociationOutputData
+    #   resp.data.assistant_association.association_data #=> Types::AssistantAssociationOutputData, one of [KnowledgeBaseAssociation]
+    #   resp.data.assistant_association.association_data.knowledge_base_association #=> Types::KnowledgeBaseAssociationData
+    #   resp.data.assistant_association.association_data.knowledge_base_association.knowledge_base_id #=> String
+    #   resp.data.assistant_association.association_data.knowledge_base_association.knowledge_base_arn #=> String
     #   resp.data.assistant_association.tags #=> Hash<String, String>
     #   resp.data.assistant_association.tags['key'] #=> String
     #
     def get_assistant_association(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAssistantAssociationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAssistantAssociationInput,
         validate_input: @config.validate_input
@@ -1098,7 +1110,7 @@ module AWS::SDK::Wisdom
     def get_content(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetContentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetContentInput,
         validate_input: @config.validate_input
@@ -1183,7 +1195,7 @@ module AWS::SDK::Wisdom
     def get_content_summary(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetContentSummaryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetContentSummaryInput,
         validate_input: @config.validate_input
@@ -1253,7 +1265,11 @@ module AWS::SDK::Wisdom
     #   resp.data.knowledge_base.knowledge_base_type #=> String, one of ["EXTERNAL", "CUSTOM"]
     #   resp.data.knowledge_base.status #=> String, one of ["CREATE_IN_PROGRESS", "CREATE_FAILED", "ACTIVE", "DELETE_IN_PROGRESS", "DELETE_FAILED", "DELETED"]
     #   resp.data.knowledge_base.last_content_modification_time #=> Time
-    #   resp.data.knowledge_base.source_configuration #=> SourceConfiguration
+    #   resp.data.knowledge_base.source_configuration #=> Types::SourceConfiguration, one of [AppIntegrations]
+    #   resp.data.knowledge_base.source_configuration.app_integrations #=> Types::AppIntegrationsConfiguration
+    #   resp.data.knowledge_base.source_configuration.app_integrations.app_integration_arn #=> String
+    #   resp.data.knowledge_base.source_configuration.app_integrations.object_fields #=> Array<String>
+    #   resp.data.knowledge_base.source_configuration.app_integrations.object_fields[0] #=> String
     #   resp.data.knowledge_base.rendering_configuration #=> Types::RenderingConfiguration
     #   resp.data.knowledge_base.rendering_configuration.template_uri #=> String
     #   resp.data.knowledge_base.server_side_encryption_configuration #=> Types::ServerSideEncryptionConfiguration
@@ -1265,7 +1281,7 @@ module AWS::SDK::Wisdom
     def get_knowledge_base(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetKnowledgeBaseInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetKnowledgeBaseInput,
         validate_input: @config.validate_input
@@ -1370,14 +1386,16 @@ module AWS::SDK::Wisdom
     #   resp.data.triggers[0].id #=> String
     #   resp.data.triggers[0].type #=> String, one of ["QUERY"]
     #   resp.data.triggers[0].source #=> String, one of ["ISSUE_DETECTION", "RULE_EVALUATION", "OTHER"]
-    #   resp.data.triggers[0].data #=> RecommendationTriggerData
+    #   resp.data.triggers[0].data #=> Types::RecommendationTriggerData, one of [Query]
+    #   resp.data.triggers[0].data.query #=> Types::QueryRecommendationTriggerData
+    #   resp.data.triggers[0].data.query.text #=> String
     #   resp.data.triggers[0].recommendation_ids #=> Array<String>
     #   resp.data.triggers[0].recommendation_ids[0] #=> String
     #
     def get_recommendations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetRecommendationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetRecommendationsInput,
         validate_input: @config.validate_input
@@ -1455,7 +1473,7 @@ module AWS::SDK::Wisdom
     def get_session(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSessionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSessionInput,
         validate_input: @config.validate_input
@@ -1534,7 +1552,10 @@ module AWS::SDK::Wisdom
     #   resp.data.assistant_association_summaries[0].assistant_id #=> String
     #   resp.data.assistant_association_summaries[0].assistant_arn #=> String
     #   resp.data.assistant_association_summaries[0].association_type #=> String, one of ["KNOWLEDGE_BASE"]
-    #   resp.data.assistant_association_summaries[0].association_data #=> AssistantAssociationOutputData
+    #   resp.data.assistant_association_summaries[0].association_data #=> Types::AssistantAssociationOutputData, one of [KnowledgeBaseAssociation]
+    #   resp.data.assistant_association_summaries[0].association_data.knowledge_base_association #=> Types::KnowledgeBaseAssociationData
+    #   resp.data.assistant_association_summaries[0].association_data.knowledge_base_association.knowledge_base_id #=> String
+    #   resp.data.assistant_association_summaries[0].association_data.knowledge_base_association.knowledge_base_arn #=> String
     #   resp.data.assistant_association_summaries[0].tags #=> Hash<String, String>
     #   resp.data.assistant_association_summaries[0].tags['key'] #=> String
     #   resp.data.next_token #=> String
@@ -1542,7 +1563,7 @@ module AWS::SDK::Wisdom
     def list_assistant_associations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAssistantAssociationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAssistantAssociationsInput,
         validate_input: @config.validate_input
@@ -1627,7 +1648,7 @@ module AWS::SDK::Wisdom
     def list_assistants(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAssistantsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAssistantsInput,
         validate_input: @config.validate_input
@@ -1719,7 +1740,7 @@ module AWS::SDK::Wisdom
     def list_contents(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListContentsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListContentsInput,
         validate_input: @config.validate_input
@@ -1794,7 +1815,11 @@ module AWS::SDK::Wisdom
     #   resp.data.knowledge_base_summaries[0].name #=> String
     #   resp.data.knowledge_base_summaries[0].knowledge_base_type #=> String, one of ["EXTERNAL", "CUSTOM"]
     #   resp.data.knowledge_base_summaries[0].status #=> String, one of ["CREATE_IN_PROGRESS", "CREATE_FAILED", "ACTIVE", "DELETE_IN_PROGRESS", "DELETE_FAILED", "DELETED"]
-    #   resp.data.knowledge_base_summaries[0].source_configuration #=> SourceConfiguration
+    #   resp.data.knowledge_base_summaries[0].source_configuration #=> Types::SourceConfiguration, one of [AppIntegrations]
+    #   resp.data.knowledge_base_summaries[0].source_configuration.app_integrations #=> Types::AppIntegrationsConfiguration
+    #   resp.data.knowledge_base_summaries[0].source_configuration.app_integrations.app_integration_arn #=> String
+    #   resp.data.knowledge_base_summaries[0].source_configuration.app_integrations.object_fields #=> Array<String>
+    #   resp.data.knowledge_base_summaries[0].source_configuration.app_integrations.object_fields[0] #=> String
     #   resp.data.knowledge_base_summaries[0].rendering_configuration #=> Types::RenderingConfiguration
     #   resp.data.knowledge_base_summaries[0].rendering_configuration.template_uri #=> String
     #   resp.data.knowledge_base_summaries[0].server_side_encryption_configuration #=> Types::ServerSideEncryptionConfiguration
@@ -1807,7 +1832,7 @@ module AWS::SDK::Wisdom
     def list_knowledge_bases(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListKnowledgeBasesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListKnowledgeBasesInput,
         validate_input: @config.validate_input
@@ -1876,7 +1901,7 @@ module AWS::SDK::Wisdom
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -1961,7 +1986,7 @@ module AWS::SDK::Wisdom
     def notify_recommendations_received(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::NotifyRecommendationsReceivedInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::NotifyRecommendationsReceivedInput,
         validate_input: @config.validate_input
@@ -2062,7 +2087,7 @@ module AWS::SDK::Wisdom
     def query_assistant(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::QueryAssistantInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::QueryAssistantInput,
         validate_input: @config.validate_input
@@ -2130,7 +2155,7 @@ module AWS::SDK::Wisdom
     def remove_knowledge_base_template_uri(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RemoveKnowledgeBaseTemplateUriInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RemoveKnowledgeBaseTemplateUriInput,
         validate_input: @config.validate_input
@@ -2235,7 +2260,7 @@ module AWS::SDK::Wisdom
     def search_content(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SearchContentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SearchContentInput,
         validate_input: @config.validate_input
@@ -2331,7 +2356,7 @@ module AWS::SDK::Wisdom
     def search_sessions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SearchSessionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SearchSessionsInput,
         validate_input: @config.validate_input
@@ -2411,7 +2436,7 @@ module AWS::SDK::Wisdom
     def start_content_upload(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartContentUploadInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartContentUploadInput,
         validate_input: @config.validate_input
@@ -2485,7 +2510,7 @@ module AWS::SDK::Wisdom
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -2559,7 +2584,7 @@ module AWS::SDK::Wisdom
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -2682,7 +2707,7 @@ module AWS::SDK::Wisdom
     def update_content(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateContentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateContentInput,
         validate_input: @config.validate_input
@@ -2762,7 +2787,11 @@ module AWS::SDK::Wisdom
     #   resp.data.knowledge_base.knowledge_base_type #=> String, one of ["EXTERNAL", "CUSTOM"]
     #   resp.data.knowledge_base.status #=> String, one of ["CREATE_IN_PROGRESS", "CREATE_FAILED", "ACTIVE", "DELETE_IN_PROGRESS", "DELETE_FAILED", "DELETED"]
     #   resp.data.knowledge_base.last_content_modification_time #=> Time
-    #   resp.data.knowledge_base.source_configuration #=> SourceConfiguration
+    #   resp.data.knowledge_base.source_configuration #=> Types::SourceConfiguration, one of [AppIntegrations]
+    #   resp.data.knowledge_base.source_configuration.app_integrations #=> Types::AppIntegrationsConfiguration
+    #   resp.data.knowledge_base.source_configuration.app_integrations.app_integration_arn #=> String
+    #   resp.data.knowledge_base.source_configuration.app_integrations.object_fields #=> Array<String>
+    #   resp.data.knowledge_base.source_configuration.app_integrations.object_fields[0] #=> String
     #   resp.data.knowledge_base.rendering_configuration #=> Types::RenderingConfiguration
     #   resp.data.knowledge_base.rendering_configuration.template_uri #=> String
     #   resp.data.knowledge_base.server_side_encryption_configuration #=> Types::ServerSideEncryptionConfiguration
@@ -2774,7 +2803,7 @@ module AWS::SDK::Wisdom
     def update_knowledge_base_template_uri(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateKnowledgeBaseTemplateUriInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateKnowledgeBaseTemplateUriInput,
         validate_input: @config.validate_input

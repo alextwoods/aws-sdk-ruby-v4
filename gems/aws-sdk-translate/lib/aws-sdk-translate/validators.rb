@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::Translate
   module Validators
 
@@ -14,7 +16,7 @@ module AWS::SDK::Translate
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AppliedTerminology, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::TermList.validate!(input[:terms], context: "#{context}[:terms]") unless input[:terms].nil?
+        TermList.validate!(input[:terms], context: "#{context}[:terms]") unless input[:terms].nil?
       end
     end
 
@@ -22,7 +24,7 @@ module AWS::SDK::Translate
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AppliedTerminology.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AppliedTerminology.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -46,8 +48,8 @@ module AWS::SDK::Translate
         Hearth::Validator.validate!(input, Types::CreateParallelDataInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::ParallelDataConfig.validate!(input[:parallel_data_config], context: "#{context}[:parallel_data_config]") unless input[:parallel_data_config].nil?
-        Validators::EncryptionKey.validate!(input[:encryption_key], context: "#{context}[:encryption_key]") unless input[:encryption_key].nil?
+        ParallelDataConfig.validate!(input[:parallel_data_config], context: "#{context}[:parallel_data_config]") unless input[:parallel_data_config].nil?
+        EncryptionKey.validate!(input[:encryption_key], context: "#{context}[:encryption_key]") unless input[:encryption_key].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
       end
     end
@@ -98,7 +100,7 @@ module AWS::SDK::Translate
     class DescribeTextTranslationJobOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeTextTranslationJobOutput, context: context)
-        Validators::TextTranslationJobProperties.validate!(input[:text_translation_job_properties], context: "#{context}[:text_translation_job_properties]") unless input[:text_translation_job_properties].nil?
+        TextTranslationJobProperties.validate!(input[:text_translation_job_properties], context: "#{context}[:text_translation_job_properties]") unless input[:text_translation_job_properties].nil?
       end
     end
 
@@ -128,10 +130,10 @@ module AWS::SDK::Translate
     class GetParallelDataOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetParallelDataOutput, context: context)
-        Validators::ParallelDataProperties.validate!(input[:parallel_data_properties], context: "#{context}[:parallel_data_properties]") unless input[:parallel_data_properties].nil?
-        Validators::ParallelDataDataLocation.validate!(input[:data_location], context: "#{context}[:data_location]") unless input[:data_location].nil?
-        Validators::ParallelDataDataLocation.validate!(input[:auxiliary_data_location], context: "#{context}[:auxiliary_data_location]") unless input[:auxiliary_data_location].nil?
-        Validators::ParallelDataDataLocation.validate!(input[:latest_update_attempt_auxiliary_data_location], context: "#{context}[:latest_update_attempt_auxiliary_data_location]") unless input[:latest_update_attempt_auxiliary_data_location].nil?
+        ParallelDataProperties.validate!(input[:parallel_data_properties], context: "#{context}[:parallel_data_properties]") unless input[:parallel_data_properties].nil?
+        ParallelDataDataLocation.validate!(input[:data_location], context: "#{context}[:data_location]") unless input[:data_location].nil?
+        ParallelDataDataLocation.validate!(input[:auxiliary_data_location], context: "#{context}[:auxiliary_data_location]") unless input[:auxiliary_data_location].nil?
+        ParallelDataDataLocation.validate!(input[:latest_update_attempt_auxiliary_data_location], context: "#{context}[:latest_update_attempt_auxiliary_data_location]") unless input[:latest_update_attempt_auxiliary_data_location].nil?
       end
     end
 
@@ -146,9 +148,9 @@ module AWS::SDK::Translate
     class GetTerminologyOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetTerminologyOutput, context: context)
-        Validators::TerminologyProperties.validate!(input[:terminology_properties], context: "#{context}[:terminology_properties]") unless input[:terminology_properties].nil?
-        Validators::TerminologyDataLocation.validate!(input[:terminology_data_location], context: "#{context}[:terminology_data_location]") unless input[:terminology_data_location].nil?
-        Validators::TerminologyDataLocation.validate!(input[:auxiliary_data_location], context: "#{context}[:auxiliary_data_location]") unless input[:auxiliary_data_location].nil?
+        TerminologyProperties.validate!(input[:terminology_properties], context: "#{context}[:terminology_properties]") unless input[:terminology_properties].nil?
+        TerminologyDataLocation.validate!(input[:terminology_data_location], context: "#{context}[:terminology_data_location]") unless input[:terminology_data_location].nil?
+        TerminologyDataLocation.validate!(input[:auxiliary_data_location], context: "#{context}[:auxiliary_data_location]") unless input[:auxiliary_data_location].nil?
       end
     end
 
@@ -158,16 +160,16 @@ module AWS::SDK::Translate
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:merge_strategy], ::String, context: "#{context}[:merge_strategy]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::TerminologyData.validate!(input[:terminology_data], context: "#{context}[:terminology_data]") unless input[:terminology_data].nil?
-        Validators::EncryptionKey.validate!(input[:encryption_key], context: "#{context}[:encryption_key]") unless input[:encryption_key].nil?
+        TerminologyData.validate!(input[:terminology_data], context: "#{context}[:terminology_data]") unless input[:terminology_data].nil?
+        EncryptionKey.validate!(input[:encryption_key], context: "#{context}[:encryption_key]") unless input[:encryption_key].nil?
       end
     end
 
     class ImportTerminologyOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ImportTerminologyOutput, context: context)
-        Validators::TerminologyProperties.validate!(input[:terminology_properties], context: "#{context}[:terminology_properties]") unless input[:terminology_properties].nil?
-        Validators::TerminologyDataLocation.validate!(input[:auxiliary_data_location], context: "#{context}[:auxiliary_data_location]") unless input[:auxiliary_data_location].nil?
+        TerminologyProperties.validate!(input[:terminology_properties], context: "#{context}[:terminology_properties]") unless input[:terminology_properties].nil?
+        TerminologyDataLocation.validate!(input[:auxiliary_data_location], context: "#{context}[:auxiliary_data_location]") unless input[:auxiliary_data_location].nil?
       end
     end
 
@@ -243,7 +245,7 @@ module AWS::SDK::Translate
     class ListParallelDataOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListParallelDataOutput, context: context)
-        Validators::ParallelDataPropertiesList.validate!(input[:parallel_data_properties_list], context: "#{context}[:parallel_data_properties_list]") unless input[:parallel_data_properties_list].nil?
+        ParallelDataPropertiesList.validate!(input[:parallel_data_properties_list], context: "#{context}[:parallel_data_properties_list]") unless input[:parallel_data_properties_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -259,7 +261,7 @@ module AWS::SDK::Translate
     class ListTerminologiesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTerminologiesOutput, context: context)
-        Validators::TerminologyPropertiesList.validate!(input[:terminology_properties_list], context: "#{context}[:terminology_properties_list]") unless input[:terminology_properties_list].nil?
+        TerminologyPropertiesList.validate!(input[:terminology_properties_list], context: "#{context}[:terminology_properties_list]") unless input[:terminology_properties_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -267,7 +269,7 @@ module AWS::SDK::Translate
     class ListTextTranslationJobsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTextTranslationJobsInput, context: context)
-        Validators::TextTranslationJobFilter.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
+        TextTranslationJobFilter.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
       end
@@ -276,7 +278,7 @@ module AWS::SDK::Translate
     class ListTextTranslationJobsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTextTranslationJobsOutput, context: context)
-        Validators::TextTranslationJobPropertiesList.validate!(input[:text_translation_job_properties_list], context: "#{context}[:text_translation_job_properties_list]") unless input[:text_translation_job_properties_list].nil?
+        TextTranslationJobPropertiesList.validate!(input[:text_translation_job_properties_list], context: "#{context}[:text_translation_job_properties_list]") unless input[:text_translation_job_properties_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -285,7 +287,7 @@ module AWS::SDK::Translate
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::OutputDataConfig, context: context)
         Hearth::Validator.validate!(input[:s3_uri], ::String, context: "#{context}[:s3_uri]")
-        Validators::EncryptionKey.validate!(input[:encryption_key], context: "#{context}[:encryption_key]") unless input[:encryption_key].nil?
+        EncryptionKey.validate!(input[:encryption_key], context: "#{context}[:encryption_key]") unless input[:encryption_key].nil?
       end
     end
 
@@ -313,14 +315,14 @@ module AWS::SDK::Translate
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:source_language_code], ::String, context: "#{context}[:source_language_code]")
-        Validators::LanguageCodeStringList.validate!(input[:target_language_codes], context: "#{context}[:target_language_codes]") unless input[:target_language_codes].nil?
-        Validators::ParallelDataConfig.validate!(input[:parallel_data_config], context: "#{context}[:parallel_data_config]") unless input[:parallel_data_config].nil?
+        LanguageCodeStringList.validate!(input[:target_language_codes], context: "#{context}[:target_language_codes]") unless input[:target_language_codes].nil?
+        ParallelDataConfig.validate!(input[:parallel_data_config], context: "#{context}[:parallel_data_config]") unless input[:parallel_data_config].nil?
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
         Hearth::Validator.validate!(input[:imported_data_size], ::Integer, context: "#{context}[:imported_data_size]")
         Hearth::Validator.validate!(input[:imported_record_count], ::Integer, context: "#{context}[:imported_record_count]")
         Hearth::Validator.validate!(input[:failed_record_count], ::Integer, context: "#{context}[:failed_record_count]")
         Hearth::Validator.validate!(input[:skipped_record_count], ::Integer, context: "#{context}[:skipped_record_count]")
-        Validators::EncryptionKey.validate!(input[:encryption_key], context: "#{context}[:encryption_key]") unless input[:encryption_key].nil?
+        EncryptionKey.validate!(input[:encryption_key], context: "#{context}[:encryption_key]") unless input[:encryption_key].nil?
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:last_updated_at], ::Time, context: "#{context}[:last_updated_at]")
         Hearth::Validator.validate!(input[:latest_update_attempt_status], ::String, context: "#{context}[:latest_update_attempt_status]")
@@ -332,7 +334,7 @@ module AWS::SDK::Translate
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ParallelDataProperties.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ParallelDataProperties.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -364,15 +366,15 @@ module AWS::SDK::Translate
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StartTextTranslationJobInput, context: context)
         Hearth::Validator.validate!(input[:job_name], ::String, context: "#{context}[:job_name]")
-        Validators::InputDataConfig.validate!(input[:input_data_config], context: "#{context}[:input_data_config]") unless input[:input_data_config].nil?
-        Validators::OutputDataConfig.validate!(input[:output_data_config], context: "#{context}[:output_data_config]") unless input[:output_data_config].nil?
+        InputDataConfig.validate!(input[:input_data_config], context: "#{context}[:input_data_config]") unless input[:input_data_config].nil?
+        OutputDataConfig.validate!(input[:output_data_config], context: "#{context}[:output_data_config]") unless input[:output_data_config].nil?
         Hearth::Validator.validate!(input[:data_access_role_arn], ::String, context: "#{context}[:data_access_role_arn]")
         Hearth::Validator.validate!(input[:source_language_code], ::String, context: "#{context}[:source_language_code]")
-        Validators::TargetLanguageCodeStringList.validate!(input[:target_language_codes], context: "#{context}[:target_language_codes]") unless input[:target_language_codes].nil?
-        Validators::ResourceNameList.validate!(input[:terminology_names], context: "#{context}[:terminology_names]") unless input[:terminology_names].nil?
-        Validators::ResourceNameList.validate!(input[:parallel_data_names], context: "#{context}[:parallel_data_names]") unless input[:parallel_data_names].nil?
+        TargetLanguageCodeStringList.validate!(input[:target_language_codes], context: "#{context}[:target_language_codes]") unless input[:target_language_codes].nil?
+        ResourceNameList.validate!(input[:terminology_names], context: "#{context}[:terminology_names]") unless input[:terminology_names].nil?
+        ResourceNameList.validate!(input[:parallel_data_names], context: "#{context}[:parallel_data_names]") unless input[:parallel_data_names].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
-        Validators::TranslationSettings.validate!(input[:settings], context: "#{context}[:settings]") unless input[:settings].nil?
+        TranslationSettings.validate!(input[:settings], context: "#{context}[:settings]") unless input[:settings].nil?
       end
     end
 
@@ -420,7 +422,7 @@ module AWS::SDK::Translate
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Term.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Term.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -449,8 +451,8 @@ module AWS::SDK::Translate
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:source_language_code], ::String, context: "#{context}[:source_language_code]")
-        Validators::LanguageCodeStringList.validate!(input[:target_language_codes], context: "#{context}[:target_language_codes]") unless input[:target_language_codes].nil?
-        Validators::EncryptionKey.validate!(input[:encryption_key], context: "#{context}[:encryption_key]") unless input[:encryption_key].nil?
+        LanguageCodeStringList.validate!(input[:target_language_codes], context: "#{context}[:target_language_codes]") unless input[:target_language_codes].nil?
+        EncryptionKey.validate!(input[:encryption_key], context: "#{context}[:encryption_key]") unless input[:encryption_key].nil?
         Hearth::Validator.validate!(input[:size_bytes], ::Integer, context: "#{context}[:size_bytes]")
         Hearth::Validator.validate!(input[:term_count], ::Integer, context: "#{context}[:term_count]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
@@ -466,7 +468,7 @@ module AWS::SDK::Translate
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TerminologyProperties.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TerminologyProperties.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -494,18 +496,18 @@ module AWS::SDK::Translate
         Hearth::Validator.validate!(input[:job_id], ::String, context: "#{context}[:job_id]")
         Hearth::Validator.validate!(input[:job_name], ::String, context: "#{context}[:job_name]")
         Hearth::Validator.validate!(input[:job_status], ::String, context: "#{context}[:job_status]")
-        Validators::JobDetails.validate!(input[:job_details], context: "#{context}[:job_details]") unless input[:job_details].nil?
+        JobDetails.validate!(input[:job_details], context: "#{context}[:job_details]") unless input[:job_details].nil?
         Hearth::Validator.validate!(input[:source_language_code], ::String, context: "#{context}[:source_language_code]")
-        Validators::TargetLanguageCodeStringList.validate!(input[:target_language_codes], context: "#{context}[:target_language_codes]") unless input[:target_language_codes].nil?
-        Validators::ResourceNameList.validate!(input[:terminology_names], context: "#{context}[:terminology_names]") unless input[:terminology_names].nil?
-        Validators::ResourceNameList.validate!(input[:parallel_data_names], context: "#{context}[:parallel_data_names]") unless input[:parallel_data_names].nil?
+        TargetLanguageCodeStringList.validate!(input[:target_language_codes], context: "#{context}[:target_language_codes]") unless input[:target_language_codes].nil?
+        ResourceNameList.validate!(input[:terminology_names], context: "#{context}[:terminology_names]") unless input[:terminology_names].nil?
+        ResourceNameList.validate!(input[:parallel_data_names], context: "#{context}[:parallel_data_names]") unless input[:parallel_data_names].nil?
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
         Hearth::Validator.validate!(input[:submitted_time], ::Time, context: "#{context}[:submitted_time]")
         Hearth::Validator.validate!(input[:end_time], ::Time, context: "#{context}[:end_time]")
-        Validators::InputDataConfig.validate!(input[:input_data_config], context: "#{context}[:input_data_config]") unless input[:input_data_config].nil?
-        Validators::OutputDataConfig.validate!(input[:output_data_config], context: "#{context}[:output_data_config]") unless input[:output_data_config].nil?
+        InputDataConfig.validate!(input[:input_data_config], context: "#{context}[:input_data_config]") unless input[:input_data_config].nil?
+        OutputDataConfig.validate!(input[:output_data_config], context: "#{context}[:output_data_config]") unless input[:output_data_config].nil?
         Hearth::Validator.validate!(input[:data_access_role_arn], ::String, context: "#{context}[:data_access_role_arn]")
-        Validators::TranslationSettings.validate!(input[:settings], context: "#{context}[:settings]") unless input[:settings].nil?
+        TranslationSettings.validate!(input[:settings], context: "#{context}[:settings]") unless input[:settings].nil?
       end
     end
 
@@ -513,7 +515,7 @@ module AWS::SDK::Translate
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TextTranslationJobProperties.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TextTranslationJobProperties.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -529,10 +531,10 @@ module AWS::SDK::Translate
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TranslateTextInput, context: context)
         Hearth::Validator.validate!(input[:text], ::String, context: "#{context}[:text]")
-        Validators::ResourceNameList.validate!(input[:terminology_names], context: "#{context}[:terminology_names]") unless input[:terminology_names].nil?
+        ResourceNameList.validate!(input[:terminology_names], context: "#{context}[:terminology_names]") unless input[:terminology_names].nil?
         Hearth::Validator.validate!(input[:source_language_code], ::String, context: "#{context}[:source_language_code]")
         Hearth::Validator.validate!(input[:target_language_code], ::String, context: "#{context}[:target_language_code]")
-        Validators::TranslationSettings.validate!(input[:settings], context: "#{context}[:settings]") unless input[:settings].nil?
+        TranslationSettings.validate!(input[:settings], context: "#{context}[:settings]") unless input[:settings].nil?
       end
     end
 
@@ -542,8 +544,8 @@ module AWS::SDK::Translate
         Hearth::Validator.validate!(input[:translated_text], ::String, context: "#{context}[:translated_text]")
         Hearth::Validator.validate!(input[:source_language_code], ::String, context: "#{context}[:source_language_code]")
         Hearth::Validator.validate!(input[:target_language_code], ::String, context: "#{context}[:target_language_code]")
-        Validators::AppliedTerminologyList.validate!(input[:applied_terminologies], context: "#{context}[:applied_terminologies]") unless input[:applied_terminologies].nil?
-        Validators::TranslationSettings.validate!(input[:applied_settings], context: "#{context}[:applied_settings]") unless input[:applied_settings].nil?
+        AppliedTerminologyList.validate!(input[:applied_terminologies], context: "#{context}[:applied_terminologies]") unless input[:applied_terminologies].nil?
+        TranslationSettings.validate!(input[:applied_settings], context: "#{context}[:applied_settings]") unless input[:applied_settings].nil?
       end
     end
 
@@ -569,7 +571,7 @@ module AWS::SDK::Translate
         Hearth::Validator.validate!(input, Types::UpdateParallelDataInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::ParallelDataConfig.validate!(input[:parallel_data_config], context: "#{context}[:parallel_data_config]") unless input[:parallel_data_config].nil?
+        ParallelDataConfig.validate!(input[:parallel_data_config], context: "#{context}[:parallel_data_config]") unless input[:parallel_data_config].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
       end
     end

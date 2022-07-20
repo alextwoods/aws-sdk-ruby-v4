@@ -13,8 +13,8 @@ module AWS::SDK::ResourceGroupsTaggingAPI
     class ComplianceDetails
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ComplianceDetails, context: context)
-        Validators::TagKeyList.validate!(input[:noncompliant_keys], context: "#{context}[:noncompliant_keys]") unless input[:noncompliant_keys].nil?
-        Validators::TagKeyList.validate!(input[:keys_with_noncompliant_values], context: "#{context}[:keys_with_noncompliant_values]") unless input[:keys_with_noncompliant_values].nil?
+        TagKeyList.validate!(input[:noncompliant_keys], context: "#{context}[:noncompliant_keys]") unless input[:noncompliant_keys].nil?
+        TagKeyList.validate!(input[:keys_with_noncompliant_values], context: "#{context}[:keys_with_noncompliant_values]") unless input[:keys_with_noncompliant_values].nil?
         Hearth::Validator.validate!(input[:compliance_status], ::TrueClass, ::FalseClass, context: "#{context}[:compliance_status]")
       end
     end
@@ -54,7 +54,7 @@ module AWS::SDK::ResourceGroupsTaggingAPI
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::FailureInfo.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          FailureInfo.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -71,11 +71,11 @@ module AWS::SDK::ResourceGroupsTaggingAPI
     class GetComplianceSummaryInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetComplianceSummaryInput, context: context)
-        Validators::TargetIdFilterList.validate!(input[:target_id_filters], context: "#{context}[:target_id_filters]") unless input[:target_id_filters].nil?
-        Validators::RegionFilterList.validate!(input[:region_filters], context: "#{context}[:region_filters]") unless input[:region_filters].nil?
-        Validators::ResourceTypeFilterList.validate!(input[:resource_type_filters], context: "#{context}[:resource_type_filters]") unless input[:resource_type_filters].nil?
-        Validators::TagKeyFilterList.validate!(input[:tag_key_filters], context: "#{context}[:tag_key_filters]") unless input[:tag_key_filters].nil?
-        Validators::GroupBy.validate!(input[:group_by], context: "#{context}[:group_by]") unless input[:group_by].nil?
+        TargetIdFilterList.validate!(input[:target_id_filters], context: "#{context}[:target_id_filters]") unless input[:target_id_filters].nil?
+        RegionFilterList.validate!(input[:region_filters], context: "#{context}[:region_filters]") unless input[:region_filters].nil?
+        ResourceTypeFilterList.validate!(input[:resource_type_filters], context: "#{context}[:resource_type_filters]") unless input[:resource_type_filters].nil?
+        TagKeyFilterList.validate!(input[:tag_key_filters], context: "#{context}[:tag_key_filters]") unless input[:tag_key_filters].nil?
+        GroupBy.validate!(input[:group_by], context: "#{context}[:group_by]") unless input[:group_by].nil?
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:pagination_token], ::String, context: "#{context}[:pagination_token]")
       end
@@ -84,7 +84,7 @@ module AWS::SDK::ResourceGroupsTaggingAPI
     class GetComplianceSummaryOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetComplianceSummaryOutput, context: context)
-        Validators::SummaryList.validate!(input[:summary_list], context: "#{context}[:summary_list]") unless input[:summary_list].nil?
+        SummaryList.validate!(input[:summary_list], context: "#{context}[:summary_list]") unless input[:summary_list].nil?
         Hearth::Validator.validate!(input[:pagination_token], ::String, context: "#{context}[:pagination_token]")
       end
     end
@@ -93,13 +93,13 @@ module AWS::SDK::ResourceGroupsTaggingAPI
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetResourcesInput, context: context)
         Hearth::Validator.validate!(input[:pagination_token], ::String, context: "#{context}[:pagination_token]")
-        Validators::TagFilterList.validate!(input[:tag_filters], context: "#{context}[:tag_filters]") unless input[:tag_filters].nil?
+        TagFilterList.validate!(input[:tag_filters], context: "#{context}[:tag_filters]") unless input[:tag_filters].nil?
         Hearth::Validator.validate!(input[:resources_per_page], ::Integer, context: "#{context}[:resources_per_page]")
         Hearth::Validator.validate!(input[:tags_per_page], ::Integer, context: "#{context}[:tags_per_page]")
-        Validators::ResourceTypeFilterList.validate!(input[:resource_type_filters], context: "#{context}[:resource_type_filters]") unless input[:resource_type_filters].nil?
+        ResourceTypeFilterList.validate!(input[:resource_type_filters], context: "#{context}[:resource_type_filters]") unless input[:resource_type_filters].nil?
         Hearth::Validator.validate!(input[:include_compliance_details], ::TrueClass, ::FalseClass, context: "#{context}[:include_compliance_details]")
         Hearth::Validator.validate!(input[:exclude_compliant_resources], ::TrueClass, ::FalseClass, context: "#{context}[:exclude_compliant_resources]")
-        Validators::ResourceARNListForGet.validate!(input[:resource_arn_list], context: "#{context}[:resource_arn_list]") unless input[:resource_arn_list].nil?
+        ResourceARNListForGet.validate!(input[:resource_arn_list], context: "#{context}[:resource_arn_list]") unless input[:resource_arn_list].nil?
       end
     end
 
@@ -107,7 +107,7 @@ module AWS::SDK::ResourceGroupsTaggingAPI
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetResourcesOutput, context: context)
         Hearth::Validator.validate!(input[:pagination_token], ::String, context: "#{context}[:pagination_token]")
-        Validators::ResourceTagMappingList.validate!(input[:resource_tag_mapping_list], context: "#{context}[:resource_tag_mapping_list]") unless input[:resource_tag_mapping_list].nil?
+        ResourceTagMappingList.validate!(input[:resource_tag_mapping_list], context: "#{context}[:resource_tag_mapping_list]") unless input[:resource_tag_mapping_list].nil?
       end
     end
 
@@ -122,7 +122,7 @@ module AWS::SDK::ResourceGroupsTaggingAPI
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetTagKeysOutput, context: context)
         Hearth::Validator.validate!(input[:pagination_token], ::String, context: "#{context}[:pagination_token]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -138,7 +138,7 @@ module AWS::SDK::ResourceGroupsTaggingAPI
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetTagValuesOutput, context: context)
         Hearth::Validator.validate!(input[:pagination_token], ::String, context: "#{context}[:pagination_token]")
-        Validators::TagValuesOutputList.validate!(input[:tag_values], context: "#{context}[:tag_values]") unless input[:tag_values].nil?
+        TagValuesOutputList.validate!(input[:tag_values], context: "#{context}[:tag_values]") unless input[:tag_values].nil?
       end
     end
 
@@ -203,8 +203,8 @@ module AWS::SDK::ResourceGroupsTaggingAPI
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ResourceTagMapping, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::ComplianceDetails.validate!(input[:compliance_details], context: "#{context}[:compliance_details]") unless input[:compliance_details].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ComplianceDetails.validate!(input[:compliance_details], context: "#{context}[:compliance_details]") unless input[:compliance_details].nil?
       end
     end
 
@@ -212,7 +212,7 @@ module AWS::SDK::ResourceGroupsTaggingAPI
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ResourceTagMapping.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ResourceTagMapping.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -255,7 +255,7 @@ module AWS::SDK::ResourceGroupsTaggingAPI
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Summary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Summary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -272,7 +272,7 @@ module AWS::SDK::ResourceGroupsTaggingAPI
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagFilter, context: context)
         Hearth::Validator.validate!(input[:key], ::String, context: "#{context}[:key]")
-        Validators::TagValueList.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        TagValueList.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
       end
     end
 
@@ -280,7 +280,7 @@ module AWS::SDK::ResourceGroupsTaggingAPI
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TagFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TagFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -316,7 +316,7 @@ module AWS::SDK::ResourceGroupsTaggingAPI
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -334,15 +334,15 @@ module AWS::SDK::ResourceGroupsTaggingAPI
     class TagResourcesInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourcesInput, context: context)
-        Validators::ResourceARNListForTagUntag.validate!(input[:resource_arn_list], context: "#{context}[:resource_arn_list]") unless input[:resource_arn_list].nil?
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ResourceARNListForTagUntag.validate!(input[:resource_arn_list], context: "#{context}[:resource_arn_list]") unless input[:resource_arn_list].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class TagResourcesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourcesOutput, context: context)
-        Validators::FailedResourcesMap.validate!(input[:failed_resources_map], context: "#{context}[:failed_resources_map]") unless input[:failed_resources_map].nil?
+        FailedResourcesMap.validate!(input[:failed_resources_map], context: "#{context}[:failed_resources_map]") unless input[:failed_resources_map].nil?
       end
     end
 
@@ -383,15 +383,15 @@ module AWS::SDK::ResourceGroupsTaggingAPI
     class UntagResourcesInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourcesInput, context: context)
-        Validators::ResourceARNListForTagUntag.validate!(input[:resource_arn_list], context: "#{context}[:resource_arn_list]") unless input[:resource_arn_list].nil?
-        Validators::TagKeyListForUntag.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        ResourceARNListForTagUntag.validate!(input[:resource_arn_list], context: "#{context}[:resource_arn_list]") unless input[:resource_arn_list].nil?
+        TagKeyListForUntag.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
     class UntagResourcesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourcesOutput, context: context)
-        Validators::FailedResourcesMap.validate!(input[:failed_resources_map], context: "#{context}[:failed_resources_map]") unless input[:failed_resources_map].nil?
+        FailedResourcesMap.validate!(input[:failed_resources_map], context: "#{context}[:failed_resources_map]") unless input[:failed_resources_map].nil?
       end
     end
 

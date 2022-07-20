@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::SageMakerA2IRuntime
@@ -84,7 +86,7 @@ module AWS::SDK::SageMakerA2IRuntime
     def delete_human_loop(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteHumanLoopInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteHumanLoopInput,
         validate_input: @config.validate_input
@@ -161,7 +163,7 @@ module AWS::SDK::SageMakerA2IRuntime
     def describe_human_loop(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeHumanLoopInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeHumanLoopInput,
         validate_input: @config.validate_input
@@ -259,7 +261,7 @@ module AWS::SDK::SageMakerA2IRuntime
     def list_human_loops(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListHumanLoopsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListHumanLoopsInput,
         validate_input: @config.validate_input
@@ -347,7 +349,7 @@ module AWS::SDK::SageMakerA2IRuntime
     def start_human_loop(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartHumanLoopInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartHumanLoopInput,
         validate_input: @config.validate_input
@@ -415,7 +417,7 @@ module AWS::SDK::SageMakerA2IRuntime
     def stop_human_loop(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopHumanLoopInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopHumanLoopInput,
         validate_input: @config.validate_input

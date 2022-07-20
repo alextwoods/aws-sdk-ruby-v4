@@ -69,7 +69,7 @@ module AWS::SDK::IoTDataPlane
     class ListNamedShadowsForThing
       def self.default(visited=[])
         {
-          results: Stubs::NamedShadowList.default(visited),
+          results: NamedShadowList.default(visited),
           next_token: 'next_token',
           timestamp: 1,
         }
@@ -110,7 +110,7 @@ module AWS::SDK::IoTDataPlane
     class ListRetainedMessages
       def self.default(visited=[])
         {
-          retained_topics: Stubs::RetainedMessageList.default(visited),
+          retained_topics: RetainedMessageList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -131,7 +131,7 @@ module AWS::SDK::IoTDataPlane
         return nil if visited.include?('RetainedMessageList')
         visited = visited + ['RetainedMessageList']
         [
-          Stubs::RetainedMessageSummary.default(visited)
+          RetainedMessageSummary.default(visited)
         ]
       end
 

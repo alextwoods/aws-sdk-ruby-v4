@@ -53,7 +53,7 @@ module AWS::SDK::Account
     class GetAlternateContactOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetAlternateContactOutput, context: context)
-        Validators::AlternateContact.validate!(input[:alternate_contact], context: "#{context}[:alternate_contact]") unless input[:alternate_contact].nil?
+        AlternateContact.validate!(input[:alternate_contact], context: "#{context}[:alternate_contact]") unless input[:alternate_contact].nil?
       end
     end
 

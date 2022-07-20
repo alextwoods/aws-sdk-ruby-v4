@@ -28,7 +28,7 @@ module AWS::SDK::IoTThingsGraph
     class CreateFlowTemplate
       def self.default(visited=[])
         {
-          summary: Stubs::FlowTemplateSummary.default(visited),
+          summary: FlowTemplateSummary.default(visited),
         }
       end
 
@@ -68,7 +68,7 @@ module AWS::SDK::IoTThingsGraph
     class CreateSystemInstance
       def self.default(visited=[])
         {
-          summary: Stubs::SystemInstanceSummary.default(visited),
+          summary: SystemInstanceSummary.default(visited),
         }
       end
 
@@ -118,7 +118,7 @@ module AWS::SDK::IoTThingsGraph
     class CreateSystemTemplate
       def self.default(visited=[])
         {
-          summary: Stubs::SystemTemplateSummary.default(visited),
+          summary: SystemTemplateSummary.default(visited),
         }
       end
 
@@ -218,7 +218,7 @@ module AWS::SDK::IoTThingsGraph
     class DeploySystemInstance
       def self.default(visited=[])
         {
-          summary: Stubs::SystemInstanceSummary.default(visited),
+          summary: SystemInstanceSummary.default(visited),
           greengrass_deployment_id: 'greengrass_deployment_id',
         }
       end
@@ -302,7 +302,7 @@ module AWS::SDK::IoTThingsGraph
     class GetEntities
       def self.default(visited=[])
         {
-          descriptions: Stubs::EntityDescriptions.default(visited),
+          descriptions: EntityDescriptions.default(visited),
         }
       end
 
@@ -320,7 +320,7 @@ module AWS::SDK::IoTThingsGraph
         return nil if visited.include?('EntityDescriptions')
         visited = visited + ['EntityDescriptions']
         [
-          Stubs::EntityDescription.default(visited)
+          EntityDescription.default(visited)
         ]
       end
 
@@ -344,7 +344,7 @@ module AWS::SDK::IoTThingsGraph
           arn: 'arn',
           type: 'type',
           created_at: Time.now,
-          definition: Stubs::DefinitionDocument.default(visited),
+          definition: DefinitionDocument.default(visited),
         }
       end
 
@@ -384,7 +384,7 @@ module AWS::SDK::IoTThingsGraph
     class GetFlowTemplate
       def self.default(visited=[])
         {
-          description: Stubs::FlowTemplateDescription.default(visited),
+          description: FlowTemplateDescription.default(visited),
         }
       end
 
@@ -402,8 +402,8 @@ module AWS::SDK::IoTThingsGraph
         return nil if visited.include?('FlowTemplateDescription')
         visited = visited + ['FlowTemplateDescription']
         {
-          summary: Stubs::FlowTemplateSummary.default(visited),
-          definition: Stubs::DefinitionDocument.default(visited),
+          summary: FlowTemplateSummary.default(visited),
+          definition: DefinitionDocument.default(visited),
           validated_namespace_version: 1,
         }
       end
@@ -422,7 +422,7 @@ module AWS::SDK::IoTThingsGraph
     class GetFlowTemplateRevisions
       def self.default(visited=[])
         {
-          summaries: Stubs::FlowTemplateSummaries.default(visited),
+          summaries: FlowTemplateSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -442,7 +442,7 @@ module AWS::SDK::IoTThingsGraph
         return nil if visited.include?('FlowTemplateSummaries')
         visited = visited + ['FlowTemplateSummaries']
         [
-          Stubs::FlowTemplateSummary.default(visited)
+          FlowTemplateSummary.default(visited)
         ]
       end
 
@@ -484,7 +484,7 @@ module AWS::SDK::IoTThingsGraph
     class GetSystemInstance
       def self.default(visited=[])
         {
-          description: Stubs::SystemInstanceDescription.default(visited),
+          description: SystemInstanceDescription.default(visited),
         }
       end
 
@@ -502,12 +502,12 @@ module AWS::SDK::IoTThingsGraph
         return nil if visited.include?('SystemInstanceDescription')
         visited = visited + ['SystemInstanceDescription']
         {
-          summary: Stubs::SystemInstanceSummary.default(visited),
-          definition: Stubs::DefinitionDocument.default(visited),
+          summary: SystemInstanceSummary.default(visited),
+          definition: DefinitionDocument.default(visited),
           s3_bucket_name: 's3_bucket_name',
-          metrics_configuration: Stubs::MetricsConfiguration.default(visited),
+          metrics_configuration: MetricsConfiguration.default(visited),
           validated_namespace_version: 1,
-          validated_dependency_revisions: Stubs::DependencyRevisions.default(visited),
+          validated_dependency_revisions: DependencyRevisions.default(visited),
           flow_actions_role_arn: 'flow_actions_role_arn',
         }
       end
@@ -532,7 +532,7 @@ module AWS::SDK::IoTThingsGraph
         return nil if visited.include?('DependencyRevisions')
         visited = visited + ['DependencyRevisions']
         [
-          Stubs::DependencyRevision.default(visited)
+          DependencyRevision.default(visited)
         ]
       end
 
@@ -590,7 +590,7 @@ module AWS::SDK::IoTThingsGraph
     class GetSystemTemplate
       def self.default(visited=[])
         {
-          description: Stubs::SystemTemplateDescription.default(visited),
+          description: SystemTemplateDescription.default(visited),
         }
       end
 
@@ -608,8 +608,8 @@ module AWS::SDK::IoTThingsGraph
         return nil if visited.include?('SystemTemplateDescription')
         visited = visited + ['SystemTemplateDescription']
         {
-          summary: Stubs::SystemTemplateSummary.default(visited),
-          definition: Stubs::DefinitionDocument.default(visited),
+          summary: SystemTemplateSummary.default(visited),
+          definition: DefinitionDocument.default(visited),
           validated_namespace_version: 1,
         }
       end
@@ -628,7 +628,7 @@ module AWS::SDK::IoTThingsGraph
     class GetSystemTemplateRevisions
       def self.default(visited=[])
         {
-          summaries: Stubs::SystemTemplateSummaries.default(visited),
+          summaries: SystemTemplateSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -648,7 +648,7 @@ module AWS::SDK::IoTThingsGraph
         return nil if visited.include?('SystemTemplateSummaries')
         visited = visited + ['SystemTemplateSummaries']
         [
-          Stubs::SystemTemplateSummary.default(visited)
+          SystemTemplateSummary.default(visited)
         ]
       end
 
@@ -671,7 +671,7 @@ module AWS::SDK::IoTThingsGraph
           namespace_arn: 'namespace_arn',
           namespace_name: 'namespace_name',
           namespace_version: 1,
-          failure_reason: Stubs::StringList.default(visited),
+          failure_reason: StringList.default(visited),
           created_date: Time.now,
         }
       end
@@ -714,7 +714,7 @@ module AWS::SDK::IoTThingsGraph
     class ListFlowExecutionMessages
       def self.default(visited=[])
         {
-          messages: Stubs::FlowExecutionMessages.default(visited),
+          messages: FlowExecutionMessages.default(visited),
           next_token: 'next_token',
         }
       end
@@ -734,7 +734,7 @@ module AWS::SDK::IoTThingsGraph
         return nil if visited.include?('FlowExecutionMessages')
         visited = visited + ['FlowExecutionMessages']
         [
-          Stubs::FlowExecutionMessage.default(visited)
+          FlowExecutionMessage.default(visited)
         ]
       end
 
@@ -776,7 +776,7 @@ module AWS::SDK::IoTThingsGraph
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -796,7 +796,7 @@ module AWS::SDK::IoTThingsGraph
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -834,7 +834,7 @@ module AWS::SDK::IoTThingsGraph
     class SearchEntities
       def self.default(visited=[])
         {
-          descriptions: Stubs::EntityDescriptions.default(visited),
+          descriptions: EntityDescriptions.default(visited),
           next_token: 'next_token',
         }
       end
@@ -852,7 +852,7 @@ module AWS::SDK::IoTThingsGraph
     class SearchFlowExecutions
       def self.default(visited=[])
         {
-          summaries: Stubs::FlowExecutionSummaries.default(visited),
+          summaries: FlowExecutionSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -872,7 +872,7 @@ module AWS::SDK::IoTThingsGraph
         return nil if visited.include?('FlowExecutionSummaries')
         visited = visited + ['FlowExecutionSummaries']
         [
-          Stubs::FlowExecutionSummary.default(visited)
+          FlowExecutionSummary.default(visited)
         ]
       end
 
@@ -918,7 +918,7 @@ module AWS::SDK::IoTThingsGraph
     class SearchFlowTemplates
       def self.default(visited=[])
         {
-          summaries: Stubs::FlowTemplateSummaries.default(visited),
+          summaries: FlowTemplateSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -936,7 +936,7 @@ module AWS::SDK::IoTThingsGraph
     class SearchSystemInstances
       def self.default(visited=[])
         {
-          summaries: Stubs::SystemInstanceSummaries.default(visited),
+          summaries: SystemInstanceSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -956,7 +956,7 @@ module AWS::SDK::IoTThingsGraph
         return nil if visited.include?('SystemInstanceSummaries')
         visited = visited + ['SystemInstanceSummaries']
         [
-          Stubs::SystemInstanceSummary.default(visited)
+          SystemInstanceSummary.default(visited)
         ]
       end
 
@@ -974,7 +974,7 @@ module AWS::SDK::IoTThingsGraph
     class SearchSystemTemplates
       def self.default(visited=[])
         {
-          summaries: Stubs::SystemTemplateSummaries.default(visited),
+          summaries: SystemTemplateSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -992,7 +992,7 @@ module AWS::SDK::IoTThingsGraph
     class SearchThings
       def self.default(visited=[])
         {
-          things: Stubs::Things.default(visited),
+          things: Things.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1012,7 +1012,7 @@ module AWS::SDK::IoTThingsGraph
         return nil if visited.include?('Things')
         visited = visited + ['Things']
         [
-          Stubs::Thing.default(visited)
+          Thing.default(visited)
         ]
       end
 
@@ -1064,7 +1064,7 @@ module AWS::SDK::IoTThingsGraph
     class UndeploySystemInstance
       def self.default(visited=[])
         {
-          summary: Stubs::SystemInstanceSummary.default(visited),
+          summary: SystemInstanceSummary.default(visited),
         }
       end
 
@@ -1094,7 +1094,7 @@ module AWS::SDK::IoTThingsGraph
     class UpdateFlowTemplate
       def self.default(visited=[])
         {
-          summary: Stubs::FlowTemplateSummary.default(visited),
+          summary: FlowTemplateSummary.default(visited),
         }
       end
 
@@ -1110,7 +1110,7 @@ module AWS::SDK::IoTThingsGraph
     class UpdateSystemTemplate
       def self.default(visited=[])
         {
-          summary: Stubs::SystemTemplateSummary.default(visited),
+          summary: SystemTemplateSummary.default(visited),
         }
       end
 

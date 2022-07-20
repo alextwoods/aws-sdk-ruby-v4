@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::KinesisAnalytics
   module Validators
 
@@ -15,7 +17,7 @@ module AWS::SDK::KinesisAnalytics
         Hearth::Validator.validate!(input, Types::AddApplicationCloudWatchLoggingOptionInput, context: context)
         Hearth::Validator.validate!(input[:application_name], ::String, context: "#{context}[:application_name]")
         Hearth::Validator.validate!(input[:current_application_version_id], ::Integer, context: "#{context}[:current_application_version_id]")
-        Validators::CloudWatchLoggingOption.validate!(input[:cloud_watch_logging_option], context: "#{context}[:cloud_watch_logging_option]") unless input[:cloud_watch_logging_option].nil?
+        CloudWatchLoggingOption.validate!(input[:cloud_watch_logging_option], context: "#{context}[:cloud_watch_logging_option]") unless input[:cloud_watch_logging_option].nil?
       end
     end
 
@@ -30,7 +32,7 @@ module AWS::SDK::KinesisAnalytics
         Hearth::Validator.validate!(input, Types::AddApplicationInputInput, context: context)
         Hearth::Validator.validate!(input[:application_name], ::String, context: "#{context}[:application_name]")
         Hearth::Validator.validate!(input[:current_application_version_id], ::Integer, context: "#{context}[:current_application_version_id]")
-        Validators::Input.validate!(input[:input], context: "#{context}[:input]") unless input[:input].nil?
+        Input.validate!(input[:input], context: "#{context}[:input]") unless input[:input].nil?
       end
     end
 
@@ -46,7 +48,7 @@ module AWS::SDK::KinesisAnalytics
         Hearth::Validator.validate!(input[:application_name], ::String, context: "#{context}[:application_name]")
         Hearth::Validator.validate!(input[:current_application_version_id], ::Integer, context: "#{context}[:current_application_version_id]")
         Hearth::Validator.validate!(input[:input_id], ::String, context: "#{context}[:input_id]")
-        Validators::InputProcessingConfiguration.validate!(input[:input_processing_configuration], context: "#{context}[:input_processing_configuration]") unless input[:input_processing_configuration].nil?
+        InputProcessingConfiguration.validate!(input[:input_processing_configuration], context: "#{context}[:input_processing_configuration]") unless input[:input_processing_configuration].nil?
       end
     end
 
@@ -61,7 +63,7 @@ module AWS::SDK::KinesisAnalytics
         Hearth::Validator.validate!(input, Types::AddApplicationOutputInput, context: context)
         Hearth::Validator.validate!(input[:application_name], ::String, context: "#{context}[:application_name]")
         Hearth::Validator.validate!(input[:current_application_version_id], ::Integer, context: "#{context}[:current_application_version_id]")
-        Validators::Output.validate!(input[:output], context: "#{context}[:output]") unless input[:output].nil?
+        Output.validate!(input[:output], context: "#{context}[:output]") unless input[:output].nil?
       end
     end
 
@@ -76,7 +78,7 @@ module AWS::SDK::KinesisAnalytics
         Hearth::Validator.validate!(input, Types::AddApplicationReferenceDataSourceInput, context: context)
         Hearth::Validator.validate!(input[:application_name], ::String, context: "#{context}[:application_name]")
         Hearth::Validator.validate!(input[:current_application_version_id], ::Integer, context: "#{context}[:current_application_version_id]")
-        Validators::ReferenceDataSource.validate!(input[:reference_data_source], context: "#{context}[:reference_data_source]") unless input[:reference_data_source].nil?
+        ReferenceDataSource.validate!(input[:reference_data_source], context: "#{context}[:reference_data_source]") unless input[:reference_data_source].nil?
       end
     end
 
@@ -95,10 +97,10 @@ module AWS::SDK::KinesisAnalytics
         Hearth::Validator.validate!(input[:application_status], ::String, context: "#{context}[:application_status]")
         Hearth::Validator.validate!(input[:create_timestamp], ::Time, context: "#{context}[:create_timestamp]")
         Hearth::Validator.validate!(input[:last_update_timestamp], ::Time, context: "#{context}[:last_update_timestamp]")
-        Validators::InputDescriptions.validate!(input[:input_descriptions], context: "#{context}[:input_descriptions]") unless input[:input_descriptions].nil?
-        Validators::OutputDescriptions.validate!(input[:output_descriptions], context: "#{context}[:output_descriptions]") unless input[:output_descriptions].nil?
-        Validators::ReferenceDataSourceDescriptions.validate!(input[:reference_data_source_descriptions], context: "#{context}[:reference_data_source_descriptions]") unless input[:reference_data_source_descriptions].nil?
-        Validators::CloudWatchLoggingOptionDescriptions.validate!(input[:cloud_watch_logging_option_descriptions], context: "#{context}[:cloud_watch_logging_option_descriptions]") unless input[:cloud_watch_logging_option_descriptions].nil?
+        InputDescriptions.validate!(input[:input_descriptions], context: "#{context}[:input_descriptions]") unless input[:input_descriptions].nil?
+        OutputDescriptions.validate!(input[:output_descriptions], context: "#{context}[:output_descriptions]") unless input[:output_descriptions].nil?
+        ReferenceDataSourceDescriptions.validate!(input[:reference_data_source_descriptions], context: "#{context}[:reference_data_source_descriptions]") unless input[:reference_data_source_descriptions].nil?
+        CloudWatchLoggingOptionDescriptions.validate!(input[:cloud_watch_logging_option_descriptions], context: "#{context}[:cloud_watch_logging_option_descriptions]") unless input[:cloud_watch_logging_option_descriptions].nil?
         Hearth::Validator.validate!(input[:application_code], ::String, context: "#{context}[:application_code]")
         Hearth::Validator.validate!(input[:application_version_id], ::Integer, context: "#{context}[:application_version_id]")
       end
@@ -108,7 +110,7 @@ module AWS::SDK::KinesisAnalytics
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ApplicationSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ApplicationSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -125,11 +127,11 @@ module AWS::SDK::KinesisAnalytics
     class ApplicationUpdate
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ApplicationUpdate, context: context)
-        Validators::InputUpdates.validate!(input[:input_updates], context: "#{context}[:input_updates]") unless input[:input_updates].nil?
+        InputUpdates.validate!(input[:input_updates], context: "#{context}[:input_updates]") unless input[:input_updates].nil?
         Hearth::Validator.validate!(input[:application_code_update], ::String, context: "#{context}[:application_code_update]")
-        Validators::OutputUpdates.validate!(input[:output_updates], context: "#{context}[:output_updates]") unless input[:output_updates].nil?
-        Validators::ReferenceDataSourceUpdates.validate!(input[:reference_data_source_updates], context: "#{context}[:reference_data_source_updates]") unless input[:reference_data_source_updates].nil?
-        Validators::CloudWatchLoggingOptionUpdates.validate!(input[:cloud_watch_logging_option_updates], context: "#{context}[:cloud_watch_logging_option_updates]") unless input[:cloud_watch_logging_option_updates].nil?
+        OutputUpdates.validate!(input[:output_updates], context: "#{context}[:output_updates]") unless input[:output_updates].nil?
+        ReferenceDataSourceUpdates.validate!(input[:reference_data_source_updates], context: "#{context}[:reference_data_source_updates]") unless input[:reference_data_source_updates].nil?
+        CloudWatchLoggingOptionUpdates.validate!(input[:cloud_watch_logging_option_updates], context: "#{context}[:cloud_watch_logging_option_updates]") unless input[:cloud_watch_logging_option_updates].nil?
       end
     end
 
@@ -162,7 +164,7 @@ module AWS::SDK::KinesisAnalytics
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CloudWatchLoggingOptionDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CloudWatchLoggingOptionDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -180,7 +182,7 @@ module AWS::SDK::KinesisAnalytics
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CloudWatchLoggingOptionUpdate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CloudWatchLoggingOptionUpdate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -189,7 +191,7 @@ module AWS::SDK::KinesisAnalytics
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CloudWatchLoggingOption.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CloudWatchLoggingOption.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -213,18 +215,18 @@ module AWS::SDK::KinesisAnalytics
         Hearth::Validator.validate!(input, Types::CreateApplicationInput, context: context)
         Hearth::Validator.validate!(input[:application_name], ::String, context: "#{context}[:application_name]")
         Hearth::Validator.validate!(input[:application_description], ::String, context: "#{context}[:application_description]")
-        Validators::Inputs.validate!(input[:inputs], context: "#{context}[:inputs]") unless input[:inputs].nil?
-        Validators::Outputs.validate!(input[:outputs], context: "#{context}[:outputs]") unless input[:outputs].nil?
-        Validators::CloudWatchLoggingOptions.validate!(input[:cloud_watch_logging_options], context: "#{context}[:cloud_watch_logging_options]") unless input[:cloud_watch_logging_options].nil?
+        Inputs.validate!(input[:inputs], context: "#{context}[:inputs]") unless input[:inputs].nil?
+        Outputs.validate!(input[:outputs], context: "#{context}[:outputs]") unless input[:outputs].nil?
+        CloudWatchLoggingOptions.validate!(input[:cloud_watch_logging_options], context: "#{context}[:cloud_watch_logging_options]") unless input[:cloud_watch_logging_options].nil?
         Hearth::Validator.validate!(input[:application_code], ::String, context: "#{context}[:application_code]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateApplicationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateApplicationOutput, context: context)
-        Validators::ApplicationSummary.validate!(input[:application_summary], context: "#{context}[:application_summary]") unless input[:application_summary].nil?
+        ApplicationSummary.validate!(input[:application_summary], context: "#{context}[:application_summary]") unless input[:application_summary].nil?
       end
     end
 
@@ -312,7 +314,7 @@ module AWS::SDK::KinesisAnalytics
     class DescribeApplicationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeApplicationOutput, context: context)
-        Validators::ApplicationDetail.validate!(input[:application_detail], context: "#{context}[:application_detail]") unless input[:application_detail].nil?
+        ApplicationDetail.validate!(input[:application_detail], context: "#{context}[:application_detail]") unless input[:application_detail].nil?
       end
     end
 
@@ -328,19 +330,19 @@ module AWS::SDK::KinesisAnalytics
         Hearth::Validator.validate!(input, Types::DiscoverInputSchemaInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
-        Validators::InputStartingPositionConfiguration.validate!(input[:input_starting_position_configuration], context: "#{context}[:input_starting_position_configuration]") unless input[:input_starting_position_configuration].nil?
-        Validators::S3Configuration.validate!(input[:s3_configuration], context: "#{context}[:s3_configuration]") unless input[:s3_configuration].nil?
-        Validators::InputProcessingConfiguration.validate!(input[:input_processing_configuration], context: "#{context}[:input_processing_configuration]") unless input[:input_processing_configuration].nil?
+        InputStartingPositionConfiguration.validate!(input[:input_starting_position_configuration], context: "#{context}[:input_starting_position_configuration]") unless input[:input_starting_position_configuration].nil?
+        S3Configuration.validate!(input[:s3_configuration], context: "#{context}[:s3_configuration]") unless input[:s3_configuration].nil?
+        InputProcessingConfiguration.validate!(input[:input_processing_configuration], context: "#{context}[:input_processing_configuration]") unless input[:input_processing_configuration].nil?
       end
     end
 
     class DiscoverInputSchemaOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DiscoverInputSchemaOutput, context: context)
-        Validators::SourceSchema.validate!(input[:input_schema], context: "#{context}[:input_schema]") unless input[:input_schema].nil?
-        Validators::ParsedInputRecords.validate!(input[:parsed_input_records], context: "#{context}[:parsed_input_records]") unless input[:parsed_input_records].nil?
-        Validators::ProcessedInputRecords.validate!(input[:processed_input_records], context: "#{context}[:processed_input_records]") unless input[:processed_input_records].nil?
-        Validators::RawInputRecords.validate!(input[:raw_input_records], context: "#{context}[:raw_input_records]") unless input[:raw_input_records].nil?
+        SourceSchema.validate!(input[:input_schema], context: "#{context}[:input_schema]") unless input[:input_schema].nil?
+        ParsedInputRecords.validate!(input[:parsed_input_records], context: "#{context}[:parsed_input_records]") unless input[:parsed_input_records].nil?
+        ProcessedInputRecords.validate!(input[:processed_input_records], context: "#{context}[:processed_input_records]") unless input[:processed_input_records].nil?
+        RawInputRecords.validate!(input[:raw_input_records], context: "#{context}[:raw_input_records]") unless input[:raw_input_records].nil?
       end
     end
 
@@ -357,11 +359,11 @@ module AWS::SDK::KinesisAnalytics
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Input, context: context)
         Hearth::Validator.validate!(input[:name_prefix], ::String, context: "#{context}[:name_prefix]")
-        Validators::InputProcessingConfiguration.validate!(input[:input_processing_configuration], context: "#{context}[:input_processing_configuration]") unless input[:input_processing_configuration].nil?
-        Validators::KinesisStreamsInput.validate!(input[:kinesis_streams_input], context: "#{context}[:kinesis_streams_input]") unless input[:kinesis_streams_input].nil?
-        Validators::KinesisFirehoseInput.validate!(input[:kinesis_firehose_input], context: "#{context}[:kinesis_firehose_input]") unless input[:kinesis_firehose_input].nil?
-        Validators::InputParallelism.validate!(input[:input_parallelism], context: "#{context}[:input_parallelism]") unless input[:input_parallelism].nil?
-        Validators::SourceSchema.validate!(input[:input_schema], context: "#{context}[:input_schema]") unless input[:input_schema].nil?
+        InputProcessingConfiguration.validate!(input[:input_processing_configuration], context: "#{context}[:input_processing_configuration]") unless input[:input_processing_configuration].nil?
+        KinesisStreamsInput.validate!(input[:kinesis_streams_input], context: "#{context}[:kinesis_streams_input]") unless input[:kinesis_streams_input].nil?
+        KinesisFirehoseInput.validate!(input[:kinesis_firehose_input], context: "#{context}[:kinesis_firehose_input]") unless input[:kinesis_firehose_input].nil?
+        InputParallelism.validate!(input[:input_parallelism], context: "#{context}[:input_parallelism]") unless input[:input_parallelism].nil?
+        SourceSchema.validate!(input[:input_schema], context: "#{context}[:input_schema]") unless input[:input_schema].nil?
       end
     end
 
@@ -369,7 +371,7 @@ module AWS::SDK::KinesisAnalytics
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::InputConfiguration, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
-        Validators::InputStartingPositionConfiguration.validate!(input[:input_starting_position_configuration], context: "#{context}[:input_starting_position_configuration]") unless input[:input_starting_position_configuration].nil?
+        InputStartingPositionConfiguration.validate!(input[:input_starting_position_configuration], context: "#{context}[:input_starting_position_configuration]") unless input[:input_starting_position_configuration].nil?
       end
     end
 
@@ -377,7 +379,7 @@ module AWS::SDK::KinesisAnalytics
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::InputConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          InputConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -387,13 +389,13 @@ module AWS::SDK::KinesisAnalytics
         Hearth::Validator.validate!(input, Types::InputDescription, context: context)
         Hearth::Validator.validate!(input[:input_id], ::String, context: "#{context}[:input_id]")
         Hearth::Validator.validate!(input[:name_prefix], ::String, context: "#{context}[:name_prefix]")
-        Validators::InAppStreamNames.validate!(input[:in_app_stream_names], context: "#{context}[:in_app_stream_names]") unless input[:in_app_stream_names].nil?
-        Validators::InputProcessingConfigurationDescription.validate!(input[:input_processing_configuration_description], context: "#{context}[:input_processing_configuration_description]") unless input[:input_processing_configuration_description].nil?
-        Validators::KinesisStreamsInputDescription.validate!(input[:kinesis_streams_input_description], context: "#{context}[:kinesis_streams_input_description]") unless input[:kinesis_streams_input_description].nil?
-        Validators::KinesisFirehoseInputDescription.validate!(input[:kinesis_firehose_input_description], context: "#{context}[:kinesis_firehose_input_description]") unless input[:kinesis_firehose_input_description].nil?
-        Validators::SourceSchema.validate!(input[:input_schema], context: "#{context}[:input_schema]") unless input[:input_schema].nil?
-        Validators::InputParallelism.validate!(input[:input_parallelism], context: "#{context}[:input_parallelism]") unless input[:input_parallelism].nil?
-        Validators::InputStartingPositionConfiguration.validate!(input[:input_starting_position_configuration], context: "#{context}[:input_starting_position_configuration]") unless input[:input_starting_position_configuration].nil?
+        InAppStreamNames.validate!(input[:in_app_stream_names], context: "#{context}[:in_app_stream_names]") unless input[:in_app_stream_names].nil?
+        InputProcessingConfigurationDescription.validate!(input[:input_processing_configuration_description], context: "#{context}[:input_processing_configuration_description]") unless input[:input_processing_configuration_description].nil?
+        KinesisStreamsInputDescription.validate!(input[:kinesis_streams_input_description], context: "#{context}[:kinesis_streams_input_description]") unless input[:kinesis_streams_input_description].nil?
+        KinesisFirehoseInputDescription.validate!(input[:kinesis_firehose_input_description], context: "#{context}[:kinesis_firehose_input_description]") unless input[:kinesis_firehose_input_description].nil?
+        SourceSchema.validate!(input[:input_schema], context: "#{context}[:input_schema]") unless input[:input_schema].nil?
+        InputParallelism.validate!(input[:input_parallelism], context: "#{context}[:input_parallelism]") unless input[:input_parallelism].nil?
+        InputStartingPositionConfiguration.validate!(input[:input_starting_position_configuration], context: "#{context}[:input_starting_position_configuration]") unless input[:input_starting_position_configuration].nil?
       end
     end
 
@@ -401,7 +403,7 @@ module AWS::SDK::KinesisAnalytics
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::InputDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          InputDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -447,30 +449,30 @@ module AWS::SDK::KinesisAnalytics
     class InputProcessingConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::InputProcessingConfiguration, context: context)
-        Validators::InputLambdaProcessor.validate!(input[:input_lambda_processor], context: "#{context}[:input_lambda_processor]") unless input[:input_lambda_processor].nil?
+        InputLambdaProcessor.validate!(input[:input_lambda_processor], context: "#{context}[:input_lambda_processor]") unless input[:input_lambda_processor].nil?
       end
     end
 
     class InputProcessingConfigurationDescription
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::InputProcessingConfigurationDescription, context: context)
-        Validators::InputLambdaProcessorDescription.validate!(input[:input_lambda_processor_description], context: "#{context}[:input_lambda_processor_description]") unless input[:input_lambda_processor_description].nil?
+        InputLambdaProcessorDescription.validate!(input[:input_lambda_processor_description], context: "#{context}[:input_lambda_processor_description]") unless input[:input_lambda_processor_description].nil?
       end
     end
 
     class InputProcessingConfigurationUpdate
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::InputProcessingConfigurationUpdate, context: context)
-        Validators::InputLambdaProcessorUpdate.validate!(input[:input_lambda_processor_update], context: "#{context}[:input_lambda_processor_update]") unless input[:input_lambda_processor_update].nil?
+        InputLambdaProcessorUpdate.validate!(input[:input_lambda_processor_update], context: "#{context}[:input_lambda_processor_update]") unless input[:input_lambda_processor_update].nil?
       end
     end
 
     class InputSchemaUpdate
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::InputSchemaUpdate, context: context)
-        Validators::RecordFormat.validate!(input[:record_format_update], context: "#{context}[:record_format_update]") unless input[:record_format_update].nil?
+        RecordFormat.validate!(input[:record_format_update], context: "#{context}[:record_format_update]") unless input[:record_format_update].nil?
         Hearth::Validator.validate!(input[:record_encoding_update], ::String, context: "#{context}[:record_encoding_update]")
-        Validators::RecordColumns.validate!(input[:record_column_updates], context: "#{context}[:record_column_updates]") unless input[:record_column_updates].nil?
+        RecordColumns.validate!(input[:record_column_updates], context: "#{context}[:record_column_updates]") unless input[:record_column_updates].nil?
       end
     end
 
@@ -486,11 +488,11 @@ module AWS::SDK::KinesisAnalytics
         Hearth::Validator.validate!(input, Types::InputUpdate, context: context)
         Hearth::Validator.validate!(input[:input_id], ::String, context: "#{context}[:input_id]")
         Hearth::Validator.validate!(input[:name_prefix_update], ::String, context: "#{context}[:name_prefix_update]")
-        Validators::InputProcessingConfigurationUpdate.validate!(input[:input_processing_configuration_update], context: "#{context}[:input_processing_configuration_update]") unless input[:input_processing_configuration_update].nil?
-        Validators::KinesisStreamsInputUpdate.validate!(input[:kinesis_streams_input_update], context: "#{context}[:kinesis_streams_input_update]") unless input[:kinesis_streams_input_update].nil?
-        Validators::KinesisFirehoseInputUpdate.validate!(input[:kinesis_firehose_input_update], context: "#{context}[:kinesis_firehose_input_update]") unless input[:kinesis_firehose_input_update].nil?
-        Validators::InputSchemaUpdate.validate!(input[:input_schema_update], context: "#{context}[:input_schema_update]") unless input[:input_schema_update].nil?
-        Validators::InputParallelismUpdate.validate!(input[:input_parallelism_update], context: "#{context}[:input_parallelism_update]") unless input[:input_parallelism_update].nil?
+        InputProcessingConfigurationUpdate.validate!(input[:input_processing_configuration_update], context: "#{context}[:input_processing_configuration_update]") unless input[:input_processing_configuration_update].nil?
+        KinesisStreamsInputUpdate.validate!(input[:kinesis_streams_input_update], context: "#{context}[:kinesis_streams_input_update]") unless input[:kinesis_streams_input_update].nil?
+        KinesisFirehoseInputUpdate.validate!(input[:kinesis_firehose_input_update], context: "#{context}[:kinesis_firehose_input_update]") unless input[:kinesis_firehose_input_update].nil?
+        InputSchemaUpdate.validate!(input[:input_schema_update], context: "#{context}[:input_schema_update]") unless input[:input_schema_update].nil?
+        InputParallelismUpdate.validate!(input[:input_parallelism_update], context: "#{context}[:input_parallelism_update]") unless input[:input_parallelism_update].nil?
       end
     end
 
@@ -498,7 +500,7 @@ module AWS::SDK::KinesisAnalytics
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::InputUpdate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          InputUpdate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -507,7 +509,7 @@ module AWS::SDK::KinesisAnalytics
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Input.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Input.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -671,7 +673,7 @@ module AWS::SDK::KinesisAnalytics
     class ListApplicationsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListApplicationsOutput, context: context)
-        Validators::ApplicationSummaries.validate!(input[:application_summaries], context: "#{context}[:application_summaries]") unless input[:application_summaries].nil?
+        ApplicationSummaries.validate!(input[:application_summaries], context: "#{context}[:application_summaries]") unless input[:application_summaries].nil?
         Hearth::Validator.validate!(input[:has_more_applications], ::TrueClass, ::FalseClass, context: "#{context}[:has_more_applications]")
       end
     end
@@ -686,15 +688,15 @@ module AWS::SDK::KinesisAnalytics
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class MappingParameters
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::MappingParameters, context: context)
-        Validators::JSONMappingParameters.validate!(input[:json_mapping_parameters], context: "#{context}[:json_mapping_parameters]") unless input[:json_mapping_parameters].nil?
-        Validators::CSVMappingParameters.validate!(input[:csv_mapping_parameters], context: "#{context}[:csv_mapping_parameters]") unless input[:csv_mapping_parameters].nil?
+        JSONMappingParameters.validate!(input[:json_mapping_parameters], context: "#{context}[:json_mapping_parameters]") unless input[:json_mapping_parameters].nil?
+        CSVMappingParameters.validate!(input[:csv_mapping_parameters], context: "#{context}[:csv_mapping_parameters]") unless input[:csv_mapping_parameters].nil?
       end
     end
 
@@ -702,10 +704,10 @@ module AWS::SDK::KinesisAnalytics
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Output, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::KinesisStreamsOutput.validate!(input[:kinesis_streams_output], context: "#{context}[:kinesis_streams_output]") unless input[:kinesis_streams_output].nil?
-        Validators::KinesisFirehoseOutput.validate!(input[:kinesis_firehose_output], context: "#{context}[:kinesis_firehose_output]") unless input[:kinesis_firehose_output].nil?
-        Validators::LambdaOutput.validate!(input[:lambda_output], context: "#{context}[:lambda_output]") unless input[:lambda_output].nil?
-        Validators::DestinationSchema.validate!(input[:destination_schema], context: "#{context}[:destination_schema]") unless input[:destination_schema].nil?
+        KinesisStreamsOutput.validate!(input[:kinesis_streams_output], context: "#{context}[:kinesis_streams_output]") unless input[:kinesis_streams_output].nil?
+        KinesisFirehoseOutput.validate!(input[:kinesis_firehose_output], context: "#{context}[:kinesis_firehose_output]") unless input[:kinesis_firehose_output].nil?
+        LambdaOutput.validate!(input[:lambda_output], context: "#{context}[:lambda_output]") unless input[:lambda_output].nil?
+        DestinationSchema.validate!(input[:destination_schema], context: "#{context}[:destination_schema]") unless input[:destination_schema].nil?
       end
     end
 
@@ -714,10 +716,10 @@ module AWS::SDK::KinesisAnalytics
         Hearth::Validator.validate!(input, Types::OutputDescription, context: context)
         Hearth::Validator.validate!(input[:output_id], ::String, context: "#{context}[:output_id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::KinesisStreamsOutputDescription.validate!(input[:kinesis_streams_output_description], context: "#{context}[:kinesis_streams_output_description]") unless input[:kinesis_streams_output_description].nil?
-        Validators::KinesisFirehoseOutputDescription.validate!(input[:kinesis_firehose_output_description], context: "#{context}[:kinesis_firehose_output_description]") unless input[:kinesis_firehose_output_description].nil?
-        Validators::LambdaOutputDescription.validate!(input[:lambda_output_description], context: "#{context}[:lambda_output_description]") unless input[:lambda_output_description].nil?
-        Validators::DestinationSchema.validate!(input[:destination_schema], context: "#{context}[:destination_schema]") unless input[:destination_schema].nil?
+        KinesisStreamsOutputDescription.validate!(input[:kinesis_streams_output_description], context: "#{context}[:kinesis_streams_output_description]") unless input[:kinesis_streams_output_description].nil?
+        KinesisFirehoseOutputDescription.validate!(input[:kinesis_firehose_output_description], context: "#{context}[:kinesis_firehose_output_description]") unless input[:kinesis_firehose_output_description].nil?
+        LambdaOutputDescription.validate!(input[:lambda_output_description], context: "#{context}[:lambda_output_description]") unless input[:lambda_output_description].nil?
+        DestinationSchema.validate!(input[:destination_schema], context: "#{context}[:destination_schema]") unless input[:destination_schema].nil?
       end
     end
 
@@ -725,7 +727,7 @@ module AWS::SDK::KinesisAnalytics
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::OutputDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          OutputDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -735,10 +737,10 @@ module AWS::SDK::KinesisAnalytics
         Hearth::Validator.validate!(input, Types::OutputUpdate, context: context)
         Hearth::Validator.validate!(input[:output_id], ::String, context: "#{context}[:output_id]")
         Hearth::Validator.validate!(input[:name_update], ::String, context: "#{context}[:name_update]")
-        Validators::KinesisStreamsOutputUpdate.validate!(input[:kinesis_streams_output_update], context: "#{context}[:kinesis_streams_output_update]") unless input[:kinesis_streams_output_update].nil?
-        Validators::KinesisFirehoseOutputUpdate.validate!(input[:kinesis_firehose_output_update], context: "#{context}[:kinesis_firehose_output_update]") unless input[:kinesis_firehose_output_update].nil?
-        Validators::LambdaOutputUpdate.validate!(input[:lambda_output_update], context: "#{context}[:lambda_output_update]") unless input[:lambda_output_update].nil?
-        Validators::DestinationSchema.validate!(input[:destination_schema_update], context: "#{context}[:destination_schema_update]") unless input[:destination_schema_update].nil?
+        KinesisStreamsOutputUpdate.validate!(input[:kinesis_streams_output_update], context: "#{context}[:kinesis_streams_output_update]") unless input[:kinesis_streams_output_update].nil?
+        KinesisFirehoseOutputUpdate.validate!(input[:kinesis_firehose_output_update], context: "#{context}[:kinesis_firehose_output_update]") unless input[:kinesis_firehose_output_update].nil?
+        LambdaOutputUpdate.validate!(input[:lambda_output_update], context: "#{context}[:lambda_output_update]") unless input[:lambda_output_update].nil?
+        DestinationSchema.validate!(input[:destination_schema_update], context: "#{context}[:destination_schema_update]") unless input[:destination_schema_update].nil?
       end
     end
 
@@ -746,7 +748,7 @@ module AWS::SDK::KinesisAnalytics
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::OutputUpdate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          OutputUpdate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -755,7 +757,7 @@ module AWS::SDK::KinesisAnalytics
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Output.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Output.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -773,7 +775,7 @@ module AWS::SDK::KinesisAnalytics
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ParsedInputRecord.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ParsedInputRecord.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -809,7 +811,7 @@ module AWS::SDK::KinesisAnalytics
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RecordColumn.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RecordColumn.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -818,7 +820,7 @@ module AWS::SDK::KinesisAnalytics
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RecordFormat, context: context)
         Hearth::Validator.validate!(input[:record_format_type], ::String, context: "#{context}[:record_format_type]")
-        Validators::MappingParameters.validate!(input[:mapping_parameters], context: "#{context}[:mapping_parameters]") unless input[:mapping_parameters].nil?
+        MappingParameters.validate!(input[:mapping_parameters], context: "#{context}[:mapping_parameters]") unless input[:mapping_parameters].nil?
       end
     end
 
@@ -826,8 +828,8 @@ module AWS::SDK::KinesisAnalytics
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ReferenceDataSource, context: context)
         Hearth::Validator.validate!(input[:table_name], ::String, context: "#{context}[:table_name]")
-        Validators::S3ReferenceDataSource.validate!(input[:s3_reference_data_source], context: "#{context}[:s3_reference_data_source]") unless input[:s3_reference_data_source].nil?
-        Validators::SourceSchema.validate!(input[:reference_schema], context: "#{context}[:reference_schema]") unless input[:reference_schema].nil?
+        S3ReferenceDataSource.validate!(input[:s3_reference_data_source], context: "#{context}[:s3_reference_data_source]") unless input[:s3_reference_data_source].nil?
+        SourceSchema.validate!(input[:reference_schema], context: "#{context}[:reference_schema]") unless input[:reference_schema].nil?
       end
     end
 
@@ -836,8 +838,8 @@ module AWS::SDK::KinesisAnalytics
         Hearth::Validator.validate!(input, Types::ReferenceDataSourceDescription, context: context)
         Hearth::Validator.validate!(input[:reference_id], ::String, context: "#{context}[:reference_id]")
         Hearth::Validator.validate!(input[:table_name], ::String, context: "#{context}[:table_name]")
-        Validators::S3ReferenceDataSourceDescription.validate!(input[:s3_reference_data_source_description], context: "#{context}[:s3_reference_data_source_description]") unless input[:s3_reference_data_source_description].nil?
-        Validators::SourceSchema.validate!(input[:reference_schema], context: "#{context}[:reference_schema]") unless input[:reference_schema].nil?
+        S3ReferenceDataSourceDescription.validate!(input[:s3_reference_data_source_description], context: "#{context}[:s3_reference_data_source_description]") unless input[:s3_reference_data_source_description].nil?
+        SourceSchema.validate!(input[:reference_schema], context: "#{context}[:reference_schema]") unless input[:reference_schema].nil?
       end
     end
 
@@ -845,7 +847,7 @@ module AWS::SDK::KinesisAnalytics
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ReferenceDataSourceDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ReferenceDataSourceDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -855,8 +857,8 @@ module AWS::SDK::KinesisAnalytics
         Hearth::Validator.validate!(input, Types::ReferenceDataSourceUpdate, context: context)
         Hearth::Validator.validate!(input[:reference_id], ::String, context: "#{context}[:reference_id]")
         Hearth::Validator.validate!(input[:table_name_update], ::String, context: "#{context}[:table_name_update]")
-        Validators::S3ReferenceDataSourceUpdate.validate!(input[:s3_reference_data_source_update], context: "#{context}[:s3_reference_data_source_update]") unless input[:s3_reference_data_source_update].nil?
-        Validators::SourceSchema.validate!(input[:reference_schema_update], context: "#{context}[:reference_schema_update]") unless input[:reference_schema_update].nil?
+        S3ReferenceDataSourceUpdate.validate!(input[:s3_reference_data_source_update], context: "#{context}[:s3_reference_data_source_update]") unless input[:s3_reference_data_source_update].nil?
+        SourceSchema.validate!(input[:reference_schema_update], context: "#{context}[:reference_schema_update]") unless input[:reference_schema_update].nil?
       end
     end
 
@@ -864,7 +866,7 @@ module AWS::SDK::KinesisAnalytics
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ReferenceDataSourceUpdate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ReferenceDataSourceUpdate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -936,9 +938,9 @@ module AWS::SDK::KinesisAnalytics
     class SourceSchema
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SourceSchema, context: context)
-        Validators::RecordFormat.validate!(input[:record_format], context: "#{context}[:record_format]") unless input[:record_format].nil?
+        RecordFormat.validate!(input[:record_format], context: "#{context}[:record_format]") unless input[:record_format].nil?
         Hearth::Validator.validate!(input[:record_encoding], ::String, context: "#{context}[:record_encoding]")
-        Validators::RecordColumns.validate!(input[:record_columns], context: "#{context}[:record_columns]") unless input[:record_columns].nil?
+        RecordColumns.validate!(input[:record_columns], context: "#{context}[:record_columns]") unless input[:record_columns].nil?
       end
     end
 
@@ -946,7 +948,7 @@ module AWS::SDK::KinesisAnalytics
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StartApplicationInput, context: context)
         Hearth::Validator.validate!(input[:application_name], ::String, context: "#{context}[:application_name]")
-        Validators::InputConfigurations.validate!(input[:input_configurations], context: "#{context}[:input_configurations]") unless input[:input_configurations].nil?
+        InputConfigurations.validate!(input[:input_configurations], context: "#{context}[:input_configurations]") unless input[:input_configurations].nil?
       end
     end
 
@@ -990,7 +992,7 @@ module AWS::SDK::KinesisAnalytics
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1004,7 +1006,7 @@ module AWS::SDK::KinesisAnalytics
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1020,8 +1022,8 @@ module AWS::SDK::KinesisAnalytics
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UnableToDetectSchemaException, context: context)
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
-        Validators::RawInputRecords.validate!(input[:raw_input_records], context: "#{context}[:raw_input_records]") unless input[:raw_input_records].nil?
-        Validators::ProcessedInputRecords.validate!(input[:processed_input_records], context: "#{context}[:processed_input_records]") unless input[:processed_input_records].nil?
+        RawInputRecords.validate!(input[:raw_input_records], context: "#{context}[:raw_input_records]") unless input[:raw_input_records].nil?
+        ProcessedInputRecords.validate!(input[:processed_input_records], context: "#{context}[:processed_input_records]") unless input[:processed_input_records].nil?
       end
     end
 
@@ -1036,7 +1038,7 @@ module AWS::SDK::KinesisAnalytics
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeys.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeys.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -1051,7 +1053,7 @@ module AWS::SDK::KinesisAnalytics
         Hearth::Validator.validate!(input, Types::UpdateApplicationInput, context: context)
         Hearth::Validator.validate!(input[:application_name], ::String, context: "#{context}[:application_name]")
         Hearth::Validator.validate!(input[:current_application_version_id], ::Integer, context: "#{context}[:current_application_version_id]")
-        Validators::ApplicationUpdate.validate!(input[:application_update], context: "#{context}[:application_update]") unless input[:application_update].nil?
+        ApplicationUpdate.validate!(input[:application_update], context: "#{context}[:application_update]") unless input[:application_update].nil?
       end
     end
 

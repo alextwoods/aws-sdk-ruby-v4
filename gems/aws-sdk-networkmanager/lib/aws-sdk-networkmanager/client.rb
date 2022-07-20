@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::NetworkManager
@@ -80,7 +82,7 @@ module AWS::SDK::NetworkManager
     def accept_attachment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AcceptAttachmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AcceptAttachmentInput,
         validate_input: @config.validate_input
@@ -168,7 +170,7 @@ module AWS::SDK::NetworkManager
     def associate_connect_peer(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateConnectPeerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateConnectPeerInput,
         validate_input: @config.validate_input
@@ -262,7 +264,7 @@ module AWS::SDK::NetworkManager
     def associate_customer_gateway(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateCustomerGatewayInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateCustomerGatewayInput,
         validate_input: @config.validate_input
@@ -343,7 +345,7 @@ module AWS::SDK::NetworkManager
     def associate_link(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateLinkInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateLinkInput,
         validate_input: @config.validate_input
@@ -433,7 +435,7 @@ module AWS::SDK::NetworkManager
     def associate_transit_gateway_connect_peer(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateTransitGatewayConnectPeerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateTransitGatewayConnectPeerInput,
         validate_input: @config.validate_input
@@ -556,7 +558,7 @@ module AWS::SDK::NetworkManager
     def create_connect_attachment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateConnectAttachmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateConnectAttachmentInput,
         validate_input: @config.validate_input
@@ -681,7 +683,7 @@ module AWS::SDK::NetworkManager
     def create_connect_peer(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateConnectPeerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateConnectPeerInput,
         validate_input: @config.validate_input
@@ -794,7 +796,7 @@ module AWS::SDK::NetworkManager
     def create_connection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateConnectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateConnectionInput,
         validate_input: @config.validate_input
@@ -906,7 +908,7 @@ module AWS::SDK::NetworkManager
     def create_core_network(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateCoreNetworkInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateCoreNetworkInput,
         validate_input: @config.validate_input
@@ -1050,7 +1052,7 @@ module AWS::SDK::NetworkManager
     def create_device(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDeviceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDeviceInput,
         validate_input: @config.validate_input
@@ -1138,7 +1140,7 @@ module AWS::SDK::NetworkManager
     def create_global_network(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateGlobalNetworkInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateGlobalNetworkInput,
         validate_input: @config.validate_input
@@ -1258,7 +1260,7 @@ module AWS::SDK::NetworkManager
     def create_link(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateLinkInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateLinkInput,
         validate_input: @config.validate_input
@@ -1377,7 +1379,7 @@ module AWS::SDK::NetworkManager
     def create_site(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateSiteInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateSiteInput,
         validate_input: @config.validate_input
@@ -1485,7 +1487,7 @@ module AWS::SDK::NetworkManager
     def create_site_to_site_vpn_attachment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateSiteToSiteVpnAttachmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateSiteToSiteVpnAttachmentInput,
         validate_input: @config.validate_input
@@ -1608,7 +1610,7 @@ module AWS::SDK::NetworkManager
     def create_vpc_attachment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateVpcAttachmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateVpcAttachmentInput,
         validate_input: @config.validate_input
@@ -1697,7 +1699,7 @@ module AWS::SDK::NetworkManager
     def delete_attachment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAttachmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAttachmentInput,
         validate_input: @config.validate_input
@@ -1787,7 +1789,7 @@ module AWS::SDK::NetworkManager
     def delete_connect_peer(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteConnectPeerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteConnectPeerInput,
         validate_input: @config.validate_input
@@ -1873,7 +1875,7 @@ module AWS::SDK::NetworkManager
     def delete_connection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteConnectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteConnectionInput,
         validate_input: @config.validate_input
@@ -1963,7 +1965,7 @@ module AWS::SDK::NetworkManager
     def delete_core_network(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteCoreNetworkInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteCoreNetworkInput,
         validate_input: @config.validate_input
@@ -2047,7 +2049,7 @@ module AWS::SDK::NetworkManager
     def delete_core_network_policy_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteCoreNetworkPolicyVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteCoreNetworkPolicyVersionInput,
         validate_input: @config.validate_input
@@ -2142,7 +2144,7 @@ module AWS::SDK::NetworkManager
     def delete_device(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDeviceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDeviceInput,
         validate_input: @config.validate_input
@@ -2220,7 +2222,7 @@ module AWS::SDK::NetworkManager
     def delete_global_network(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteGlobalNetworkInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteGlobalNetworkInput,
         validate_input: @config.validate_input
@@ -2309,7 +2311,7 @@ module AWS::SDK::NetworkManager
     def delete_link(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteLinkInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteLinkInput,
         validate_input: @config.validate_input
@@ -2376,7 +2378,7 @@ module AWS::SDK::NetworkManager
     def delete_resource_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteResourcePolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteResourcePolicyInput,
         validate_input: @config.validate_input
@@ -2462,7 +2464,7 @@ module AWS::SDK::NetworkManager
     def delete_site(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteSiteInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteSiteInput,
         validate_input: @config.validate_input
@@ -2540,7 +2542,7 @@ module AWS::SDK::NetworkManager
     def deregister_transit_gateway(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeregisterTransitGatewayInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeregisterTransitGatewayInput,
         validate_input: @config.validate_input
@@ -2632,7 +2634,7 @@ module AWS::SDK::NetworkManager
     def describe_global_networks(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeGlobalNetworksInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeGlobalNetworksInput,
         validate_input: @config.validate_input
@@ -2709,7 +2711,7 @@ module AWS::SDK::NetworkManager
     def disassociate_connect_peer(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateConnectPeerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateConnectPeerInput,
         validate_input: @config.validate_input
@@ -2786,7 +2788,7 @@ module AWS::SDK::NetworkManager
     def disassociate_customer_gateway(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateCustomerGatewayInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateCustomerGatewayInput,
         validate_input: @config.validate_input
@@ -2867,7 +2869,7 @@ module AWS::SDK::NetworkManager
     def disassociate_link(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateLinkInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateLinkInput,
         validate_input: @config.validate_input
@@ -2944,7 +2946,7 @@ module AWS::SDK::NetworkManager
     def disassociate_transit_gateway_connect_peer(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateTransitGatewayConnectPeerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateTransitGatewayConnectPeerInput,
         validate_input: @config.validate_input
@@ -3015,7 +3017,7 @@ module AWS::SDK::NetworkManager
     def execute_core_network_change_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ExecuteCoreNetworkChangeSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ExecuteCoreNetworkChangeSetInput,
         validate_input: @config.validate_input
@@ -3107,7 +3109,7 @@ module AWS::SDK::NetworkManager
     def get_connect_attachment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetConnectAttachmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetConnectAttachmentInput,
         validate_input: @config.validate_input
@@ -3197,7 +3199,7 @@ module AWS::SDK::NetworkManager
     def get_connect_peer(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetConnectPeerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetConnectPeerInput,
         validate_input: @config.validate_input
@@ -3286,7 +3288,7 @@ module AWS::SDK::NetworkManager
     def get_connect_peer_associations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetConnectPeerAssociationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetConnectPeerAssociationsInput,
         validate_input: @config.validate_input
@@ -3388,7 +3390,7 @@ module AWS::SDK::NetworkManager
     def get_connections(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetConnectionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetConnectionsInput,
         validate_input: @config.validate_input
@@ -3478,7 +3480,7 @@ module AWS::SDK::NetworkManager
     def get_core_network(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCoreNetworkInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCoreNetworkInput,
         validate_input: @config.validate_input
@@ -3574,7 +3576,7 @@ module AWS::SDK::NetworkManager
     def get_core_network_change_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCoreNetworkChangeSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCoreNetworkChangeSetInput,
         validate_input: @config.validate_input
@@ -3662,7 +3664,7 @@ module AWS::SDK::NetworkManager
     def get_core_network_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCoreNetworkPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCoreNetworkPolicyInput,
         validate_input: @config.validate_input
@@ -3752,7 +3754,7 @@ module AWS::SDK::NetworkManager
     def get_customer_gateway_associations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCustomerGatewayAssociationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCustomerGatewayAssociationsInput,
         validate_input: @config.validate_input
@@ -3862,7 +3864,7 @@ module AWS::SDK::NetworkManager
     def get_devices(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDevicesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDevicesInput,
         validate_input: @config.validate_input
@@ -3953,7 +3955,7 @@ module AWS::SDK::NetworkManager
     def get_link_associations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetLinkAssociationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetLinkAssociationsInput,
         validate_input: @config.validate_input
@@ -4066,7 +4068,7 @@ module AWS::SDK::NetworkManager
     def get_links(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetLinksInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetLinksInput,
         validate_input: @config.validate_input
@@ -4226,7 +4228,7 @@ module AWS::SDK::NetworkManager
     def get_network_resource_counts(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetNetworkResourceCountsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetNetworkResourceCountsInput,
         validate_input: @config.validate_input
@@ -4406,7 +4408,7 @@ module AWS::SDK::NetworkManager
     def get_network_resource_relationships(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetNetworkResourceRelationshipsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetNetworkResourceRelationshipsInput,
         validate_input: @config.validate_input
@@ -4600,7 +4602,7 @@ module AWS::SDK::NetworkManager
     def get_network_resources(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetNetworkResourcesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetNetworkResourcesInput,
         validate_input: @config.validate_input
@@ -4737,7 +4739,7 @@ module AWS::SDK::NetworkManager
     def get_network_routes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetNetworkRoutesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetNetworkRoutesInput,
         validate_input: @config.validate_input
@@ -4928,7 +4930,7 @@ module AWS::SDK::NetworkManager
     def get_network_telemetry(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetNetworkTelemetryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetNetworkTelemetryInput,
         validate_input: @config.validate_input
@@ -4996,7 +4998,7 @@ module AWS::SDK::NetworkManager
     def get_resource_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetResourcePolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetResourcePolicyInput,
         validate_input: @config.validate_input
@@ -5098,7 +5100,7 @@ module AWS::SDK::NetworkManager
     def get_route_analysis(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetRouteAnalysisInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetRouteAnalysisInput,
         validate_input: @config.validate_input
@@ -5188,7 +5190,7 @@ module AWS::SDK::NetworkManager
     def get_site_to_site_vpn_attachment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSiteToSiteVpnAttachmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSiteToSiteVpnAttachmentInput,
         validate_input: @config.validate_input
@@ -5286,7 +5288,7 @@ module AWS::SDK::NetworkManager
     def get_sites(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSitesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSitesInput,
         validate_input: @config.validate_input
@@ -5375,7 +5377,7 @@ module AWS::SDK::NetworkManager
     def get_transit_gateway_connect_peer_associations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetTransitGatewayConnectPeerAssociationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetTransitGatewayConnectPeerAssociationsInput,
         validate_input: @config.validate_input
@@ -5466,7 +5468,7 @@ module AWS::SDK::NetworkManager
     def get_transit_gateway_registrations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetTransitGatewayRegistrationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetTransitGatewayRegistrationsInput,
         validate_input: @config.validate_input
@@ -5559,7 +5561,7 @@ module AWS::SDK::NetworkManager
     def get_vpc_attachment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetVpcAttachmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetVpcAttachmentInput,
         validate_input: @config.validate_input
@@ -5669,7 +5671,7 @@ module AWS::SDK::NetworkManager
     def list_attachments(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAttachmentsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAttachmentsInput,
         validate_input: @config.validate_input
@@ -5761,7 +5763,7 @@ module AWS::SDK::NetworkManager
     def list_connect_peers(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListConnectPeersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListConnectPeersInput,
         validate_input: @config.validate_input
@@ -5845,7 +5847,7 @@ module AWS::SDK::NetworkManager
     def list_core_network_policy_versions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListCoreNetworkPolicyVersionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListCoreNetworkPolicyVersionsInput,
         validate_input: @config.validate_input
@@ -5929,7 +5931,7 @@ module AWS::SDK::NetworkManager
     def list_core_networks(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListCoreNetworksInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListCoreNetworksInput,
         validate_input: @config.validate_input
@@ -6001,7 +6003,7 @@ module AWS::SDK::NetworkManager
     def list_organization_service_access_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListOrganizationServiceAccessStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListOrganizationServiceAccessStatusInput,
         validate_input: @config.validate_input
@@ -6072,7 +6074,7 @@ module AWS::SDK::NetworkManager
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -6168,7 +6170,7 @@ module AWS::SDK::NetworkManager
     def put_core_network_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutCoreNetworkPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutCoreNetworkPolicyInput,
         validate_input: @config.validate_input
@@ -6240,7 +6242,7 @@ module AWS::SDK::NetworkManager
     def put_resource_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutResourcePolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutResourcePolicyInput,
         validate_input: @config.validate_input
@@ -6320,7 +6322,7 @@ module AWS::SDK::NetworkManager
     def register_transit_gateway(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RegisterTransitGatewayInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RegisterTransitGatewayInput,
         validate_input: @config.validate_input
@@ -6409,7 +6411,7 @@ module AWS::SDK::NetworkManager
     def reject_attachment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RejectAttachmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RejectAttachmentInput,
         validate_input: @config.validate_input
@@ -6493,7 +6495,7 @@ module AWS::SDK::NetworkManager
     def restore_core_network_policy_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RestoreCoreNetworkPolicyVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RestoreCoreNetworkPolicyVersionInput,
         validate_input: @config.validate_input
@@ -6563,7 +6565,7 @@ module AWS::SDK::NetworkManager
     def start_organization_service_access_update(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartOrganizationServiceAccessUpdateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartOrganizationServiceAccessUpdateInput,
         validate_input: @config.validate_input
@@ -6682,7 +6684,7 @@ module AWS::SDK::NetworkManager
     def start_route_analysis(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartRouteAnalysisInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartRouteAnalysisInput,
         validate_input: @config.validate_input
@@ -6759,7 +6761,7 @@ module AWS::SDK::NetworkManager
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -6833,7 +6835,7 @@ module AWS::SDK::NetworkManager
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -6933,7 +6935,7 @@ module AWS::SDK::NetworkManager
     def update_connection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateConnectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateConnectionInput,
         validate_input: @config.validate_input
@@ -7028,7 +7030,7 @@ module AWS::SDK::NetworkManager
     def update_core_network(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateCoreNetworkInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateCoreNetworkInput,
         validate_input: @config.validate_input
@@ -7167,7 +7169,7 @@ module AWS::SDK::NetworkManager
     def update_device(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDeviceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDeviceInput,
         validate_input: @config.validate_input
@@ -7251,7 +7253,7 @@ module AWS::SDK::NetworkManager
     def update_global_network(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateGlobalNetworkInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateGlobalNetworkInput,
         validate_input: @config.validate_input
@@ -7363,7 +7365,7 @@ module AWS::SDK::NetworkManager
     def update_link(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateLinkInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateLinkInput,
         validate_input: @config.validate_input
@@ -7444,7 +7446,7 @@ module AWS::SDK::NetworkManager
     def update_network_resource_metadata(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateNetworkResourceMetadataInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateNetworkResourceMetadataInput,
         validate_input: @config.validate_input
@@ -7559,7 +7561,7 @@ module AWS::SDK::NetworkManager
     def update_site(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateSiteInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateSiteInput,
         validate_input: @config.validate_input
@@ -7668,7 +7670,7 @@ module AWS::SDK::NetworkManager
     def update_vpc_attachment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateVpcAttachmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateVpcAttachmentInput,
         validate_input: @config.validate_input

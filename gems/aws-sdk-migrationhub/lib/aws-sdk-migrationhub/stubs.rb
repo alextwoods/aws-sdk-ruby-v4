@@ -88,7 +88,7 @@ module AWS::SDK::MigrationHub
     class DescribeMigrationTask
       def self.default(visited=[])
         {
-          migration_task: Stubs::MigrationTask.default(visited),
+          migration_task: MigrationTask.default(visited),
         }
       end
 
@@ -108,9 +108,9 @@ module AWS::SDK::MigrationHub
         {
           progress_update_stream: 'progress_update_stream',
           migration_task_name: 'migration_task_name',
-          task: Stubs::Task.default(visited),
+          task: Task.default(visited),
           update_date_time: Time.now,
-          resource_attribute_list: Stubs::LatestResourceAttributeList.default(visited),
+          resource_attribute_list: LatestResourceAttributeList.default(visited),
         }
       end
 
@@ -132,7 +132,7 @@ module AWS::SDK::MigrationHub
         return nil if visited.include?('LatestResourceAttributeList')
         visited = visited + ['LatestResourceAttributeList']
         [
-          Stubs::ResourceAttribute.default(visited)
+          ResourceAttribute.default(visited)
         ]
       end
 
@@ -234,7 +234,7 @@ module AWS::SDK::MigrationHub
     class ListApplicationStates
       def self.default(visited=[])
         {
-          application_state_list: Stubs::ApplicationStateList.default(visited),
+          application_state_list: ApplicationStateList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -254,7 +254,7 @@ module AWS::SDK::MigrationHub
         return nil if visited.include?('ApplicationStateList')
         visited = visited + ['ApplicationStateList']
         [
-          Stubs::ApplicationState.default(visited)
+          ApplicationState.default(visited)
         ]
       end
 
@@ -295,7 +295,7 @@ module AWS::SDK::MigrationHub
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          created_artifact_list: Stubs::CreatedArtifactList.default(visited),
+          created_artifact_list: CreatedArtifactList.default(visited),
         }
       end
 
@@ -314,7 +314,7 @@ module AWS::SDK::MigrationHub
         return nil if visited.include?('CreatedArtifactList')
         visited = visited + ['CreatedArtifactList']
         [
-          Stubs::CreatedArtifact.default(visited)
+          CreatedArtifact.default(visited)
         ]
       end
 
@@ -353,7 +353,7 @@ module AWS::SDK::MigrationHub
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          discovered_resource_list: Stubs::DiscoveredResourceList.default(visited),
+          discovered_resource_list: DiscoveredResourceList.default(visited),
         }
       end
 
@@ -372,7 +372,7 @@ module AWS::SDK::MigrationHub
         return nil if visited.include?('DiscoveredResourceList')
         visited = visited + ['DiscoveredResourceList']
         [
-          Stubs::DiscoveredResource.default(visited)
+          DiscoveredResource.default(visited)
         ]
       end
 
@@ -411,7 +411,7 @@ module AWS::SDK::MigrationHub
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          migration_task_summary_list: Stubs::MigrationTaskSummaryList.default(visited),
+          migration_task_summary_list: MigrationTaskSummaryList.default(visited),
         }
       end
 
@@ -430,7 +430,7 @@ module AWS::SDK::MigrationHub
         return nil if visited.include?('MigrationTaskSummaryList')
         visited = visited + ['MigrationTaskSummaryList']
         [
-          Stubs::MigrationTaskSummary.default(visited)
+          MigrationTaskSummary.default(visited)
         ]
       end
 
@@ -476,7 +476,7 @@ module AWS::SDK::MigrationHub
     class ListProgressUpdateStreams
       def self.default(visited=[])
         {
-          progress_update_stream_summary_list: Stubs::ProgressUpdateStreamSummaryList.default(visited),
+          progress_update_stream_summary_list: ProgressUpdateStreamSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -496,7 +496,7 @@ module AWS::SDK::MigrationHub
         return nil if visited.include?('ProgressUpdateStreamSummaryList')
         visited = visited + ['ProgressUpdateStreamSummaryList']
         [
-          Stubs::ProgressUpdateStreamSummary.default(visited)
+          ProgressUpdateStreamSummary.default(visited)
         ]
       end
 

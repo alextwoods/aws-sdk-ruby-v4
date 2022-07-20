@@ -631,7 +631,7 @@ module AWS::SDK::NetworkManager
         type.transport_attachment_id = params[:transport_attachment_id]
         type.options = ConnectAttachmentOptions.build(params[:options], context: "#{context}[:options]") unless params[:options].nil?
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -655,7 +655,7 @@ module AWS::SDK::NetworkManager
         type.bgp_options = BgpOptions.build(params[:bgp_options], context: "#{context}[:bgp_options]") unless params[:bgp_options].nil?
         type.inside_cidr_blocks = ConstrainedStringList.build(params[:inside_cidr_blocks], context: "#{context}[:inside_cidr_blocks]") unless params[:inside_cidr_blocks].nil?
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -701,7 +701,7 @@ module AWS::SDK::NetworkManager
         type.description = params[:description]
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type.policy_document = params[:policy_document]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -813,7 +813,7 @@ module AWS::SDK::NetworkManager
         type.core_network_id = params[:core_network_id]
         type.vpn_connection_arn = params[:vpn_connection_arn]
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -836,7 +836,7 @@ module AWS::SDK::NetworkManager
         type.subnet_arns = SubnetArnList.build(params[:subnet_arns], context: "#{context}[:subnet_arns]") unless params[:subnet_arns].nil?
         type.options = VpcOptions.build(params[:options], context: "#{context}[:options]") unless params[:options].nil?
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -2251,7 +2251,7 @@ module AWS::SDK::NetworkManager
         type.policy_document = params[:policy_document]
         type.description = params[:description]
         type.latest_version_id = params[:latest_version_id]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end

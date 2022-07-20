@@ -9,9 +9,6 @@
 
 require 'aws-sdk-mediaconnect'
 
-require 'hearth/xml/node_matcher'
-require 'hearth/query/param_matcher'
-
 module AWS::SDK::MediaConnect
   describe Client do
     let(:endpoint) { 'http://127.0.0.1' }

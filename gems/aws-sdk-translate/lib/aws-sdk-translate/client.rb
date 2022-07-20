@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::Translate
@@ -87,7 +89,7 @@ module AWS::SDK::Translate
     def create_parallel_data(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateParallelDataInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateParallelDataInput,
         validate_input: @config.validate_input
@@ -157,7 +159,7 @@ module AWS::SDK::Translate
     def delete_parallel_data(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteParallelDataInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteParallelDataInput,
         validate_input: @config.validate_input
@@ -225,7 +227,7 @@ module AWS::SDK::Translate
     def delete_terminology(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteTerminologyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteTerminologyInput,
         validate_input: @config.validate_input
@@ -324,7 +326,7 @@ module AWS::SDK::Translate
     def describe_text_translation_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTextTranslationJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTextTranslationJobInput,
         validate_input: @config.validate_input
@@ -420,7 +422,7 @@ module AWS::SDK::Translate
     def get_parallel_data(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetParallelDataInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetParallelDataInput,
         validate_input: @config.validate_input
@@ -519,7 +521,7 @@ module AWS::SDK::Translate
     def get_terminology(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetTerminologyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetTerminologyInput,
         validate_input: @config.validate_input
@@ -640,7 +642,7 @@ module AWS::SDK::Translate
     def import_terminology(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ImportTerminologyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ImportTerminologyInput,
         validate_input: @config.validate_input
@@ -737,7 +739,7 @@ module AWS::SDK::Translate
     def list_parallel_data(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListParallelDataInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListParallelDataInput,
         validate_input: @config.validate_input
@@ -830,7 +832,7 @@ module AWS::SDK::Translate
     def list_terminologies(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTerminologiesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTerminologiesInput,
         validate_input: @config.validate_input
@@ -943,7 +945,7 @@ module AWS::SDK::Translate
     def list_text_translation_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTextTranslationJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTextTranslationJobsInput,
         validate_input: @config.validate_input
@@ -1091,7 +1093,7 @@ module AWS::SDK::Translate
     def start_text_translation_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartTextTranslationJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartTextTranslationJobInput,
         validate_input: @config.validate_input
@@ -1167,7 +1169,7 @@ module AWS::SDK::Translate
     def stop_text_translation_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopTextTranslationJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopTextTranslationJobInput,
         validate_input: @config.validate_input
@@ -1280,7 +1282,7 @@ module AWS::SDK::Translate
     def translate_text(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TranslateTextInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TranslateTextInput,
         validate_input: @config.validate_input
@@ -1369,7 +1371,7 @@ module AWS::SDK::Translate
     def update_parallel_data(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateParallelDataInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateParallelDataInput,
         validate_input: @config.validate_input

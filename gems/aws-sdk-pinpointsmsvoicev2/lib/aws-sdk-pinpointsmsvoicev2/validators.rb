@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::PinpointSMSVoiceV2
   module Validators
 
@@ -30,7 +32,7 @@ module AWS::SDK::PinpointSMSVoiceV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AccountAttribute.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AccountAttribute.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -48,7 +50,7 @@ module AWS::SDK::PinpointSMSVoiceV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AccountLimit.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AccountLimit.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -86,7 +88,7 @@ module AWS::SDK::PinpointSMSVoiceV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ConfigurationSetFilter, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::FilterValueList.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        FilterValueList.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
       end
     end
 
@@ -94,7 +96,7 @@ module AWS::SDK::PinpointSMSVoiceV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ConfigurationSetFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ConfigurationSetFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -104,7 +106,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         Hearth::Validator.validate!(input, Types::ConfigurationSetInformation, context: context)
         Hearth::Validator.validate!(input[:configuration_set_arn], ::String, context: "#{context}[:configuration_set_arn]")
         Hearth::Validator.validate!(input[:configuration_set_name], ::String, context: "#{context}[:configuration_set_name]")
-        Validators::EventDestinationList.validate!(input[:event_destinations], context: "#{context}[:event_destinations]") unless input[:event_destinations].nil?
+        EventDestinationList.validate!(input[:event_destinations], context: "#{context}[:event_destinations]") unless input[:event_destinations].nil?
         Hearth::Validator.validate!(input[:default_message_type], ::String, context: "#{context}[:default_message_type]")
         Hearth::Validator.validate!(input[:default_sender_id], ::String, context: "#{context}[:default_sender_id]")
         Hearth::Validator.validate!(input[:created_timestamp], ::Time, context: "#{context}[:created_timestamp]")
@@ -115,7 +117,7 @@ module AWS::SDK::PinpointSMSVoiceV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ConfigurationSetInformation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ConfigurationSetInformation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -153,7 +155,7 @@ module AWS::SDK::PinpointSMSVoiceV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateConfigurationSetInput, context: context)
         Hearth::Validator.validate!(input[:configuration_set_name], ::String, context: "#{context}[:configuration_set_name]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
       end
     end
@@ -163,7 +165,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         Hearth::Validator.validate!(input, Types::CreateConfigurationSetOutput, context: context)
         Hearth::Validator.validate!(input[:configuration_set_arn], ::String, context: "#{context}[:configuration_set_arn]")
         Hearth::Validator.validate!(input[:configuration_set_name], ::String, context: "#{context}[:configuration_set_name]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:created_timestamp], ::Time, context: "#{context}[:created_timestamp]")
       end
     end
@@ -173,10 +175,10 @@ module AWS::SDK::PinpointSMSVoiceV2
         Hearth::Validator.validate!(input, Types::CreateEventDestinationInput, context: context)
         Hearth::Validator.validate!(input[:configuration_set_name], ::String, context: "#{context}[:configuration_set_name]")
         Hearth::Validator.validate!(input[:event_destination_name], ::String, context: "#{context}[:event_destination_name]")
-        Validators::EventTypeList.validate!(input[:matching_event_types], context: "#{context}[:matching_event_types]") unless input[:matching_event_types].nil?
-        Validators::CloudWatchLogsDestination.validate!(input[:cloud_watch_logs_destination], context: "#{context}[:cloud_watch_logs_destination]") unless input[:cloud_watch_logs_destination].nil?
-        Validators::KinesisFirehoseDestination.validate!(input[:kinesis_firehose_destination], context: "#{context}[:kinesis_firehose_destination]") unless input[:kinesis_firehose_destination].nil?
-        Validators::SnsDestination.validate!(input[:sns_destination], context: "#{context}[:sns_destination]") unless input[:sns_destination].nil?
+        EventTypeList.validate!(input[:matching_event_types], context: "#{context}[:matching_event_types]") unless input[:matching_event_types].nil?
+        CloudWatchLogsDestination.validate!(input[:cloud_watch_logs_destination], context: "#{context}[:cloud_watch_logs_destination]") unless input[:cloud_watch_logs_destination].nil?
+        KinesisFirehoseDestination.validate!(input[:kinesis_firehose_destination], context: "#{context}[:kinesis_firehose_destination]") unless input[:kinesis_firehose_destination].nil?
+        SnsDestination.validate!(input[:sns_destination], context: "#{context}[:sns_destination]") unless input[:sns_destination].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
       end
     end
@@ -186,7 +188,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         Hearth::Validator.validate!(input, Types::CreateEventDestinationOutput, context: context)
         Hearth::Validator.validate!(input[:configuration_set_arn], ::String, context: "#{context}[:configuration_set_arn]")
         Hearth::Validator.validate!(input[:configuration_set_name], ::String, context: "#{context}[:configuration_set_name]")
-        Validators::EventDestination.validate!(input[:event_destination], context: "#{context}[:event_destination]") unless input[:event_destination].nil?
+        EventDestination.validate!(input[:event_destination], context: "#{context}[:event_destination]") unless input[:event_destination].nil?
       end
     end
 
@@ -194,7 +196,7 @@ module AWS::SDK::PinpointSMSVoiceV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateOptOutListInput, context: context)
         Hearth::Validator.validate!(input[:opt_out_list_name], ::String, context: "#{context}[:opt_out_list_name]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
       end
     end
@@ -204,7 +206,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         Hearth::Validator.validate!(input, Types::CreateOptOutListOutput, context: context)
         Hearth::Validator.validate!(input[:opt_out_list_arn], ::String, context: "#{context}[:opt_out_list_arn]")
         Hearth::Validator.validate!(input[:opt_out_list_name], ::String, context: "#{context}[:opt_out_list_name]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:created_timestamp], ::Time, context: "#{context}[:created_timestamp]")
       end
     end
@@ -216,7 +218,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         Hearth::Validator.validate!(input[:iso_country_code], ::String, context: "#{context}[:iso_country_code]")
         Hearth::Validator.validate!(input[:message_type], ::String, context: "#{context}[:message_type]")
         Hearth::Validator.validate!(input[:deletion_protection_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:deletion_protection_enabled]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
       end
     end
@@ -234,7 +236,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         Hearth::Validator.validate!(input[:opt_out_list_name], ::String, context: "#{context}[:opt_out_list_name]")
         Hearth::Validator.validate!(input[:shared_routes_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:shared_routes_enabled]")
         Hearth::Validator.validate!(input[:deletion_protection_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:deletion_protection_enabled]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:created_timestamp], ::Time, context: "#{context}[:created_timestamp]")
       end
     end
@@ -251,7 +253,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         Hearth::Validator.validate!(input, Types::DeleteConfigurationSetOutput, context: context)
         Hearth::Validator.validate!(input[:configuration_set_arn], ::String, context: "#{context}[:configuration_set_arn]")
         Hearth::Validator.validate!(input[:configuration_set_name], ::String, context: "#{context}[:configuration_set_name]")
-        Validators::EventDestinationList.validate!(input[:event_destinations], context: "#{context}[:event_destinations]") unless input[:event_destinations].nil?
+        EventDestinationList.validate!(input[:event_destinations], context: "#{context}[:event_destinations]") unless input[:event_destinations].nil?
         Hearth::Validator.validate!(input[:default_message_type], ::String, context: "#{context}[:default_message_type]")
         Hearth::Validator.validate!(input[:default_sender_id], ::String, context: "#{context}[:default_sender_id]")
         Hearth::Validator.validate!(input[:created_timestamp], ::Time, context: "#{context}[:created_timestamp]")
@@ -303,7 +305,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         Hearth::Validator.validate!(input, Types::DeleteEventDestinationOutput, context: context)
         Hearth::Validator.validate!(input[:configuration_set_arn], ::String, context: "#{context}[:configuration_set_arn]")
         Hearth::Validator.validate!(input[:configuration_set_name], ::String, context: "#{context}[:configuration_set_name]")
-        Validators::EventDestination.validate!(input[:event_destination], context: "#{context}[:event_destination]") unless input[:event_destination].nil?
+        EventDestination.validate!(input[:event_destination], context: "#{context}[:event_destination]") unless input[:event_destination].nil?
       end
     end
 
@@ -421,7 +423,7 @@ module AWS::SDK::PinpointSMSVoiceV2
     class DescribeAccountAttributesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeAccountAttributesOutput, context: context)
-        Validators::AccountAttributeList.validate!(input[:account_attributes], context: "#{context}[:account_attributes]") unless input[:account_attributes].nil?
+        AccountAttributeList.validate!(input[:account_attributes], context: "#{context}[:account_attributes]") unless input[:account_attributes].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -437,7 +439,7 @@ module AWS::SDK::PinpointSMSVoiceV2
     class DescribeAccountLimitsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeAccountLimitsOutput, context: context)
-        Validators::AccountLimitList.validate!(input[:account_limits], context: "#{context}[:account_limits]") unless input[:account_limits].nil?
+        AccountLimitList.validate!(input[:account_limits], context: "#{context}[:account_limits]") unless input[:account_limits].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -445,8 +447,8 @@ module AWS::SDK::PinpointSMSVoiceV2
     class DescribeConfigurationSetsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeConfigurationSetsInput, context: context)
-        Validators::ConfigurationSetNameList.validate!(input[:configuration_set_names], context: "#{context}[:configuration_set_names]") unless input[:configuration_set_names].nil?
-        Validators::ConfigurationSetFilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        ConfigurationSetNameList.validate!(input[:configuration_set_names], context: "#{context}[:configuration_set_names]") unless input[:configuration_set_names].nil?
+        ConfigurationSetFilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
       end
@@ -455,7 +457,7 @@ module AWS::SDK::PinpointSMSVoiceV2
     class DescribeConfigurationSetsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeConfigurationSetsOutput, context: context)
-        Validators::ConfigurationSetInformationList.validate!(input[:configuration_sets], context: "#{context}[:configuration_sets]") unless input[:configuration_sets].nil?
+        ConfigurationSetInformationList.validate!(input[:configuration_sets], context: "#{context}[:configuration_sets]") unless input[:configuration_sets].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -464,8 +466,8 @@ module AWS::SDK::PinpointSMSVoiceV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeKeywordsInput, context: context)
         Hearth::Validator.validate!(input[:origination_identity], ::String, context: "#{context}[:origination_identity]")
-        Validators::KeywordList.validate!(input[:keywords], context: "#{context}[:keywords]") unless input[:keywords].nil?
-        Validators::KeywordFilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        KeywordList.validate!(input[:keywords], context: "#{context}[:keywords]") unless input[:keywords].nil?
+        KeywordFilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
       end
@@ -476,7 +478,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         Hearth::Validator.validate!(input, Types::DescribeKeywordsOutput, context: context)
         Hearth::Validator.validate!(input[:origination_identity_arn], ::String, context: "#{context}[:origination_identity_arn]")
         Hearth::Validator.validate!(input[:origination_identity], ::String, context: "#{context}[:origination_identity]")
-        Validators::KeywordInformationList.validate!(input[:keywords], context: "#{context}[:keywords]") unless input[:keywords].nil?
+        KeywordInformationList.validate!(input[:keywords], context: "#{context}[:keywords]") unless input[:keywords].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -484,7 +486,7 @@ module AWS::SDK::PinpointSMSVoiceV2
     class DescribeOptOutListsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeOptOutListsInput, context: context)
-        Validators::OptOutListNameList.validate!(input[:opt_out_list_names], context: "#{context}[:opt_out_list_names]") unless input[:opt_out_list_names].nil?
+        OptOutListNameList.validate!(input[:opt_out_list_names], context: "#{context}[:opt_out_list_names]") unless input[:opt_out_list_names].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
       end
@@ -493,7 +495,7 @@ module AWS::SDK::PinpointSMSVoiceV2
     class DescribeOptOutListsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeOptOutListsOutput, context: context)
-        Validators::OptOutListInformationList.validate!(input[:opt_out_lists], context: "#{context}[:opt_out_lists]") unless input[:opt_out_lists].nil?
+        OptOutListInformationList.validate!(input[:opt_out_lists], context: "#{context}[:opt_out_lists]") unless input[:opt_out_lists].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -502,8 +504,8 @@ module AWS::SDK::PinpointSMSVoiceV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeOptedOutNumbersInput, context: context)
         Hearth::Validator.validate!(input[:opt_out_list_name], ::String, context: "#{context}[:opt_out_list_name]")
-        Validators::OptedOutNumberList.validate!(input[:opted_out_numbers], context: "#{context}[:opted_out_numbers]") unless input[:opted_out_numbers].nil?
-        Validators::OptedOutFilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        OptedOutNumberList.validate!(input[:opted_out_numbers], context: "#{context}[:opted_out_numbers]") unless input[:opted_out_numbers].nil?
+        OptedOutFilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
       end
@@ -514,7 +516,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         Hearth::Validator.validate!(input, Types::DescribeOptedOutNumbersOutput, context: context)
         Hearth::Validator.validate!(input[:opt_out_list_arn], ::String, context: "#{context}[:opt_out_list_arn]")
         Hearth::Validator.validate!(input[:opt_out_list_name], ::String, context: "#{context}[:opt_out_list_name]")
-        Validators::OptedOutNumberInformationList.validate!(input[:opted_out_numbers], context: "#{context}[:opted_out_numbers]") unless input[:opted_out_numbers].nil?
+        OptedOutNumberInformationList.validate!(input[:opted_out_numbers], context: "#{context}[:opted_out_numbers]") unless input[:opted_out_numbers].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -522,8 +524,8 @@ module AWS::SDK::PinpointSMSVoiceV2
     class DescribePhoneNumbersInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribePhoneNumbersInput, context: context)
-        Validators::PhoneNumberIdList.validate!(input[:phone_number_ids], context: "#{context}[:phone_number_ids]") unless input[:phone_number_ids].nil?
-        Validators::PhoneNumberFilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        PhoneNumberIdList.validate!(input[:phone_number_ids], context: "#{context}[:phone_number_ids]") unless input[:phone_number_ids].nil?
+        PhoneNumberFilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
       end
@@ -532,7 +534,7 @@ module AWS::SDK::PinpointSMSVoiceV2
     class DescribePhoneNumbersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribePhoneNumbersOutput, context: context)
-        Validators::PhoneNumberInformationList.validate!(input[:phone_numbers], context: "#{context}[:phone_numbers]") unless input[:phone_numbers].nil?
+        PhoneNumberInformationList.validate!(input[:phone_numbers], context: "#{context}[:phone_numbers]") unless input[:phone_numbers].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -540,8 +542,8 @@ module AWS::SDK::PinpointSMSVoiceV2
     class DescribePoolsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribePoolsInput, context: context)
-        Validators::PoolIdList.validate!(input[:pool_ids], context: "#{context}[:pool_ids]") unless input[:pool_ids].nil?
-        Validators::PoolFilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        PoolIdList.validate!(input[:pool_ids], context: "#{context}[:pool_ids]") unless input[:pool_ids].nil?
+        PoolFilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
       end
@@ -550,7 +552,7 @@ module AWS::SDK::PinpointSMSVoiceV2
     class DescribePoolsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribePoolsOutput, context: context)
-        Validators::PoolInformationList.validate!(input[:pools], context: "#{context}[:pools]") unless input[:pools].nil?
+        PoolInformationList.validate!(input[:pools], context: "#{context}[:pools]") unless input[:pools].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -558,8 +560,8 @@ module AWS::SDK::PinpointSMSVoiceV2
     class DescribeSenderIdsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeSenderIdsInput, context: context)
-        Validators::SenderIdList.validate!(input[:sender_ids], context: "#{context}[:sender_ids]") unless input[:sender_ids].nil?
-        Validators::SenderIdFilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        SenderIdList.validate!(input[:sender_ids], context: "#{context}[:sender_ids]") unless input[:sender_ids].nil?
+        SenderIdFilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
       end
@@ -568,7 +570,7 @@ module AWS::SDK::PinpointSMSVoiceV2
     class DescribeSenderIdsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeSenderIdsOutput, context: context)
-        Validators::SenderIdInformationList.validate!(input[:sender_ids], context: "#{context}[:sender_ids]") unless input[:sender_ids].nil?
+        SenderIdInformationList.validate!(input[:sender_ids], context: "#{context}[:sender_ids]") unless input[:sender_ids].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -584,7 +586,7 @@ module AWS::SDK::PinpointSMSVoiceV2
     class DescribeSpendLimitsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeSpendLimitsOutput, context: context)
-        Validators::SpendLimitList.validate!(input[:spend_limits], context: "#{context}[:spend_limits]") unless input[:spend_limits].nil?
+        SpendLimitList.validate!(input[:spend_limits], context: "#{context}[:spend_limits]") unless input[:spend_limits].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -625,10 +627,10 @@ module AWS::SDK::PinpointSMSVoiceV2
         Hearth::Validator.validate!(input, Types::EventDestination, context: context)
         Hearth::Validator.validate!(input[:event_destination_name], ::String, context: "#{context}[:event_destination_name]")
         Hearth::Validator.validate!(input[:enabled], ::TrueClass, ::FalseClass, context: "#{context}[:enabled]")
-        Validators::EventTypeList.validate!(input[:matching_event_types], context: "#{context}[:matching_event_types]") unless input[:matching_event_types].nil?
-        Validators::CloudWatchLogsDestination.validate!(input[:cloud_watch_logs_destination], context: "#{context}[:cloud_watch_logs_destination]") unless input[:cloud_watch_logs_destination].nil?
-        Validators::KinesisFirehoseDestination.validate!(input[:kinesis_firehose_destination], context: "#{context}[:kinesis_firehose_destination]") unless input[:kinesis_firehose_destination].nil?
-        Validators::SnsDestination.validate!(input[:sns_destination], context: "#{context}[:sns_destination]") unless input[:sns_destination].nil?
+        EventTypeList.validate!(input[:matching_event_types], context: "#{context}[:matching_event_types]") unless input[:matching_event_types].nil?
+        CloudWatchLogsDestination.validate!(input[:cloud_watch_logs_destination], context: "#{context}[:cloud_watch_logs_destination]") unless input[:cloud_watch_logs_destination].nil?
+        KinesisFirehoseDestination.validate!(input[:kinesis_firehose_destination], context: "#{context}[:kinesis_firehose_destination]") unless input[:kinesis_firehose_destination].nil?
+        SnsDestination.validate!(input[:sns_destination], context: "#{context}[:sns_destination]") unless input[:sns_destination].nil?
       end
     end
 
@@ -636,7 +638,7 @@ module AWS::SDK::PinpointSMSVoiceV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EventDestination.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EventDestination.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -671,7 +673,7 @@ module AWS::SDK::PinpointSMSVoiceV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::KeywordFilter, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::FilterValueList.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        FilterValueList.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
       end
     end
 
@@ -679,7 +681,7 @@ module AWS::SDK::PinpointSMSVoiceV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::KeywordFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          KeywordFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -697,7 +699,7 @@ module AWS::SDK::PinpointSMSVoiceV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::KeywordInformation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          KeywordInformation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -723,7 +725,7 @@ module AWS::SDK::PinpointSMSVoiceV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListPoolOriginationIdentitiesInput, context: context)
         Hearth::Validator.validate!(input[:pool_id], ::String, context: "#{context}[:pool_id]")
-        Validators::PoolOriginationIdentitiesFilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        PoolOriginationIdentitiesFilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
       end
@@ -734,7 +736,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         Hearth::Validator.validate!(input, Types::ListPoolOriginationIdentitiesOutput, context: context)
         Hearth::Validator.validate!(input[:pool_arn], ::String, context: "#{context}[:pool_arn]")
         Hearth::Validator.validate!(input[:pool_id], ::String, context: "#{context}[:pool_id]")
-        Validators::OriginationIdentityMetadataList.validate!(input[:origination_identities], context: "#{context}[:origination_identities]") unless input[:origination_identities].nil?
+        OriginationIdentityMetadataList.validate!(input[:origination_identities], context: "#{context}[:origination_identities]") unless input[:origination_identities].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -750,7 +752,7 @@ module AWS::SDK::PinpointSMSVoiceV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -767,7 +769,7 @@ module AWS::SDK::PinpointSMSVoiceV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -794,7 +796,7 @@ module AWS::SDK::PinpointSMSVoiceV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::OptOutListInformation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          OptOutListInformation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -812,7 +814,7 @@ module AWS::SDK::PinpointSMSVoiceV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::OptedOutFilter, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::FilterValueList.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        FilterValueList.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
       end
     end
 
@@ -820,7 +822,7 @@ module AWS::SDK::PinpointSMSVoiceV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::OptedOutFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          OptedOutFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -838,7 +840,7 @@ module AWS::SDK::PinpointSMSVoiceV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::OptedOutNumberInformation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          OptedOutNumberInformation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -858,7 +860,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         Hearth::Validator.validate!(input[:origination_identity_arn], ::String, context: "#{context}[:origination_identity_arn]")
         Hearth::Validator.validate!(input[:origination_identity], ::String, context: "#{context}[:origination_identity]")
         Hearth::Validator.validate!(input[:iso_country_code], ::String, context: "#{context}[:iso_country_code]")
-        Validators::NumberCapabilityList.validate!(input[:number_capabilities], context: "#{context}[:number_capabilities]") unless input[:number_capabilities].nil?
+        NumberCapabilityList.validate!(input[:number_capabilities], context: "#{context}[:number_capabilities]") unless input[:number_capabilities].nil?
       end
     end
 
@@ -866,7 +868,7 @@ module AWS::SDK::PinpointSMSVoiceV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::OriginationIdentityMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          OriginationIdentityMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -875,7 +877,7 @@ module AWS::SDK::PinpointSMSVoiceV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PhoneNumberFilter, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::FilterValueList.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        FilterValueList.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
       end
     end
 
@@ -883,7 +885,7 @@ module AWS::SDK::PinpointSMSVoiceV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PhoneNumberFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PhoneNumberFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -906,7 +908,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:iso_country_code], ::String, context: "#{context}[:iso_country_code]")
         Hearth::Validator.validate!(input[:message_type], ::String, context: "#{context}[:message_type]")
-        Validators::NumberCapabilityList.validate!(input[:number_capabilities], context: "#{context}[:number_capabilities]") unless input[:number_capabilities].nil?
+        NumberCapabilityList.validate!(input[:number_capabilities], context: "#{context}[:number_capabilities]") unless input[:number_capabilities].nil?
         Hearth::Validator.validate!(input[:number_type], ::String, context: "#{context}[:number_type]")
         Hearth::Validator.validate!(input[:monthly_leasing_price], ::String, context: "#{context}[:monthly_leasing_price]")
         Hearth::Validator.validate!(input[:two_way_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:two_way_enabled]")
@@ -923,7 +925,7 @@ module AWS::SDK::PinpointSMSVoiceV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PhoneNumberInformation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PhoneNumberInformation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -932,7 +934,7 @@ module AWS::SDK::PinpointSMSVoiceV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PoolFilter, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::FilterValueList.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        FilterValueList.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
       end
     end
 
@@ -940,7 +942,7 @@ module AWS::SDK::PinpointSMSVoiceV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PoolFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PoolFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -975,7 +977,7 @@ module AWS::SDK::PinpointSMSVoiceV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PoolInformation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PoolInformation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -984,7 +986,7 @@ module AWS::SDK::PinpointSMSVoiceV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PoolOriginationIdentitiesFilter, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::FilterValueList.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        FilterValueList.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
       end
     end
 
@@ -992,7 +994,7 @@ module AWS::SDK::PinpointSMSVoiceV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PoolOriginationIdentitiesFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PoolOriginationIdentitiesFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1053,7 +1055,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:iso_country_code], ::String, context: "#{context}[:iso_country_code]")
         Hearth::Validator.validate!(input[:message_type], ::String, context: "#{context}[:message_type]")
-        Validators::NumberCapabilityList.validate!(input[:number_capabilities], context: "#{context}[:number_capabilities]") unless input[:number_capabilities].nil?
+        NumberCapabilityList.validate!(input[:number_capabilities], context: "#{context}[:number_capabilities]") unless input[:number_capabilities].nil?
         Hearth::Validator.validate!(input[:number_type], ::String, context: "#{context}[:number_type]")
         Hearth::Validator.validate!(input[:monthly_leasing_price], ::String, context: "#{context}[:monthly_leasing_price]")
         Hearth::Validator.validate!(input[:two_way_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:two_way_enabled]")
@@ -1069,13 +1071,13 @@ module AWS::SDK::PinpointSMSVoiceV2
         Hearth::Validator.validate!(input, Types::RequestPhoneNumberInput, context: context)
         Hearth::Validator.validate!(input[:iso_country_code], ::String, context: "#{context}[:iso_country_code]")
         Hearth::Validator.validate!(input[:message_type], ::String, context: "#{context}[:message_type]")
-        Validators::NumberCapabilityList.validate!(input[:number_capabilities], context: "#{context}[:number_capabilities]") unless input[:number_capabilities].nil?
+        NumberCapabilityList.validate!(input[:number_capabilities], context: "#{context}[:number_capabilities]") unless input[:number_capabilities].nil?
         Hearth::Validator.validate!(input[:number_type], ::String, context: "#{context}[:number_type]")
         Hearth::Validator.validate!(input[:opt_out_list_name], ::String, context: "#{context}[:opt_out_list_name]")
         Hearth::Validator.validate!(input[:pool_id], ::String, context: "#{context}[:pool_id]")
         Hearth::Validator.validate!(input[:registration_id], ::String, context: "#{context}[:registration_id]")
         Hearth::Validator.validate!(input[:deletion_protection_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:deletion_protection_enabled]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
       end
     end
@@ -1089,7 +1091,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:iso_country_code], ::String, context: "#{context}[:iso_country_code]")
         Hearth::Validator.validate!(input[:message_type], ::String, context: "#{context}[:message_type]")
-        Validators::NumberCapabilityList.validate!(input[:number_capabilities], context: "#{context}[:number_capabilities]") unless input[:number_capabilities].nil?
+        NumberCapabilityList.validate!(input[:number_capabilities], context: "#{context}[:number_capabilities]") unless input[:number_capabilities].nil?
         Hearth::Validator.validate!(input[:number_type], ::String, context: "#{context}[:number_type]")
         Hearth::Validator.validate!(input[:monthly_leasing_price], ::String, context: "#{context}[:monthly_leasing_price]")
         Hearth::Validator.validate!(input[:two_way_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:two_way_enabled]")
@@ -1098,7 +1100,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         Hearth::Validator.validate!(input[:opt_out_list_name], ::String, context: "#{context}[:opt_out_list_name]")
         Hearth::Validator.validate!(input[:deletion_protection_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:deletion_protection_enabled]")
         Hearth::Validator.validate!(input[:pool_id], ::String, context: "#{context}[:pool_id]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:created_timestamp], ::Time, context: "#{context}[:created_timestamp]")
       end
     end
@@ -1123,8 +1125,8 @@ module AWS::SDK::PinpointSMSVoiceV2
         Hearth::Validator.validate!(input[:configuration_set_name], ::String, context: "#{context}[:configuration_set_name]")
         Hearth::Validator.validate!(input[:max_price], ::String, context: "#{context}[:max_price]")
         Hearth::Validator.validate!(input[:time_to_live], ::Integer, context: "#{context}[:time_to_live]")
-        Validators::ContextMap.validate!(input[:context], context: "#{context}[:context]") unless input[:context].nil?
-        Validators::DestinationCountryParameters.validate!(input[:destination_country_parameters], context: "#{context}[:destination_country_parameters]") unless input[:destination_country_parameters].nil?
+        ContextMap.validate!(input[:context], context: "#{context}[:context]") unless input[:context].nil?
+        DestinationCountryParameters.validate!(input[:destination_country_parameters], context: "#{context}[:destination_country_parameters]") unless input[:destination_country_parameters].nil?
         Hearth::Validator.validate!(input[:dry_run], ::TrueClass, ::FalseClass, context: "#{context}[:dry_run]")
       end
     end
@@ -1147,7 +1149,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         Hearth::Validator.validate!(input[:configuration_set_name], ::String, context: "#{context}[:configuration_set_name]")
         Hearth::Validator.validate!(input[:max_price_per_minute], ::String, context: "#{context}[:max_price_per_minute]")
         Hearth::Validator.validate!(input[:time_to_live], ::Integer, context: "#{context}[:time_to_live]")
-        Validators::ContextMap.validate!(input[:context], context: "#{context}[:context]") unless input[:context].nil?
+        ContextMap.validate!(input[:context], context: "#{context}[:context]") unless input[:context].nil?
         Hearth::Validator.validate!(input[:dry_run], ::TrueClass, ::FalseClass, context: "#{context}[:dry_run]")
       end
     end
@@ -1171,7 +1173,7 @@ module AWS::SDK::PinpointSMSVoiceV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SenderIdFilter, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::FilterValueList.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        FilterValueList.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
       end
     end
 
@@ -1179,7 +1181,7 @@ module AWS::SDK::PinpointSMSVoiceV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SenderIdFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SenderIdFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1190,7 +1192,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         Hearth::Validator.validate!(input[:sender_id_arn], ::String, context: "#{context}[:sender_id_arn]")
         Hearth::Validator.validate!(input[:sender_id], ::String, context: "#{context}[:sender_id]")
         Hearth::Validator.validate!(input[:iso_country_code], ::String, context: "#{context}[:iso_country_code]")
-        Validators::MessageTypeList.validate!(input[:message_types], context: "#{context}[:message_types]") unless input[:message_types].nil?
+        MessageTypeList.validate!(input[:message_types], context: "#{context}[:message_types]") unless input[:message_types].nil?
         Hearth::Validator.validate!(input[:monthly_leasing_price], ::String, context: "#{context}[:monthly_leasing_price]")
       end
     end
@@ -1199,7 +1201,7 @@ module AWS::SDK::PinpointSMSVoiceV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SenderIdInformation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SenderIdInformation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1208,7 +1210,7 @@ module AWS::SDK::PinpointSMSVoiceV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SenderIdAndCountry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SenderIdAndCountry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1304,7 +1306,7 @@ module AWS::SDK::PinpointSMSVoiceV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SpendLimit.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SpendLimit.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1330,7 +1332,7 @@ module AWS::SDK::PinpointSMSVoiceV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1339,7 +1341,7 @@ module AWS::SDK::PinpointSMSVoiceV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::NonEmptyTagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        NonEmptyTagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1360,7 +1362,7 @@ module AWS::SDK::PinpointSMSVoiceV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -1376,10 +1378,10 @@ module AWS::SDK::PinpointSMSVoiceV2
         Hearth::Validator.validate!(input[:configuration_set_name], ::String, context: "#{context}[:configuration_set_name]")
         Hearth::Validator.validate!(input[:event_destination_name], ::String, context: "#{context}[:event_destination_name]")
         Hearth::Validator.validate!(input[:enabled], ::TrueClass, ::FalseClass, context: "#{context}[:enabled]")
-        Validators::EventTypeList.validate!(input[:matching_event_types], context: "#{context}[:matching_event_types]") unless input[:matching_event_types].nil?
-        Validators::CloudWatchLogsDestination.validate!(input[:cloud_watch_logs_destination], context: "#{context}[:cloud_watch_logs_destination]") unless input[:cloud_watch_logs_destination].nil?
-        Validators::KinesisFirehoseDestination.validate!(input[:kinesis_firehose_destination], context: "#{context}[:kinesis_firehose_destination]") unless input[:kinesis_firehose_destination].nil?
-        Validators::SnsDestination.validate!(input[:sns_destination], context: "#{context}[:sns_destination]") unless input[:sns_destination].nil?
+        EventTypeList.validate!(input[:matching_event_types], context: "#{context}[:matching_event_types]") unless input[:matching_event_types].nil?
+        CloudWatchLogsDestination.validate!(input[:cloud_watch_logs_destination], context: "#{context}[:cloud_watch_logs_destination]") unless input[:cloud_watch_logs_destination].nil?
+        KinesisFirehoseDestination.validate!(input[:kinesis_firehose_destination], context: "#{context}[:kinesis_firehose_destination]") unless input[:kinesis_firehose_destination].nil?
+        SnsDestination.validate!(input[:sns_destination], context: "#{context}[:sns_destination]") unless input[:sns_destination].nil?
       end
     end
 
@@ -1388,7 +1390,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         Hearth::Validator.validate!(input, Types::UpdateEventDestinationOutput, context: context)
         Hearth::Validator.validate!(input[:configuration_set_arn], ::String, context: "#{context}[:configuration_set_arn]")
         Hearth::Validator.validate!(input[:configuration_set_name], ::String, context: "#{context}[:configuration_set_name]")
-        Validators::EventDestination.validate!(input[:event_destination], context: "#{context}[:event_destination]") unless input[:event_destination].nil?
+        EventDestination.validate!(input[:event_destination], context: "#{context}[:event_destination]") unless input[:event_destination].nil?
       end
     end
 
@@ -1413,7 +1415,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:iso_country_code], ::String, context: "#{context}[:iso_country_code]")
         Hearth::Validator.validate!(input[:message_type], ::String, context: "#{context}[:message_type]")
-        Validators::NumberCapabilityList.validate!(input[:number_capabilities], context: "#{context}[:number_capabilities]") unless input[:number_capabilities].nil?
+        NumberCapabilityList.validate!(input[:number_capabilities], context: "#{context}[:number_capabilities]") unless input[:number_capabilities].nil?
         Hearth::Validator.validate!(input[:number_type], ::String, context: "#{context}[:number_type]")
         Hearth::Validator.validate!(input[:monthly_leasing_price], ::String, context: "#{context}[:monthly_leasing_price]")
         Hearth::Validator.validate!(input[:two_way_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:two_way_enabled]")
@@ -1460,7 +1462,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         Hearth::Validator.validate!(input, Types::ValidationException, context: context)
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
         Hearth::Validator.validate!(input[:reason], ::String, context: "#{context}[:reason]")
-        Validators::ValidationExceptionFieldList.validate!(input[:fields], context: "#{context}[:fields]") unless input[:fields].nil?
+        ValidationExceptionFieldList.validate!(input[:fields], context: "#{context}[:fields]") unless input[:fields].nil?
       end
     end
 
@@ -1476,7 +1478,7 @@ module AWS::SDK::PinpointSMSVoiceV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ValidationExceptionField.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ValidationExceptionField.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

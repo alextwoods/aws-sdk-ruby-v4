@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::LexRuntimeService
@@ -81,7 +83,7 @@ module AWS::SDK::LexRuntimeService
     def delete_session(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteSessionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteSessionInput,
         validate_input: @config.validate_input
@@ -194,7 +196,7 @@ module AWS::SDK::LexRuntimeService
     def get_session(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSessionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSessionInput,
         validate_input: @config.validate_input
@@ -778,7 +780,7 @@ module AWS::SDK::LexRuntimeService
     def post_text(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PostTextInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PostTextInput,
         validate_input: @config.validate_input
@@ -1059,7 +1061,7 @@ module AWS::SDK::LexRuntimeService
       return options[:output_stream] if options[:output_stream]
       return Hearth::BlockIO.new(block) if block
 
-      StringIO.new
+      ::StringIO.new
     end
   end
 end

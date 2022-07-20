@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::Amplify
   module Validators
 
@@ -16,26 +18,26 @@ module AWS::SDK::Amplify
         Hearth::Validator.validate!(input[:app_id], ::String, context: "#{context}[:app_id]")
         Hearth::Validator.validate!(input[:app_arn], ::String, context: "#{context}[:app_arn]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:repository], ::String, context: "#{context}[:repository]")
         Hearth::Validator.validate!(input[:platform], ::String, context: "#{context}[:platform]")
         Hearth::Validator.validate!(input[:create_time], ::Time, context: "#{context}[:create_time]")
         Hearth::Validator.validate!(input[:update_time], ::Time, context: "#{context}[:update_time]")
         Hearth::Validator.validate!(input[:iam_service_role_arn], ::String, context: "#{context}[:iam_service_role_arn]")
-        Validators::EnvironmentVariables.validate!(input[:environment_variables], context: "#{context}[:environment_variables]") unless input[:environment_variables].nil?
+        EnvironmentVariables.validate!(input[:environment_variables], context: "#{context}[:environment_variables]") unless input[:environment_variables].nil?
         Hearth::Validator.validate!(input[:default_domain], ::String, context: "#{context}[:default_domain]")
         Hearth::Validator.validate!(input[:enable_branch_auto_build], ::TrueClass, ::FalseClass, context: "#{context}[:enable_branch_auto_build]")
         Hearth::Validator.validate!(input[:enable_branch_auto_deletion], ::TrueClass, ::FalseClass, context: "#{context}[:enable_branch_auto_deletion]")
         Hearth::Validator.validate!(input[:enable_basic_auth], ::TrueClass, ::FalseClass, context: "#{context}[:enable_basic_auth]")
         Hearth::Validator.validate!(input[:basic_auth_credentials], ::String, context: "#{context}[:basic_auth_credentials]")
-        Validators::CustomRules.validate!(input[:custom_rules], context: "#{context}[:custom_rules]") unless input[:custom_rules].nil?
-        Validators::ProductionBranch.validate!(input[:production_branch], context: "#{context}[:production_branch]") unless input[:production_branch].nil?
+        CustomRules.validate!(input[:custom_rules], context: "#{context}[:custom_rules]") unless input[:custom_rules].nil?
+        ProductionBranch.validate!(input[:production_branch], context: "#{context}[:production_branch]") unless input[:production_branch].nil?
         Hearth::Validator.validate!(input[:build_spec], ::String, context: "#{context}[:build_spec]")
         Hearth::Validator.validate!(input[:custom_headers], ::String, context: "#{context}[:custom_headers]")
         Hearth::Validator.validate!(input[:enable_auto_branch_creation], ::TrueClass, ::FalseClass, context: "#{context}[:enable_auto_branch_creation]")
-        Validators::AutoBranchCreationPatterns.validate!(input[:auto_branch_creation_patterns], context: "#{context}[:auto_branch_creation_patterns]") unless input[:auto_branch_creation_patterns].nil?
-        Validators::AutoBranchCreationConfig.validate!(input[:auto_branch_creation_config], context: "#{context}[:auto_branch_creation_config]") unless input[:auto_branch_creation_config].nil?
+        AutoBranchCreationPatterns.validate!(input[:auto_branch_creation_patterns], context: "#{context}[:auto_branch_creation_patterns]") unless input[:auto_branch_creation_patterns].nil?
+        AutoBranchCreationConfig.validate!(input[:auto_branch_creation_config], context: "#{context}[:auto_branch_creation_config]") unless input[:auto_branch_creation_config].nil?
         Hearth::Validator.validate!(input[:repository_clone_method], ::String, context: "#{context}[:repository_clone_method]")
       end
     end
@@ -44,7 +46,7 @@ module AWS::SDK::Amplify
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::App.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          App.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -61,7 +63,7 @@ module AWS::SDK::Amplify
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Artifact.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Artifact.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -81,7 +83,7 @@ module AWS::SDK::Amplify
         Hearth::Validator.validate!(input[:stage], ::String, context: "#{context}[:stage]")
         Hearth::Validator.validate!(input[:framework], ::String, context: "#{context}[:framework]")
         Hearth::Validator.validate!(input[:enable_auto_build], ::TrueClass, ::FalseClass, context: "#{context}[:enable_auto_build]")
-        Validators::EnvironmentVariables.validate!(input[:environment_variables], context: "#{context}[:environment_variables]") unless input[:environment_variables].nil?
+        EnvironmentVariables.validate!(input[:environment_variables], context: "#{context}[:environment_variables]") unless input[:environment_variables].nil?
         Hearth::Validator.validate!(input[:basic_auth_credentials], ::String, context: "#{context}[:basic_auth_credentials]")
         Hearth::Validator.validate!(input[:enable_basic_auth], ::TrueClass, ::FalseClass, context: "#{context}[:enable_basic_auth]")
         Hearth::Validator.validate!(input[:enable_performance_mode], ::TrueClass, ::FalseClass, context: "#{context}[:enable_performance_mode]")
@@ -125,7 +127,7 @@ module AWS::SDK::Amplify
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BackendEnvironment.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BackendEnvironment.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -143,15 +145,15 @@ module AWS::SDK::Amplify
         Hearth::Validator.validate!(input[:branch_arn], ::String, context: "#{context}[:branch_arn]")
         Hearth::Validator.validate!(input[:branch_name], ::String, context: "#{context}[:branch_name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:stage], ::String, context: "#{context}[:stage]")
         Hearth::Validator.validate!(input[:display_name], ::String, context: "#{context}[:display_name]")
         Hearth::Validator.validate!(input[:enable_notification], ::TrueClass, ::FalseClass, context: "#{context}[:enable_notification]")
         Hearth::Validator.validate!(input[:create_time], ::Time, context: "#{context}[:create_time]")
         Hearth::Validator.validate!(input[:update_time], ::Time, context: "#{context}[:update_time]")
-        Validators::EnvironmentVariables.validate!(input[:environment_variables], context: "#{context}[:environment_variables]") unless input[:environment_variables].nil?
+        EnvironmentVariables.validate!(input[:environment_variables], context: "#{context}[:environment_variables]") unless input[:environment_variables].nil?
         Hearth::Validator.validate!(input[:enable_auto_build], ::TrueClass, ::FalseClass, context: "#{context}[:enable_auto_build]")
-        Validators::CustomDomains.validate!(input[:custom_domains], context: "#{context}[:custom_domains]") unless input[:custom_domains].nil?
+        CustomDomains.validate!(input[:custom_domains], context: "#{context}[:custom_domains]") unless input[:custom_domains].nil?
         Hearth::Validator.validate!(input[:framework], ::String, context: "#{context}[:framework]")
         Hearth::Validator.validate!(input[:active_job_id], ::String, context: "#{context}[:active_job_id]")
         Hearth::Validator.validate!(input[:total_number_of_jobs], ::String, context: "#{context}[:total_number_of_jobs]")
@@ -161,7 +163,7 @@ module AWS::SDK::Amplify
         Hearth::Validator.validate!(input[:basic_auth_credentials], ::String, context: "#{context}[:basic_auth_credentials]")
         Hearth::Validator.validate!(input[:build_spec], ::String, context: "#{context}[:build_spec]")
         Hearth::Validator.validate!(input[:ttl], ::String, context: "#{context}[:ttl]")
-        Validators::AssociatedResources.validate!(input[:associated_resources], context: "#{context}[:associated_resources]") unless input[:associated_resources].nil?
+        AssociatedResources.validate!(input[:associated_resources], context: "#{context}[:associated_resources]") unless input[:associated_resources].nil?
         Hearth::Validator.validate!(input[:enable_pull_request_preview], ::TrueClass, ::FalseClass, context: "#{context}[:enable_pull_request_preview]")
         Hearth::Validator.validate!(input[:pull_request_environment_name], ::String, context: "#{context}[:pull_request_environment_name]")
         Hearth::Validator.validate!(input[:destination_branch], ::String, context: "#{context}[:destination_branch]")
@@ -174,7 +176,7 @@ module AWS::SDK::Amplify
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Branch.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Branch.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -189,25 +191,25 @@ module AWS::SDK::Amplify
         Hearth::Validator.validate!(input[:iam_service_role_arn], ::String, context: "#{context}[:iam_service_role_arn]")
         Hearth::Validator.validate!(input[:oauth_token], ::String, context: "#{context}[:oauth_token]")
         Hearth::Validator.validate!(input[:access_token], ::String, context: "#{context}[:access_token]")
-        Validators::EnvironmentVariables.validate!(input[:environment_variables], context: "#{context}[:environment_variables]") unless input[:environment_variables].nil?
+        EnvironmentVariables.validate!(input[:environment_variables], context: "#{context}[:environment_variables]") unless input[:environment_variables].nil?
         Hearth::Validator.validate!(input[:enable_branch_auto_build], ::TrueClass, ::FalseClass, context: "#{context}[:enable_branch_auto_build]")
         Hearth::Validator.validate!(input[:enable_branch_auto_deletion], ::TrueClass, ::FalseClass, context: "#{context}[:enable_branch_auto_deletion]")
         Hearth::Validator.validate!(input[:enable_basic_auth], ::TrueClass, ::FalseClass, context: "#{context}[:enable_basic_auth]")
         Hearth::Validator.validate!(input[:basic_auth_credentials], ::String, context: "#{context}[:basic_auth_credentials]")
-        Validators::CustomRules.validate!(input[:custom_rules], context: "#{context}[:custom_rules]") unless input[:custom_rules].nil?
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        CustomRules.validate!(input[:custom_rules], context: "#{context}[:custom_rules]") unless input[:custom_rules].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:build_spec], ::String, context: "#{context}[:build_spec]")
         Hearth::Validator.validate!(input[:custom_headers], ::String, context: "#{context}[:custom_headers]")
         Hearth::Validator.validate!(input[:enable_auto_branch_creation], ::TrueClass, ::FalseClass, context: "#{context}[:enable_auto_branch_creation]")
-        Validators::AutoBranchCreationPatterns.validate!(input[:auto_branch_creation_patterns], context: "#{context}[:auto_branch_creation_patterns]") unless input[:auto_branch_creation_patterns].nil?
-        Validators::AutoBranchCreationConfig.validate!(input[:auto_branch_creation_config], context: "#{context}[:auto_branch_creation_config]") unless input[:auto_branch_creation_config].nil?
+        AutoBranchCreationPatterns.validate!(input[:auto_branch_creation_patterns], context: "#{context}[:auto_branch_creation_patterns]") unless input[:auto_branch_creation_patterns].nil?
+        AutoBranchCreationConfig.validate!(input[:auto_branch_creation_config], context: "#{context}[:auto_branch_creation_config]") unless input[:auto_branch_creation_config].nil?
       end
     end
 
     class CreateAppOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateAppOutput, context: context)
-        Validators::App.validate!(input[:app], context: "#{context}[:app]") unless input[:app].nil?
+        App.validate!(input[:app], context: "#{context}[:app]") unless input[:app].nil?
       end
     end
 
@@ -224,7 +226,7 @@ module AWS::SDK::Amplify
     class CreateBackendEnvironmentOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateBackendEnvironmentOutput, context: context)
-        Validators::BackendEnvironment.validate!(input[:backend_environment], context: "#{context}[:backend_environment]") unless input[:backend_environment].nil?
+        BackendEnvironment.validate!(input[:backend_environment], context: "#{context}[:backend_environment]") unless input[:backend_environment].nil?
       end
     end
 
@@ -238,11 +240,11 @@ module AWS::SDK::Amplify
         Hearth::Validator.validate!(input[:framework], ::String, context: "#{context}[:framework]")
         Hearth::Validator.validate!(input[:enable_notification], ::TrueClass, ::FalseClass, context: "#{context}[:enable_notification]")
         Hearth::Validator.validate!(input[:enable_auto_build], ::TrueClass, ::FalseClass, context: "#{context}[:enable_auto_build]")
-        Validators::EnvironmentVariables.validate!(input[:environment_variables], context: "#{context}[:environment_variables]") unless input[:environment_variables].nil?
+        EnvironmentVariables.validate!(input[:environment_variables], context: "#{context}[:environment_variables]") unless input[:environment_variables].nil?
         Hearth::Validator.validate!(input[:basic_auth_credentials], ::String, context: "#{context}[:basic_auth_credentials]")
         Hearth::Validator.validate!(input[:enable_basic_auth], ::TrueClass, ::FalseClass, context: "#{context}[:enable_basic_auth]")
         Hearth::Validator.validate!(input[:enable_performance_mode], ::TrueClass, ::FalseClass, context: "#{context}[:enable_performance_mode]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:build_spec], ::String, context: "#{context}[:build_spec]")
         Hearth::Validator.validate!(input[:ttl], ::String, context: "#{context}[:ttl]")
         Hearth::Validator.validate!(input[:display_name], ::String, context: "#{context}[:display_name]")
@@ -255,7 +257,7 @@ module AWS::SDK::Amplify
     class CreateBranchOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateBranchOutput, context: context)
-        Validators::Branch.validate!(input[:branch], context: "#{context}[:branch]") unless input[:branch].nil?
+        Branch.validate!(input[:branch], context: "#{context}[:branch]") unless input[:branch].nil?
       end
     end
 
@@ -264,7 +266,7 @@ module AWS::SDK::Amplify
         Hearth::Validator.validate!(input, Types::CreateDeploymentInput, context: context)
         Hearth::Validator.validate!(input[:app_id], ::String, context: "#{context}[:app_id]")
         Hearth::Validator.validate!(input[:branch_name], ::String, context: "#{context}[:branch_name]")
-        Validators::FileMap.validate!(input[:file_map], context: "#{context}[:file_map]") unless input[:file_map].nil?
+        FileMap.validate!(input[:file_map], context: "#{context}[:file_map]") unless input[:file_map].nil?
       end
     end
 
@@ -272,7 +274,7 @@ module AWS::SDK::Amplify
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateDeploymentOutput, context: context)
         Hearth::Validator.validate!(input[:job_id], ::String, context: "#{context}[:job_id]")
-        Validators::FileUploadUrls.validate!(input[:file_upload_urls], context: "#{context}[:file_upload_urls]") unless input[:file_upload_urls].nil?
+        FileUploadUrls.validate!(input[:file_upload_urls], context: "#{context}[:file_upload_urls]") unless input[:file_upload_urls].nil?
         Hearth::Validator.validate!(input[:zip_upload_url], ::String, context: "#{context}[:zip_upload_url]")
       end
     end
@@ -283,8 +285,8 @@ module AWS::SDK::Amplify
         Hearth::Validator.validate!(input[:app_id], ::String, context: "#{context}[:app_id]")
         Hearth::Validator.validate!(input[:domain_name], ::String, context: "#{context}[:domain_name]")
         Hearth::Validator.validate!(input[:enable_auto_sub_domain], ::TrueClass, ::FalseClass, context: "#{context}[:enable_auto_sub_domain]")
-        Validators::SubDomainSettings.validate!(input[:sub_domain_settings], context: "#{context}[:sub_domain_settings]") unless input[:sub_domain_settings].nil?
-        Validators::AutoSubDomainCreationPatterns.validate!(input[:auto_sub_domain_creation_patterns], context: "#{context}[:auto_sub_domain_creation_patterns]") unless input[:auto_sub_domain_creation_patterns].nil?
+        SubDomainSettings.validate!(input[:sub_domain_settings], context: "#{context}[:sub_domain_settings]") unless input[:sub_domain_settings].nil?
+        AutoSubDomainCreationPatterns.validate!(input[:auto_sub_domain_creation_patterns], context: "#{context}[:auto_sub_domain_creation_patterns]") unless input[:auto_sub_domain_creation_patterns].nil?
         Hearth::Validator.validate!(input[:auto_sub_domain_iam_role], ::String, context: "#{context}[:auto_sub_domain_iam_role]")
       end
     end
@@ -292,7 +294,7 @@ module AWS::SDK::Amplify
     class CreateDomainAssociationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateDomainAssociationOutput, context: context)
-        Validators::DomainAssociation.validate!(input[:domain_association], context: "#{context}[:domain_association]") unless input[:domain_association].nil?
+        DomainAssociation.validate!(input[:domain_association], context: "#{context}[:domain_association]") unless input[:domain_association].nil?
       end
     end
 
@@ -308,7 +310,7 @@ module AWS::SDK::Amplify
     class CreateWebhookOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateWebhookOutput, context: context)
-        Validators::Webhook.validate!(input[:webhook], context: "#{context}[:webhook]") unless input[:webhook].nil?
+        Webhook.validate!(input[:webhook], context: "#{context}[:webhook]") unless input[:webhook].nil?
       end
     end
 
@@ -335,7 +337,7 @@ module AWS::SDK::Amplify
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CustomRule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CustomRule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -350,7 +352,7 @@ module AWS::SDK::Amplify
     class DeleteAppOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteAppOutput, context: context)
-        Validators::App.validate!(input[:app], context: "#{context}[:app]") unless input[:app].nil?
+        App.validate!(input[:app], context: "#{context}[:app]") unless input[:app].nil?
       end
     end
 
@@ -365,7 +367,7 @@ module AWS::SDK::Amplify
     class DeleteBackendEnvironmentOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteBackendEnvironmentOutput, context: context)
-        Validators::BackendEnvironment.validate!(input[:backend_environment], context: "#{context}[:backend_environment]") unless input[:backend_environment].nil?
+        BackendEnvironment.validate!(input[:backend_environment], context: "#{context}[:backend_environment]") unless input[:backend_environment].nil?
       end
     end
 
@@ -380,7 +382,7 @@ module AWS::SDK::Amplify
     class DeleteBranchOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteBranchOutput, context: context)
-        Validators::Branch.validate!(input[:branch], context: "#{context}[:branch]") unless input[:branch].nil?
+        Branch.validate!(input[:branch], context: "#{context}[:branch]") unless input[:branch].nil?
       end
     end
 
@@ -395,7 +397,7 @@ module AWS::SDK::Amplify
     class DeleteDomainAssociationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteDomainAssociationOutput, context: context)
-        Validators::DomainAssociation.validate!(input[:domain_association], context: "#{context}[:domain_association]") unless input[:domain_association].nil?
+        DomainAssociation.validate!(input[:domain_association], context: "#{context}[:domain_association]") unless input[:domain_association].nil?
       end
     end
 
@@ -411,7 +413,7 @@ module AWS::SDK::Amplify
     class DeleteJobOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteJobOutput, context: context)
-        Validators::JobSummary.validate!(input[:job_summary], context: "#{context}[:job_summary]") unless input[:job_summary].nil?
+        JobSummary.validate!(input[:job_summary], context: "#{context}[:job_summary]") unless input[:job_summary].nil?
       end
     end
 
@@ -425,7 +427,7 @@ module AWS::SDK::Amplify
     class DeleteWebhookOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteWebhookOutput, context: context)
-        Validators::Webhook.validate!(input[:webhook], context: "#{context}[:webhook]") unless input[:webhook].nil?
+        Webhook.validate!(input[:webhook], context: "#{context}[:webhook]") unless input[:webhook].nil?
       end
     end
 
@@ -442,12 +444,12 @@ module AWS::SDK::Amplify
         Hearth::Validator.validate!(input[:domain_association_arn], ::String, context: "#{context}[:domain_association_arn]")
         Hearth::Validator.validate!(input[:domain_name], ::String, context: "#{context}[:domain_name]")
         Hearth::Validator.validate!(input[:enable_auto_sub_domain], ::TrueClass, ::FalseClass, context: "#{context}[:enable_auto_sub_domain]")
-        Validators::AutoSubDomainCreationPatterns.validate!(input[:auto_sub_domain_creation_patterns], context: "#{context}[:auto_sub_domain_creation_patterns]") unless input[:auto_sub_domain_creation_patterns].nil?
+        AutoSubDomainCreationPatterns.validate!(input[:auto_sub_domain_creation_patterns], context: "#{context}[:auto_sub_domain_creation_patterns]") unless input[:auto_sub_domain_creation_patterns].nil?
         Hearth::Validator.validate!(input[:auto_sub_domain_iam_role], ::String, context: "#{context}[:auto_sub_domain_iam_role]")
         Hearth::Validator.validate!(input[:domain_status], ::String, context: "#{context}[:domain_status]")
         Hearth::Validator.validate!(input[:status_reason], ::String, context: "#{context}[:status_reason]")
         Hearth::Validator.validate!(input[:certificate_verification_dns_record], ::String, context: "#{context}[:certificate_verification_dns_record]")
-        Validators::SubDomains.validate!(input[:sub_domains], context: "#{context}[:sub_domains]") unless input[:sub_domains].nil?
+        SubDomains.validate!(input[:sub_domains], context: "#{context}[:sub_domains]") unless input[:sub_domains].nil?
       end
     end
 
@@ -455,7 +457,7 @@ module AWS::SDK::Amplify
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DomainAssociation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DomainAssociation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -517,7 +519,7 @@ module AWS::SDK::Amplify
     class GetAppOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetAppOutput, context: context)
-        Validators::App.validate!(input[:app], context: "#{context}[:app]") unless input[:app].nil?
+        App.validate!(input[:app], context: "#{context}[:app]") unless input[:app].nil?
       end
     end
 
@@ -547,7 +549,7 @@ module AWS::SDK::Amplify
     class GetBackendEnvironmentOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetBackendEnvironmentOutput, context: context)
-        Validators::BackendEnvironment.validate!(input[:backend_environment], context: "#{context}[:backend_environment]") unless input[:backend_environment].nil?
+        BackendEnvironment.validate!(input[:backend_environment], context: "#{context}[:backend_environment]") unless input[:backend_environment].nil?
       end
     end
 
@@ -562,7 +564,7 @@ module AWS::SDK::Amplify
     class GetBranchOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetBranchOutput, context: context)
-        Validators::Branch.validate!(input[:branch], context: "#{context}[:branch]") unless input[:branch].nil?
+        Branch.validate!(input[:branch], context: "#{context}[:branch]") unless input[:branch].nil?
       end
     end
 
@@ -577,7 +579,7 @@ module AWS::SDK::Amplify
     class GetDomainAssociationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetDomainAssociationOutput, context: context)
-        Validators::DomainAssociation.validate!(input[:domain_association], context: "#{context}[:domain_association]") unless input[:domain_association].nil?
+        DomainAssociation.validate!(input[:domain_association], context: "#{context}[:domain_association]") unless input[:domain_association].nil?
       end
     end
 
@@ -593,7 +595,7 @@ module AWS::SDK::Amplify
     class GetJobOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetJobOutput, context: context)
-        Validators::Job.validate!(input[:job], context: "#{context}[:job]") unless input[:job].nil?
+        Job.validate!(input[:job], context: "#{context}[:job]") unless input[:job].nil?
       end
     end
 
@@ -607,7 +609,7 @@ module AWS::SDK::Amplify
     class GetWebhookOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetWebhookOutput, context: context)
-        Validators::Webhook.validate!(input[:webhook], context: "#{context}[:webhook]") unless input[:webhook].nil?
+        Webhook.validate!(input[:webhook], context: "#{context}[:webhook]") unless input[:webhook].nil?
       end
     end
 
@@ -621,8 +623,8 @@ module AWS::SDK::Amplify
     class Job
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Job, context: context)
-        Validators::JobSummary.validate!(input[:summary], context: "#{context}[:summary]") unless input[:summary].nil?
-        Validators::Steps.validate!(input[:steps], context: "#{context}[:steps]") unless input[:steps].nil?
+        JobSummary.validate!(input[:summary], context: "#{context}[:summary]") unless input[:summary].nil?
+        Steps.validate!(input[:steps], context: "#{context}[:steps]") unless input[:steps].nil?
       end
     end
 
@@ -630,7 +632,7 @@ module AWS::SDK::Amplify
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::JobSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          JobSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -668,7 +670,7 @@ module AWS::SDK::Amplify
     class ListAppsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAppsOutput, context: context)
-        Validators::Apps.validate!(input[:apps], context: "#{context}[:apps]") unless input[:apps].nil?
+        Apps.validate!(input[:apps], context: "#{context}[:apps]") unless input[:apps].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -687,7 +689,7 @@ module AWS::SDK::Amplify
     class ListArtifactsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListArtifactsOutput, context: context)
-        Validators::Artifacts.validate!(input[:artifacts], context: "#{context}[:artifacts]") unless input[:artifacts].nil?
+        Artifacts.validate!(input[:artifacts], context: "#{context}[:artifacts]") unless input[:artifacts].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -705,7 +707,7 @@ module AWS::SDK::Amplify
     class ListBackendEnvironmentsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListBackendEnvironmentsOutput, context: context)
-        Validators::BackendEnvironments.validate!(input[:backend_environments], context: "#{context}[:backend_environments]") unless input[:backend_environments].nil?
+        BackendEnvironments.validate!(input[:backend_environments], context: "#{context}[:backend_environments]") unless input[:backend_environments].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -722,7 +724,7 @@ module AWS::SDK::Amplify
     class ListBranchesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListBranchesOutput, context: context)
-        Validators::Branches.validate!(input[:branches], context: "#{context}[:branches]") unless input[:branches].nil?
+        Branches.validate!(input[:branches], context: "#{context}[:branches]") unless input[:branches].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -739,7 +741,7 @@ module AWS::SDK::Amplify
     class ListDomainAssociationsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDomainAssociationsOutput, context: context)
-        Validators::DomainAssociations.validate!(input[:domain_associations], context: "#{context}[:domain_associations]") unless input[:domain_associations].nil?
+        DomainAssociations.validate!(input[:domain_associations], context: "#{context}[:domain_associations]") unless input[:domain_associations].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -757,7 +759,7 @@ module AWS::SDK::Amplify
     class ListJobsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListJobsOutput, context: context)
-        Validators::JobSummaries.validate!(input[:job_summaries], context: "#{context}[:job_summaries]") unless input[:job_summaries].nil?
+        JobSummaries.validate!(input[:job_summaries], context: "#{context}[:job_summaries]") unless input[:job_summaries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -772,7 +774,7 @@ module AWS::SDK::Amplify
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -788,7 +790,7 @@ module AWS::SDK::Amplify
     class ListWebhooksOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListWebhooksOutput, context: context)
-        Validators::Webhooks.validate!(input[:webhooks], context: "#{context}[:webhooks]") unless input[:webhooks].nil?
+        Webhooks.validate!(input[:webhooks], context: "#{context}[:webhooks]") unless input[:webhooks].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -841,7 +843,7 @@ module AWS::SDK::Amplify
     class StartDeploymentOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StartDeploymentOutput, context: context)
-        Validators::JobSummary.validate!(input[:job_summary], context: "#{context}[:job_summary]") unless input[:job_summary].nil?
+        JobSummary.validate!(input[:job_summary], context: "#{context}[:job_summary]") unless input[:job_summary].nil?
       end
     end
 
@@ -862,7 +864,7 @@ module AWS::SDK::Amplify
     class StartJobOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StartJobOutput, context: context)
-        Validators::JobSummary.validate!(input[:job_summary], context: "#{context}[:job_summary]") unless input[:job_summary].nil?
+        JobSummary.validate!(input[:job_summary], context: "#{context}[:job_summary]") unless input[:job_summary].nil?
       end
     end
 
@@ -877,7 +879,7 @@ module AWS::SDK::Amplify
         Hearth::Validator.validate!(input[:artifacts_url], ::String, context: "#{context}[:artifacts_url]")
         Hearth::Validator.validate!(input[:test_artifacts_url], ::String, context: "#{context}[:test_artifacts_url]")
         Hearth::Validator.validate!(input[:test_config_url], ::String, context: "#{context}[:test_config_url]")
-        Validators::Screenshots.validate!(input[:screenshots], context: "#{context}[:screenshots]") unless input[:screenshots].nil?
+        Screenshots.validate!(input[:screenshots], context: "#{context}[:screenshots]") unless input[:screenshots].nil?
         Hearth::Validator.validate!(input[:status_reason], ::String, context: "#{context}[:status_reason]")
         Hearth::Validator.validate!(input[:context], ::String, context: "#{context}[:context]")
       end
@@ -887,7 +889,7 @@ module AWS::SDK::Amplify
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Step.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Step.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -904,14 +906,14 @@ module AWS::SDK::Amplify
     class StopJobOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StopJobOutput, context: context)
-        Validators::JobSummary.validate!(input[:job_summary], context: "#{context}[:job_summary]") unless input[:job_summary].nil?
+        JobSummary.validate!(input[:job_summary], context: "#{context}[:job_summary]") unless input[:job_summary].nil?
       end
     end
 
     class SubDomain
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SubDomain, context: context)
-        Validators::SubDomainSetting.validate!(input[:sub_domain_setting], context: "#{context}[:sub_domain_setting]") unless input[:sub_domain_setting].nil?
+        SubDomainSetting.validate!(input[:sub_domain_setting], context: "#{context}[:sub_domain_setting]") unless input[:sub_domain_setting].nil?
         Hearth::Validator.validate!(input[:verified], ::TrueClass, ::FalseClass, context: "#{context}[:verified]")
         Hearth::Validator.validate!(input[:dns_record], ::String, context: "#{context}[:dns_record]")
       end
@@ -929,7 +931,7 @@ module AWS::SDK::Amplify
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SubDomainSetting.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SubDomainSetting.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -938,7 +940,7 @@ module AWS::SDK::Amplify
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SubDomain.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SubDomain.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -966,7 +968,7 @@ module AWS::SDK::Amplify
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -987,7 +989,7 @@ module AWS::SDK::Amplify
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -1005,17 +1007,17 @@ module AWS::SDK::Amplify
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:platform], ::String, context: "#{context}[:platform]")
         Hearth::Validator.validate!(input[:iam_service_role_arn], ::String, context: "#{context}[:iam_service_role_arn]")
-        Validators::EnvironmentVariables.validate!(input[:environment_variables], context: "#{context}[:environment_variables]") unless input[:environment_variables].nil?
+        EnvironmentVariables.validate!(input[:environment_variables], context: "#{context}[:environment_variables]") unless input[:environment_variables].nil?
         Hearth::Validator.validate!(input[:enable_branch_auto_build], ::TrueClass, ::FalseClass, context: "#{context}[:enable_branch_auto_build]")
         Hearth::Validator.validate!(input[:enable_branch_auto_deletion], ::TrueClass, ::FalseClass, context: "#{context}[:enable_branch_auto_deletion]")
         Hearth::Validator.validate!(input[:enable_basic_auth], ::TrueClass, ::FalseClass, context: "#{context}[:enable_basic_auth]")
         Hearth::Validator.validate!(input[:basic_auth_credentials], ::String, context: "#{context}[:basic_auth_credentials]")
-        Validators::CustomRules.validate!(input[:custom_rules], context: "#{context}[:custom_rules]") unless input[:custom_rules].nil?
+        CustomRules.validate!(input[:custom_rules], context: "#{context}[:custom_rules]") unless input[:custom_rules].nil?
         Hearth::Validator.validate!(input[:build_spec], ::String, context: "#{context}[:build_spec]")
         Hearth::Validator.validate!(input[:custom_headers], ::String, context: "#{context}[:custom_headers]")
         Hearth::Validator.validate!(input[:enable_auto_branch_creation], ::TrueClass, ::FalseClass, context: "#{context}[:enable_auto_branch_creation]")
-        Validators::AutoBranchCreationPatterns.validate!(input[:auto_branch_creation_patterns], context: "#{context}[:auto_branch_creation_patterns]") unless input[:auto_branch_creation_patterns].nil?
-        Validators::AutoBranchCreationConfig.validate!(input[:auto_branch_creation_config], context: "#{context}[:auto_branch_creation_config]") unless input[:auto_branch_creation_config].nil?
+        AutoBranchCreationPatterns.validate!(input[:auto_branch_creation_patterns], context: "#{context}[:auto_branch_creation_patterns]") unless input[:auto_branch_creation_patterns].nil?
+        AutoBranchCreationConfig.validate!(input[:auto_branch_creation_config], context: "#{context}[:auto_branch_creation_config]") unless input[:auto_branch_creation_config].nil?
         Hearth::Validator.validate!(input[:repository], ::String, context: "#{context}[:repository]")
         Hearth::Validator.validate!(input[:oauth_token], ::String, context: "#{context}[:oauth_token]")
         Hearth::Validator.validate!(input[:access_token], ::String, context: "#{context}[:access_token]")
@@ -1025,7 +1027,7 @@ module AWS::SDK::Amplify
     class UpdateAppOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateAppOutput, context: context)
-        Validators::App.validate!(input[:app], context: "#{context}[:app]") unless input[:app].nil?
+        App.validate!(input[:app], context: "#{context}[:app]") unless input[:app].nil?
       end
     end
 
@@ -1039,7 +1041,7 @@ module AWS::SDK::Amplify
         Hearth::Validator.validate!(input[:stage], ::String, context: "#{context}[:stage]")
         Hearth::Validator.validate!(input[:enable_notification], ::TrueClass, ::FalseClass, context: "#{context}[:enable_notification]")
         Hearth::Validator.validate!(input[:enable_auto_build], ::TrueClass, ::FalseClass, context: "#{context}[:enable_auto_build]")
-        Validators::EnvironmentVariables.validate!(input[:environment_variables], context: "#{context}[:environment_variables]") unless input[:environment_variables].nil?
+        EnvironmentVariables.validate!(input[:environment_variables], context: "#{context}[:environment_variables]") unless input[:environment_variables].nil?
         Hearth::Validator.validate!(input[:basic_auth_credentials], ::String, context: "#{context}[:basic_auth_credentials]")
         Hearth::Validator.validate!(input[:enable_basic_auth], ::TrueClass, ::FalseClass, context: "#{context}[:enable_basic_auth]")
         Hearth::Validator.validate!(input[:enable_performance_mode], ::TrueClass, ::FalseClass, context: "#{context}[:enable_performance_mode]")
@@ -1055,7 +1057,7 @@ module AWS::SDK::Amplify
     class UpdateBranchOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateBranchOutput, context: context)
-        Validators::Branch.validate!(input[:branch], context: "#{context}[:branch]") unless input[:branch].nil?
+        Branch.validate!(input[:branch], context: "#{context}[:branch]") unless input[:branch].nil?
       end
     end
 
@@ -1065,8 +1067,8 @@ module AWS::SDK::Amplify
         Hearth::Validator.validate!(input[:app_id], ::String, context: "#{context}[:app_id]")
         Hearth::Validator.validate!(input[:domain_name], ::String, context: "#{context}[:domain_name]")
         Hearth::Validator.validate!(input[:enable_auto_sub_domain], ::TrueClass, ::FalseClass, context: "#{context}[:enable_auto_sub_domain]")
-        Validators::SubDomainSettings.validate!(input[:sub_domain_settings], context: "#{context}[:sub_domain_settings]") unless input[:sub_domain_settings].nil?
-        Validators::AutoSubDomainCreationPatterns.validate!(input[:auto_sub_domain_creation_patterns], context: "#{context}[:auto_sub_domain_creation_patterns]") unless input[:auto_sub_domain_creation_patterns].nil?
+        SubDomainSettings.validate!(input[:sub_domain_settings], context: "#{context}[:sub_domain_settings]") unless input[:sub_domain_settings].nil?
+        AutoSubDomainCreationPatterns.validate!(input[:auto_sub_domain_creation_patterns], context: "#{context}[:auto_sub_domain_creation_patterns]") unless input[:auto_sub_domain_creation_patterns].nil?
         Hearth::Validator.validate!(input[:auto_sub_domain_iam_role], ::String, context: "#{context}[:auto_sub_domain_iam_role]")
       end
     end
@@ -1074,7 +1076,7 @@ module AWS::SDK::Amplify
     class UpdateDomainAssociationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateDomainAssociationOutput, context: context)
-        Validators::DomainAssociation.validate!(input[:domain_association], context: "#{context}[:domain_association]") unless input[:domain_association].nil?
+        DomainAssociation.validate!(input[:domain_association], context: "#{context}[:domain_association]") unless input[:domain_association].nil?
       end
     end
 
@@ -1090,7 +1092,7 @@ module AWS::SDK::Amplify
     class UpdateWebhookOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateWebhookOutput, context: context)
-        Validators::Webhook.validate!(input[:webhook], context: "#{context}[:webhook]") unless input[:webhook].nil?
+        Webhook.validate!(input[:webhook], context: "#{context}[:webhook]") unless input[:webhook].nil?
       end
     end
 
@@ -1111,7 +1113,7 @@ module AWS::SDK::Amplify
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Webhook.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Webhook.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

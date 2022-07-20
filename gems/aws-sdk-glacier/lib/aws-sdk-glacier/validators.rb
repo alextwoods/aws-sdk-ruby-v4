@@ -43,7 +43,7 @@ module AWS::SDK::Glacier
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Grant.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Grant.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -53,7 +53,7 @@ module AWS::SDK::Glacier
         Hearth::Validator.validate!(input, Types::AddTagsToVaultInput, context: context)
         Hearth::Validator.validate!(input[:account_id], ::String, context: "#{context}[:account_id]")
         Hearth::Validator.validate!(input[:vault_name], ::String, context: "#{context}[:vault_name]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -139,7 +139,7 @@ module AWS::SDK::Glacier
     class DataRetrievalPolicy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DataRetrievalPolicy, context: context)
-        Validators::DataRetrievalRulesList.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
+        DataRetrievalRulesList.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
       end
     end
 
@@ -155,7 +155,7 @@ module AWS::SDK::Glacier
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DataRetrievalRule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DataRetrievalRule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -246,10 +246,10 @@ module AWS::SDK::Glacier
         Hearth::Validator.validate!(input[:archive_sha256_tree_hash], ::String, context: "#{context}[:archive_sha256_tree_hash]")
         Hearth::Validator.validate!(input[:retrieval_byte_range], ::String, context: "#{context}[:retrieval_byte_range]")
         Hearth::Validator.validate!(input[:tier], ::String, context: "#{context}[:tier]")
-        Validators::InventoryRetrievalJobDescription.validate!(input[:inventory_retrieval_parameters], context: "#{context}[:inventory_retrieval_parameters]") unless input[:inventory_retrieval_parameters].nil?
+        InventoryRetrievalJobDescription.validate!(input[:inventory_retrieval_parameters], context: "#{context}[:inventory_retrieval_parameters]") unless input[:inventory_retrieval_parameters].nil?
         Hearth::Validator.validate!(input[:job_output_path], ::String, context: "#{context}[:job_output_path]")
-        Validators::SelectParameters.validate!(input[:select_parameters], context: "#{context}[:select_parameters]") unless input[:select_parameters].nil?
-        Validators::OutputLocation.validate!(input[:output_location], context: "#{context}[:output_location]") unless input[:output_location].nil?
+        SelectParameters.validate!(input[:select_parameters], context: "#{context}[:select_parameters]") unless input[:select_parameters].nil?
+        OutputLocation.validate!(input[:output_location], context: "#{context}[:output_location]") unless input[:output_location].nil?
       end
     end
 
@@ -304,7 +304,7 @@ module AWS::SDK::Glacier
     class GetDataRetrievalPolicyOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetDataRetrievalPolicyOutput, context: context)
-        Validators::DataRetrievalPolicy.validate!(input[:policy], context: "#{context}[:policy]") unless input[:policy].nil?
+        DataRetrievalPolicy.validate!(input[:policy], context: "#{context}[:policy]") unless input[:policy].nil?
       end
     end
 
@@ -344,7 +344,7 @@ module AWS::SDK::Glacier
     class GetVaultAccessPolicyOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetVaultAccessPolicyOutput, context: context)
-        Validators::VaultAccessPolicy.validate!(input[:policy], context: "#{context}[:policy]") unless input[:policy].nil?
+        VaultAccessPolicy.validate!(input[:policy], context: "#{context}[:policy]") unless input[:policy].nil?
       end
     end
 
@@ -377,7 +377,7 @@ module AWS::SDK::Glacier
     class GetVaultNotificationsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetVaultNotificationsOutput, context: context)
-        Validators::VaultNotificationConfig.validate!(input[:vault_notification_config], context: "#{context}[:vault_notification_config]") unless input[:vault_notification_config].nil?
+        VaultNotificationConfig.validate!(input[:vault_notification_config], context: "#{context}[:vault_notification_config]") unless input[:vault_notification_config].nil?
       end
     end
 
@@ -401,17 +401,17 @@ module AWS::SDK::Glacier
         Hearth::Validator.validate!(input[:archive_sha256_tree_hash], ::String, context: "#{context}[:archive_sha256_tree_hash]")
         Hearth::Validator.validate!(input[:retrieval_byte_range], ::String, context: "#{context}[:retrieval_byte_range]")
         Hearth::Validator.validate!(input[:tier], ::String, context: "#{context}[:tier]")
-        Validators::InventoryRetrievalJobDescription.validate!(input[:inventory_retrieval_parameters], context: "#{context}[:inventory_retrieval_parameters]") unless input[:inventory_retrieval_parameters].nil?
+        InventoryRetrievalJobDescription.validate!(input[:inventory_retrieval_parameters], context: "#{context}[:inventory_retrieval_parameters]") unless input[:inventory_retrieval_parameters].nil?
         Hearth::Validator.validate!(input[:job_output_path], ::String, context: "#{context}[:job_output_path]")
-        Validators::SelectParameters.validate!(input[:select_parameters], context: "#{context}[:select_parameters]") unless input[:select_parameters].nil?
-        Validators::OutputLocation.validate!(input[:output_location], context: "#{context}[:output_location]") unless input[:output_location].nil?
+        SelectParameters.validate!(input[:select_parameters], context: "#{context}[:select_parameters]") unless input[:select_parameters].nil?
+        OutputLocation.validate!(input[:output_location], context: "#{context}[:output_location]") unless input[:output_location].nil?
       end
     end
 
     class Grant
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Grant, context: context)
-        Validators::Grantee.validate!(input[:grantee], context: "#{context}[:grantee]") unless input[:grantee].nil?
+        Grantee.validate!(input[:grantee], context: "#{context}[:grantee]") unless input[:grantee].nil?
         Hearth::Validator.validate!(input[:permission], ::String, context: "#{context}[:permission]")
       end
     end
@@ -432,7 +432,7 @@ module AWS::SDK::Glacier
         Hearth::Validator.validate!(input, Types::InitiateJobInput, context: context)
         Hearth::Validator.validate!(input[:account_id], ::String, context: "#{context}[:account_id]")
         Hearth::Validator.validate!(input[:vault_name], ::String, context: "#{context}[:vault_name]")
-        Validators::JobParameters.validate!(input[:job_parameters], context: "#{context}[:job_parameters]") unless input[:job_parameters].nil?
+        JobParameters.validate!(input[:job_parameters], context: "#{context}[:job_parameters]") unless input[:job_parameters].nil?
       end
     end
 
@@ -468,7 +468,7 @@ module AWS::SDK::Glacier
         Hearth::Validator.validate!(input, Types::InitiateVaultLockInput, context: context)
         Hearth::Validator.validate!(input[:account_id], ::String, context: "#{context}[:account_id]")
         Hearth::Validator.validate!(input[:vault_name], ::String, context: "#{context}[:vault_name]")
-        Validators::VaultLockPolicy.validate!(input[:policy], context: "#{context}[:policy]") unless input[:policy].nil?
+        VaultLockPolicy.validate!(input[:policy], context: "#{context}[:policy]") unless input[:policy].nil?
       end
     end
 
@@ -482,7 +482,7 @@ module AWS::SDK::Glacier
     class InputSerialization
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::InputSerialization, context: context)
-        Validators::CSVInput.validate!(input[:csv], context: "#{context}[:csv]") unless input[:csv].nil?
+        CSVInput.validate!(input[:csv], context: "#{context}[:csv]") unless input[:csv].nil?
       end
     end
 
@@ -529,7 +529,7 @@ module AWS::SDK::Glacier
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::GlacierJobDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          GlacierJobDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -544,9 +544,9 @@ module AWS::SDK::Glacier
         Hearth::Validator.validate!(input[:sns_topic], ::String, context: "#{context}[:sns_topic]")
         Hearth::Validator.validate!(input[:retrieval_byte_range], ::String, context: "#{context}[:retrieval_byte_range]")
         Hearth::Validator.validate!(input[:tier], ::String, context: "#{context}[:tier]")
-        Validators::InventoryRetrievalJobInput.validate!(input[:inventory_retrieval_parameters], context: "#{context}[:inventory_retrieval_parameters]") unless input[:inventory_retrieval_parameters].nil?
-        Validators::SelectParameters.validate!(input[:select_parameters], context: "#{context}[:select_parameters]") unless input[:select_parameters].nil?
-        Validators::OutputLocation.validate!(input[:output_location], context: "#{context}[:output_location]") unless input[:output_location].nil?
+        InventoryRetrievalJobInput.validate!(input[:inventory_retrieval_parameters], context: "#{context}[:inventory_retrieval_parameters]") unless input[:inventory_retrieval_parameters].nil?
+        SelectParameters.validate!(input[:select_parameters], context: "#{context}[:select_parameters]") unless input[:select_parameters].nil?
+        OutputLocation.validate!(input[:output_location], context: "#{context}[:output_location]") unless input[:output_location].nil?
       end
     end
 
@@ -574,7 +574,7 @@ module AWS::SDK::Glacier
     class ListJobsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListJobsOutput, context: context)
-        Validators::JobList.validate!(input[:job_list], context: "#{context}[:job_list]") unless input[:job_list].nil?
+        JobList.validate!(input[:job_list], context: "#{context}[:job_list]") unless input[:job_list].nil?
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
     end
@@ -592,7 +592,7 @@ module AWS::SDK::Glacier
     class ListMultipartUploadsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListMultipartUploadsOutput, context: context)
-        Validators::UploadsList.validate!(input[:uploads_list], context: "#{context}[:uploads_list]") unless input[:uploads_list].nil?
+        UploadsList.validate!(input[:uploads_list], context: "#{context}[:uploads_list]") unless input[:uploads_list].nil?
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
     end
@@ -616,7 +616,7 @@ module AWS::SDK::Glacier
         Hearth::Validator.validate!(input[:archive_description], ::String, context: "#{context}[:archive_description]")
         Hearth::Validator.validate!(input[:part_size_in_bytes], ::Integer, context: "#{context}[:part_size_in_bytes]")
         Hearth::Validator.validate!(input[:creation_date], ::String, context: "#{context}[:creation_date]")
-        Validators::PartList.validate!(input[:parts], context: "#{context}[:parts]") unless input[:parts].nil?
+        PartList.validate!(input[:parts], context: "#{context}[:parts]") unless input[:parts].nil?
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
     end
@@ -631,7 +631,7 @@ module AWS::SDK::Glacier
     class ListProvisionedCapacityOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListProvisionedCapacityOutput, context: context)
-        Validators::ProvisionedCapacityList.validate!(input[:provisioned_capacity_list], context: "#{context}[:provisioned_capacity_list]") unless input[:provisioned_capacity_list].nil?
+        ProvisionedCapacityList.validate!(input[:provisioned_capacity_list], context: "#{context}[:provisioned_capacity_list]") unless input[:provisioned_capacity_list].nil?
       end
     end
 
@@ -646,7 +646,7 @@ module AWS::SDK::Glacier
     class ListTagsForVaultOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForVaultOutput, context: context)
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -662,7 +662,7 @@ module AWS::SDK::Glacier
     class ListVaultsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListVaultsOutput, context: context)
-        Validators::VaultList.validate!(input[:vault_list], context: "#{context}[:vault_list]") unless input[:vault_list].nil?
+        VaultList.validate!(input[:vault_list], context: "#{context}[:vault_list]") unless input[:vault_list].nil?
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
     end
@@ -688,14 +688,14 @@ module AWS::SDK::Glacier
     class OutputLocation
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::OutputLocation, context: context)
-        Validators::S3Location.validate!(input[:s3], context: "#{context}[:s3]") unless input[:s3].nil?
+        S3Location.validate!(input[:s3], context: "#{context}[:s3]") unless input[:s3].nil?
       end
     end
 
     class OutputSerialization
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::OutputSerialization, context: context)
-        Validators::CSVOutput.validate!(input[:csv], context: "#{context}[:csv]") unless input[:csv].nil?
+        CSVOutput.validate!(input[:csv], context: "#{context}[:csv]") unless input[:csv].nil?
       end
     end
 
@@ -703,7 +703,7 @@ module AWS::SDK::Glacier
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PartListElement.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PartListElement.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -738,7 +738,7 @@ module AWS::SDK::Glacier
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ProvisionedCapacityDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ProvisionedCapacityDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -762,7 +762,7 @@ module AWS::SDK::Glacier
         Hearth::Validator.validate!(input, Types::RemoveTagsFromVaultInput, context: context)
         Hearth::Validator.validate!(input[:account_id], ::String, context: "#{context}[:account_id]")
         Hearth::Validator.validate!(input[:vault_name], ::String, context: "#{context}[:vault_name]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -795,11 +795,11 @@ module AWS::SDK::Glacier
         Hearth::Validator.validate!(input, Types::S3Location, context: context)
         Hearth::Validator.validate!(input[:bucket_name], ::String, context: "#{context}[:bucket_name]")
         Hearth::Validator.validate!(input[:prefix], ::String, context: "#{context}[:prefix]")
-        Validators::Encryption.validate!(input[:encryption], context: "#{context}[:encryption]") unless input[:encryption].nil?
+        Encryption.validate!(input[:encryption], context: "#{context}[:encryption]") unless input[:encryption].nil?
         Hearth::Validator.validate!(input[:canned_acl], ::String, context: "#{context}[:canned_acl]")
-        Validators::AccessControlPolicyList.validate!(input[:access_control_list], context: "#{context}[:access_control_list]") unless input[:access_control_list].nil?
-        Validators::Hashmap.validate!(input[:tagging], context: "#{context}[:tagging]") unless input[:tagging].nil?
-        Validators::Hashmap.validate!(input[:user_metadata], context: "#{context}[:user_metadata]") unless input[:user_metadata].nil?
+        AccessControlPolicyList.validate!(input[:access_control_list], context: "#{context}[:access_control_list]") unless input[:access_control_list].nil?
+        Hashmap.validate!(input[:tagging], context: "#{context}[:tagging]") unless input[:tagging].nil?
+        Hashmap.validate!(input[:user_metadata], context: "#{context}[:user_metadata]") unless input[:user_metadata].nil?
         Hearth::Validator.validate!(input[:storage_class], ::String, context: "#{context}[:storage_class]")
       end
     end
@@ -807,10 +807,10 @@ module AWS::SDK::Glacier
     class SelectParameters
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SelectParameters, context: context)
-        Validators::InputSerialization.validate!(input[:input_serialization], context: "#{context}[:input_serialization]") unless input[:input_serialization].nil?
+        InputSerialization.validate!(input[:input_serialization], context: "#{context}[:input_serialization]") unless input[:input_serialization].nil?
         Hearth::Validator.validate!(input[:expression_type], ::String, context: "#{context}[:expression_type]")
         Hearth::Validator.validate!(input[:expression], ::String, context: "#{context}[:expression]")
-        Validators::OutputSerialization.validate!(input[:output_serialization], context: "#{context}[:output_serialization]") unless input[:output_serialization].nil?
+        OutputSerialization.validate!(input[:output_serialization], context: "#{context}[:output_serialization]") unless input[:output_serialization].nil?
       end
     end
 
@@ -827,7 +827,7 @@ module AWS::SDK::Glacier
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SetDataRetrievalPolicyInput, context: context)
         Hearth::Validator.validate!(input[:account_id], ::String, context: "#{context}[:account_id]")
-        Validators::DataRetrievalPolicy.validate!(input[:policy], context: "#{context}[:policy]") unless input[:policy].nil?
+        DataRetrievalPolicy.validate!(input[:policy], context: "#{context}[:policy]") unless input[:policy].nil?
       end
     end
 
@@ -842,7 +842,7 @@ module AWS::SDK::Glacier
         Hearth::Validator.validate!(input, Types::SetVaultAccessPolicyInput, context: context)
         Hearth::Validator.validate!(input[:account_id], ::String, context: "#{context}[:account_id]")
         Hearth::Validator.validate!(input[:vault_name], ::String, context: "#{context}[:vault_name]")
-        Validators::VaultAccessPolicy.validate!(input[:policy], context: "#{context}[:policy]") unless input[:policy].nil?
+        VaultAccessPolicy.validate!(input[:policy], context: "#{context}[:policy]") unless input[:policy].nil?
       end
     end
 
@@ -857,7 +857,7 @@ module AWS::SDK::Glacier
         Hearth::Validator.validate!(input, Types::SetVaultNotificationsInput, context: context)
         Hearth::Validator.validate!(input[:account_id], ::String, context: "#{context}[:account_id]")
         Hearth::Validator.validate!(input[:vault_name], ::String, context: "#{context}[:vault_name]")
-        Validators::VaultNotificationConfig.validate!(input[:vault_notification_config], context: "#{context}[:vault_notification_config]") unless input[:vault_notification_config].nil?
+        VaultNotificationConfig.validate!(input[:vault_notification_config], context: "#{context}[:vault_notification_config]") unless input[:vault_notification_config].nil?
       end
     end
 
@@ -944,7 +944,7 @@ module AWS::SDK::Glacier
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::UploadListElement.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          UploadListElement.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -960,7 +960,7 @@ module AWS::SDK::Glacier
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DescribeVaultOutput.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DescribeVaultOutput.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -976,7 +976,7 @@ module AWS::SDK::Glacier
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::VaultNotificationConfig, context: context)
         Hearth::Validator.validate!(input[:sns_topic], ::String, context: "#{context}[:sns_topic]")
-        Validators::NotificationEventList.validate!(input[:events], context: "#{context}[:events]") unless input[:events].nil?
+        NotificationEventList.validate!(input[:events], context: "#{context}[:events]") unless input[:events].nil?
       end
     end
 

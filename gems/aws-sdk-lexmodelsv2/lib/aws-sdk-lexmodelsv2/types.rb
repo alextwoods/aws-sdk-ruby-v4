@@ -267,11 +267,11 @@ module AWS::SDK::LexModelsV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # Includes enum constants for AudioRecognitionStrategy
@@ -330,11 +330,11 @@ module AWS::SDK::LexModelsV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # Includes enum constants for BotAliasStatus
@@ -2924,11 +2924,11 @@ module AWS::SDK::LexModelsV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.child_directed ||= false
       end
-
     end
 
     # <p>The object used for specifying the data range that the customer
@@ -2978,11 +2978,11 @@ module AWS::SDK::LexModelsV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.skip_resource_in_use_check ||= false
       end
-
     end
 
     # @!attribute bot_alias_id
@@ -3033,11 +3033,11 @@ module AWS::SDK::LexModelsV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.skip_resource_in_use_check ||= false
       end
-
     end
 
     # @!attribute bot_id
@@ -3148,11 +3148,11 @@ module AWS::SDK::LexModelsV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.skip_resource_in_use_check ||= false
       end
-
     end
 
     # @!attribute bot_id
@@ -3531,11 +3531,11 @@ module AWS::SDK::LexModelsV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.skip_resource_in_use_check ||= false
       end
-
     end
 
     DeleteSlotTypeOutput = ::Struct.new(
@@ -4805,11 +4805,11 @@ module AWS::SDK::LexModelsV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # Includes enum constants for Effect
@@ -5093,11 +5093,11 @@ module AWS::SDK::LexModelsV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # <p>Provides settings for a message that is sent to the user when a
@@ -5809,11 +5809,11 @@ module AWS::SDK::LexModelsV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.query_filter_string_enabled ||= false
       end
-
     end
 
     # <p>Specifies a Lambda function that verifies requests to a bot or
@@ -7325,11 +7325,11 @@ module AWS::SDK::LexModelsV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.allow_multiple_values ||= false
       end
-
     end
 
     # <p>Determines whether Amazon Lex obscures slot values in conversation logs.
@@ -7620,11 +7620,11 @@ module AWS::SDK::LexModelsV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.time_value ||= 0
       end
-
     end
 
     # <p>You asked to describe a resource that doesn't exist. Check the
@@ -7940,11 +7940,11 @@ module AWS::SDK::LexModelsV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.detect_sentiment ||= false
       end
-
     end
 
     # <p>You have reached a quota for your bot. </p>
@@ -8850,11 +8850,11 @@ module AWS::SDK::LexModelsV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # <p>Your request rate is too high. Reduce the frequency of
@@ -8874,11 +8874,11 @@ module AWS::SDK::LexModelsV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.retry_after_seconds ||= 0
       end
-
     end
 
     # Includes enum constants for TimeDimension

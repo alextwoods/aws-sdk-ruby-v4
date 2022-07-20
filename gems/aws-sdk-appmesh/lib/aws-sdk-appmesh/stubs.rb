@@ -14,7 +14,7 @@ module AWS::SDK::AppMesh
     class CreateGatewayRoute
       def self.default(visited=[])
         {
-          gateway_route: Stubs::GatewayRouteData.default(visited),
+          gateway_route: GatewayRouteData.default(visited),
         }
       end
 
@@ -36,9 +36,9 @@ module AWS::SDK::AppMesh
           mesh_name: 'mesh_name',
           gateway_route_name: 'gateway_route_name',
           virtual_gateway_name: 'virtual_gateway_name',
-          spec: Stubs::GatewayRouteSpec.default(visited),
-          metadata: Stubs::ResourceMetadata.default(visited),
-          status: Stubs::GatewayRouteStatus.default(visited),
+          spec: GatewayRouteSpec.default(visited),
+          metadata: ResourceMetadata.default(visited),
+          status: GatewayRouteStatus.default(visited),
         }
       end
 
@@ -110,9 +110,9 @@ module AWS::SDK::AppMesh
         visited = visited + ['GatewayRouteSpec']
         {
           priority: 1,
-          http_route: Stubs::HttpGatewayRoute.default(visited),
-          http2_route: Stubs::HttpGatewayRoute.default(visited),
-          grpc_route: Stubs::GrpcGatewayRoute.default(visited),
+          http_route: HttpGatewayRoute.default(visited),
+          http2_route: HttpGatewayRoute.default(visited),
+          grpc_route: GrpcGatewayRoute.default(visited),
         }
       end
 
@@ -133,8 +133,8 @@ module AWS::SDK::AppMesh
         return nil if visited.include?('GrpcGatewayRoute')
         visited = visited + ['GrpcGatewayRoute']
         {
-          match: Stubs::GrpcGatewayRouteMatch.default(visited),
-          action: Stubs::GrpcGatewayRouteAction.default(visited),
+          match: GrpcGatewayRouteMatch.default(visited),
+          action: GrpcGatewayRouteAction.default(visited),
         }
       end
 
@@ -153,8 +153,8 @@ module AWS::SDK::AppMesh
         return nil if visited.include?('GrpcGatewayRouteAction')
         visited = visited + ['GrpcGatewayRouteAction']
         {
-          target: Stubs::GatewayRouteTarget.default(visited),
-          rewrite: Stubs::GrpcGatewayRouteRewrite.default(visited),
+          target: GatewayRouteTarget.default(visited),
+          rewrite: GrpcGatewayRouteRewrite.default(visited),
         }
       end
 
@@ -173,7 +173,7 @@ module AWS::SDK::AppMesh
         return nil if visited.include?('GrpcGatewayRouteRewrite')
         visited = visited + ['GrpcGatewayRouteRewrite']
         {
-          hostname: Stubs::GatewayRouteHostnameRewrite.default(visited),
+          hostname: GatewayRouteHostnameRewrite.default(visited),
         }
       end
 
@@ -209,7 +209,7 @@ module AWS::SDK::AppMesh
         return nil if visited.include?('GatewayRouteTarget')
         visited = visited + ['GatewayRouteTarget']
         {
-          virtual_service: Stubs::GatewayRouteVirtualService.default(visited),
+          virtual_service: GatewayRouteVirtualService.default(visited),
         }
       end
 
@@ -246,8 +246,8 @@ module AWS::SDK::AppMesh
         visited = visited + ['GrpcGatewayRouteMatch']
         {
           service_name: 'service_name',
-          hostname: Stubs::GatewayRouteHostnameMatch.default(visited),
-          metadata: Stubs::GrpcGatewayRouteMetadataList.default(visited),
+          hostname: GatewayRouteHostnameMatch.default(visited),
+          metadata: GrpcGatewayRouteMetadataList.default(visited),
         }
       end
 
@@ -267,7 +267,7 @@ module AWS::SDK::AppMesh
         return nil if visited.include?('GrpcGatewayRouteMetadataList')
         visited = visited + ['GrpcGatewayRouteMetadataList']
         [
-          Stubs::GrpcGatewayRouteMetadata.default(visited)
+          GrpcGatewayRouteMetadata.default(visited)
         ]
       end
 
@@ -289,7 +289,7 @@ module AWS::SDK::AppMesh
         {
           name: 'name',
           invert: false,
-          match: Stubs::GrpcMetadataMatchMethod.default(visited),
+          match: GrpcMetadataMatchMethod.default(visited),
         }
       end
 
@@ -381,8 +381,8 @@ module AWS::SDK::AppMesh
         return nil if visited.include?('HttpGatewayRoute')
         visited = visited + ['HttpGatewayRoute']
         {
-          match: Stubs::HttpGatewayRouteMatch.default(visited),
-          action: Stubs::HttpGatewayRouteAction.default(visited),
+          match: HttpGatewayRouteMatch.default(visited),
+          action: HttpGatewayRouteAction.default(visited),
         }
       end
 
@@ -401,8 +401,8 @@ module AWS::SDK::AppMesh
         return nil if visited.include?('HttpGatewayRouteAction')
         visited = visited + ['HttpGatewayRouteAction']
         {
-          target: Stubs::GatewayRouteTarget.default(visited),
-          rewrite: Stubs::HttpGatewayRouteRewrite.default(visited),
+          target: GatewayRouteTarget.default(visited),
+          rewrite: HttpGatewayRouteRewrite.default(visited),
         }
       end
 
@@ -421,9 +421,9 @@ module AWS::SDK::AppMesh
         return nil if visited.include?('HttpGatewayRouteRewrite')
         visited = visited + ['HttpGatewayRouteRewrite']
         {
-          prefix: Stubs::HttpGatewayRoutePrefixRewrite.default(visited),
-          path: Stubs::HttpGatewayRoutePathRewrite.default(visited),
-          hostname: Stubs::GatewayRouteHostnameRewrite.default(visited),
+          prefix: HttpGatewayRoutePrefixRewrite.default(visited),
+          path: HttpGatewayRoutePathRewrite.default(visited),
+          hostname: GatewayRouteHostnameRewrite.default(visited),
         }
       end
 
@@ -482,11 +482,11 @@ module AWS::SDK::AppMesh
         visited = visited + ['HttpGatewayRouteMatch']
         {
           prefix: 'prefix',
-          path: Stubs::HttpPathMatch.default(visited),
-          query_parameters: Stubs::HttpQueryParameters.default(visited),
+          path: HttpPathMatch.default(visited),
+          query_parameters: HttpQueryParameters.default(visited),
           member_method: 'member_method',
-          hostname: Stubs::GatewayRouteHostnameMatch.default(visited),
-          headers: Stubs::HttpGatewayRouteHeaders.default(visited),
+          hostname: GatewayRouteHostnameMatch.default(visited),
+          headers: HttpGatewayRouteHeaders.default(visited),
         }
       end
 
@@ -509,7 +509,7 @@ module AWS::SDK::AppMesh
         return nil if visited.include?('HttpGatewayRouteHeaders')
         visited = visited + ['HttpGatewayRouteHeaders']
         [
-          Stubs::HttpGatewayRouteHeader.default(visited)
+          HttpGatewayRouteHeader.default(visited)
         ]
       end
 
@@ -531,7 +531,7 @@ module AWS::SDK::AppMesh
         {
           name: 'name',
           invert: false,
-          match: Stubs::HeaderMatchMethod.default(visited),
+          match: HeaderMatchMethod.default(visited),
         }
       end
 
@@ -583,7 +583,7 @@ module AWS::SDK::AppMesh
         return nil if visited.include?('HttpQueryParameters')
         visited = visited + ['HttpQueryParameters']
         [
-          Stubs::HttpQueryParameter.default(visited)
+          HttpQueryParameter.default(visited)
         ]
       end
 
@@ -604,7 +604,7 @@ module AWS::SDK::AppMesh
         visited = visited + ['HttpQueryParameter']
         {
           name: 'name',
-          match: Stubs::QueryParameterMatch.default(visited),
+          match: QueryParameterMatch.default(visited),
         }
       end
 
@@ -659,7 +659,7 @@ module AWS::SDK::AppMesh
     class CreateMesh
       def self.default(visited=[])
         {
-          mesh: Stubs::MeshData.default(visited),
+          mesh: MeshData.default(visited),
         }
       end
 
@@ -679,9 +679,9 @@ module AWS::SDK::AppMesh
         visited = visited + ['MeshData']
         {
           mesh_name: 'mesh_name',
-          spec: Stubs::MeshSpec.default(visited),
-          metadata: Stubs::ResourceMetadata.default(visited),
-          status: Stubs::MeshStatus.default(visited),
+          spec: MeshSpec.default(visited),
+          metadata: ResourceMetadata.default(visited),
+          status: MeshStatus.default(visited),
         }
       end
 
@@ -720,8 +720,8 @@ module AWS::SDK::AppMesh
         return nil if visited.include?('MeshSpec')
         visited = visited + ['MeshSpec']
         {
-          egress_filter: Stubs::EgressFilter.default(visited),
-          service_discovery: Stubs::MeshServiceDiscovery.default(visited),
+          egress_filter: EgressFilter.default(visited),
+          service_discovery: MeshServiceDiscovery.default(visited),
         }
       end
 
@@ -774,7 +774,7 @@ module AWS::SDK::AppMesh
     class CreateRoute
       def self.default(visited=[])
         {
-          route: Stubs::RouteData.default(visited),
+          route: RouteData.default(visited),
         }
       end
 
@@ -796,9 +796,9 @@ module AWS::SDK::AppMesh
           mesh_name: 'mesh_name',
           virtual_router_name: 'virtual_router_name',
           route_name: 'route_name',
-          spec: Stubs::RouteSpec.default(visited),
-          metadata: Stubs::ResourceMetadata.default(visited),
-          status: Stubs::RouteStatus.default(visited),
+          spec: RouteSpec.default(visited),
+          metadata: ResourceMetadata.default(visited),
+          status: RouteStatus.default(visited),
         }
       end
 
@@ -840,10 +840,10 @@ module AWS::SDK::AppMesh
         visited = visited + ['RouteSpec']
         {
           priority: 1,
-          http_route: Stubs::HttpRoute.default(visited),
-          tcp_route: Stubs::TcpRoute.default(visited),
-          http2_route: Stubs::HttpRoute.default(visited),
-          grpc_route: Stubs::GrpcRoute.default(visited),
+          http_route: HttpRoute.default(visited),
+          tcp_route: TcpRoute.default(visited),
+          http2_route: HttpRoute.default(visited),
+          grpc_route: GrpcRoute.default(visited),
         }
       end
 
@@ -865,10 +865,10 @@ module AWS::SDK::AppMesh
         return nil if visited.include?('GrpcRoute')
         visited = visited + ['GrpcRoute']
         {
-          action: Stubs::GrpcRouteAction.default(visited),
-          match: Stubs::GrpcRouteMatch.default(visited),
-          retry_policy: Stubs::GrpcRetryPolicy.default(visited),
-          timeout: Stubs::GrpcTimeout.default(visited),
+          action: GrpcRouteAction.default(visited),
+          match: GrpcRouteMatch.default(visited),
+          retry_policy: GrpcRetryPolicy.default(visited),
+          timeout: GrpcTimeout.default(visited),
         }
       end
 
@@ -889,8 +889,8 @@ module AWS::SDK::AppMesh
         return nil if visited.include?('GrpcTimeout')
         visited = visited + ['GrpcTimeout']
         {
-          per_request: Stubs::Duration.default(visited),
-          idle: Stubs::Duration.default(visited),
+          per_request: Duration.default(visited),
+          idle: Duration.default(visited),
         }
       end
 
@@ -929,11 +929,11 @@ module AWS::SDK::AppMesh
         return nil if visited.include?('GrpcRetryPolicy')
         visited = visited + ['GrpcRetryPolicy']
         {
-          per_retry_timeout: Stubs::Duration.default(visited),
+          per_retry_timeout: Duration.default(visited),
           max_retries: 1,
-          http_retry_events: Stubs::HttpRetryPolicyEvents.default(visited),
-          tcp_retry_events: Stubs::TcpRetryPolicyEvents.default(visited),
-          grpc_retry_events: Stubs::GrpcRetryPolicyEvents.default(visited),
+          http_retry_events: HttpRetryPolicyEvents.default(visited),
+          tcp_retry_events: TcpRetryPolicyEvents.default(visited),
+          grpc_retry_events: GrpcRetryPolicyEvents.default(visited),
         }
       end
 
@@ -1017,7 +1017,7 @@ module AWS::SDK::AppMesh
         {
           service_name: 'service_name',
           method_name: 'method_name',
-          metadata: Stubs::GrpcRouteMetadataList.default(visited),
+          metadata: GrpcRouteMetadataList.default(visited),
         }
       end
 
@@ -1037,7 +1037,7 @@ module AWS::SDK::AppMesh
         return nil if visited.include?('GrpcRouteMetadataList')
         visited = visited + ['GrpcRouteMetadataList']
         [
-          Stubs::GrpcRouteMetadata.default(visited)
+          GrpcRouteMetadata.default(visited)
         ]
       end
 
@@ -1059,7 +1059,7 @@ module AWS::SDK::AppMesh
         {
           name: 'name',
           invert: false,
-          match: Stubs::GrpcRouteMetadataMatchMethod.default(visited),
+          match: GrpcRouteMetadataMatchMethod.default(visited),
         }
       end
 
@@ -1111,7 +1111,7 @@ module AWS::SDK::AppMesh
         return nil if visited.include?('GrpcRouteAction')
         visited = visited + ['GrpcRouteAction']
         {
-          weighted_targets: Stubs::WeightedTargets.default(visited),
+          weighted_targets: WeightedTargets.default(visited),
         }
       end
 
@@ -1129,7 +1129,7 @@ module AWS::SDK::AppMesh
         return nil if visited.include?('WeightedTargets')
         visited = visited + ['WeightedTargets']
         [
-          Stubs::WeightedTarget.default(visited)
+          WeightedTarget.default(visited)
         ]
       end
 
@@ -1169,10 +1169,10 @@ module AWS::SDK::AppMesh
         return nil if visited.include?('HttpRoute')
         visited = visited + ['HttpRoute']
         {
-          match: Stubs::HttpRouteMatch.default(visited),
-          action: Stubs::HttpRouteAction.default(visited),
-          retry_policy: Stubs::HttpRetryPolicy.default(visited),
-          timeout: Stubs::HttpTimeout.default(visited),
+          match: HttpRouteMatch.default(visited),
+          action: HttpRouteAction.default(visited),
+          retry_policy: HttpRetryPolicy.default(visited),
+          timeout: HttpTimeout.default(visited),
         }
       end
 
@@ -1193,8 +1193,8 @@ module AWS::SDK::AppMesh
         return nil if visited.include?('HttpTimeout')
         visited = visited + ['HttpTimeout']
         {
-          per_request: Stubs::Duration.default(visited),
-          idle: Stubs::Duration.default(visited),
+          per_request: Duration.default(visited),
+          idle: Duration.default(visited),
         }
       end
 
@@ -1213,10 +1213,10 @@ module AWS::SDK::AppMesh
         return nil if visited.include?('HttpRetryPolicy')
         visited = visited + ['HttpRetryPolicy']
         {
-          per_retry_timeout: Stubs::Duration.default(visited),
+          per_retry_timeout: Duration.default(visited),
           max_retries: 1,
-          http_retry_events: Stubs::HttpRetryPolicyEvents.default(visited),
-          tcp_retry_events: Stubs::TcpRetryPolicyEvents.default(visited),
+          http_retry_events: HttpRetryPolicyEvents.default(visited),
+          tcp_retry_events: TcpRetryPolicyEvents.default(visited),
         }
       end
 
@@ -1237,7 +1237,7 @@ module AWS::SDK::AppMesh
         return nil if visited.include?('HttpRouteAction')
         visited = visited + ['HttpRouteAction']
         {
-          weighted_targets: Stubs::WeightedTargets.default(visited),
+          weighted_targets: WeightedTargets.default(visited),
         }
       end
 
@@ -1256,11 +1256,11 @@ module AWS::SDK::AppMesh
         visited = visited + ['HttpRouteMatch']
         {
           prefix: 'prefix',
-          path: Stubs::HttpPathMatch.default(visited),
-          query_parameters: Stubs::HttpQueryParameters.default(visited),
+          path: HttpPathMatch.default(visited),
+          query_parameters: HttpQueryParameters.default(visited),
           member_method: 'member_method',
           scheme: 'scheme',
-          headers: Stubs::HttpRouteHeaders.default(visited),
+          headers: HttpRouteHeaders.default(visited),
         }
       end
 
@@ -1283,7 +1283,7 @@ module AWS::SDK::AppMesh
         return nil if visited.include?('HttpRouteHeaders')
         visited = visited + ['HttpRouteHeaders']
         [
-          Stubs::HttpRouteHeader.default(visited)
+          HttpRouteHeader.default(visited)
         ]
       end
 
@@ -1305,7 +1305,7 @@ module AWS::SDK::AppMesh
         {
           name: 'name',
           invert: false,
-          match: Stubs::HeaderMatchMethod.default(visited),
+          match: HeaderMatchMethod.default(visited),
         }
       end
 
@@ -1325,8 +1325,8 @@ module AWS::SDK::AppMesh
         return nil if visited.include?('TcpRoute')
         visited = visited + ['TcpRoute']
         {
-          action: Stubs::TcpRouteAction.default(visited),
-          timeout: Stubs::TcpTimeout.default(visited),
+          action: TcpRouteAction.default(visited),
+          timeout: TcpTimeout.default(visited),
         }
       end
 
@@ -1345,7 +1345,7 @@ module AWS::SDK::AppMesh
         return nil if visited.include?('TcpTimeout')
         visited = visited + ['TcpTimeout']
         {
-          idle: Stubs::Duration.default(visited),
+          idle: Duration.default(visited),
         }
       end
 
@@ -1363,7 +1363,7 @@ module AWS::SDK::AppMesh
         return nil if visited.include?('TcpRouteAction')
         visited = visited + ['TcpRouteAction']
         {
-          weighted_targets: Stubs::WeightedTargets.default(visited),
+          weighted_targets: WeightedTargets.default(visited),
         }
       end
 
@@ -1379,7 +1379,7 @@ module AWS::SDK::AppMesh
     class CreateVirtualGateway
       def self.default(visited=[])
         {
-          virtual_gateway: Stubs::VirtualGatewayData.default(visited),
+          virtual_gateway: VirtualGatewayData.default(visited),
         }
       end
 
@@ -1400,9 +1400,9 @@ module AWS::SDK::AppMesh
         {
           mesh_name: 'mesh_name',
           virtual_gateway_name: 'virtual_gateway_name',
-          spec: Stubs::VirtualGatewaySpec.default(visited),
-          metadata: Stubs::ResourceMetadata.default(visited),
-          status: Stubs::VirtualGatewayStatus.default(visited),
+          spec: VirtualGatewaySpec.default(visited),
+          metadata: ResourceMetadata.default(visited),
+          status: VirtualGatewayStatus.default(visited),
         }
       end
 
@@ -1442,9 +1442,9 @@ module AWS::SDK::AppMesh
         return nil if visited.include?('VirtualGatewaySpec')
         visited = visited + ['VirtualGatewaySpec']
         {
-          backend_defaults: Stubs::VirtualGatewayBackendDefaults.default(visited),
-          listeners: Stubs::VirtualGatewayListeners.default(visited),
-          logging: Stubs::VirtualGatewayLogging.default(visited),
+          backend_defaults: VirtualGatewayBackendDefaults.default(visited),
+          listeners: VirtualGatewayListeners.default(visited),
+          logging: VirtualGatewayLogging.default(visited),
         }
       end
 
@@ -1464,7 +1464,7 @@ module AWS::SDK::AppMesh
         return nil if visited.include?('VirtualGatewayLogging')
         visited = visited + ['VirtualGatewayLogging']
         {
-          access_log: Stubs::VirtualGatewayAccessLog.default(visited),
+          access_log: VirtualGatewayAccessLog.default(visited),
         }
       end
 
@@ -1482,7 +1482,7 @@ module AWS::SDK::AppMesh
         return nil if visited.include?('VirtualGatewayAccessLog')
         visited = visited + ['VirtualGatewayAccessLog']
         {
-          file: Stubs::VirtualGatewayFileAccessLog.default(visited),
+          file: VirtualGatewayFileAccessLog.default(visited),
         }
       end
 
@@ -1524,7 +1524,7 @@ module AWS::SDK::AppMesh
         return nil if visited.include?('VirtualGatewayListeners')
         visited = visited + ['VirtualGatewayListeners']
         [
-          Stubs::VirtualGatewayListener.default(visited)
+          VirtualGatewayListener.default(visited)
         ]
       end
 
@@ -1544,10 +1544,10 @@ module AWS::SDK::AppMesh
         return nil if visited.include?('VirtualGatewayListener')
         visited = visited + ['VirtualGatewayListener']
         {
-          health_check: Stubs::VirtualGatewayHealthCheckPolicy.default(visited),
-          port_mapping: Stubs::VirtualGatewayPortMapping.default(visited),
-          tls: Stubs::VirtualGatewayListenerTls.default(visited),
-          connection_pool: Stubs::VirtualGatewayConnectionPool.default(visited),
+          health_check: VirtualGatewayHealthCheckPolicy.default(visited),
+          port_mapping: VirtualGatewayPortMapping.default(visited),
+          tls: VirtualGatewayListenerTls.default(visited),
+          connection_pool: VirtualGatewayConnectionPool.default(visited),
         }
       end
 
@@ -1568,7 +1568,7 @@ module AWS::SDK::AppMesh
         return nil if visited.include?('VirtualGatewayConnectionPool')
         visited = visited + ['VirtualGatewayConnectionPool']
         {
-          http: Stubs::VirtualGatewayHttpConnectionPool.default(visited),
+          http: VirtualGatewayHttpConnectionPool.default(visited),
         }
       end
 
@@ -1653,8 +1653,8 @@ module AWS::SDK::AppMesh
         visited = visited + ['VirtualGatewayListenerTls']
         {
           mode: 'mode',
-          validation: Stubs::VirtualGatewayListenerTlsValidationContext.default(visited),
-          certificate: Stubs::VirtualGatewayListenerTlsCertificate.default(visited),
+          validation: VirtualGatewayListenerTlsValidationContext.default(visited),
+          certificate: VirtualGatewayListenerTlsCertificate.default(visited),
         }
       end
 
@@ -1674,7 +1674,7 @@ module AWS::SDK::AppMesh
         return nil if visited.include?('VirtualGatewayListenerTlsCertificate')
         visited = visited + ['VirtualGatewayListenerTlsCertificate']
         {
-          acm: Stubs::VirtualGatewayListenerTlsAcmCertificate.default(visited),
+          acm: VirtualGatewayListenerTlsAcmCertificate.default(visited),
         }
       end
 
@@ -1758,8 +1758,8 @@ module AWS::SDK::AppMesh
         return nil if visited.include?('VirtualGatewayListenerTlsValidationContext')
         visited = visited + ['VirtualGatewayListenerTlsValidationContext']
         {
-          member_trust: Stubs::VirtualGatewayListenerTlsValidationContextTrust.default(visited),
-          subject_alternative_names: Stubs::SubjectAlternativeNames.default(visited),
+          member_trust: VirtualGatewayListenerTlsValidationContextTrust.default(visited),
+          subject_alternative_names: SubjectAlternativeNames.default(visited),
         }
       end
 
@@ -1778,7 +1778,7 @@ module AWS::SDK::AppMesh
         return nil if visited.include?('SubjectAlternativeNames')
         visited = visited + ['SubjectAlternativeNames']
         {
-          match: Stubs::SubjectAlternativeNameMatchers.default(visited),
+          match: SubjectAlternativeNameMatchers.default(visited),
         }
       end
 
@@ -1796,7 +1796,7 @@ module AWS::SDK::AppMesh
         return nil if visited.include?('SubjectAlternativeNameMatchers')
         visited = visited + ['SubjectAlternativeNameMatchers']
         {
-          exact: Stubs::SubjectAlternativeNameList.default(visited),
+          exact: SubjectAlternativeNameList.default(visited),
         }
       end
 
@@ -1834,7 +1834,7 @@ module AWS::SDK::AppMesh
         return nil if visited.include?('VirtualGatewayListenerTlsValidationContextTrust')
         visited = visited + ['VirtualGatewayListenerTlsValidationContextTrust']
         {
-          file: Stubs::VirtualGatewayTlsValidationContextFileTrust.default(visited),
+          file: VirtualGatewayTlsValidationContextFileTrust.default(visited),
         }
       end
 
@@ -1946,7 +1946,7 @@ module AWS::SDK::AppMesh
         return nil if visited.include?('VirtualGatewayBackendDefaults')
         visited = visited + ['VirtualGatewayBackendDefaults']
         {
-          client_policy: Stubs::VirtualGatewayClientPolicy.default(visited),
+          client_policy: VirtualGatewayClientPolicy.default(visited),
         }
       end
 
@@ -1964,7 +1964,7 @@ module AWS::SDK::AppMesh
         return nil if visited.include?('VirtualGatewayClientPolicy')
         visited = visited + ['VirtualGatewayClientPolicy']
         {
-          tls: Stubs::VirtualGatewayClientPolicyTls.default(visited),
+          tls: VirtualGatewayClientPolicyTls.default(visited),
         }
       end
 
@@ -1983,9 +1983,9 @@ module AWS::SDK::AppMesh
         visited = visited + ['VirtualGatewayClientPolicyTls']
         {
           enforce: false,
-          ports: Stubs::PortSet.default(visited),
-          certificate: Stubs::VirtualGatewayClientTlsCertificate.default(visited),
-          validation: Stubs::VirtualGatewayTlsValidationContext.default(visited),
+          ports: PortSet.default(visited),
+          certificate: VirtualGatewayClientTlsCertificate.default(visited),
+          validation: VirtualGatewayTlsValidationContext.default(visited),
         }
       end
 
@@ -2006,8 +2006,8 @@ module AWS::SDK::AppMesh
         return nil if visited.include?('VirtualGatewayTlsValidationContext')
         visited = visited + ['VirtualGatewayTlsValidationContext']
         {
-          member_trust: Stubs::VirtualGatewayTlsValidationContextTrust.default(visited),
-          subject_alternative_names: Stubs::SubjectAlternativeNames.default(visited),
+          member_trust: VirtualGatewayTlsValidationContextTrust.default(visited),
+          subject_alternative_names: SubjectAlternativeNames.default(visited),
         }
       end
 
@@ -2026,7 +2026,7 @@ module AWS::SDK::AppMesh
         return nil if visited.include?('VirtualGatewayTlsValidationContextTrust')
         visited = visited + ['VirtualGatewayTlsValidationContextTrust']
         {
-          acm: Stubs::VirtualGatewayTlsValidationContextAcmTrust.default(visited),
+          acm: VirtualGatewayTlsValidationContextAcmTrust.default(visited),
         }
       end
 
@@ -2054,7 +2054,7 @@ module AWS::SDK::AppMesh
         return nil if visited.include?('VirtualGatewayTlsValidationContextAcmTrust')
         visited = visited + ['VirtualGatewayTlsValidationContextAcmTrust']
         {
-          certificate_authority_arns: Stubs::VirtualGatewayCertificateAuthorityArns.default(visited),
+          certificate_authority_arns: VirtualGatewayCertificateAuthorityArns.default(visited),
         }
       end
 
@@ -2092,7 +2092,7 @@ module AWS::SDK::AppMesh
         return nil if visited.include?('VirtualGatewayClientTlsCertificate')
         visited = visited + ['VirtualGatewayClientTlsCertificate']
         {
-          file: Stubs::VirtualGatewayListenerTlsFileCertificate.default(visited),
+          file: VirtualGatewayListenerTlsFileCertificate.default(visited),
         }
       end
 
@@ -2112,7 +2112,7 @@ module AWS::SDK::AppMesh
       end
     end
 
-    # Set Stubber for PortSet
+    # List Stubber for PortSet
     class PortSet
       def self.default(visited=[])
         return nil if visited.include?('PortSet')
@@ -2124,11 +2124,11 @@ module AWS::SDK::AppMesh
 
       def self.stub(stub)
         stub ||= []
-        data = Set.new
+        data = []
         stub.each do |element|
           data << element unless element.nil?
         end
-        data.to_a
+        data
       end
     end
 
@@ -2136,7 +2136,7 @@ module AWS::SDK::AppMesh
     class CreateVirtualNode
       def self.default(visited=[])
         {
-          virtual_node: Stubs::VirtualNodeData.default(visited),
+          virtual_node: VirtualNodeData.default(visited),
         }
       end
 
@@ -2157,9 +2157,9 @@ module AWS::SDK::AppMesh
         {
           mesh_name: 'mesh_name',
           virtual_node_name: 'virtual_node_name',
-          spec: Stubs::VirtualNodeSpec.default(visited),
-          metadata: Stubs::ResourceMetadata.default(visited),
-          status: Stubs::VirtualNodeStatus.default(visited),
+          spec: VirtualNodeSpec.default(visited),
+          metadata: ResourceMetadata.default(visited),
+          status: VirtualNodeStatus.default(visited),
         }
       end
 
@@ -2199,11 +2199,11 @@ module AWS::SDK::AppMesh
         return nil if visited.include?('VirtualNodeSpec')
         visited = visited + ['VirtualNodeSpec']
         {
-          service_discovery: Stubs::ServiceDiscovery.default(visited),
-          listeners: Stubs::Listeners.default(visited),
-          backends: Stubs::Backends.default(visited),
-          backend_defaults: Stubs::BackendDefaults.default(visited),
-          logging: Stubs::Logging.default(visited),
+          service_discovery: ServiceDiscovery.default(visited),
+          listeners: Listeners.default(visited),
+          backends: Backends.default(visited),
+          backend_defaults: BackendDefaults.default(visited),
+          logging: Logging.default(visited),
         }
       end
 
@@ -2225,7 +2225,7 @@ module AWS::SDK::AppMesh
         return nil if visited.include?('Logging')
         visited = visited + ['Logging']
         {
-          access_log: Stubs::AccessLog.default(visited),
+          access_log: AccessLog.default(visited),
         }
       end
 
@@ -2243,7 +2243,7 @@ module AWS::SDK::AppMesh
         return nil if visited.include?('AccessLog')
         visited = visited + ['AccessLog']
         {
-          file: Stubs::FileAccessLog.default(visited),
+          file: FileAccessLog.default(visited),
         }
       end
 
@@ -2285,7 +2285,7 @@ module AWS::SDK::AppMesh
         return nil if visited.include?('BackendDefaults')
         visited = visited + ['BackendDefaults']
         {
-          client_policy: Stubs::ClientPolicy.default(visited),
+          client_policy: ClientPolicy.default(visited),
         }
       end
 
@@ -2303,7 +2303,7 @@ module AWS::SDK::AppMesh
         return nil if visited.include?('ClientPolicy')
         visited = visited + ['ClientPolicy']
         {
-          tls: Stubs::ClientPolicyTls.default(visited),
+          tls: ClientPolicyTls.default(visited),
         }
       end
 
@@ -2322,9 +2322,9 @@ module AWS::SDK::AppMesh
         visited = visited + ['ClientPolicyTls']
         {
           enforce: false,
-          ports: Stubs::PortSet.default(visited),
-          certificate: Stubs::ClientTlsCertificate.default(visited),
-          validation: Stubs::TlsValidationContext.default(visited),
+          ports: PortSet.default(visited),
+          certificate: ClientTlsCertificate.default(visited),
+          validation: TlsValidationContext.default(visited),
         }
       end
 
@@ -2345,8 +2345,8 @@ module AWS::SDK::AppMesh
         return nil if visited.include?('TlsValidationContext')
         visited = visited + ['TlsValidationContext']
         {
-          member_trust: Stubs::TlsValidationContextTrust.default(visited),
-          subject_alternative_names: Stubs::SubjectAlternativeNames.default(visited),
+          member_trust: TlsValidationContextTrust.default(visited),
+          subject_alternative_names: SubjectAlternativeNames.default(visited),
         }
       end
 
@@ -2365,7 +2365,7 @@ module AWS::SDK::AppMesh
         return nil if visited.include?('TlsValidationContextTrust')
         visited = visited + ['TlsValidationContextTrust']
         {
-          acm: Stubs::TlsValidationContextAcmTrust.default(visited),
+          acm: TlsValidationContextAcmTrust.default(visited),
         }
       end
 
@@ -2429,7 +2429,7 @@ module AWS::SDK::AppMesh
         return nil if visited.include?('TlsValidationContextAcmTrust')
         visited = visited + ['TlsValidationContextAcmTrust']
         {
-          certificate_authority_arns: Stubs::CertificateAuthorityArns.default(visited),
+          certificate_authority_arns: CertificateAuthorityArns.default(visited),
         }
       end
 
@@ -2467,7 +2467,7 @@ module AWS::SDK::AppMesh
         return nil if visited.include?('ClientTlsCertificate')
         visited = visited + ['ClientTlsCertificate']
         {
-          file: Stubs::ListenerTlsFileCertificate.default(visited),
+          file: ListenerTlsFileCertificate.default(visited),
         }
       end
 
@@ -2531,7 +2531,7 @@ module AWS::SDK::AppMesh
         return nil if visited.include?('Backends')
         visited = visited + ['Backends']
         [
-          Stubs::Backend.default(visited)
+          Backend.default(visited)
         ]
       end
 
@@ -2551,7 +2551,7 @@ module AWS::SDK::AppMesh
         return nil if visited.include?('Backend')
         visited = visited + ['Backend']
         {
-          virtual_service: Stubs::VirtualServiceBackend.default(visited),
+          virtual_service: VirtualServiceBackend.default(visited),
         }
       end
 
@@ -2576,7 +2576,7 @@ module AWS::SDK::AppMesh
         visited = visited + ['VirtualServiceBackend']
         {
           virtual_service_name: 'virtual_service_name',
-          client_policy: Stubs::ClientPolicy.default(visited),
+          client_policy: ClientPolicy.default(visited),
         }
       end
 
@@ -2595,7 +2595,7 @@ module AWS::SDK::AppMesh
         return nil if visited.include?('Listeners')
         visited = visited + ['Listeners']
         [
-          Stubs::Listener.default(visited)
+          Listener.default(visited)
         ]
       end
 
@@ -2615,12 +2615,12 @@ module AWS::SDK::AppMesh
         return nil if visited.include?('Listener')
         visited = visited + ['Listener']
         {
-          port_mapping: Stubs::PortMapping.default(visited),
-          tls: Stubs::ListenerTls.default(visited),
-          health_check: Stubs::HealthCheckPolicy.default(visited),
-          timeout: Stubs::ListenerTimeout.default(visited),
-          outlier_detection: Stubs::OutlierDetection.default(visited),
-          connection_pool: Stubs::VirtualNodeConnectionPool.default(visited),
+          port_mapping: PortMapping.default(visited),
+          tls: ListenerTls.default(visited),
+          health_check: HealthCheckPolicy.default(visited),
+          timeout: ListenerTimeout.default(visited),
+          outlier_detection: OutlierDetection.default(visited),
+          connection_pool: VirtualNodeConnectionPool.default(visited),
         }
       end
 
@@ -2643,7 +2643,7 @@ module AWS::SDK::AppMesh
         return nil if visited.include?('VirtualNodeConnectionPool')
         visited = visited + ['VirtualNodeConnectionPool']
         {
-          tcp: Stubs::VirtualNodeTcpConnectionPool.default(visited),
+          tcp: VirtualNodeTcpConnectionPool.default(visited),
         }
       end
 
@@ -2748,8 +2748,8 @@ module AWS::SDK::AppMesh
         visited = visited + ['OutlierDetection']
         {
           max_server_errors: 1,
-          interval: Stubs::Duration.default(visited),
-          base_ejection_duration: Stubs::Duration.default(visited),
+          interval: Duration.default(visited),
+          base_ejection_duration: Duration.default(visited),
           max_ejection_percent: 1,
         }
       end
@@ -2771,7 +2771,7 @@ module AWS::SDK::AppMesh
         return nil if visited.include?('ListenerTimeout')
         visited = visited + ['ListenerTimeout']
         {
-          tcp: Stubs::TcpTimeout.default(visited),
+          tcp: TcpTimeout.default(visited),
         }
       end
 
@@ -2832,8 +2832,8 @@ module AWS::SDK::AppMesh
         visited = visited + ['ListenerTls']
         {
           mode: 'mode',
-          certificate: Stubs::ListenerTlsCertificate.default(visited),
-          validation: Stubs::ListenerTlsValidationContext.default(visited),
+          certificate: ListenerTlsCertificate.default(visited),
+          validation: ListenerTlsValidationContext.default(visited),
         }
       end
 
@@ -2853,8 +2853,8 @@ module AWS::SDK::AppMesh
         return nil if visited.include?('ListenerTlsValidationContext')
         visited = visited + ['ListenerTlsValidationContext']
         {
-          member_trust: Stubs::ListenerTlsValidationContextTrust.default(visited),
-          subject_alternative_names: Stubs::SubjectAlternativeNames.default(visited),
+          member_trust: ListenerTlsValidationContextTrust.default(visited),
+          subject_alternative_names: SubjectAlternativeNames.default(visited),
         }
       end
 
@@ -2873,7 +2873,7 @@ module AWS::SDK::AppMesh
         return nil if visited.include?('ListenerTlsValidationContextTrust')
         visited = visited + ['ListenerTlsValidationContextTrust']
         {
-          file: Stubs::TlsValidationContextFileTrust.default(visited),
+          file: TlsValidationContextFileTrust.default(visited),
         }
       end
 
@@ -2899,7 +2899,7 @@ module AWS::SDK::AppMesh
         return nil if visited.include?('ListenerTlsCertificate')
         visited = visited + ['ListenerTlsCertificate']
         {
-          acm: Stubs::ListenerTlsAcmCertificate.default(visited),
+          acm: ListenerTlsAcmCertificate.default(visited),
         }
       end
 
@@ -2965,7 +2965,7 @@ module AWS::SDK::AppMesh
         return nil if visited.include?('ServiceDiscovery')
         visited = visited + ['ServiceDiscovery']
         {
-          dns: Stubs::DnsServiceDiscovery.default(visited),
+          dns: DnsServiceDiscovery.default(visited),
         }
       end
 
@@ -2993,7 +2993,7 @@ module AWS::SDK::AppMesh
         {
           namespace_name: 'namespace_name',
           service_name: 'service_name',
-          attributes: Stubs::AwsCloudMapInstanceAttributes.default(visited),
+          attributes: AwsCloudMapInstanceAttributes.default(visited),
           ip_preference: 'ip_preference',
         }
       end
@@ -3015,7 +3015,7 @@ module AWS::SDK::AppMesh
         return nil if visited.include?('AwsCloudMapInstanceAttributes')
         visited = visited + ['AwsCloudMapInstanceAttributes']
         [
-          Stubs::AwsCloudMapInstanceAttribute.default(visited)
+          AwsCloudMapInstanceAttribute.default(visited)
         ]
       end
 
@@ -3075,7 +3075,7 @@ module AWS::SDK::AppMesh
     class CreateVirtualRouter
       def self.default(visited=[])
         {
-          virtual_router: Stubs::VirtualRouterData.default(visited),
+          virtual_router: VirtualRouterData.default(visited),
         }
       end
 
@@ -3096,9 +3096,9 @@ module AWS::SDK::AppMesh
         {
           mesh_name: 'mesh_name',
           virtual_router_name: 'virtual_router_name',
-          spec: Stubs::VirtualRouterSpec.default(visited),
-          metadata: Stubs::ResourceMetadata.default(visited),
-          status: Stubs::VirtualRouterStatus.default(visited),
+          spec: VirtualRouterSpec.default(visited),
+          metadata: ResourceMetadata.default(visited),
+          status: VirtualRouterStatus.default(visited),
         }
       end
 
@@ -3138,7 +3138,7 @@ module AWS::SDK::AppMesh
         return nil if visited.include?('VirtualRouterSpec')
         visited = visited + ['VirtualRouterSpec']
         {
-          listeners: Stubs::VirtualRouterListeners.default(visited),
+          listeners: VirtualRouterListeners.default(visited),
         }
       end
 
@@ -3156,7 +3156,7 @@ module AWS::SDK::AppMesh
         return nil if visited.include?('VirtualRouterListeners')
         visited = visited + ['VirtualRouterListeners']
         [
-          Stubs::VirtualRouterListener.default(visited)
+          VirtualRouterListener.default(visited)
         ]
       end
 
@@ -3176,7 +3176,7 @@ module AWS::SDK::AppMesh
         return nil if visited.include?('VirtualRouterListener')
         visited = visited + ['VirtualRouterListener']
         {
-          port_mapping: Stubs::PortMapping.default(visited),
+          port_mapping: PortMapping.default(visited),
         }
       end
 
@@ -3192,7 +3192,7 @@ module AWS::SDK::AppMesh
     class CreateVirtualService
       def self.default(visited=[])
         {
-          virtual_service: Stubs::VirtualServiceData.default(visited),
+          virtual_service: VirtualServiceData.default(visited),
         }
       end
 
@@ -3213,9 +3213,9 @@ module AWS::SDK::AppMesh
         {
           mesh_name: 'mesh_name',
           virtual_service_name: 'virtual_service_name',
-          spec: Stubs::VirtualServiceSpec.default(visited),
-          metadata: Stubs::ResourceMetadata.default(visited),
-          status: Stubs::VirtualServiceStatus.default(visited),
+          spec: VirtualServiceSpec.default(visited),
+          metadata: ResourceMetadata.default(visited),
+          status: VirtualServiceStatus.default(visited),
         }
       end
 
@@ -3255,7 +3255,7 @@ module AWS::SDK::AppMesh
         return nil if visited.include?('VirtualServiceSpec')
         visited = visited + ['VirtualServiceSpec']
         {
-          provider: Stubs::VirtualServiceProvider.default(visited),
+          provider: VirtualServiceProvider.default(visited),
         }
       end
 
@@ -3273,7 +3273,7 @@ module AWS::SDK::AppMesh
         return nil if visited.include?('VirtualServiceProvider')
         visited = visited + ['VirtualServiceProvider']
         {
-          virtual_node: Stubs::VirtualNodeServiceProvider.default(visited),
+          virtual_node: VirtualNodeServiceProvider.default(visited),
         }
       end
 
@@ -3333,7 +3333,7 @@ module AWS::SDK::AppMesh
     class DeleteGatewayRoute
       def self.default(visited=[])
         {
-          gateway_route: Stubs::GatewayRouteData.default(visited),
+          gateway_route: GatewayRouteData.default(visited),
         }
       end
 
@@ -3350,7 +3350,7 @@ module AWS::SDK::AppMesh
     class DeleteMesh
       def self.default(visited=[])
         {
-          mesh: Stubs::MeshData.default(visited),
+          mesh: MeshData.default(visited),
         }
       end
 
@@ -3367,7 +3367,7 @@ module AWS::SDK::AppMesh
     class DeleteRoute
       def self.default(visited=[])
         {
-          route: Stubs::RouteData.default(visited),
+          route: RouteData.default(visited),
         }
       end
 
@@ -3384,7 +3384,7 @@ module AWS::SDK::AppMesh
     class DeleteVirtualGateway
       def self.default(visited=[])
         {
-          virtual_gateway: Stubs::VirtualGatewayData.default(visited),
+          virtual_gateway: VirtualGatewayData.default(visited),
         }
       end
 
@@ -3401,7 +3401,7 @@ module AWS::SDK::AppMesh
     class DeleteVirtualNode
       def self.default(visited=[])
         {
-          virtual_node: Stubs::VirtualNodeData.default(visited),
+          virtual_node: VirtualNodeData.default(visited),
         }
       end
 
@@ -3418,7 +3418,7 @@ module AWS::SDK::AppMesh
     class DeleteVirtualRouter
       def self.default(visited=[])
         {
-          virtual_router: Stubs::VirtualRouterData.default(visited),
+          virtual_router: VirtualRouterData.default(visited),
         }
       end
 
@@ -3435,7 +3435,7 @@ module AWS::SDK::AppMesh
     class DeleteVirtualService
       def self.default(visited=[])
         {
-          virtual_service: Stubs::VirtualServiceData.default(visited),
+          virtual_service: VirtualServiceData.default(visited),
         }
       end
 
@@ -3452,7 +3452,7 @@ module AWS::SDK::AppMesh
     class DescribeGatewayRoute
       def self.default(visited=[])
         {
-          gateway_route: Stubs::GatewayRouteData.default(visited),
+          gateway_route: GatewayRouteData.default(visited),
         }
       end
 
@@ -3469,7 +3469,7 @@ module AWS::SDK::AppMesh
     class DescribeMesh
       def self.default(visited=[])
         {
-          mesh: Stubs::MeshData.default(visited),
+          mesh: MeshData.default(visited),
         }
       end
 
@@ -3486,7 +3486,7 @@ module AWS::SDK::AppMesh
     class DescribeRoute
       def self.default(visited=[])
         {
-          route: Stubs::RouteData.default(visited),
+          route: RouteData.default(visited),
         }
       end
 
@@ -3503,7 +3503,7 @@ module AWS::SDK::AppMesh
     class DescribeVirtualGateway
       def self.default(visited=[])
         {
-          virtual_gateway: Stubs::VirtualGatewayData.default(visited),
+          virtual_gateway: VirtualGatewayData.default(visited),
         }
       end
 
@@ -3520,7 +3520,7 @@ module AWS::SDK::AppMesh
     class DescribeVirtualNode
       def self.default(visited=[])
         {
-          virtual_node: Stubs::VirtualNodeData.default(visited),
+          virtual_node: VirtualNodeData.default(visited),
         }
       end
 
@@ -3537,7 +3537,7 @@ module AWS::SDK::AppMesh
     class DescribeVirtualRouter
       def self.default(visited=[])
         {
-          virtual_router: Stubs::VirtualRouterData.default(visited),
+          virtual_router: VirtualRouterData.default(visited),
         }
       end
 
@@ -3554,7 +3554,7 @@ module AWS::SDK::AppMesh
     class DescribeVirtualService
       def self.default(visited=[])
         {
-          virtual_service: Stubs::VirtualServiceData.default(visited),
+          virtual_service: VirtualServiceData.default(visited),
         }
       end
 
@@ -3571,7 +3571,7 @@ module AWS::SDK::AppMesh
     class ListGatewayRoutes
       def self.default(visited=[])
         {
-          gateway_routes: Stubs::GatewayRouteList.default(visited),
+          gateway_routes: GatewayRouteList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3592,7 +3592,7 @@ module AWS::SDK::AppMesh
         return nil if visited.include?('GatewayRouteList')
         visited = visited + ['GatewayRouteList']
         [
-          Stubs::GatewayRouteRef.default(visited)
+          GatewayRouteRef.default(visited)
         ]
       end
 
@@ -3644,7 +3644,7 @@ module AWS::SDK::AppMesh
     class ListMeshes
       def self.default(visited=[])
         {
-          meshes: Stubs::MeshList.default(visited),
+          meshes: MeshList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3665,7 +3665,7 @@ module AWS::SDK::AppMesh
         return nil if visited.include?('MeshList')
         visited = visited + ['MeshList']
         [
-          Stubs::MeshRef.default(visited)
+          MeshRef.default(visited)
         ]
       end
 
@@ -3713,7 +3713,7 @@ module AWS::SDK::AppMesh
     class ListRoutes
       def self.default(visited=[])
         {
-          routes: Stubs::RouteList.default(visited),
+          routes: RouteList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3734,7 +3734,7 @@ module AWS::SDK::AppMesh
         return nil if visited.include?('RouteList')
         visited = visited + ['RouteList']
         [
-          Stubs::RouteRef.default(visited)
+          RouteRef.default(visited)
         ]
       end
 
@@ -3786,7 +3786,7 @@ module AWS::SDK::AppMesh
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3807,7 +3807,7 @@ module AWS::SDK::AppMesh
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::TagRef.default(visited)
+          TagRef.default(visited)
         ]
       end
 
@@ -3845,7 +3845,7 @@ module AWS::SDK::AppMesh
     class ListVirtualGateways
       def self.default(visited=[])
         {
-          virtual_gateways: Stubs::VirtualGatewayList.default(visited),
+          virtual_gateways: VirtualGatewayList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3866,7 +3866,7 @@ module AWS::SDK::AppMesh
         return nil if visited.include?('VirtualGatewayList')
         visited = visited + ['VirtualGatewayList']
         [
-          Stubs::VirtualGatewayRef.default(visited)
+          VirtualGatewayRef.default(visited)
         ]
       end
 
@@ -3916,7 +3916,7 @@ module AWS::SDK::AppMesh
     class ListVirtualNodes
       def self.default(visited=[])
         {
-          virtual_nodes: Stubs::VirtualNodeList.default(visited),
+          virtual_nodes: VirtualNodeList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3937,7 +3937,7 @@ module AWS::SDK::AppMesh
         return nil if visited.include?('VirtualNodeList')
         visited = visited + ['VirtualNodeList']
         [
-          Stubs::VirtualNodeRef.default(visited)
+          VirtualNodeRef.default(visited)
         ]
       end
 
@@ -3987,7 +3987,7 @@ module AWS::SDK::AppMesh
     class ListVirtualRouters
       def self.default(visited=[])
         {
-          virtual_routers: Stubs::VirtualRouterList.default(visited),
+          virtual_routers: VirtualRouterList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -4008,7 +4008,7 @@ module AWS::SDK::AppMesh
         return nil if visited.include?('VirtualRouterList')
         visited = visited + ['VirtualRouterList']
         [
-          Stubs::VirtualRouterRef.default(visited)
+          VirtualRouterRef.default(visited)
         ]
       end
 
@@ -4058,7 +4058,7 @@ module AWS::SDK::AppMesh
     class ListVirtualServices
       def self.default(visited=[])
         {
-          virtual_services: Stubs::VirtualServiceList.default(visited),
+          virtual_services: VirtualServiceList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -4079,7 +4079,7 @@ module AWS::SDK::AppMesh
         return nil if visited.include?('VirtualServiceList')
         visited = visited + ['VirtualServiceList']
         [
-          Stubs::VirtualServiceRef.default(visited)
+          VirtualServiceRef.default(visited)
         ]
       end
 
@@ -4155,7 +4155,7 @@ module AWS::SDK::AppMesh
     class UpdateGatewayRoute
       def self.default(visited=[])
         {
-          gateway_route: Stubs::GatewayRouteData.default(visited),
+          gateway_route: GatewayRouteData.default(visited),
         }
       end
 
@@ -4172,7 +4172,7 @@ module AWS::SDK::AppMesh
     class UpdateMesh
       def self.default(visited=[])
         {
-          mesh: Stubs::MeshData.default(visited),
+          mesh: MeshData.default(visited),
         }
       end
 
@@ -4189,7 +4189,7 @@ module AWS::SDK::AppMesh
     class UpdateRoute
       def self.default(visited=[])
         {
-          route: Stubs::RouteData.default(visited),
+          route: RouteData.default(visited),
         }
       end
 
@@ -4206,7 +4206,7 @@ module AWS::SDK::AppMesh
     class UpdateVirtualGateway
       def self.default(visited=[])
         {
-          virtual_gateway: Stubs::VirtualGatewayData.default(visited),
+          virtual_gateway: VirtualGatewayData.default(visited),
         }
       end
 
@@ -4223,7 +4223,7 @@ module AWS::SDK::AppMesh
     class UpdateVirtualNode
       def self.default(visited=[])
         {
-          virtual_node: Stubs::VirtualNodeData.default(visited),
+          virtual_node: VirtualNodeData.default(visited),
         }
       end
 
@@ -4240,7 +4240,7 @@ module AWS::SDK::AppMesh
     class UpdateVirtualRouter
       def self.default(visited=[])
         {
-          virtual_router: Stubs::VirtualRouterData.default(visited),
+          virtual_router: VirtualRouterData.default(visited),
         }
       end
 
@@ -4257,7 +4257,7 @@ module AWS::SDK::AppMesh
     class UpdateVirtualService
       def self.default(visited=[])
         {
-          virtual_service: Stubs::VirtualServiceData.default(visited),
+          virtual_service: VirtualServiceData.default(visited),
         }
       end
 

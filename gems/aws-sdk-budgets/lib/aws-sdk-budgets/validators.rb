@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::Budgets
   module Validators
 
@@ -24,12 +26,12 @@ module AWS::SDK::Budgets
         Hearth::Validator.validate!(input[:budget_name], ::String, context: "#{context}[:budget_name]")
         Hearth::Validator.validate!(input[:notification_type], ::String, context: "#{context}[:notification_type]")
         Hearth::Validator.validate!(input[:action_type], ::String, context: "#{context}[:action_type]")
-        Validators::ActionThreshold.validate!(input[:action_threshold], context: "#{context}[:action_threshold]") unless input[:action_threshold].nil?
-        Validators::Definition.validate!(input[:definition], context: "#{context}[:definition]") unless input[:definition].nil?
+        ActionThreshold.validate!(input[:action_threshold], context: "#{context}[:action_threshold]") unless input[:action_threshold].nil?
+        Definition.validate!(input[:definition], context: "#{context}[:definition]") unless input[:definition].nil?
         Hearth::Validator.validate!(input[:execution_role_arn], ::String, context: "#{context}[:execution_role_arn]")
         Hearth::Validator.validate!(input[:approval_model], ::String, context: "#{context}[:approval_model]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::Subscribers.validate!(input[:subscribers], context: "#{context}[:subscribers]") unless input[:subscribers].nil?
+        Subscribers.validate!(input[:subscribers], context: "#{context}[:subscribers]") unless input[:subscribers].nil?
       end
     end
 
@@ -37,7 +39,7 @@ module AWS::SDK::Budgets
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ActionHistory.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ActionHistory.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -48,7 +50,7 @@ module AWS::SDK::Budgets
         Hearth::Validator.validate!(input[:timestamp], ::Time, context: "#{context}[:timestamp]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:event_type], ::String, context: "#{context}[:event_type]")
-        Validators::ActionHistoryDetails.validate!(input[:action_history_details], context: "#{context}[:action_history_details]") unless input[:action_history_details].nil?
+        ActionHistoryDetails.validate!(input[:action_history_details], context: "#{context}[:action_history_details]") unless input[:action_history_details].nil?
       end
     end
 
@@ -56,7 +58,7 @@ module AWS::SDK::Budgets
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ActionHistoryDetails, context: context)
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
-        Validators::Action.validate!(input[:action], context: "#{context}[:action]") unless input[:action].nil?
+        Action.validate!(input[:action], context: "#{context}[:action]") unless input[:action].nil?
       end
     end
 
@@ -72,7 +74,7 @@ module AWS::SDK::Budgets
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Action.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Action.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -81,7 +83,7 @@ module AWS::SDK::Budgets
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AutoAdjustData, context: context)
         Hearth::Validator.validate!(input[:auto_adjust_type], ::String, context: "#{context}[:auto_adjust_type]")
-        Validators::HistoricalOptions.validate!(input[:historical_options], context: "#{context}[:historical_options]") unless input[:historical_options].nil?
+        HistoricalOptions.validate!(input[:historical_options], context: "#{context}[:historical_options]") unless input[:historical_options].nil?
         Hearth::Validator.validate!(input[:last_auto_adjust_time], ::Time, context: "#{context}[:last_auto_adjust_time]")
       end
     end
@@ -90,23 +92,23 @@ module AWS::SDK::Budgets
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Budget, context: context)
         Hearth::Validator.validate!(input[:budget_name], ::String, context: "#{context}[:budget_name]")
-        Validators::Spend.validate!(input[:budget_limit], context: "#{context}[:budget_limit]") unless input[:budget_limit].nil?
-        Validators::PlannedBudgetLimits.validate!(input[:planned_budget_limits], context: "#{context}[:planned_budget_limits]") unless input[:planned_budget_limits].nil?
-        Validators::CostFilters.validate!(input[:cost_filters], context: "#{context}[:cost_filters]") unless input[:cost_filters].nil?
-        Validators::CostTypes.validate!(input[:cost_types], context: "#{context}[:cost_types]") unless input[:cost_types].nil?
+        Spend.validate!(input[:budget_limit], context: "#{context}[:budget_limit]") unless input[:budget_limit].nil?
+        PlannedBudgetLimits.validate!(input[:planned_budget_limits], context: "#{context}[:planned_budget_limits]") unless input[:planned_budget_limits].nil?
+        CostFilters.validate!(input[:cost_filters], context: "#{context}[:cost_filters]") unless input[:cost_filters].nil?
+        CostTypes.validate!(input[:cost_types], context: "#{context}[:cost_types]") unless input[:cost_types].nil?
         Hearth::Validator.validate!(input[:time_unit], ::String, context: "#{context}[:time_unit]")
-        Validators::TimePeriod.validate!(input[:time_period], context: "#{context}[:time_period]") unless input[:time_period].nil?
-        Validators::CalculatedSpend.validate!(input[:calculated_spend], context: "#{context}[:calculated_spend]") unless input[:calculated_spend].nil?
+        TimePeriod.validate!(input[:time_period], context: "#{context}[:time_period]") unless input[:time_period].nil?
+        CalculatedSpend.validate!(input[:calculated_spend], context: "#{context}[:calculated_spend]") unless input[:calculated_spend].nil?
         Hearth::Validator.validate!(input[:budget_type], ::String, context: "#{context}[:budget_type]")
         Hearth::Validator.validate!(input[:last_updated_time], ::Time, context: "#{context}[:last_updated_time]")
-        Validators::AutoAdjustData.validate!(input[:auto_adjust_data], context: "#{context}[:auto_adjust_data]") unless input[:auto_adjust_data].nil?
+        AutoAdjustData.validate!(input[:auto_adjust_data], context: "#{context}[:auto_adjust_data]") unless input[:auto_adjust_data].nil?
       end
     end
 
     class BudgetNotificationsForAccount
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BudgetNotificationsForAccount, context: context)
-        Validators::Notifications.validate!(input[:notifications], context: "#{context}[:notifications]") unless input[:notifications].nil?
+        Notifications.validate!(input[:notifications], context: "#{context}[:notifications]") unless input[:notifications].nil?
         Hearth::Validator.validate!(input[:budget_name], ::String, context: "#{context}[:budget_name]")
       end
     end
@@ -115,7 +117,7 @@ module AWS::SDK::Budgets
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BudgetNotificationsForAccount.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BudgetNotificationsForAccount.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -125,19 +127,19 @@ module AWS::SDK::Budgets
         Hearth::Validator.validate!(input, Types::BudgetPerformanceHistory, context: context)
         Hearth::Validator.validate!(input[:budget_name], ::String, context: "#{context}[:budget_name]")
         Hearth::Validator.validate!(input[:budget_type], ::String, context: "#{context}[:budget_type]")
-        Validators::CostFilters.validate!(input[:cost_filters], context: "#{context}[:cost_filters]") unless input[:cost_filters].nil?
-        Validators::CostTypes.validate!(input[:cost_types], context: "#{context}[:cost_types]") unless input[:cost_types].nil?
+        CostFilters.validate!(input[:cost_filters], context: "#{context}[:cost_filters]") unless input[:cost_filters].nil?
+        CostTypes.validate!(input[:cost_types], context: "#{context}[:cost_types]") unless input[:cost_types].nil?
         Hearth::Validator.validate!(input[:time_unit], ::String, context: "#{context}[:time_unit]")
-        Validators::BudgetedAndActualAmountsList.validate!(input[:budgeted_and_actual_amounts_list], context: "#{context}[:budgeted_and_actual_amounts_list]") unless input[:budgeted_and_actual_amounts_list].nil?
+        BudgetedAndActualAmountsList.validate!(input[:budgeted_and_actual_amounts_list], context: "#{context}[:budgeted_and_actual_amounts_list]") unless input[:budgeted_and_actual_amounts_list].nil?
       end
     end
 
     class BudgetedAndActualAmounts
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BudgetedAndActualAmounts, context: context)
-        Validators::Spend.validate!(input[:budgeted_amount], context: "#{context}[:budgeted_amount]") unless input[:budgeted_amount].nil?
-        Validators::Spend.validate!(input[:actual_amount], context: "#{context}[:actual_amount]") unless input[:actual_amount].nil?
-        Validators::TimePeriod.validate!(input[:time_period], context: "#{context}[:time_period]") unless input[:time_period].nil?
+        Spend.validate!(input[:budgeted_amount], context: "#{context}[:budgeted_amount]") unless input[:budgeted_amount].nil?
+        Spend.validate!(input[:actual_amount], context: "#{context}[:actual_amount]") unless input[:actual_amount].nil?
+        TimePeriod.validate!(input[:time_period], context: "#{context}[:time_period]") unless input[:time_period].nil?
       end
     end
 
@@ -145,7 +147,7 @@ module AWS::SDK::Budgets
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BudgetedAndActualAmounts.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BudgetedAndActualAmounts.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -154,7 +156,7 @@ module AWS::SDK::Budgets
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Budget.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Budget.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -162,8 +164,8 @@ module AWS::SDK::Budgets
     class CalculatedSpend
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CalculatedSpend, context: context)
-        Validators::Spend.validate!(input[:actual_spend], context: "#{context}[:actual_spend]") unless input[:actual_spend].nil?
-        Validators::Spend.validate!(input[:forecasted_spend], context: "#{context}[:forecasted_spend]") unless input[:forecasted_spend].nil?
+        Spend.validate!(input[:actual_spend], context: "#{context}[:actual_spend]") unless input[:actual_spend].nil?
+        Spend.validate!(input[:forecasted_spend], context: "#{context}[:forecasted_spend]") unless input[:forecasted_spend].nil?
       end
     end
 
@@ -172,7 +174,7 @@ module AWS::SDK::Budgets
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::DimensionValues.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          DimensionValues.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -201,11 +203,11 @@ module AWS::SDK::Budgets
         Hearth::Validator.validate!(input[:budget_name], ::String, context: "#{context}[:budget_name]")
         Hearth::Validator.validate!(input[:notification_type], ::String, context: "#{context}[:notification_type]")
         Hearth::Validator.validate!(input[:action_type], ::String, context: "#{context}[:action_type]")
-        Validators::ActionThreshold.validate!(input[:action_threshold], context: "#{context}[:action_threshold]") unless input[:action_threshold].nil?
-        Validators::Definition.validate!(input[:definition], context: "#{context}[:definition]") unless input[:definition].nil?
+        ActionThreshold.validate!(input[:action_threshold], context: "#{context}[:action_threshold]") unless input[:action_threshold].nil?
+        Definition.validate!(input[:definition], context: "#{context}[:definition]") unless input[:definition].nil?
         Hearth::Validator.validate!(input[:execution_role_arn], ::String, context: "#{context}[:execution_role_arn]")
         Hearth::Validator.validate!(input[:approval_model], ::String, context: "#{context}[:approval_model]")
-        Validators::Subscribers.validate!(input[:subscribers], context: "#{context}[:subscribers]") unless input[:subscribers].nil?
+        Subscribers.validate!(input[:subscribers], context: "#{context}[:subscribers]") unless input[:subscribers].nil?
       end
     end
 
@@ -222,8 +224,8 @@ module AWS::SDK::Budgets
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateBudgetInput, context: context)
         Hearth::Validator.validate!(input[:account_id], ::String, context: "#{context}[:account_id]")
-        Validators::Budget.validate!(input[:budget], context: "#{context}[:budget]") unless input[:budget].nil?
-        Validators::NotificationWithSubscribersList.validate!(input[:notifications_with_subscribers], context: "#{context}[:notifications_with_subscribers]") unless input[:notifications_with_subscribers].nil?
+        Budget.validate!(input[:budget], context: "#{context}[:budget]") unless input[:budget].nil?
+        NotificationWithSubscribersList.validate!(input[:notifications_with_subscribers], context: "#{context}[:notifications_with_subscribers]") unless input[:notifications_with_subscribers].nil?
       end
     end
 
@@ -238,8 +240,8 @@ module AWS::SDK::Budgets
         Hearth::Validator.validate!(input, Types::CreateNotificationInput, context: context)
         Hearth::Validator.validate!(input[:account_id], ::String, context: "#{context}[:account_id]")
         Hearth::Validator.validate!(input[:budget_name], ::String, context: "#{context}[:budget_name]")
-        Validators::Notification.validate!(input[:notification], context: "#{context}[:notification]") unless input[:notification].nil?
-        Validators::Subscribers.validate!(input[:subscribers], context: "#{context}[:subscribers]") unless input[:subscribers].nil?
+        Notification.validate!(input[:notification], context: "#{context}[:notification]") unless input[:notification].nil?
+        Subscribers.validate!(input[:subscribers], context: "#{context}[:subscribers]") unless input[:subscribers].nil?
       end
     end
 
@@ -254,8 +256,8 @@ module AWS::SDK::Budgets
         Hearth::Validator.validate!(input, Types::CreateSubscriberInput, context: context)
         Hearth::Validator.validate!(input[:account_id], ::String, context: "#{context}[:account_id]")
         Hearth::Validator.validate!(input[:budget_name], ::String, context: "#{context}[:budget_name]")
-        Validators::Notification.validate!(input[:notification], context: "#{context}[:notification]") unless input[:notification].nil?
-        Validators::Subscriber.validate!(input[:subscriber], context: "#{context}[:subscriber]") unless input[:subscriber].nil?
+        Notification.validate!(input[:notification], context: "#{context}[:notification]") unless input[:notification].nil?
+        Subscriber.validate!(input[:subscriber], context: "#{context}[:subscriber]") unless input[:subscriber].nil?
       end
     end
 
@@ -275,9 +277,9 @@ module AWS::SDK::Budgets
     class Definition
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Definition, context: context)
-        Validators::IamActionDefinition.validate!(input[:iam_action_definition], context: "#{context}[:iam_action_definition]") unless input[:iam_action_definition].nil?
-        Validators::ScpActionDefinition.validate!(input[:scp_action_definition], context: "#{context}[:scp_action_definition]") unless input[:scp_action_definition].nil?
-        Validators::SsmActionDefinition.validate!(input[:ssm_action_definition], context: "#{context}[:ssm_action_definition]") unless input[:ssm_action_definition].nil?
+        IamActionDefinition.validate!(input[:iam_action_definition], context: "#{context}[:iam_action_definition]") unless input[:iam_action_definition].nil?
+        ScpActionDefinition.validate!(input[:scp_action_definition], context: "#{context}[:scp_action_definition]") unless input[:scp_action_definition].nil?
+        SsmActionDefinition.validate!(input[:ssm_action_definition], context: "#{context}[:ssm_action_definition]") unless input[:ssm_action_definition].nil?
       end
     end
 
@@ -295,7 +297,7 @@ module AWS::SDK::Budgets
         Hearth::Validator.validate!(input, Types::DeleteBudgetActionOutput, context: context)
         Hearth::Validator.validate!(input[:account_id], ::String, context: "#{context}[:account_id]")
         Hearth::Validator.validate!(input[:budget_name], ::String, context: "#{context}[:budget_name]")
-        Validators::Action.validate!(input[:action], context: "#{context}[:action]") unless input[:action].nil?
+        Action.validate!(input[:action], context: "#{context}[:action]") unless input[:action].nil?
       end
     end
 
@@ -318,7 +320,7 @@ module AWS::SDK::Budgets
         Hearth::Validator.validate!(input, Types::DeleteNotificationInput, context: context)
         Hearth::Validator.validate!(input[:account_id], ::String, context: "#{context}[:account_id]")
         Hearth::Validator.validate!(input[:budget_name], ::String, context: "#{context}[:budget_name]")
-        Validators::Notification.validate!(input[:notification], context: "#{context}[:notification]") unless input[:notification].nil?
+        Notification.validate!(input[:notification], context: "#{context}[:notification]") unless input[:notification].nil?
       end
     end
 
@@ -333,8 +335,8 @@ module AWS::SDK::Budgets
         Hearth::Validator.validate!(input, Types::DeleteSubscriberInput, context: context)
         Hearth::Validator.validate!(input[:account_id], ::String, context: "#{context}[:account_id]")
         Hearth::Validator.validate!(input[:budget_name], ::String, context: "#{context}[:budget_name]")
-        Validators::Notification.validate!(input[:notification], context: "#{context}[:notification]") unless input[:notification].nil?
-        Validators::Subscriber.validate!(input[:subscriber], context: "#{context}[:subscriber]") unless input[:subscriber].nil?
+        Notification.validate!(input[:notification], context: "#{context}[:notification]") unless input[:notification].nil?
+        Subscriber.validate!(input[:subscriber], context: "#{context}[:subscriber]") unless input[:subscriber].nil?
       end
     end
 
@@ -350,7 +352,7 @@ module AWS::SDK::Budgets
         Hearth::Validator.validate!(input[:account_id], ::String, context: "#{context}[:account_id]")
         Hearth::Validator.validate!(input[:budget_name], ::String, context: "#{context}[:budget_name]")
         Hearth::Validator.validate!(input[:action_id], ::String, context: "#{context}[:action_id]")
-        Validators::TimePeriod.validate!(input[:time_period], context: "#{context}[:time_period]") unless input[:time_period].nil?
+        TimePeriod.validate!(input[:time_period], context: "#{context}[:time_period]") unless input[:time_period].nil?
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -359,7 +361,7 @@ module AWS::SDK::Budgets
     class DescribeBudgetActionHistoriesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeBudgetActionHistoriesOutput, context: context)
-        Validators::ActionHistories.validate!(input[:action_histories], context: "#{context}[:action_histories]") unless input[:action_histories].nil?
+        ActionHistories.validate!(input[:action_histories], context: "#{context}[:action_histories]") unless input[:action_histories].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -378,7 +380,7 @@ module AWS::SDK::Budgets
         Hearth::Validator.validate!(input, Types::DescribeBudgetActionOutput, context: context)
         Hearth::Validator.validate!(input[:account_id], ::String, context: "#{context}[:account_id]")
         Hearth::Validator.validate!(input[:budget_name], ::String, context: "#{context}[:budget_name]")
-        Validators::Action.validate!(input[:action], context: "#{context}[:action]") unless input[:action].nil?
+        Action.validate!(input[:action], context: "#{context}[:action]") unless input[:action].nil?
       end
     end
 
@@ -394,7 +396,7 @@ module AWS::SDK::Budgets
     class DescribeBudgetActionsForAccountOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeBudgetActionsForAccountOutput, context: context)
-        Validators::Actions.validate!(input[:actions], context: "#{context}[:actions]") unless input[:actions].nil?
+        Actions.validate!(input[:actions], context: "#{context}[:actions]") unless input[:actions].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -412,7 +414,7 @@ module AWS::SDK::Budgets
     class DescribeBudgetActionsForBudgetOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeBudgetActionsForBudgetOutput, context: context)
-        Validators::Actions.validate!(input[:actions], context: "#{context}[:actions]") unless input[:actions].nil?
+        Actions.validate!(input[:actions], context: "#{context}[:actions]") unless input[:actions].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -437,7 +439,7 @@ module AWS::SDK::Budgets
     class DescribeBudgetNotificationsForAccountOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeBudgetNotificationsForAccountOutput, context: context)
-        Validators::BudgetNotificationsForAccountList.validate!(input[:budget_notifications_for_account], context: "#{context}[:budget_notifications_for_account]") unless input[:budget_notifications_for_account].nil?
+        BudgetNotificationsForAccountList.validate!(input[:budget_notifications_for_account], context: "#{context}[:budget_notifications_for_account]") unless input[:budget_notifications_for_account].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -445,7 +447,7 @@ module AWS::SDK::Budgets
     class DescribeBudgetOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeBudgetOutput, context: context)
-        Validators::Budget.validate!(input[:budget], context: "#{context}[:budget]") unless input[:budget].nil?
+        Budget.validate!(input[:budget], context: "#{context}[:budget]") unless input[:budget].nil?
       end
     end
 
@@ -454,7 +456,7 @@ module AWS::SDK::Budgets
         Hearth::Validator.validate!(input, Types::DescribeBudgetPerformanceHistoryInput, context: context)
         Hearth::Validator.validate!(input[:account_id], ::String, context: "#{context}[:account_id]")
         Hearth::Validator.validate!(input[:budget_name], ::String, context: "#{context}[:budget_name]")
-        Validators::TimePeriod.validate!(input[:time_period], context: "#{context}[:time_period]") unless input[:time_period].nil?
+        TimePeriod.validate!(input[:time_period], context: "#{context}[:time_period]") unless input[:time_period].nil?
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -463,7 +465,7 @@ module AWS::SDK::Budgets
     class DescribeBudgetPerformanceHistoryOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeBudgetPerformanceHistoryOutput, context: context)
-        Validators::BudgetPerformanceHistory.validate!(input[:budget_performance_history], context: "#{context}[:budget_performance_history]") unless input[:budget_performance_history].nil?
+        BudgetPerformanceHistory.validate!(input[:budget_performance_history], context: "#{context}[:budget_performance_history]") unless input[:budget_performance_history].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -480,7 +482,7 @@ module AWS::SDK::Budgets
     class DescribeBudgetsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeBudgetsOutput, context: context)
-        Validators::Budgets.validate!(input[:budgets], context: "#{context}[:budgets]") unless input[:budgets].nil?
+        Budgets.validate!(input[:budgets], context: "#{context}[:budgets]") unless input[:budgets].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -498,7 +500,7 @@ module AWS::SDK::Budgets
     class DescribeNotificationsForBudgetOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeNotificationsForBudgetOutput, context: context)
-        Validators::Notifications.validate!(input[:notifications], context: "#{context}[:notifications]") unless input[:notifications].nil?
+        Notifications.validate!(input[:notifications], context: "#{context}[:notifications]") unless input[:notifications].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -508,7 +510,7 @@ module AWS::SDK::Budgets
         Hearth::Validator.validate!(input, Types::DescribeSubscribersForNotificationInput, context: context)
         Hearth::Validator.validate!(input[:account_id], ::String, context: "#{context}[:account_id]")
         Hearth::Validator.validate!(input[:budget_name], ::String, context: "#{context}[:budget_name]")
-        Validators::Notification.validate!(input[:notification], context: "#{context}[:notification]") unless input[:notification].nil?
+        Notification.validate!(input[:notification], context: "#{context}[:notification]") unless input[:notification].nil?
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -517,7 +519,7 @@ module AWS::SDK::Budgets
     class DescribeSubscribersForNotificationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeSubscribersForNotificationOutput, context: context)
-        Validators::Subscribers.validate!(input[:subscribers], context: "#{context}[:subscribers]") unless input[:subscribers].nil?
+        Subscribers.validate!(input[:subscribers], context: "#{context}[:subscribers]") unless input[:subscribers].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -586,9 +588,9 @@ module AWS::SDK::Budgets
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::IamActionDefinition, context: context)
         Hearth::Validator.validate!(input[:policy_arn], ::String, context: "#{context}[:policy_arn]")
-        Validators::Roles.validate!(input[:roles], context: "#{context}[:roles]") unless input[:roles].nil?
-        Validators::Groups.validate!(input[:groups], context: "#{context}[:groups]") unless input[:groups].nil?
-        Validators::Users.validate!(input[:users], context: "#{context}[:users]") unless input[:users].nil?
+        Roles.validate!(input[:roles], context: "#{context}[:roles]") unless input[:roles].nil?
+        Groups.validate!(input[:groups], context: "#{context}[:groups]") unless input[:groups].nil?
+        Users.validate!(input[:users], context: "#{context}[:users]") unless input[:users].nil?
       end
     end
 
@@ -643,8 +645,8 @@ module AWS::SDK::Budgets
     class NotificationWithSubscribers
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::NotificationWithSubscribers, context: context)
-        Validators::Notification.validate!(input[:notification], context: "#{context}[:notification]") unless input[:notification].nil?
-        Validators::Subscribers.validate!(input[:subscribers], context: "#{context}[:subscribers]") unless input[:subscribers].nil?
+        Notification.validate!(input[:notification], context: "#{context}[:notification]") unless input[:notification].nil?
+        Subscribers.validate!(input[:subscribers], context: "#{context}[:subscribers]") unless input[:subscribers].nil?
       end
     end
 
@@ -652,7 +654,7 @@ module AWS::SDK::Budgets
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::NotificationWithSubscribers.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          NotificationWithSubscribers.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -661,7 +663,7 @@ module AWS::SDK::Budgets
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Notification.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Notification.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -671,7 +673,7 @@ module AWS::SDK::Budgets
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::Spend.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          Spend.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -696,7 +698,7 @@ module AWS::SDK::Budgets
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ScpActionDefinition, context: context)
         Hearth::Validator.validate!(input[:policy_id], ::String, context: "#{context}[:policy_id]")
-        Validators::TargetIds.validate!(input[:target_ids], context: "#{context}[:target_ids]") unless input[:target_ids].nil?
+        TargetIds.validate!(input[:target_ids], context: "#{context}[:target_ids]") unless input[:target_ids].nil?
       end
     end
 
@@ -713,7 +715,7 @@ module AWS::SDK::Budgets
         Hearth::Validator.validate!(input, Types::SsmActionDefinition, context: context)
         Hearth::Validator.validate!(input[:action_sub_type], ::String, context: "#{context}[:action_sub_type]")
         Hearth::Validator.validate!(input[:region], ::String, context: "#{context}[:region]")
-        Validators::InstanceIds.validate!(input[:instance_ids], context: "#{context}[:instance_ids]") unless input[:instance_ids].nil?
+        InstanceIds.validate!(input[:instance_ids], context: "#{context}[:instance_ids]") unless input[:instance_ids].nil?
       end
     end
 
@@ -729,7 +731,7 @@ module AWS::SDK::Budgets
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Subscriber.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Subscriber.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -758,11 +760,11 @@ module AWS::SDK::Budgets
         Hearth::Validator.validate!(input[:budget_name], ::String, context: "#{context}[:budget_name]")
         Hearth::Validator.validate!(input[:action_id], ::String, context: "#{context}[:action_id]")
         Hearth::Validator.validate!(input[:notification_type], ::String, context: "#{context}[:notification_type]")
-        Validators::ActionThreshold.validate!(input[:action_threshold], context: "#{context}[:action_threshold]") unless input[:action_threshold].nil?
-        Validators::Definition.validate!(input[:definition], context: "#{context}[:definition]") unless input[:definition].nil?
+        ActionThreshold.validate!(input[:action_threshold], context: "#{context}[:action_threshold]") unless input[:action_threshold].nil?
+        Definition.validate!(input[:definition], context: "#{context}[:definition]") unless input[:definition].nil?
         Hearth::Validator.validate!(input[:execution_role_arn], ::String, context: "#{context}[:execution_role_arn]")
         Hearth::Validator.validate!(input[:approval_model], ::String, context: "#{context}[:approval_model]")
-        Validators::Subscribers.validate!(input[:subscribers], context: "#{context}[:subscribers]") unless input[:subscribers].nil?
+        Subscribers.validate!(input[:subscribers], context: "#{context}[:subscribers]") unless input[:subscribers].nil?
       end
     end
 
@@ -771,8 +773,8 @@ module AWS::SDK::Budgets
         Hearth::Validator.validate!(input, Types::UpdateBudgetActionOutput, context: context)
         Hearth::Validator.validate!(input[:account_id], ::String, context: "#{context}[:account_id]")
         Hearth::Validator.validate!(input[:budget_name], ::String, context: "#{context}[:budget_name]")
-        Validators::Action.validate!(input[:old_action], context: "#{context}[:old_action]") unless input[:old_action].nil?
-        Validators::Action.validate!(input[:new_action], context: "#{context}[:new_action]") unless input[:new_action].nil?
+        Action.validate!(input[:old_action], context: "#{context}[:old_action]") unless input[:old_action].nil?
+        Action.validate!(input[:new_action], context: "#{context}[:new_action]") unless input[:new_action].nil?
       end
     end
 
@@ -780,7 +782,7 @@ module AWS::SDK::Budgets
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateBudgetInput, context: context)
         Hearth::Validator.validate!(input[:account_id], ::String, context: "#{context}[:account_id]")
-        Validators::Budget.validate!(input[:new_budget], context: "#{context}[:new_budget]") unless input[:new_budget].nil?
+        Budget.validate!(input[:new_budget], context: "#{context}[:new_budget]") unless input[:new_budget].nil?
       end
     end
 
@@ -795,8 +797,8 @@ module AWS::SDK::Budgets
         Hearth::Validator.validate!(input, Types::UpdateNotificationInput, context: context)
         Hearth::Validator.validate!(input[:account_id], ::String, context: "#{context}[:account_id]")
         Hearth::Validator.validate!(input[:budget_name], ::String, context: "#{context}[:budget_name]")
-        Validators::Notification.validate!(input[:old_notification], context: "#{context}[:old_notification]") unless input[:old_notification].nil?
-        Validators::Notification.validate!(input[:new_notification], context: "#{context}[:new_notification]") unless input[:new_notification].nil?
+        Notification.validate!(input[:old_notification], context: "#{context}[:old_notification]") unless input[:old_notification].nil?
+        Notification.validate!(input[:new_notification], context: "#{context}[:new_notification]") unless input[:new_notification].nil?
       end
     end
 
@@ -811,9 +813,9 @@ module AWS::SDK::Budgets
         Hearth::Validator.validate!(input, Types::UpdateSubscriberInput, context: context)
         Hearth::Validator.validate!(input[:account_id], ::String, context: "#{context}[:account_id]")
         Hearth::Validator.validate!(input[:budget_name], ::String, context: "#{context}[:budget_name]")
-        Validators::Notification.validate!(input[:notification], context: "#{context}[:notification]") unless input[:notification].nil?
-        Validators::Subscriber.validate!(input[:old_subscriber], context: "#{context}[:old_subscriber]") unless input[:old_subscriber].nil?
-        Validators::Subscriber.validate!(input[:new_subscriber], context: "#{context}[:new_subscriber]") unless input[:new_subscriber].nil?
+        Notification.validate!(input[:notification], context: "#{context}[:notification]") unless input[:notification].nil?
+        Subscriber.validate!(input[:old_subscriber], context: "#{context}[:old_subscriber]") unless input[:old_subscriber].nil?
+        Subscriber.validate!(input[:new_subscriber], context: "#{context}[:new_subscriber]") unless input[:new_subscriber].nil?
       end
     end
 

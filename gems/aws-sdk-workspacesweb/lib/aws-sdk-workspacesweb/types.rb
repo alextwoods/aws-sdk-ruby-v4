@@ -1549,11 +1549,11 @@ module AWS::SDK::WorkSpacesWeb
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.retry_after_seconds ||= 0
       end
-
     end
 
     # @!attribute next_token
@@ -2287,11 +2287,11 @@ module AWS::SDK::WorkSpacesWeb
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.retry_after_seconds ||= 0
       end
-
     end
 
     # <p>There are too many tags.</p>

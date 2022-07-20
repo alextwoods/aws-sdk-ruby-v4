@@ -14,7 +14,7 @@ module AWS::SDK::Fis
     class CreateExperimentTemplate
       def self.default(visited=[])
         {
-          experiment_template: Stubs::ExperimentTemplate.default(visited),
+          experiment_template: ExperimentTemplate.default(visited),
         }
       end
 
@@ -35,14 +35,14 @@ module AWS::SDK::Fis
         {
           id: 'id',
           description: 'description',
-          targets: Stubs::ExperimentTemplateTargetMap.default(visited),
-          actions: Stubs::ExperimentTemplateActionMap.default(visited),
-          stop_conditions: Stubs::ExperimentTemplateStopConditionList.default(visited),
+          targets: ExperimentTemplateTargetMap.default(visited),
+          actions: ExperimentTemplateActionMap.default(visited),
+          stop_conditions: ExperimentTemplateStopConditionList.default(visited),
           creation_time: Time.now,
           last_update_time: Time.now,
           role_arn: 'role_arn',
-          tags: Stubs::TagMap.default(visited),
-          log_configuration: Stubs::ExperimentTemplateLogConfiguration.default(visited),
+          tags: TagMap.default(visited),
+          log_configuration: ExperimentTemplateLogConfiguration.default(visited),
         }
       end
 
@@ -69,8 +69,8 @@ module AWS::SDK::Fis
         return nil if visited.include?('ExperimentTemplateLogConfiguration')
         visited = visited + ['ExperimentTemplateLogConfiguration']
         {
-          cloud_watch_logs_configuration: Stubs::ExperimentTemplateCloudWatchLogsLogConfiguration.default(visited),
-          s3_configuration: Stubs::ExperimentTemplateS3LogConfiguration.default(visited),
+          cloud_watch_logs_configuration: ExperimentTemplateCloudWatchLogsLogConfiguration.default(visited),
+          s3_configuration: ExperimentTemplateS3LogConfiguration.default(visited),
           log_schema_version: 1,
         }
       end
@@ -149,7 +149,7 @@ module AWS::SDK::Fis
         return nil if visited.include?('ExperimentTemplateStopConditionList')
         visited = visited + ['ExperimentTemplateStopConditionList']
         [
-          Stubs::ExperimentTemplateStopCondition.default(visited)
+          ExperimentTemplateStopCondition.default(visited)
         ]
       end
 
@@ -189,7 +189,7 @@ module AWS::SDK::Fis
         return nil if visited.include?('ExperimentTemplateActionMap')
         visited = visited + ['ExperimentTemplateActionMap']
         {
-          test_key: Stubs::ExperimentTemplateAction.default(visited)
+          test_key: ExperimentTemplateAction.default(visited)
         }
       end
 
@@ -211,9 +211,9 @@ module AWS::SDK::Fis
         {
           action_id: 'action_id',
           description: 'description',
-          parameters: Stubs::ExperimentTemplateActionParameterMap.default(visited),
-          targets: Stubs::ExperimentTemplateActionTargetMap.default(visited),
-          start_after: Stubs::ExperimentTemplateActionStartAfterList.default(visited),
+          parameters: ExperimentTemplateActionParameterMap.default(visited),
+          targets: ExperimentTemplateActionTargetMap.default(visited),
+          start_after: ExperimentTemplateActionStartAfterList.default(visited),
         }
       end
 
@@ -295,7 +295,7 @@ module AWS::SDK::Fis
         return nil if visited.include?('ExperimentTemplateTargetMap')
         visited = visited + ['ExperimentTemplateTargetMap']
         {
-          test_key: Stubs::ExperimentTemplateTarget.default(visited)
+          test_key: ExperimentTemplateTarget.default(visited)
         }
       end
 
@@ -316,11 +316,11 @@ module AWS::SDK::Fis
         visited = visited + ['ExperimentTemplateTarget']
         {
           resource_type: 'resource_type',
-          resource_arns: Stubs::ResourceArnList.default(visited),
-          resource_tags: Stubs::TagMap.default(visited),
-          filters: Stubs::ExperimentTemplateTargetFilterList.default(visited),
+          resource_arns: ResourceArnList.default(visited),
+          resource_tags: TagMap.default(visited),
+          filters: ExperimentTemplateTargetFilterList.default(visited),
           selection_mode: 'selection_mode',
-          parameters: Stubs::ExperimentTemplateTargetParameterMap.default(visited),
+          parameters: ExperimentTemplateTargetParameterMap.default(visited),
         }
       end
 
@@ -363,7 +363,7 @@ module AWS::SDK::Fis
         return nil if visited.include?('ExperimentTemplateTargetFilterList')
         visited = visited + ['ExperimentTemplateTargetFilterList']
         [
-          Stubs::ExperimentTemplateTargetFilter.default(visited)
+          ExperimentTemplateTargetFilter.default(visited)
         ]
       end
 
@@ -384,7 +384,7 @@ module AWS::SDK::Fis
         visited = visited + ['ExperimentTemplateTargetFilter']
         {
           path: 'path',
-          values: Stubs::ExperimentTemplateTargetFilterValues.default(visited),
+          values: ExperimentTemplateTargetFilterValues.default(visited),
         }
       end
 
@@ -441,7 +441,7 @@ module AWS::SDK::Fis
     class DeleteExperimentTemplate
       def self.default(visited=[])
         {
-          experiment_template: Stubs::ExperimentTemplate.default(visited),
+          experiment_template: ExperimentTemplate.default(visited),
         }
       end
 
@@ -458,7 +458,7 @@ module AWS::SDK::Fis
     class GetAction
       def self.default(visited=[])
         {
-          action: Stubs::Action.default(visited),
+          action: Action.default(visited),
         }
       end
 
@@ -479,9 +479,9 @@ module AWS::SDK::Fis
         {
           id: 'id',
           description: 'description',
-          parameters: Stubs::ActionParameterMap.default(visited),
-          targets: Stubs::ActionTargetMap.default(visited),
-          tags: Stubs::TagMap.default(visited),
+          parameters: ActionParameterMap.default(visited),
+          targets: ActionTargetMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -503,7 +503,7 @@ module AWS::SDK::Fis
         return nil if visited.include?('ActionTargetMap')
         visited = visited + ['ActionTargetMap']
         {
-          test_key: Stubs::ActionTarget.default(visited)
+          test_key: ActionTarget.default(visited)
         }
       end
 
@@ -541,7 +541,7 @@ module AWS::SDK::Fis
         return nil if visited.include?('ActionParameterMap')
         visited = visited + ['ActionParameterMap']
         {
-          test_key: Stubs::ActionParameter.default(visited)
+          test_key: ActionParameter.default(visited)
         }
       end
 
@@ -579,7 +579,7 @@ module AWS::SDK::Fis
     class GetExperiment
       def self.default(visited=[])
         {
-          experiment: Stubs::Experiment.default(visited),
+          experiment: Experiment.default(visited),
         }
       end
 
@@ -601,15 +601,15 @@ module AWS::SDK::Fis
           id: 'id',
           experiment_template_id: 'experiment_template_id',
           role_arn: 'role_arn',
-          state: Stubs::ExperimentState.default(visited),
-          targets: Stubs::ExperimentTargetMap.default(visited),
-          actions: Stubs::ExperimentActionMap.default(visited),
-          stop_conditions: Stubs::ExperimentStopConditionList.default(visited),
+          state: ExperimentState.default(visited),
+          targets: ExperimentTargetMap.default(visited),
+          actions: ExperimentActionMap.default(visited),
+          stop_conditions: ExperimentStopConditionList.default(visited),
           creation_time: Time.now,
           start_time: Time.now,
           end_time: Time.now,
-          tags: Stubs::TagMap.default(visited),
-          log_configuration: Stubs::ExperimentLogConfiguration.default(visited),
+          tags: TagMap.default(visited),
+          log_configuration: ExperimentLogConfiguration.default(visited),
         }
       end
 
@@ -638,8 +638,8 @@ module AWS::SDK::Fis
         return nil if visited.include?('ExperimentLogConfiguration')
         visited = visited + ['ExperimentLogConfiguration']
         {
-          cloud_watch_logs_configuration: Stubs::ExperimentCloudWatchLogsLogConfiguration.default(visited),
-          s3_configuration: Stubs::ExperimentS3LogConfiguration.default(visited),
+          cloud_watch_logs_configuration: ExperimentCloudWatchLogsLogConfiguration.default(visited),
+          s3_configuration: ExperimentS3LogConfiguration.default(visited),
           log_schema_version: 1,
         }
       end
@@ -698,7 +698,7 @@ module AWS::SDK::Fis
         return nil if visited.include?('ExperimentStopConditionList')
         visited = visited + ['ExperimentStopConditionList']
         [
-          Stubs::ExperimentStopCondition.default(visited)
+          ExperimentStopCondition.default(visited)
         ]
       end
 
@@ -738,7 +738,7 @@ module AWS::SDK::Fis
         return nil if visited.include?('ExperimentActionMap')
         visited = visited + ['ExperimentActionMap']
         {
-          test_key: Stubs::ExperimentAction.default(visited)
+          test_key: ExperimentAction.default(visited)
         }
       end
 
@@ -760,10 +760,10 @@ module AWS::SDK::Fis
         {
           action_id: 'action_id',
           description: 'description',
-          parameters: Stubs::ExperimentActionParameterMap.default(visited),
-          targets: Stubs::ExperimentActionTargetMap.default(visited),
-          start_after: Stubs::ExperimentActionStartAfterList.default(visited),
-          state: Stubs::ExperimentActionState.default(visited),
+          parameters: ExperimentActionParameterMap.default(visited),
+          targets: ExperimentActionTargetMap.default(visited),
+          start_after: ExperimentActionStartAfterList.default(visited),
+          state: ExperimentActionState.default(visited),
           start_time: Time.now,
           end_time: Time.now,
         }
@@ -870,7 +870,7 @@ module AWS::SDK::Fis
         return nil if visited.include?('ExperimentTargetMap')
         visited = visited + ['ExperimentTargetMap']
         {
-          test_key: Stubs::ExperimentTarget.default(visited)
+          test_key: ExperimentTarget.default(visited)
         }
       end
 
@@ -891,11 +891,11 @@ module AWS::SDK::Fis
         visited = visited + ['ExperimentTarget']
         {
           resource_type: 'resource_type',
-          resource_arns: Stubs::ResourceArnList.default(visited),
-          resource_tags: Stubs::TagMap.default(visited),
-          filters: Stubs::ExperimentTargetFilterList.default(visited),
+          resource_arns: ResourceArnList.default(visited),
+          resource_tags: TagMap.default(visited),
+          filters: ExperimentTargetFilterList.default(visited),
           selection_mode: 'selection_mode',
-          parameters: Stubs::ExperimentTargetParameterMap.default(visited),
+          parameters: ExperimentTargetParameterMap.default(visited),
         }
       end
 
@@ -938,7 +938,7 @@ module AWS::SDK::Fis
         return nil if visited.include?('ExperimentTargetFilterList')
         visited = visited + ['ExperimentTargetFilterList']
         [
-          Stubs::ExperimentTargetFilter.default(visited)
+          ExperimentTargetFilter.default(visited)
         ]
       end
 
@@ -959,7 +959,7 @@ module AWS::SDK::Fis
         visited = visited + ['ExperimentTargetFilter']
         {
           path: 'path',
-          values: Stubs::ExperimentTargetFilterValues.default(visited),
+          values: ExperimentTargetFilterValues.default(visited),
         }
       end
 
@@ -1016,7 +1016,7 @@ module AWS::SDK::Fis
     class GetExperimentTemplate
       def self.default(visited=[])
         {
-          experiment_template: Stubs::ExperimentTemplate.default(visited),
+          experiment_template: ExperimentTemplate.default(visited),
         }
       end
 
@@ -1033,7 +1033,7 @@ module AWS::SDK::Fis
     class GetTargetResourceType
       def self.default(visited=[])
         {
-          target_resource_type: Stubs::TargetResourceType.default(visited),
+          target_resource_type: TargetResourceType.default(visited),
         }
       end
 
@@ -1054,7 +1054,7 @@ module AWS::SDK::Fis
         {
           resource_type: 'resource_type',
           description: 'description',
-          parameters: Stubs::TargetResourceTypeParameterMap.default(visited),
+          parameters: TargetResourceTypeParameterMap.default(visited),
         }
       end
 
@@ -1074,7 +1074,7 @@ module AWS::SDK::Fis
         return nil if visited.include?('TargetResourceTypeParameterMap')
         visited = visited + ['TargetResourceTypeParameterMap']
         {
-          test_key: Stubs::TargetResourceTypeParameter.default(visited)
+          test_key: TargetResourceTypeParameter.default(visited)
         }
       end
 
@@ -1112,7 +1112,7 @@ module AWS::SDK::Fis
     class ListActions
       def self.default(visited=[])
         {
-          actions: Stubs::ActionSummaryList.default(visited),
+          actions: ActionSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1133,7 +1133,7 @@ module AWS::SDK::Fis
         return nil if visited.include?('ActionSummaryList')
         visited = visited + ['ActionSummaryList']
         [
-          Stubs::ActionSummary.default(visited)
+          ActionSummary.default(visited)
         ]
       end
 
@@ -1155,8 +1155,8 @@ module AWS::SDK::Fis
         {
           id: 'id',
           description: 'description',
-          targets: Stubs::ActionTargetMap.default(visited),
-          tags: Stubs::TagMap.default(visited),
+          targets: ActionTargetMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -1175,7 +1175,7 @@ module AWS::SDK::Fis
     class ListExperimentTemplates
       def self.default(visited=[])
         {
-          experiment_templates: Stubs::ExperimentTemplateSummaryList.default(visited),
+          experiment_templates: ExperimentTemplateSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1196,7 +1196,7 @@ module AWS::SDK::Fis
         return nil if visited.include?('ExperimentTemplateSummaryList')
         visited = visited + ['ExperimentTemplateSummaryList']
         [
-          Stubs::ExperimentTemplateSummary.default(visited)
+          ExperimentTemplateSummary.default(visited)
         ]
       end
 
@@ -1220,7 +1220,7 @@ module AWS::SDK::Fis
           description: 'description',
           creation_time: Time.now,
           last_update_time: Time.now,
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -1240,7 +1240,7 @@ module AWS::SDK::Fis
     class ListExperiments
       def self.default(visited=[])
         {
-          experiments: Stubs::ExperimentSummaryList.default(visited),
+          experiments: ExperimentSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1261,7 +1261,7 @@ module AWS::SDK::Fis
         return nil if visited.include?('ExperimentSummaryList')
         visited = visited + ['ExperimentSummaryList']
         [
-          Stubs::ExperimentSummary.default(visited)
+          ExperimentSummary.default(visited)
         ]
       end
 
@@ -1283,9 +1283,9 @@ module AWS::SDK::Fis
         {
           id: 'id',
           experiment_template_id: 'experiment_template_id',
-          state: Stubs::ExperimentState.default(visited),
+          state: ExperimentState.default(visited),
           creation_time: Time.now,
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -1305,7 +1305,7 @@ module AWS::SDK::Fis
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -1322,7 +1322,7 @@ module AWS::SDK::Fis
     class ListTargetResourceTypes
       def self.default(visited=[])
         {
-          target_resource_types: Stubs::TargetResourceTypeSummaryList.default(visited),
+          target_resource_types: TargetResourceTypeSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1343,7 +1343,7 @@ module AWS::SDK::Fis
         return nil if visited.include?('TargetResourceTypeSummaryList')
         visited = visited + ['TargetResourceTypeSummaryList']
         [
-          Stubs::TargetResourceTypeSummary.default(visited)
+          TargetResourceTypeSummary.default(visited)
         ]
       end
 
@@ -1381,7 +1381,7 @@ module AWS::SDK::Fis
     class StartExperiment
       def self.default(visited=[])
         {
-          experiment: Stubs::Experiment.default(visited),
+          experiment: Experiment.default(visited),
         }
       end
 
@@ -1398,7 +1398,7 @@ module AWS::SDK::Fis
     class StopExperiment
       def self.default(visited=[])
         {
-          experiment: Stubs::Experiment.default(visited),
+          experiment: Experiment.default(visited),
         }
       end
 
@@ -1441,7 +1441,7 @@ module AWS::SDK::Fis
     class UpdateExperimentTemplate
       def self.default(visited=[])
         {
-          experiment_template: Stubs::ExperimentTemplate.default(visited),
+          experiment_template: ExperimentTemplate.default(visited),
         }
       end
 

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::Personalize
@@ -114,7 +116,7 @@ module AWS::SDK::Personalize
     def create_batch_inference_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateBatchInferenceJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateBatchInferenceJobInput,
         validate_input: @config.validate_input
@@ -227,7 +229,7 @@ module AWS::SDK::Personalize
     def create_batch_segment_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateBatchSegmentJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateBatchSegmentJobInput,
         validate_input: @config.validate_input
@@ -391,7 +393,7 @@ module AWS::SDK::Personalize
     def create_campaign(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateCampaignInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateCampaignInput,
         validate_input: @config.validate_input
@@ -546,7 +548,7 @@ module AWS::SDK::Personalize
     def create_dataset(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDatasetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDatasetInput,
         validate_input: @config.validate_input
@@ -670,7 +672,7 @@ module AWS::SDK::Personalize
     def create_dataset_export_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDatasetExportJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDatasetExportJobInput,
         validate_input: @config.validate_input
@@ -843,7 +845,7 @@ module AWS::SDK::Personalize
     def create_dataset_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDatasetGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDatasetGroupInput,
         validate_input: @config.validate_input
@@ -976,7 +978,7 @@ module AWS::SDK::Personalize
     def create_dataset_import_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDatasetImportJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDatasetImportJobInput,
         validate_input: @config.validate_input
@@ -1104,7 +1106,7 @@ module AWS::SDK::Personalize
     def create_event_tracker(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateEventTrackerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateEventTrackerInput,
         validate_input: @config.validate_input
@@ -1192,7 +1194,7 @@ module AWS::SDK::Personalize
     def create_filter(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateFilterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateFilterInput,
         validate_input: @config.validate_input
@@ -1364,7 +1366,7 @@ module AWS::SDK::Personalize
     def create_recommender(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateRecommenderInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateRecommenderInput,
         validate_input: @config.validate_input
@@ -1468,7 +1470,7 @@ module AWS::SDK::Personalize
     def create_schema(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateSchemaInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateSchemaInput,
         validate_input: @config.validate_input
@@ -1715,7 +1717,7 @@ module AWS::SDK::Personalize
     def create_solution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateSolutionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateSolutionInput,
         validate_input: @config.validate_input
@@ -1876,7 +1878,7 @@ module AWS::SDK::Personalize
     def create_solution_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateSolutionVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateSolutionVersionInput,
         validate_input: @config.validate_input
@@ -1949,7 +1951,7 @@ module AWS::SDK::Personalize
     def delete_campaign(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteCampaignInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteCampaignInput,
         validate_input: @config.validate_input
@@ -2019,7 +2021,7 @@ module AWS::SDK::Personalize
     def delete_dataset(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDatasetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDatasetInput,
         validate_input: @config.validate_input
@@ -2099,7 +2101,7 @@ module AWS::SDK::Personalize
     def delete_dataset_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDatasetGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDatasetGroupInput,
         validate_input: @config.validate_input
@@ -2169,7 +2171,7 @@ module AWS::SDK::Personalize
     def delete_event_tracker(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteEventTrackerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteEventTrackerInput,
         validate_input: @config.validate_input
@@ -2237,7 +2239,7 @@ module AWS::SDK::Personalize
     def delete_filter(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteFilterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteFilterInput,
         validate_input: @config.validate_input
@@ -2306,7 +2308,7 @@ module AWS::SDK::Personalize
     def delete_recommender(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteRecommenderInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteRecommenderInput,
         validate_input: @config.validate_input
@@ -2376,7 +2378,7 @@ module AWS::SDK::Personalize
     def delete_schema(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteSchemaInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteSchemaInput,
         validate_input: @config.validate_input
@@ -2450,7 +2452,7 @@ module AWS::SDK::Personalize
     def delete_solution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteSolutionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteSolutionInput,
         validate_input: @config.validate_input
@@ -2551,7 +2553,7 @@ module AWS::SDK::Personalize
     def describe_algorithm(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAlgorithmInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAlgorithmInput,
         validate_input: @config.validate_input
@@ -2641,7 +2643,7 @@ module AWS::SDK::Personalize
     def describe_batch_inference_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeBatchInferenceJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeBatchInferenceJobInput,
         validate_input: @config.validate_input
@@ -2728,7 +2730,7 @@ module AWS::SDK::Personalize
     def describe_batch_segment_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeBatchSegmentJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeBatchSegmentJobInput,
         validate_input: @config.validate_input
@@ -2828,7 +2830,7 @@ module AWS::SDK::Personalize
     def describe_campaign(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeCampaignInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeCampaignInput,
         validate_input: @config.validate_input
@@ -2905,7 +2907,7 @@ module AWS::SDK::Personalize
     def describe_dataset(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDatasetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDatasetInput,
         validate_input: @config.validate_input
@@ -2988,7 +2990,7 @@ module AWS::SDK::Personalize
     def describe_dataset_export_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDatasetExportJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDatasetExportJobInput,
         validate_input: @config.validate_input
@@ -3066,7 +3068,7 @@ module AWS::SDK::Personalize
     def describe_dataset_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDatasetGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDatasetGroupInput,
         validate_input: @config.validate_input
@@ -3146,7 +3148,7 @@ module AWS::SDK::Personalize
     def describe_dataset_import_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDatasetImportJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDatasetImportJobInput,
         validate_input: @config.validate_input
@@ -3225,7 +3227,7 @@ module AWS::SDK::Personalize
     def describe_event_tracker(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeEventTrackerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeEventTrackerInput,
         validate_input: @config.validate_input
@@ -3301,7 +3303,7 @@ module AWS::SDK::Personalize
     def describe_feature_transformation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeFeatureTransformationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeFeatureTransformationInput,
         validate_input: @config.validate_input
@@ -3378,7 +3380,7 @@ module AWS::SDK::Personalize
     def describe_filter(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeFilterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeFilterInput,
         validate_input: @config.validate_input
@@ -3474,7 +3476,7 @@ module AWS::SDK::Personalize
     def describe_recipe(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeRecipeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeRecipeInput,
         validate_input: @config.validate_input
@@ -3580,7 +3582,7 @@ module AWS::SDK::Personalize
     def describe_recommender(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeRecommenderInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeRecommenderInput,
         validate_input: @config.validate_input
@@ -3656,7 +3658,7 @@ module AWS::SDK::Personalize
     def describe_schema(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeSchemaInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeSchemaInput,
         validate_input: @config.validate_input
@@ -3781,7 +3783,7 @@ module AWS::SDK::Personalize
     def describe_solution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeSolutionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeSolutionInput,
         validate_input: @config.validate_input
@@ -3903,7 +3905,7 @@ module AWS::SDK::Personalize
     def describe_solution_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeSolutionVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeSolutionVersionInput,
         validate_input: @config.validate_input
@@ -3974,7 +3976,7 @@ module AWS::SDK::Personalize
     def get_solution_metrics(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSolutionMetricsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSolutionMetricsInput,
         validate_input: @config.validate_input
@@ -4063,7 +4065,7 @@ module AWS::SDK::Personalize
     def list_batch_inference_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListBatchInferenceJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListBatchInferenceJobsInput,
         validate_input: @config.validate_input
@@ -4151,7 +4153,7 @@ module AWS::SDK::Personalize
     def list_batch_segment_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListBatchSegmentJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListBatchSegmentJobsInput,
         validate_input: @config.validate_input
@@ -4241,7 +4243,7 @@ module AWS::SDK::Personalize
     def list_campaigns(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListCampaignsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListCampaignsInput,
         validate_input: @config.validate_input
@@ -4331,7 +4333,7 @@ module AWS::SDK::Personalize
     def list_dataset_export_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDatasetExportJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDatasetExportJobsInput,
         validate_input: @config.validate_input
@@ -4416,7 +4418,7 @@ module AWS::SDK::Personalize
     def list_dataset_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDatasetGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDatasetGroupsInput,
         validate_input: @config.validate_input
@@ -4506,7 +4508,7 @@ module AWS::SDK::Personalize
     def list_dataset_import_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDatasetImportJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDatasetImportJobsInput,
         validate_input: @config.validate_input
@@ -4595,7 +4597,7 @@ module AWS::SDK::Personalize
     def list_datasets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDatasetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDatasetsInput,
         validate_input: @config.validate_input
@@ -4683,7 +4685,7 @@ module AWS::SDK::Personalize
     def list_event_trackers(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListEventTrackersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListEventTrackersInput,
         validate_input: @config.validate_input
@@ -4770,7 +4772,7 @@ module AWS::SDK::Personalize
     def list_filters(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListFiltersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListFiltersInput,
         validate_input: @config.validate_input
@@ -4864,7 +4866,7 @@ module AWS::SDK::Personalize
     def list_recipes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListRecipesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListRecipesInput,
         validate_input: @config.validate_input
@@ -4959,7 +4961,7 @@ module AWS::SDK::Personalize
     def list_recommenders(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListRecommendersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListRecommendersInput,
         validate_input: @config.validate_input
@@ -5042,7 +5044,7 @@ module AWS::SDK::Personalize
     def list_schemas(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListSchemasInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListSchemasInput,
         validate_input: @config.validate_input
@@ -5129,7 +5131,7 @@ module AWS::SDK::Personalize
     def list_solution_versions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListSolutionVersionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListSolutionVersionsInput,
         validate_input: @config.validate_input
@@ -5217,7 +5219,7 @@ module AWS::SDK::Personalize
     def list_solutions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListSolutionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListSolutionsInput,
         validate_input: @config.validate_input
@@ -5289,7 +5291,7 @@ module AWS::SDK::Personalize
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -5359,7 +5361,7 @@ module AWS::SDK::Personalize
     def start_recommender(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartRecommenderInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartRecommenderInput,
         validate_input: @config.validate_input
@@ -5428,7 +5430,7 @@ module AWS::SDK::Personalize
     def stop_recommender(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopRecommenderInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopRecommenderInput,
         validate_input: @config.validate_input
@@ -5509,7 +5511,7 @@ module AWS::SDK::Personalize
     def stop_solution_version_creation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopSolutionVersionCreationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopSolutionVersionCreationInput,
         validate_input: @config.validate_input
@@ -5586,7 +5588,7 @@ module AWS::SDK::Personalize
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -5660,7 +5662,7 @@ module AWS::SDK::Personalize
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -5757,7 +5759,7 @@ module AWS::SDK::Personalize
     def update_campaign(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateCampaignInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateCampaignInput,
         validate_input: @config.validate_input
@@ -5835,7 +5837,7 @@ module AWS::SDK::Personalize
     def update_recommender(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateRecommenderInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateRecommenderInput,
         validate_input: @config.validate_input

@@ -76,12 +76,12 @@ module AWS::SDK::ConnectContactLens
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.begin_offset_char ||= 0
         self.end_offset_char ||= 0
       end
-
     end
 
     # <p>Request processing failed due to an error or failure with the service.</p>
@@ -154,11 +154,11 @@ module AWS::SDK::ConnectContactLens
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute segments
@@ -208,12 +208,12 @@ module AWS::SDK::ConnectContactLens
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.begin_offset_millis ||= 0
         self.end_offset_millis ||= 0
       end
-
     end
 
     # <p>An analyzed segment for a real-time analysis session.</p>
@@ -334,12 +334,12 @@ module AWS::SDK::ConnectContactLens
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.begin_offset_millis ||= 0
         self.end_offset_millis ||= 0
       end
-
     end
 
   end

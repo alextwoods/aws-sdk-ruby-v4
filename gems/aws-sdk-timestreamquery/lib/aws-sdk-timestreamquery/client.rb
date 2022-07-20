@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::TimestreamQuery
@@ -66,7 +68,7 @@ module AWS::SDK::TimestreamQuery
     def cancel_query(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelQueryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelQueryInput,
         validate_input: @config.validate_input
@@ -247,7 +249,7 @@ module AWS::SDK::TimestreamQuery
     def create_scheduled_query(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateScheduledQueryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateScheduledQueryInput,
         validate_input: @config.validate_input
@@ -315,7 +317,7 @@ module AWS::SDK::TimestreamQuery
     def delete_scheduled_query(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteScheduledQueryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteScheduledQueryInput,
         validate_input: @config.validate_input
@@ -402,7 +404,7 @@ module AWS::SDK::TimestreamQuery
     def describe_endpoints(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeEndpointsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeEndpointsInput,
         validate_input: @config.validate_input
@@ -530,7 +532,7 @@ module AWS::SDK::TimestreamQuery
     def describe_scheduled_query(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeScheduledQueryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeScheduledQueryInput,
         validate_input: @config.validate_input
@@ -606,7 +608,7 @@ module AWS::SDK::TimestreamQuery
     def execute_scheduled_query(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ExecuteScheduledQueryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ExecuteScheduledQueryInput,
         validate_input: @config.validate_input
@@ -700,7 +702,7 @@ module AWS::SDK::TimestreamQuery
     def list_scheduled_queries(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListScheduledQueriesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListScheduledQueriesInput,
         validate_input: @config.validate_input
@@ -782,7 +784,7 @@ module AWS::SDK::TimestreamQuery
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -878,7 +880,7 @@ module AWS::SDK::TimestreamQuery
     def prepare_query(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PrepareQueryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PrepareQueryInput,
         validate_input: @config.validate_input
@@ -1097,7 +1099,7 @@ module AWS::SDK::TimestreamQuery
     def query(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::QueryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::QueryInput,
         validate_input: @config.validate_input
@@ -1177,7 +1179,7 @@ module AWS::SDK::TimestreamQuery
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -1253,7 +1255,7 @@ module AWS::SDK::TimestreamQuery
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -1325,7 +1327,7 @@ module AWS::SDK::TimestreamQuery
     def update_scheduled_query(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateScheduledQueryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateScheduledQueryInput,
         validate_input: @config.validate_input

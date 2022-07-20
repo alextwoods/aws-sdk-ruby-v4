@@ -27,7 +27,7 @@ module AWS::SDK::ElasticTranscoder
     class CreateJob
       def self.default(visited=[])
         {
-          job: Stubs::Job.default(visited),
+          job: Job.default(visited),
         }
       end
 
@@ -49,15 +49,15 @@ module AWS::SDK::ElasticTranscoder
           id: 'id',
           arn: 'arn',
           pipeline_id: 'pipeline_id',
-          input: Stubs::JobInput.default(visited),
-          inputs: Stubs::JobInputs.default(visited),
-          output: Stubs::JobOutput.default(visited),
-          outputs: Stubs::JobOutputs.default(visited),
+          input: JobInput.default(visited),
+          inputs: JobInputs.default(visited),
+          output: JobOutput.default(visited),
+          outputs: JobOutputs.default(visited),
           output_key_prefix: 'output_key_prefix',
-          playlists: Stubs::Playlists.default(visited),
+          playlists: Playlists.default(visited),
           status: 'status',
-          user_metadata: Stubs::UserMetadata.default(visited),
-          timing: Stubs::Timing.default(visited),
+          user_metadata: UserMetadata.default(visited),
+          timing: Timing.default(visited),
         }
       end
 
@@ -128,7 +128,7 @@ module AWS::SDK::ElasticTranscoder
         return nil if visited.include?('Playlists')
         visited = visited + ['Playlists']
         [
-          Stubs::Playlist.default(visited)
+          Playlist.default(visited)
         ]
       end
 
@@ -150,9 +150,9 @@ module AWS::SDK::ElasticTranscoder
         {
           name: 'name',
           format: 'format',
-          output_keys: Stubs::OutputKeys.default(visited),
-          hls_content_protection: Stubs::HlsContentProtection.default(visited),
-          play_ready_drm: Stubs::PlayReadyDrm.default(visited),
+          output_keys: OutputKeys.default(visited),
+          hls_content_protection: HlsContentProtection.default(visited),
+          play_ready_drm: PlayReadyDrm.default(visited),
           status: 'status',
           status_detail: 'status_detail',
         }
@@ -254,7 +254,7 @@ module AWS::SDK::ElasticTranscoder
         return nil if visited.include?('JobOutputs')
         visited = visited + ['JobOutputs']
         [
-          Stubs::JobOutput.default(visited)
+          JobOutput.default(visited)
         ]
       end
 
@@ -277,7 +277,7 @@ module AWS::SDK::ElasticTranscoder
           id: 'id',
           key: 'key',
           thumbnail_pattern: 'thumbnail_pattern',
-          thumbnail_encryption: Stubs::Encryption.default(visited),
+          thumbnail_encryption: Encryption.default(visited),
           rotate: 'rotate',
           preset_id: 'preset_id',
           segment_duration: 'segment_duration',
@@ -289,11 +289,11 @@ module AWS::SDK::ElasticTranscoder
           frame_rate: 'frame_rate',
           file_size: 1,
           duration_millis: 1,
-          watermarks: Stubs::JobWatermarks.default(visited),
-          album_art: Stubs::JobAlbumArt.default(visited),
-          composition: Stubs::Composition.default(visited),
-          captions: Stubs::Captions.default(visited),
-          encryption: Stubs::Encryption.default(visited),
+          watermarks: JobWatermarks.default(visited),
+          album_art: JobAlbumArt.default(visited),
+          composition: Composition.default(visited),
+          captions: Captions.default(visited),
+          encryption: Encryption.default(visited),
           applied_color_space_conversion: 'applied_color_space_conversion',
         }
       end
@@ -357,8 +357,8 @@ module AWS::SDK::ElasticTranscoder
         visited = visited + ['Captions']
         {
           merge_policy: 'merge_policy',
-          caption_sources: Stubs::CaptionSources.default(visited),
-          caption_formats: Stubs::CaptionFormats.default(visited),
+          caption_sources: CaptionSources.default(visited),
+          caption_formats: CaptionFormats.default(visited),
         }
       end
 
@@ -378,7 +378,7 @@ module AWS::SDK::ElasticTranscoder
         return nil if visited.include?('CaptionFormats')
         visited = visited + ['CaptionFormats']
         [
-          Stubs::CaptionFormat.default(visited)
+          CaptionFormat.default(visited)
         ]
       end
 
@@ -400,7 +400,7 @@ module AWS::SDK::ElasticTranscoder
         {
           format: 'format',
           pattern: 'pattern',
-          encryption: Stubs::Encryption.default(visited),
+          encryption: Encryption.default(visited),
         }
       end
 
@@ -420,7 +420,7 @@ module AWS::SDK::ElasticTranscoder
         return nil if visited.include?('CaptionSources')
         visited = visited + ['CaptionSources']
         [
-          Stubs::CaptionSource.default(visited)
+          CaptionSource.default(visited)
         ]
       end
 
@@ -444,7 +444,7 @@ module AWS::SDK::ElasticTranscoder
           language: 'language',
           time_offset: 'time_offset',
           label: 'label',
-          encryption: Stubs::Encryption.default(visited),
+          encryption: Encryption.default(visited),
         }
       end
 
@@ -466,7 +466,7 @@ module AWS::SDK::ElasticTranscoder
         return nil if visited.include?('Composition')
         visited = visited + ['Composition']
         [
-          Stubs::Clip.default(visited)
+          Clip.default(visited)
         ]
       end
 
@@ -486,7 +486,7 @@ module AWS::SDK::ElasticTranscoder
         return nil if visited.include?('Clip')
         visited = visited + ['Clip']
         {
-          time_span: Stubs::TimeSpan.default(visited),
+          time_span: TimeSpan.default(visited),
         }
       end
 
@@ -525,7 +525,7 @@ module AWS::SDK::ElasticTranscoder
         visited = visited + ['JobAlbumArt']
         {
           merge_policy: 'merge_policy',
-          artwork: Stubs::Artworks.default(visited),
+          artwork: Artworks.default(visited),
         }
       end
 
@@ -544,7 +544,7 @@ module AWS::SDK::ElasticTranscoder
         return nil if visited.include?('Artworks')
         visited = visited + ['Artworks']
         [
-          Stubs::Artwork.default(visited)
+          Artwork.default(visited)
         ]
       end
 
@@ -570,7 +570,7 @@ module AWS::SDK::ElasticTranscoder
           sizing_policy: 'sizing_policy',
           padding_policy: 'padding_policy',
           album_art_format: 'album_art_format',
-          encryption: Stubs::Encryption.default(visited),
+          encryption: Encryption.default(visited),
         }
       end
 
@@ -594,7 +594,7 @@ module AWS::SDK::ElasticTranscoder
         return nil if visited.include?('JobWatermarks')
         visited = visited + ['JobWatermarks']
         [
-          Stubs::JobWatermark.default(visited)
+          JobWatermark.default(visited)
         ]
       end
 
@@ -616,7 +616,7 @@ module AWS::SDK::ElasticTranscoder
         {
           preset_watermark_id: 'preset_watermark_id',
           input_key: 'input_key',
-          encryption: Stubs::Encryption.default(visited),
+          encryption: Encryption.default(visited),
         }
       end
 
@@ -636,7 +636,7 @@ module AWS::SDK::ElasticTranscoder
         return nil if visited.include?('JobInputs')
         visited = visited + ['JobInputs']
         [
-          Stubs::JobInput.default(visited)
+          JobInput.default(visited)
         ]
       end
 
@@ -662,10 +662,10 @@ module AWS::SDK::ElasticTranscoder
           aspect_ratio: 'aspect_ratio',
           interlaced: 'interlaced',
           container: 'container',
-          encryption: Stubs::Encryption.default(visited),
-          time_span: Stubs::TimeSpan.default(visited),
-          input_captions: Stubs::InputCaptions.default(visited),
-          detected_properties: Stubs::DetectedProperties.default(visited),
+          encryption: Encryption.default(visited),
+          time_span: TimeSpan.default(visited),
+          input_captions: InputCaptions.default(visited),
+          detected_properties: DetectedProperties.default(visited),
         }
       end
 
@@ -719,7 +719,7 @@ module AWS::SDK::ElasticTranscoder
         visited = visited + ['InputCaptions']
         {
           merge_policy: 'merge_policy',
-          caption_sources: Stubs::CaptionSources.default(visited),
+          caption_sources: CaptionSources.default(visited),
         }
       end
 
@@ -736,8 +736,8 @@ module AWS::SDK::ElasticTranscoder
     class CreatePipeline
       def self.default(visited=[])
         {
-          pipeline: Stubs::Pipeline.default(visited),
-          warnings: Stubs::Warnings.default(visited),
+          pipeline: Pipeline.default(visited),
+          warnings: Warnings.default(visited),
         }
       end
 
@@ -757,7 +757,7 @@ module AWS::SDK::ElasticTranscoder
         return nil if visited.include?('Warnings')
         visited = visited + ['Warnings']
         [
-          Stubs::Warning.default(visited)
+          Warning.default(visited)
         ]
       end
 
@@ -805,9 +805,9 @@ module AWS::SDK::ElasticTranscoder
           output_bucket: 'output_bucket',
           role: 'role',
           aws_kms_key_arn: 'aws_kms_key_arn',
-          notifications: Stubs::Notifications.default(visited),
-          content_config: Stubs::PipelineOutputConfig.default(visited),
-          thumbnail_config: Stubs::PipelineOutputConfig.default(visited),
+          notifications: Notifications.default(visited),
+          content_config: PipelineOutputConfig.default(visited),
+          thumbnail_config: PipelineOutputConfig.default(visited),
         }
       end
 
@@ -837,7 +837,7 @@ module AWS::SDK::ElasticTranscoder
         {
           bucket: 'bucket',
           storage_class: 'storage_class',
-          permissions: Stubs::Permissions.default(visited),
+          permissions: Permissions.default(visited),
         }
       end
 
@@ -857,7 +857,7 @@ module AWS::SDK::ElasticTranscoder
         return nil if visited.include?('Permissions')
         visited = visited + ['Permissions']
         [
-          Stubs::Permission.default(visited)
+          Permission.default(visited)
         ]
       end
 
@@ -879,7 +879,7 @@ module AWS::SDK::ElasticTranscoder
         {
           grantee_type: 'grantee_type',
           grantee: 'grantee',
-          access: Stubs::AccessControls.default(visited),
+          access: AccessControls.default(visited),
         }
       end
 
@@ -941,7 +941,7 @@ module AWS::SDK::ElasticTranscoder
     class CreatePreset
       def self.default(visited=[])
         {
-          preset: Stubs::Preset.default(visited),
+          preset: Preset.default(visited),
           warning: 'warning',
         }
       end
@@ -967,9 +967,9 @@ module AWS::SDK::ElasticTranscoder
           name: 'name',
           description: 'description',
           container: 'container',
-          audio: Stubs::AudioParameters.default(visited),
-          video: Stubs::VideoParameters.default(visited),
-          thumbnails: Stubs::Thumbnails.default(visited),
+          audio: AudioParameters.default(visited),
+          video: VideoParameters.default(visited),
+          thumbnails: Thumbnails.default(visited),
           type: 'type',
         }
       end
@@ -1029,7 +1029,7 @@ module AWS::SDK::ElasticTranscoder
         visited = visited + ['VideoParameters']
         {
           codec: 'codec',
-          codec_options: Stubs::CodecOptions.default(visited),
+          codec_options: CodecOptions.default(visited),
           keyframes_max_dist: 'keyframes_max_dist',
           fixed_gop: 'fixed_gop',
           bit_rate: 'bit_rate',
@@ -1042,7 +1042,7 @@ module AWS::SDK::ElasticTranscoder
           display_aspect_ratio: 'display_aspect_ratio',
           sizing_policy: 'sizing_policy',
           padding_policy: 'padding_policy',
-          watermarks: Stubs::PresetWatermarks.default(visited),
+          watermarks: PresetWatermarks.default(visited),
         }
       end
 
@@ -1074,7 +1074,7 @@ module AWS::SDK::ElasticTranscoder
         return nil if visited.include?('PresetWatermarks')
         visited = visited + ['PresetWatermarks']
         [
-          Stubs::PresetWatermark.default(visited)
+          PresetWatermark.default(visited)
         ]
       end
 
@@ -1155,7 +1155,7 @@ module AWS::SDK::ElasticTranscoder
           bit_rate: 'bit_rate',
           channels: 'channels',
           audio_packing_mode: 'audio_packing_mode',
-          codec_options: Stubs::AudioCodecOptions.default(visited),
+          codec_options: AudioCodecOptions.default(visited),
         }
       end
 
@@ -1226,7 +1226,7 @@ module AWS::SDK::ElasticTranscoder
     class ListJobsByPipeline
       def self.default(visited=[])
         {
-          jobs: Stubs::Jobs.default(visited),
+          jobs: Jobs.default(visited),
           next_page_token: 'next_page_token',
         }
       end
@@ -1247,7 +1247,7 @@ module AWS::SDK::ElasticTranscoder
         return nil if visited.include?('Jobs')
         visited = visited + ['Jobs']
         [
-          Stubs::Job.default(visited)
+          Job.default(visited)
         ]
       end
 
@@ -1265,7 +1265,7 @@ module AWS::SDK::ElasticTranscoder
     class ListJobsByStatus
       def self.default(visited=[])
         {
-          jobs: Stubs::Jobs.default(visited),
+          jobs: Jobs.default(visited),
           next_page_token: 'next_page_token',
         }
       end
@@ -1284,7 +1284,7 @@ module AWS::SDK::ElasticTranscoder
     class ListPipelines
       def self.default(visited=[])
         {
-          pipelines: Stubs::Pipelines.default(visited),
+          pipelines: Pipelines.default(visited),
           next_page_token: 'next_page_token',
         }
       end
@@ -1305,7 +1305,7 @@ module AWS::SDK::ElasticTranscoder
         return nil if visited.include?('Pipelines')
         visited = visited + ['Pipelines']
         [
-          Stubs::Pipeline.default(visited)
+          Pipeline.default(visited)
         ]
       end
 
@@ -1323,7 +1323,7 @@ module AWS::SDK::ElasticTranscoder
     class ListPresets
       def self.default(visited=[])
         {
-          presets: Stubs::Presets.default(visited),
+          presets: Presets.default(visited),
           next_page_token: 'next_page_token',
         }
       end
@@ -1344,7 +1344,7 @@ module AWS::SDK::ElasticTranscoder
         return nil if visited.include?('Presets')
         visited = visited + ['Presets']
         [
-          Stubs::Preset.default(visited)
+          Preset.default(visited)
         ]
       end
 
@@ -1362,7 +1362,7 @@ module AWS::SDK::ElasticTranscoder
     class ReadJob
       def self.default(visited=[])
         {
-          job: Stubs::Job.default(visited),
+          job: Job.default(visited),
         }
       end
 
@@ -1379,8 +1379,8 @@ module AWS::SDK::ElasticTranscoder
     class ReadPipeline
       def self.default(visited=[])
         {
-          pipeline: Stubs::Pipeline.default(visited),
-          warnings: Stubs::Warnings.default(visited),
+          pipeline: Pipeline.default(visited),
+          warnings: Warnings.default(visited),
         }
       end
 
@@ -1398,7 +1398,7 @@ module AWS::SDK::ElasticTranscoder
     class ReadPreset
       def self.default(visited=[])
         {
-          preset: Stubs::Preset.default(visited),
+          preset: Preset.default(visited),
         }
       end
 
@@ -1416,7 +1416,7 @@ module AWS::SDK::ElasticTranscoder
       def self.default(visited=[])
         {
           success: 'success',
-          messages: Stubs::ExceptionMessages.default(visited),
+          messages: ExceptionMessages.default(visited),
         }
       end
 
@@ -1454,8 +1454,8 @@ module AWS::SDK::ElasticTranscoder
     class UpdatePipeline
       def self.default(visited=[])
         {
-          pipeline: Stubs::Pipeline.default(visited),
-          warnings: Stubs::Warnings.default(visited),
+          pipeline: Pipeline.default(visited),
+          warnings: Warnings.default(visited),
         }
       end
 
@@ -1473,7 +1473,7 @@ module AWS::SDK::ElasticTranscoder
     class UpdatePipelineNotifications
       def self.default(visited=[])
         {
-          pipeline: Stubs::Pipeline.default(visited),
+          pipeline: Pipeline.default(visited),
         }
       end
 
@@ -1490,7 +1490,7 @@ module AWS::SDK::ElasticTranscoder
     class UpdatePipelineStatus
       def self.default(visited=[])
         {
-          pipeline: Stubs::Pipeline.default(visited),
+          pipeline: Pipeline.default(visited),
         }
       end
 

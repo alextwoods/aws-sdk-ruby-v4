@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::IoTAnalytics
@@ -116,7 +118,7 @@ module AWS::SDK::IoTAnalytics
     def batch_put_message(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchPutMessageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchPutMessageInput,
         validate_input: @config.validate_input
@@ -189,7 +191,7 @@ module AWS::SDK::IoTAnalytics
     def cancel_pipeline_reprocessing(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelPipelineReprocessingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelPipelineReprocessingInput,
         validate_input: @config.validate_input
@@ -293,7 +295,7 @@ module AWS::SDK::IoTAnalytics
     def create_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateChannelInput,
         validate_input: @config.validate_input
@@ -494,7 +496,7 @@ module AWS::SDK::IoTAnalytics
     def create_dataset(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDatasetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDatasetInput,
         validate_input: @config.validate_input
@@ -569,7 +571,7 @@ module AWS::SDK::IoTAnalytics
     def create_dataset_content(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDatasetContentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDatasetContentInput,
         validate_input: @config.validate_input
@@ -711,7 +713,7 @@ module AWS::SDK::IoTAnalytics
     def create_datastore(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDatastoreInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDatastoreInput,
         validate_input: @config.validate_input
@@ -868,7 +870,7 @@ module AWS::SDK::IoTAnalytics
     def create_pipeline(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreatePipelineInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreatePipelineInput,
         validate_input: @config.validate_input
@@ -936,7 +938,7 @@ module AWS::SDK::IoTAnalytics
     def delete_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteChannelInput,
         validate_input: @config.validate_input
@@ -1005,7 +1007,7 @@ module AWS::SDK::IoTAnalytics
     def delete_dataset(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDatasetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDatasetInput,
         validate_input: @config.validate_input
@@ -1078,7 +1080,7 @@ module AWS::SDK::IoTAnalytics
     def delete_dataset_content(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDatasetContentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDatasetContentInput,
         validate_input: @config.validate_input
@@ -1145,7 +1147,7 @@ module AWS::SDK::IoTAnalytics
     def delete_datastore(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDatastoreInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDatastoreInput,
         validate_input: @config.validate_input
@@ -1212,7 +1214,7 @@ module AWS::SDK::IoTAnalytics
     def delete_pipeline(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeletePipelineInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeletePipelineInput,
         validate_input: @config.validate_input
@@ -1304,7 +1306,7 @@ module AWS::SDK::IoTAnalytics
     def describe_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeChannelInput,
         validate_input: @config.validate_input
@@ -1434,7 +1436,7 @@ module AWS::SDK::IoTAnalytics
     def describe_dataset(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDatasetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDatasetInput,
         validate_input: @config.validate_input
@@ -1505,7 +1507,16 @@ module AWS::SDK::IoTAnalytics
     #   resp.data #=> Types::DescribeDatastoreOutput
     #   resp.data.datastore #=> Types::Datastore
     #   resp.data.datastore.name #=> String
-    #   resp.data.datastore.storage #=> DatastoreStorage
+    #   resp.data.datastore.storage #=> Types::DatastoreStorage, one of [ServiceManagedS3, CustomerManagedS3, IotSiteWiseMultiLayerStorage]
+    #   resp.data.datastore.storage.service_managed_s3 #=> Types::ServiceManagedDatastoreS3Storage
+    #   resp.data.datastore.storage.customer_managed_s3 #=> Types::CustomerManagedDatastoreS3Storage
+    #   resp.data.datastore.storage.customer_managed_s3.bucket #=> String
+    #   resp.data.datastore.storage.customer_managed_s3.key_prefix #=> String
+    #   resp.data.datastore.storage.customer_managed_s3.role_arn #=> String
+    #   resp.data.datastore.storage.iot_site_wise_multi_layer_storage #=> Types::DatastoreIotSiteWiseMultiLayerStorage
+    #   resp.data.datastore.storage.iot_site_wise_multi_layer_storage.customer_managed_s3_storage #=> Types::IotSiteWiseCustomerManagedDatastoreS3Storage
+    #   resp.data.datastore.storage.iot_site_wise_multi_layer_storage.customer_managed_s3_storage.bucket #=> String
+    #   resp.data.datastore.storage.iot_site_wise_multi_layer_storage.customer_managed_s3_storage.key_prefix #=> String
     #   resp.data.datastore.arn #=> String
     #   resp.data.datastore.status #=> String, one of ["CREATING", "ACTIVE", "DELETING"]
     #   resp.data.datastore.retention_period #=> Types::RetentionPeriod
@@ -1538,7 +1549,7 @@ module AWS::SDK::IoTAnalytics
     def describe_datastore(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDatastoreInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDatastoreInput,
         validate_input: @config.validate_input
@@ -1604,7 +1615,7 @@ module AWS::SDK::IoTAnalytics
     def describe_logging_options(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeLoggingOptionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeLoggingOptionsInput,
         validate_input: @config.validate_input
@@ -1730,7 +1741,7 @@ module AWS::SDK::IoTAnalytics
     def describe_pipeline(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribePipelineInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribePipelineInput,
         validate_input: @config.validate_input
@@ -1811,7 +1822,7 @@ module AWS::SDK::IoTAnalytics
     def get_dataset_content(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDatasetContentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDatasetContentInput,
         validate_input: @config.validate_input
@@ -1897,7 +1908,7 @@ module AWS::SDK::IoTAnalytics
     def list_channels(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListChannelsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListChannelsInput,
         validate_input: @config.validate_input
@@ -1994,7 +2005,7 @@ module AWS::SDK::IoTAnalytics
     def list_dataset_contents(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDatasetContentsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDatasetContentsInput,
         validate_input: @config.validate_input
@@ -2083,7 +2094,7 @@ module AWS::SDK::IoTAnalytics
     def list_datasets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDatasetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDatasetsInput,
         validate_input: @config.validate_input
@@ -2182,7 +2193,7 @@ module AWS::SDK::IoTAnalytics
     def list_datastores(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDatastoresInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDatastoresInput,
         validate_input: @config.validate_input
@@ -2265,7 +2276,7 @@ module AWS::SDK::IoTAnalytics
     def list_pipelines(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPipelinesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPipelinesInput,
         validate_input: @config.validate_input
@@ -2336,7 +2347,7 @@ module AWS::SDK::IoTAnalytics
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -2411,7 +2422,7 @@ module AWS::SDK::IoTAnalytics
     def put_logging_options(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutLoggingOptionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutLoggingOptionsInput,
         validate_input: @config.validate_input
@@ -2551,7 +2562,7 @@ module AWS::SDK::IoTAnalytics
     def run_pipeline_activity(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RunPipelineActivityInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RunPipelineActivityInput,
         validate_input: @config.validate_input
@@ -2635,7 +2646,7 @@ module AWS::SDK::IoTAnalytics
     def sample_channel_data(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SampleChannelDataInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SampleChannelDataInput,
         validate_input: @config.validate_input
@@ -2725,7 +2736,7 @@ module AWS::SDK::IoTAnalytics
     def start_pipeline_reprocessing(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartPipelineReprocessingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartPipelineReprocessingInput,
         validate_input: @config.validate_input
@@ -2803,7 +2814,7 @@ module AWS::SDK::IoTAnalytics
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -2877,7 +2888,7 @@ module AWS::SDK::IoTAnalytics
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -2966,7 +2977,7 @@ module AWS::SDK::IoTAnalytics
     def update_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateChannelInput,
         validate_input: @config.validate_input
@@ -3143,7 +3154,7 @@ module AWS::SDK::IoTAnalytics
     def update_dataset(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDatasetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDatasetInput,
         validate_input: @config.validate_input
@@ -3255,7 +3266,7 @@ module AWS::SDK::IoTAnalytics
     def update_datastore(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDatastoreInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDatastoreInput,
         validate_input: @config.validate_input
@@ -3400,7 +3411,7 @@ module AWS::SDK::IoTAnalytics
     def update_pipeline(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdatePipelineInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdatePipelineInput,
         validate_input: @config.validate_input

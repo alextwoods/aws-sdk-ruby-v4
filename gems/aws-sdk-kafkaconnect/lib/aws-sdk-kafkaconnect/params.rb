@@ -7,8 +7,6 @@
 #
 # WARNING ABOUT GENERATED CODE
 
-require 'securerandom'
-
 module AWS::SDK::KafkaConnect
   module Params
 
@@ -167,7 +165,7 @@ module AWS::SDK::KafkaConnect
         Hearth::Validator.validate!(params, ::Hash, Types::CreateConnectorInput, context: context)
         type = Types::CreateConnectorInput.new
         type.capacity = Capacity.build(params[:capacity], context: "#{context}[:capacity]") unless params[:capacity].nil?
-        type.connector_configuration = Map____mapOf__string.build(params[:connector_configuration], context: "#{context}[:connector_configuration]") unless params[:connector_configuration].nil?
+        type.connector_configuration = Map____sensitive__mapOf__string.build(params[:connector_configuration], context: "#{context}[:connector_configuration]") unless params[:connector_configuration].nil?
         type.connector_description = params[:connector_description]
         type.connector_name = params[:connector_name]
         type.kafka_cluster = KafkaCluster.build(params[:kafka_cluster], context: "#{context}[:kafka_cluster]") unless params[:kafka_cluster].nil?
@@ -370,7 +368,7 @@ module AWS::SDK::KafkaConnect
         type = Types::DescribeConnectorOutput.new
         type.capacity = CapacityDescription.build(params[:capacity], context: "#{context}[:capacity]") unless params[:capacity].nil?
         type.connector_arn = params[:connector_arn]
-        type.connector_configuration = Map____mapOf__string.build(params[:connector_configuration], context: "#{context}[:connector_configuration]") unless params[:connector_configuration].nil?
+        type.connector_configuration = Map____sensitive__mapOf__string.build(params[:connector_configuration], context: "#{context}[:connector_configuration]") unless params[:connector_configuration].nil?
         type.connector_description = params[:connector_description]
         type.connector_name = params[:connector_name]
         type.connector_state = params[:connector_state]
@@ -983,7 +981,7 @@ module AWS::SDK::KafkaConnect
       end
     end
 
-    module Map____mapOf__string
+    module Map____sensitive__mapOf__string
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, context: context)
         data = {}

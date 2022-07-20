@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::MarketplaceCommerceAnalytics
   module Validators
 
@@ -29,7 +31,7 @@ module AWS::SDK::MarketplaceCommerceAnalytics
         Hearth::Validator.validate!(input[:destination_s3_bucket_name], ::String, context: "#{context}[:destination_s3_bucket_name]")
         Hearth::Validator.validate!(input[:destination_s3_prefix], ::String, context: "#{context}[:destination_s3_prefix]")
         Hearth::Validator.validate!(input[:sns_topic_arn], ::String, context: "#{context}[:sns_topic_arn]")
-        Validators::CustomerDefinedValues.validate!(input[:customer_defined_values], context: "#{context}[:customer_defined_values]") unless input[:customer_defined_values].nil?
+        CustomerDefinedValues.validate!(input[:customer_defined_values], context: "#{context}[:customer_defined_values]") unless input[:customer_defined_values].nil?
       end
     end
 
@@ -56,7 +58,7 @@ module AWS::SDK::MarketplaceCommerceAnalytics
         Hearth::Validator.validate!(input[:destination_s3_bucket_name], ::String, context: "#{context}[:destination_s3_bucket_name]")
         Hearth::Validator.validate!(input[:destination_s3_prefix], ::String, context: "#{context}[:destination_s3_prefix]")
         Hearth::Validator.validate!(input[:sns_topic_arn], ::String, context: "#{context}[:sns_topic_arn]")
-        Validators::CustomerDefinedValues.validate!(input[:customer_defined_values], context: "#{context}[:customer_defined_values]") unless input[:customer_defined_values].nil?
+        CustomerDefinedValues.validate!(input[:customer_defined_values], context: "#{context}[:customer_defined_values]") unless input[:customer_defined_values].nil?
       end
     end
 

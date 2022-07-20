@@ -503,12 +503,12 @@ module AWS::SDK::ECS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.weight ||= 0
         self.base ||= 0
       end
-
     end
 
     # Includes enum constants for CapacityProviderUpdateStatus
@@ -764,6 +764,7 @@ module AWS::SDK::ECS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.registered_container_instances_count ||= 0
@@ -771,7 +772,6 @@ module AWS::SDK::ECS
         self.pending_tasks_count ||= 0
         self.active_services_count ||= 0
       end
-
     end
 
     # <p>The execute command configuration for the cluster.</p>
@@ -1793,11 +1793,11 @@ module AWS::SDK::ECS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.cpu ||= 0
       end
-
     end
 
     # <p>The dependencies defined for container startup and shutdown. A container can contain
@@ -2067,6 +2067,7 @@ module AWS::SDK::ECS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.version ||= 0
@@ -2074,7 +2075,6 @@ module AWS::SDK::ECS
         self.running_tasks_count ||= 0
         self.pending_tasks_count ||= 0
       end
-
     end
 
     # Includes enum constants for ContainerInstanceField
@@ -2765,12 +2765,12 @@ module AWS::SDK::ECS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enable_ecs_managed_tags ||= false
         self.enable_execute_command ||= false
       end
-
     end
 
     # @!attribute service
@@ -3321,6 +3321,7 @@ module AWS::SDK::ECS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.desired_count ||= 0
@@ -3328,7 +3329,6 @@ module AWS::SDK::ECS
         self.running_count ||= 0
         self.failed_tasks ||= 0
       end
-
     end
 
     # <note>
@@ -3361,12 +3361,12 @@ module AWS::SDK::ECS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enable ||= false
         self.rollback ||= false
       end
-
     end
 
     # <p>Optional deployment parameters that control how many tasks run during a deployment and
@@ -4328,11 +4328,11 @@ module AWS::SDK::ECS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.size_in_gi_b ||= 0
       end
-
     end
 
     # <p>The details of the execute command configuration.</p>
@@ -4422,11 +4422,11 @@ module AWS::SDK::ECS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.interactive ||= false
       end
-
     end
 
     # <p>The log configuration for the results of the execute command actions. The logs can be
@@ -4474,12 +4474,12 @@ module AWS::SDK::ECS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.cloud_watch_encryption_enabled ||= false
         self.s3_encryption_enabled ||= false
       end
-
     end
 
     # Includes enum constants for ExecuteCommandLogging
@@ -4541,11 +4541,11 @@ module AWS::SDK::ECS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.interactive ||= false
       end
-
     end
 
     # <p>The authorization configuration details for Amazon FSx for Windows File Server file system. See <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_FSxWindowsFileServerVolumeConfiguration.html">FSxWindowsFileServerVolumeConfiguration</a> in the <i>Amazon Elastic
@@ -5289,12 +5289,12 @@ module AWS::SDK::ECS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.effective_settings ||= false
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute settings
@@ -7537,13 +7537,13 @@ module AWS::SDK::ECS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.double_value ||= 0
         self.long_value ||= 0
         self.integer_value ||= 0
       end
-
     end
 
     # <p>The specified resource is in-use and can't be removed.</p>
@@ -7843,12 +7843,12 @@ module AWS::SDK::ECS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enable_ecs_managed_tags ||= false
         self.enable_execute_command ||= false
       end
-
     end
 
     # @!attribute tasks
@@ -7919,11 +7919,11 @@ module AWS::SDK::ECS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.value ||= 0
       end
-
     end
 
     # Includes enum constants for ScaleUnit
@@ -8299,6 +8299,7 @@ module AWS::SDK::ECS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.desired_count ||= 0
@@ -8307,7 +8308,6 @@ module AWS::SDK::ECS
         self.enable_ecs_managed_tags ||= false
         self.enable_execute_command ||= false
       end
-
     end
 
     # <p>The details for an event that's associated with a service.</p>
@@ -8677,12 +8677,12 @@ module AWS::SDK::ECS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enable_ecs_managed_tags ||= false
         self.enable_execute_command ||= false
       end
-
     end
 
     # @!attribute tasks
@@ -9514,12 +9514,12 @@ module AWS::SDK::ECS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enable_execute_command ||= false
         self.version ||= 0
       end
-
     end
 
     # <p>The details of a task definition which describes the container and volume definitions
@@ -9851,11 +9851,11 @@ module AWS::SDK::ECS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.revision ||= 0
       end
-
     end
 
     # Includes enum constants for TaskDefinitionFamilyStatus
@@ -10257,13 +10257,13 @@ module AWS::SDK::ECS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.computed_desired_count ||= 0
         self.pending_count ||= 0
         self.running_count ||= 0
       end
-
     end
 
     # Includes enum constants for TaskSetField
@@ -10335,11 +10335,11 @@ module AWS::SDK::ECS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.size ||= 0
       end
-
     end
 
     # Includes enum constants for TransportProtocol
@@ -10387,12 +10387,12 @@ module AWS::SDK::ECS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.soft_limit ||= 0
         self.hard_limit ||= 0
       end
-
     end
 
     # Includes enum constants for UlimitName
@@ -10899,11 +10899,11 @@ module AWS::SDK::ECS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.force_new_deployment ||= false
       end
-
     end
 
     # @!attribute service

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::DirectoryService
   module Validators
 
@@ -20,7 +22,7 @@ module AWS::SDK::DirectoryService
     class AcceptSharedDirectoryOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AcceptSharedDirectoryOutput, context: context)
-        Validators::SharedDirectory.validate!(input[:shared_directory], context: "#{context}[:shared_directory]") unless input[:shared_directory].nil?
+        SharedDirectory.validate!(input[:shared_directory], context: "#{context}[:shared_directory]") unless input[:shared_directory].nil?
       end
     end
 
@@ -36,7 +38,7 @@ module AWS::SDK::DirectoryService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AddIpRoutesInput, context: context)
         Hearth::Validator.validate!(input[:directory_id], ::String, context: "#{context}[:directory_id]")
-        Validators::IpRoutes.validate!(input[:ip_routes], context: "#{context}[:ip_routes]") unless input[:ip_routes].nil?
+        IpRoutes.validate!(input[:ip_routes], context: "#{context}[:ip_routes]") unless input[:ip_routes].nil?
         Hearth::Validator.validate!(input[:update_security_group_for_directory_controllers], ::TrueClass, ::FalseClass, context: "#{context}[:update_security_group_for_directory_controllers]")
       end
     end
@@ -52,7 +54,7 @@ module AWS::SDK::DirectoryService
         Hearth::Validator.validate!(input, Types::AddRegionInput, context: context)
         Hearth::Validator.validate!(input[:directory_id], ::String, context: "#{context}[:directory_id]")
         Hearth::Validator.validate!(input[:region_name], ::String, context: "#{context}[:region_name]")
-        Validators::DirectoryVpcSettings.validate!(input[:vpc_settings], context: "#{context}[:vpc_settings]") unless input[:vpc_settings].nil?
+        DirectoryVpcSettings.validate!(input[:vpc_settings], context: "#{context}[:vpc_settings]") unless input[:vpc_settings].nil?
       end
     end
 
@@ -66,7 +68,7 @@ module AWS::SDK::DirectoryService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AddTagsToResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_id], ::String, context: "#{context}[:resource_id]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -97,7 +99,7 @@ module AWS::SDK::DirectoryService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Attribute.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Attribute.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -143,7 +145,7 @@ module AWS::SDK::DirectoryService
         Hearth::Validator.validate!(input[:registered_date_time], ::Time, context: "#{context}[:registered_date_time]")
         Hearth::Validator.validate!(input[:expiry_date_time], ::Time, context: "#{context}[:expiry_date_time]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::ClientCertAuthSettings.validate!(input[:client_cert_auth_settings], context: "#{context}[:client_cert_auth_settings]") unless input[:client_cert_auth_settings].nil?
+        ClientCertAuthSettings.validate!(input[:client_cert_auth_settings], context: "#{context}[:client_cert_auth_settings]") unless input[:client_cert_auth_settings].nil?
       end
     end
 
@@ -194,7 +196,7 @@ module AWS::SDK::DirectoryService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CertificateInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CertificateInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -221,7 +223,7 @@ module AWS::SDK::DirectoryService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ClientAuthenticationSettingInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ClientAuthenticationSettingInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -246,7 +248,7 @@ module AWS::SDK::DirectoryService
         Hearth::Validator.validate!(input, Types::Computer, context: context)
         Hearth::Validator.validate!(input[:computer_id], ::String, context: "#{context}[:computer_id]")
         Hearth::Validator.validate!(input[:computer_name], ::String, context: "#{context}[:computer_name]")
-        Validators::Attributes.validate!(input[:computer_attributes], context: "#{context}[:computer_attributes]") unless input[:computer_attributes].nil?
+        Attributes.validate!(input[:computer_attributes], context: "#{context}[:computer_attributes]") unless input[:computer_attributes].nil?
       end
     end
 
@@ -254,7 +256,7 @@ module AWS::SDK::DirectoryService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ConditionalForwarder, context: context)
         Hearth::Validator.validate!(input[:remote_domain_name], ::String, context: "#{context}[:remote_domain_name]")
-        Validators::DnsIpAddrs.validate!(input[:dns_ip_addrs], context: "#{context}[:dns_ip_addrs]") unless input[:dns_ip_addrs].nil?
+        DnsIpAddrs.validate!(input[:dns_ip_addrs], context: "#{context}[:dns_ip_addrs]") unless input[:dns_ip_addrs].nil?
         Hearth::Validator.validate!(input[:replication_scope], ::String, context: "#{context}[:replication_scope]")
       end
     end
@@ -263,7 +265,7 @@ module AWS::SDK::DirectoryService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ConditionalForwarder.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ConditionalForwarder.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -276,8 +278,8 @@ module AWS::SDK::DirectoryService
         Hearth::Validator.validate!(input[:password], ::String, context: "#{context}[:password]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:size], ::String, context: "#{context}[:size]")
-        Validators::DirectoryConnectSettings.validate!(input[:connect_settings], context: "#{context}[:connect_settings]") unless input[:connect_settings].nil?
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        DirectoryConnectSettings.validate!(input[:connect_settings], context: "#{context}[:connect_settings]") unless input[:connect_settings].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -311,14 +313,14 @@ module AWS::SDK::DirectoryService
         Hearth::Validator.validate!(input[:computer_name], ::String, context: "#{context}[:computer_name]")
         Hearth::Validator.validate!(input[:password], ::String, context: "#{context}[:password]")
         Hearth::Validator.validate!(input[:organizational_unit_distinguished_name], ::String, context: "#{context}[:organizational_unit_distinguished_name]")
-        Validators::Attributes.validate!(input[:computer_attributes], context: "#{context}[:computer_attributes]") unless input[:computer_attributes].nil?
+        Attributes.validate!(input[:computer_attributes], context: "#{context}[:computer_attributes]") unless input[:computer_attributes].nil?
       end
     end
 
     class CreateComputerOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateComputerOutput, context: context)
-        Validators::Computer.validate!(input[:computer], context: "#{context}[:computer]") unless input[:computer].nil?
+        Computer.validate!(input[:computer], context: "#{context}[:computer]") unless input[:computer].nil?
       end
     end
 
@@ -327,7 +329,7 @@ module AWS::SDK::DirectoryService
         Hearth::Validator.validate!(input, Types::CreateConditionalForwarderInput, context: context)
         Hearth::Validator.validate!(input[:directory_id], ::String, context: "#{context}[:directory_id]")
         Hearth::Validator.validate!(input[:remote_domain_name], ::String, context: "#{context}[:remote_domain_name]")
-        Validators::DnsIpAddrs.validate!(input[:dns_ip_addrs], context: "#{context}[:dns_ip_addrs]") unless input[:dns_ip_addrs].nil?
+        DnsIpAddrs.validate!(input[:dns_ip_addrs], context: "#{context}[:dns_ip_addrs]") unless input[:dns_ip_addrs].nil?
       end
     end
 
@@ -345,8 +347,8 @@ module AWS::SDK::DirectoryService
         Hearth::Validator.validate!(input[:password], ::String, context: "#{context}[:password]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:size], ::String, context: "#{context}[:size]")
-        Validators::DirectoryVpcSettings.validate!(input[:vpc_settings], context: "#{context}[:vpc_settings]") unless input[:vpc_settings].nil?
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        DirectoryVpcSettings.validate!(input[:vpc_settings], context: "#{context}[:vpc_settings]") unless input[:vpc_settings].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -378,9 +380,9 @@ module AWS::SDK::DirectoryService
         Hearth::Validator.validate!(input[:short_name], ::String, context: "#{context}[:short_name]")
         Hearth::Validator.validate!(input[:password], ::String, context: "#{context}[:password]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::DirectoryVpcSettings.validate!(input[:vpc_settings], context: "#{context}[:vpc_settings]") unless input[:vpc_settings].nil?
+        DirectoryVpcSettings.validate!(input[:vpc_settings], context: "#{context}[:vpc_settings]") unless input[:vpc_settings].nil?
         Hearth::Validator.validate!(input[:edition], ::String, context: "#{context}[:edition]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -414,7 +416,7 @@ module AWS::SDK::DirectoryService
         Hearth::Validator.validate!(input[:trust_password], ::String, context: "#{context}[:trust_password]")
         Hearth::Validator.validate!(input[:trust_direction], ::String, context: "#{context}[:trust_direction]")
         Hearth::Validator.validate!(input[:trust_type], ::String, context: "#{context}[:trust_type]")
-        Validators::DnsIpAddrs.validate!(input[:conditional_forwarder_ip_addrs], context: "#{context}[:conditional_forwarder_ip_addrs]") unless input[:conditional_forwarder_ip_addrs].nil?
+        DnsIpAddrs.validate!(input[:conditional_forwarder_ip_addrs], context: "#{context}[:conditional_forwarder_ip_addrs]") unless input[:conditional_forwarder_ip_addrs].nil?
         Hearth::Validator.validate!(input[:selective_auth], ::String, context: "#{context}[:selective_auth]")
       end
     end
@@ -535,7 +537,7 @@ module AWS::SDK::DirectoryService
     class DescribeCertificateOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeCertificateOutput, context: context)
-        Validators::Certificate.validate!(input[:certificate], context: "#{context}[:certificate]") unless input[:certificate].nil?
+        Certificate.validate!(input[:certificate], context: "#{context}[:certificate]") unless input[:certificate].nil?
       end
     end
 
@@ -552,7 +554,7 @@ module AWS::SDK::DirectoryService
     class DescribeClientAuthenticationSettingsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeClientAuthenticationSettingsOutput, context: context)
-        Validators::ClientAuthenticationSettingsInfo.validate!(input[:client_authentication_settings_info], context: "#{context}[:client_authentication_settings_info]") unless input[:client_authentication_settings_info].nil?
+        ClientAuthenticationSettingsInfo.validate!(input[:client_authentication_settings_info], context: "#{context}[:client_authentication_settings_info]") unless input[:client_authentication_settings_info].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -561,21 +563,21 @@ module AWS::SDK::DirectoryService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeConditionalForwardersInput, context: context)
         Hearth::Validator.validate!(input[:directory_id], ::String, context: "#{context}[:directory_id]")
-        Validators::RemoteDomainNames.validate!(input[:remote_domain_names], context: "#{context}[:remote_domain_names]") unless input[:remote_domain_names].nil?
+        RemoteDomainNames.validate!(input[:remote_domain_names], context: "#{context}[:remote_domain_names]") unless input[:remote_domain_names].nil?
       end
     end
 
     class DescribeConditionalForwardersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeConditionalForwardersOutput, context: context)
-        Validators::ConditionalForwarders.validate!(input[:conditional_forwarders], context: "#{context}[:conditional_forwarders]") unless input[:conditional_forwarders].nil?
+        ConditionalForwarders.validate!(input[:conditional_forwarders], context: "#{context}[:conditional_forwarders]") unless input[:conditional_forwarders].nil?
       end
     end
 
     class DescribeDirectoriesInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeDirectoriesInput, context: context)
-        Validators::DirectoryIds.validate!(input[:directory_ids], context: "#{context}[:directory_ids]") unless input[:directory_ids].nil?
+        DirectoryIds.validate!(input[:directory_ids], context: "#{context}[:directory_ids]") unless input[:directory_ids].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:limit], ::Integer, context: "#{context}[:limit]")
       end
@@ -584,7 +586,7 @@ module AWS::SDK::DirectoryService
     class DescribeDirectoriesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeDirectoriesOutput, context: context)
-        Validators::DirectoryDescriptions.validate!(input[:directory_descriptions], context: "#{context}[:directory_descriptions]") unless input[:directory_descriptions].nil?
+        DirectoryDescriptions.validate!(input[:directory_descriptions], context: "#{context}[:directory_descriptions]") unless input[:directory_descriptions].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -593,7 +595,7 @@ module AWS::SDK::DirectoryService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeDomainControllersInput, context: context)
         Hearth::Validator.validate!(input[:directory_id], ::String, context: "#{context}[:directory_id]")
-        Validators::DomainControllerIds.validate!(input[:domain_controller_ids], context: "#{context}[:domain_controller_ids]") unless input[:domain_controller_ids].nil?
+        DomainControllerIds.validate!(input[:domain_controller_ids], context: "#{context}[:domain_controller_ids]") unless input[:domain_controller_ids].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:limit], ::Integer, context: "#{context}[:limit]")
       end
@@ -602,7 +604,7 @@ module AWS::SDK::DirectoryService
     class DescribeDomainControllersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeDomainControllersOutput, context: context)
-        Validators::DomainControllers.validate!(input[:domain_controllers], context: "#{context}[:domain_controllers]") unless input[:domain_controllers].nil?
+        DomainControllers.validate!(input[:domain_controllers], context: "#{context}[:domain_controllers]") unless input[:domain_controllers].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -611,14 +613,14 @@ module AWS::SDK::DirectoryService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeEventTopicsInput, context: context)
         Hearth::Validator.validate!(input[:directory_id], ::String, context: "#{context}[:directory_id]")
-        Validators::TopicNames.validate!(input[:topic_names], context: "#{context}[:topic_names]") unless input[:topic_names].nil?
+        TopicNames.validate!(input[:topic_names], context: "#{context}[:topic_names]") unless input[:topic_names].nil?
       end
     end
 
     class DescribeEventTopicsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeEventTopicsOutput, context: context)
-        Validators::EventTopics.validate!(input[:event_topics], context: "#{context}[:event_topics]") unless input[:event_topics].nil?
+        EventTopics.validate!(input[:event_topics], context: "#{context}[:event_topics]") unless input[:event_topics].nil?
       end
     end
 
@@ -635,7 +637,7 @@ module AWS::SDK::DirectoryService
     class DescribeLDAPSSettingsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeLDAPSSettingsOutput, context: context)
-        Validators::LDAPSSettingsInfo.validate!(input[:ldaps_settings_info], context: "#{context}[:ldaps_settings_info]") unless input[:ldaps_settings_info].nil?
+        LDAPSSettingsInfo.validate!(input[:ldaps_settings_info], context: "#{context}[:ldaps_settings_info]") unless input[:ldaps_settings_info].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -652,7 +654,7 @@ module AWS::SDK::DirectoryService
     class DescribeRegionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeRegionsOutput, context: context)
-        Validators::RegionsDescription.validate!(input[:regions_description], context: "#{context}[:regions_description]") unless input[:regions_description].nil?
+        RegionsDescription.validate!(input[:regions_description], context: "#{context}[:regions_description]") unless input[:regions_description].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -661,7 +663,7 @@ module AWS::SDK::DirectoryService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeSharedDirectoriesInput, context: context)
         Hearth::Validator.validate!(input[:owner_directory_id], ::String, context: "#{context}[:owner_directory_id]")
-        Validators::DirectoryIds.validate!(input[:shared_directory_ids], context: "#{context}[:shared_directory_ids]") unless input[:shared_directory_ids].nil?
+        DirectoryIds.validate!(input[:shared_directory_ids], context: "#{context}[:shared_directory_ids]") unless input[:shared_directory_ids].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:limit], ::Integer, context: "#{context}[:limit]")
       end
@@ -670,7 +672,7 @@ module AWS::SDK::DirectoryService
     class DescribeSharedDirectoriesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeSharedDirectoriesOutput, context: context)
-        Validators::SharedDirectories.validate!(input[:shared_directories], context: "#{context}[:shared_directories]") unless input[:shared_directories].nil?
+        SharedDirectories.validate!(input[:shared_directories], context: "#{context}[:shared_directories]") unless input[:shared_directories].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -679,7 +681,7 @@ module AWS::SDK::DirectoryService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeSnapshotsInput, context: context)
         Hearth::Validator.validate!(input[:directory_id], ::String, context: "#{context}[:directory_id]")
-        Validators::SnapshotIds.validate!(input[:snapshot_ids], context: "#{context}[:snapshot_ids]") unless input[:snapshot_ids].nil?
+        SnapshotIds.validate!(input[:snapshot_ids], context: "#{context}[:snapshot_ids]") unless input[:snapshot_ids].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:limit], ::Integer, context: "#{context}[:limit]")
       end
@@ -688,7 +690,7 @@ module AWS::SDK::DirectoryService
     class DescribeSnapshotsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeSnapshotsOutput, context: context)
-        Validators::Snapshots.validate!(input[:snapshots], context: "#{context}[:snapshots]") unless input[:snapshots].nil?
+        Snapshots.validate!(input[:snapshots], context: "#{context}[:snapshots]") unless input[:snapshots].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -697,7 +699,7 @@ module AWS::SDK::DirectoryService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeTrustsInput, context: context)
         Hearth::Validator.validate!(input[:directory_id], ::String, context: "#{context}[:directory_id]")
-        Validators::TrustIds.validate!(input[:trust_ids], context: "#{context}[:trust_ids]") unless input[:trust_ids].nil?
+        TrustIds.validate!(input[:trust_ids], context: "#{context}[:trust_ids]") unless input[:trust_ids].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:limit], ::Integer, context: "#{context}[:limit]")
       end
@@ -706,7 +708,7 @@ module AWS::SDK::DirectoryService
     class DescribeTrustsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeTrustsOutput, context: context)
-        Validators::Trusts.validate!(input[:trusts], context: "#{context}[:trusts]") unless input[:trusts].nil?
+        Trusts.validate!(input[:trusts], context: "#{context}[:trusts]") unless input[:trusts].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -731,8 +733,8 @@ module AWS::SDK::DirectoryService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DirectoryConnectSettings, context: context)
         Hearth::Validator.validate!(input[:vpc_id], ::String, context: "#{context}[:vpc_id]")
-        Validators::SubnetIds.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
-        Validators::DnsIpAddrs.validate!(input[:customer_dns_ips], context: "#{context}[:customer_dns_ips]") unless input[:customer_dns_ips].nil?
+        SubnetIds.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
+        DnsIpAddrs.validate!(input[:customer_dns_ips], context: "#{context}[:customer_dns_ips]") unless input[:customer_dns_ips].nil?
         Hearth::Validator.validate!(input[:customer_user_name], ::String, context: "#{context}[:customer_user_name]")
       end
     end
@@ -741,11 +743,11 @@ module AWS::SDK::DirectoryService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DirectoryConnectSettingsDescription, context: context)
         Hearth::Validator.validate!(input[:vpc_id], ::String, context: "#{context}[:vpc_id]")
-        Validators::SubnetIds.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
+        SubnetIds.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
         Hearth::Validator.validate!(input[:customer_user_name], ::String, context: "#{context}[:customer_user_name]")
         Hearth::Validator.validate!(input[:security_group_id], ::String, context: "#{context}[:security_group_id]")
-        Validators::AvailabilityZones.validate!(input[:availability_zones], context: "#{context}[:availability_zones]") unless input[:availability_zones].nil?
-        Validators::IpAddrs.validate!(input[:connect_ips], context: "#{context}[:connect_ips]") unless input[:connect_ips].nil?
+        AvailabilityZones.validate!(input[:availability_zones], context: "#{context}[:availability_zones]") unless input[:availability_zones].nil?
+        IpAddrs.validate!(input[:connect_ips], context: "#{context}[:connect_ips]") unless input[:connect_ips].nil?
       end
     end
 
@@ -760,7 +762,7 @@ module AWS::SDK::DirectoryService
         Hearth::Validator.validate!(input[:alias], ::String, context: "#{context}[:alias]")
         Hearth::Validator.validate!(input[:access_url], ::String, context: "#{context}[:access_url]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::DnsIpAddrs.validate!(input[:dns_ip_addrs], context: "#{context}[:dns_ip_addrs]") unless input[:dns_ip_addrs].nil?
+        DnsIpAddrs.validate!(input[:dns_ip_addrs], context: "#{context}[:dns_ip_addrs]") unless input[:dns_ip_addrs].nil?
         Hearth::Validator.validate!(input[:stage], ::String, context: "#{context}[:stage]")
         Hearth::Validator.validate!(input[:share_status], ::String, context: "#{context}[:share_status]")
         Hearth::Validator.validate!(input[:share_method], ::String, context: "#{context}[:share_method]")
@@ -768,15 +770,15 @@ module AWS::SDK::DirectoryService
         Hearth::Validator.validate!(input[:launch_time], ::Time, context: "#{context}[:launch_time]")
         Hearth::Validator.validate!(input[:stage_last_updated_date_time], ::Time, context: "#{context}[:stage_last_updated_date_time]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::DirectoryVpcSettingsDescription.validate!(input[:vpc_settings], context: "#{context}[:vpc_settings]") unless input[:vpc_settings].nil?
-        Validators::DirectoryConnectSettingsDescription.validate!(input[:connect_settings], context: "#{context}[:connect_settings]") unless input[:connect_settings].nil?
-        Validators::RadiusSettings.validate!(input[:radius_settings], context: "#{context}[:radius_settings]") unless input[:radius_settings].nil?
+        DirectoryVpcSettingsDescription.validate!(input[:vpc_settings], context: "#{context}[:vpc_settings]") unless input[:vpc_settings].nil?
+        DirectoryConnectSettingsDescription.validate!(input[:connect_settings], context: "#{context}[:connect_settings]") unless input[:connect_settings].nil?
+        RadiusSettings.validate!(input[:radius_settings], context: "#{context}[:radius_settings]") unless input[:radius_settings].nil?
         Hearth::Validator.validate!(input[:radius_status], ::String, context: "#{context}[:radius_status]")
         Hearth::Validator.validate!(input[:stage_reason], ::String, context: "#{context}[:stage_reason]")
         Hearth::Validator.validate!(input[:sso_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:sso_enabled]")
         Hearth::Validator.validate!(input[:desired_number_of_domain_controllers], ::Integer, context: "#{context}[:desired_number_of_domain_controllers]")
-        Validators::OwnerDirectoryDescription.validate!(input[:owner_directory_description], context: "#{context}[:owner_directory_description]") unless input[:owner_directory_description].nil?
-        Validators::RegionsInfo.validate!(input[:regions_info], context: "#{context}[:regions_info]") unless input[:regions_info].nil?
+        OwnerDirectoryDescription.validate!(input[:owner_directory_description], context: "#{context}[:owner_directory_description]") unless input[:owner_directory_description].nil?
+        RegionsInfo.validate!(input[:regions_info], context: "#{context}[:regions_info]") unless input[:regions_info].nil?
       end
     end
 
@@ -784,7 +786,7 @@ module AWS::SDK::DirectoryService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DirectoryDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DirectoryDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -849,7 +851,7 @@ module AWS::SDK::DirectoryService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DirectoryVpcSettings, context: context)
         Hearth::Validator.validate!(input[:vpc_id], ::String, context: "#{context}[:vpc_id]")
-        Validators::SubnetIds.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
+        SubnetIds.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
       end
     end
 
@@ -857,9 +859,9 @@ module AWS::SDK::DirectoryService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DirectoryVpcSettingsDescription, context: context)
         Hearth::Validator.validate!(input[:vpc_id], ::String, context: "#{context}[:vpc_id]")
-        Validators::SubnetIds.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
+        SubnetIds.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
         Hearth::Validator.validate!(input[:security_group_id], ::String, context: "#{context}[:security_group_id]")
-        Validators::AvailabilityZones.validate!(input[:availability_zones], context: "#{context}[:availability_zones]") unless input[:availability_zones].nil?
+        AvailabilityZones.validate!(input[:availability_zones], context: "#{context}[:availability_zones]") unless input[:availability_zones].nil?
       end
     end
 
@@ -965,7 +967,7 @@ module AWS::SDK::DirectoryService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DomainController.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DomainController.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1002,7 +1004,7 @@ module AWS::SDK::DirectoryService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::EnableRadiusInput, context: context)
         Hearth::Validator.validate!(input[:directory_id], ::String, context: "#{context}[:directory_id]")
-        Validators::RadiusSettings.validate!(input[:radius_settings], context: "#{context}[:radius_settings]") unless input[:radius_settings].nil?
+        RadiusSettings.validate!(input[:radius_settings], context: "#{context}[:radius_settings]") unless input[:radius_settings].nil?
       end
     end
 
@@ -1058,7 +1060,7 @@ module AWS::SDK::DirectoryService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EventTopic.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EventTopic.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1072,7 +1074,7 @@ module AWS::SDK::DirectoryService
     class GetDirectoryLimitsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetDirectoryLimitsOutput, context: context)
-        Validators::DirectoryLimits.validate!(input[:directory_limits], context: "#{context}[:directory_limits]") unless input[:directory_limits].nil?
+        DirectoryLimits.validate!(input[:directory_limits], context: "#{context}[:directory_limits]") unless input[:directory_limits].nil?
       end
     end
 
@@ -1086,7 +1088,7 @@ module AWS::SDK::DirectoryService
     class GetSnapshotLimitsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetSnapshotLimitsOutput, context: context)
-        Validators::SnapshotLimits.validate!(input[:snapshot_limits], context: "#{context}[:snapshot_limits]") unless input[:snapshot_limits].nil?
+        SnapshotLimits.validate!(input[:snapshot_limits], context: "#{context}[:snapshot_limits]") unless input[:snapshot_limits].nil?
       end
     end
 
@@ -1195,7 +1197,7 @@ module AWS::SDK::DirectoryService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::IpRoute.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          IpRoute.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1204,7 +1206,7 @@ module AWS::SDK::DirectoryService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::IpRouteInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          IpRouteInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1222,7 +1224,7 @@ module AWS::SDK::DirectoryService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LDAPSSettingInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LDAPSSettingInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1240,7 +1242,7 @@ module AWS::SDK::DirectoryService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListCertificatesOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::CertificatesInfo.validate!(input[:certificates_info], context: "#{context}[:certificates_info]") unless input[:certificates_info].nil?
+        CertificatesInfo.validate!(input[:certificates_info], context: "#{context}[:certificates_info]") unless input[:certificates_info].nil?
       end
     end
 
@@ -1256,7 +1258,7 @@ module AWS::SDK::DirectoryService
     class ListIpRoutesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListIpRoutesOutput, context: context)
-        Validators::IpRoutesInfo.validate!(input[:ip_routes_info], context: "#{context}[:ip_routes_info]") unless input[:ip_routes_info].nil?
+        IpRoutesInfo.validate!(input[:ip_routes_info], context: "#{context}[:ip_routes_info]") unless input[:ip_routes_info].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1273,7 +1275,7 @@ module AWS::SDK::DirectoryService
     class ListLogSubscriptionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListLogSubscriptionsOutput, context: context)
-        Validators::LogSubscriptions.validate!(input[:log_subscriptions], context: "#{context}[:log_subscriptions]") unless input[:log_subscriptions].nil?
+        LogSubscriptions.validate!(input[:log_subscriptions], context: "#{context}[:log_subscriptions]") unless input[:log_subscriptions].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1290,7 +1292,7 @@ module AWS::SDK::DirectoryService
     class ListSchemaExtensionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListSchemaExtensionsOutput, context: context)
-        Validators::SchemaExtensionsInfo.validate!(input[:schema_extensions_info], context: "#{context}[:schema_extensions_info]") unless input[:schema_extensions_info].nil?
+        SchemaExtensionsInfo.validate!(input[:schema_extensions_info], context: "#{context}[:schema_extensions_info]") unless input[:schema_extensions_info].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1307,7 +1309,7 @@ module AWS::SDK::DirectoryService
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1325,7 +1327,7 @@ module AWS::SDK::DirectoryService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LogSubscription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LogSubscription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1351,9 +1353,9 @@ module AWS::SDK::DirectoryService
         Hearth::Validator.validate!(input, Types::OwnerDirectoryDescription, context: context)
         Hearth::Validator.validate!(input[:directory_id], ::String, context: "#{context}[:directory_id]")
         Hearth::Validator.validate!(input[:account_id], ::String, context: "#{context}[:account_id]")
-        Validators::DnsIpAddrs.validate!(input[:dns_ip_addrs], context: "#{context}[:dns_ip_addrs]") unless input[:dns_ip_addrs].nil?
-        Validators::DirectoryVpcSettingsDescription.validate!(input[:vpc_settings], context: "#{context}[:vpc_settings]") unless input[:vpc_settings].nil?
-        Validators::RadiusSettings.validate!(input[:radius_settings], context: "#{context}[:radius_settings]") unless input[:radius_settings].nil?
+        DnsIpAddrs.validate!(input[:dns_ip_addrs], context: "#{context}[:dns_ip_addrs]") unless input[:dns_ip_addrs].nil?
+        DirectoryVpcSettingsDescription.validate!(input[:vpc_settings], context: "#{context}[:vpc_settings]") unless input[:vpc_settings].nil?
+        RadiusSettings.validate!(input[:radius_settings], context: "#{context}[:radius_settings]") unless input[:radius_settings].nil?
         Hearth::Validator.validate!(input[:radius_status], ::String, context: "#{context}[:radius_status]")
       end
     end
@@ -1361,7 +1363,7 @@ module AWS::SDK::DirectoryService
     class RadiusSettings
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RadiusSettings, context: context)
-        Validators::Servers.validate!(input[:radius_servers], context: "#{context}[:radius_servers]") unless input[:radius_servers].nil?
+        Servers.validate!(input[:radius_servers], context: "#{context}[:radius_servers]") unless input[:radius_servers].nil?
         Hearth::Validator.validate!(input[:radius_port], ::Integer, context: "#{context}[:radius_port]")
         Hearth::Validator.validate!(input[:radius_timeout], ::Integer, context: "#{context}[:radius_timeout]")
         Hearth::Validator.validate!(input[:radius_retries], ::Integer, context: "#{context}[:radius_retries]")
@@ -1379,7 +1381,7 @@ module AWS::SDK::DirectoryService
         Hearth::Validator.validate!(input[:region_name], ::String, context: "#{context}[:region_name]")
         Hearth::Validator.validate!(input[:region_type], ::String, context: "#{context}[:region_type]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::DirectoryVpcSettings.validate!(input[:vpc_settings], context: "#{context}[:vpc_settings]") unless input[:vpc_settings].nil?
+        DirectoryVpcSettings.validate!(input[:vpc_settings], context: "#{context}[:vpc_settings]") unless input[:vpc_settings].nil?
         Hearth::Validator.validate!(input[:desired_number_of_domain_controllers], ::Integer, context: "#{context}[:desired_number_of_domain_controllers]")
         Hearth::Validator.validate!(input[:launch_time], ::Time, context: "#{context}[:launch_time]")
         Hearth::Validator.validate!(input[:status_last_updated_date_time], ::Time, context: "#{context}[:status_last_updated_date_time]")
@@ -1399,7 +1401,7 @@ module AWS::SDK::DirectoryService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RegionDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RegionDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1408,7 +1410,7 @@ module AWS::SDK::DirectoryService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RegionsInfo, context: context)
         Hearth::Validator.validate!(input[:primary_region], ::String, context: "#{context}[:primary_region]")
-        Validators::AdditionalRegions.validate!(input[:additional_regions], context: "#{context}[:additional_regions]") unless input[:additional_regions].nil?
+        AdditionalRegions.validate!(input[:additional_regions], context: "#{context}[:additional_regions]") unless input[:additional_regions].nil?
       end
     end
 
@@ -1418,7 +1420,7 @@ module AWS::SDK::DirectoryService
         Hearth::Validator.validate!(input[:directory_id], ::String, context: "#{context}[:directory_id]")
         Hearth::Validator.validate!(input[:certificate_data], ::String, context: "#{context}[:certificate_data]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::ClientCertAuthSettings.validate!(input[:client_cert_auth_settings], context: "#{context}[:client_cert_auth_settings]") unless input[:client_cert_auth_settings].nil?
+        ClientCertAuthSettings.validate!(input[:client_cert_auth_settings], context: "#{context}[:client_cert_auth_settings]") unless input[:client_cert_auth_settings].nil?
       end
     end
 
@@ -1470,7 +1472,7 @@ module AWS::SDK::DirectoryService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RemoveIpRoutesInput, context: context)
         Hearth::Validator.validate!(input[:directory_id], ::String, context: "#{context}[:directory_id]")
-        Validators::CidrIps.validate!(input[:cidr_ips], context: "#{context}[:cidr_ips]") unless input[:cidr_ips].nil?
+        CidrIps.validate!(input[:cidr_ips], context: "#{context}[:cidr_ips]") unless input[:cidr_ips].nil?
       end
     end
 
@@ -1497,7 +1499,7 @@ module AWS::SDK::DirectoryService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RemoveTagsFromResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_id], ::String, context: "#{context}[:resource_id]")
-        Validators::TagKeys.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeys.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -1552,7 +1554,7 @@ module AWS::SDK::DirectoryService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SchemaExtensionInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SchemaExtensionInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1579,7 +1581,7 @@ module AWS::SDK::DirectoryService
         Hearth::Validator.validate!(input, Types::ShareDirectoryInput, context: context)
         Hearth::Validator.validate!(input[:directory_id], ::String, context: "#{context}[:directory_id]")
         Hearth::Validator.validate!(input[:share_notes], ::String, context: "#{context}[:share_notes]")
-        Validators::ShareTarget.validate!(input[:share_target], context: "#{context}[:share_target]") unless input[:share_target].nil?
+        ShareTarget.validate!(input[:share_target], context: "#{context}[:share_target]") unless input[:share_target].nil?
         Hearth::Validator.validate!(input[:share_method], ::String, context: "#{context}[:share_method]")
       end
     end
@@ -1611,7 +1613,7 @@ module AWS::SDK::DirectoryService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SharedDirectory.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SharedDirectory.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1673,7 +1675,7 @@ module AWS::SDK::DirectoryService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Snapshot.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Snapshot.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1733,7 +1735,7 @@ module AWS::SDK::DirectoryService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1777,7 +1779,7 @@ module AWS::SDK::DirectoryService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Trust.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Trust.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1786,7 +1788,7 @@ module AWS::SDK::DirectoryService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UnshareDirectoryInput, context: context)
         Hearth::Validator.validate!(input[:directory_id], ::String, context: "#{context}[:directory_id]")
-        Validators::UnshareTarget.validate!(input[:unshare_target], context: "#{context}[:unshare_target]") unless input[:unshare_target].nil?
+        UnshareTarget.validate!(input[:unshare_target], context: "#{context}[:unshare_target]") unless input[:unshare_target].nil?
       end
     end
 
@@ -1818,7 +1820,7 @@ module AWS::SDK::DirectoryService
         Hearth::Validator.validate!(input, Types::UpdateConditionalForwarderInput, context: context)
         Hearth::Validator.validate!(input[:directory_id], ::String, context: "#{context}[:directory_id]")
         Hearth::Validator.validate!(input[:remote_domain_name], ::String, context: "#{context}[:remote_domain_name]")
-        Validators::DnsIpAddrs.validate!(input[:dns_ip_addrs], context: "#{context}[:dns_ip_addrs]") unless input[:dns_ip_addrs].nil?
+        DnsIpAddrs.validate!(input[:dns_ip_addrs], context: "#{context}[:dns_ip_addrs]") unless input[:dns_ip_addrs].nil?
       end
     end
 
@@ -1846,7 +1848,7 @@ module AWS::SDK::DirectoryService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateRadiusInput, context: context)
         Hearth::Validator.validate!(input[:directory_id], ::String, context: "#{context}[:directory_id]")
-        Validators::RadiusSettings.validate!(input[:radius_settings], context: "#{context}[:radius_settings]") unless input[:radius_settings].nil?
+        RadiusSettings.validate!(input[:radius_settings], context: "#{context}[:radius_settings]") unless input[:radius_settings].nil?
       end
     end
 

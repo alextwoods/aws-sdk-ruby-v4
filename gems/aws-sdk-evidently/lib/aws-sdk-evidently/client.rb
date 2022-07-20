@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::Evidently
@@ -92,7 +94,11 @@ module AWS::SDK::Evidently
     #   resp.data.results[0].project #=> String
     #   resp.data.results[0].feature #=> String
     #   resp.data.results[0].variation #=> String
-    #   resp.data.results[0].value #=> VariableValue
+    #   resp.data.results[0].value #=> Types::VariableValue, one of [BoolValue, StringValue, LongValue, DoubleValue]
+    #   resp.data.results[0].value.bool_value #=> Boolean
+    #   resp.data.results[0].value.string_value #=> String
+    #   resp.data.results[0].value.long_value #=> Integer
+    #   resp.data.results[0].value.double_value #=> Float
     #   resp.data.results[0].entity_id #=> String
     #   resp.data.results[0].reason #=> String
     #   resp.data.results[0].details #=> String
@@ -100,7 +106,7 @@ module AWS::SDK::Evidently
     def batch_evaluate_feature(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchEvaluateFeatureInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchEvaluateFeatureInput,
         validate_input: @config.validate_input
@@ -290,7 +296,7 @@ module AWS::SDK::Evidently
     def create_experiment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateExperimentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateExperimentInput,
         validate_input: @config.validate_input
@@ -431,7 +437,11 @@ module AWS::SDK::Evidently
     #   resp.data.feature.variations #=> Array<Variation>
     #   resp.data.feature.variations[0] #=> Types::Variation
     #   resp.data.feature.variations[0].name #=> String
-    #   resp.data.feature.variations[0].value #=> VariableValue
+    #   resp.data.feature.variations[0].value #=> Types::VariableValue, one of [BoolValue, StringValue, LongValue, DoubleValue]
+    #   resp.data.feature.variations[0].value.bool_value #=> Boolean
+    #   resp.data.feature.variations[0].value.string_value #=> String
+    #   resp.data.feature.variations[0].value.long_value #=> Integer
+    #   resp.data.feature.variations[0].value.double_value #=> Float
     #   resp.data.feature.default_variation #=> String
     #   resp.data.feature.evaluation_rules #=> Array<EvaluationRule>
     #   resp.data.feature.evaluation_rules[0] #=> Types::EvaluationRule
@@ -445,7 +455,7 @@ module AWS::SDK::Evidently
     def create_feature(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateFeatureInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateFeatureInput,
         validate_input: @config.validate_input
@@ -624,7 +634,7 @@ module AWS::SDK::Evidently
     def create_launch(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateLaunchInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateLaunchInput,
         validate_input: @config.validate_input
@@ -746,7 +756,7 @@ module AWS::SDK::Evidently
     def create_project(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateProjectInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateProjectInput,
         validate_input: @config.validate_input
@@ -819,7 +829,7 @@ module AWS::SDK::Evidently
     def delete_experiment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteExperimentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteExperimentInput,
         validate_input: @config.validate_input
@@ -890,7 +900,7 @@ module AWS::SDK::Evidently
     def delete_feature(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteFeatureInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteFeatureInput,
         validate_input: @config.validate_input
@@ -962,7 +972,7 @@ module AWS::SDK::Evidently
     def delete_launch(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteLaunchInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteLaunchInput,
         validate_input: @config.validate_input
@@ -1030,7 +1040,7 @@ module AWS::SDK::Evidently
     def delete_project(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteProjectInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteProjectInput,
         validate_input: @config.validate_input
@@ -1125,14 +1135,18 @@ module AWS::SDK::Evidently
     #
     #   resp.data #=> Types::EvaluateFeatureOutput
     #   resp.data.variation #=> String
-    #   resp.data.value #=> VariableValue
+    #   resp.data.value #=> Types::VariableValue, one of [BoolValue, StringValue, LongValue, DoubleValue]
+    #   resp.data.value.bool_value #=> Boolean
+    #   resp.data.value.string_value #=> String
+    #   resp.data.value.long_value #=> Integer
+    #   resp.data.value.double_value #=> Float
     #   resp.data.reason #=> String
     #   resp.data.details #=> String
     #
     def evaluate_feature(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::EvaluateFeatureInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::EvaluateFeatureInput,
         validate_input: @config.validate_input
@@ -1247,7 +1261,7 @@ module AWS::SDK::Evidently
     def get_experiment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetExperimentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetExperimentInput,
         validate_input: @config.validate_input
@@ -1409,7 +1423,7 @@ module AWS::SDK::Evidently
     def get_experiment_results(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetExperimentResultsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetExperimentResultsInput,
         validate_input: @config.validate_input
@@ -1491,7 +1505,11 @@ module AWS::SDK::Evidently
     #   resp.data.feature.variations #=> Array<Variation>
     #   resp.data.feature.variations[0] #=> Types::Variation
     #   resp.data.feature.variations[0].name #=> String
-    #   resp.data.feature.variations[0].value #=> VariableValue
+    #   resp.data.feature.variations[0].value #=> Types::VariableValue, one of [BoolValue, StringValue, LongValue, DoubleValue]
+    #   resp.data.feature.variations[0].value.bool_value #=> Boolean
+    #   resp.data.feature.variations[0].value.string_value #=> String
+    #   resp.data.feature.variations[0].value.long_value #=> Integer
+    #   resp.data.feature.variations[0].value.double_value #=> Float
     #   resp.data.feature.default_variation #=> String
     #   resp.data.feature.evaluation_rules #=> Array<EvaluationRule>
     #   resp.data.feature.evaluation_rules[0] #=> Types::EvaluationRule
@@ -1505,7 +1523,7 @@ module AWS::SDK::Evidently
     def get_feature(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetFeatureInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetFeatureInput,
         validate_input: @config.validate_input
@@ -1613,7 +1631,7 @@ module AWS::SDK::Evidently
     def get_launch(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetLaunchInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetLaunchInput,
         validate_input: @config.validate_input
@@ -1701,7 +1719,7 @@ module AWS::SDK::Evidently
     def get_project(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetProjectInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetProjectInput,
         validate_input: @config.validate_input
@@ -1821,7 +1839,7 @@ module AWS::SDK::Evidently
     def list_experiments(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListExperimentsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListExperimentsInput,
         validate_input: @config.validate_input
@@ -1914,7 +1932,7 @@ module AWS::SDK::Evidently
     def list_features(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListFeaturesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListFeaturesInput,
         validate_input: @config.validate_input
@@ -2032,7 +2050,7 @@ module AWS::SDK::Evidently
     def list_launches(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListLaunchesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListLaunchesInput,
         validate_input: @config.validate_input
@@ -2121,7 +2139,7 @@ module AWS::SDK::Evidently
     def list_projects(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListProjectsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListProjectsInput,
         validate_input: @config.validate_input
@@ -2190,7 +2208,7 @@ module AWS::SDK::Evidently
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -2304,7 +2322,7 @@ module AWS::SDK::Evidently
     def put_project_events(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutProjectEventsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutProjectEventsInput,
         validate_input: @config.validate_input
@@ -2387,7 +2405,7 @@ module AWS::SDK::Evidently
     def start_experiment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartExperimentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartExperimentInput,
         validate_input: @config.validate_input
@@ -2496,7 +2514,7 @@ module AWS::SDK::Evidently
     def start_launch(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartLaunchInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartLaunchInput,
         validate_input: @config.validate_input
@@ -2578,7 +2596,7 @@ module AWS::SDK::Evidently
     def stop_experiment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopExperimentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopExperimentInput,
         validate_input: @config.validate_input
@@ -2664,7 +2682,7 @@ module AWS::SDK::Evidently
     def stop_launch(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopLaunchInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopLaunchInput,
         validate_input: @config.validate_input
@@ -2750,7 +2768,7 @@ module AWS::SDK::Evidently
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -2824,7 +2842,7 @@ module AWS::SDK::Evidently
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -2991,7 +3009,7 @@ module AWS::SDK::Evidently
     def update_experiment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateExperimentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateExperimentInput,
         validate_input: @config.validate_input
@@ -3126,7 +3144,11 @@ module AWS::SDK::Evidently
     #   resp.data.feature.variations #=> Array<Variation>
     #   resp.data.feature.variations[0] #=> Types::Variation
     #   resp.data.feature.variations[0].name #=> String
-    #   resp.data.feature.variations[0].value #=> VariableValue
+    #   resp.data.feature.variations[0].value #=> Types::VariableValue, one of [BoolValue, StringValue, LongValue, DoubleValue]
+    #   resp.data.feature.variations[0].value.bool_value #=> Boolean
+    #   resp.data.feature.variations[0].value.string_value #=> String
+    #   resp.data.feature.variations[0].value.long_value #=> Integer
+    #   resp.data.feature.variations[0].value.double_value #=> Float
     #   resp.data.feature.default_variation #=> String
     #   resp.data.feature.evaluation_rules #=> Array<EvaluationRule>
     #   resp.data.feature.evaluation_rules[0] #=> Types::EvaluationRule
@@ -3140,7 +3162,7 @@ module AWS::SDK::Evidently
     def update_feature(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateFeatureInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateFeatureInput,
         validate_input: @config.validate_input
@@ -3302,7 +3324,7 @@ module AWS::SDK::Evidently
     def update_launch(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateLaunchInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateLaunchInput,
         validate_input: @config.validate_input
@@ -3399,7 +3421,7 @@ module AWS::SDK::Evidently
     def update_project(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateProjectInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateProjectInput,
         validate_input: @config.validate_input
@@ -3505,7 +3527,7 @@ module AWS::SDK::Evidently
     def update_project_data_delivery(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateProjectDataDeliveryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateProjectDataDeliveryInput,
         validate_input: @config.validate_input

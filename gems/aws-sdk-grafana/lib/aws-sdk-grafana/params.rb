@@ -145,7 +145,7 @@ module AWS::SDK::Grafana
         Hearth::Validator.validate!(params, ::Hash, Types::CreateWorkspaceInput, context: context)
         type = Types::CreateWorkspaceInput.new
         type.account_access_type = params[:account_access_type]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.organization_role_name = params[:organization_role_name]
         type.permission_type = params[:permission_type]
         type.stack_set_name = params[:stack_set_name]

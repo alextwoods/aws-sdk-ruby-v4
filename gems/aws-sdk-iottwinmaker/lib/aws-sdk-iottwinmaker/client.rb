@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::IoTTwinMaker
@@ -124,7 +126,7 @@ module AWS::SDK::IoTTwinMaker
     def batch_put_property_values(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchPutPropertyValuesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchPutPropertyValuesInput,
         validate_input: @config.validate_input
@@ -279,7 +281,7 @@ module AWS::SDK::IoTTwinMaker
     def create_component_type(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateComponentTypeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateComponentTypeInput,
         validate_input: @config.validate_input
@@ -423,7 +425,7 @@ module AWS::SDK::IoTTwinMaker
     def create_entity(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateEntityInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateEntityInput,
         validate_input: @config.validate_input
@@ -521,7 +523,7 @@ module AWS::SDK::IoTTwinMaker
     def create_scene(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateSceneInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateSceneInput,
         validate_input: @config.validate_input
@@ -613,7 +615,7 @@ module AWS::SDK::IoTTwinMaker
     def create_workspace(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateWorkspaceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateWorkspaceInput,
         validate_input: @config.validate_input
@@ -690,7 +692,7 @@ module AWS::SDK::IoTTwinMaker
     def delete_component_type(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteComponentTypeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteComponentTypeInput,
         validate_input: @config.validate_input
@@ -770,7 +772,7 @@ module AWS::SDK::IoTTwinMaker
     def delete_entity(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteEntityInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteEntityInput,
         validate_input: @config.validate_input
@@ -845,7 +847,7 @@ module AWS::SDK::IoTTwinMaker
     def delete_scene(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteSceneInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteSceneInput,
         validate_input: @config.validate_input
@@ -916,7 +918,7 @@ module AWS::SDK::IoTTwinMaker
     def delete_workspace(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteWorkspaceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteWorkspaceInput,
         validate_input: @config.validate_input
@@ -1027,7 +1029,7 @@ module AWS::SDK::IoTTwinMaker
     #   resp.data.extends_from[0] #=> String
     #   resp.data.functions #=> Hash<String, FunctionResponse>
     #   resp.data.functions['key'] #=> Types::FunctionResponse
-    #   resp.data.functions['key'].required_properties #=> Set<String>
+    #   resp.data.functions['key'].required_properties #=> Array<String>
     #   resp.data.functions['key'].required_properties[0] #=> String
     #   resp.data.functions['key'].scope #=> String, one of ["ENTITY", "WORKSPACE"]
     #   resp.data.functions['key'].implemented_by #=> Types::DataConnector
@@ -1049,7 +1051,7 @@ module AWS::SDK::IoTTwinMaker
     def get_component_type(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetComponentTypeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetComponentTypeInput,
         validate_input: @config.validate_input
@@ -1179,7 +1181,7 @@ module AWS::SDK::IoTTwinMaker
     def get_entity(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetEntityInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetEntityInput,
         validate_input: @config.validate_input
@@ -1289,7 +1291,7 @@ module AWS::SDK::IoTTwinMaker
     def get_property_value(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetPropertyValueInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetPropertyValueInput,
         validate_input: @config.validate_input
@@ -1464,7 +1466,7 @@ module AWS::SDK::IoTTwinMaker
     def get_property_value_history(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetPropertyValueHistoryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetPropertyValueHistoryInput,
         validate_input: @config.validate_input
@@ -1549,7 +1551,7 @@ module AWS::SDK::IoTTwinMaker
     def get_scene(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSceneInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSceneInput,
         validate_input: @config.validate_input
@@ -1627,7 +1629,7 @@ module AWS::SDK::IoTTwinMaker
     def get_workspace(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetWorkspaceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetWorkspaceInput,
         validate_input: @config.validate_input
@@ -1732,7 +1734,7 @@ module AWS::SDK::IoTTwinMaker
     def list_component_types(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListComponentTypesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListComponentTypesInput,
         validate_input: @config.validate_input
@@ -1842,7 +1844,7 @@ module AWS::SDK::IoTTwinMaker
     def list_entities(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListEntitiesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListEntitiesInput,
         validate_input: @config.validate_input
@@ -1931,7 +1933,7 @@ module AWS::SDK::IoTTwinMaker
     def list_scenes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListScenesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListScenesInput,
         validate_input: @config.validate_input
@@ -2014,7 +2016,7 @@ module AWS::SDK::IoTTwinMaker
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -2098,7 +2100,7 @@ module AWS::SDK::IoTTwinMaker
     def list_workspaces(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListWorkspacesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListWorkspacesInput,
         validate_input: @config.validate_input
@@ -2176,7 +2178,7 @@ module AWS::SDK::IoTTwinMaker
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -2254,7 +2256,7 @@ module AWS::SDK::IoTTwinMaker
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -2403,7 +2405,7 @@ module AWS::SDK::IoTTwinMaker
     def update_component_type(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateComponentTypeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateComponentTypeInput,
         validate_input: @config.validate_input
@@ -2543,7 +2545,7 @@ module AWS::SDK::IoTTwinMaker
     def update_entity(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateEntityInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateEntityInput,
         validate_input: @config.validate_input
@@ -2634,7 +2636,7 @@ module AWS::SDK::IoTTwinMaker
     def update_scene(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateSceneInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateSceneInput,
         validate_input: @config.validate_input
@@ -2715,7 +2717,7 @@ module AWS::SDK::IoTTwinMaker
     def update_workspace(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateWorkspaceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateWorkspaceInput,
         validate_input: @config.validate_input

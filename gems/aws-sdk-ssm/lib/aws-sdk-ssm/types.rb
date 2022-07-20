@@ -99,13 +99,13 @@ module AWS::SDK::SSM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.registration_limit ||= 0
         self.registrations_count ||= 0
         self.expired ||= false
       end
-
     end
 
     # @!attribute resource_type
@@ -582,6 +582,7 @@ module AWS::SDK::SSM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.apply_only_at_cron_interval ||= false
@@ -1184,6 +1185,7 @@ module AWS::SDK::SSM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.apply_only_at_cron_interval ||= false
@@ -1265,11 +1267,11 @@ module AWS::SDK::SSM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.size ||= 0
       end
-
     end
 
     # Includes enum constants for AttachmentHashType
@@ -1622,11 +1624,11 @@ module AWS::SDK::SSM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.step_executions_truncated ||= false
       end
-
     end
 
     # <p>A filter used to match specific automation executions. This is used to limit the scope of
@@ -2115,11 +2117,11 @@ module AWS::SDK::SSM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.approved_patches_enable_non_security ||= false
       end
-
     end
 
     # Includes enum constants for CalendarState
@@ -2213,11 +2215,11 @@ module AWS::SDK::SSM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.cloud_watch_output_enabled ||= false
       end
-
     end
 
     # <p>Describes a command request.</p>
@@ -2436,6 +2438,7 @@ module AWS::SDK::SSM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.target_count ||= 0
@@ -3067,11 +3070,11 @@ module AWS::SDK::SSM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.response_code ||= 0
       end
-
     end
 
     # Includes enum constants for CommandPluginStatus
@@ -3451,11 +3454,11 @@ module AWS::SDK::SSM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.compliant_count ||= 0
       end
-
     end
 
     # Includes enum constants for ConnectionStatus
@@ -3786,6 +3789,7 @@ module AWS::SDK::SSM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.apply_only_at_cron_interval ||= false
@@ -4013,6 +4017,7 @@ module AWS::SDK::SSM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.apply_only_at_cron_interval ||= false
@@ -4336,6 +4341,7 @@ module AWS::SDK::SSM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.duration ||= 0
@@ -4879,11 +4885,11 @@ module AWS::SDK::SSM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.force ||= false
       end
-
     end
 
     DeleteDocumentOutput = ::Struct.new(
@@ -4934,11 +4940,11 @@ module AWS::SDK::SSM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute deletion_id
@@ -7157,6 +7163,7 @@ module AWS::SDK::SSM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.instances ||= 0
@@ -7166,7 +7173,6 @@ module AWS::SDK::SSM
         self.instances_with_failed_patches ||= 0
         self.instances_with_not_applicable_patches ||= 0
       end
-
     end
 
     # @!attribute max_results
@@ -8357,11 +8363,11 @@ module AWS::SDK::SSM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_default_version ||= false
       end
-
     end
 
     # <p>The document has too many versions. Delete one or more document versions and try
@@ -8854,11 +8860,11 @@ module AWS::SDK::SSM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.response_code ||= 0
       end
-
     end
 
     # @!attribute target
@@ -9223,11 +9229,11 @@ module AWS::SDK::SSM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.aggregator ||= false
       end
-
     end
 
     # @!attribute schemas
@@ -9554,6 +9560,7 @@ module AWS::SDK::SSM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.priority ||= 0
@@ -9692,6 +9699,7 @@ module AWS::SDK::SSM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.duration ||= 0
@@ -9872,6 +9880,7 @@ module AWS::SDK::SSM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.priority ||= 0
@@ -11158,6 +11167,7 @@ module AWS::SDK::SSM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.installed_count ||= 0
@@ -12091,12 +12101,12 @@ module AWS::SDK::SSM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.total_count ||= 0
         self.remaining_count ||= 0
       end
-
     end
 
     # <p>Either a count, remaining count, or a version number in a delete inventory summary.</p>
@@ -12123,12 +12133,12 @@ module AWS::SDK::SSM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.count ||= 0
         self.remaining_count ||= 0
       end
-
     end
 
     # <p>One or more filters. Use a filter to return a more specific list of results.</p>
@@ -12492,11 +12502,11 @@ module AWS::SDK::SSM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.parameter_version ||= 0
       end
-
     end
 
     # Includes enum constants for LastResourceDataSyncStatus
@@ -12654,11 +12664,11 @@ module AWS::SDK::SSM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.details ||= false
       end
-
     end
 
     # @!attribute command_invocations
@@ -13837,6 +13847,7 @@ module AWS::SDK::SSM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
@@ -14316,6 +14327,7 @@ module AWS::SDK::SSM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.priority ||= 0
@@ -14523,11 +14535,11 @@ module AWS::SDK::SSM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.non_compliant_count ||= 0
       end
-
     end
 
     # <p>Configurations for sending notifications.</p>
@@ -15361,11 +15373,11 @@ module AWS::SDK::SSM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.limit ||= 0
       end
-
     end
 
     # <p>The specified OpsItem ID doesn't exist. Verify the ID and try again.</p>
@@ -16003,6 +16015,7 @@ module AWS::SDK::SSM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.version ||= 0
@@ -16128,6 +16141,7 @@ module AWS::SDK::SSM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.version ||= 0
@@ -16302,11 +16316,11 @@ module AWS::SDK::SSM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.version ||= 0
       end
-
     end
 
     # <p>The parameter couldn't be found. Verify the name and try again.</p>
@@ -16642,11 +16656,11 @@ module AWS::SDK::SSM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.epoch ||= 0
       end
-
     end
 
     # Includes enum constants for PatchAction
@@ -16701,11 +16715,11 @@ module AWS::SDK::SSM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.default_baseline ||= false
       end
-
     end
 
     # <p>Information about the state of a patch on a particular managed node as it relates to the
@@ -17328,6 +17342,7 @@ module AWS::SDK::SSM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.total_steps ||= 0
@@ -17336,7 +17351,6 @@ module AWS::SDK::SSM
         self.cancelled_steps ||= 0
         self.timed_out_steps ||= 0
       end
-
     end
 
     # @!attribute resource_id
@@ -17753,11 +17767,11 @@ module AWS::SDK::SSM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.version ||= 0
       end
-
     end
 
     # Includes enum constants for RebootOption
@@ -18352,11 +18366,11 @@ module AWS::SDK::SSM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.truncated ||= false
       end
-
     end
 
     # <p>Compliance summary information for a specific resource. </p>
@@ -18723,12 +18737,12 @@ module AWS::SDK::SSM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.include_future_regions ||= false
         self.enable_all_ops_data_sources ||= false
       end
-
     end
 
     # <p>The data type name for including resource data sync state. There are four sync
@@ -18804,12 +18818,12 @@ module AWS::SDK::SSM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.include_future_regions ||= false
         self.enable_all_ops_data_sources ||= false
       end
-
     end
 
     # <p>Error returned if an attempt is made to delete a patch baseline that is registered for a
@@ -19755,6 +19769,7 @@ module AWS::SDK::SSM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.critical_count ||= 0
@@ -19764,7 +19779,6 @@ module AWS::SDK::SSM
         self.informational_count ||= 0
         self.unspecified_count ||= 0
       end
-
     end
 
     # Includes enum constants for SignalType
@@ -20069,11 +20083,11 @@ module AWS::SDK::SSM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.auto_approve ||= false
       end
-
     end
 
     # @!attribute automation_execution_id
@@ -21049,6 +21063,7 @@ module AWS::SDK::SSM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.apply_only_at_cron_interval ||= false
@@ -21470,6 +21485,7 @@ module AWS::SDK::SSM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.duration ||= 0
@@ -21932,6 +21948,7 @@ module AWS::SDK::SSM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.priority ||= 0

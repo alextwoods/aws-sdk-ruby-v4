@@ -113,7 +113,7 @@ module AWS::SDK::EMRContainers
     class DescribeJobRun
       def self.default(visited=[])
         {
-          job_run: Stubs::JobRun.default(visited),
+          job_run: JobRun.default(visited),
         }
       end
 
@@ -140,14 +140,14 @@ module AWS::SDK::EMRContainers
           client_token: 'client_token',
           execution_role_arn: 'execution_role_arn',
           release_label: 'release_label',
-          configuration_overrides: Stubs::ConfigurationOverrides.default(visited),
-          job_driver: Stubs::JobDriver.default(visited),
+          configuration_overrides: ConfigurationOverrides.default(visited),
+          job_driver: JobDriver.default(visited),
           created_at: Time.now,
           created_by: 'created_by',
           finished_at: Time.now,
           state_details: 'state_details',
           failure_reason: 'failure_reason',
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -200,7 +200,7 @@ module AWS::SDK::EMRContainers
         return nil if visited.include?('JobDriver')
         visited = visited + ['JobDriver']
         {
-          spark_submit_job_driver: Stubs::SparkSubmitJobDriver.default(visited),
+          spark_submit_job_driver: SparkSubmitJobDriver.default(visited),
         }
       end
 
@@ -219,7 +219,7 @@ module AWS::SDK::EMRContainers
         visited = visited + ['SparkSubmitJobDriver']
         {
           entry_point: 'entry_point',
-          entry_point_arguments: Stubs::EntryPointArguments.default(visited),
+          entry_point_arguments: EntryPointArguments.default(visited),
           spark_submit_parameters: 'spark_submit_parameters',
         }
       end
@@ -260,8 +260,8 @@ module AWS::SDK::EMRContainers
         return nil if visited.include?('ConfigurationOverrides')
         visited = visited + ['ConfigurationOverrides']
         {
-          application_configuration: Stubs::ConfigurationList.default(visited),
-          monitoring_configuration: Stubs::MonitoringConfiguration.default(visited),
+          application_configuration: ConfigurationList.default(visited),
+          monitoring_configuration: MonitoringConfiguration.default(visited),
         }
       end
 
@@ -281,8 +281,8 @@ module AWS::SDK::EMRContainers
         visited = visited + ['MonitoringConfiguration']
         {
           persistent_app_ui: 'persistent_app_ui',
-          cloud_watch_monitoring_configuration: Stubs::CloudWatchMonitoringConfiguration.default(visited),
-          s3_monitoring_configuration: Stubs::S3MonitoringConfiguration.default(visited),
+          cloud_watch_monitoring_configuration: CloudWatchMonitoringConfiguration.default(visited),
+          s3_monitoring_configuration: S3MonitoringConfiguration.default(visited),
         }
       end
 
@@ -340,7 +340,7 @@ module AWS::SDK::EMRContainers
         return nil if visited.include?('ConfigurationList')
         visited = visited + ['ConfigurationList']
         [
-          Stubs::Configuration.default(visited)
+          Configuration.default(visited)
         ]
       end
 
@@ -361,8 +361,8 @@ module AWS::SDK::EMRContainers
         visited = visited + ['Configuration']
         {
           classification: 'classification',
-          properties: Stubs::SensitivePropertiesMap.default(visited),
-          configurations: Stubs::ConfigurationList.default(visited),
+          properties: SensitivePropertiesMap.default(visited),
+          configurations: ConfigurationList.default(visited),
         }
       end
 
@@ -400,7 +400,7 @@ module AWS::SDK::EMRContainers
     class DescribeManagedEndpoint
       def self.default(visited=[])
         {
-          endpoint: Stubs::Endpoint.default(visited),
+          endpoint: Endpoint.default(visited),
         }
       end
 
@@ -428,15 +428,15 @@ module AWS::SDK::EMRContainers
           release_label: 'release_label',
           execution_role_arn: 'execution_role_arn',
           certificate_arn: 'certificate_arn',
-          certificate_authority: Stubs::Certificate.default(visited),
-          configuration_overrides: Stubs::ConfigurationOverrides.default(visited),
+          certificate_authority: Certificate.default(visited),
+          configuration_overrides: ConfigurationOverrides.default(visited),
           server_url: 'server_url',
           created_at: Time.now,
           security_group: 'security_group',
-          subnet_ids: Stubs::SubnetIds.default(visited),
+          subnet_ids: SubnetIds.default(visited),
           state_details: 'state_details',
           failure_reason: 'failure_reason',
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -509,7 +509,7 @@ module AWS::SDK::EMRContainers
     class DescribeVirtualCluster
       def self.default(visited=[])
         {
-          virtual_cluster: Stubs::VirtualCluster.default(visited),
+          virtual_cluster: VirtualCluster.default(visited),
         }
       end
 
@@ -532,9 +532,9 @@ module AWS::SDK::EMRContainers
           name: 'name',
           arn: 'arn',
           state: 'state',
-          container_provider: Stubs::ContainerProvider.default(visited),
+          container_provider: ContainerProvider.default(visited),
           created_at: Time.now,
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -560,7 +560,7 @@ module AWS::SDK::EMRContainers
         {
           type: 'type',
           id: 'id',
-          info: Stubs::ContainerInfo.default(visited),
+          info: ContainerInfo.default(visited),
         }
       end
 
@@ -580,7 +580,7 @@ module AWS::SDK::EMRContainers
         return nil if visited.include?('ContainerInfo')
         visited = visited + ['ContainerInfo']
         {
-          eks_info: Stubs::EksInfo.default(visited),
+          eks_info: EksInfo.default(visited),
         }
       end
 
@@ -620,7 +620,7 @@ module AWS::SDK::EMRContainers
     class ListJobRuns
       def self.default(visited=[])
         {
-          job_runs: Stubs::JobRuns.default(visited),
+          job_runs: JobRuns.default(visited),
           next_token: 'next_token',
         }
       end
@@ -641,7 +641,7 @@ module AWS::SDK::EMRContainers
         return nil if visited.include?('JobRuns')
         visited = visited + ['JobRuns']
         [
-          Stubs::JobRun.default(visited)
+          JobRun.default(visited)
         ]
       end
 
@@ -659,7 +659,7 @@ module AWS::SDK::EMRContainers
     class ListManagedEndpoints
       def self.default(visited=[])
         {
-          endpoints: Stubs::Endpoints.default(visited),
+          endpoints: Endpoints.default(visited),
           next_token: 'next_token',
         }
       end
@@ -680,7 +680,7 @@ module AWS::SDK::EMRContainers
         return nil if visited.include?('Endpoints')
         visited = visited + ['Endpoints']
         [
-          Stubs::Endpoint.default(visited)
+          Endpoint.default(visited)
         ]
       end
 
@@ -698,7 +698,7 @@ module AWS::SDK::EMRContainers
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -715,7 +715,7 @@ module AWS::SDK::EMRContainers
     class ListVirtualClusters
       def self.default(visited=[])
         {
-          virtual_clusters: Stubs::VirtualClusters.default(visited),
+          virtual_clusters: VirtualClusters.default(visited),
           next_token: 'next_token',
         }
       end
@@ -736,7 +736,7 @@ module AWS::SDK::EMRContainers
         return nil if visited.include?('VirtualClusters')
         visited = visited + ['VirtualClusters']
         [
-          Stubs::VirtualCluster.default(visited)
+          VirtualCluster.default(visited)
         ]
       end
 

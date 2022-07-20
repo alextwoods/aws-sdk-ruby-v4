@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::RDSData
@@ -142,12 +144,28 @@ module AWS::SDK::RDSData
     #   resp.data.update_results #=> Array<UpdateResult>
     #   resp.data.update_results[0] #=> Types::UpdateResult
     #   resp.data.update_results[0].generated_fields #=> Array<Field>
-    #   resp.data.update_results[0].generated_fields[0] #=> Field
+    #   resp.data.update_results[0].generated_fields[0] #=> Types::Field, one of [IsNull, BooleanValue, LongValue, DoubleValue, StringValue, BlobValue, ArrayValue]
+    #   resp.data.update_results[0].generated_fields[0].is_null #=> Boolean
+    #   resp.data.update_results[0].generated_fields[0].boolean_value #=> Boolean
+    #   resp.data.update_results[0].generated_fields[0].long_value #=> Integer
+    #   resp.data.update_results[0].generated_fields[0].double_value #=> Float
+    #   resp.data.update_results[0].generated_fields[0].string_value #=> String
+    #   resp.data.update_results[0].generated_fields[0].blob_value #=> String
+    #   resp.data.update_results[0].generated_fields[0].array_value #=> Types::ArrayValue, one of [BooleanValues, LongValues, DoubleValues, StringValues, ArrayValues]
+    #   resp.data.update_results[0].generated_fields[0].array_value.boolean_values #=> Array<Boolean>
+    #   resp.data.update_results[0].generated_fields[0].array_value.boolean_values[0] #=> Boolean
+    #   resp.data.update_results[0].generated_fields[0].array_value.long_values #=> Array<Integer>
+    #   resp.data.update_results[0].generated_fields[0].array_value.long_values[0] #=> Integer
+    #   resp.data.update_results[0].generated_fields[0].array_value.double_values #=> Array<Float>
+    #   resp.data.update_results[0].generated_fields[0].array_value.double_values[0] #=> Float
+    #   resp.data.update_results[0].generated_fields[0].array_value.string_values #=> Array<String>
+    #   resp.data.update_results[0].generated_fields[0].array_value.string_values[0] #=> String
+    #   resp.data.update_results[0].generated_fields[0].array_value.array_values #=> Array<ArrayValue>
     #
     def batch_execute_statement(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchExecuteStatementInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchExecuteStatementInput,
         validate_input: @config.validate_input
@@ -239,7 +257,7 @@ module AWS::SDK::RDSData
     def begin_transaction(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BeginTransactionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BeginTransactionInput,
         validate_input: @config.validate_input
@@ -317,7 +335,7 @@ module AWS::SDK::RDSData
     def commit_transaction(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CommitTransactionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CommitTransactionInput,
         validate_input: @config.validate_input
@@ -432,13 +450,24 @@ module AWS::SDK::RDSData
     #   resp.data.sql_statement_results[0].result_frame.records #=> Array<Record>
     #   resp.data.sql_statement_results[0].result_frame.records[0] #=> Types::Record
     #   resp.data.sql_statement_results[0].result_frame.records[0].values #=> Array<Value>
-    #   resp.data.sql_statement_results[0].result_frame.records[0].values[0] #=> Value
+    #   resp.data.sql_statement_results[0].result_frame.records[0].values[0] #=> Types::Value, one of [IsNull, BitValue, BigIntValue, IntValue, DoubleValue, RealValue, StringValue, BlobValue, ArrayValues, StructValue]
+    #   resp.data.sql_statement_results[0].result_frame.records[0].values[0].is_null #=> Boolean
+    #   resp.data.sql_statement_results[0].result_frame.records[0].values[0].bit_value #=> Boolean
+    #   resp.data.sql_statement_results[0].result_frame.records[0].values[0].big_int_value #=> Integer
+    #   resp.data.sql_statement_results[0].result_frame.records[0].values[0].int_value #=> Integer
+    #   resp.data.sql_statement_results[0].result_frame.records[0].values[0].double_value #=> Float
+    #   resp.data.sql_statement_results[0].result_frame.records[0].values[0].real_value #=> Float
+    #   resp.data.sql_statement_results[0].result_frame.records[0].values[0].string_value #=> String
+    #   resp.data.sql_statement_results[0].result_frame.records[0].values[0].blob_value #=> String
+    #   resp.data.sql_statement_results[0].result_frame.records[0].values[0].array_values #=> Array<Value>
+    #   resp.data.sql_statement_results[0].result_frame.records[0].values[0].struct_value #=> Types::StructValue
+    #   resp.data.sql_statement_results[0].result_frame.records[0].values[0].struct_value.attributes #=> Array<Value>
     #   resp.data.sql_statement_results[0].number_of_records_updated #=> Integer
     #
     def execute_sql(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ExecuteSqlInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ExecuteSqlInput,
         validate_input: @config.validate_input
@@ -604,7 +633,23 @@ module AWS::SDK::RDSData
     #   resp.data #=> Types::ExecuteStatementOutput
     #   resp.data.records #=> Array<Array<Field>>
     #   resp.data.records[0] #=> Array<Field>
-    #   resp.data.records[0][0] #=> Field
+    #   resp.data.records[0][0] #=> Types::Field, one of [IsNull, BooleanValue, LongValue, DoubleValue, StringValue, BlobValue, ArrayValue]
+    #   resp.data.records[0][0].is_null #=> Boolean
+    #   resp.data.records[0][0].boolean_value #=> Boolean
+    #   resp.data.records[0][0].long_value #=> Integer
+    #   resp.data.records[0][0].double_value #=> Float
+    #   resp.data.records[0][0].string_value #=> String
+    #   resp.data.records[0][0].blob_value #=> String
+    #   resp.data.records[0][0].array_value #=> Types::ArrayValue, one of [BooleanValues, LongValues, DoubleValues, StringValues, ArrayValues]
+    #   resp.data.records[0][0].array_value.boolean_values #=> Array<Boolean>
+    #   resp.data.records[0][0].array_value.boolean_values[0] #=> Boolean
+    #   resp.data.records[0][0].array_value.long_values #=> Array<Integer>
+    #   resp.data.records[0][0].array_value.long_values[0] #=> Integer
+    #   resp.data.records[0][0].array_value.double_values #=> Array<Float>
+    #   resp.data.records[0][0].array_value.double_values[0] #=> Float
+    #   resp.data.records[0][0].array_value.string_values #=> Array<String>
+    #   resp.data.records[0][0].array_value.string_values[0] #=> String
+    #   resp.data.records[0][0].array_value.array_values #=> Array<ArrayValue>
     #   resp.data.column_metadata #=> Array<ColumnMetadata>
     #   resp.data.column_metadata[0] #=> Types::ColumnMetadata
     #   resp.data.column_metadata[0].name #=> String
@@ -628,7 +673,7 @@ module AWS::SDK::RDSData
     def execute_statement(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ExecuteStatementInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ExecuteStatementInput,
         validate_input: @config.validate_input
@@ -705,7 +750,7 @@ module AWS::SDK::RDSData
     def rollback_transaction(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RollbackTransactionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RollbackTransactionInput,
         validate_input: @config.validate_input

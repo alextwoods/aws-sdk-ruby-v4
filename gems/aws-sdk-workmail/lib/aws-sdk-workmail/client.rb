@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::WorkMail
@@ -100,7 +102,7 @@ module AWS::SDK::WorkMail
     def associate_delegate_to_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateDelegateToResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateDelegateToResourceInput,
         validate_input: @config.validate_input
@@ -176,7 +178,7 @@ module AWS::SDK::WorkMail
     def associate_member_to_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateMemberToGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateMemberToGroupInput,
         validate_input: @config.validate_input
@@ -256,7 +258,7 @@ module AWS::SDK::WorkMail
     def cancel_mailbox_export_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelMailboxExportJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelMailboxExportJobInput,
         validate_input: @config.validate_input
@@ -332,7 +334,7 @@ module AWS::SDK::WorkMail
     def create_alias(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateAliasInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateAliasInput,
         validate_input: @config.validate_input
@@ -405,7 +407,7 @@ module AWS::SDK::WorkMail
     def create_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateGroupInput,
         validate_input: @config.validate_input
@@ -526,7 +528,7 @@ module AWS::SDK::WorkMail
     def create_mobile_device_access_rule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateMobileDeviceAccessRuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateMobileDeviceAccessRuleInput,
         validate_input: @config.validate_input
@@ -625,7 +627,7 @@ module AWS::SDK::WorkMail
     def create_organization(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateOrganizationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateOrganizationInput,
         validate_input: @config.validate_input
@@ -704,7 +706,7 @@ module AWS::SDK::WorkMail
     def create_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateResourceInput,
         validate_input: @config.validate_input
@@ -785,7 +787,7 @@ module AWS::SDK::WorkMail
     def create_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateUserInput,
         validate_input: @config.validate_input
@@ -860,7 +862,7 @@ module AWS::SDK::WorkMail
     def delete_access_control_rule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAccessControlRuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAccessControlRuleInput,
         validate_input: @config.validate_input
@@ -939,7 +941,7 @@ module AWS::SDK::WorkMail
     def delete_alias(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAliasInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAliasInput,
         validate_input: @config.validate_input
@@ -1007,7 +1009,7 @@ module AWS::SDK::WorkMail
     def delete_email_monitoring_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteEmailMonitoringConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteEmailMonitoringConfigurationInput,
         validate_input: @config.validate_input
@@ -1079,7 +1081,7 @@ module AWS::SDK::WorkMail
     def delete_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteGroupInput,
         validate_input: @config.validate_input
@@ -1157,7 +1159,7 @@ module AWS::SDK::WorkMail
     def delete_mailbox_permissions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteMailboxPermissionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteMailboxPermissionsInput,
         validate_input: @config.validate_input
@@ -1250,7 +1252,7 @@ module AWS::SDK::WorkMail
     def delete_mobile_device_access_override(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteMobileDeviceAccessOverrideInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteMobileDeviceAccessOverrideInput,
         validate_input: @config.validate_input
@@ -1325,7 +1327,7 @@ module AWS::SDK::WorkMail
     def delete_mobile_device_access_rule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteMobileDeviceAccessRuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteMobileDeviceAccessRuleInput,
         validate_input: @config.validate_input
@@ -1403,7 +1405,7 @@ module AWS::SDK::WorkMail
     def delete_organization(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteOrganizationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteOrganizationInput,
         validate_input: @config.validate_input
@@ -1476,7 +1478,7 @@ module AWS::SDK::WorkMail
     def delete_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteResourceInput,
         validate_input: @config.validate_input
@@ -1548,7 +1550,7 @@ module AWS::SDK::WorkMail
     def delete_retention_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteRetentionPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteRetentionPolicyInput,
         validate_input: @config.validate_input
@@ -1624,7 +1626,7 @@ module AWS::SDK::WorkMail
     def delete_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteUserInput,
         validate_input: @config.validate_input
@@ -1699,7 +1701,7 @@ module AWS::SDK::WorkMail
     def deregister_from_work_mail(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeregisterFromWorkMailInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeregisterFromWorkMailInput,
         validate_input: @config.validate_input
@@ -1772,7 +1774,7 @@ module AWS::SDK::WorkMail
     def deregister_mail_domain(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeregisterMailDomainInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeregisterMailDomainInput,
         validate_input: @config.validate_input
@@ -1842,7 +1844,7 @@ module AWS::SDK::WorkMail
     def describe_email_monitoring_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeEmailMonitoringConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeEmailMonitoringConfigurationInput,
         validate_input: @config.validate_input
@@ -1920,7 +1922,7 @@ module AWS::SDK::WorkMail
     def describe_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeGroupInput,
         validate_input: @config.validate_input
@@ -1989,7 +1991,7 @@ module AWS::SDK::WorkMail
     def describe_inbound_dmarc_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeInboundDmarcSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeInboundDmarcSettingsInput,
         validate_input: @config.validate_input
@@ -2073,7 +2075,7 @@ module AWS::SDK::WorkMail
     def describe_mailbox_export_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeMailboxExportJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeMailboxExportJobInput,
         validate_input: @config.validate_input
@@ -2151,7 +2153,7 @@ module AWS::SDK::WorkMail
     def describe_organization(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeOrganizationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeOrganizationInput,
         validate_input: @config.validate_input
@@ -2235,7 +2237,7 @@ module AWS::SDK::WorkMail
     def describe_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeResourceInput,
         validate_input: @config.validate_input
@@ -2315,7 +2317,7 @@ module AWS::SDK::WorkMail
     def describe_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeUserInput,
         validate_input: @config.validate_input
@@ -2393,7 +2395,7 @@ module AWS::SDK::WorkMail
     def disassociate_delegate_from_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateDelegateFromResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateDelegateFromResourceInput,
         validate_input: @config.validate_input
@@ -2469,7 +2471,7 @@ module AWS::SDK::WorkMail
     def disassociate_member_from_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateMemberFromGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateMemberFromGroupInput,
         validate_input: @config.validate_input
@@ -2555,7 +2557,7 @@ module AWS::SDK::WorkMail
     def get_access_control_effect(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAccessControlEffectInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAccessControlEffectInput,
         validate_input: @config.validate_input
@@ -2631,7 +2633,7 @@ module AWS::SDK::WorkMail
     def get_default_retention_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDefaultRetentionPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDefaultRetentionPolicyInput,
         validate_input: @config.validate_input
@@ -2712,7 +2714,7 @@ module AWS::SDK::WorkMail
     def get_mail_domain(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetMailDomainInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetMailDomainInput,
         validate_input: @config.validate_input
@@ -2787,7 +2789,7 @@ module AWS::SDK::WorkMail
     def get_mailbox_details(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetMailboxDetailsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetMailboxDetailsInput,
         validate_input: @config.validate_input
@@ -2877,7 +2879,7 @@ module AWS::SDK::WorkMail
     def get_mobile_device_access_effect(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetMobileDeviceAccessEffectInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetMobileDeviceAccessEffectInput,
         validate_input: @config.validate_input
@@ -2973,7 +2975,7 @@ module AWS::SDK::WorkMail
     def get_mobile_device_access_override(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetMobileDeviceAccessOverrideInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetMobileDeviceAccessOverrideInput,
         validate_input: @config.validate_input
@@ -3057,7 +3059,7 @@ module AWS::SDK::WorkMail
     def list_access_control_rules(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAccessControlRulesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAccessControlRulesInput,
         validate_input: @config.validate_input
@@ -3142,7 +3144,7 @@ module AWS::SDK::WorkMail
     def list_aliases(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAliasesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAliasesInput,
         validate_input: @config.validate_input
@@ -3234,7 +3236,7 @@ module AWS::SDK::WorkMail
     def list_group_members(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListGroupMembersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListGroupMembersInput,
         validate_input: @config.validate_input
@@ -3320,7 +3322,7 @@ module AWS::SDK::WorkMail
     def list_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListGroupsInput,
         validate_input: @config.validate_input
@@ -3401,7 +3403,7 @@ module AWS::SDK::WorkMail
     def list_mail_domains(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListMailDomainsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListMailDomainsInput,
         validate_input: @config.validate_input
@@ -3490,7 +3492,7 @@ module AWS::SDK::WorkMail
     def list_mailbox_export_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListMailboxExportJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListMailboxExportJobsInput,
         validate_input: @config.validate_input
@@ -3581,7 +3583,7 @@ module AWS::SDK::WorkMail
     def list_mailbox_permissions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListMailboxPermissionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListMailboxPermissionsInput,
         validate_input: @config.validate_input
@@ -3688,7 +3690,7 @@ module AWS::SDK::WorkMail
     def list_mobile_device_access_overrides(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListMobileDeviceAccessOverridesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListMobileDeviceAccessOverridesInput,
         validate_input: @config.validate_input
@@ -3776,7 +3778,7 @@ module AWS::SDK::WorkMail
     def list_mobile_device_access_rules(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListMobileDeviceAccessRulesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListMobileDeviceAccessRulesInput,
         validate_input: @config.validate_input
@@ -3857,7 +3859,7 @@ module AWS::SDK::WorkMail
     def list_organizations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListOrganizationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListOrganizationsInput,
         validate_input: @config.validate_input
@@ -3945,7 +3947,7 @@ module AWS::SDK::WorkMail
     def list_resource_delegates(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListResourceDelegatesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListResourceDelegatesInput,
         validate_input: @config.validate_input
@@ -4032,7 +4034,7 @@ module AWS::SDK::WorkMail
     def list_resources(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListResourcesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListResourcesInput,
         validate_input: @config.validate_input
@@ -4104,7 +4106,7 @@ module AWS::SDK::WorkMail
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -4192,7 +4194,7 @@ module AWS::SDK::WorkMail
     def list_users(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListUsersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListUsersInput,
         validate_input: @config.validate_input
@@ -4306,7 +4308,7 @@ module AWS::SDK::WorkMail
     def put_access_control_rule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutAccessControlRuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutAccessControlRuleInput,
         validate_input: @config.validate_input
@@ -4382,7 +4384,7 @@ module AWS::SDK::WorkMail
     def put_email_monitoring_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutEmailMonitoringConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutEmailMonitoringConfigurationInput,
         validate_input: @config.validate_input
@@ -4454,7 +4456,7 @@ module AWS::SDK::WorkMail
     def put_inbound_dmarc_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutInboundDmarcSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutInboundDmarcSettingsInput,
         validate_input: @config.validate_input
@@ -4545,7 +4547,7 @@ module AWS::SDK::WorkMail
     def put_mailbox_permissions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutMailboxPermissionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutMailboxPermissionsInput,
         validate_input: @config.validate_input
@@ -4643,7 +4645,7 @@ module AWS::SDK::WorkMail
     def put_mobile_device_access_override(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutMobileDeviceAccessOverrideInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutMobileDeviceAccessOverrideInput,
         validate_input: @config.validate_input
@@ -4733,7 +4735,7 @@ module AWS::SDK::WorkMail
     def put_retention_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutRetentionPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutRetentionPolicyInput,
         validate_input: @config.validate_input
@@ -4810,7 +4812,7 @@ module AWS::SDK::WorkMail
     def register_mail_domain(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RegisterMailDomainInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RegisterMailDomainInput,
         validate_input: @config.validate_input
@@ -4893,7 +4895,7 @@ module AWS::SDK::WorkMail
     def register_to_work_mail(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RegisterToWorkMailInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RegisterToWorkMailInput,
         validate_input: @config.validate_input
@@ -4970,7 +4972,7 @@ module AWS::SDK::WorkMail
     def reset_password(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ResetPasswordInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ResetPasswordInput,
         validate_input: @config.validate_input
@@ -5072,7 +5074,7 @@ module AWS::SDK::WorkMail
     def start_mailbox_export_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartMailboxExportJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartMailboxExportJobInput,
         validate_input: @config.validate_input
@@ -5150,7 +5152,7 @@ module AWS::SDK::WorkMail
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -5225,7 +5227,7 @@ module AWS::SDK::WorkMail
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -5297,7 +5299,7 @@ module AWS::SDK::WorkMail
     def update_default_mail_domain(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDefaultMailDomainInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDefaultMailDomainInput,
         validate_input: @config.validate_input
@@ -5375,7 +5377,7 @@ module AWS::SDK::WorkMail
     def update_mailbox_quota(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateMailboxQuotaInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateMailboxQuotaInput,
         validate_input: @config.validate_input
@@ -5495,7 +5497,7 @@ module AWS::SDK::WorkMail
     def update_mobile_device_access_rule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateMobileDeviceAccessRuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateMobileDeviceAccessRuleInput,
         validate_input: @config.validate_input
@@ -5573,7 +5575,7 @@ module AWS::SDK::WorkMail
     def update_primary_email_address(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdatePrimaryEmailAddressInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdatePrimaryEmailAddressInput,
         validate_input: @config.validate_input
@@ -5660,7 +5662,7 @@ module AWS::SDK::WorkMail
     def update_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateResourceInput,
         validate_input: @config.validate_input

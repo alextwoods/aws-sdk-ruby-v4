@@ -113,7 +113,7 @@ module AWS::SDK::AccessAnalyzer
     class GetAccessPreview
       def self.default(visited=[])
         {
-          access_preview: Stubs::AccessPreview.default(visited),
+          access_preview: AccessPreview.default(visited),
         }
       end
 
@@ -134,10 +134,10 @@ module AWS::SDK::AccessAnalyzer
         {
           id: 'id',
           analyzer_arn: 'analyzer_arn',
-          configurations: Stubs::ConfigurationsMap.default(visited),
+          configurations: ConfigurationsMap.default(visited),
           created_at: Time.now,
           status: 'status',
-          status_reason: Stubs::AccessPreviewStatusReason.default(visited),
+          status_reason: AccessPreviewStatusReason.default(visited),
         }
       end
 
@@ -178,7 +178,7 @@ module AWS::SDK::AccessAnalyzer
         return nil if visited.include?('ConfigurationsMap')
         visited = visited + ['ConfigurationsMap']
         {
-          test_key: Stubs::Configuration.default(visited)
+          test_key: Configuration.default(visited)
         }
       end
 
@@ -198,7 +198,7 @@ module AWS::SDK::AccessAnalyzer
         return nil if visited.include?('Configuration')
         visited = visited + ['Configuration']
         {
-          iam_role: Stubs::IamRoleConfiguration.default(visited),
+          iam_role: IamRoleConfiguration.default(visited),
         }
       end
 
@@ -249,9 +249,9 @@ module AWS::SDK::AccessAnalyzer
         visited = visited + ['S3BucketConfiguration']
         {
           bucket_policy: 'bucket_policy',
-          bucket_acl_grants: Stubs::S3BucketAclGrantConfigurationsList.default(visited),
-          bucket_public_access_block: Stubs::S3PublicAccessBlockConfiguration.default(visited),
-          access_points: Stubs::S3AccessPointConfigurationsMap.default(visited),
+          bucket_acl_grants: S3BucketAclGrantConfigurationsList.default(visited),
+          bucket_public_access_block: S3PublicAccessBlockConfiguration.default(visited),
+          access_points: S3AccessPointConfigurationsMap.default(visited),
         }
       end
 
@@ -272,7 +272,7 @@ module AWS::SDK::AccessAnalyzer
         return nil if visited.include?('S3AccessPointConfigurationsMap')
         visited = visited + ['S3AccessPointConfigurationsMap']
         {
-          test_key: Stubs::S3AccessPointConfiguration.default(visited)
+          test_key: S3AccessPointConfiguration.default(visited)
         }
       end
 
@@ -293,8 +293,8 @@ module AWS::SDK::AccessAnalyzer
         visited = visited + ['S3AccessPointConfiguration']
         {
           access_point_policy: 'access_point_policy',
-          public_access_block: Stubs::S3PublicAccessBlockConfiguration.default(visited),
-          network_origin: Stubs::NetworkOriginConfiguration.default(visited),
+          public_access_block: S3PublicAccessBlockConfiguration.default(visited),
+          network_origin: NetworkOriginConfiguration.default(visited),
         }
       end
 
@@ -314,7 +314,7 @@ module AWS::SDK::AccessAnalyzer
         return nil if visited.include?('NetworkOriginConfiguration')
         visited = visited + ['NetworkOriginConfiguration']
         {
-          vpc_configuration: Stubs::VpcConfiguration.default(visited),
+          vpc_configuration: VpcConfiguration.default(visited),
         }
       end
 
@@ -394,7 +394,7 @@ module AWS::SDK::AccessAnalyzer
         return nil if visited.include?('S3BucketAclGrantConfigurationsList')
         visited = visited + ['S3BucketAclGrantConfigurationsList']
         [
-          Stubs::S3BucketAclGrantConfiguration.default(visited)
+          S3BucketAclGrantConfiguration.default(visited)
         ]
       end
 
@@ -415,7 +415,7 @@ module AWS::SDK::AccessAnalyzer
         visited = visited + ['S3BucketAclGrantConfiguration']
         {
           permission: 'permission',
-          grantee: Stubs::AclGrantee.default(visited),
+          grantee: AclGrantee.default(visited),
         }
       end
 
@@ -480,8 +480,8 @@ module AWS::SDK::AccessAnalyzer
         return nil if visited.include?('KmsKeyConfiguration')
         visited = visited + ['KmsKeyConfiguration']
         {
-          key_policies: Stubs::KmsKeyPoliciesMap.default(visited),
-          grants: Stubs::KmsGrantConfigurationsList.default(visited),
+          key_policies: KmsKeyPoliciesMap.default(visited),
+          grants: KmsGrantConfigurationsList.default(visited),
         }
       end
 
@@ -500,7 +500,7 @@ module AWS::SDK::AccessAnalyzer
         return nil if visited.include?('KmsGrantConfigurationsList')
         visited = visited + ['KmsGrantConfigurationsList']
         [
-          Stubs::KmsGrantConfiguration.default(visited)
+          KmsGrantConfiguration.default(visited)
         ]
       end
 
@@ -520,10 +520,10 @@ module AWS::SDK::AccessAnalyzer
         return nil if visited.include?('KmsGrantConfiguration')
         visited = visited + ['KmsGrantConfiguration']
         {
-          operations: Stubs::KmsGrantOperationsList.default(visited),
+          operations: KmsGrantOperationsList.default(visited),
           grantee_principal: 'grantee_principal',
           retiring_principal: 'retiring_principal',
-          constraints: Stubs::KmsGrantConstraints.default(visited),
+          constraints: KmsGrantConstraints.default(visited),
           issuing_account: 'issuing_account',
         }
       end
@@ -546,8 +546,8 @@ module AWS::SDK::AccessAnalyzer
         return nil if visited.include?('KmsGrantConstraints')
         visited = visited + ['KmsGrantConstraints']
         {
-          encryption_context_equals: Stubs::KmsConstraintsMap.default(visited),
-          encryption_context_subset: Stubs::KmsConstraintsMap.default(visited),
+          encryption_context_equals: KmsConstraintsMap.default(visited),
+          encryption_context_subset: KmsConstraintsMap.default(visited),
         }
       end
 
@@ -642,7 +642,7 @@ module AWS::SDK::AccessAnalyzer
     class GetAnalyzedResource
       def self.default(visited=[])
         {
-          resource: Stubs::AnalyzedResource.default(visited),
+          resource: AnalyzedResource.default(visited),
         }
       end
 
@@ -667,8 +667,8 @@ module AWS::SDK::AccessAnalyzer
           analyzed_at: Time.now,
           updated_at: Time.now,
           is_public: false,
-          actions: Stubs::ActionList.default(visited),
-          shared_via: Stubs::SharedViaList.default(visited),
+          actions: ActionList.default(visited),
+          shared_via: SharedViaList.default(visited),
           status: 'status',
           resource_owner_account: 'resource_owner_account',
           error: 'error',
@@ -737,7 +737,7 @@ module AWS::SDK::AccessAnalyzer
     class GetAnalyzer
       def self.default(visited=[])
         {
-          analyzer: Stubs::AnalyzerSummary.default(visited),
+          analyzer: AnalyzerSummary.default(visited),
         }
       end
 
@@ -762,9 +762,9 @@ module AWS::SDK::AccessAnalyzer
           created_at: Time.now,
           last_resource_analyzed: 'last_resource_analyzed',
           last_resource_analyzed_at: Time.now,
-          tags: Stubs::TagsMap.default(visited),
+          tags: TagsMap.default(visited),
           status: 'status',
-          status_reason: Stubs::StatusReason.default(visited),
+          status_reason: StatusReason.default(visited),
         }
       end
 
@@ -826,7 +826,7 @@ module AWS::SDK::AccessAnalyzer
     class GetArchiveRule
       def self.default(visited=[])
         {
-          archive_rule: Stubs::ArchiveRuleSummary.default(visited),
+          archive_rule: ArchiveRuleSummary.default(visited),
         }
       end
 
@@ -846,7 +846,7 @@ module AWS::SDK::AccessAnalyzer
         visited = visited + ['ArchiveRuleSummary']
         {
           rule_name: 'rule_name',
-          filter: Stubs::FilterCriteriaMap.default(visited),
+          filter: FilterCriteriaMap.default(visited),
           created_at: Time.now,
           updated_at: Time.now,
         }
@@ -869,7 +869,7 @@ module AWS::SDK::AccessAnalyzer
         return nil if visited.include?('FilterCriteriaMap')
         visited = visited + ['FilterCriteriaMap']
         {
-          test_key: Stubs::Criterion.default(visited)
+          test_key: Criterion.default(visited)
         }
       end
 
@@ -889,9 +889,9 @@ module AWS::SDK::AccessAnalyzer
         return nil if visited.include?('Criterion')
         visited = visited + ['Criterion']
         {
-          eq: Stubs::ValueList.default(visited),
-          neq: Stubs::ValueList.default(visited),
-          contains: Stubs::ValueList.default(visited),
+          eq: ValueList.default(visited),
+          neq: ValueList.default(visited),
+          contains: ValueList.default(visited),
           exists: false,
         }
       end
@@ -931,7 +931,7 @@ module AWS::SDK::AccessAnalyzer
     class GetFinding
       def self.default(visited=[])
         {
-          finding: Stubs::Finding.default(visited),
+          finding: Finding.default(visited),
         }
       end
 
@@ -951,19 +951,19 @@ module AWS::SDK::AccessAnalyzer
         visited = visited + ['Finding']
         {
           id: 'id',
-          principal: Stubs::PrincipalMap.default(visited),
-          action: Stubs::ActionList.default(visited),
+          principal: PrincipalMap.default(visited),
+          action: ActionList.default(visited),
           resource: 'resource',
           is_public: false,
           resource_type: 'resource_type',
-          condition: Stubs::ConditionKeyMap.default(visited),
+          condition: ConditionKeyMap.default(visited),
           created_at: Time.now,
           analyzed_at: Time.now,
           updated_at: Time.now,
           status: 'status',
           resource_owner_account: 'resource_owner_account',
           error: 'error',
-          sources: Stubs::FindingSourceList.default(visited),
+          sources: FindingSourceList.default(visited),
         }
       end
 
@@ -994,7 +994,7 @@ module AWS::SDK::AccessAnalyzer
         return nil if visited.include?('FindingSourceList')
         visited = visited + ['FindingSourceList']
         [
-          Stubs::FindingSource.default(visited)
+          FindingSource.default(visited)
         ]
       end
 
@@ -1015,7 +1015,7 @@ module AWS::SDK::AccessAnalyzer
         visited = visited + ['FindingSource']
         {
           type: 'type',
-          detail: Stubs::FindingSourceDetail.default(visited),
+          detail: FindingSourceDetail.default(visited),
         }
       end
 
@@ -1090,8 +1090,8 @@ module AWS::SDK::AccessAnalyzer
     class GetGeneratedPolicy
       def self.default(visited=[])
         {
-          job_details: Stubs::JobDetails.default(visited),
-          generated_policy_result: Stubs::GeneratedPolicyResult.default(visited),
+          job_details: JobDetails.default(visited),
+          generated_policy_result: GeneratedPolicyResult.default(visited),
         }
       end
 
@@ -1111,8 +1111,8 @@ module AWS::SDK::AccessAnalyzer
         return nil if visited.include?('GeneratedPolicyResult')
         visited = visited + ['GeneratedPolicyResult']
         {
-          properties: Stubs::GeneratedPolicyProperties.default(visited),
-          generated_policies: Stubs::GeneratedPolicyList.default(visited),
+          properties: GeneratedPolicyProperties.default(visited),
+          generated_policies: GeneratedPolicyList.default(visited),
         }
       end
 
@@ -1131,7 +1131,7 @@ module AWS::SDK::AccessAnalyzer
         return nil if visited.include?('GeneratedPolicyList')
         visited = visited + ['GeneratedPolicyList']
         [
-          Stubs::GeneratedPolicy.default(visited)
+          GeneratedPolicy.default(visited)
         ]
       end
 
@@ -1171,7 +1171,7 @@ module AWS::SDK::AccessAnalyzer
         {
           is_complete: false,
           principal_arn: 'principal_arn',
-          cloud_trail_properties: Stubs::CloudTrailProperties.default(visited),
+          cloud_trail_properties: CloudTrailProperties.default(visited),
         }
       end
 
@@ -1191,7 +1191,7 @@ module AWS::SDK::AccessAnalyzer
         return nil if visited.include?('CloudTrailProperties')
         visited = visited + ['CloudTrailProperties']
         {
-          trail_properties: Stubs::TrailPropertiesList.default(visited),
+          trail_properties: TrailPropertiesList.default(visited),
           start_time: Time.now,
           end_time: Time.now,
         }
@@ -1213,7 +1213,7 @@ module AWS::SDK::AccessAnalyzer
         return nil if visited.include?('TrailPropertiesList')
         visited = visited + ['TrailPropertiesList']
         [
-          Stubs::TrailProperties.default(visited)
+          TrailProperties.default(visited)
         ]
       end
 
@@ -1234,7 +1234,7 @@ module AWS::SDK::AccessAnalyzer
         visited = visited + ['TrailProperties']
         {
           cloud_trail_arn: 'cloud_trail_arn',
-          regions: Stubs::RegionList.default(visited),
+          regions: RegionList.default(visited),
           all_regions: false,
         }
       end
@@ -1279,7 +1279,7 @@ module AWS::SDK::AccessAnalyzer
           status: 'status',
           started_on: Time.now,
           completed_on: Time.now,
-          job_error: Stubs::JobError.default(visited),
+          job_error: JobError.default(visited),
         }
       end
 
@@ -1319,7 +1319,7 @@ module AWS::SDK::AccessAnalyzer
     class ListAccessPreviewFindings
       def self.default(visited=[])
         {
-          findings: Stubs::AccessPreviewFindingsList.default(visited),
+          findings: AccessPreviewFindingsList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1340,7 +1340,7 @@ module AWS::SDK::AccessAnalyzer
         return nil if visited.include?('AccessPreviewFindingsList')
         visited = visited + ['AccessPreviewFindingsList']
         [
-          Stubs::AccessPreviewFinding.default(visited)
+          AccessPreviewFinding.default(visited)
         ]
       end
 
@@ -1363,9 +1363,9 @@ module AWS::SDK::AccessAnalyzer
           id: 'id',
           existing_finding_id: 'existing_finding_id',
           existing_finding_status: 'existing_finding_status',
-          principal: Stubs::PrincipalMap.default(visited),
-          action: Stubs::ActionList.default(visited),
-          condition: Stubs::ConditionKeyMap.default(visited),
+          principal: PrincipalMap.default(visited),
+          action: ActionList.default(visited),
+          condition: ConditionKeyMap.default(visited),
           resource: 'resource',
           is_public: false,
           resource_type: 'resource_type',
@@ -1374,7 +1374,7 @@ module AWS::SDK::AccessAnalyzer
           status: 'status',
           resource_owner_account: 'resource_owner_account',
           error: 'error',
-          sources: Stubs::FindingSourceList.default(visited),
+          sources: FindingSourceList.default(visited),
         }
       end
 
@@ -1404,7 +1404,7 @@ module AWS::SDK::AccessAnalyzer
     class ListAccessPreviews
       def self.default(visited=[])
         {
-          access_previews: Stubs::AccessPreviewsList.default(visited),
+          access_previews: AccessPreviewsList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1425,7 +1425,7 @@ module AWS::SDK::AccessAnalyzer
         return nil if visited.include?('AccessPreviewsList')
         visited = visited + ['AccessPreviewsList']
         [
-          Stubs::AccessPreviewSummary.default(visited)
+          AccessPreviewSummary.default(visited)
         ]
       end
 
@@ -1449,7 +1449,7 @@ module AWS::SDK::AccessAnalyzer
           analyzer_arn: 'analyzer_arn',
           created_at: Time.now,
           status: 'status',
-          status_reason: Stubs::AccessPreviewStatusReason.default(visited),
+          status_reason: AccessPreviewStatusReason.default(visited),
         }
       end
 
@@ -1469,7 +1469,7 @@ module AWS::SDK::AccessAnalyzer
     class ListAnalyzedResources
       def self.default(visited=[])
         {
-          analyzed_resources: Stubs::AnalyzedResourcesList.default(visited),
+          analyzed_resources: AnalyzedResourcesList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1490,7 +1490,7 @@ module AWS::SDK::AccessAnalyzer
         return nil if visited.include?('AnalyzedResourcesList')
         visited = visited + ['AnalyzedResourcesList']
         [
-          Stubs::AnalyzedResourceSummary.default(visited)
+          AnalyzedResourceSummary.default(visited)
         ]
       end
 
@@ -1530,7 +1530,7 @@ module AWS::SDK::AccessAnalyzer
     class ListAnalyzers
       def self.default(visited=[])
         {
-          analyzers: Stubs::AnalyzersList.default(visited),
+          analyzers: AnalyzersList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1551,7 +1551,7 @@ module AWS::SDK::AccessAnalyzer
         return nil if visited.include?('AnalyzersList')
         visited = visited + ['AnalyzersList']
         [
-          Stubs::AnalyzerSummary.default(visited)
+          AnalyzerSummary.default(visited)
         ]
       end
 
@@ -1569,7 +1569,7 @@ module AWS::SDK::AccessAnalyzer
     class ListArchiveRules
       def self.default(visited=[])
         {
-          archive_rules: Stubs::ArchiveRulesList.default(visited),
+          archive_rules: ArchiveRulesList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1590,7 +1590,7 @@ module AWS::SDK::AccessAnalyzer
         return nil if visited.include?('ArchiveRulesList')
         visited = visited + ['ArchiveRulesList']
         [
-          Stubs::ArchiveRuleSummary.default(visited)
+          ArchiveRuleSummary.default(visited)
         ]
       end
 
@@ -1608,7 +1608,7 @@ module AWS::SDK::AccessAnalyzer
     class ListFindings
       def self.default(visited=[])
         {
-          findings: Stubs::FindingsList.default(visited),
+          findings: FindingsList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1629,7 +1629,7 @@ module AWS::SDK::AccessAnalyzer
         return nil if visited.include?('FindingsList')
         visited = visited + ['FindingsList']
         [
-          Stubs::FindingSummary.default(visited)
+          FindingSummary.default(visited)
         ]
       end
 
@@ -1650,19 +1650,19 @@ module AWS::SDK::AccessAnalyzer
         visited = visited + ['FindingSummary']
         {
           id: 'id',
-          principal: Stubs::PrincipalMap.default(visited),
-          action: Stubs::ActionList.default(visited),
+          principal: PrincipalMap.default(visited),
+          action: ActionList.default(visited),
           resource: 'resource',
           is_public: false,
           resource_type: 'resource_type',
-          condition: Stubs::ConditionKeyMap.default(visited),
+          condition: ConditionKeyMap.default(visited),
           created_at: Time.now,
           analyzed_at: Time.now,
           updated_at: Time.now,
           status: 'status',
           resource_owner_account: 'resource_owner_account',
           error: 'error',
-          sources: Stubs::FindingSourceList.default(visited),
+          sources: FindingSourceList.default(visited),
         }
       end
 
@@ -1691,7 +1691,7 @@ module AWS::SDK::AccessAnalyzer
     class ListPolicyGenerations
       def self.default(visited=[])
         {
-          policy_generations: Stubs::PolicyGenerationList.default(visited),
+          policy_generations: PolicyGenerationList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1712,7 +1712,7 @@ module AWS::SDK::AccessAnalyzer
         return nil if visited.include?('PolicyGenerationList')
         visited = visited + ['PolicyGenerationList']
         [
-          Stubs::PolicyGeneration.default(visited)
+          PolicyGeneration.default(visited)
         ]
       end
 
@@ -1756,7 +1756,7 @@ module AWS::SDK::AccessAnalyzer
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagsMap.default(visited),
+          tags: TagsMap.default(visited),
         }
       end
 
@@ -1855,7 +1855,7 @@ module AWS::SDK::AccessAnalyzer
     class ValidatePolicy
       def self.default(visited=[])
         {
-          findings: Stubs::ValidatePolicyFindingList.default(visited),
+          findings: ValidatePolicyFindingList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1876,7 +1876,7 @@ module AWS::SDK::AccessAnalyzer
         return nil if visited.include?('ValidatePolicyFindingList')
         visited = visited + ['ValidatePolicyFindingList']
         [
-          Stubs::ValidatePolicyFinding.default(visited)
+          ValidatePolicyFinding.default(visited)
         ]
       end
 
@@ -1900,7 +1900,7 @@ module AWS::SDK::AccessAnalyzer
           finding_type: 'finding_type',
           issue_code: 'issue_code',
           learn_more_link: 'learn_more_link',
-          locations: Stubs::LocationList.default(visited),
+          locations: LocationList.default(visited),
         }
       end
 
@@ -1922,7 +1922,7 @@ module AWS::SDK::AccessAnalyzer
         return nil if visited.include?('LocationList')
         visited = visited + ['LocationList']
         [
-          Stubs::Location.default(visited)
+          Location.default(visited)
         ]
       end
 
@@ -1942,8 +1942,8 @@ module AWS::SDK::AccessAnalyzer
         return nil if visited.include?('Location')
         visited = visited + ['Location']
         {
-          path: Stubs::PathElementList.default(visited),
-          span: Stubs::Span.default(visited),
+          path: PathElementList.default(visited),
+          span: Span.default(visited),
         }
       end
 
@@ -1962,8 +1962,8 @@ module AWS::SDK::AccessAnalyzer
         return nil if visited.include?('Span')
         visited = visited + ['Span']
         {
-          start: Stubs::Position.default(visited),
-          end: Stubs::Position.default(visited),
+          start: Position.default(visited),
+          end: Position.default(visited),
         }
       end
 
@@ -2004,7 +2004,7 @@ module AWS::SDK::AccessAnalyzer
         return nil if visited.include?('PathElementList')
         visited = visited + ['PathElementList']
         [
-          Stubs::PathElement.default(visited)
+          PathElement.default(visited)
         ]
       end
 

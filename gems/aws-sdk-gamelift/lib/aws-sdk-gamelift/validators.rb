@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::GameLift
   module Validators
 
@@ -14,7 +16,7 @@ module AWS::SDK::GameLift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AcceptMatchInput, context: context)
         Hearth::Validator.validate!(input[:ticket_id], ::String, context: "#{context}[:ticket_id]")
-        Validators::StringList.validate!(input[:player_ids], context: "#{context}[:player_ids]") unless input[:player_ids].nil?
+        StringList.validate!(input[:player_ids], context: "#{context}[:player_ids]") unless input[:player_ids].nil?
         Hearth::Validator.validate!(input[:acceptance_type], ::String, context: "#{context}[:acceptance_type]")
       end
     end
@@ -32,7 +34,7 @@ module AWS::SDK::GameLift
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:alias_arn], ::String, context: "#{context}[:alias_arn]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::RoutingStrategy.validate!(input[:routing_strategy], context: "#{context}[:routing_strategy]") unless input[:routing_strategy].nil?
+        RoutingStrategy.validate!(input[:routing_strategy], context: "#{context}[:routing_strategy]") unless input[:routing_strategy].nil?
         Hearth::Validator.validate!(input[:creation_time], ::Time, context: "#{context}[:creation_time]")
         Hearth::Validator.validate!(input[:last_updated_time], ::Time, context: "#{context}[:last_updated_time]")
       end
@@ -42,7 +44,7 @@ module AWS::SDK::GameLift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Alias.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Alias.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -52,8 +54,8 @@ module AWS::SDK::GameLift
         Hearth::Validator.validate!(input, Types::AttributeValue, context: context)
         Hearth::Validator.validate!(input[:s], ::String, context: "#{context}[:s]")
         Hearth::Validator.validate!(input[:n], ::Float, context: "#{context}[:n]")
-        Validators::StringList.validate!(input[:sl], context: "#{context}[:sl]") unless input[:sl].nil?
-        Validators::StringDoubleMap.validate!(input[:sdm], context: "#{context}[:sdm]") unless input[:sdm].nil?
+        StringList.validate!(input[:sl], context: "#{context}[:sl]") unless input[:sl].nil?
+        StringDoubleMap.validate!(input[:sdm], context: "#{context}[:sdm]") unless input[:sdm].nil?
       end
     end
 
@@ -84,7 +86,7 @@ module AWS::SDK::GameLift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Build.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Build.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -108,7 +110,7 @@ module AWS::SDK::GameLift
     class ClaimGameServerOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ClaimGameServerOutput, context: context)
-        Validators::GameServer.validate!(input[:game_server], context: "#{context}[:game_server]") unless input[:game_server].nil?
+        GameServer.validate!(input[:game_server], context: "#{context}[:game_server]") unless input[:game_server].nil?
       end
     end
 
@@ -124,15 +126,15 @@ module AWS::SDK::GameLift
         Hearth::Validator.validate!(input, Types::CreateAliasInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::RoutingStrategy.validate!(input[:routing_strategy], context: "#{context}[:routing_strategy]") unless input[:routing_strategy].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        RoutingStrategy.validate!(input[:routing_strategy], context: "#{context}[:routing_strategy]") unless input[:routing_strategy].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateAliasOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateAliasOutput, context: context)
-        Validators::Alias.validate!(input[:alias], context: "#{context}[:alias]") unless input[:alias].nil?
+        Alias.validate!(input[:alias], context: "#{context}[:alias]") unless input[:alias].nil?
       end
     end
 
@@ -141,18 +143,18 @@ module AWS::SDK::GameLift
         Hearth::Validator.validate!(input, Types::CreateBuildInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:version], ::String, context: "#{context}[:version]")
-        Validators::S3Location.validate!(input[:storage_location], context: "#{context}[:storage_location]") unless input[:storage_location].nil?
+        S3Location.validate!(input[:storage_location], context: "#{context}[:storage_location]") unless input[:storage_location].nil?
         Hearth::Validator.validate!(input[:operating_system], ::String, context: "#{context}[:operating_system]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateBuildOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateBuildOutput, context: context)
-        Validators::Build.validate!(input[:build], context: "#{context}[:build]") unless input[:build].nil?
-        Validators::AwsCredentials.validate!(input[:upload_credentials], context: "#{context}[:upload_credentials]") unless input[:upload_credentials].nil?
-        Validators::S3Location.validate!(input[:storage_location], context: "#{context}[:storage_location]") unless input[:storage_location].nil?
+        Build.validate!(input[:build], context: "#{context}[:build]") unless input[:build].nil?
+        AwsCredentials.validate!(input[:upload_credentials], context: "#{context}[:upload_credentials]") unless input[:upload_credentials].nil?
+        S3Location.validate!(input[:storage_location], context: "#{context}[:storage_location]") unless input[:storage_location].nil?
       end
     end
 
@@ -165,20 +167,20 @@ module AWS::SDK::GameLift
         Hearth::Validator.validate!(input[:script_id], ::String, context: "#{context}[:script_id]")
         Hearth::Validator.validate!(input[:server_launch_path], ::String, context: "#{context}[:server_launch_path]")
         Hearth::Validator.validate!(input[:server_launch_parameters], ::String, context: "#{context}[:server_launch_parameters]")
-        Validators::StringList.validate!(input[:log_paths], context: "#{context}[:log_paths]") unless input[:log_paths].nil?
+        StringList.validate!(input[:log_paths], context: "#{context}[:log_paths]") unless input[:log_paths].nil?
         Hearth::Validator.validate!(input[:ec2_instance_type], ::String, context: "#{context}[:ec2_instance_type]")
-        Validators::IpPermissionsList.validate!(input[:ec2_inbound_permissions], context: "#{context}[:ec2_inbound_permissions]") unless input[:ec2_inbound_permissions].nil?
+        IpPermissionsList.validate!(input[:ec2_inbound_permissions], context: "#{context}[:ec2_inbound_permissions]") unless input[:ec2_inbound_permissions].nil?
         Hearth::Validator.validate!(input[:new_game_session_protection_policy], ::String, context: "#{context}[:new_game_session_protection_policy]")
-        Validators::RuntimeConfiguration.validate!(input[:runtime_configuration], context: "#{context}[:runtime_configuration]") unless input[:runtime_configuration].nil?
-        Validators::ResourceCreationLimitPolicy.validate!(input[:resource_creation_limit_policy], context: "#{context}[:resource_creation_limit_policy]") unless input[:resource_creation_limit_policy].nil?
-        Validators::MetricGroupList.validate!(input[:metric_groups], context: "#{context}[:metric_groups]") unless input[:metric_groups].nil?
+        RuntimeConfiguration.validate!(input[:runtime_configuration], context: "#{context}[:runtime_configuration]") unless input[:runtime_configuration].nil?
+        ResourceCreationLimitPolicy.validate!(input[:resource_creation_limit_policy], context: "#{context}[:resource_creation_limit_policy]") unless input[:resource_creation_limit_policy].nil?
+        MetricGroupList.validate!(input[:metric_groups], context: "#{context}[:metric_groups]") unless input[:metric_groups].nil?
         Hearth::Validator.validate!(input[:peer_vpc_aws_account_id], ::String, context: "#{context}[:peer_vpc_aws_account_id]")
         Hearth::Validator.validate!(input[:peer_vpc_id], ::String, context: "#{context}[:peer_vpc_id]")
         Hearth::Validator.validate!(input[:fleet_type], ::String, context: "#{context}[:fleet_type]")
         Hearth::Validator.validate!(input[:instance_role_arn], ::String, context: "#{context}[:instance_role_arn]")
-        Validators::CertificateConfiguration.validate!(input[:certificate_configuration], context: "#{context}[:certificate_configuration]") unless input[:certificate_configuration].nil?
-        Validators::LocationConfigurationList.validate!(input[:locations], context: "#{context}[:locations]") unless input[:locations].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        CertificateConfiguration.validate!(input[:certificate_configuration], context: "#{context}[:certificate_configuration]") unless input[:certificate_configuration].nil?
+        LocationConfigurationList.validate!(input[:locations], context: "#{context}[:locations]") unless input[:locations].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -186,7 +188,7 @@ module AWS::SDK::GameLift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateFleetLocationsInput, context: context)
         Hearth::Validator.validate!(input[:fleet_id], ::String, context: "#{context}[:fleet_id]")
-        Validators::LocationConfigurationList.validate!(input[:locations], context: "#{context}[:locations]") unless input[:locations].nil?
+        LocationConfigurationList.validate!(input[:locations], context: "#{context}[:locations]") unless input[:locations].nil?
       end
     end
 
@@ -195,15 +197,15 @@ module AWS::SDK::GameLift
         Hearth::Validator.validate!(input, Types::CreateFleetLocationsOutput, context: context)
         Hearth::Validator.validate!(input[:fleet_id], ::String, context: "#{context}[:fleet_id]")
         Hearth::Validator.validate!(input[:fleet_arn], ::String, context: "#{context}[:fleet_arn]")
-        Validators::LocationStateList.validate!(input[:location_states], context: "#{context}[:location_states]") unless input[:location_states].nil?
+        LocationStateList.validate!(input[:location_states], context: "#{context}[:location_states]") unless input[:location_states].nil?
       end
     end
 
     class CreateFleetOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateFleetOutput, context: context)
-        Validators::FleetAttributes.validate!(input[:fleet_attributes], context: "#{context}[:fleet_attributes]") unless input[:fleet_attributes].nil?
-        Validators::LocationStateList.validate!(input[:location_states], context: "#{context}[:location_states]") unless input[:location_states].nil?
+        FleetAttributes.validate!(input[:fleet_attributes], context: "#{context}[:fleet_attributes]") unless input[:fleet_attributes].nil?
+        LocationStateList.validate!(input[:location_states], context: "#{context}[:location_states]") unless input[:location_states].nil?
       end
     end
 
@@ -214,20 +216,20 @@ module AWS::SDK::GameLift
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
         Hearth::Validator.validate!(input[:min_size], ::Integer, context: "#{context}[:min_size]")
         Hearth::Validator.validate!(input[:max_size], ::Integer, context: "#{context}[:max_size]")
-        Validators::LaunchTemplateSpecification.validate!(input[:launch_template], context: "#{context}[:launch_template]") unless input[:launch_template].nil?
-        Validators::InstanceDefinitions.validate!(input[:instance_definitions], context: "#{context}[:instance_definitions]") unless input[:instance_definitions].nil?
-        Validators::GameServerGroupAutoScalingPolicy.validate!(input[:auto_scaling_policy], context: "#{context}[:auto_scaling_policy]") unless input[:auto_scaling_policy].nil?
+        LaunchTemplateSpecification.validate!(input[:launch_template], context: "#{context}[:launch_template]") unless input[:launch_template].nil?
+        InstanceDefinitions.validate!(input[:instance_definitions], context: "#{context}[:instance_definitions]") unless input[:instance_definitions].nil?
+        GameServerGroupAutoScalingPolicy.validate!(input[:auto_scaling_policy], context: "#{context}[:auto_scaling_policy]") unless input[:auto_scaling_policy].nil?
         Hearth::Validator.validate!(input[:balancing_strategy], ::String, context: "#{context}[:balancing_strategy]")
         Hearth::Validator.validate!(input[:game_server_protection_policy], ::String, context: "#{context}[:game_server_protection_policy]")
-        Validators::VpcSubnets.validate!(input[:vpc_subnets], context: "#{context}[:vpc_subnets]") unless input[:vpc_subnets].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        VpcSubnets.validate!(input[:vpc_subnets], context: "#{context}[:vpc_subnets]") unless input[:vpc_subnets].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateGameServerGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateGameServerGroupOutput, context: context)
-        Validators::GameServerGroup.validate!(input[:game_server_group], context: "#{context}[:game_server_group]") unless input[:game_server_group].nil?
+        GameServerGroup.validate!(input[:game_server_group], context: "#{context}[:game_server_group]") unless input[:game_server_group].nil?
       end
     end
 
@@ -238,7 +240,7 @@ module AWS::SDK::GameLift
         Hearth::Validator.validate!(input[:alias_id], ::String, context: "#{context}[:alias_id]")
         Hearth::Validator.validate!(input[:maximum_player_session_count], ::Integer, context: "#{context}[:maximum_player_session_count]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::GamePropertyList.validate!(input[:game_properties], context: "#{context}[:game_properties]") unless input[:game_properties].nil?
+        GamePropertyList.validate!(input[:game_properties], context: "#{context}[:game_properties]") unless input[:game_properties].nil?
         Hearth::Validator.validate!(input[:creator_id], ::String, context: "#{context}[:creator_id]")
         Hearth::Validator.validate!(input[:game_session_id], ::String, context: "#{context}[:game_session_id]")
         Hearth::Validator.validate!(input[:idempotency_token], ::String, context: "#{context}[:idempotency_token]")
@@ -250,7 +252,7 @@ module AWS::SDK::GameLift
     class CreateGameSessionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateGameSessionOutput, context: context)
-        Validators::GameSession.validate!(input[:game_session], context: "#{context}[:game_session]") unless input[:game_session].nil?
+        GameSession.validate!(input[:game_session], context: "#{context}[:game_session]") unless input[:game_session].nil?
       end
     end
 
@@ -259,20 +261,20 @@ module AWS::SDK::GameLift
         Hearth::Validator.validate!(input, Types::CreateGameSessionQueueInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:timeout_in_seconds], ::Integer, context: "#{context}[:timeout_in_seconds]")
-        Validators::PlayerLatencyPolicyList.validate!(input[:player_latency_policies], context: "#{context}[:player_latency_policies]") unless input[:player_latency_policies].nil?
-        Validators::GameSessionQueueDestinationList.validate!(input[:destinations], context: "#{context}[:destinations]") unless input[:destinations].nil?
-        Validators::FilterConfiguration.validate!(input[:filter_configuration], context: "#{context}[:filter_configuration]") unless input[:filter_configuration].nil?
-        Validators::PriorityConfiguration.validate!(input[:priority_configuration], context: "#{context}[:priority_configuration]") unless input[:priority_configuration].nil?
+        PlayerLatencyPolicyList.validate!(input[:player_latency_policies], context: "#{context}[:player_latency_policies]") unless input[:player_latency_policies].nil?
+        GameSessionQueueDestinationList.validate!(input[:destinations], context: "#{context}[:destinations]") unless input[:destinations].nil?
+        FilterConfiguration.validate!(input[:filter_configuration], context: "#{context}[:filter_configuration]") unless input[:filter_configuration].nil?
+        PriorityConfiguration.validate!(input[:priority_configuration], context: "#{context}[:priority_configuration]") unless input[:priority_configuration].nil?
         Hearth::Validator.validate!(input[:custom_event_data], ::String, context: "#{context}[:custom_event_data]")
         Hearth::Validator.validate!(input[:notification_target], ::String, context: "#{context}[:notification_target]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateGameSessionQueueOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateGameSessionQueueOutput, context: context)
-        Validators::GameSessionQueue.validate!(input[:game_session_queue], context: "#{context}[:game_session_queue]") unless input[:game_session_queue].nil?
+        GameSessionQueue.validate!(input[:game_session_queue], context: "#{context}[:game_session_queue]") unless input[:game_session_queue].nil?
       end
     end
 
@@ -281,7 +283,7 @@ module AWS::SDK::GameLift
         Hearth::Validator.validate!(input, Types::CreateMatchmakingConfigurationInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::QueueArnsList.validate!(input[:game_session_queue_arns], context: "#{context}[:game_session_queue_arns]") unless input[:game_session_queue_arns].nil?
+        QueueArnsList.validate!(input[:game_session_queue_arns], context: "#{context}[:game_session_queue_arns]") unless input[:game_session_queue_arns].nil?
         Hearth::Validator.validate!(input[:request_timeout_seconds], ::Integer, context: "#{context}[:request_timeout_seconds]")
         Hearth::Validator.validate!(input[:acceptance_timeout_seconds], ::Integer, context: "#{context}[:acceptance_timeout_seconds]")
         Hearth::Validator.validate!(input[:acceptance_required], ::TrueClass, ::FalseClass, context: "#{context}[:acceptance_required]")
@@ -289,18 +291,18 @@ module AWS::SDK::GameLift
         Hearth::Validator.validate!(input[:notification_target], ::String, context: "#{context}[:notification_target]")
         Hearth::Validator.validate!(input[:additional_player_count], ::Integer, context: "#{context}[:additional_player_count]")
         Hearth::Validator.validate!(input[:custom_event_data], ::String, context: "#{context}[:custom_event_data]")
-        Validators::GamePropertyList.validate!(input[:game_properties], context: "#{context}[:game_properties]") unless input[:game_properties].nil?
+        GamePropertyList.validate!(input[:game_properties], context: "#{context}[:game_properties]") unless input[:game_properties].nil?
         Hearth::Validator.validate!(input[:game_session_data], ::String, context: "#{context}[:game_session_data]")
         Hearth::Validator.validate!(input[:backfill_mode], ::String, context: "#{context}[:backfill_mode]")
         Hearth::Validator.validate!(input[:flex_match_mode], ::String, context: "#{context}[:flex_match_mode]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateMatchmakingConfigurationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateMatchmakingConfigurationOutput, context: context)
-        Validators::MatchmakingConfiguration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
+        MatchmakingConfiguration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
       end
     end
 
@@ -309,14 +311,14 @@ module AWS::SDK::GameLift
         Hearth::Validator.validate!(input, Types::CreateMatchmakingRuleSetInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:rule_set_body], ::String, context: "#{context}[:rule_set_body]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateMatchmakingRuleSetOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateMatchmakingRuleSetOutput, context: context)
-        Validators::MatchmakingRuleSet.validate!(input[:rule_set], context: "#{context}[:rule_set]") unless input[:rule_set].nil?
+        MatchmakingRuleSet.validate!(input[:rule_set], context: "#{context}[:rule_set]") unless input[:rule_set].nil?
       end
     end
 
@@ -332,7 +334,7 @@ module AWS::SDK::GameLift
     class CreatePlayerSessionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreatePlayerSessionOutput, context: context)
-        Validators::PlayerSession.validate!(input[:player_session], context: "#{context}[:player_session]") unless input[:player_session].nil?
+        PlayerSession.validate!(input[:player_session], context: "#{context}[:player_session]") unless input[:player_session].nil?
       end
     end
 
@@ -340,15 +342,15 @@ module AWS::SDK::GameLift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreatePlayerSessionsInput, context: context)
         Hearth::Validator.validate!(input[:game_session_id], ::String, context: "#{context}[:game_session_id]")
-        Validators::PlayerIdList.validate!(input[:player_ids], context: "#{context}[:player_ids]") unless input[:player_ids].nil?
-        Validators::PlayerDataMap.validate!(input[:player_data_map], context: "#{context}[:player_data_map]") unless input[:player_data_map].nil?
+        PlayerIdList.validate!(input[:player_ids], context: "#{context}[:player_ids]") unless input[:player_ids].nil?
+        PlayerDataMap.validate!(input[:player_data_map], context: "#{context}[:player_data_map]") unless input[:player_data_map].nil?
       end
     end
 
     class CreatePlayerSessionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreatePlayerSessionsOutput, context: context)
-        Validators::PlayerSessionList.validate!(input[:player_sessions], context: "#{context}[:player_sessions]") unless input[:player_sessions].nil?
+        PlayerSessionList.validate!(input[:player_sessions], context: "#{context}[:player_sessions]") unless input[:player_sessions].nil?
       end
     end
 
@@ -357,16 +359,16 @@ module AWS::SDK::GameLift
         Hearth::Validator.validate!(input, Types::CreateScriptInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:version], ::String, context: "#{context}[:version]")
-        Validators::S3Location.validate!(input[:storage_location], context: "#{context}[:storage_location]") unless input[:storage_location].nil?
+        S3Location.validate!(input[:storage_location], context: "#{context}[:storage_location]") unless input[:storage_location].nil?
         Hearth::Validator.validate!(input[:zip_file], ::String, context: "#{context}[:zip_file]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateScriptOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateScriptOutput, context: context)
-        Validators::Script.validate!(input[:script], context: "#{context}[:script]") unless input[:script].nil?
+        Script.validate!(input[:script], context: "#{context}[:script]") unless input[:script].nil?
       end
     end
 
@@ -381,7 +383,7 @@ module AWS::SDK::GameLift
     class CreateVpcPeeringAuthorizationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateVpcPeeringAuthorizationOutput, context: context)
-        Validators::VpcPeeringAuthorization.validate!(input[:vpc_peering_authorization], context: "#{context}[:vpc_peering_authorization]") unless input[:vpc_peering_authorization].nil?
+        VpcPeeringAuthorization.validate!(input[:vpc_peering_authorization], context: "#{context}[:vpc_peering_authorization]") unless input[:vpc_peering_authorization].nil?
       end
     end
 
@@ -437,7 +439,7 @@ module AWS::SDK::GameLift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteFleetLocationsInput, context: context)
         Hearth::Validator.validate!(input[:fleet_id], ::String, context: "#{context}[:fleet_id]")
-        Validators::LocationList.validate!(input[:locations], context: "#{context}[:locations]") unless input[:locations].nil?
+        LocationList.validate!(input[:locations], context: "#{context}[:locations]") unless input[:locations].nil?
       end
     end
 
@@ -446,7 +448,7 @@ module AWS::SDK::GameLift
         Hearth::Validator.validate!(input, Types::DeleteFleetLocationsOutput, context: context)
         Hearth::Validator.validate!(input[:fleet_id], ::String, context: "#{context}[:fleet_id]")
         Hearth::Validator.validate!(input[:fleet_arn], ::String, context: "#{context}[:fleet_arn]")
-        Validators::LocationStateList.validate!(input[:location_states], context: "#{context}[:location_states]") unless input[:location_states].nil?
+        LocationStateList.validate!(input[:location_states], context: "#{context}[:location_states]") unless input[:location_states].nil?
       end
     end
 
@@ -467,7 +469,7 @@ module AWS::SDK::GameLift
     class DeleteGameServerGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteGameServerGroupOutput, context: context)
-        Validators::GameServerGroup.validate!(input[:game_server_group], context: "#{context}[:game_server_group]") unless input[:game_server_group].nil?
+        GameServerGroup.validate!(input[:game_server_group], context: "#{context}[:game_server_group]") unless input[:game_server_group].nil?
       end
     end
 
@@ -589,7 +591,7 @@ module AWS::SDK::GameLift
     class DescribeAliasOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeAliasOutput, context: context)
-        Validators::Alias.validate!(input[:alias], context: "#{context}[:alias]") unless input[:alias].nil?
+        Alias.validate!(input[:alias], context: "#{context}[:alias]") unless input[:alias].nil?
       end
     end
 
@@ -603,7 +605,7 @@ module AWS::SDK::GameLift
     class DescribeBuildOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeBuildOutput, context: context)
-        Validators::Build.validate!(input[:build], context: "#{context}[:build]") unless input[:build].nil?
+        Build.validate!(input[:build], context: "#{context}[:build]") unless input[:build].nil?
       end
     end
 
@@ -618,14 +620,14 @@ module AWS::SDK::GameLift
     class DescribeEC2InstanceLimitsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeEC2InstanceLimitsOutput, context: context)
-        Validators::EC2InstanceLimitList.validate!(input[:ec2_instance_limits], context: "#{context}[:ec2_instance_limits]") unless input[:ec2_instance_limits].nil?
+        EC2InstanceLimitList.validate!(input[:ec2_instance_limits], context: "#{context}[:ec2_instance_limits]") unless input[:ec2_instance_limits].nil?
       end
     end
 
     class DescribeFleetAttributesInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeFleetAttributesInput, context: context)
-        Validators::FleetIdOrArnList.validate!(input[:fleet_ids], context: "#{context}[:fleet_ids]") unless input[:fleet_ids].nil?
+        FleetIdOrArnList.validate!(input[:fleet_ids], context: "#{context}[:fleet_ids]") unless input[:fleet_ids].nil?
         Hearth::Validator.validate!(input[:limit], ::Integer, context: "#{context}[:limit]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -634,7 +636,7 @@ module AWS::SDK::GameLift
     class DescribeFleetAttributesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeFleetAttributesOutput, context: context)
-        Validators::FleetAttributesList.validate!(input[:fleet_attributes], context: "#{context}[:fleet_attributes]") unless input[:fleet_attributes].nil?
+        FleetAttributesList.validate!(input[:fleet_attributes], context: "#{context}[:fleet_attributes]") unless input[:fleet_attributes].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -642,7 +644,7 @@ module AWS::SDK::GameLift
     class DescribeFleetCapacityInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeFleetCapacityInput, context: context)
-        Validators::FleetIdOrArnList.validate!(input[:fleet_ids], context: "#{context}[:fleet_ids]") unless input[:fleet_ids].nil?
+        FleetIdOrArnList.validate!(input[:fleet_ids], context: "#{context}[:fleet_ids]") unless input[:fleet_ids].nil?
         Hearth::Validator.validate!(input[:limit], ::Integer, context: "#{context}[:limit]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -651,7 +653,7 @@ module AWS::SDK::GameLift
     class DescribeFleetCapacityOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeFleetCapacityOutput, context: context)
-        Validators::FleetCapacityList.validate!(input[:fleet_capacity], context: "#{context}[:fleet_capacity]") unless input[:fleet_capacity].nil?
+        FleetCapacityList.validate!(input[:fleet_capacity], context: "#{context}[:fleet_capacity]") unless input[:fleet_capacity].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -670,7 +672,7 @@ module AWS::SDK::GameLift
     class DescribeFleetEventsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeFleetEventsOutput, context: context)
-        Validators::EventList.validate!(input[:events], context: "#{context}[:events]") unless input[:events].nil?
+        EventList.validate!(input[:events], context: "#{context}[:events]") unless input[:events].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -679,7 +681,7 @@ module AWS::SDK::GameLift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeFleetLocationAttributesInput, context: context)
         Hearth::Validator.validate!(input[:fleet_id], ::String, context: "#{context}[:fleet_id]")
-        Validators::LocationList.validate!(input[:locations], context: "#{context}[:locations]") unless input[:locations].nil?
+        LocationList.validate!(input[:locations], context: "#{context}[:locations]") unless input[:locations].nil?
         Hearth::Validator.validate!(input[:limit], ::Integer, context: "#{context}[:limit]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -690,7 +692,7 @@ module AWS::SDK::GameLift
         Hearth::Validator.validate!(input, Types::DescribeFleetLocationAttributesOutput, context: context)
         Hearth::Validator.validate!(input[:fleet_id], ::String, context: "#{context}[:fleet_id]")
         Hearth::Validator.validate!(input[:fleet_arn], ::String, context: "#{context}[:fleet_arn]")
-        Validators::LocationAttributesList.validate!(input[:location_attributes], context: "#{context}[:location_attributes]") unless input[:location_attributes].nil?
+        LocationAttributesList.validate!(input[:location_attributes], context: "#{context}[:location_attributes]") unless input[:location_attributes].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -706,7 +708,7 @@ module AWS::SDK::GameLift
     class DescribeFleetLocationCapacityOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeFleetLocationCapacityOutput, context: context)
-        Validators::FleetCapacity.validate!(input[:fleet_capacity], context: "#{context}[:fleet_capacity]") unless input[:fleet_capacity].nil?
+        FleetCapacity.validate!(input[:fleet_capacity], context: "#{context}[:fleet_capacity]") unless input[:fleet_capacity].nil?
       end
     end
 
@@ -721,7 +723,7 @@ module AWS::SDK::GameLift
     class DescribeFleetLocationUtilizationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeFleetLocationUtilizationOutput, context: context)
-        Validators::FleetUtilization.validate!(input[:fleet_utilization], context: "#{context}[:fleet_utilization]") unless input[:fleet_utilization].nil?
+        FleetUtilization.validate!(input[:fleet_utilization], context: "#{context}[:fleet_utilization]") unless input[:fleet_utilization].nil?
       end
     end
 
@@ -738,7 +740,7 @@ module AWS::SDK::GameLift
         Hearth::Validator.validate!(input, Types::DescribeFleetPortSettingsOutput, context: context)
         Hearth::Validator.validate!(input[:fleet_id], ::String, context: "#{context}[:fleet_id]")
         Hearth::Validator.validate!(input[:fleet_arn], ::String, context: "#{context}[:fleet_arn]")
-        Validators::IpPermissionsList.validate!(input[:inbound_permissions], context: "#{context}[:inbound_permissions]") unless input[:inbound_permissions].nil?
+        IpPermissionsList.validate!(input[:inbound_permissions], context: "#{context}[:inbound_permissions]") unless input[:inbound_permissions].nil?
         Hearth::Validator.validate!(input[:update_status], ::String, context: "#{context}[:update_status]")
         Hearth::Validator.validate!(input[:location], ::String, context: "#{context}[:location]")
       end
@@ -747,7 +749,7 @@ module AWS::SDK::GameLift
     class DescribeFleetUtilizationInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeFleetUtilizationInput, context: context)
-        Validators::FleetIdOrArnList.validate!(input[:fleet_ids], context: "#{context}[:fleet_ids]") unless input[:fleet_ids].nil?
+        FleetIdOrArnList.validate!(input[:fleet_ids], context: "#{context}[:fleet_ids]") unless input[:fleet_ids].nil?
         Hearth::Validator.validate!(input[:limit], ::Integer, context: "#{context}[:limit]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -756,7 +758,7 @@ module AWS::SDK::GameLift
     class DescribeFleetUtilizationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeFleetUtilizationOutput, context: context)
-        Validators::FleetUtilizationList.validate!(input[:fleet_utilization], context: "#{context}[:fleet_utilization]") unless input[:fleet_utilization].nil?
+        FleetUtilizationList.validate!(input[:fleet_utilization], context: "#{context}[:fleet_utilization]") unless input[:fleet_utilization].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -771,7 +773,7 @@ module AWS::SDK::GameLift
     class DescribeGameServerGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeGameServerGroupOutput, context: context)
-        Validators::GameServerGroup.validate!(input[:game_server_group], context: "#{context}[:game_server_group]") unless input[:game_server_group].nil?
+        GameServerGroup.validate!(input[:game_server_group], context: "#{context}[:game_server_group]") unless input[:game_server_group].nil?
       end
     end
 
@@ -787,7 +789,7 @@ module AWS::SDK::GameLift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeGameServerInstancesInput, context: context)
         Hearth::Validator.validate!(input[:game_server_group_name], ::String, context: "#{context}[:game_server_group_name]")
-        Validators::GameServerInstanceIds.validate!(input[:instance_ids], context: "#{context}[:instance_ids]") unless input[:instance_ids].nil?
+        GameServerInstanceIds.validate!(input[:instance_ids], context: "#{context}[:instance_ids]") unless input[:instance_ids].nil?
         Hearth::Validator.validate!(input[:limit], ::Integer, context: "#{context}[:limit]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -796,7 +798,7 @@ module AWS::SDK::GameLift
     class DescribeGameServerInstancesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeGameServerInstancesOutput, context: context)
-        Validators::GameServerInstances.validate!(input[:game_server_instances], context: "#{context}[:game_server_instances]") unless input[:game_server_instances].nil?
+        GameServerInstances.validate!(input[:game_server_instances], context: "#{context}[:game_server_instances]") unless input[:game_server_instances].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -804,7 +806,7 @@ module AWS::SDK::GameLift
     class DescribeGameServerOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeGameServerOutput, context: context)
-        Validators::GameServer.validate!(input[:game_server], context: "#{context}[:game_server]") unless input[:game_server].nil?
+        GameServer.validate!(input[:game_server], context: "#{context}[:game_server]") unless input[:game_server].nil?
       end
     end
 
@@ -824,7 +826,7 @@ module AWS::SDK::GameLift
     class DescribeGameSessionDetailsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeGameSessionDetailsOutput, context: context)
-        Validators::GameSessionDetailList.validate!(input[:game_session_details], context: "#{context}[:game_session_details]") unless input[:game_session_details].nil?
+        GameSessionDetailList.validate!(input[:game_session_details], context: "#{context}[:game_session_details]") unless input[:game_session_details].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -839,14 +841,14 @@ module AWS::SDK::GameLift
     class DescribeGameSessionPlacementOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeGameSessionPlacementOutput, context: context)
-        Validators::GameSessionPlacement.validate!(input[:game_session_placement], context: "#{context}[:game_session_placement]") unless input[:game_session_placement].nil?
+        GameSessionPlacement.validate!(input[:game_session_placement], context: "#{context}[:game_session_placement]") unless input[:game_session_placement].nil?
       end
     end
 
     class DescribeGameSessionQueuesInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeGameSessionQueuesInput, context: context)
-        Validators::GameSessionQueueNameOrArnList.validate!(input[:names], context: "#{context}[:names]") unless input[:names].nil?
+        GameSessionQueueNameOrArnList.validate!(input[:names], context: "#{context}[:names]") unless input[:names].nil?
         Hearth::Validator.validate!(input[:limit], ::Integer, context: "#{context}[:limit]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -855,7 +857,7 @@ module AWS::SDK::GameLift
     class DescribeGameSessionQueuesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeGameSessionQueuesOutput, context: context)
-        Validators::GameSessionQueueList.validate!(input[:game_session_queues], context: "#{context}[:game_session_queues]") unless input[:game_session_queues].nil?
+        GameSessionQueueList.validate!(input[:game_session_queues], context: "#{context}[:game_session_queues]") unless input[:game_session_queues].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -876,7 +878,7 @@ module AWS::SDK::GameLift
     class DescribeGameSessionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeGameSessionsOutput, context: context)
-        Validators::GameSessionList.validate!(input[:game_sessions], context: "#{context}[:game_sessions]") unless input[:game_sessions].nil?
+        GameSessionList.validate!(input[:game_sessions], context: "#{context}[:game_sessions]") unless input[:game_sessions].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -895,7 +897,7 @@ module AWS::SDK::GameLift
     class DescribeInstancesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeInstancesOutput, context: context)
-        Validators::InstanceList.validate!(input[:instances], context: "#{context}[:instances]") unless input[:instances].nil?
+        InstanceList.validate!(input[:instances], context: "#{context}[:instances]") unless input[:instances].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -903,7 +905,7 @@ module AWS::SDK::GameLift
     class DescribeMatchmakingConfigurationsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeMatchmakingConfigurationsInput, context: context)
-        Validators::MatchmakingConfigurationNameList.validate!(input[:names], context: "#{context}[:names]") unless input[:names].nil?
+        MatchmakingConfigurationNameList.validate!(input[:names], context: "#{context}[:names]") unless input[:names].nil?
         Hearth::Validator.validate!(input[:rule_set_name], ::String, context: "#{context}[:rule_set_name]")
         Hearth::Validator.validate!(input[:limit], ::Integer, context: "#{context}[:limit]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
@@ -913,7 +915,7 @@ module AWS::SDK::GameLift
     class DescribeMatchmakingConfigurationsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeMatchmakingConfigurationsOutput, context: context)
-        Validators::MatchmakingConfigurationList.validate!(input[:configurations], context: "#{context}[:configurations]") unless input[:configurations].nil?
+        MatchmakingConfigurationList.validate!(input[:configurations], context: "#{context}[:configurations]") unless input[:configurations].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -921,21 +923,21 @@ module AWS::SDK::GameLift
     class DescribeMatchmakingInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeMatchmakingInput, context: context)
-        Validators::MatchmakingIdList.validate!(input[:ticket_ids], context: "#{context}[:ticket_ids]") unless input[:ticket_ids].nil?
+        MatchmakingIdList.validate!(input[:ticket_ids], context: "#{context}[:ticket_ids]") unless input[:ticket_ids].nil?
       end
     end
 
     class DescribeMatchmakingOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeMatchmakingOutput, context: context)
-        Validators::MatchmakingTicketList.validate!(input[:ticket_list], context: "#{context}[:ticket_list]") unless input[:ticket_list].nil?
+        MatchmakingTicketList.validate!(input[:ticket_list], context: "#{context}[:ticket_list]") unless input[:ticket_list].nil?
       end
     end
 
     class DescribeMatchmakingRuleSetsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeMatchmakingRuleSetsInput, context: context)
-        Validators::MatchmakingRuleSetNameList.validate!(input[:names], context: "#{context}[:names]") unless input[:names].nil?
+        MatchmakingRuleSetNameList.validate!(input[:names], context: "#{context}[:names]") unless input[:names].nil?
         Hearth::Validator.validate!(input[:limit], ::Integer, context: "#{context}[:limit]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -944,7 +946,7 @@ module AWS::SDK::GameLift
     class DescribeMatchmakingRuleSetsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeMatchmakingRuleSetsOutput, context: context)
-        Validators::MatchmakingRuleSetList.validate!(input[:rule_sets], context: "#{context}[:rule_sets]") unless input[:rule_sets].nil?
+        MatchmakingRuleSetList.validate!(input[:rule_sets], context: "#{context}[:rule_sets]") unless input[:rule_sets].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -964,7 +966,7 @@ module AWS::SDK::GameLift
     class DescribePlayerSessionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribePlayerSessionsOutput, context: context)
-        Validators::PlayerSessionList.validate!(input[:player_sessions], context: "#{context}[:player_sessions]") unless input[:player_sessions].nil?
+        PlayerSessionList.validate!(input[:player_sessions], context: "#{context}[:player_sessions]") unless input[:player_sessions].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -979,7 +981,7 @@ module AWS::SDK::GameLift
     class DescribeRuntimeConfigurationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeRuntimeConfigurationOutput, context: context)
-        Validators::RuntimeConfiguration.validate!(input[:runtime_configuration], context: "#{context}[:runtime_configuration]") unless input[:runtime_configuration].nil?
+        RuntimeConfiguration.validate!(input[:runtime_configuration], context: "#{context}[:runtime_configuration]") unless input[:runtime_configuration].nil?
       end
     end
 
@@ -997,7 +999,7 @@ module AWS::SDK::GameLift
     class DescribeScalingPoliciesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeScalingPoliciesOutput, context: context)
-        Validators::ScalingPolicyList.validate!(input[:scaling_policies], context: "#{context}[:scaling_policies]") unless input[:scaling_policies].nil?
+        ScalingPolicyList.validate!(input[:scaling_policies], context: "#{context}[:scaling_policies]") unless input[:scaling_policies].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1012,7 +1014,7 @@ module AWS::SDK::GameLift
     class DescribeScriptOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeScriptOutput, context: context)
-        Validators::Script.validate!(input[:script], context: "#{context}[:script]") unless input[:script].nil?
+        Script.validate!(input[:script], context: "#{context}[:script]") unless input[:script].nil?
       end
     end
 
@@ -1025,7 +1027,7 @@ module AWS::SDK::GameLift
     class DescribeVpcPeeringAuthorizationsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeVpcPeeringAuthorizationsOutput, context: context)
-        Validators::VpcPeeringAuthorizationList.validate!(input[:vpc_peering_authorizations], context: "#{context}[:vpc_peering_authorizations]") unless input[:vpc_peering_authorizations].nil?
+        VpcPeeringAuthorizationList.validate!(input[:vpc_peering_authorizations], context: "#{context}[:vpc_peering_authorizations]") unless input[:vpc_peering_authorizations].nil?
       end
     end
 
@@ -1039,7 +1041,7 @@ module AWS::SDK::GameLift
     class DescribeVpcPeeringConnectionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeVpcPeeringConnectionsOutput, context: context)
-        Validators::VpcPeeringConnectionList.validate!(input[:vpc_peering_connections], context: "#{context}[:vpc_peering_connections]") unless input[:vpc_peering_connections].nil?
+        VpcPeeringConnectionList.validate!(input[:vpc_peering_connections], context: "#{context}[:vpc_peering_connections]") unless input[:vpc_peering_connections].nil?
       end
     end
 
@@ -1055,7 +1057,7 @@ module AWS::SDK::GameLift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DesiredPlayerSession.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DesiredPlayerSession.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1087,7 +1089,7 @@ module AWS::SDK::GameLift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EC2InstanceLimit.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EC2InstanceLimit.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1108,7 +1110,7 @@ module AWS::SDK::GameLift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Event.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Event.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1116,7 +1118,7 @@ module AWS::SDK::GameLift
     class FilterConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::FilterConfiguration, context: context)
-        Validators::LocationList.validate!(input[:allowed_locations], context: "#{context}[:allowed_locations]") unless input[:allowed_locations].nil?
+        LocationList.validate!(input[:allowed_locations], context: "#{context}[:allowed_locations]") unless input[:allowed_locations].nil?
       end
     end
 
@@ -1147,14 +1149,14 @@ module AWS::SDK::GameLift
         Hearth::Validator.validate!(input[:script_arn], ::String, context: "#{context}[:script_arn]")
         Hearth::Validator.validate!(input[:server_launch_path], ::String, context: "#{context}[:server_launch_path]")
         Hearth::Validator.validate!(input[:server_launch_parameters], ::String, context: "#{context}[:server_launch_parameters]")
-        Validators::StringList.validate!(input[:log_paths], context: "#{context}[:log_paths]") unless input[:log_paths].nil?
+        StringList.validate!(input[:log_paths], context: "#{context}[:log_paths]") unless input[:log_paths].nil?
         Hearth::Validator.validate!(input[:new_game_session_protection_policy], ::String, context: "#{context}[:new_game_session_protection_policy]")
         Hearth::Validator.validate!(input[:operating_system], ::String, context: "#{context}[:operating_system]")
-        Validators::ResourceCreationLimitPolicy.validate!(input[:resource_creation_limit_policy], context: "#{context}[:resource_creation_limit_policy]") unless input[:resource_creation_limit_policy].nil?
-        Validators::MetricGroupList.validate!(input[:metric_groups], context: "#{context}[:metric_groups]") unless input[:metric_groups].nil?
-        Validators::FleetActionList.validate!(input[:stopped_actions], context: "#{context}[:stopped_actions]") unless input[:stopped_actions].nil?
+        ResourceCreationLimitPolicy.validate!(input[:resource_creation_limit_policy], context: "#{context}[:resource_creation_limit_policy]") unless input[:resource_creation_limit_policy].nil?
+        MetricGroupList.validate!(input[:metric_groups], context: "#{context}[:metric_groups]") unless input[:metric_groups].nil?
+        FleetActionList.validate!(input[:stopped_actions], context: "#{context}[:stopped_actions]") unless input[:stopped_actions].nil?
         Hearth::Validator.validate!(input[:instance_role_arn], ::String, context: "#{context}[:instance_role_arn]")
-        Validators::CertificateConfiguration.validate!(input[:certificate_configuration], context: "#{context}[:certificate_configuration]") unless input[:certificate_configuration].nil?
+        CertificateConfiguration.validate!(input[:certificate_configuration], context: "#{context}[:certificate_configuration]") unless input[:certificate_configuration].nil?
       end
     end
 
@@ -1162,7 +1164,7 @@ module AWS::SDK::GameLift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::FleetAttributes.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          FleetAttributes.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1173,7 +1175,7 @@ module AWS::SDK::GameLift
         Hearth::Validator.validate!(input[:fleet_id], ::String, context: "#{context}[:fleet_id]")
         Hearth::Validator.validate!(input[:fleet_arn], ::String, context: "#{context}[:fleet_arn]")
         Hearth::Validator.validate!(input[:instance_type], ::String, context: "#{context}[:instance_type]")
-        Validators::EC2InstanceCounts.validate!(input[:instance_counts], context: "#{context}[:instance_counts]") unless input[:instance_counts].nil?
+        EC2InstanceCounts.validate!(input[:instance_counts], context: "#{context}[:instance_counts]") unless input[:instance_counts].nil?
         Hearth::Validator.validate!(input[:location], ::String, context: "#{context}[:location]")
       end
     end
@@ -1189,7 +1191,7 @@ module AWS::SDK::GameLift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::FleetCapacity.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          FleetCapacity.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1229,7 +1231,7 @@ module AWS::SDK::GameLift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::FleetUtilization.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          FleetUtilization.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1246,7 +1248,7 @@ module AWS::SDK::GameLift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::GameProperty.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          GameProperty.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1274,13 +1276,13 @@ module AWS::SDK::GameLift
         Hearth::Validator.validate!(input[:game_server_group_name], ::String, context: "#{context}[:game_server_group_name]")
         Hearth::Validator.validate!(input[:game_server_group_arn], ::String, context: "#{context}[:game_server_group_arn]")
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
-        Validators::InstanceDefinitions.validate!(input[:instance_definitions], context: "#{context}[:instance_definitions]") unless input[:instance_definitions].nil?
+        InstanceDefinitions.validate!(input[:instance_definitions], context: "#{context}[:instance_definitions]") unless input[:instance_definitions].nil?
         Hearth::Validator.validate!(input[:balancing_strategy], ::String, context: "#{context}[:balancing_strategy]")
         Hearth::Validator.validate!(input[:game_server_protection_policy], ::String, context: "#{context}[:game_server_protection_policy]")
         Hearth::Validator.validate!(input[:auto_scaling_group_arn], ::String, context: "#{context}[:auto_scaling_group_arn]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:status_reason], ::String, context: "#{context}[:status_reason]")
-        Validators::GameServerGroupActions.validate!(input[:suspended_actions], context: "#{context}[:suspended_actions]") unless input[:suspended_actions].nil?
+        GameServerGroupActions.validate!(input[:suspended_actions], context: "#{context}[:suspended_actions]") unless input[:suspended_actions].nil?
         Hearth::Validator.validate!(input[:creation_time], ::Time, context: "#{context}[:creation_time]")
         Hearth::Validator.validate!(input[:last_updated_time], ::Time, context: "#{context}[:last_updated_time]")
       end
@@ -1299,7 +1301,7 @@ module AWS::SDK::GameLift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GameServerGroupAutoScalingPolicy, context: context)
         Hearth::Validator.validate!(input[:estimated_instance_warmup], ::Integer, context: "#{context}[:estimated_instance_warmup]")
-        Validators::TargetTrackingConfiguration.validate!(input[:target_tracking_configuration], context: "#{context}[:target_tracking_configuration]") unless input[:target_tracking_configuration].nil?
+        TargetTrackingConfiguration.validate!(input[:target_tracking_configuration], context: "#{context}[:target_tracking_configuration]") unless input[:target_tracking_configuration].nil?
       end
     end
 
@@ -1307,7 +1309,7 @@ module AWS::SDK::GameLift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::GameServerGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          GameServerGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1335,7 +1337,7 @@ module AWS::SDK::GameLift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::GameServerInstance.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          GameServerInstance.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1344,7 +1346,7 @@ module AWS::SDK::GameLift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::GameServer.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          GameServer.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1362,7 +1364,7 @@ module AWS::SDK::GameLift
         Hearth::Validator.validate!(input[:maximum_player_session_count], ::Integer, context: "#{context}[:maximum_player_session_count]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:status_reason], ::String, context: "#{context}[:status_reason]")
-        Validators::GamePropertyList.validate!(input[:game_properties], context: "#{context}[:game_properties]") unless input[:game_properties].nil?
+        GamePropertyList.validate!(input[:game_properties], context: "#{context}[:game_properties]") unless input[:game_properties].nil?
         Hearth::Validator.validate!(input[:ip_address], ::String, context: "#{context}[:ip_address]")
         Hearth::Validator.validate!(input[:dns_name], ::String, context: "#{context}[:dns_name]")
         Hearth::Validator.validate!(input[:port], ::Integer, context: "#{context}[:port]")
@@ -1381,14 +1383,14 @@ module AWS::SDK::GameLift
         Hearth::Validator.validate!(input[:ip_address], ::String, context: "#{context}[:ip_address]")
         Hearth::Validator.validate!(input[:dns_name], ::String, context: "#{context}[:dns_name]")
         Hearth::Validator.validate!(input[:port], ::Integer, context: "#{context}[:port]")
-        Validators::MatchedPlayerSessionList.validate!(input[:matched_player_sessions], context: "#{context}[:matched_player_sessions]") unless input[:matched_player_sessions].nil?
+        MatchedPlayerSessionList.validate!(input[:matched_player_sessions], context: "#{context}[:matched_player_sessions]") unless input[:matched_player_sessions].nil?
       end
     end
 
     class GameSessionDetail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GameSessionDetail, context: context)
-        Validators::GameSession.validate!(input[:game_session], context: "#{context}[:game_session]") unless input[:game_session].nil?
+        GameSession.validate!(input[:game_session], context: "#{context}[:game_session]") unless input[:game_session].nil?
         Hearth::Validator.validate!(input[:protection_policy], ::String, context: "#{context}[:protection_policy]")
       end
     end
@@ -1397,7 +1399,7 @@ module AWS::SDK::GameLift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::GameSessionDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          GameSessionDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1413,7 +1415,7 @@ module AWS::SDK::GameLift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::GameSession.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          GameSession.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1424,19 +1426,19 @@ module AWS::SDK::GameLift
         Hearth::Validator.validate!(input[:placement_id], ::String, context: "#{context}[:placement_id]")
         Hearth::Validator.validate!(input[:game_session_queue_name], ::String, context: "#{context}[:game_session_queue_name]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::GamePropertyList.validate!(input[:game_properties], context: "#{context}[:game_properties]") unless input[:game_properties].nil?
+        GamePropertyList.validate!(input[:game_properties], context: "#{context}[:game_properties]") unless input[:game_properties].nil?
         Hearth::Validator.validate!(input[:maximum_player_session_count], ::Integer, context: "#{context}[:maximum_player_session_count]")
         Hearth::Validator.validate!(input[:game_session_name], ::String, context: "#{context}[:game_session_name]")
         Hearth::Validator.validate!(input[:game_session_id], ::String, context: "#{context}[:game_session_id]")
         Hearth::Validator.validate!(input[:game_session_arn], ::String, context: "#{context}[:game_session_arn]")
         Hearth::Validator.validate!(input[:game_session_region], ::String, context: "#{context}[:game_session_region]")
-        Validators::PlayerLatencyList.validate!(input[:player_latencies], context: "#{context}[:player_latencies]") unless input[:player_latencies].nil?
+        PlayerLatencyList.validate!(input[:player_latencies], context: "#{context}[:player_latencies]") unless input[:player_latencies].nil?
         Hearth::Validator.validate!(input[:start_time], ::Time, context: "#{context}[:start_time]")
         Hearth::Validator.validate!(input[:end_time], ::Time, context: "#{context}[:end_time]")
         Hearth::Validator.validate!(input[:ip_address], ::String, context: "#{context}[:ip_address]")
         Hearth::Validator.validate!(input[:dns_name], ::String, context: "#{context}[:dns_name]")
         Hearth::Validator.validate!(input[:port], ::Integer, context: "#{context}[:port]")
-        Validators::PlacedPlayerSessionList.validate!(input[:placed_player_sessions], context: "#{context}[:placed_player_sessions]") unless input[:placed_player_sessions].nil?
+        PlacedPlayerSessionList.validate!(input[:placed_player_sessions], context: "#{context}[:placed_player_sessions]") unless input[:placed_player_sessions].nil?
         Hearth::Validator.validate!(input[:game_session_data], ::String, context: "#{context}[:game_session_data]")
         Hearth::Validator.validate!(input[:matchmaker_data], ::String, context: "#{context}[:matchmaker_data]")
       end
@@ -1448,10 +1450,10 @@ module AWS::SDK::GameLift
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:game_session_queue_arn], ::String, context: "#{context}[:game_session_queue_arn]")
         Hearth::Validator.validate!(input[:timeout_in_seconds], ::Integer, context: "#{context}[:timeout_in_seconds]")
-        Validators::PlayerLatencyPolicyList.validate!(input[:player_latency_policies], context: "#{context}[:player_latency_policies]") unless input[:player_latency_policies].nil?
-        Validators::GameSessionQueueDestinationList.validate!(input[:destinations], context: "#{context}[:destinations]") unless input[:destinations].nil?
-        Validators::FilterConfiguration.validate!(input[:filter_configuration], context: "#{context}[:filter_configuration]") unless input[:filter_configuration].nil?
-        Validators::PriorityConfiguration.validate!(input[:priority_configuration], context: "#{context}[:priority_configuration]") unless input[:priority_configuration].nil?
+        PlayerLatencyPolicyList.validate!(input[:player_latency_policies], context: "#{context}[:player_latency_policies]") unless input[:player_latency_policies].nil?
+        GameSessionQueueDestinationList.validate!(input[:destinations], context: "#{context}[:destinations]") unless input[:destinations].nil?
+        FilterConfiguration.validate!(input[:filter_configuration], context: "#{context}[:filter_configuration]") unless input[:filter_configuration].nil?
+        PriorityConfiguration.validate!(input[:priority_configuration], context: "#{context}[:priority_configuration]") unless input[:priority_configuration].nil?
         Hearth::Validator.validate!(input[:custom_event_data], ::String, context: "#{context}[:custom_event_data]")
         Hearth::Validator.validate!(input[:notification_target], ::String, context: "#{context}[:notification_target]")
       end
@@ -1468,7 +1470,7 @@ module AWS::SDK::GameLift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::GameSessionQueueDestination.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          GameSessionQueueDestination.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1477,7 +1479,7 @@ module AWS::SDK::GameLift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::GameSessionQueue.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          GameSessionQueue.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1516,7 +1518,7 @@ module AWS::SDK::GameLift
     class GetInstanceAccessOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetInstanceAccessOutput, context: context)
-        Validators::InstanceAccess.validate!(input[:instance_access], context: "#{context}[:instance_access]") unless input[:instance_access].nil?
+        InstanceAccess.validate!(input[:instance_access], context: "#{context}[:instance_access]") unless input[:instance_access].nil?
       end
     end
 
@@ -1550,7 +1552,7 @@ module AWS::SDK::GameLift
         Hearth::Validator.validate!(input[:instance_id], ::String, context: "#{context}[:instance_id]")
         Hearth::Validator.validate!(input[:ip_address], ::String, context: "#{context}[:ip_address]")
         Hearth::Validator.validate!(input[:operating_system], ::String, context: "#{context}[:operating_system]")
-        Validators::InstanceCredentials.validate!(input[:credentials], context: "#{context}[:credentials]") unless input[:credentials].nil?
+        InstanceCredentials.validate!(input[:credentials], context: "#{context}[:credentials]") unless input[:credentials].nil?
       end
     end
 
@@ -1574,7 +1576,7 @@ module AWS::SDK::GameLift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::InstanceDefinition.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          InstanceDefinition.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1583,7 +1585,7 @@ module AWS::SDK::GameLift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Instance.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Instance.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1630,7 +1632,7 @@ module AWS::SDK::GameLift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::IpPermission.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          IpPermission.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1674,7 +1676,7 @@ module AWS::SDK::GameLift
     class ListAliasesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAliasesOutput, context: context)
-        Validators::AliasList.validate!(input[:aliases], context: "#{context}[:aliases]") unless input[:aliases].nil?
+        AliasList.validate!(input[:aliases], context: "#{context}[:aliases]") unless input[:aliases].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1691,7 +1693,7 @@ module AWS::SDK::GameLift
     class ListBuildsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListBuildsOutput, context: context)
-        Validators::BuildList.validate!(input[:builds], context: "#{context}[:builds]") unless input[:builds].nil?
+        BuildList.validate!(input[:builds], context: "#{context}[:builds]") unless input[:builds].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1709,7 +1711,7 @@ module AWS::SDK::GameLift
     class ListFleetsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListFleetsOutput, context: context)
-        Validators::FleetIdList.validate!(input[:fleet_ids], context: "#{context}[:fleet_ids]") unless input[:fleet_ids].nil?
+        FleetIdList.validate!(input[:fleet_ids], context: "#{context}[:fleet_ids]") unless input[:fleet_ids].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1725,7 +1727,7 @@ module AWS::SDK::GameLift
     class ListGameServerGroupsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListGameServerGroupsOutput, context: context)
-        Validators::GameServerGroups.validate!(input[:game_server_groups], context: "#{context}[:game_server_groups]") unless input[:game_server_groups].nil?
+        GameServerGroups.validate!(input[:game_server_groups], context: "#{context}[:game_server_groups]") unless input[:game_server_groups].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1743,7 +1745,7 @@ module AWS::SDK::GameLift
     class ListGameServersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListGameServersOutput, context: context)
-        Validators::GameServers.validate!(input[:game_servers], context: "#{context}[:game_servers]") unless input[:game_servers].nil?
+        GameServers.validate!(input[:game_servers], context: "#{context}[:game_servers]") unless input[:game_servers].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1759,7 +1761,7 @@ module AWS::SDK::GameLift
     class ListScriptsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListScriptsOutput, context: context)
-        Validators::ScriptList.validate!(input[:scripts], context: "#{context}[:scripts]") unless input[:scripts].nil?
+        ScriptList.validate!(input[:scripts], context: "#{context}[:scripts]") unless input[:scripts].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1774,15 +1776,15 @@ module AWS::SDK::GameLift
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class LocationAttributes
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::LocationAttributes, context: context)
-        Validators::LocationState.validate!(input[:location_state], context: "#{context}[:location_state]") unless input[:location_state].nil?
-        Validators::FleetActionList.validate!(input[:stopped_actions], context: "#{context}[:stopped_actions]") unless input[:stopped_actions].nil?
+        LocationState.validate!(input[:location_state], context: "#{context}[:location_state]") unless input[:location_state].nil?
+        FleetActionList.validate!(input[:stopped_actions], context: "#{context}[:stopped_actions]") unless input[:stopped_actions].nil?
         Hearth::Validator.validate!(input[:update_status], ::String, context: "#{context}[:update_status]")
       end
     end
@@ -1791,7 +1793,7 @@ module AWS::SDK::GameLift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LocationAttributes.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LocationAttributes.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1807,7 +1809,7 @@ module AWS::SDK::GameLift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LocationConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LocationConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1833,7 +1835,7 @@ module AWS::SDK::GameLift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LocationState.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LocationState.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1850,7 +1852,7 @@ module AWS::SDK::GameLift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MatchedPlayerSession.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MatchedPlayerSession.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1861,7 +1863,7 @@ module AWS::SDK::GameLift
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:configuration_arn], ::String, context: "#{context}[:configuration_arn]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::QueueArnsList.validate!(input[:game_session_queue_arns], context: "#{context}[:game_session_queue_arns]") unless input[:game_session_queue_arns].nil?
+        QueueArnsList.validate!(input[:game_session_queue_arns], context: "#{context}[:game_session_queue_arns]") unless input[:game_session_queue_arns].nil?
         Hearth::Validator.validate!(input[:request_timeout_seconds], ::Integer, context: "#{context}[:request_timeout_seconds]")
         Hearth::Validator.validate!(input[:acceptance_timeout_seconds], ::Integer, context: "#{context}[:acceptance_timeout_seconds]")
         Hearth::Validator.validate!(input[:acceptance_required], ::TrueClass, ::FalseClass, context: "#{context}[:acceptance_required]")
@@ -1871,7 +1873,7 @@ module AWS::SDK::GameLift
         Hearth::Validator.validate!(input[:additional_player_count], ::Integer, context: "#{context}[:additional_player_count]")
         Hearth::Validator.validate!(input[:custom_event_data], ::String, context: "#{context}[:custom_event_data]")
         Hearth::Validator.validate!(input[:creation_time], ::Time, context: "#{context}[:creation_time]")
-        Validators::GamePropertyList.validate!(input[:game_properties], context: "#{context}[:game_properties]") unless input[:game_properties].nil?
+        GamePropertyList.validate!(input[:game_properties], context: "#{context}[:game_properties]") unless input[:game_properties].nil?
         Hearth::Validator.validate!(input[:game_session_data], ::String, context: "#{context}[:game_session_data]")
         Hearth::Validator.validate!(input[:backfill_mode], ::String, context: "#{context}[:backfill_mode]")
         Hearth::Validator.validate!(input[:flex_match_mode], ::String, context: "#{context}[:flex_match_mode]")
@@ -1882,7 +1884,7 @@ module AWS::SDK::GameLift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MatchmakingConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MatchmakingConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1919,7 +1921,7 @@ module AWS::SDK::GameLift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MatchmakingRuleSet.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MatchmakingRuleSet.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1944,8 +1946,8 @@ module AWS::SDK::GameLift
         Hearth::Validator.validate!(input[:status_message], ::String, context: "#{context}[:status_message]")
         Hearth::Validator.validate!(input[:start_time], ::Time, context: "#{context}[:start_time]")
         Hearth::Validator.validate!(input[:end_time], ::Time, context: "#{context}[:end_time]")
-        Validators::PlayerList.validate!(input[:players], context: "#{context}[:players]") unless input[:players].nil?
-        Validators::GameSessionConnectionInfo.validate!(input[:game_session_connection_info], context: "#{context}[:game_session_connection_info]") unless input[:game_session_connection_info].nil?
+        PlayerList.validate!(input[:players], context: "#{context}[:players]") unless input[:players].nil?
+        GameSessionConnectionInfo.validate!(input[:game_session_connection_info], context: "#{context}[:game_session_connection_info]") unless input[:game_session_connection_info].nil?
         Hearth::Validator.validate!(input[:estimated_wait_time], ::Integer, context: "#{context}[:estimated_wait_time]")
       end
     end
@@ -1954,7 +1956,7 @@ module AWS::SDK::GameLift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MatchmakingTicket.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MatchmakingTicket.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1994,7 +1996,7 @@ module AWS::SDK::GameLift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PlacedPlayerSession.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PlacedPlayerSession.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2003,9 +2005,9 @@ module AWS::SDK::GameLift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Player, context: context)
         Hearth::Validator.validate!(input[:player_id], ::String, context: "#{context}[:player_id]")
-        Validators::PlayerAttributeMap.validate!(input[:player_attributes], context: "#{context}[:player_attributes]") unless input[:player_attributes].nil?
+        PlayerAttributeMap.validate!(input[:player_attributes], context: "#{context}[:player_attributes]") unless input[:player_attributes].nil?
         Hearth::Validator.validate!(input[:team], ::String, context: "#{context}[:team]")
-        Validators::LatencyMap.validate!(input[:latency_in_ms], context: "#{context}[:latency_in_ms]") unless input[:latency_in_ms].nil?
+        LatencyMap.validate!(input[:latency_in_ms], context: "#{context}[:latency_in_ms]") unless input[:latency_in_ms].nil?
       end
     end
 
@@ -2014,7 +2016,7 @@ module AWS::SDK::GameLift
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::AttributeValue.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          AttributeValue.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -2051,7 +2053,7 @@ module AWS::SDK::GameLift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PlayerLatency.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PlayerLatency.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2068,7 +2070,7 @@ module AWS::SDK::GameLift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PlayerLatencyPolicy.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PlayerLatencyPolicy.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2077,7 +2079,7 @@ module AWS::SDK::GameLift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Player.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Player.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2104,7 +2106,7 @@ module AWS::SDK::GameLift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PlayerSession.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PlayerSession.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2112,8 +2114,8 @@ module AWS::SDK::GameLift
     class PriorityConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PriorityConfiguration, context: context)
-        Validators::PriorityTypeList.validate!(input[:priority_order], context: "#{context}[:priority_order]") unless input[:priority_order].nil?
-        Validators::LocationList.validate!(input[:location_order], context: "#{context}[:location_order]") unless input[:location_order].nil?
+        PriorityTypeList.validate!(input[:priority_order], context: "#{context}[:priority_order]") unless input[:priority_order].nil?
+        LocationList.validate!(input[:location_order], context: "#{context}[:location_order]") unless input[:location_order].nil?
       end
     end
 
@@ -2138,7 +2140,7 @@ module AWS::SDK::GameLift
         Hearth::Validator.validate!(input[:evaluation_periods], ::Integer, context: "#{context}[:evaluation_periods]")
         Hearth::Validator.validate!(input[:metric_name], ::String, context: "#{context}[:metric_name]")
         Hearth::Validator.validate!(input[:policy_type], ::String, context: "#{context}[:policy_type]")
-        Validators::TargetConfiguration.validate!(input[:target_configuration], context: "#{context}[:target_configuration]") unless input[:target_configuration].nil?
+        TargetConfiguration.validate!(input[:target_configuration], context: "#{context}[:target_configuration]") unless input[:target_configuration].nil?
       end
     end
 
@@ -2172,7 +2174,7 @@ module AWS::SDK::GameLift
     class RegisterGameServerOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RegisterGameServerOutput, context: context)
-        Validators::GameServer.validate!(input[:game_server], context: "#{context}[:game_server]") unless input[:game_server].nil?
+        GameServer.validate!(input[:game_server], context: "#{context}[:game_server]") unless input[:game_server].nil?
       end
     end
 
@@ -2186,8 +2188,8 @@ module AWS::SDK::GameLift
     class RequestUploadCredentialsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RequestUploadCredentialsOutput, context: context)
-        Validators::AwsCredentials.validate!(input[:upload_credentials], context: "#{context}[:upload_credentials]") unless input[:upload_credentials].nil?
-        Validators::S3Location.validate!(input[:storage_location], context: "#{context}[:storage_location]") unless input[:storage_location].nil?
+        AwsCredentials.validate!(input[:upload_credentials], context: "#{context}[:upload_credentials]") unless input[:upload_credentials].nil?
+        S3Location.validate!(input[:storage_location], context: "#{context}[:storage_location]") unless input[:storage_location].nil?
       end
     end
 
@@ -2218,14 +2220,14 @@ module AWS::SDK::GameLift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ResumeGameServerGroupInput, context: context)
         Hearth::Validator.validate!(input[:game_server_group_name], ::String, context: "#{context}[:game_server_group_name]")
-        Validators::GameServerGroupActions.validate!(input[:resume_actions], context: "#{context}[:resume_actions]") unless input[:resume_actions].nil?
+        GameServerGroupActions.validate!(input[:resume_actions], context: "#{context}[:resume_actions]") unless input[:resume_actions].nil?
       end
     end
 
     class ResumeGameServerGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ResumeGameServerGroupOutput, context: context)
-        Validators::GameServerGroup.validate!(input[:game_server_group], context: "#{context}[:game_server_group]") unless input[:game_server_group].nil?
+        GameServerGroup.validate!(input[:game_server_group], context: "#{context}[:game_server_group]") unless input[:game_server_group].nil?
       end
     end
 
@@ -2241,7 +2243,7 @@ module AWS::SDK::GameLift
     class RuntimeConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RuntimeConfiguration, context: context)
-        Validators::ServerProcessList.validate!(input[:server_processes], context: "#{context}[:server_processes]") unless input[:server_processes].nil?
+        ServerProcessList.validate!(input[:server_processes], context: "#{context}[:server_processes]") unless input[:server_processes].nil?
         Hearth::Validator.validate!(input[:max_concurrent_game_session_activations], ::Integer, context: "#{context}[:max_concurrent_game_session_activations]")
         Hearth::Validator.validate!(input[:game_session_activation_timeout_seconds], ::Integer, context: "#{context}[:game_session_activation_timeout_seconds]")
       end
@@ -2271,7 +2273,7 @@ module AWS::SDK::GameLift
         Hearth::Validator.validate!(input[:evaluation_periods], ::Integer, context: "#{context}[:evaluation_periods]")
         Hearth::Validator.validate!(input[:metric_name], ::String, context: "#{context}[:metric_name]")
         Hearth::Validator.validate!(input[:policy_type], ::String, context: "#{context}[:policy_type]")
-        Validators::TargetConfiguration.validate!(input[:target_configuration], context: "#{context}[:target_configuration]") unless input[:target_configuration].nil?
+        TargetConfiguration.validate!(input[:target_configuration], context: "#{context}[:target_configuration]") unless input[:target_configuration].nil?
         Hearth::Validator.validate!(input[:update_status], ::String, context: "#{context}[:update_status]")
         Hearth::Validator.validate!(input[:location], ::String, context: "#{context}[:location]")
       end
@@ -2281,7 +2283,7 @@ module AWS::SDK::GameLift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ScalingPolicy.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ScalingPolicy.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2295,7 +2297,7 @@ module AWS::SDK::GameLift
         Hearth::Validator.validate!(input[:version], ::String, context: "#{context}[:version]")
         Hearth::Validator.validate!(input[:size_on_disk], ::Integer, context: "#{context}[:size_on_disk]")
         Hearth::Validator.validate!(input[:creation_time], ::Time, context: "#{context}[:creation_time]")
-        Validators::S3Location.validate!(input[:storage_location], context: "#{context}[:storage_location]") unless input[:storage_location].nil?
+        S3Location.validate!(input[:storage_location], context: "#{context}[:storage_location]") unless input[:storage_location].nil?
       end
     end
 
@@ -2303,7 +2305,7 @@ module AWS::SDK::GameLift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Script.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Script.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2324,7 +2326,7 @@ module AWS::SDK::GameLift
     class SearchGameSessionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SearchGameSessionsOutput, context: context)
-        Validators::GameSessionList.validate!(input[:game_sessions], context: "#{context}[:game_sessions]") unless input[:game_sessions].nil?
+        GameSessionList.validate!(input[:game_sessions], context: "#{context}[:game_sessions]") unless input[:game_sessions].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -2342,7 +2344,7 @@ module AWS::SDK::GameLift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ServerProcess.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ServerProcess.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2351,7 +2353,7 @@ module AWS::SDK::GameLift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StartFleetActionsInput, context: context)
         Hearth::Validator.validate!(input[:fleet_id], ::String, context: "#{context}[:fleet_id]")
-        Validators::FleetActionList.validate!(input[:actions], context: "#{context}[:actions]") unless input[:actions].nil?
+        FleetActionList.validate!(input[:actions], context: "#{context}[:actions]") unless input[:actions].nil?
         Hearth::Validator.validate!(input[:location], ::String, context: "#{context}[:location]")
       end
     end
@@ -2369,11 +2371,11 @@ module AWS::SDK::GameLift
         Hearth::Validator.validate!(input, Types::StartGameSessionPlacementInput, context: context)
         Hearth::Validator.validate!(input[:placement_id], ::String, context: "#{context}[:placement_id]")
         Hearth::Validator.validate!(input[:game_session_queue_name], ::String, context: "#{context}[:game_session_queue_name]")
-        Validators::GamePropertyList.validate!(input[:game_properties], context: "#{context}[:game_properties]") unless input[:game_properties].nil?
+        GamePropertyList.validate!(input[:game_properties], context: "#{context}[:game_properties]") unless input[:game_properties].nil?
         Hearth::Validator.validate!(input[:maximum_player_session_count], ::Integer, context: "#{context}[:maximum_player_session_count]")
         Hearth::Validator.validate!(input[:game_session_name], ::String, context: "#{context}[:game_session_name]")
-        Validators::PlayerLatencyList.validate!(input[:player_latencies], context: "#{context}[:player_latencies]") unless input[:player_latencies].nil?
-        Validators::DesiredPlayerSessionList.validate!(input[:desired_player_sessions], context: "#{context}[:desired_player_sessions]") unless input[:desired_player_sessions].nil?
+        PlayerLatencyList.validate!(input[:player_latencies], context: "#{context}[:player_latencies]") unless input[:player_latencies].nil?
+        DesiredPlayerSessionList.validate!(input[:desired_player_sessions], context: "#{context}[:desired_player_sessions]") unless input[:desired_player_sessions].nil?
         Hearth::Validator.validate!(input[:game_session_data], ::String, context: "#{context}[:game_session_data]")
       end
     end
@@ -2381,7 +2383,7 @@ module AWS::SDK::GameLift
     class StartGameSessionPlacementOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StartGameSessionPlacementOutput, context: context)
-        Validators::GameSessionPlacement.validate!(input[:game_session_placement], context: "#{context}[:game_session_placement]") unless input[:game_session_placement].nil?
+        GameSessionPlacement.validate!(input[:game_session_placement], context: "#{context}[:game_session_placement]") unless input[:game_session_placement].nil?
       end
     end
 
@@ -2391,14 +2393,14 @@ module AWS::SDK::GameLift
         Hearth::Validator.validate!(input[:ticket_id], ::String, context: "#{context}[:ticket_id]")
         Hearth::Validator.validate!(input[:configuration_name], ::String, context: "#{context}[:configuration_name]")
         Hearth::Validator.validate!(input[:game_session_arn], ::String, context: "#{context}[:game_session_arn]")
-        Validators::PlayerList.validate!(input[:players], context: "#{context}[:players]") unless input[:players].nil?
+        PlayerList.validate!(input[:players], context: "#{context}[:players]") unless input[:players].nil?
       end
     end
 
     class StartMatchBackfillOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StartMatchBackfillOutput, context: context)
-        Validators::MatchmakingTicket.validate!(input[:matchmaking_ticket], context: "#{context}[:matchmaking_ticket]") unless input[:matchmaking_ticket].nil?
+        MatchmakingTicket.validate!(input[:matchmaking_ticket], context: "#{context}[:matchmaking_ticket]") unless input[:matchmaking_ticket].nil?
       end
     end
 
@@ -2407,14 +2409,14 @@ module AWS::SDK::GameLift
         Hearth::Validator.validate!(input, Types::StartMatchmakingInput, context: context)
         Hearth::Validator.validate!(input[:ticket_id], ::String, context: "#{context}[:ticket_id]")
         Hearth::Validator.validate!(input[:configuration_name], ::String, context: "#{context}[:configuration_name]")
-        Validators::PlayerList.validate!(input[:players], context: "#{context}[:players]") unless input[:players].nil?
+        PlayerList.validate!(input[:players], context: "#{context}[:players]") unless input[:players].nil?
       end
     end
 
     class StartMatchmakingOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StartMatchmakingOutput, context: context)
-        Validators::MatchmakingTicket.validate!(input[:matchmaking_ticket], context: "#{context}[:matchmaking_ticket]") unless input[:matchmaking_ticket].nil?
+        MatchmakingTicket.validate!(input[:matchmaking_ticket], context: "#{context}[:matchmaking_ticket]") unless input[:matchmaking_ticket].nil?
       end
     end
 
@@ -2422,7 +2424,7 @@ module AWS::SDK::GameLift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StopFleetActionsInput, context: context)
         Hearth::Validator.validate!(input[:fleet_id], ::String, context: "#{context}[:fleet_id]")
-        Validators::FleetActionList.validate!(input[:actions], context: "#{context}[:actions]") unless input[:actions].nil?
+        FleetActionList.validate!(input[:actions], context: "#{context}[:actions]") unless input[:actions].nil?
         Hearth::Validator.validate!(input[:location], ::String, context: "#{context}[:location]")
       end
     end
@@ -2445,7 +2447,7 @@ module AWS::SDK::GameLift
     class StopGameSessionPlacementOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StopGameSessionPlacementOutput, context: context)
-        Validators::GameSessionPlacement.validate!(input[:game_session_placement], context: "#{context}[:game_session_placement]") unless input[:game_session_placement].nil?
+        GameSessionPlacement.validate!(input[:game_session_placement], context: "#{context}[:game_session_placement]") unless input[:game_session_placement].nil?
       end
     end
 
@@ -2485,14 +2487,14 @@ module AWS::SDK::GameLift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SuspendGameServerGroupInput, context: context)
         Hearth::Validator.validate!(input[:game_server_group_name], ::String, context: "#{context}[:game_server_group_name]")
-        Validators::GameServerGroupActions.validate!(input[:suspend_actions], context: "#{context}[:suspend_actions]") unless input[:suspend_actions].nil?
+        GameServerGroupActions.validate!(input[:suspend_actions], context: "#{context}[:suspend_actions]") unless input[:suspend_actions].nil?
       end
     end
 
     class SuspendGameServerGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SuspendGameServerGroupOutput, context: context)
-        Validators::GameServerGroup.validate!(input[:game_server_group], context: "#{context}[:game_server_group]") unless input[:game_server_group].nil?
+        GameServerGroup.validate!(input[:game_server_group], context: "#{context}[:game_server_group]") unless input[:game_server_group].nil?
       end
     end
 
@@ -2517,7 +2519,7 @@ module AWS::SDK::GameLift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2526,7 +2528,7 @@ module AWS::SDK::GameLift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -2582,7 +2584,7 @@ module AWS::SDK::GameLift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -2598,14 +2600,14 @@ module AWS::SDK::GameLift
         Hearth::Validator.validate!(input[:alias_id], ::String, context: "#{context}[:alias_id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::RoutingStrategy.validate!(input[:routing_strategy], context: "#{context}[:routing_strategy]") unless input[:routing_strategy].nil?
+        RoutingStrategy.validate!(input[:routing_strategy], context: "#{context}[:routing_strategy]") unless input[:routing_strategy].nil?
       end
     end
 
     class UpdateAliasOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateAliasOutput, context: context)
-        Validators::Alias.validate!(input[:alias], context: "#{context}[:alias]") unless input[:alias].nil?
+        Alias.validate!(input[:alias], context: "#{context}[:alias]") unless input[:alias].nil?
       end
     end
 
@@ -2621,7 +2623,7 @@ module AWS::SDK::GameLift
     class UpdateBuildOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateBuildOutput, context: context)
-        Validators::Build.validate!(input[:build], context: "#{context}[:build]") unless input[:build].nil?
+        Build.validate!(input[:build], context: "#{context}[:build]") unless input[:build].nil?
       end
     end
 
@@ -2632,8 +2634,8 @@ module AWS::SDK::GameLift
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:new_game_session_protection_policy], ::String, context: "#{context}[:new_game_session_protection_policy]")
-        Validators::ResourceCreationLimitPolicy.validate!(input[:resource_creation_limit_policy], context: "#{context}[:resource_creation_limit_policy]") unless input[:resource_creation_limit_policy].nil?
-        Validators::MetricGroupList.validate!(input[:metric_groups], context: "#{context}[:metric_groups]") unless input[:metric_groups].nil?
+        ResourceCreationLimitPolicy.validate!(input[:resource_creation_limit_policy], context: "#{context}[:resource_creation_limit_policy]") unless input[:resource_creation_limit_policy].nil?
+        MetricGroupList.validate!(input[:metric_groups], context: "#{context}[:metric_groups]") unless input[:metric_groups].nil?
       end
     end
 
@@ -2668,8 +2670,8 @@ module AWS::SDK::GameLift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateFleetPortSettingsInput, context: context)
         Hearth::Validator.validate!(input[:fleet_id], ::String, context: "#{context}[:fleet_id]")
-        Validators::IpPermissionsList.validate!(input[:inbound_permission_authorizations], context: "#{context}[:inbound_permission_authorizations]") unless input[:inbound_permission_authorizations].nil?
-        Validators::IpPermissionsList.validate!(input[:inbound_permission_revocations], context: "#{context}[:inbound_permission_revocations]") unless input[:inbound_permission_revocations].nil?
+        IpPermissionsList.validate!(input[:inbound_permission_authorizations], context: "#{context}[:inbound_permission_authorizations]") unless input[:inbound_permission_authorizations].nil?
+        IpPermissionsList.validate!(input[:inbound_permission_revocations], context: "#{context}[:inbound_permission_revocations]") unless input[:inbound_permission_revocations].nil?
       end
     end
 
@@ -2685,7 +2687,7 @@ module AWS::SDK::GameLift
         Hearth::Validator.validate!(input, Types::UpdateGameServerGroupInput, context: context)
         Hearth::Validator.validate!(input[:game_server_group_name], ::String, context: "#{context}[:game_server_group_name]")
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
-        Validators::InstanceDefinitions.validate!(input[:instance_definitions], context: "#{context}[:instance_definitions]") unless input[:instance_definitions].nil?
+        InstanceDefinitions.validate!(input[:instance_definitions], context: "#{context}[:instance_definitions]") unless input[:instance_definitions].nil?
         Hearth::Validator.validate!(input[:game_server_protection_policy], ::String, context: "#{context}[:game_server_protection_policy]")
         Hearth::Validator.validate!(input[:balancing_strategy], ::String, context: "#{context}[:balancing_strategy]")
       end
@@ -2694,7 +2696,7 @@ module AWS::SDK::GameLift
     class UpdateGameServerGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateGameServerGroupOutput, context: context)
-        Validators::GameServerGroup.validate!(input[:game_server_group], context: "#{context}[:game_server_group]") unless input[:game_server_group].nil?
+        GameServerGroup.validate!(input[:game_server_group], context: "#{context}[:game_server_group]") unless input[:game_server_group].nil?
       end
     end
 
@@ -2712,7 +2714,7 @@ module AWS::SDK::GameLift
     class UpdateGameServerOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateGameServerOutput, context: context)
-        Validators::GameServer.validate!(input[:game_server], context: "#{context}[:game_server]") unless input[:game_server].nil?
+        GameServer.validate!(input[:game_server], context: "#{context}[:game_server]") unless input[:game_server].nil?
       end
     end
 
@@ -2730,7 +2732,7 @@ module AWS::SDK::GameLift
     class UpdateGameSessionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateGameSessionOutput, context: context)
-        Validators::GameSession.validate!(input[:game_session], context: "#{context}[:game_session]") unless input[:game_session].nil?
+        GameSession.validate!(input[:game_session], context: "#{context}[:game_session]") unless input[:game_session].nil?
       end
     end
 
@@ -2739,10 +2741,10 @@ module AWS::SDK::GameLift
         Hearth::Validator.validate!(input, Types::UpdateGameSessionQueueInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:timeout_in_seconds], ::Integer, context: "#{context}[:timeout_in_seconds]")
-        Validators::PlayerLatencyPolicyList.validate!(input[:player_latency_policies], context: "#{context}[:player_latency_policies]") unless input[:player_latency_policies].nil?
-        Validators::GameSessionQueueDestinationList.validate!(input[:destinations], context: "#{context}[:destinations]") unless input[:destinations].nil?
-        Validators::FilterConfiguration.validate!(input[:filter_configuration], context: "#{context}[:filter_configuration]") unless input[:filter_configuration].nil?
-        Validators::PriorityConfiguration.validate!(input[:priority_configuration], context: "#{context}[:priority_configuration]") unless input[:priority_configuration].nil?
+        PlayerLatencyPolicyList.validate!(input[:player_latency_policies], context: "#{context}[:player_latency_policies]") unless input[:player_latency_policies].nil?
+        GameSessionQueueDestinationList.validate!(input[:destinations], context: "#{context}[:destinations]") unless input[:destinations].nil?
+        FilterConfiguration.validate!(input[:filter_configuration], context: "#{context}[:filter_configuration]") unless input[:filter_configuration].nil?
+        PriorityConfiguration.validate!(input[:priority_configuration], context: "#{context}[:priority_configuration]") unless input[:priority_configuration].nil?
         Hearth::Validator.validate!(input[:custom_event_data], ::String, context: "#{context}[:custom_event_data]")
         Hearth::Validator.validate!(input[:notification_target], ::String, context: "#{context}[:notification_target]")
       end
@@ -2751,7 +2753,7 @@ module AWS::SDK::GameLift
     class UpdateGameSessionQueueOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateGameSessionQueueOutput, context: context)
-        Validators::GameSessionQueue.validate!(input[:game_session_queue], context: "#{context}[:game_session_queue]") unless input[:game_session_queue].nil?
+        GameSessionQueue.validate!(input[:game_session_queue], context: "#{context}[:game_session_queue]") unless input[:game_session_queue].nil?
       end
     end
 
@@ -2760,7 +2762,7 @@ module AWS::SDK::GameLift
         Hearth::Validator.validate!(input, Types::UpdateMatchmakingConfigurationInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::QueueArnsList.validate!(input[:game_session_queue_arns], context: "#{context}[:game_session_queue_arns]") unless input[:game_session_queue_arns].nil?
+        QueueArnsList.validate!(input[:game_session_queue_arns], context: "#{context}[:game_session_queue_arns]") unless input[:game_session_queue_arns].nil?
         Hearth::Validator.validate!(input[:request_timeout_seconds], ::Integer, context: "#{context}[:request_timeout_seconds]")
         Hearth::Validator.validate!(input[:acceptance_timeout_seconds], ::Integer, context: "#{context}[:acceptance_timeout_seconds]")
         Hearth::Validator.validate!(input[:acceptance_required], ::TrueClass, ::FalseClass, context: "#{context}[:acceptance_required]")
@@ -2768,7 +2770,7 @@ module AWS::SDK::GameLift
         Hearth::Validator.validate!(input[:notification_target], ::String, context: "#{context}[:notification_target]")
         Hearth::Validator.validate!(input[:additional_player_count], ::Integer, context: "#{context}[:additional_player_count]")
         Hearth::Validator.validate!(input[:custom_event_data], ::String, context: "#{context}[:custom_event_data]")
-        Validators::GamePropertyList.validate!(input[:game_properties], context: "#{context}[:game_properties]") unless input[:game_properties].nil?
+        GamePropertyList.validate!(input[:game_properties], context: "#{context}[:game_properties]") unless input[:game_properties].nil?
         Hearth::Validator.validate!(input[:game_session_data], ::String, context: "#{context}[:game_session_data]")
         Hearth::Validator.validate!(input[:backfill_mode], ::String, context: "#{context}[:backfill_mode]")
         Hearth::Validator.validate!(input[:flex_match_mode], ::String, context: "#{context}[:flex_match_mode]")
@@ -2778,7 +2780,7 @@ module AWS::SDK::GameLift
     class UpdateMatchmakingConfigurationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateMatchmakingConfigurationOutput, context: context)
-        Validators::MatchmakingConfiguration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
+        MatchmakingConfiguration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
       end
     end
 
@@ -2786,14 +2788,14 @@ module AWS::SDK::GameLift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateRuntimeConfigurationInput, context: context)
         Hearth::Validator.validate!(input[:fleet_id], ::String, context: "#{context}[:fleet_id]")
-        Validators::RuntimeConfiguration.validate!(input[:runtime_configuration], context: "#{context}[:runtime_configuration]") unless input[:runtime_configuration].nil?
+        RuntimeConfiguration.validate!(input[:runtime_configuration], context: "#{context}[:runtime_configuration]") unless input[:runtime_configuration].nil?
       end
     end
 
     class UpdateRuntimeConfigurationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateRuntimeConfigurationOutput, context: context)
-        Validators::RuntimeConfiguration.validate!(input[:runtime_configuration], context: "#{context}[:runtime_configuration]") unless input[:runtime_configuration].nil?
+        RuntimeConfiguration.validate!(input[:runtime_configuration], context: "#{context}[:runtime_configuration]") unless input[:runtime_configuration].nil?
       end
     end
 
@@ -2803,7 +2805,7 @@ module AWS::SDK::GameLift
         Hearth::Validator.validate!(input[:script_id], ::String, context: "#{context}[:script_id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:version], ::String, context: "#{context}[:version]")
-        Validators::S3Location.validate!(input[:storage_location], context: "#{context}[:storage_location]") unless input[:storage_location].nil?
+        S3Location.validate!(input[:storage_location], context: "#{context}[:storage_location]") unless input[:storage_location].nil?
         Hearth::Validator.validate!(input[:zip_file], ::String, context: "#{context}[:zip_file]")
       end
     end
@@ -2811,7 +2813,7 @@ module AWS::SDK::GameLift
     class UpdateScriptOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateScriptOutput, context: context)
-        Validators::Script.validate!(input[:script], context: "#{context}[:script]") unless input[:script].nil?
+        Script.validate!(input[:script], context: "#{context}[:script]") unless input[:script].nil?
       end
     end
 
@@ -2844,7 +2846,7 @@ module AWS::SDK::GameLift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::VpcPeeringAuthorization.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          VpcPeeringAuthorization.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2856,7 +2858,7 @@ module AWS::SDK::GameLift
         Hearth::Validator.validate!(input[:fleet_arn], ::String, context: "#{context}[:fleet_arn]")
         Hearth::Validator.validate!(input[:ip_v4_cidr_block], ::String, context: "#{context}[:ip_v4_cidr_block]")
         Hearth::Validator.validate!(input[:vpc_peering_connection_id], ::String, context: "#{context}[:vpc_peering_connection_id]")
-        Validators::VpcPeeringConnectionStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
+        VpcPeeringConnectionStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
         Hearth::Validator.validate!(input[:peer_vpc_id], ::String, context: "#{context}[:peer_vpc_id]")
         Hearth::Validator.validate!(input[:game_lift_vpc_id], ::String, context: "#{context}[:game_lift_vpc_id]")
       end
@@ -2866,7 +2868,7 @@ module AWS::SDK::GameLift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::VpcPeeringConnection.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          VpcPeeringConnection.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

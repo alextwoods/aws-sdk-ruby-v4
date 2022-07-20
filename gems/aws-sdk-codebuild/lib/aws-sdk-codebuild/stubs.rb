@@ -14,8 +14,8 @@ module AWS::SDK::CodeBuild
     class BatchDeleteBuilds
       def self.default(visited=[])
         {
-          builds_deleted: Stubs::BuildIds.default(visited),
-          builds_not_deleted: Stubs::BuildsNotDeleted.default(visited),
+          builds_deleted: BuildIds.default(visited),
+          builds_not_deleted: BuildsNotDeleted.default(visited),
         }
       end
 
@@ -34,7 +34,7 @@ module AWS::SDK::CodeBuild
         return nil if visited.include?('BuildsNotDeleted')
         visited = visited + ['BuildsNotDeleted']
         [
-          Stubs::BuildNotDeleted.default(visited)
+          BuildNotDeleted.default(visited)
         ]
       end
 
@@ -92,8 +92,8 @@ module AWS::SDK::CodeBuild
     class BatchGetBuildBatches
       def self.default(visited=[])
         {
-          build_batches: Stubs::BuildBatches.default(visited),
-          build_batches_not_found: Stubs::BuildBatchIds.default(visited),
+          build_batches: BuildBatches.default(visited),
+          build_batches_not_found: BuildBatchIds.default(visited),
         }
       end
 
@@ -132,7 +132,7 @@ module AWS::SDK::CodeBuild
         return nil if visited.include?('BuildBatches')
         visited = visited + ['BuildBatches']
         [
-          Stubs::BuildBatch.default(visited)
+          BuildBatch.default(visited)
         ]
       end
 
@@ -161,26 +161,26 @@ module AWS::SDK::CodeBuild
           source_version: 'source_version',
           resolved_source_version: 'resolved_source_version',
           project_name: 'project_name',
-          phases: Stubs::BuildBatchPhases.default(visited),
-          source: Stubs::ProjectSource.default(visited),
-          secondary_sources: Stubs::ProjectSources.default(visited),
-          secondary_source_versions: Stubs::ProjectSecondarySourceVersions.default(visited),
-          artifacts: Stubs::BuildArtifacts.default(visited),
-          secondary_artifacts: Stubs::BuildArtifactsList.default(visited),
-          cache: Stubs::ProjectCache.default(visited),
-          environment: Stubs::ProjectEnvironment.default(visited),
+          phases: BuildBatchPhases.default(visited),
+          source: ProjectSource.default(visited),
+          secondary_sources: ProjectSources.default(visited),
+          secondary_source_versions: ProjectSecondarySourceVersions.default(visited),
+          artifacts: BuildArtifacts.default(visited),
+          secondary_artifacts: BuildArtifactsList.default(visited),
+          cache: ProjectCache.default(visited),
+          environment: ProjectEnvironment.default(visited),
           service_role: 'service_role',
-          log_config: Stubs::LogsConfig.default(visited),
+          log_config: LogsConfig.default(visited),
           build_timeout_in_minutes: 1,
           queued_timeout_in_minutes: 1,
           complete: false,
           initiator: 'initiator',
-          vpc_config: Stubs::VpcConfig.default(visited),
+          vpc_config: VpcConfig.default(visited),
           encryption_key: 'encryption_key',
           build_batch_number: 1,
-          file_system_locations: Stubs::ProjectFileSystemLocations.default(visited),
-          build_batch_config: Stubs::ProjectBuildBatchConfig.default(visited),
-          build_groups: Stubs::BuildGroups.default(visited),
+          file_system_locations: ProjectFileSystemLocations.default(visited),
+          build_batch_config: ProjectBuildBatchConfig.default(visited),
+          build_groups: BuildGroups.default(visited),
           debug_session_enabled: false,
         }
       end
@@ -228,7 +228,7 @@ module AWS::SDK::CodeBuild
         return nil if visited.include?('BuildGroups')
         visited = visited + ['BuildGroups']
         [
-          Stubs::BuildGroup.default(visited)
+          BuildGroup.default(visited)
         ]
       end
 
@@ -249,10 +249,10 @@ module AWS::SDK::CodeBuild
         visited = visited + ['BuildGroup']
         {
           identifier: 'identifier',
-          depends_on: Stubs::Identifiers.default(visited),
+          depends_on: Identifiers.default(visited),
           ignore_failure: false,
-          current_build_summary: Stubs::BuildSummary.default(visited),
-          prior_build_summary_list: Stubs::BuildSummaries.default(visited),
+          current_build_summary: BuildSummary.default(visited),
+          prior_build_summary_list: BuildSummaries.default(visited),
         }
       end
 
@@ -274,7 +274,7 @@ module AWS::SDK::CodeBuild
         return nil if visited.include?('BuildSummaries')
         visited = visited + ['BuildSummaries']
         [
-          Stubs::BuildSummary.default(visited)
+          BuildSummary.default(visited)
         ]
       end
 
@@ -297,8 +297,8 @@ module AWS::SDK::CodeBuild
           arn: 'arn',
           requested_on: Time.now,
           build_status: 'build_status',
-          primary_artifact: Stubs::ResolvedArtifact.default(visited),
-          secondary_artifacts: Stubs::ResolvedSecondaryArtifacts.default(visited),
+          primary_artifact: ResolvedArtifact.default(visited),
+          secondary_artifacts: ResolvedSecondaryArtifacts.default(visited),
         }
       end
 
@@ -320,7 +320,7 @@ module AWS::SDK::CodeBuild
         return nil if visited.include?('ResolvedSecondaryArtifacts')
         visited = visited + ['ResolvedSecondaryArtifacts']
         [
-          Stubs::ResolvedArtifact.default(visited)
+          ResolvedArtifact.default(visited)
         ]
       end
 
@@ -384,7 +384,7 @@ module AWS::SDK::CodeBuild
         {
           service_role: 'service_role',
           combine_artifacts: false,
-          restrictions: Stubs::BatchRestrictions.default(visited),
+          restrictions: BatchRestrictions.default(visited),
           timeout_in_mins: 1,
           batch_report_mode: 'batch_report_mode',
         }
@@ -409,7 +409,7 @@ module AWS::SDK::CodeBuild
         visited = visited + ['BatchRestrictions']
         {
           maximum_builds_allowed: 1,
-          compute_types_allowed: Stubs::ComputeTypesAllowed.default(visited),
+          compute_types_allowed: ComputeTypesAllowed.default(visited),
         }
       end
 
@@ -448,7 +448,7 @@ module AWS::SDK::CodeBuild
         return nil if visited.include?('ProjectFileSystemLocations')
         visited = visited + ['ProjectFileSystemLocations']
         [
-          Stubs::ProjectFileSystemLocation.default(visited)
+          ProjectFileSystemLocation.default(visited)
         ]
       end
 
@@ -495,8 +495,8 @@ module AWS::SDK::CodeBuild
         visited = visited + ['VpcConfig']
         {
           vpc_id: 'vpc_id',
-          subnets: Stubs::Subnets.default(visited),
-          security_group_ids: Stubs::SecurityGroupIds.default(visited),
+          subnets: Subnets.default(visited),
+          security_group_ids: SecurityGroupIds.default(visited),
         }
       end
 
@@ -556,8 +556,8 @@ module AWS::SDK::CodeBuild
         return nil if visited.include?('LogsConfig')
         visited = visited + ['LogsConfig']
         {
-          cloud_watch_logs: Stubs::CloudWatchLogsConfig.default(visited),
-          s3_logs: Stubs::S3LogsConfig.default(visited),
+          cloud_watch_logs: CloudWatchLogsConfig.default(visited),
+          s3_logs: S3LogsConfig.default(visited),
         }
       end
 
@@ -625,10 +625,10 @@ module AWS::SDK::CodeBuild
           type: 'type',
           image: 'image',
           compute_type: 'compute_type',
-          environment_variables: Stubs::EnvironmentVariables.default(visited),
+          environment_variables: EnvironmentVariables.default(visited),
           privileged_mode: false,
           certificate: 'certificate',
-          registry_credential: Stubs::RegistryCredential.default(visited),
+          registry_credential: RegistryCredential.default(visited),
           image_pull_credentials_type: 'image_pull_credentials_type',
         }
       end
@@ -674,7 +674,7 @@ module AWS::SDK::CodeBuild
         return nil if visited.include?('EnvironmentVariables')
         visited = visited + ['EnvironmentVariables']
         [
-          Stubs::EnvironmentVariable.default(visited)
+          EnvironmentVariable.default(visited)
         ]
       end
 
@@ -718,7 +718,7 @@ module AWS::SDK::CodeBuild
         {
           type: 'type',
           location: 'location',
-          modes: Stubs::ProjectCacheModes.default(visited),
+          modes: ProjectCacheModes.default(visited),
         }
       end
 
@@ -758,7 +758,7 @@ module AWS::SDK::CodeBuild
         return nil if visited.include?('BuildArtifactsList')
         visited = visited + ['BuildArtifactsList']
         [
-          Stubs::BuildArtifacts.default(visited)
+          BuildArtifacts.default(visited)
         ]
       end
 
@@ -808,7 +808,7 @@ module AWS::SDK::CodeBuild
         return nil if visited.include?('ProjectSecondarySourceVersions')
         visited = visited + ['ProjectSecondarySourceVersions']
         [
-          Stubs::ProjectSourceVersion.default(visited)
+          ProjectSourceVersion.default(visited)
         ]
       end
 
@@ -848,7 +848,7 @@ module AWS::SDK::CodeBuild
         return nil if visited.include?('ProjectSources')
         visited = visited + ['ProjectSources']
         [
-          Stubs::ProjectSource.default(visited)
+          ProjectSource.default(visited)
         ]
       end
 
@@ -871,11 +871,11 @@ module AWS::SDK::CodeBuild
           type: 'type',
           location: 'location',
           git_clone_depth: 1,
-          git_submodules_config: Stubs::GitSubmodulesConfig.default(visited),
+          git_submodules_config: GitSubmodulesConfig.default(visited),
           buildspec: 'buildspec',
-          auth: Stubs::SourceAuth.default(visited),
+          auth: SourceAuth.default(visited),
           report_build_status: false,
-          build_status_config: Stubs::BuildStatusConfig.default(visited),
+          build_status_config: BuildStatusConfig.default(visited),
           insecure_ssl: false,
           source_identifier: 'source_identifier',
         }
@@ -962,7 +962,7 @@ module AWS::SDK::CodeBuild
         return nil if visited.include?('BuildBatchPhases')
         visited = visited + ['BuildBatchPhases']
         [
-          Stubs::BuildBatchPhase.default(visited)
+          BuildBatchPhase.default(visited)
         ]
       end
 
@@ -987,7 +987,7 @@ module AWS::SDK::CodeBuild
           start_time: Time.now,
           end_time: Time.now,
           duration_in_seconds: 1,
-          contexts: Stubs::PhaseContexts.default(visited),
+          contexts: PhaseContexts.default(visited),
         }
       end
 
@@ -1010,7 +1010,7 @@ module AWS::SDK::CodeBuild
         return nil if visited.include?('PhaseContexts')
         visited = visited + ['PhaseContexts']
         [
-          Stubs::PhaseContext.default(visited)
+          PhaseContext.default(visited)
         ]
       end
 
@@ -1048,8 +1048,8 @@ module AWS::SDK::CodeBuild
     class BatchGetBuilds
       def self.default(visited=[])
         {
-          builds: Stubs::Builds.default(visited),
-          builds_not_found: Stubs::BuildIds.default(visited),
+          builds: Builds.default(visited),
+          builds_not_found: BuildIds.default(visited),
         }
       end
 
@@ -1068,7 +1068,7 @@ module AWS::SDK::CodeBuild
         return nil if visited.include?('Builds')
         visited = visited + ['Builds']
         [
-          Stubs::Build.default(visited)
+          Build.default(visited)
         ]
       end
 
@@ -1098,27 +1098,27 @@ module AWS::SDK::CodeBuild
           source_version: 'source_version',
           resolved_source_version: 'resolved_source_version',
           project_name: 'project_name',
-          phases: Stubs::BuildPhases.default(visited),
-          source: Stubs::ProjectSource.default(visited),
-          secondary_sources: Stubs::ProjectSources.default(visited),
-          secondary_source_versions: Stubs::ProjectSecondarySourceVersions.default(visited),
-          artifacts: Stubs::BuildArtifacts.default(visited),
-          secondary_artifacts: Stubs::BuildArtifactsList.default(visited),
-          cache: Stubs::ProjectCache.default(visited),
-          environment: Stubs::ProjectEnvironment.default(visited),
+          phases: BuildPhases.default(visited),
+          source: ProjectSource.default(visited),
+          secondary_sources: ProjectSources.default(visited),
+          secondary_source_versions: ProjectSecondarySourceVersions.default(visited),
+          artifacts: BuildArtifacts.default(visited),
+          secondary_artifacts: BuildArtifactsList.default(visited),
+          cache: ProjectCache.default(visited),
+          environment: ProjectEnvironment.default(visited),
           service_role: 'service_role',
-          logs: Stubs::LogsLocation.default(visited),
+          logs: LogsLocation.default(visited),
           timeout_in_minutes: 1,
           queued_timeout_in_minutes: 1,
           build_complete: false,
           initiator: 'initiator',
-          vpc_config: Stubs::VpcConfig.default(visited),
-          network_interface: Stubs::NetworkInterface.default(visited),
+          vpc_config: VpcConfig.default(visited),
+          network_interface: NetworkInterface.default(visited),
           encryption_key: 'encryption_key',
-          exported_environment_variables: Stubs::ExportedEnvironmentVariables.default(visited),
-          report_arns: Stubs::BuildReportArns.default(visited),
-          file_system_locations: Stubs::ProjectFileSystemLocations.default(visited),
-          debug_session: Stubs::DebugSession.default(visited),
+          exported_environment_variables: ExportedEnvironmentVariables.default(visited),
+          report_arns: BuildReportArns.default(visited),
+          file_system_locations: ProjectFileSystemLocations.default(visited),
+          debug_session: DebugSession.default(visited),
           build_batch_arn: 'build_batch_arn',
         }
       end
@@ -1208,7 +1208,7 @@ module AWS::SDK::CodeBuild
         return nil if visited.include?('ExportedEnvironmentVariables')
         visited = visited + ['ExportedEnvironmentVariables']
         [
-          Stubs::ExportedEnvironmentVariable.default(visited)
+          ExportedEnvironmentVariable.default(visited)
         ]
       end
 
@@ -1274,8 +1274,8 @@ module AWS::SDK::CodeBuild
           s3_deep_link: 's3_deep_link',
           cloud_watch_logs_arn: 'cloud_watch_logs_arn',
           s3_logs_arn: 's3_logs_arn',
-          cloud_watch_logs: Stubs::CloudWatchLogsConfig.default(visited),
-          s3_logs: Stubs::S3LogsConfig.default(visited),
+          cloud_watch_logs: CloudWatchLogsConfig.default(visited),
+          s3_logs: S3LogsConfig.default(visited),
         }
       end
 
@@ -1300,7 +1300,7 @@ module AWS::SDK::CodeBuild
         return nil if visited.include?('BuildPhases')
         visited = visited + ['BuildPhases']
         [
-          Stubs::BuildPhase.default(visited)
+          BuildPhase.default(visited)
         ]
       end
 
@@ -1325,7 +1325,7 @@ module AWS::SDK::CodeBuild
           start_time: Time.now,
           end_time: Time.now,
           duration_in_seconds: 1,
-          contexts: Stubs::PhaseContexts.default(visited),
+          contexts: PhaseContexts.default(visited),
         }
       end
 
@@ -1346,8 +1346,8 @@ module AWS::SDK::CodeBuild
     class BatchGetProjects
       def self.default(visited=[])
         {
-          projects: Stubs::Projects.default(visited),
-          projects_not_found: Stubs::ProjectNames.default(visited),
+          projects: Projects.default(visited),
+          projects_not_found: ProjectNames.default(visited),
         }
       end
 
@@ -1386,7 +1386,7 @@ module AWS::SDK::CodeBuild
         return nil if visited.include?('Projects')
         visited = visited + ['Projects']
         [
-          Stubs::Project.default(visited)
+          Project.default(visited)
         ]
       end
 
@@ -1409,27 +1409,27 @@ module AWS::SDK::CodeBuild
           name: 'name',
           arn: 'arn',
           description: 'description',
-          source: Stubs::ProjectSource.default(visited),
-          secondary_sources: Stubs::ProjectSources.default(visited),
+          source: ProjectSource.default(visited),
+          secondary_sources: ProjectSources.default(visited),
           source_version: 'source_version',
-          secondary_source_versions: Stubs::ProjectSecondarySourceVersions.default(visited),
-          artifacts: Stubs::ProjectArtifacts.default(visited),
-          secondary_artifacts: Stubs::ProjectArtifactsList.default(visited),
-          cache: Stubs::ProjectCache.default(visited),
-          environment: Stubs::ProjectEnvironment.default(visited),
+          secondary_source_versions: ProjectSecondarySourceVersions.default(visited),
+          artifacts: ProjectArtifacts.default(visited),
+          secondary_artifacts: ProjectArtifactsList.default(visited),
+          cache: ProjectCache.default(visited),
+          environment: ProjectEnvironment.default(visited),
           service_role: 'service_role',
           timeout_in_minutes: 1,
           queued_timeout_in_minutes: 1,
           encryption_key: 'encryption_key',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           created: Time.now,
           last_modified: Time.now,
-          webhook: Stubs::Webhook.default(visited),
-          vpc_config: Stubs::VpcConfig.default(visited),
-          badge: Stubs::ProjectBadge.default(visited),
-          logs_config: Stubs::LogsConfig.default(visited),
-          file_system_locations: Stubs::ProjectFileSystemLocations.default(visited),
-          build_batch_config: Stubs::ProjectBuildBatchConfig.default(visited),
+          webhook: Webhook.default(visited),
+          vpc_config: VpcConfig.default(visited),
+          badge: ProjectBadge.default(visited),
+          logs_config: LogsConfig.default(visited),
+          file_system_locations: ProjectFileSystemLocations.default(visited),
+          build_batch_config: ProjectBuildBatchConfig.default(visited),
           concurrent_build_limit: 1,
           project_visibility: 'project_visibility',
           public_project_alias: 'public_project_alias',
@@ -1502,7 +1502,7 @@ module AWS::SDK::CodeBuild
           payload_url: 'payload_url',
           secret: 'secret',
           branch_filter: 'branch_filter',
-          filter_groups: Stubs::FilterGroups.default(visited),
+          filter_groups: FilterGroups.default(visited),
           build_type: 'build_type',
           last_modified_secret: Time.now,
         }
@@ -1528,7 +1528,7 @@ module AWS::SDK::CodeBuild
         return nil if visited.include?('FilterGroups')
         visited = visited + ['FilterGroups']
         [
-          Stubs::FilterGroup.default(visited)
+          FilterGroup.default(visited)
         ]
       end
 
@@ -1548,7 +1548,7 @@ module AWS::SDK::CodeBuild
         return nil if visited.include?('FilterGroup')
         visited = visited + ['FilterGroup']
         [
-          Stubs::WebhookFilter.default(visited)
+          WebhookFilter.default(visited)
         ]
       end
 
@@ -1590,7 +1590,7 @@ module AWS::SDK::CodeBuild
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -1630,7 +1630,7 @@ module AWS::SDK::CodeBuild
         return nil if visited.include?('ProjectArtifactsList')
         visited = visited + ['ProjectArtifactsList']
         [
-          Stubs::ProjectArtifacts.default(visited)
+          ProjectArtifacts.default(visited)
         ]
       end
 
@@ -1684,8 +1684,8 @@ module AWS::SDK::CodeBuild
     class BatchGetReportGroups
       def self.default(visited=[])
         {
-          report_groups: Stubs::ReportGroups.default(visited),
-          report_groups_not_found: Stubs::ReportGroupArns.default(visited),
+          report_groups: ReportGroups.default(visited),
+          report_groups_not_found: ReportGroupArns.default(visited),
         }
       end
 
@@ -1724,7 +1724,7 @@ module AWS::SDK::CodeBuild
         return nil if visited.include?('ReportGroups')
         visited = visited + ['ReportGroups']
         [
-          Stubs::ReportGroup.default(visited)
+          ReportGroup.default(visited)
         ]
       end
 
@@ -1747,10 +1747,10 @@ module AWS::SDK::CodeBuild
           arn: 'arn',
           name: 'name',
           type: 'type',
-          export_config: Stubs::ReportExportConfig.default(visited),
+          export_config: ReportExportConfig.default(visited),
           created: Time.now,
           last_modified: Time.now,
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           status: 'status',
         }
       end
@@ -1777,7 +1777,7 @@ module AWS::SDK::CodeBuild
         visited = visited + ['ReportExportConfig']
         {
           export_config_type: 'export_config_type',
-          s3_destination: Stubs::S3ReportExportConfig.default(visited),
+          s3_destination: S3ReportExportConfig.default(visited),
         }
       end
 
@@ -1822,8 +1822,8 @@ module AWS::SDK::CodeBuild
     class BatchGetReports
       def self.default(visited=[])
         {
-          reports: Stubs::Reports.default(visited),
-          reports_not_found: Stubs::ReportArns.default(visited),
+          reports: Reports.default(visited),
+          reports_not_found: ReportArns.default(visited),
         }
       end
 
@@ -1862,7 +1862,7 @@ module AWS::SDK::CodeBuild
         return nil if visited.include?('Reports')
         visited = visited + ['Reports']
         [
-          Stubs::Report.default(visited)
+          Report.default(visited)
         ]
       end
 
@@ -1890,10 +1890,10 @@ module AWS::SDK::CodeBuild
           status: 'status',
           created: Time.now,
           expired: Time.now,
-          export_config: Stubs::ReportExportConfig.default(visited),
+          export_config: ReportExportConfig.default(visited),
           truncated: false,
-          test_summary: Stubs::TestReportSummary.default(visited),
-          code_coverage_summary: Stubs::CodeCoverageReportSummary.default(visited),
+          test_summary: TestReportSummary.default(visited),
+          code_coverage_summary: CodeCoverageReportSummary.default(visited),
         }
       end
 
@@ -1951,7 +1951,7 @@ module AWS::SDK::CodeBuild
         visited = visited + ['TestReportSummary']
         {
           total: 1,
-          status_counts: Stubs::ReportStatusCounts.default(visited),
+          status_counts: ReportStatusCounts.default(visited),
           duration_in_nano_seconds: 1,
         }
       end
@@ -1990,7 +1990,7 @@ module AWS::SDK::CodeBuild
     class CreateProject
       def self.default(visited=[])
         {
-          project: Stubs::Project.default(visited),
+          project: Project.default(visited),
         }
       end
 
@@ -2006,7 +2006,7 @@ module AWS::SDK::CodeBuild
     class CreateReportGroup
       def self.default(visited=[])
         {
-          report_group: Stubs::ReportGroup.default(visited),
+          report_group: ReportGroup.default(visited),
         }
       end
 
@@ -2022,7 +2022,7 @@ module AWS::SDK::CodeBuild
     class CreateWebhook
       def self.default(visited=[])
         {
-          webhook: Stubs::Webhook.default(visited),
+          webhook: Webhook.default(visited),
         }
       end
 
@@ -2039,8 +2039,8 @@ module AWS::SDK::CodeBuild
       def self.default(visited=[])
         {
           status_code: 'status_code',
-          builds_deleted: Stubs::BuildIds.default(visited),
-          builds_not_deleted: Stubs::BuildsNotDeleted.default(visited),
+          builds_deleted: BuildIds.default(visited),
+          builds_not_deleted: BuildsNotDeleted.default(visited),
         }
       end
 
@@ -2145,7 +2145,7 @@ module AWS::SDK::CodeBuild
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          code_coverages: Stubs::CodeCoverages.default(visited),
+          code_coverages: CodeCoverages.default(visited),
         }
       end
 
@@ -2164,7 +2164,7 @@ module AWS::SDK::CodeBuild
         return nil if visited.include?('CodeCoverages')
         visited = visited + ['CodeCoverages']
         [
-          Stubs::CodeCoverage.default(visited)
+          CodeCoverage.default(visited)
         ]
       end
 
@@ -2219,7 +2219,7 @@ module AWS::SDK::CodeBuild
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          test_cases: Stubs::TestCases.default(visited),
+          test_cases: TestCases.default(visited),
         }
       end
 
@@ -2238,7 +2238,7 @@ module AWS::SDK::CodeBuild
         return nil if visited.include?('TestCases')
         visited = visited + ['TestCases']
         [
-          Stubs::TestCase.default(visited)
+          TestCase.default(visited)
         ]
       end
 
@@ -2288,8 +2288,8 @@ module AWS::SDK::CodeBuild
     class GetReportGroupTrend
       def self.default(visited=[])
         {
-          stats: Stubs::ReportGroupTrendStats.default(visited),
-          raw_data: Stubs::ReportGroupTrendRawDataList.default(visited),
+          stats: ReportGroupTrendStats.default(visited),
+          raw_data: ReportGroupTrendRawDataList.default(visited),
         }
       end
 
@@ -2308,7 +2308,7 @@ module AWS::SDK::CodeBuild
         return nil if visited.include?('ReportGroupTrendRawDataList')
         visited = visited + ['ReportGroupTrendRawDataList']
         [
-          Stubs::ReportWithRawData.default(visited)
+          ReportWithRawData.default(visited)
         ]
       end
 
@@ -2414,7 +2414,7 @@ module AWS::SDK::CodeBuild
     class ListBuildBatches
       def self.default(visited=[])
         {
-          ids: Stubs::BuildBatchIds.default(visited),
+          ids: BuildBatchIds.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2432,7 +2432,7 @@ module AWS::SDK::CodeBuild
     class ListBuildBatchesForProject
       def self.default(visited=[])
         {
-          ids: Stubs::BuildBatchIds.default(visited),
+          ids: BuildBatchIds.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2450,7 +2450,7 @@ module AWS::SDK::CodeBuild
     class ListBuilds
       def self.default(visited=[])
         {
-          ids: Stubs::BuildIds.default(visited),
+          ids: BuildIds.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2468,7 +2468,7 @@ module AWS::SDK::CodeBuild
     class ListBuildsForProject
       def self.default(visited=[])
         {
-          ids: Stubs::BuildIds.default(visited),
+          ids: BuildIds.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2486,7 +2486,7 @@ module AWS::SDK::CodeBuild
     class ListCuratedEnvironmentImages
       def self.default(visited=[])
         {
-          platforms: Stubs::EnvironmentPlatforms.default(visited),
+          platforms: EnvironmentPlatforms.default(visited),
         }
       end
 
@@ -2504,7 +2504,7 @@ module AWS::SDK::CodeBuild
         return nil if visited.include?('EnvironmentPlatforms')
         visited = visited + ['EnvironmentPlatforms']
         [
-          Stubs::EnvironmentPlatform.default(visited)
+          EnvironmentPlatform.default(visited)
         ]
       end
 
@@ -2525,7 +2525,7 @@ module AWS::SDK::CodeBuild
         visited = visited + ['EnvironmentPlatform']
         {
           platform: 'platform',
-          languages: Stubs::EnvironmentLanguages.default(visited),
+          languages: EnvironmentLanguages.default(visited),
         }
       end
 
@@ -2544,7 +2544,7 @@ module AWS::SDK::CodeBuild
         return nil if visited.include?('EnvironmentLanguages')
         visited = visited + ['EnvironmentLanguages']
         [
-          Stubs::EnvironmentLanguage.default(visited)
+          EnvironmentLanguage.default(visited)
         ]
       end
 
@@ -2565,7 +2565,7 @@ module AWS::SDK::CodeBuild
         visited = visited + ['EnvironmentLanguage']
         {
           language: 'language',
-          images: Stubs::EnvironmentImages.default(visited),
+          images: EnvironmentImages.default(visited),
         }
       end
 
@@ -2584,7 +2584,7 @@ module AWS::SDK::CodeBuild
         return nil if visited.include?('EnvironmentImages')
         visited = visited + ['EnvironmentImages']
         [
-          Stubs::EnvironmentImage.default(visited)
+          EnvironmentImage.default(visited)
         ]
       end
 
@@ -2606,7 +2606,7 @@ module AWS::SDK::CodeBuild
         {
           name: 'name',
           description: 'description',
-          versions: Stubs::ImageVersions.default(visited),
+          versions: ImageVersions.default(visited),
         }
       end
 
@@ -2645,7 +2645,7 @@ module AWS::SDK::CodeBuild
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          projects: Stubs::ProjectNames.default(visited),
+          projects: ProjectNames.default(visited),
         }
       end
 
@@ -2663,7 +2663,7 @@ module AWS::SDK::CodeBuild
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          report_groups: Stubs::ReportGroupArns.default(visited),
+          report_groups: ReportGroupArns.default(visited),
         }
       end
 
@@ -2681,7 +2681,7 @@ module AWS::SDK::CodeBuild
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          reports: Stubs::ReportArns.default(visited),
+          reports: ReportArns.default(visited),
         }
       end
 
@@ -2699,7 +2699,7 @@ module AWS::SDK::CodeBuild
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          reports: Stubs::ReportArns.default(visited),
+          reports: ReportArns.default(visited),
         }
       end
 
@@ -2717,7 +2717,7 @@ module AWS::SDK::CodeBuild
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          projects: Stubs::ProjectArns.default(visited),
+          projects: ProjectArns.default(visited),
         }
       end
 
@@ -2755,7 +2755,7 @@ module AWS::SDK::CodeBuild
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          report_groups: Stubs::ReportGroupArns.default(visited),
+          report_groups: ReportGroupArns.default(visited),
         }
       end
 
@@ -2772,7 +2772,7 @@ module AWS::SDK::CodeBuild
     class ListSourceCredentials
       def self.default(visited=[])
         {
-          source_credentials_infos: Stubs::SourceCredentialsInfos.default(visited),
+          source_credentials_infos: SourceCredentialsInfos.default(visited),
         }
       end
 
@@ -2790,7 +2790,7 @@ module AWS::SDK::CodeBuild
         return nil if visited.include?('SourceCredentialsInfos')
         visited = visited + ['SourceCredentialsInfos']
         [
-          Stubs::SourceCredentialsInfo.default(visited)
+          SourceCredentialsInfo.default(visited)
         ]
       end
 
@@ -2846,7 +2846,7 @@ module AWS::SDK::CodeBuild
     class RetryBuild
       def self.default(visited=[])
         {
-          build: Stubs::Build.default(visited),
+          build: Build.default(visited),
         }
       end
 
@@ -2862,7 +2862,7 @@ module AWS::SDK::CodeBuild
     class RetryBuildBatch
       def self.default(visited=[])
         {
-          build_batch: Stubs::BuildBatch.default(visited),
+          build_batch: BuildBatch.default(visited),
         }
       end
 
@@ -2878,7 +2878,7 @@ module AWS::SDK::CodeBuild
     class StartBuild
       def self.default(visited=[])
         {
-          build: Stubs::Build.default(visited),
+          build: Build.default(visited),
         }
       end
 
@@ -2894,7 +2894,7 @@ module AWS::SDK::CodeBuild
     class StartBuildBatch
       def self.default(visited=[])
         {
-          build_batch: Stubs::BuildBatch.default(visited),
+          build_batch: BuildBatch.default(visited),
         }
       end
 
@@ -2910,7 +2910,7 @@ module AWS::SDK::CodeBuild
     class StopBuild
       def self.default(visited=[])
         {
-          build: Stubs::Build.default(visited),
+          build: Build.default(visited),
         }
       end
 
@@ -2926,7 +2926,7 @@ module AWS::SDK::CodeBuild
     class StopBuildBatch
       def self.default(visited=[])
         {
-          build_batch: Stubs::BuildBatch.default(visited),
+          build_batch: BuildBatch.default(visited),
         }
       end
 
@@ -2942,7 +2942,7 @@ module AWS::SDK::CodeBuild
     class UpdateProject
       def self.default(visited=[])
         {
-          project: Stubs::Project.default(visited),
+          project: Project.default(visited),
         }
       end
 
@@ -2978,7 +2978,7 @@ module AWS::SDK::CodeBuild
     class UpdateReportGroup
       def self.default(visited=[])
         {
-          report_group: Stubs::ReportGroup.default(visited),
+          report_group: ReportGroup.default(visited),
         }
       end
 
@@ -2994,7 +2994,7 @@ module AWS::SDK::CodeBuild
     class UpdateWebhook
       def self.default(visited=[])
         {
-          webhook: Stubs::Webhook.default(visited),
+          webhook: Webhook.default(visited),
         }
       end
 

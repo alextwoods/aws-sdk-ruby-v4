@@ -389,7 +389,7 @@ module AWS::SDK::CloudFormation
         type.regions = RegionList.build(params[:regions], context: "#{context}[:regions]") unless params[:regions].nil?
         type.parameter_overrides = Parameters.build(params[:parameter_overrides], context: "#{context}[:parameter_overrides]") unless params[:parameter_overrides].nil?
         type.operation_preferences = StackSetOperationPreferences.build(params[:operation_preferences], context: "#{context}[:operation_preferences]") unless params[:operation_preferences].nil?
-        type.operation_id = params[:operation_id] || SecureRandom.uuid
+        type.operation_id = params[:operation_id] || ::SecureRandom.uuid
         type.call_as = params[:call_as]
         type
       end
@@ -430,7 +430,7 @@ module AWS::SDK::CloudFormation
         type.permission_model = params[:permission_model]
         type.auto_deployment = AutoDeployment.build(params[:auto_deployment], context: "#{context}[:auto_deployment]") unless params[:auto_deployment].nil?
         type.call_as = params[:call_as]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.managed_execution = ManagedExecution.build(params[:managed_execution], context: "#{context}[:managed_execution]") unless params[:managed_execution].nil?
         type
       end
@@ -513,7 +513,7 @@ module AWS::SDK::CloudFormation
         type.regions = RegionList.build(params[:regions], context: "#{context}[:regions]") unless params[:regions].nil?
         type.operation_preferences = StackSetOperationPreferences.build(params[:operation_preferences], context: "#{context}[:operation_preferences]") unless params[:operation_preferences].nil?
         type.retain_stacks = params[:retain_stacks]
-        type.operation_id = params[:operation_id] || SecureRandom.uuid
+        type.operation_id = params[:operation_id] || ::SecureRandom.uuid
         type.call_as = params[:call_as]
         type
       end
@@ -989,7 +989,7 @@ module AWS::SDK::CloudFormation
         type = Types::DetectStackSetDriftInput.new
         type.stack_set_name = params[:stack_set_name]
         type.operation_preferences = StackSetOperationPreferences.build(params[:operation_preferences], context: "#{context}[:operation_preferences]") unless params[:operation_preferences].nil?
-        type.operation_id = params[:operation_id] || SecureRandom.uuid
+        type.operation_id = params[:operation_id] || ::SecureRandom.uuid
         type.call_as = params[:call_as]
         type
       end
@@ -1144,7 +1144,7 @@ module AWS::SDK::CloudFormation
         type.stack_ids_url = params[:stack_ids_url]
         type.organizational_unit_ids = OrganizationalUnitIdList.build(params[:organizational_unit_ids], context: "#{context}[:organizational_unit_ids]") unless params[:organizational_unit_ids].nil?
         type.operation_preferences = StackSetOperationPreferences.build(params[:operation_preferences], context: "#{context}[:operation_preferences]") unless params[:operation_preferences].nil?
-        type.operation_id = params[:operation_id] || SecureRandom.uuid
+        type.operation_id = params[:operation_id] || ::SecureRandom.uuid
         type.call_as = params[:call_as]
         type
       end
@@ -3008,7 +3008,7 @@ module AWS::SDK::CloudFormation
         type.regions = RegionList.build(params[:regions], context: "#{context}[:regions]") unless params[:regions].nil?
         type.parameter_overrides = Parameters.build(params[:parameter_overrides], context: "#{context}[:parameter_overrides]") unless params[:parameter_overrides].nil?
         type.operation_preferences = StackSetOperationPreferences.build(params[:operation_preferences], context: "#{context}[:operation_preferences]") unless params[:operation_preferences].nil?
-        type.operation_id = params[:operation_id] || SecureRandom.uuid
+        type.operation_id = params[:operation_id] || ::SecureRandom.uuid
         type.call_as = params[:call_as]
         type
       end
@@ -3050,7 +3050,7 @@ module AWS::SDK::CloudFormation
         type.deployment_targets = DeploymentTargets.build(params[:deployment_targets], context: "#{context}[:deployment_targets]") unless params[:deployment_targets].nil?
         type.permission_model = params[:permission_model]
         type.auto_deployment = AutoDeployment.build(params[:auto_deployment], context: "#{context}[:auto_deployment]") unless params[:auto_deployment].nil?
-        type.operation_id = params[:operation_id] || SecureRandom.uuid
+        type.operation_id = params[:operation_id] || ::SecureRandom.uuid
         type.accounts = AccountList.build(params[:accounts], context: "#{context}[:accounts]") unless params[:accounts].nil?
         type.regions = RegionList.build(params[:regions], context: "#{context}[:regions]") unless params[:regions].nil?
         type.call_as = params[:call_as]

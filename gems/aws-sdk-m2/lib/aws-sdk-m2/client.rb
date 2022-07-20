@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::M2
@@ -65,7 +67,7 @@ module AWS::SDK::M2
     def cancel_batch_job_execution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelBatchJobExecutionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelBatchJobExecutionInput,
         validate_input: @config.validate_input
@@ -167,7 +169,7 @@ module AWS::SDK::M2
     def create_application(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateApplicationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateApplicationInput,
         validate_input: @config.validate_input
@@ -293,7 +295,7 @@ module AWS::SDK::M2
     def create_data_set_import_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDataSetImportTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDataSetImportTaskInput,
         validate_input: @config.validate_input
@@ -378,7 +380,7 @@ module AWS::SDK::M2
     def create_deployment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDeploymentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDeploymentInput,
         validate_input: @config.validate_input
@@ -517,7 +519,7 @@ module AWS::SDK::M2
     def create_environment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateEnvironmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateEnvironmentInput,
         validate_input: @config.validate_input
@@ -585,7 +587,7 @@ module AWS::SDK::M2
     def delete_application(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteApplicationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteApplicationInput,
         validate_input: @config.validate_input
@@ -660,7 +662,7 @@ module AWS::SDK::M2
     def delete_application_from_environment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteApplicationFromEnvironmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteApplicationFromEnvironmentInput,
         validate_input: @config.validate_input
@@ -728,7 +730,7 @@ module AWS::SDK::M2
     def delete_environment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteEnvironmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteEnvironmentInput,
         validate_input: @config.validate_input
@@ -826,7 +828,7 @@ module AWS::SDK::M2
     def get_application(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetApplicationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetApplicationInput,
         validate_input: @config.validate_input
@@ -904,7 +906,7 @@ module AWS::SDK::M2
     def get_application_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetApplicationVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetApplicationVersionInput,
         validate_input: @config.validate_input
@@ -985,7 +987,7 @@ module AWS::SDK::M2
     def get_batch_job_execution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetBatchJobExecutionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetBatchJobExecutionInput,
         validate_input: @config.validate_input
@@ -1053,7 +1055,25 @@ module AWS::SDK::M2
     #
     #   resp.data #=> Types::GetDataSetDetailsOutput
     #   resp.data.data_set_name #=> String
-    #   resp.data.data_set_org #=> DatasetDetailOrgAttributes
+    #   resp.data.data_set_org #=> Types::DatasetDetailOrgAttributes, one of [Vsam, Gdg]
+    #   resp.data.data_set_org.vsam #=> Types::VsamDetailAttributes
+    #   resp.data.data_set_org.vsam.encoding #=> String
+    #   resp.data.data_set_org.vsam.record_format #=> String
+    #   resp.data.data_set_org.vsam.compressed #=> Boolean
+    #   resp.data.data_set_org.vsam.cache_at_startup #=> Boolean
+    #   resp.data.data_set_org.vsam.primary_key #=> Types::PrimaryKey
+    #   resp.data.data_set_org.vsam.primary_key.name #=> String
+    #   resp.data.data_set_org.vsam.primary_key.offset #=> Integer
+    #   resp.data.data_set_org.vsam.primary_key.length #=> Integer
+    #   resp.data.data_set_org.vsam.alternate_keys #=> Array<AlternateKey>
+    #   resp.data.data_set_org.vsam.alternate_keys[0] #=> Types::AlternateKey
+    #   resp.data.data_set_org.vsam.alternate_keys[0].name #=> String
+    #   resp.data.data_set_org.vsam.alternate_keys[0].offset #=> Integer
+    #   resp.data.data_set_org.vsam.alternate_keys[0].length #=> Integer
+    #   resp.data.data_set_org.vsam.alternate_keys[0].allow_duplicates #=> Boolean
+    #   resp.data.data_set_org.gdg #=> Types::GdgDetailAttributes
+    #   resp.data.data_set_org.gdg.limit #=> Integer
+    #   resp.data.data_set_org.gdg.roll_disposition #=> String
     #   resp.data.record_length #=> Integer
     #   resp.data.location #=> String
     #   resp.data.blocksize #=> Integer
@@ -1064,7 +1084,7 @@ module AWS::SDK::M2
     def get_data_set_details(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDataSetDetailsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDataSetDetailsInput,
         validate_input: @config.validate_input
@@ -1144,7 +1164,7 @@ module AWS::SDK::M2
     def get_data_set_import_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDataSetImportTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDataSetImportTaskInput,
         validate_input: @config.validate_input
@@ -1222,7 +1242,7 @@ module AWS::SDK::M2
     def get_deployment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDeploymentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDeploymentInput,
         validate_input: @config.validate_input
@@ -1299,7 +1319,13 @@ module AWS::SDK::M2
     #   resp.data.security_group_ids #=> Array<String>
     #   resp.data.creation_time #=> Time
     #   resp.data.storage_configurations #=> Array<StorageConfiguration>
-    #   resp.data.storage_configurations[0] #=> StorageConfiguration
+    #   resp.data.storage_configurations[0] #=> Types::StorageConfiguration, one of [Efs, Fsx]
+    #   resp.data.storage_configurations[0].efs #=> Types::EfsStorageConfiguration
+    #   resp.data.storage_configurations[0].efs.file_system_id #=> String
+    #   resp.data.storage_configurations[0].efs.mount_point #=> String
+    #   resp.data.storage_configurations[0].fsx #=> Types::FsxStorageConfiguration
+    #   resp.data.storage_configurations[0].fsx.file_system_id #=> String
+    #   resp.data.storage_configurations[0].fsx.mount_point #=> String
     #   resp.data.tags #=> Hash<String, String>
     #   resp.data.tags['key'] #=> String
     #   resp.data.high_availability_config #=> Types::HighAvailabilityConfig
@@ -1318,7 +1344,7 @@ module AWS::SDK::M2
     def get_environment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetEnvironmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetEnvironmentInput,
         validate_input: @config.validate_input
@@ -1402,7 +1428,7 @@ module AWS::SDK::M2
     def list_application_versions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListApplicationVersionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListApplicationVersionsInput,
         validate_input: @config.validate_input
@@ -1501,7 +1527,7 @@ module AWS::SDK::M2
     def list_applications(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListApplicationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListApplicationsInput,
         validate_input: @config.validate_input
@@ -1582,13 +1608,18 @@ module AWS::SDK::M2
     #
     #   resp.data #=> Types::ListBatchJobDefinitionsOutput
     #   resp.data.batch_job_definitions #=> Array<BatchJobDefinition>
-    #   resp.data.batch_job_definitions[0] #=> BatchJobDefinition
+    #   resp.data.batch_job_definitions[0] #=> Types::BatchJobDefinition, one of [FileBatchJobDefinition, ScriptBatchJobDefinition]
+    #   resp.data.batch_job_definitions[0].file_batch_job_definition #=> Types::FileBatchJobDefinition
+    #   resp.data.batch_job_definitions[0].file_batch_job_definition.file_name #=> String
+    #   resp.data.batch_job_definitions[0].file_batch_job_definition.folder_path #=> String
+    #   resp.data.batch_job_definitions[0].script_batch_job_definition #=> Types::ScriptBatchJobDefinition
+    #   resp.data.batch_job_definitions[0].script_batch_job_definition.script_name #=> String
     #   resp.data.next_token #=> String
     #
     def list_batch_job_definitions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListBatchJobDefinitionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListBatchJobDefinitionsInput,
         validate_input: @config.validate_input
@@ -1698,7 +1729,7 @@ module AWS::SDK::M2
     def list_batch_job_executions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListBatchJobExecutionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListBatchJobExecutionsInput,
         validate_input: @config.validate_input
@@ -1786,7 +1817,7 @@ module AWS::SDK::M2
     def list_data_set_import_history(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDataSetImportHistoryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDataSetImportHistoryInput,
         validate_input: @config.validate_input
@@ -1880,7 +1911,7 @@ module AWS::SDK::M2
     def list_data_sets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDataSetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDataSetsInput,
         validate_input: @config.validate_input
@@ -1969,7 +2000,7 @@ module AWS::SDK::M2
     def list_deployments(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDeploymentsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDeploymentsInput,
         validate_input: @config.validate_input
@@ -2051,7 +2082,7 @@ module AWS::SDK::M2
     def list_engine_versions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListEngineVersionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListEngineVersionsInput,
         validate_input: @config.validate_input
@@ -2143,7 +2174,7 @@ module AWS::SDK::M2
     def list_environments(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListEnvironmentsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListEnvironmentsInput,
         validate_input: @config.validate_input
@@ -2212,7 +2243,7 @@ module AWS::SDK::M2
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -2279,7 +2310,7 @@ module AWS::SDK::M2
     def start_application(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartApplicationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartApplicationInput,
         validate_input: @config.validate_input
@@ -2368,7 +2399,7 @@ module AWS::SDK::M2
     def start_batch_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartBatchJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartBatchJobInput,
         validate_input: @config.validate_input
@@ -2442,7 +2473,7 @@ module AWS::SDK::M2
     def stop_application(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopApplicationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopApplicationInput,
         validate_input: @config.validate_input
@@ -2516,7 +2547,7 @@ module AWS::SDK::M2
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -2590,7 +2621,7 @@ module AWS::SDK::M2
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -2675,7 +2706,7 @@ module AWS::SDK::M2
     def update_application(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateApplicationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateApplicationInput,
         validate_input: @config.validate_input
@@ -2769,7 +2800,7 @@ module AWS::SDK::M2
     def update_environment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateEnvironmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateEnvironmentInput,
         validate_input: @config.validate_input

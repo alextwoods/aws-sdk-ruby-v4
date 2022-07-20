@@ -14,7 +14,7 @@ module AWS::SDK::Amp
     class CreateAlertManagerDefinition
       def self.default(visited=[])
         {
-          status: Stubs::AlertManagerDefinitionStatus.default(visited),
+          status: AlertManagerDefinitionStatus.default(visited),
         }
       end
 
@@ -53,8 +53,8 @@ module AWS::SDK::Amp
         {
           name: 'name',
           arn: 'arn',
-          status: Stubs::RuleGroupsNamespaceStatus.default(visited),
-          tags: Stubs::TagMap.default(visited),
+          status: RuleGroupsNamespaceStatus.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -116,8 +116,8 @@ module AWS::SDK::Amp
         {
           workspace_id: 'workspace_id',
           arn: 'arn',
-          status: Stubs::WorkspaceStatus.default(visited),
-          tags: Stubs::TagMap.default(visited),
+          status: WorkspaceStatus.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -194,7 +194,7 @@ module AWS::SDK::Amp
     class DescribeAlertManagerDefinition
       def self.default(visited=[])
         {
-          alert_manager_definition: Stubs::AlertManagerDefinitionDescription.default(visited),
+          alert_manager_definition: AlertManagerDefinitionDescription.default(visited),
         }
       end
 
@@ -213,7 +213,7 @@ module AWS::SDK::Amp
         return nil if visited.include?('AlertManagerDefinitionDescription')
         visited = visited + ['AlertManagerDefinitionDescription']
         {
-          status: Stubs::AlertManagerDefinitionStatus.default(visited),
+          status: AlertManagerDefinitionStatus.default(visited),
           data: 'data',
           created_at: Time.now,
           modified_at: Time.now,
@@ -235,7 +235,7 @@ module AWS::SDK::Amp
     class DescribeRuleGroupsNamespace
       def self.default(visited=[])
         {
-          rule_groups_namespace: Stubs::RuleGroupsNamespaceDescription.default(visited),
+          rule_groups_namespace: RuleGroupsNamespaceDescription.default(visited),
         }
       end
 
@@ -256,11 +256,11 @@ module AWS::SDK::Amp
         {
           arn: 'arn',
           name: 'name',
-          status: Stubs::RuleGroupsNamespaceStatus.default(visited),
+          status: RuleGroupsNamespaceStatus.default(visited),
           data: 'data',
           created_at: Time.now,
           modified_at: Time.now,
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -282,7 +282,7 @@ module AWS::SDK::Amp
     class DescribeWorkspace
       def self.default(visited=[])
         {
-          workspace: Stubs::WorkspaceDescription.default(visited),
+          workspace: WorkspaceDescription.default(visited),
         }
       end
 
@@ -304,10 +304,10 @@ module AWS::SDK::Amp
           workspace_id: 'workspace_id',
           alias: 'alias',
           arn: 'arn',
-          status: Stubs::WorkspaceStatus.default(visited),
+          status: WorkspaceStatus.default(visited),
           prometheus_endpoint: 'prometheus_endpoint',
           created_at: Time.now,
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -329,7 +329,7 @@ module AWS::SDK::Amp
     class ListRuleGroupsNamespaces
       def self.default(visited=[])
         {
-          rule_groups_namespaces: Stubs::RuleGroupsNamespaceSummaryList.default(visited),
+          rule_groups_namespaces: RuleGroupsNamespaceSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -350,7 +350,7 @@ module AWS::SDK::Amp
         return nil if visited.include?('RuleGroupsNamespaceSummaryList')
         visited = visited + ['RuleGroupsNamespaceSummaryList']
         [
-          Stubs::RuleGroupsNamespaceSummary.default(visited)
+          RuleGroupsNamespaceSummary.default(visited)
         ]
       end
 
@@ -372,10 +372,10 @@ module AWS::SDK::Amp
         {
           arn: 'arn',
           name: 'name',
-          status: Stubs::RuleGroupsNamespaceStatus.default(visited),
+          status: RuleGroupsNamespaceStatus.default(visited),
           created_at: Time.now,
           modified_at: Time.now,
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -396,7 +396,7 @@ module AWS::SDK::Amp
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -413,7 +413,7 @@ module AWS::SDK::Amp
     class ListWorkspaces
       def self.default(visited=[])
         {
-          workspaces: Stubs::WorkspaceSummaryList.default(visited),
+          workspaces: WorkspaceSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -434,7 +434,7 @@ module AWS::SDK::Amp
         return nil if visited.include?('WorkspaceSummaryList')
         visited = visited + ['WorkspaceSummaryList']
         [
-          Stubs::WorkspaceSummary.default(visited)
+          WorkspaceSummary.default(visited)
         ]
       end
 
@@ -457,9 +457,9 @@ module AWS::SDK::Amp
           workspace_id: 'workspace_id',
           alias: 'alias',
           arn: 'arn',
-          status: Stubs::WorkspaceStatus.default(visited),
+          status: WorkspaceStatus.default(visited),
           created_at: Time.now,
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -480,7 +480,7 @@ module AWS::SDK::Amp
     class PutAlertManagerDefinition
       def self.default(visited=[])
         {
-          status: Stubs::AlertManagerDefinitionStatus.default(visited),
+          status: AlertManagerDefinitionStatus.default(visited),
         }
       end
 
@@ -499,8 +499,8 @@ module AWS::SDK::Amp
         {
           name: 'name',
           arn: 'arn',
-          status: Stubs::RuleGroupsNamespaceStatus.default(visited),
-          tags: Stubs::TagMap.default(visited),
+          status: RuleGroupsNamespaceStatus.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 

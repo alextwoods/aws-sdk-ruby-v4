@@ -28,7 +28,7 @@ module AWS::SDK::SSOAdmin
     class CreateAccountAssignment
       def self.default(visited=[])
         {
-          account_assignment_creation_status: Stubs::AccountAssignmentOperationStatus.default(visited),
+          account_assignment_creation_status: AccountAssignmentOperationStatus.default(visited),
         }
       end
 
@@ -92,7 +92,7 @@ module AWS::SDK::SSOAdmin
     class CreatePermissionSet
       def self.default(visited=[])
         {
-          permission_set: Stubs::PermissionSet.default(visited),
+          permission_set: PermissionSet.default(visited),
         }
       end
 
@@ -136,7 +136,7 @@ module AWS::SDK::SSOAdmin
     class DeleteAccountAssignment
       def self.default(visited=[])
         {
-          account_assignment_deletion_status: Stubs::AccountAssignmentOperationStatus.default(visited),
+          account_assignment_deletion_status: AccountAssignmentOperationStatus.default(visited),
         }
       end
 
@@ -194,7 +194,7 @@ module AWS::SDK::SSOAdmin
     class DescribeAccountAssignmentCreationStatus
       def self.default(visited=[])
         {
-          account_assignment_creation_status: Stubs::AccountAssignmentOperationStatus.default(visited),
+          account_assignment_creation_status: AccountAssignmentOperationStatus.default(visited),
         }
       end
 
@@ -210,7 +210,7 @@ module AWS::SDK::SSOAdmin
     class DescribeAccountAssignmentDeletionStatus
       def self.default(visited=[])
         {
-          account_assignment_deletion_status: Stubs::AccountAssignmentOperationStatus.default(visited),
+          account_assignment_deletion_status: AccountAssignmentOperationStatus.default(visited),
         }
       end
 
@@ -228,7 +228,7 @@ module AWS::SDK::SSOAdmin
         {
           status: 'status',
           status_reason: 'status_reason',
-          instance_access_control_attribute_configuration: Stubs::InstanceAccessControlAttributeConfiguration.default(visited),
+          instance_access_control_attribute_configuration: InstanceAccessControlAttributeConfiguration.default(visited),
         }
       end
 
@@ -248,7 +248,7 @@ module AWS::SDK::SSOAdmin
         return nil if visited.include?('InstanceAccessControlAttributeConfiguration')
         visited = visited + ['InstanceAccessControlAttributeConfiguration']
         {
-          access_control_attributes: Stubs::AccessControlAttributeList.default(visited),
+          access_control_attributes: AccessControlAttributeList.default(visited),
         }
       end
 
@@ -266,7 +266,7 @@ module AWS::SDK::SSOAdmin
         return nil if visited.include?('AccessControlAttributeList')
         visited = visited + ['AccessControlAttributeList']
         [
-          Stubs::AccessControlAttribute.default(visited)
+          AccessControlAttribute.default(visited)
         ]
       end
 
@@ -287,7 +287,7 @@ module AWS::SDK::SSOAdmin
         visited = visited + ['AccessControlAttribute']
         {
           key: 'key',
-          value: Stubs::AccessControlAttributeValue.default(visited),
+          value: AccessControlAttributeValue.default(visited),
         }
       end
 
@@ -306,7 +306,7 @@ module AWS::SDK::SSOAdmin
         return nil if visited.include?('AccessControlAttributeValue')
         visited = visited + ['AccessControlAttributeValue']
         {
-          source: Stubs::AccessControlAttributeValueSourceList.default(visited),
+          source: AccessControlAttributeValueSourceList.default(visited),
         }
       end
 
@@ -342,7 +342,7 @@ module AWS::SDK::SSOAdmin
     class DescribePermissionSet
       def self.default(visited=[])
         {
-          permission_set: Stubs::PermissionSet.default(visited),
+          permission_set: PermissionSet.default(visited),
         }
       end
 
@@ -358,7 +358,7 @@ module AWS::SDK::SSOAdmin
     class DescribePermissionSetProvisioningStatus
       def self.default(visited=[])
         {
-          permission_set_provisioning_status: Stubs::PermissionSetProvisioningStatus.default(visited),
+          permission_set_provisioning_status: PermissionSetProvisioningStatus.default(visited),
         }
       end
 
@@ -432,7 +432,7 @@ module AWS::SDK::SSOAdmin
     class ListAccountAssignmentCreationStatus
       def self.default(visited=[])
         {
-          account_assignments_creation_status: Stubs::AccountAssignmentOperationStatusList.default(visited),
+          account_assignments_creation_status: AccountAssignmentOperationStatusList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -452,7 +452,7 @@ module AWS::SDK::SSOAdmin
         return nil if visited.include?('AccountAssignmentOperationStatusList')
         visited = visited + ['AccountAssignmentOperationStatusList']
         [
-          Stubs::AccountAssignmentOperationStatusMetadata.default(visited)
+          AccountAssignmentOperationStatusMetadata.default(visited)
         ]
       end
 
@@ -492,7 +492,7 @@ module AWS::SDK::SSOAdmin
     class ListAccountAssignmentDeletionStatus
       def self.default(visited=[])
         {
-          account_assignments_deletion_status: Stubs::AccountAssignmentOperationStatusList.default(visited),
+          account_assignments_deletion_status: AccountAssignmentOperationStatusList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -510,7 +510,7 @@ module AWS::SDK::SSOAdmin
     class ListAccountAssignments
       def self.default(visited=[])
         {
-          account_assignments: Stubs::AccountAssignmentList.default(visited),
+          account_assignments: AccountAssignmentList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -530,7 +530,7 @@ module AWS::SDK::SSOAdmin
         return nil if visited.include?('AccountAssignmentList')
         visited = visited + ['AccountAssignmentList']
         [
-          Stubs::AccountAssignment.default(visited)
+          AccountAssignment.default(visited)
         ]
       end
 
@@ -572,7 +572,7 @@ module AWS::SDK::SSOAdmin
     class ListAccountsForProvisionedPermissionSet
       def self.default(visited=[])
         {
-          account_ids: Stubs::AccountList.default(visited),
+          account_ids: AccountList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -610,7 +610,7 @@ module AWS::SDK::SSOAdmin
     class ListInstances
       def self.default(visited=[])
         {
-          instances: Stubs::InstanceList.default(visited),
+          instances: InstanceList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -630,7 +630,7 @@ module AWS::SDK::SSOAdmin
         return nil if visited.include?('InstanceList')
         visited = visited + ['InstanceList']
         [
-          Stubs::InstanceMetadata.default(visited)
+          InstanceMetadata.default(visited)
         ]
       end
 
@@ -668,7 +668,7 @@ module AWS::SDK::SSOAdmin
     class ListManagedPoliciesInPermissionSet
       def self.default(visited=[])
         {
-          attached_managed_policies: Stubs::AttachedManagedPolicyList.default(visited),
+          attached_managed_policies: AttachedManagedPolicyList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -688,7 +688,7 @@ module AWS::SDK::SSOAdmin
         return nil if visited.include?('AttachedManagedPolicyList')
         visited = visited + ['AttachedManagedPolicyList']
         [
-          Stubs::AttachedManagedPolicy.default(visited)
+          AttachedManagedPolicy.default(visited)
         ]
       end
 
@@ -726,7 +726,7 @@ module AWS::SDK::SSOAdmin
     class ListPermissionSetProvisioningStatus
       def self.default(visited=[])
         {
-          permission_sets_provisioning_status: Stubs::PermissionSetProvisioningStatusList.default(visited),
+          permission_sets_provisioning_status: PermissionSetProvisioningStatusList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -746,7 +746,7 @@ module AWS::SDK::SSOAdmin
         return nil if visited.include?('PermissionSetProvisioningStatusList')
         visited = visited + ['PermissionSetProvisioningStatusList']
         [
-          Stubs::PermissionSetProvisioningStatusMetadata.default(visited)
+          PermissionSetProvisioningStatusMetadata.default(visited)
         ]
       end
 
@@ -786,7 +786,7 @@ module AWS::SDK::SSOAdmin
     class ListPermissionSets
       def self.default(visited=[])
         {
-          permission_sets: Stubs::PermissionSetList.default(visited),
+          permission_sets: PermissionSetList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -825,7 +825,7 @@ module AWS::SDK::SSOAdmin
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          permission_sets: Stubs::PermissionSetList.default(visited),
+          permission_sets: PermissionSetList.default(visited),
         }
       end
 
@@ -842,7 +842,7 @@ module AWS::SDK::SSOAdmin
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -862,7 +862,7 @@ module AWS::SDK::SSOAdmin
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -900,7 +900,7 @@ module AWS::SDK::SSOAdmin
     class ProvisionPermissionSet
       def self.default(visited=[])
         {
-          permission_set_provisioning_status: Stubs::PermissionSetProvisioningStatus.default(visited),
+          permission_set_provisioning_status: PermissionSetProvisioningStatus.default(visited),
         }
       end
 

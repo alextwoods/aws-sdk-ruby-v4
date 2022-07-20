@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::RedshiftData
@@ -107,7 +109,7 @@ module AWS::SDK::RedshiftData
     def batch_execute_statement(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchExecuteStatementInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchExecuteStatementInput,
         validate_input: @config.validate_input
@@ -177,7 +179,7 @@ module AWS::SDK::RedshiftData
     def cancel_statement(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelStatementInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelStatementInput,
         validate_input: @config.validate_input
@@ -283,7 +285,7 @@ module AWS::SDK::RedshiftData
     def describe_statement(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeStatementInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeStatementInput,
         validate_input: @config.validate_input
@@ -418,7 +420,7 @@ module AWS::SDK::RedshiftData
     def describe_table(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTableInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTableInput,
         validate_input: @config.validate_input
@@ -539,7 +541,7 @@ module AWS::SDK::RedshiftData
     def execute_statement(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ExecuteStatementInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ExecuteStatementInput,
         validate_input: @config.validate_input
@@ -613,7 +615,13 @@ module AWS::SDK::RedshiftData
     #   resp.data #=> Types::GetStatementResultOutput
     #   resp.data.records #=> Array<Array<Field>>
     #   resp.data.records[0] #=> Array<Field>
-    #   resp.data.records[0][0] #=> Field
+    #   resp.data.records[0][0] #=> Types::Field, one of [IsNull, BooleanValue, LongValue, DoubleValue, StringValue, BlobValue]
+    #   resp.data.records[0][0].is_null #=> Boolean
+    #   resp.data.records[0][0].boolean_value #=> Boolean
+    #   resp.data.records[0][0].long_value #=> Integer
+    #   resp.data.records[0][0].double_value #=> Float
+    #   resp.data.records[0][0].string_value #=> String
+    #   resp.data.records[0][0].blob_value #=> String
     #   resp.data.column_metadata #=> Array<ColumnMetadata>
     #   resp.data.column_metadata[0] #=> Types::ColumnMetadata
     #   resp.data.column_metadata[0].is_case_sensitive #=> Boolean
@@ -635,7 +643,7 @@ module AWS::SDK::RedshiftData
     def get_statement_result(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetStatementResultInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetStatementResultInput,
         validate_input: @config.validate_input
@@ -741,7 +749,7 @@ module AWS::SDK::RedshiftData
     def list_databases(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDatabasesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDatabasesInput,
         validate_input: @config.validate_input
@@ -858,7 +866,7 @@ module AWS::SDK::RedshiftData
     def list_schemas(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListSchemasInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListSchemasInput,
         validate_input: @config.validate_input
@@ -988,7 +996,7 @@ module AWS::SDK::RedshiftData
     def list_statements(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListStatementsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListStatementsInput,
         validate_input: @config.validate_input
@@ -1119,7 +1127,7 @@ module AWS::SDK::RedshiftData
     def list_tables(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTablesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTablesInput,
         validate_input: @config.validate_input

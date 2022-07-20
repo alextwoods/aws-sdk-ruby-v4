@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::MediaTailor
@@ -63,7 +65,7 @@ module AWS::SDK::MediaTailor
     def configure_logs_for_playback_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ConfigureLogsForPlaybackConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ConfigureLogsForPlaybackConfigurationInput,
         validate_input: @config.validate_input
@@ -194,7 +196,7 @@ module AWS::SDK::MediaTailor
     def create_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateChannelInput,
         validate_input: @config.validate_input
@@ -294,7 +296,7 @@ module AWS::SDK::MediaTailor
     def create_live_source(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateLiveSourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateLiveSourceInput,
         validate_input: @config.validate_input
@@ -409,7 +411,7 @@ module AWS::SDK::MediaTailor
     def create_prefetch_schedule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreatePrefetchScheduleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreatePrefetchScheduleInput,
         validate_input: @config.validate_input
@@ -544,7 +546,7 @@ module AWS::SDK::MediaTailor
     def create_program(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateProgramInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateProgramInput,
         validate_input: @config.validate_input
@@ -670,7 +672,7 @@ module AWS::SDK::MediaTailor
     def create_source_location(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateSourceLocationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateSourceLocationInput,
         validate_input: @config.validate_input
@@ -770,7 +772,7 @@ module AWS::SDK::MediaTailor
     def create_vod_source(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateVodSourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateVodSourceInput,
         validate_input: @config.validate_input
@@ -838,7 +840,7 @@ module AWS::SDK::MediaTailor
     def delete_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteChannelInput,
         validate_input: @config.validate_input
@@ -905,7 +907,7 @@ module AWS::SDK::MediaTailor
     def delete_channel_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteChannelPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteChannelPolicyInput,
         validate_input: @config.validate_input
@@ -976,7 +978,7 @@ module AWS::SDK::MediaTailor
     def delete_live_source(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteLiveSourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteLiveSourceInput,
         validate_input: @config.validate_input
@@ -1043,7 +1045,7 @@ module AWS::SDK::MediaTailor
     def delete_playback_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeletePlaybackConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeletePlaybackConfigurationInput,
         validate_input: @config.validate_input
@@ -1114,7 +1116,7 @@ module AWS::SDK::MediaTailor
     def delete_prefetch_schedule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeletePrefetchScheduleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeletePrefetchScheduleInput,
         validate_input: @config.validate_input
@@ -1185,7 +1187,7 @@ module AWS::SDK::MediaTailor
     def delete_program(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteProgramInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteProgramInput,
         validate_input: @config.validate_input
@@ -1252,7 +1254,7 @@ module AWS::SDK::MediaTailor
     def delete_source_location(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteSourceLocationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteSourceLocationInput,
         validate_input: @config.validate_input
@@ -1323,7 +1325,7 @@ module AWS::SDK::MediaTailor
     def delete_vod_source(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteVodSourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteVodSourceInput,
         validate_input: @config.validate_input
@@ -1414,7 +1416,7 @@ module AWS::SDK::MediaTailor
     def describe_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeChannelInput,
         validate_input: @config.validate_input
@@ -1497,7 +1499,7 @@ module AWS::SDK::MediaTailor
     def describe_live_source(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeLiveSourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeLiveSourceInput,
         validate_input: @config.validate_input
@@ -1588,7 +1590,7 @@ module AWS::SDK::MediaTailor
     def describe_program(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeProgramInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeProgramInput,
         validate_input: @config.validate_input
@@ -1675,7 +1677,7 @@ module AWS::SDK::MediaTailor
     def describe_source_location(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeSourceLocationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeSourceLocationInput,
         validate_input: @config.validate_input
@@ -1758,7 +1760,7 @@ module AWS::SDK::MediaTailor
     def describe_vod_source(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeVodSourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeVodSourceInput,
         validate_input: @config.validate_input
@@ -1826,7 +1828,7 @@ module AWS::SDK::MediaTailor
     def get_channel_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetChannelPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetChannelPolicyInput,
         validate_input: @config.validate_input
@@ -1923,7 +1925,7 @@ module AWS::SDK::MediaTailor
     def get_channel_schedule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetChannelScheduleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetChannelScheduleInput,
         validate_input: @config.validate_input
@@ -2026,7 +2028,7 @@ module AWS::SDK::MediaTailor
     def get_playback_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetPlaybackConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetPlaybackConfigurationInput,
         validate_input: @config.validate_input
@@ -2113,7 +2115,7 @@ module AWS::SDK::MediaTailor
     def get_prefetch_schedule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetPrefetchScheduleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetPrefetchScheduleInput,
         validate_input: @config.validate_input
@@ -2197,7 +2199,7 @@ module AWS::SDK::MediaTailor
     def list_alerts(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAlertsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAlertsInput,
         validate_input: @config.validate_input
@@ -2295,7 +2297,7 @@ module AWS::SDK::MediaTailor
     def list_channels(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListChannelsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListChannelsInput,
         validate_input: @config.validate_input
@@ -2385,7 +2387,7 @@ module AWS::SDK::MediaTailor
     def list_live_sources(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListLiveSourcesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListLiveSourcesInput,
         validate_input: @config.validate_input
@@ -2495,7 +2497,7 @@ module AWS::SDK::MediaTailor
     def list_playback_configurations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPlaybackConfigurationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPlaybackConfigurationsInput,
         validate_input: @config.validate_input
@@ -2593,7 +2595,7 @@ module AWS::SDK::MediaTailor
     def list_prefetch_schedules(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPrefetchSchedulesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPrefetchSchedulesInput,
         validate_input: @config.validate_input
@@ -2688,7 +2690,7 @@ module AWS::SDK::MediaTailor
     def list_source_locations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListSourceLocationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListSourceLocationsInput,
         validate_input: @config.validate_input
@@ -2757,7 +2759,7 @@ module AWS::SDK::MediaTailor
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -2847,7 +2849,7 @@ module AWS::SDK::MediaTailor
     def list_vod_sources(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListVodSourcesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListVodSourcesInput,
         validate_input: @config.validate_input
@@ -2918,7 +2920,7 @@ module AWS::SDK::MediaTailor
     def put_channel_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutChannelPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutChannelPolicyInput,
         validate_input: @config.validate_input
@@ -3096,7 +3098,7 @@ module AWS::SDK::MediaTailor
     def put_playback_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutPlaybackConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutPlaybackConfigurationInput,
         validate_input: @config.validate_input
@@ -3164,7 +3166,7 @@ module AWS::SDK::MediaTailor
     def start_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartChannelInput,
         validate_input: @config.validate_input
@@ -3231,7 +3233,7 @@ module AWS::SDK::MediaTailor
     def stop_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopChannelInput,
         validate_input: @config.validate_input
@@ -3304,7 +3306,7 @@ module AWS::SDK::MediaTailor
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -3378,7 +3380,7 @@ module AWS::SDK::MediaTailor
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -3494,7 +3496,7 @@ module AWS::SDK::MediaTailor
     def update_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateChannelInput,
         validate_input: @config.validate_input
@@ -3588,7 +3590,7 @@ module AWS::SDK::MediaTailor
     def update_live_source(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateLiveSourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateLiveSourceInput,
         validate_input: @config.validate_input
@@ -3708,7 +3710,7 @@ module AWS::SDK::MediaTailor
     def update_source_location(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateSourceLocationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateSourceLocationInput,
         validate_input: @config.validate_input
@@ -3802,7 +3804,7 @@ module AWS::SDK::MediaTailor
     def update_vod_source(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateVodSourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateVodSourceInput,
         validate_input: @config.validate_input

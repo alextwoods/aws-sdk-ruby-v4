@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::CloudHSM
@@ -89,7 +91,7 @@ module AWS::SDK::CloudHSM
     def add_tags_to_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AddTagsToResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AddTagsToResourceInput,
         validate_input: @config.validate_input
@@ -169,7 +171,7 @@ module AWS::SDK::CloudHSM
     def create_hapg(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateHapgInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateHapgInput,
         validate_input: @config.validate_input
@@ -302,7 +304,7 @@ module AWS::SDK::CloudHSM
     def create_hsm(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateHsmInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateHsmInput,
         validate_input: @config.validate_input
@@ -386,7 +388,7 @@ module AWS::SDK::CloudHSM
     def create_luna_client(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateLunaClientInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateLunaClientInput,
         validate_input: @config.validate_input
@@ -465,7 +467,7 @@ module AWS::SDK::CloudHSM
     def delete_hapg(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteHapgInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteHapgInput,
         validate_input: @config.validate_input
@@ -545,7 +547,7 @@ module AWS::SDK::CloudHSM
     def delete_hsm(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteHsmInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteHsmInput,
         validate_input: @config.validate_input
@@ -624,7 +626,7 @@ module AWS::SDK::CloudHSM
     def delete_luna_client(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteLunaClientInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteLunaClientInput,
         validate_input: @config.validate_input
@@ -713,7 +715,7 @@ module AWS::SDK::CloudHSM
     def describe_hapg(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeHapgInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeHapgInput,
         validate_input: @config.validate_input
@@ -820,7 +822,7 @@ module AWS::SDK::CloudHSM
     def describe_hsm(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeHsmInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeHsmInput,
         validate_input: @config.validate_input
@@ -907,7 +909,7 @@ module AWS::SDK::CloudHSM
     def describe_luna_client(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeLunaClientInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeLunaClientInput,
         validate_input: @config.validate_input
@@ -1000,7 +1002,7 @@ module AWS::SDK::CloudHSM
     def get_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetConfigInput,
         validate_input: @config.validate_input
@@ -1075,7 +1077,7 @@ module AWS::SDK::CloudHSM
     def list_available_zones(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAvailableZonesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAvailableZonesInput,
         validate_input: @config.validate_input
@@ -1161,7 +1163,7 @@ module AWS::SDK::CloudHSM
     def list_hapgs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListHapgsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListHapgsInput,
         validate_input: @config.validate_input
@@ -1248,7 +1250,7 @@ module AWS::SDK::CloudHSM
     def list_hsms(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListHsmsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListHsmsInput,
         validate_input: @config.validate_input
@@ -1334,7 +1336,7 @@ module AWS::SDK::CloudHSM
     def list_luna_clients(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListLunaClientsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListLunaClientsInput,
         validate_input: @config.validate_input
@@ -1416,7 +1418,7 @@ module AWS::SDK::CloudHSM
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -1506,7 +1508,7 @@ module AWS::SDK::CloudHSM
     def modify_hapg(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyHapgInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyHapgInput,
         validate_input: @config.validate_input
@@ -1616,7 +1618,7 @@ module AWS::SDK::CloudHSM
     def modify_hsm(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyHsmInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyHsmInput,
         validate_input: @config.validate_input
@@ -1701,7 +1703,7 @@ module AWS::SDK::CloudHSM
     def modify_luna_client(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyLunaClientInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyLunaClientInput,
         validate_input: @config.validate_input
@@ -1790,7 +1792,7 @@ module AWS::SDK::CloudHSM
     def remove_tags_from_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RemoveTagsFromResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RemoveTagsFromResourceInput,
         validate_input: @config.validate_input

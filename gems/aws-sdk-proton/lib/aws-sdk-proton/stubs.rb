@@ -14,7 +14,7 @@ module AWS::SDK::Proton
     class AcceptEnvironmentAccountConnection
       def self.default(visited=[])
         {
-          environment_account_connection: Stubs::EnvironmentAccountConnection.default(visited),
+          environment_account_connection: EnvironmentAccountConnection.default(visited),
         }
       end
 
@@ -66,7 +66,7 @@ module AWS::SDK::Proton
     class CancelComponentDeployment
       def self.default(visited=[])
         {
-          component: Stubs::Component.default(visited),
+          component: Component.default(visited),
         }
       end
 
@@ -124,7 +124,7 @@ module AWS::SDK::Proton
     class CancelEnvironmentDeployment
       def self.default(visited=[])
         {
-          environment: Stubs::Environment.default(visited),
+          environment: Environment.default(visited),
         }
       end
 
@@ -158,7 +158,7 @@ module AWS::SDK::Proton
           environment_account_id: 'environment_account_id',
           spec: 'spec',
           provisioning: 'provisioning',
-          provisioning_repository: Stubs::RepositoryBranch.default(visited),
+          provisioning_repository: RepositoryBranch.default(visited),
           component_role_arn: 'component_role_arn',
         }
       end
@@ -216,7 +216,7 @@ module AWS::SDK::Proton
     class CancelServiceInstanceDeployment
       def self.default(visited=[])
         {
-          service_instance: Stubs::ServiceInstance.default(visited),
+          service_instance: ServiceInstance.default(visited),
         }
       end
 
@@ -274,7 +274,7 @@ module AWS::SDK::Proton
     class CancelServicePipelineDeployment
       def self.default(visited=[])
         {
-          pipeline: Stubs::ServicePipeline.default(visited),
+          pipeline: ServicePipeline.default(visited),
         }
       end
 
@@ -326,7 +326,7 @@ module AWS::SDK::Proton
     class CreateComponent
       def self.default(visited=[])
         {
-          component: Stubs::Component.default(visited),
+          component: Component.default(visited),
         }
       end
 
@@ -342,7 +342,7 @@ module AWS::SDK::Proton
     class CreateEnvironment
       def self.default(visited=[])
         {
-          environment: Stubs::Environment.default(visited),
+          environment: Environment.default(visited),
         }
       end
 
@@ -358,7 +358,7 @@ module AWS::SDK::Proton
     class CreateEnvironmentAccountConnection
       def self.default(visited=[])
         {
-          environment_account_connection: Stubs::EnvironmentAccountConnection.default(visited),
+          environment_account_connection: EnvironmentAccountConnection.default(visited),
         }
       end
 
@@ -374,7 +374,7 @@ module AWS::SDK::Proton
     class CreateEnvironmentTemplate
       def self.default(visited=[])
         {
-          environment_template: Stubs::EnvironmentTemplate.default(visited),
+          environment_template: EnvironmentTemplate.default(visited),
         }
       end
 
@@ -424,7 +424,7 @@ module AWS::SDK::Proton
     class CreateEnvironmentTemplateVersion
       def self.default(visited=[])
         {
-          environment_template_version: Stubs::EnvironmentTemplateVersion.default(visited),
+          environment_template_version: EnvironmentTemplateVersion.default(visited),
         }
       end
 
@@ -478,7 +478,7 @@ module AWS::SDK::Proton
     class CreateRepository
       def self.default(visited=[])
         {
-          repository: Stubs::Repository.default(visited),
+          repository: Repository.default(visited),
         }
       end
 
@@ -520,7 +520,7 @@ module AWS::SDK::Proton
     class CreateService
       def self.default(visited=[])
         {
-          service: Stubs::Service.default(visited),
+          service: Service.default(visited),
         }
       end
 
@@ -547,7 +547,7 @@ module AWS::SDK::Proton
           status: 'status',
           status_message: 'status_message',
           spec: 'spec',
-          pipeline: Stubs::ServicePipeline.default(visited),
+          pipeline: ServicePipeline.default(visited),
           repository_connection_arn: 'repository_connection_arn',
           repository_id: 'repository_id',
           branch_name: 'branch_name',
@@ -578,7 +578,7 @@ module AWS::SDK::Proton
     class CreateServiceTemplate
       def self.default(visited=[])
         {
-          service_template: Stubs::ServiceTemplate.default(visited),
+          service_template: ServiceTemplate.default(visited),
         }
       end
 
@@ -628,7 +628,7 @@ module AWS::SDK::Proton
     class CreateServiceTemplateVersion
       def self.default(visited=[])
         {
-          service_template_version: Stubs::ServiceTemplateVersion.default(visited),
+          service_template_version: ServiceTemplateVersion.default(visited),
         }
       end
 
@@ -656,9 +656,9 @@ module AWS::SDK::Proton
           arn: 'arn',
           created_at: Time.now,
           last_modified_at: Time.now,
-          compatible_environment_templates: Stubs::CompatibleEnvironmentTemplateList.default(visited),
+          compatible_environment_templates: CompatibleEnvironmentTemplateList.default(visited),
           schema: 'schema',
-          supported_component_sources: Stubs::ServiceTemplateSupportedComponentSourceInputList.default(visited),
+          supported_component_sources: ServiceTemplateSupportedComponentSourceInputList.default(visited),
         }
       end
 
@@ -708,7 +708,7 @@ module AWS::SDK::Proton
         return nil if visited.include?('CompatibleEnvironmentTemplateList')
         visited = visited + ['CompatibleEnvironmentTemplateList']
         [
-          Stubs::CompatibleEnvironmentTemplate.default(visited)
+          CompatibleEnvironmentTemplate.default(visited)
         ]
       end
 
@@ -746,7 +746,7 @@ module AWS::SDK::Proton
     class CreateTemplateSyncConfig
       def self.default(visited=[])
         {
-          template_sync_config: Stubs::TemplateSyncConfig.default(visited),
+          template_sync_config: TemplateSyncConfig.default(visited),
         }
       end
 
@@ -790,7 +790,7 @@ module AWS::SDK::Proton
     class DeleteComponent
       def self.default(visited=[])
         {
-          component: Stubs::Component.default(visited),
+          component: Component.default(visited),
         }
       end
 
@@ -806,7 +806,7 @@ module AWS::SDK::Proton
     class DeleteEnvironment
       def self.default(visited=[])
         {
-          environment: Stubs::Environment.default(visited),
+          environment: Environment.default(visited),
         }
       end
 
@@ -822,7 +822,7 @@ module AWS::SDK::Proton
     class DeleteEnvironmentAccountConnection
       def self.default(visited=[])
         {
-          environment_account_connection: Stubs::EnvironmentAccountConnection.default(visited),
+          environment_account_connection: EnvironmentAccountConnection.default(visited),
         }
       end
 
@@ -838,7 +838,7 @@ module AWS::SDK::Proton
     class DeleteEnvironmentTemplate
       def self.default(visited=[])
         {
-          environment_template: Stubs::EnvironmentTemplate.default(visited),
+          environment_template: EnvironmentTemplate.default(visited),
         }
       end
 
@@ -854,7 +854,7 @@ module AWS::SDK::Proton
     class DeleteEnvironmentTemplateVersion
       def self.default(visited=[])
         {
-          environment_template_version: Stubs::EnvironmentTemplateVersion.default(visited),
+          environment_template_version: EnvironmentTemplateVersion.default(visited),
         }
       end
 
@@ -870,7 +870,7 @@ module AWS::SDK::Proton
     class DeleteRepository
       def self.default(visited=[])
         {
-          repository: Stubs::Repository.default(visited),
+          repository: Repository.default(visited),
         }
       end
 
@@ -886,7 +886,7 @@ module AWS::SDK::Proton
     class DeleteService
       def self.default(visited=[])
         {
-          service: Stubs::Service.default(visited),
+          service: Service.default(visited),
         }
       end
 
@@ -902,7 +902,7 @@ module AWS::SDK::Proton
     class DeleteServiceTemplate
       def self.default(visited=[])
         {
-          service_template: Stubs::ServiceTemplate.default(visited),
+          service_template: ServiceTemplate.default(visited),
         }
       end
 
@@ -918,7 +918,7 @@ module AWS::SDK::Proton
     class DeleteServiceTemplateVersion
       def self.default(visited=[])
         {
-          service_template_version: Stubs::ServiceTemplateVersion.default(visited),
+          service_template_version: ServiceTemplateVersion.default(visited),
         }
       end
 
@@ -934,7 +934,7 @@ module AWS::SDK::Proton
     class DeleteTemplateSyncConfig
       def self.default(visited=[])
         {
-          template_sync_config: Stubs::TemplateSyncConfig.default(visited),
+          template_sync_config: TemplateSyncConfig.default(visited),
         }
       end
 
@@ -950,7 +950,7 @@ module AWS::SDK::Proton
     class GetAccountSettings
       def self.default(visited=[])
         {
-          account_settings: Stubs::AccountSettings.default(visited),
+          account_settings: AccountSettings.default(visited),
         }
       end
 
@@ -969,7 +969,7 @@ module AWS::SDK::Proton
         visited = visited + ['AccountSettings']
         {
           pipeline_service_role_arn: 'pipeline_service_role_arn',
-          pipeline_provisioning_repository: Stubs::RepositoryBranch.default(visited),
+          pipeline_provisioning_repository: RepositoryBranch.default(visited),
         }
       end
 
@@ -986,7 +986,7 @@ module AWS::SDK::Proton
     class GetComponent
       def self.default(visited=[])
         {
-          component: Stubs::Component.default(visited),
+          component: Component.default(visited),
         }
       end
 
@@ -1002,7 +1002,7 @@ module AWS::SDK::Proton
     class GetEnvironment
       def self.default(visited=[])
         {
-          environment: Stubs::Environment.default(visited),
+          environment: Environment.default(visited),
         }
       end
 
@@ -1018,7 +1018,7 @@ module AWS::SDK::Proton
     class GetEnvironmentAccountConnection
       def self.default(visited=[])
         {
-          environment_account_connection: Stubs::EnvironmentAccountConnection.default(visited),
+          environment_account_connection: EnvironmentAccountConnection.default(visited),
         }
       end
 
@@ -1034,7 +1034,7 @@ module AWS::SDK::Proton
     class GetEnvironmentTemplate
       def self.default(visited=[])
         {
-          environment_template: Stubs::EnvironmentTemplate.default(visited),
+          environment_template: EnvironmentTemplate.default(visited),
         }
       end
 
@@ -1050,7 +1050,7 @@ module AWS::SDK::Proton
     class GetEnvironmentTemplateVersion
       def self.default(visited=[])
         {
-          environment_template_version: Stubs::EnvironmentTemplateVersion.default(visited),
+          environment_template_version: EnvironmentTemplateVersion.default(visited),
         }
       end
 
@@ -1066,7 +1066,7 @@ module AWS::SDK::Proton
     class GetRepository
       def self.default(visited=[])
         {
-          repository: Stubs::Repository.default(visited),
+          repository: Repository.default(visited),
         }
       end
 
@@ -1082,7 +1082,7 @@ module AWS::SDK::Proton
     class GetRepositorySyncStatus
       def self.default(visited=[])
         {
-          latest_sync: Stubs::RepositorySyncAttempt.default(visited),
+          latest_sync: RepositorySyncAttempt.default(visited),
         }
       end
 
@@ -1102,7 +1102,7 @@ module AWS::SDK::Proton
         {
           started_at: Time.now,
           status: 'status',
-          events: Stubs::RepositorySyncEvents.default(visited),
+          events: RepositorySyncEvents.default(visited),
         }
       end
 
@@ -1122,7 +1122,7 @@ module AWS::SDK::Proton
         return nil if visited.include?('RepositorySyncEvents')
         visited = visited + ['RepositorySyncEvents']
         [
-          Stubs::RepositorySyncEvent.default(visited)
+          RepositorySyncEvent.default(visited)
         ]
       end
 
@@ -1164,7 +1164,7 @@ module AWS::SDK::Proton
     class GetService
       def self.default(visited=[])
         {
-          service: Stubs::Service.default(visited),
+          service: Service.default(visited),
         }
       end
 
@@ -1180,7 +1180,7 @@ module AWS::SDK::Proton
     class GetServiceInstance
       def self.default(visited=[])
         {
-          service_instance: Stubs::ServiceInstance.default(visited),
+          service_instance: ServiceInstance.default(visited),
         }
       end
 
@@ -1196,7 +1196,7 @@ module AWS::SDK::Proton
     class GetServiceTemplate
       def self.default(visited=[])
         {
-          service_template: Stubs::ServiceTemplate.default(visited),
+          service_template: ServiceTemplate.default(visited),
         }
       end
 
@@ -1212,7 +1212,7 @@ module AWS::SDK::Proton
     class GetServiceTemplateVersion
       def self.default(visited=[])
         {
-          service_template_version: Stubs::ServiceTemplateVersion.default(visited),
+          service_template_version: ServiceTemplateVersion.default(visited),
         }
       end
 
@@ -1228,7 +1228,7 @@ module AWS::SDK::Proton
     class GetTemplateSyncConfig
       def self.default(visited=[])
         {
-          template_sync_config: Stubs::TemplateSyncConfig.default(visited),
+          template_sync_config: TemplateSyncConfig.default(visited),
         }
       end
 
@@ -1244,9 +1244,9 @@ module AWS::SDK::Proton
     class GetTemplateSyncStatus
       def self.default(visited=[])
         {
-          latest_sync: Stubs::ResourceSyncAttempt.default(visited),
-          latest_successful_sync: Stubs::ResourceSyncAttempt.default(visited),
-          desired_state: Stubs::Revision.default(visited),
+          latest_sync: ResourceSyncAttempt.default(visited),
+          latest_successful_sync: ResourceSyncAttempt.default(visited),
+          desired_state: Revision.default(visited),
         }
       end
 
@@ -1292,12 +1292,12 @@ module AWS::SDK::Proton
         return nil if visited.include?('ResourceSyncAttempt')
         visited = visited + ['ResourceSyncAttempt']
         {
-          initial_revision: Stubs::Revision.default(visited),
-          target_revision: Stubs::Revision.default(visited),
+          initial_revision: Revision.default(visited),
+          target_revision: Revision.default(visited),
           target: 'target',
           started_at: Time.now,
           status: 'status',
-          events: Stubs::ResourceSyncEvents.default(visited),
+          events: ResourceSyncEvents.default(visited),
         }
       end
 
@@ -1320,7 +1320,7 @@ module AWS::SDK::Proton
         return nil if visited.include?('ResourceSyncEvents')
         visited = visited + ['ResourceSyncEvents']
         [
-          Stubs::ResourceSyncEvent.default(visited)
+          ResourceSyncEvent.default(visited)
         ]
       end
 
@@ -1363,7 +1363,7 @@ module AWS::SDK::Proton
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          outputs: Stubs::OutputsList.default(visited),
+          outputs: OutputsList.default(visited),
         }
       end
 
@@ -1382,7 +1382,7 @@ module AWS::SDK::Proton
         return nil if visited.include?('OutputsList')
         visited = visited + ['OutputsList']
         [
-          Stubs::Output.default(visited)
+          Output.default(visited)
         ]
       end
 
@@ -1421,7 +1421,7 @@ module AWS::SDK::Proton
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          provisioned_resources: Stubs::ProvisionedResourceList.default(visited),
+          provisioned_resources: ProvisionedResourceList.default(visited),
         }
       end
 
@@ -1440,7 +1440,7 @@ module AWS::SDK::Proton
         return nil if visited.include?('ProvisionedResourceList')
         visited = visited + ['ProvisionedResourceList']
         [
-          Stubs::ProvisionedResource.default(visited)
+          ProvisionedResource.default(visited)
         ]
       end
 
@@ -1481,7 +1481,7 @@ module AWS::SDK::Proton
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          components: Stubs::ComponentSummaryList.default(visited),
+          components: ComponentSummaryList.default(visited),
         }
       end
 
@@ -1500,7 +1500,7 @@ module AWS::SDK::Proton
         return nil if visited.include?('ComponentSummaryList')
         visited = visited + ['ComponentSummaryList']
         [
-          Stubs::ComponentSummary.default(visited)
+          ComponentSummary.default(visited)
         ]
       end
 
@@ -1556,7 +1556,7 @@ module AWS::SDK::Proton
     class ListEnvironmentAccountConnections
       def self.default(visited=[])
         {
-          environment_account_connections: Stubs::EnvironmentAccountConnectionSummaryList.default(visited),
+          environment_account_connections: EnvironmentAccountConnectionSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1576,7 +1576,7 @@ module AWS::SDK::Proton
         return nil if visited.include?('EnvironmentAccountConnectionSummaryList')
         visited = visited + ['EnvironmentAccountConnectionSummaryList']
         [
-          Stubs::EnvironmentAccountConnectionSummary.default(visited)
+          EnvironmentAccountConnectionSummary.default(visited)
         ]
       end
 
@@ -1631,7 +1631,7 @@ module AWS::SDK::Proton
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          outputs: Stubs::OutputsList.default(visited),
+          outputs: OutputsList.default(visited),
         }
       end
 
@@ -1649,7 +1649,7 @@ module AWS::SDK::Proton
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          provisioned_resources: Stubs::ProvisionedResourceList.default(visited),
+          provisioned_resources: ProvisionedResourceList.default(visited),
         }
       end
 
@@ -1667,7 +1667,7 @@ module AWS::SDK::Proton
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          template_versions: Stubs::EnvironmentTemplateVersionSummaryList.default(visited),
+          template_versions: EnvironmentTemplateVersionSummaryList.default(visited),
         }
       end
 
@@ -1686,7 +1686,7 @@ module AWS::SDK::Proton
         return nil if visited.include?('EnvironmentTemplateVersionSummaryList')
         visited = visited + ['EnvironmentTemplateVersionSummaryList']
         [
-          Stubs::EnvironmentTemplateVersionSummary.default(visited)
+          EnvironmentTemplateVersionSummary.default(visited)
         ]
       end
 
@@ -1741,7 +1741,7 @@ module AWS::SDK::Proton
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          templates: Stubs::EnvironmentTemplateSummaryList.default(visited),
+          templates: EnvironmentTemplateSummaryList.default(visited),
         }
       end
 
@@ -1760,7 +1760,7 @@ module AWS::SDK::Proton
         return nil if visited.include?('EnvironmentTemplateSummaryList')
         visited = visited + ['EnvironmentTemplateSummaryList']
         [
-          Stubs::EnvironmentTemplateSummary.default(visited)
+          EnvironmentTemplateSummary.default(visited)
         ]
       end
 
@@ -1811,7 +1811,7 @@ module AWS::SDK::Proton
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          environments: Stubs::EnvironmentSummaryList.default(visited),
+          environments: EnvironmentSummaryList.default(visited),
         }
       end
 
@@ -1830,7 +1830,7 @@ module AWS::SDK::Proton
         return nil if visited.include?('EnvironmentSummaryList')
         visited = visited + ['EnvironmentSummaryList']
         [
-          Stubs::EnvironmentSummary.default(visited)
+          EnvironmentSummary.default(visited)
         ]
       end
 
@@ -1897,7 +1897,7 @@ module AWS::SDK::Proton
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          repositories: Stubs::RepositorySummaryList.default(visited),
+          repositories: RepositorySummaryList.default(visited),
         }
       end
 
@@ -1916,7 +1916,7 @@ module AWS::SDK::Proton
         return nil if visited.include?('RepositorySummaryList')
         visited = visited + ['RepositorySummaryList']
         [
-          Stubs::RepositorySummary.default(visited)
+          RepositorySummary.default(visited)
         ]
       end
 
@@ -1957,7 +1957,7 @@ module AWS::SDK::Proton
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          sync_definitions: Stubs::RepositorySyncDefinitionList.default(visited),
+          sync_definitions: RepositorySyncDefinitionList.default(visited),
         }
       end
 
@@ -1976,7 +1976,7 @@ module AWS::SDK::Proton
         return nil if visited.include?('RepositorySyncDefinitionList')
         visited = visited + ['RepositorySyncDefinitionList']
         [
-          Stubs::RepositorySyncDefinition.default(visited)
+          RepositorySyncDefinition.default(visited)
         ]
       end
 
@@ -2019,7 +2019,7 @@ module AWS::SDK::Proton
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          outputs: Stubs::OutputsList.default(visited),
+          outputs: OutputsList.default(visited),
         }
       end
 
@@ -2037,7 +2037,7 @@ module AWS::SDK::Proton
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          provisioned_resources: Stubs::ProvisionedResourceList.default(visited),
+          provisioned_resources: ProvisionedResourceList.default(visited),
         }
       end
 
@@ -2055,7 +2055,7 @@ module AWS::SDK::Proton
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          service_instances: Stubs::ServiceInstanceSummaryList.default(visited),
+          service_instances: ServiceInstanceSummaryList.default(visited),
         }
       end
 
@@ -2074,7 +2074,7 @@ module AWS::SDK::Proton
         return nil if visited.include?('ServiceInstanceSummaryList')
         visited = visited + ['ServiceInstanceSummaryList']
         [
-          Stubs::ServiceInstanceSummary.default(visited)
+          ServiceInstanceSummary.default(visited)
         ]
       end
 
@@ -2133,7 +2133,7 @@ module AWS::SDK::Proton
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          outputs: Stubs::OutputsList.default(visited),
+          outputs: OutputsList.default(visited),
         }
       end
 
@@ -2151,7 +2151,7 @@ module AWS::SDK::Proton
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          provisioned_resources: Stubs::ProvisionedResourceList.default(visited),
+          provisioned_resources: ProvisionedResourceList.default(visited),
         }
       end
 
@@ -2169,7 +2169,7 @@ module AWS::SDK::Proton
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          template_versions: Stubs::ServiceTemplateVersionSummaryList.default(visited),
+          template_versions: ServiceTemplateVersionSummaryList.default(visited),
         }
       end
 
@@ -2188,7 +2188,7 @@ module AWS::SDK::Proton
         return nil if visited.include?('ServiceTemplateVersionSummaryList')
         visited = visited + ['ServiceTemplateVersionSummaryList']
         [
-          Stubs::ServiceTemplateVersionSummary.default(visited)
+          ServiceTemplateVersionSummary.default(visited)
         ]
       end
 
@@ -2243,7 +2243,7 @@ module AWS::SDK::Proton
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          templates: Stubs::ServiceTemplateSummaryList.default(visited),
+          templates: ServiceTemplateSummaryList.default(visited),
         }
       end
 
@@ -2262,7 +2262,7 @@ module AWS::SDK::Proton
         return nil if visited.include?('ServiceTemplateSummaryList')
         visited = visited + ['ServiceTemplateSummaryList']
         [
-          Stubs::ServiceTemplateSummary.default(visited)
+          ServiceTemplateSummary.default(visited)
         ]
       end
 
@@ -2313,7 +2313,7 @@ module AWS::SDK::Proton
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          services: Stubs::ServiceSummaryList.default(visited),
+          services: ServiceSummaryList.default(visited),
         }
       end
 
@@ -2332,7 +2332,7 @@ module AWS::SDK::Proton
         return nil if visited.include?('ServiceSummaryList')
         visited = visited + ['ServiceSummaryList']
         [
-          Stubs::ServiceSummary.default(visited)
+          ServiceSummary.default(visited)
         ]
       end
 
@@ -2382,7 +2382,7 @@ module AWS::SDK::Proton
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2402,7 +2402,7 @@ module AWS::SDK::Proton
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -2454,7 +2454,7 @@ module AWS::SDK::Proton
     class RejectEnvironmentAccountConnection
       def self.default(visited=[])
         {
-          environment_account_connection: Stubs::EnvironmentAccountConnection.default(visited),
+          environment_account_connection: EnvironmentAccountConnection.default(visited),
         }
       end
 
@@ -2498,7 +2498,7 @@ module AWS::SDK::Proton
     class UpdateAccountSettings
       def self.default(visited=[])
         {
-          account_settings: Stubs::AccountSettings.default(visited),
+          account_settings: AccountSettings.default(visited),
         }
       end
 
@@ -2514,7 +2514,7 @@ module AWS::SDK::Proton
     class UpdateComponent
       def self.default(visited=[])
         {
-          component: Stubs::Component.default(visited),
+          component: Component.default(visited),
         }
       end
 
@@ -2530,7 +2530,7 @@ module AWS::SDK::Proton
     class UpdateEnvironment
       def self.default(visited=[])
         {
-          environment: Stubs::Environment.default(visited),
+          environment: Environment.default(visited),
         }
       end
 
@@ -2546,7 +2546,7 @@ module AWS::SDK::Proton
     class UpdateEnvironmentAccountConnection
       def self.default(visited=[])
         {
-          environment_account_connection: Stubs::EnvironmentAccountConnection.default(visited),
+          environment_account_connection: EnvironmentAccountConnection.default(visited),
         }
       end
 
@@ -2562,7 +2562,7 @@ module AWS::SDK::Proton
     class UpdateEnvironmentTemplate
       def self.default(visited=[])
         {
-          environment_template: Stubs::EnvironmentTemplate.default(visited),
+          environment_template: EnvironmentTemplate.default(visited),
         }
       end
 
@@ -2578,7 +2578,7 @@ module AWS::SDK::Proton
     class UpdateEnvironmentTemplateVersion
       def self.default(visited=[])
         {
-          environment_template_version: Stubs::EnvironmentTemplateVersion.default(visited),
+          environment_template_version: EnvironmentTemplateVersion.default(visited),
         }
       end
 
@@ -2594,7 +2594,7 @@ module AWS::SDK::Proton
     class UpdateService
       def self.default(visited=[])
         {
-          service: Stubs::Service.default(visited),
+          service: Service.default(visited),
         }
       end
 
@@ -2610,7 +2610,7 @@ module AWS::SDK::Proton
     class UpdateServiceInstance
       def self.default(visited=[])
         {
-          service_instance: Stubs::ServiceInstance.default(visited),
+          service_instance: ServiceInstance.default(visited),
         }
       end
 
@@ -2626,7 +2626,7 @@ module AWS::SDK::Proton
     class UpdateServicePipeline
       def self.default(visited=[])
         {
-          pipeline: Stubs::ServicePipeline.default(visited),
+          pipeline: ServicePipeline.default(visited),
         }
       end
 
@@ -2642,7 +2642,7 @@ module AWS::SDK::Proton
     class UpdateServiceTemplate
       def self.default(visited=[])
         {
-          service_template: Stubs::ServiceTemplate.default(visited),
+          service_template: ServiceTemplate.default(visited),
         }
       end
 
@@ -2658,7 +2658,7 @@ module AWS::SDK::Proton
     class UpdateServiceTemplateVersion
       def self.default(visited=[])
         {
-          service_template_version: Stubs::ServiceTemplateVersion.default(visited),
+          service_template_version: ServiceTemplateVersion.default(visited),
         }
       end
 
@@ -2674,7 +2674,7 @@ module AWS::SDK::Proton
     class UpdateTemplateSyncConfig
       def self.default(visited=[])
         {
-          template_sync_config: Stubs::TemplateSyncConfig.default(visited),
+          template_sync_config: TemplateSyncConfig.default(visited),
         }
       end
 

@@ -555,7 +555,7 @@ module AWS::SDK::Backup
         type.framework_name = params[:framework_name]
         type.framework_description = params[:framework_description]
         type.framework_controls = FrameworkControls.build(params[:framework_controls], context: "#{context}[:framework_controls]") unless params[:framework_controls].nil?
-        type.idempotency_token = params[:idempotency_token] || SecureRandom.uuid
+        type.idempotency_token = params[:idempotency_token] || ::SecureRandom.uuid
         type.framework_tags = StringMap.build(params[:framework_tags], context: "#{context}[:framework_tags]") unless params[:framework_tags].nil?
         type
       end
@@ -580,7 +580,7 @@ module AWS::SDK::Backup
         type.report_delivery_channel = ReportDeliveryChannel.build(params[:report_delivery_channel], context: "#{context}[:report_delivery_channel]") unless params[:report_delivery_channel].nil?
         type.report_setting = ReportSetting.build(params[:report_setting], context: "#{context}[:report_setting]") unless params[:report_setting].nil?
         type.report_plan_tags = StringMap.build(params[:report_plan_tags], context: "#{context}[:report_plan_tags]") unless params[:report_plan_tags].nil?
-        type.idempotency_token = params[:idempotency_token] || SecureRandom.uuid
+        type.idempotency_token = params[:idempotency_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -2143,7 +2143,7 @@ module AWS::SDK::Backup
         Hearth::Validator.validate!(params, ::Hash, Types::StartReportJobInput, context: context)
         type = Types::StartReportJobInput.new
         type.report_plan_name = params[:report_plan_name]
-        type.idempotency_token = params[:idempotency_token] || SecureRandom.uuid
+        type.idempotency_token = params[:idempotency_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -2284,7 +2284,7 @@ module AWS::SDK::Backup
         type.framework_name = params[:framework_name]
         type.framework_description = params[:framework_description]
         type.framework_controls = FrameworkControls.build(params[:framework_controls], context: "#{context}[:framework_controls]") unless params[:framework_controls].nil?
-        type.idempotency_token = params[:idempotency_token] || SecureRandom.uuid
+        type.idempotency_token = params[:idempotency_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -2366,7 +2366,7 @@ module AWS::SDK::Backup
         type.report_plan_description = params[:report_plan_description]
         type.report_delivery_channel = ReportDeliveryChannel.build(params[:report_delivery_channel], context: "#{context}[:report_delivery_channel]") unless params[:report_delivery_channel].nil?
         type.report_setting = ReportSetting.build(params[:report_setting], context: "#{context}[:report_setting]") unless params[:report_setting].nil?
-        type.idempotency_token = params[:idempotency_token] || SecureRandom.uuid
+        type.idempotency_token = params[:idempotency_token] || ::SecureRandom.uuid
         type
       end
     end

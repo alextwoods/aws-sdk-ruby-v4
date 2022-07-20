@@ -63,15 +63,15 @@ module AWS::SDK::CodestarNotifications
         {
           arn: 'arn',
           name: 'name',
-          event_types: Stubs::EventTypeBatch.default(visited),
+          event_types: EventTypeBatch.default(visited),
           resource: 'resource',
-          targets: Stubs::TargetsBatch.default(visited),
+          targets: TargetsBatch.default(visited),
           detail_type: 'detail_type',
           created_by: 'created_by',
           status: 'status',
           created_timestamp: Time.now,
           last_modified_timestamp: Time.now,
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -120,7 +120,7 @@ module AWS::SDK::CodestarNotifications
         return nil if visited.include?('TargetsBatch')
         visited = visited + ['TargetsBatch']
         [
-          Stubs::TargetSummary.default(visited)
+          TargetSummary.default(visited)
         ]
       end
 
@@ -162,7 +162,7 @@ module AWS::SDK::CodestarNotifications
         return nil if visited.include?('EventTypeBatch')
         visited = visited + ['EventTypeBatch']
         [
-          Stubs::EventTypeSummary.default(visited)
+          EventTypeSummary.default(visited)
         ]
       end
 
@@ -204,7 +204,7 @@ module AWS::SDK::CodestarNotifications
     class ListEventTypes
       def self.default(visited=[])
         {
-          event_types: Stubs::EventTypeBatch.default(visited),
+          event_types: EventTypeBatch.default(visited),
           next_token: 'next_token',
         }
       end
@@ -224,7 +224,7 @@ module AWS::SDK::CodestarNotifications
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          notification_rules: Stubs::NotificationRuleBatch.default(visited),
+          notification_rules: NotificationRuleBatch.default(visited),
         }
       end
 
@@ -244,7 +244,7 @@ module AWS::SDK::CodestarNotifications
         return nil if visited.include?('NotificationRuleBatch')
         visited = visited + ['NotificationRuleBatch']
         [
-          Stubs::NotificationRuleSummary.default(visited)
+          NotificationRuleSummary.default(visited)
         ]
       end
 
@@ -282,7 +282,7 @@ module AWS::SDK::CodestarNotifications
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -299,7 +299,7 @@ module AWS::SDK::CodestarNotifications
     class ListTargets
       def self.default(visited=[])
         {
-          targets: Stubs::TargetsBatch.default(visited),
+          targets: TargetsBatch.default(visited),
           next_token: 'next_token',
         }
       end
@@ -335,7 +335,7 @@ module AWS::SDK::CodestarNotifications
     class TagResource
       def self.default(visited=[])
         {
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 

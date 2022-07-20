@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::Cloud9
   module Validators
 
@@ -57,7 +59,7 @@ module AWS::SDK::Cloud9
         Hearth::Validator.validate!(input[:image_id], ::String, context: "#{context}[:image_id]")
         Hearth::Validator.validate!(input[:automatic_stop_time_minutes], ::Integer, context: "#{context}[:automatic_stop_time_minutes]")
         Hearth::Validator.validate!(input[:owner_arn], ::String, context: "#{context}[:owner_arn]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:connection_type], ::String, context: "#{context}[:connection_type]")
         Hearth::Validator.validate!(input[:dry_run], ::TrueClass, ::FalseClass, context: "#{context}[:dry_run]")
       end
@@ -82,7 +84,7 @@ module AWS::SDK::Cloud9
     class CreateEnvironmentMembershipOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateEnvironmentMembershipOutput, context: context)
-        Validators::EnvironmentMember.validate!(input[:membership], context: "#{context}[:membership]") unless input[:membership].nil?
+        EnvironmentMember.validate!(input[:membership], context: "#{context}[:membership]") unless input[:membership].nil?
       end
     end
 
@@ -118,7 +120,7 @@ module AWS::SDK::Cloud9
         Hearth::Validator.validate!(input, Types::DescribeEnvironmentMembershipsInput, context: context)
         Hearth::Validator.validate!(input[:user_arn], ::String, context: "#{context}[:user_arn]")
         Hearth::Validator.validate!(input[:environment_id], ::String, context: "#{context}[:environment_id]")
-        Validators::PermissionsList.validate!(input[:permissions], context: "#{context}[:permissions]") unless input[:permissions].nil?
+        PermissionsList.validate!(input[:permissions], context: "#{context}[:permissions]") unless input[:permissions].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
       end
@@ -127,7 +129,7 @@ module AWS::SDK::Cloud9
     class DescribeEnvironmentMembershipsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeEnvironmentMembershipsOutput, context: context)
-        Validators::EnvironmentMembersList.validate!(input[:memberships], context: "#{context}[:memberships]") unless input[:memberships].nil?
+        EnvironmentMembersList.validate!(input[:memberships], context: "#{context}[:memberships]") unless input[:memberships].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -150,14 +152,14 @@ module AWS::SDK::Cloud9
     class DescribeEnvironmentsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeEnvironmentsInput, context: context)
-        Validators::BoundedEnvironmentIdList.validate!(input[:environment_ids], context: "#{context}[:environment_ids]") unless input[:environment_ids].nil?
+        BoundedEnvironmentIdList.validate!(input[:environment_ids], context: "#{context}[:environment_ids]") unless input[:environment_ids].nil?
       end
     end
 
     class DescribeEnvironmentsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeEnvironmentsOutput, context: context)
-        Validators::EnvironmentList.validate!(input[:environments], context: "#{context}[:environments]") unless input[:environments].nil?
+        EnvironmentList.validate!(input[:environments], context: "#{context}[:environments]") unless input[:environments].nil?
       end
     end
 
@@ -171,7 +173,7 @@ module AWS::SDK::Cloud9
         Hearth::Validator.validate!(input[:connection_type], ::String, context: "#{context}[:connection_type]")
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:owner_arn], ::String, context: "#{context}[:owner_arn]")
-        Validators::EnvironmentLifecycle.validate!(input[:lifecycle], context: "#{context}[:lifecycle]") unless input[:lifecycle].nil?
+        EnvironmentLifecycle.validate!(input[:lifecycle], context: "#{context}[:lifecycle]") unless input[:lifecycle].nil?
         Hearth::Validator.validate!(input[:managed_credentials_status], ::String, context: "#{context}[:managed_credentials_status]")
       end
     end
@@ -198,7 +200,7 @@ module AWS::SDK::Cloud9
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Environment.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Environment.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -218,7 +220,7 @@ module AWS::SDK::Cloud9
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EnvironmentMember.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EnvironmentMember.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -262,7 +264,7 @@ module AWS::SDK::Cloud9
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListEnvironmentsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::EnvironmentIdList.validate!(input[:environment_ids], context: "#{context}[:environment_ids]") unless input[:environment_ids].nil?
+        EnvironmentIdList.validate!(input[:environment_ids], context: "#{context}[:environment_ids]") unless input[:environment_ids].nil?
       end
     end
 
@@ -276,7 +278,7 @@ module AWS::SDK::Cloud9
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -319,7 +321,7 @@ module AWS::SDK::Cloud9
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -328,7 +330,7 @@ module AWS::SDK::Cloud9
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -351,7 +353,7 @@ module AWS::SDK::Cloud9
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -383,7 +385,7 @@ module AWS::SDK::Cloud9
     class UpdateEnvironmentMembershipOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateEnvironmentMembershipOutput, context: context)
-        Validators::EnvironmentMember.validate!(input[:membership], context: "#{context}[:membership]") unless input[:membership].nil?
+        EnvironmentMember.validate!(input[:membership], context: "#{context}[:membership]") unless input[:membership].nil?
       end
     end
 

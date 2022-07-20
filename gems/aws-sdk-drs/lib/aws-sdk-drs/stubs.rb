@@ -14,7 +14,7 @@ module AWS::SDK::Drs
     class CreateExtendedSourceServer
       def self.default(visited=[])
         {
-          source_server: Stubs::SourceServer.default(visited),
+          source_server: SourceServer.default(visited),
         }
       end
 
@@ -35,13 +35,13 @@ module AWS::SDK::Drs
         {
           source_server_id: 'source_server_id',
           arn: 'arn',
-          tags: Stubs::TagsMap.default(visited),
+          tags: TagsMap.default(visited),
           recovery_instance_id: 'recovery_instance_id',
           last_launch_result: 'last_launch_result',
-          data_replication_info: Stubs::DataReplicationInfo.default(visited),
-          life_cycle: Stubs::LifeCycle.default(visited),
-          source_properties: Stubs::SourceProperties.default(visited),
-          staging_area: Stubs::StagingArea.default(visited),
+          data_replication_info: DataReplicationInfo.default(visited),
+          life_cycle: LifeCycle.default(visited),
+          source_properties: SourceProperties.default(visited),
+          staging_area: StagingArea.default(visited),
         }
       end
 
@@ -93,12 +93,12 @@ module AWS::SDK::Drs
         {
           last_updated_date_time: 'last_updated_date_time',
           recommended_instance_type: 'recommended_instance_type',
-          identification_hints: Stubs::IdentificationHints.default(visited),
-          network_interfaces: Stubs::NetworkInterfaces.default(visited),
-          disks: Stubs::Disks.default(visited),
-          cpus: Stubs::Cpus.default(visited),
+          identification_hints: IdentificationHints.default(visited),
+          network_interfaces: NetworkInterfaces.default(visited),
+          disks: Disks.default(visited),
+          cpus: Cpus.default(visited),
           ram_bytes: 1,
-          os: Stubs::OS.default(visited),
+          os: OS.default(visited),
         }
       end
 
@@ -141,7 +141,7 @@ module AWS::SDK::Drs
         return nil if visited.include?('Cpus')
         visited = visited + ['Cpus']
         [
-          Stubs::CPU.default(visited)
+          CPU.default(visited)
         ]
       end
 
@@ -181,7 +181,7 @@ module AWS::SDK::Drs
         return nil if visited.include?('Disks')
         visited = visited + ['Disks']
         [
-          Stubs::Disk.default(visited)
+          Disk.default(visited)
         ]
       end
 
@@ -221,7 +221,7 @@ module AWS::SDK::Drs
         return nil if visited.include?('NetworkInterfaces')
         visited = visited + ['NetworkInterfaces']
         [
-          Stubs::NetworkInterface.default(visited)
+          NetworkInterface.default(visited)
         ]
       end
 
@@ -242,7 +242,7 @@ module AWS::SDK::Drs
         visited = visited + ['NetworkInterface']
         {
           mac_address: 'mac_address',
-          ips: Stubs::IPsList.default(visited),
+          ips: IPsList.default(visited),
           is_primary: false,
         }
       end
@@ -311,7 +311,7 @@ module AWS::SDK::Drs
           first_byte_date_time: 'first_byte_date_time',
           elapsed_replication_duration: 'elapsed_replication_duration',
           last_seen_by_service_date_time: 'last_seen_by_service_date_time',
-          last_launch: Stubs::LifeCycleLastLaunch.default(visited),
+          last_launch: LifeCycleLastLaunch.default(visited),
         }
       end
 
@@ -333,7 +333,7 @@ module AWS::SDK::Drs
         return nil if visited.include?('LifeCycleLastLaunch')
         visited = visited + ['LifeCycleLastLaunch']
         {
-          initiated: Stubs::LifeCycleLastLaunchInitiated.default(visited),
+          initiated: LifeCycleLastLaunchInitiated.default(visited),
         }
       end
 
@@ -375,10 +375,10 @@ module AWS::SDK::Drs
         {
           lag_duration: 'lag_duration',
           eta_date_time: 'eta_date_time',
-          replicated_disks: Stubs::DataReplicationInfoReplicatedDisks.default(visited),
+          replicated_disks: DataReplicationInfoReplicatedDisks.default(visited),
           data_replication_state: 'data_replication_state',
-          data_replication_initiation: Stubs::DataReplicationInitiation.default(visited),
-          data_replication_error: Stubs::DataReplicationError.default(visited),
+          data_replication_initiation: DataReplicationInitiation.default(visited),
+          data_replication_error: DataReplicationError.default(visited),
         }
       end
 
@@ -423,7 +423,7 @@ module AWS::SDK::Drs
         {
           start_date_time: 'start_date_time',
           next_attempt_date_time: 'next_attempt_date_time',
-          steps: Stubs::DataReplicationInitiationSteps.default(visited),
+          steps: DataReplicationInitiationSteps.default(visited),
         }
       end
 
@@ -443,7 +443,7 @@ module AWS::SDK::Drs
         return nil if visited.include?('DataReplicationInitiationSteps')
         visited = visited + ['DataReplicationInitiationSteps']
         [
-          Stubs::DataReplicationInitiationStep.default(visited)
+          DataReplicationInitiationStep.default(visited)
         ]
       end
 
@@ -483,7 +483,7 @@ module AWS::SDK::Drs
         return nil if visited.include?('DataReplicationInfoReplicatedDisks')
         visited = visited + ['DataReplicationInfoReplicatedDisks']
         [
-          Stubs::DataReplicationInfoReplicatedDisk.default(visited)
+          DataReplicationInfoReplicatedDisk.default(visited)
         ]
       end
 
@@ -551,7 +551,7 @@ module AWS::SDK::Drs
           arn: 'arn',
           staging_area_subnet_id: 'staging_area_subnet_id',
           associate_default_security_group: false,
-          replication_servers_security_groups_i_ds: Stubs::ReplicationServersSecurityGroupsIDs.default(visited),
+          replication_servers_security_groups_i_ds: ReplicationServersSecurityGroupsIDs.default(visited),
           replication_server_instance_type: 'replication_server_instance_type',
           use_dedicated_replication_server: false,
           default_large_staging_disk_type: 'default_large_staging_disk_type',
@@ -560,9 +560,9 @@ module AWS::SDK::Drs
           bandwidth_throttling: 1,
           data_plane_routing: 'data_plane_routing',
           create_public_ip: false,
-          staging_area_tags: Stubs::TagsMap.default(visited),
-          tags: Stubs::TagsMap.default(visited),
-          pit_policy: Stubs::PITPolicy.default(visited),
+          staging_area_tags: TagsMap.default(visited),
+          tags: TagsMap.default(visited),
+          pit_policy: PITPolicy.default(visited),
         }
       end
 
@@ -596,7 +596,7 @@ module AWS::SDK::Drs
         return nil if visited.include?('PITPolicy')
         visited = visited + ['PITPolicy']
         [
-          Stubs::PITPolicyRule.default(visited)
+          PITPolicyRule.default(visited)
         ]
       end
 
@@ -712,7 +712,7 @@ module AWS::SDK::Drs
     class DescribeJobLogItems
       def self.default(visited=[])
         {
-          items: Stubs::JobLogs.default(visited),
+          items: JobLogs.default(visited),
           next_token: 'next_token',
         }
       end
@@ -733,7 +733,7 @@ module AWS::SDK::Drs
         return nil if visited.include?('JobLogs')
         visited = visited + ['JobLogs']
         [
-          Stubs::JobLog.default(visited)
+          JobLog.default(visited)
         ]
       end
 
@@ -755,7 +755,7 @@ module AWS::SDK::Drs
         {
           log_date_time: 'log_date_time',
           event: 'event',
-          event_data: Stubs::JobLogEventData.default(visited),
+          event_data: JobLogEventData.default(visited),
         }
       end
 
@@ -779,7 +779,7 @@ module AWS::SDK::Drs
           conversion_server_id: 'conversion_server_id',
           target_instance_id: 'target_instance_id',
           raw_error: 'raw_error',
-          conversion_properties: Stubs::ConversionProperties.default(visited),
+          conversion_properties: ConversionProperties.default(visited),
         }
       end
 
@@ -801,11 +801,11 @@ module AWS::SDK::Drs
         return nil if visited.include?('ConversionProperties')
         visited = visited + ['ConversionProperties']
         {
-          volume_to_conversion_map: Stubs::VolumeToConversionMap.default(visited),
+          volume_to_conversion_map: VolumeToConversionMap.default(visited),
           root_volume_name: 'root_volume_name',
           force_uefi: false,
           data_timestamp: 'data_timestamp',
-          volume_to_volume_size: Stubs::VolumeToSizeMap.default(visited),
+          volume_to_volume_size: VolumeToSizeMap.default(visited),
         }
       end
 
@@ -847,7 +847,7 @@ module AWS::SDK::Drs
         return nil if visited.include?('VolumeToConversionMap')
         visited = visited + ['VolumeToConversionMap']
         {
-          test_key: Stubs::ConversionMap.default(visited)
+          test_key: ConversionMap.default(visited)
         }
       end
 
@@ -885,7 +885,7 @@ module AWS::SDK::Drs
     class DescribeJobs
       def self.default(visited=[])
         {
-          items: Stubs::JobsList.default(visited),
+          items: JobsList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -906,7 +906,7 @@ module AWS::SDK::Drs
         return nil if visited.include?('JobsList')
         visited = visited + ['JobsList']
         [
-          Stubs::Job.default(visited)
+          Job.default(visited)
         ]
       end
 
@@ -933,8 +933,8 @@ module AWS::SDK::Drs
           creation_date_time: 'creation_date_time',
           end_date_time: 'end_date_time',
           status: 'status',
-          participating_servers: Stubs::ParticipatingServers.default(visited),
-          tags: Stubs::TagsMap.default(visited),
+          participating_servers: ParticipatingServers.default(visited),
+          tags: TagsMap.default(visited),
         }
       end
 
@@ -960,7 +960,7 @@ module AWS::SDK::Drs
         return nil if visited.include?('ParticipatingServers')
         visited = visited + ['ParticipatingServers']
         [
-          Stubs::ParticipatingServer.default(visited)
+          ParticipatingServer.default(visited)
         ]
       end
 
@@ -1001,7 +1001,7 @@ module AWS::SDK::Drs
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          items: Stubs::DescribeRecoveryInstancesItems.default(visited),
+          items: DescribeRecoveryInstancesItems.default(visited),
         }
       end
 
@@ -1021,7 +1021,7 @@ module AWS::SDK::Drs
         return nil if visited.include?('DescribeRecoveryInstancesItems')
         visited = visited + ['DescribeRecoveryInstancesItems']
         [
-          Stubs::RecoveryInstance.default(visited)
+          RecoveryInstance.default(visited)
         ]
       end
 
@@ -1047,10 +1047,10 @@ module AWS::SDK::Drs
           recovery_instance_id: 'recovery_instance_id',
           source_server_id: 'source_server_id',
           arn: 'arn',
-          tags: Stubs::TagsMap.default(visited),
-          failback: Stubs::RecoveryInstanceFailback.default(visited),
-          data_replication_info: Stubs::RecoveryInstanceDataReplicationInfo.default(visited),
-          recovery_instance_properties: Stubs::RecoveryInstanceProperties.default(visited),
+          tags: TagsMap.default(visited),
+          failback: RecoveryInstanceFailback.default(visited),
+          data_replication_info: RecoveryInstanceDataReplicationInfo.default(visited),
+          recovery_instance_properties: RecoveryInstanceProperties.default(visited),
           point_in_time_snapshot_date_time: 'point_in_time_snapshot_date_time',
           is_drill: false,
         }
@@ -1082,12 +1082,12 @@ module AWS::SDK::Drs
         visited = visited + ['RecoveryInstanceProperties']
         {
           last_updated_date_time: 'last_updated_date_time',
-          identification_hints: Stubs::IdentificationHints.default(visited),
-          network_interfaces: Stubs::NetworkInterfaces.default(visited),
-          disks: Stubs::RecoveryInstanceDisks.default(visited),
-          cpus: Stubs::Cpus.default(visited),
+          identification_hints: IdentificationHints.default(visited),
+          network_interfaces: NetworkInterfaces.default(visited),
+          disks: RecoveryInstanceDisks.default(visited),
+          cpus: Cpus.default(visited),
           ram_bytes: 1,
-          os: Stubs::OS.default(visited),
+          os: OS.default(visited),
         }
       end
 
@@ -1111,7 +1111,7 @@ module AWS::SDK::Drs
         return nil if visited.include?('RecoveryInstanceDisks')
         visited = visited + ['RecoveryInstanceDisks']
         [
-          Stubs::RecoveryInstanceDisk.default(visited)
+          RecoveryInstanceDisk.default(visited)
         ]
       end
 
@@ -1155,10 +1155,10 @@ module AWS::SDK::Drs
         {
           lag_duration: 'lag_duration',
           eta_date_time: 'eta_date_time',
-          replicated_disks: Stubs::RecoveryInstanceDataReplicationInfoReplicatedDisks.default(visited),
+          replicated_disks: RecoveryInstanceDataReplicationInfoReplicatedDisks.default(visited),
           data_replication_state: 'data_replication_state',
-          data_replication_initiation: Stubs::RecoveryInstanceDataReplicationInitiation.default(visited),
-          data_replication_error: Stubs::RecoveryInstanceDataReplicationError.default(visited),
+          data_replication_initiation: RecoveryInstanceDataReplicationInitiation.default(visited),
+          data_replication_error: RecoveryInstanceDataReplicationError.default(visited),
         }
       end
 
@@ -1202,7 +1202,7 @@ module AWS::SDK::Drs
         visited = visited + ['RecoveryInstanceDataReplicationInitiation']
         {
           start_date_time: 'start_date_time',
-          steps: Stubs::RecoveryInstanceDataReplicationInitiationSteps.default(visited),
+          steps: RecoveryInstanceDataReplicationInitiationSteps.default(visited),
         }
       end
 
@@ -1221,7 +1221,7 @@ module AWS::SDK::Drs
         return nil if visited.include?('RecoveryInstanceDataReplicationInitiationSteps')
         visited = visited + ['RecoveryInstanceDataReplicationInitiationSteps']
         [
-          Stubs::RecoveryInstanceDataReplicationInitiationStep.default(visited)
+          RecoveryInstanceDataReplicationInitiationStep.default(visited)
         ]
       end
 
@@ -1261,7 +1261,7 @@ module AWS::SDK::Drs
         return nil if visited.include?('RecoveryInstanceDataReplicationInfoReplicatedDisks')
         visited = visited + ['RecoveryInstanceDataReplicationInfoReplicatedDisks']
         [
-          Stubs::RecoveryInstanceDataReplicationInfoReplicatedDisk.default(visited)
+          RecoveryInstanceDataReplicationInfoReplicatedDisk.default(visited)
         ]
       end
 
@@ -1339,7 +1339,7 @@ module AWS::SDK::Drs
     class DescribeRecoverySnapshots
       def self.default(visited=[])
         {
-          items: Stubs::RecoverySnapshotsList.default(visited),
+          items: RecoverySnapshotsList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1360,7 +1360,7 @@ module AWS::SDK::Drs
         return nil if visited.include?('RecoverySnapshotsList')
         visited = visited + ['RecoverySnapshotsList']
         [
-          Stubs::RecoverySnapshot.default(visited)
+          RecoverySnapshot.default(visited)
         ]
       end
 
@@ -1384,7 +1384,7 @@ module AWS::SDK::Drs
           source_server_id: 'source_server_id',
           expected_timestamp: 'expected_timestamp',
           timestamp: 'timestamp',
-          ebs_snapshots: Stubs::EbsSnapshotsList.default(visited),
+          ebs_snapshots: EbsSnapshotsList.default(visited),
         }
       end
 
@@ -1424,7 +1424,7 @@ module AWS::SDK::Drs
     class DescribeReplicationConfigurationTemplates
       def self.default(visited=[])
         {
-          items: Stubs::ReplicationConfigurationTemplates.default(visited),
+          items: ReplicationConfigurationTemplates.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1445,7 +1445,7 @@ module AWS::SDK::Drs
         return nil if visited.include?('ReplicationConfigurationTemplates')
         visited = visited + ['ReplicationConfigurationTemplates']
         [
-          Stubs::ReplicationConfigurationTemplate.default(visited)
+          ReplicationConfigurationTemplate.default(visited)
         ]
       end
 
@@ -1469,7 +1469,7 @@ module AWS::SDK::Drs
           arn: 'arn',
           staging_area_subnet_id: 'staging_area_subnet_id',
           associate_default_security_group: false,
-          replication_servers_security_groups_i_ds: Stubs::ReplicationServersSecurityGroupsIDs.default(visited),
+          replication_servers_security_groups_i_ds: ReplicationServersSecurityGroupsIDs.default(visited),
           replication_server_instance_type: 'replication_server_instance_type',
           use_dedicated_replication_server: false,
           default_large_staging_disk_type: 'default_large_staging_disk_type',
@@ -1478,9 +1478,9 @@ module AWS::SDK::Drs
           bandwidth_throttling: 1,
           data_plane_routing: 'data_plane_routing',
           create_public_ip: false,
-          staging_area_tags: Stubs::TagsMap.default(visited),
-          tags: Stubs::TagsMap.default(visited),
-          pit_policy: Stubs::PITPolicy.default(visited),
+          staging_area_tags: TagsMap.default(visited),
+          tags: TagsMap.default(visited),
+          pit_policy: PITPolicy.default(visited),
         }
       end
 
@@ -1511,7 +1511,7 @@ module AWS::SDK::Drs
     class DescribeSourceServers
       def self.default(visited=[])
         {
-          items: Stubs::SourceServersList.default(visited),
+          items: SourceServersList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1532,7 +1532,7 @@ module AWS::SDK::Drs
         return nil if visited.include?('SourceServersList')
         visited = visited + ['SourceServersList']
         [
-          Stubs::SourceServer.default(visited)
+          SourceServer.default(visited)
         ]
       end
 
@@ -1565,13 +1565,13 @@ module AWS::SDK::Drs
         {
           source_server_id: 'source_server_id',
           arn: 'arn',
-          tags: Stubs::TagsMap.default(visited),
+          tags: TagsMap.default(visited),
           recovery_instance_id: 'recovery_instance_id',
           last_launch_result: 'last_launch_result',
-          data_replication_info: Stubs::DataReplicationInfo.default(visited),
-          life_cycle: Stubs::LifeCycle.default(visited),
-          source_properties: Stubs::SourceProperties.default(visited),
-          staging_area: Stubs::StagingArea.default(visited),
+          data_replication_info: DataReplicationInfo.default(visited),
+          life_cycle: LifeCycle.default(visited),
+          source_properties: SourceProperties.default(visited),
+          staging_area: StagingArea.default(visited),
         }
       end
 
@@ -1626,7 +1626,7 @@ module AWS::SDK::Drs
           target_instance_type_right_sizing_method: 'target_instance_type_right_sizing_method',
           copy_private_ip: false,
           copy_tags: false,
-          licensing: Stubs::Licensing.default(visited),
+          licensing: Licensing.default(visited),
         }
       end
 
@@ -1672,18 +1672,18 @@ module AWS::SDK::Drs
           name: 'name',
           staging_area_subnet_id: 'staging_area_subnet_id',
           associate_default_security_group: false,
-          replication_servers_security_groups_i_ds: Stubs::ReplicationServersSecurityGroupsIDs.default(visited),
+          replication_servers_security_groups_i_ds: ReplicationServersSecurityGroupsIDs.default(visited),
           replication_server_instance_type: 'replication_server_instance_type',
           use_dedicated_replication_server: false,
           default_large_staging_disk_type: 'default_large_staging_disk_type',
-          replicated_disks: Stubs::ReplicationConfigurationReplicatedDisks.default(visited),
+          replicated_disks: ReplicationConfigurationReplicatedDisks.default(visited),
           ebs_encryption: 'ebs_encryption',
           ebs_encryption_key_arn: 'ebs_encryption_key_arn',
           bandwidth_throttling: 1,
           data_plane_routing: 'data_plane_routing',
           create_public_ip: false,
-          staging_area_tags: Stubs::TagsMap.default(visited),
-          pit_policy: Stubs::PITPolicy.default(visited),
+          staging_area_tags: TagsMap.default(visited),
+          pit_policy: PITPolicy.default(visited),
         }
       end
 
@@ -1717,7 +1717,7 @@ module AWS::SDK::Drs
         return nil if visited.include?('ReplicationConfigurationReplicatedDisks')
         visited = visited + ['ReplicationConfigurationReplicatedDisks']
         [
-          Stubs::ReplicationConfigurationReplicatedDisk.default(visited)
+          ReplicationConfigurationReplicatedDisk.default(visited)
         ]
       end
 
@@ -1774,7 +1774,7 @@ module AWS::SDK::Drs
     class ListExtensibleSourceServers
       def self.default(visited=[])
         {
-          items: Stubs::StagingSourceServersList.default(visited),
+          items: StagingSourceServersList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1795,7 +1795,7 @@ module AWS::SDK::Drs
         return nil if visited.include?('StagingSourceServersList')
         visited = visited + ['StagingSourceServersList']
         [
-          Stubs::StagingSourceServer.default(visited)
+          StagingSourceServer.default(visited)
         ]
       end
 
@@ -1817,7 +1817,7 @@ module AWS::SDK::Drs
         {
           hostname: 'hostname',
           arn: 'arn',
-          tags: Stubs::TagsMap.default(visited),
+          tags: TagsMap.default(visited),
         }
       end
 
@@ -1835,7 +1835,7 @@ module AWS::SDK::Drs
     class ListStagingAccounts
       def self.default(visited=[])
         {
-          accounts: Stubs::Accounts.default(visited),
+          accounts: Accounts.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1856,7 +1856,7 @@ module AWS::SDK::Drs
         return nil if visited.include?('Accounts')
         visited = visited + ['Accounts']
         [
-          Stubs::Account.default(visited)
+          Account.default(visited)
         ]
       end
 
@@ -1892,7 +1892,7 @@ module AWS::SDK::Drs
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagsMap.default(visited),
+          tags: TagsMap.default(visited),
         }
       end
 
@@ -1911,13 +1911,13 @@ module AWS::SDK::Drs
         {
           source_server_id: 'source_server_id',
           arn: 'arn',
-          tags: Stubs::TagsMap.default(visited),
+          tags: TagsMap.default(visited),
           recovery_instance_id: 'recovery_instance_id',
           last_launch_result: 'last_launch_result',
-          data_replication_info: Stubs::DataReplicationInfo.default(visited),
-          life_cycle: Stubs::LifeCycle.default(visited),
-          source_properties: Stubs::SourceProperties.default(visited),
-          staging_area: Stubs::StagingArea.default(visited),
+          data_replication_info: DataReplicationInfo.default(visited),
+          life_cycle: LifeCycle.default(visited),
+          source_properties: SourceProperties.default(visited),
+          staging_area: StagingArea.default(visited),
         }
       end
 
@@ -1942,7 +1942,7 @@ module AWS::SDK::Drs
     class StartFailbackLaunch
       def self.default(visited=[])
         {
-          job: Stubs::Job.default(visited),
+          job: Job.default(visited),
         }
       end
 
@@ -1959,7 +1959,7 @@ module AWS::SDK::Drs
     class StartRecovery
       def self.default(visited=[])
         {
-          job: Stubs::Job.default(visited),
+          job: Job.default(visited),
         }
       end
 
@@ -2002,7 +2002,7 @@ module AWS::SDK::Drs
     class TerminateRecoveryInstances
       def self.default(visited=[])
         {
-          job: Stubs::Job.default(visited),
+          job: Job.default(visited),
         }
       end
 
@@ -2052,7 +2052,7 @@ module AWS::SDK::Drs
           target_instance_type_right_sizing_method: 'target_instance_type_right_sizing_method',
           copy_private_ip: false,
           copy_tags: false,
-          licensing: Stubs::Licensing.default(visited),
+          licensing: Licensing.default(visited),
         }
       end
 
@@ -2080,18 +2080,18 @@ module AWS::SDK::Drs
           name: 'name',
           staging_area_subnet_id: 'staging_area_subnet_id',
           associate_default_security_group: false,
-          replication_servers_security_groups_i_ds: Stubs::ReplicationServersSecurityGroupsIDs.default(visited),
+          replication_servers_security_groups_i_ds: ReplicationServersSecurityGroupsIDs.default(visited),
           replication_server_instance_type: 'replication_server_instance_type',
           use_dedicated_replication_server: false,
           default_large_staging_disk_type: 'default_large_staging_disk_type',
-          replicated_disks: Stubs::ReplicationConfigurationReplicatedDisks.default(visited),
+          replicated_disks: ReplicationConfigurationReplicatedDisks.default(visited),
           ebs_encryption: 'ebs_encryption',
           ebs_encryption_key_arn: 'ebs_encryption_key_arn',
           bandwidth_throttling: 1,
           data_plane_routing: 'data_plane_routing',
           create_public_ip: false,
-          staging_area_tags: Stubs::TagsMap.default(visited),
-          pit_policy: Stubs::PITPolicy.default(visited),
+          staging_area_tags: TagsMap.default(visited),
+          pit_policy: PITPolicy.default(visited),
         }
       end
 
@@ -2127,7 +2127,7 @@ module AWS::SDK::Drs
           arn: 'arn',
           staging_area_subnet_id: 'staging_area_subnet_id',
           associate_default_security_group: false,
-          replication_servers_security_groups_i_ds: Stubs::ReplicationServersSecurityGroupsIDs.default(visited),
+          replication_servers_security_groups_i_ds: ReplicationServersSecurityGroupsIDs.default(visited),
           replication_server_instance_type: 'replication_server_instance_type',
           use_dedicated_replication_server: false,
           default_large_staging_disk_type: 'default_large_staging_disk_type',
@@ -2136,9 +2136,9 @@ module AWS::SDK::Drs
           bandwidth_throttling: 1,
           data_plane_routing: 'data_plane_routing',
           create_public_ip: false,
-          staging_area_tags: Stubs::TagsMap.default(visited),
-          tags: Stubs::TagsMap.default(visited),
-          pit_policy: Stubs::PITPolicy.default(visited),
+          staging_area_tags: TagsMap.default(visited),
+          tags: TagsMap.default(visited),
+          pit_policy: PITPolicy.default(visited),
         }
       end
 

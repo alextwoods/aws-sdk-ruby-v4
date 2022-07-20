@@ -64,7 +64,7 @@ module AWS::SDK::Translate
     class DescribeTextTranslationJob
       def self.default(visited=[])
         {
-          text_translation_job_properties: Stubs::TextTranslationJobProperties.default(visited),
+          text_translation_job_properties: TextTranslationJobProperties.default(visited),
         }
       end
 
@@ -85,18 +85,18 @@ module AWS::SDK::Translate
           job_id: 'job_id',
           job_name: 'job_name',
           job_status: 'job_status',
-          job_details: Stubs::JobDetails.default(visited),
+          job_details: JobDetails.default(visited),
           source_language_code: 'source_language_code',
-          target_language_codes: Stubs::TargetLanguageCodeStringList.default(visited),
-          terminology_names: Stubs::ResourceNameList.default(visited),
-          parallel_data_names: Stubs::ResourceNameList.default(visited),
+          target_language_codes: TargetLanguageCodeStringList.default(visited),
+          terminology_names: ResourceNameList.default(visited),
+          parallel_data_names: ResourceNameList.default(visited),
           message: 'message',
           submitted_time: Time.now,
           end_time: Time.now,
-          input_data_config: Stubs::InputDataConfig.default(visited),
-          output_data_config: Stubs::OutputDataConfig.default(visited),
+          input_data_config: InputDataConfig.default(visited),
+          output_data_config: OutputDataConfig.default(visited),
           data_access_role_arn: 'data_access_role_arn',
-          settings: Stubs::TranslationSettings.default(visited),
+          settings: TranslationSettings.default(visited),
         }
       end
 
@@ -149,7 +149,7 @@ module AWS::SDK::Translate
         visited = visited + ['OutputDataConfig']
         {
           s3_uri: 's3_uri',
-          encryption_key: Stubs::EncryptionKey.default(visited),
+          encryption_key: EncryptionKey.default(visited),
         }
       end
 
@@ -268,10 +268,10 @@ module AWS::SDK::Translate
     class GetParallelData
       def self.default(visited=[])
         {
-          parallel_data_properties: Stubs::ParallelDataProperties.default(visited),
-          data_location: Stubs::ParallelDataDataLocation.default(visited),
-          auxiliary_data_location: Stubs::ParallelDataDataLocation.default(visited),
-          latest_update_attempt_auxiliary_data_location: Stubs::ParallelDataDataLocation.default(visited),
+          parallel_data_properties: ParallelDataProperties.default(visited),
+          data_location: ParallelDataDataLocation.default(visited),
+          auxiliary_data_location: ParallelDataDataLocation.default(visited),
+          latest_update_attempt_auxiliary_data_location: ParallelDataDataLocation.default(visited),
         }
       end
 
@@ -317,14 +317,14 @@ module AWS::SDK::Translate
           description: 'description',
           status: 'status',
           source_language_code: 'source_language_code',
-          target_language_codes: Stubs::LanguageCodeStringList.default(visited),
-          parallel_data_config: Stubs::ParallelDataConfig.default(visited),
+          target_language_codes: LanguageCodeStringList.default(visited),
+          parallel_data_config: ParallelDataConfig.default(visited),
           message: 'message',
           imported_data_size: 1,
           imported_record_count: 1,
           failed_record_count: 1,
           skipped_record_count: 1,
-          encryption_key: Stubs::EncryptionKey.default(visited),
+          encryption_key: EncryptionKey.default(visited),
           created_at: Time.now,
           last_updated_at: Time.now,
           latest_update_attempt_status: 'latest_update_attempt_status',
@@ -400,9 +400,9 @@ module AWS::SDK::Translate
     class GetTerminology
       def self.default(visited=[])
         {
-          terminology_properties: Stubs::TerminologyProperties.default(visited),
-          terminology_data_location: Stubs::TerminologyDataLocation.default(visited),
-          auxiliary_data_location: Stubs::TerminologyDataLocation.default(visited),
+          terminology_properties: TerminologyProperties.default(visited),
+          terminology_data_location: TerminologyDataLocation.default(visited),
+          auxiliary_data_location: TerminologyDataLocation.default(visited),
         }
       end
 
@@ -446,8 +446,8 @@ module AWS::SDK::Translate
           description: 'description',
           arn: 'arn',
           source_language_code: 'source_language_code',
-          target_language_codes: Stubs::LanguageCodeStringList.default(visited),
-          encryption_key: Stubs::EncryptionKey.default(visited),
+          target_language_codes: LanguageCodeStringList.default(visited),
+          encryption_key: EncryptionKey.default(visited),
           size_bytes: 1,
           term_count: 1,
           created_at: Time.now,
@@ -484,8 +484,8 @@ module AWS::SDK::Translate
     class ImportTerminology
       def self.default(visited=[])
         {
-          terminology_properties: Stubs::TerminologyProperties.default(visited),
-          auxiliary_data_location: Stubs::TerminologyDataLocation.default(visited),
+          terminology_properties: TerminologyProperties.default(visited),
+          auxiliary_data_location: TerminologyDataLocation.default(visited),
         }
       end
 
@@ -502,7 +502,7 @@ module AWS::SDK::Translate
     class ListParallelData
       def self.default(visited=[])
         {
-          parallel_data_properties_list: Stubs::ParallelDataPropertiesList.default(visited),
+          parallel_data_properties_list: ParallelDataPropertiesList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -522,7 +522,7 @@ module AWS::SDK::Translate
         return nil if visited.include?('ParallelDataPropertiesList')
         visited = visited + ['ParallelDataPropertiesList']
         [
-          Stubs::ParallelDataProperties.default(visited)
+          ParallelDataProperties.default(visited)
         ]
       end
 
@@ -540,7 +540,7 @@ module AWS::SDK::Translate
     class ListTerminologies
       def self.default(visited=[])
         {
-          terminology_properties_list: Stubs::TerminologyPropertiesList.default(visited),
+          terminology_properties_list: TerminologyPropertiesList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -560,7 +560,7 @@ module AWS::SDK::Translate
         return nil if visited.include?('TerminologyPropertiesList')
         visited = visited + ['TerminologyPropertiesList']
         [
-          Stubs::TerminologyProperties.default(visited)
+          TerminologyProperties.default(visited)
         ]
       end
 
@@ -578,7 +578,7 @@ module AWS::SDK::Translate
     class ListTextTranslationJobs
       def self.default(visited=[])
         {
-          text_translation_job_properties_list: Stubs::TextTranslationJobPropertiesList.default(visited),
+          text_translation_job_properties_list: TextTranslationJobPropertiesList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -598,7 +598,7 @@ module AWS::SDK::Translate
         return nil if visited.include?('TextTranslationJobPropertiesList')
         visited = visited + ['TextTranslationJobPropertiesList']
         [
-          Stubs::TextTranslationJobProperties.default(visited)
+          TextTranslationJobProperties.default(visited)
         ]
       end
 
@@ -655,8 +655,8 @@ module AWS::SDK::Translate
           translated_text: 'translated_text',
           source_language_code: 'source_language_code',
           target_language_code: 'target_language_code',
-          applied_terminologies: Stubs::AppliedTerminologyList.default(visited),
-          applied_settings: Stubs::TranslationSettings.default(visited),
+          applied_terminologies: AppliedTerminologyList.default(visited),
+          applied_settings: TranslationSettings.default(visited),
         }
       end
 
@@ -678,7 +678,7 @@ module AWS::SDK::Translate
         return nil if visited.include?('AppliedTerminologyList')
         visited = visited + ['AppliedTerminologyList']
         [
-          Stubs::AppliedTerminology.default(visited)
+          AppliedTerminology.default(visited)
         ]
       end
 
@@ -699,7 +699,7 @@ module AWS::SDK::Translate
         visited = visited + ['AppliedTerminology']
         {
           name: 'name',
-          terms: Stubs::TermList.default(visited),
+          terms: TermList.default(visited),
         }
       end
 
@@ -718,7 +718,7 @@ module AWS::SDK::Translate
         return nil if visited.include?('TermList')
         visited = visited + ['TermList']
         [
-          Stubs::Term.default(visited)
+          Term.default(visited)
         ]
       end
 

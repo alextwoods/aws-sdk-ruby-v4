@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::Snowball
   module Validators
 
@@ -34,7 +36,7 @@ module AWS::SDK::Snowball
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Address.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Address.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -86,7 +88,7 @@ module AWS::SDK::Snowball
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ClusterListEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ClusterListEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -102,13 +104,13 @@ module AWS::SDK::Snowball
         Hearth::Validator.validate!(input[:job_type], ::String, context: "#{context}[:job_type]")
         Hearth::Validator.validate!(input[:snowball_type], ::String, context: "#{context}[:snowball_type]")
         Hearth::Validator.validate!(input[:creation_date], ::Time, context: "#{context}[:creation_date]")
-        Validators::JobResource.validate!(input[:resources], context: "#{context}[:resources]") unless input[:resources].nil?
+        JobResource.validate!(input[:resources], context: "#{context}[:resources]") unless input[:resources].nil?
         Hearth::Validator.validate!(input[:address_id], ::String, context: "#{context}[:address_id]")
         Hearth::Validator.validate!(input[:shipping_option], ::String, context: "#{context}[:shipping_option]")
-        Validators::Notification.validate!(input[:notification], context: "#{context}[:notification]") unless input[:notification].nil?
+        Notification.validate!(input[:notification], context: "#{context}[:notification]") unless input[:notification].nil?
         Hearth::Validator.validate!(input[:forwarding_address_id], ::String, context: "#{context}[:forwarding_address_id]")
-        Validators::TaxDocuments.validate!(input[:tax_documents], context: "#{context}[:tax_documents]") unless input[:tax_documents].nil?
-        Validators::OnDeviceServiceConfiguration.validate!(input[:on_device_service_configuration], context: "#{context}[:on_device_service_configuration]") unless input[:on_device_service_configuration].nil?
+        TaxDocuments.validate!(input[:tax_documents], context: "#{context}[:tax_documents]") unless input[:tax_documents].nil?
+        OnDeviceServiceConfiguration.validate!(input[:on_device_service_configuration], context: "#{context}[:on_device_service_configuration]") unless input[:on_device_service_configuration].nil?
       end
     end
 
@@ -124,7 +126,7 @@ module AWS::SDK::Snowball
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CompatibleImage.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CompatibleImage.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -140,7 +142,7 @@ module AWS::SDK::Snowball
     class CreateAddressInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateAddressInput, context: context)
-        Validators::Address.validate!(input[:address], context: "#{context}[:address]") unless input[:address].nil?
+        Address.validate!(input[:address], context: "#{context}[:address]") unless input[:address].nil?
       end
     end
 
@@ -155,17 +157,17 @@ module AWS::SDK::Snowball
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateClusterInput, context: context)
         Hearth::Validator.validate!(input[:job_type], ::String, context: "#{context}[:job_type]")
-        Validators::JobResource.validate!(input[:resources], context: "#{context}[:resources]") unless input[:resources].nil?
-        Validators::OnDeviceServiceConfiguration.validate!(input[:on_device_service_configuration], context: "#{context}[:on_device_service_configuration]") unless input[:on_device_service_configuration].nil?
+        JobResource.validate!(input[:resources], context: "#{context}[:resources]") unless input[:resources].nil?
+        OnDeviceServiceConfiguration.validate!(input[:on_device_service_configuration], context: "#{context}[:on_device_service_configuration]") unless input[:on_device_service_configuration].nil?
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:address_id], ::String, context: "#{context}[:address_id]")
         Hearth::Validator.validate!(input[:kms_key_arn], ::String, context: "#{context}[:kms_key_arn]")
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
         Hearth::Validator.validate!(input[:snowball_type], ::String, context: "#{context}[:snowball_type]")
         Hearth::Validator.validate!(input[:shipping_option], ::String, context: "#{context}[:shipping_option]")
-        Validators::Notification.validate!(input[:notification], context: "#{context}[:notification]") unless input[:notification].nil?
+        Notification.validate!(input[:notification], context: "#{context}[:notification]") unless input[:notification].nil?
         Hearth::Validator.validate!(input[:forwarding_address_id], ::String, context: "#{context}[:forwarding_address_id]")
-        Validators::TaxDocuments.validate!(input[:tax_documents], context: "#{context}[:tax_documents]") unless input[:tax_documents].nil?
+        TaxDocuments.validate!(input[:tax_documents], context: "#{context}[:tax_documents]") unless input[:tax_documents].nil?
         Hearth::Validator.validate!(input[:remote_management], ::String, context: "#{context}[:remote_management]")
       end
     end
@@ -181,20 +183,20 @@ module AWS::SDK::Snowball
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateJobInput, context: context)
         Hearth::Validator.validate!(input[:job_type], ::String, context: "#{context}[:job_type]")
-        Validators::JobResource.validate!(input[:resources], context: "#{context}[:resources]") unless input[:resources].nil?
-        Validators::OnDeviceServiceConfiguration.validate!(input[:on_device_service_configuration], context: "#{context}[:on_device_service_configuration]") unless input[:on_device_service_configuration].nil?
+        JobResource.validate!(input[:resources], context: "#{context}[:resources]") unless input[:resources].nil?
+        OnDeviceServiceConfiguration.validate!(input[:on_device_service_configuration], context: "#{context}[:on_device_service_configuration]") unless input[:on_device_service_configuration].nil?
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:address_id], ::String, context: "#{context}[:address_id]")
         Hearth::Validator.validate!(input[:kms_key_arn], ::String, context: "#{context}[:kms_key_arn]")
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
         Hearth::Validator.validate!(input[:snowball_capacity_preference], ::String, context: "#{context}[:snowball_capacity_preference]")
         Hearth::Validator.validate!(input[:shipping_option], ::String, context: "#{context}[:shipping_option]")
-        Validators::Notification.validate!(input[:notification], context: "#{context}[:notification]") unless input[:notification].nil?
+        Notification.validate!(input[:notification], context: "#{context}[:notification]") unless input[:notification].nil?
         Hearth::Validator.validate!(input[:cluster_id], ::String, context: "#{context}[:cluster_id]")
         Hearth::Validator.validate!(input[:snowball_type], ::String, context: "#{context}[:snowball_type]")
         Hearth::Validator.validate!(input[:forwarding_address_id], ::String, context: "#{context}[:forwarding_address_id]")
-        Validators::TaxDocuments.validate!(input[:tax_documents], context: "#{context}[:tax_documents]") unless input[:tax_documents].nil?
-        Validators::DeviceConfiguration.validate!(input[:device_configuration], context: "#{context}[:device_configuration]") unless input[:device_configuration].nil?
+        TaxDocuments.validate!(input[:tax_documents], context: "#{context}[:tax_documents]") unless input[:tax_documents].nil?
+        DeviceConfiguration.validate!(input[:device_configuration], context: "#{context}[:device_configuration]") unless input[:device_configuration].nil?
         Hearth::Validator.validate!(input[:remote_management], ::String, context: "#{context}[:remote_management]")
         Hearth::Validator.validate!(input[:long_term_pricing_id], ::String, context: "#{context}[:long_term_pricing_id]")
       end
@@ -258,7 +260,7 @@ module AWS::SDK::Snowball
     class DescribeAddressOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeAddressOutput, context: context)
-        Validators::Address.validate!(input[:address], context: "#{context}[:address]") unless input[:address].nil?
+        Address.validate!(input[:address], context: "#{context}[:address]") unless input[:address].nil?
       end
     end
 
@@ -273,7 +275,7 @@ module AWS::SDK::Snowball
     class DescribeAddressesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeAddressesOutput, context: context)
-        Validators::AddressList.validate!(input[:addresses], context: "#{context}[:addresses]") unless input[:addresses].nil?
+        AddressList.validate!(input[:addresses], context: "#{context}[:addresses]") unless input[:addresses].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -288,7 +290,7 @@ module AWS::SDK::Snowball
     class DescribeClusterOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeClusterOutput, context: context)
-        Validators::ClusterMetadata.validate!(input[:cluster_metadata], context: "#{context}[:cluster_metadata]") unless input[:cluster_metadata].nil?
+        ClusterMetadata.validate!(input[:cluster_metadata], context: "#{context}[:cluster_metadata]") unless input[:cluster_metadata].nil?
       end
     end
 
@@ -302,8 +304,8 @@ module AWS::SDK::Snowball
     class DescribeJobOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeJobOutput, context: context)
-        Validators::JobMetadata.validate!(input[:job_metadata], context: "#{context}[:job_metadata]") unless input[:job_metadata].nil?
-        Validators::JobMetadataList.validate!(input[:sub_job_metadata], context: "#{context}[:sub_job_metadata]") unless input[:sub_job_metadata].nil?
+        JobMetadata.validate!(input[:job_metadata], context: "#{context}[:job_metadata]") unless input[:job_metadata].nil?
+        JobMetadataList.validate!(input[:sub_job_metadata], context: "#{context}[:sub_job_metadata]") unless input[:sub_job_metadata].nil?
       end
     end
 
@@ -326,7 +328,7 @@ module AWS::SDK::Snowball
     class DeviceConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeviceConfiguration, context: context)
-        Validators::SnowconeDeviceConfiguration.validate!(input[:snowcone_device_configuration], context: "#{context}[:snowcone_device_configuration]") unless input[:snowcone_device_configuration].nil?
+        SnowconeDeviceConfiguration.validate!(input[:snowcone_device_configuration], context: "#{context}[:snowcone_device_configuration]") unless input[:snowcone_device_configuration].nil?
       end
     end
 
@@ -342,7 +344,7 @@ module AWS::SDK::Snowball
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Ec2AmiResource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Ec2AmiResource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -365,7 +367,7 @@ module AWS::SDK::Snowball
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EventTriggerDefinition.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EventTriggerDefinition.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -486,7 +488,7 @@ module AWS::SDK::Snowball
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::JobListEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          JobListEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -508,23 +510,23 @@ module AWS::SDK::Snowball
         Hearth::Validator.validate!(input[:job_type], ::String, context: "#{context}[:job_type]")
         Hearth::Validator.validate!(input[:snowball_type], ::String, context: "#{context}[:snowball_type]")
         Hearth::Validator.validate!(input[:creation_date], ::Time, context: "#{context}[:creation_date]")
-        Validators::JobResource.validate!(input[:resources], context: "#{context}[:resources]") unless input[:resources].nil?
+        JobResource.validate!(input[:resources], context: "#{context}[:resources]") unless input[:resources].nil?
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:kms_key_arn], ::String, context: "#{context}[:kms_key_arn]")
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
         Hearth::Validator.validate!(input[:address_id], ::String, context: "#{context}[:address_id]")
-        Validators::ShippingDetails.validate!(input[:shipping_details], context: "#{context}[:shipping_details]") unless input[:shipping_details].nil?
+        ShippingDetails.validate!(input[:shipping_details], context: "#{context}[:shipping_details]") unless input[:shipping_details].nil?
         Hearth::Validator.validate!(input[:snowball_capacity_preference], ::String, context: "#{context}[:snowball_capacity_preference]")
-        Validators::Notification.validate!(input[:notification], context: "#{context}[:notification]") unless input[:notification].nil?
-        Validators::DataTransfer.validate!(input[:data_transfer_progress], context: "#{context}[:data_transfer_progress]") unless input[:data_transfer_progress].nil?
-        Validators::JobLogs.validate!(input[:job_log_info], context: "#{context}[:job_log_info]") unless input[:job_log_info].nil?
+        Notification.validate!(input[:notification], context: "#{context}[:notification]") unless input[:notification].nil?
+        DataTransfer.validate!(input[:data_transfer_progress], context: "#{context}[:data_transfer_progress]") unless input[:data_transfer_progress].nil?
+        JobLogs.validate!(input[:job_log_info], context: "#{context}[:job_log_info]") unless input[:job_log_info].nil?
         Hearth::Validator.validate!(input[:cluster_id], ::String, context: "#{context}[:cluster_id]")
         Hearth::Validator.validate!(input[:forwarding_address_id], ::String, context: "#{context}[:forwarding_address_id]")
-        Validators::TaxDocuments.validate!(input[:tax_documents], context: "#{context}[:tax_documents]") unless input[:tax_documents].nil?
-        Validators::DeviceConfiguration.validate!(input[:device_configuration], context: "#{context}[:device_configuration]") unless input[:device_configuration].nil?
+        TaxDocuments.validate!(input[:tax_documents], context: "#{context}[:tax_documents]") unless input[:tax_documents].nil?
+        DeviceConfiguration.validate!(input[:device_configuration], context: "#{context}[:device_configuration]") unless input[:device_configuration].nil?
         Hearth::Validator.validate!(input[:remote_management], ::String, context: "#{context}[:remote_management]")
         Hearth::Validator.validate!(input[:long_term_pricing_id], ::String, context: "#{context}[:long_term_pricing_id]")
-        Validators::OnDeviceServiceConfiguration.validate!(input[:on_device_service_configuration], context: "#{context}[:on_device_service_configuration]") unless input[:on_device_service_configuration].nil?
+        OnDeviceServiceConfiguration.validate!(input[:on_device_service_configuration], context: "#{context}[:on_device_service_configuration]") unless input[:on_device_service_configuration].nil?
       end
     end
 
@@ -532,7 +534,7 @@ module AWS::SDK::Snowball
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::JobMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          JobMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -540,9 +542,9 @@ module AWS::SDK::Snowball
     class JobResource
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::JobResource, context: context)
-        Validators::S3ResourceList.validate!(input[:s3_resources], context: "#{context}[:s3_resources]") unless input[:s3_resources].nil?
-        Validators::LambdaResourceList.validate!(input[:lambda_resources], context: "#{context}[:lambda_resources]") unless input[:lambda_resources].nil?
-        Validators::Ec2AmiResourceList.validate!(input[:ec2_ami_resources], context: "#{context}[:ec2_ami_resources]") unless input[:ec2_ami_resources].nil?
+        S3ResourceList.validate!(input[:s3_resources], context: "#{context}[:s3_resources]") unless input[:s3_resources].nil?
+        LambdaResourceList.validate!(input[:lambda_resources], context: "#{context}[:lambda_resources]") unless input[:lambda_resources].nil?
+        Ec2AmiResourceList.validate!(input[:ec2_ami_resources], context: "#{context}[:ec2_ami_resources]") unless input[:ec2_ami_resources].nil?
       end
     end
 
@@ -574,7 +576,7 @@ module AWS::SDK::Snowball
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::LambdaResource, context: context)
         Hearth::Validator.validate!(input[:lambda_arn], ::String, context: "#{context}[:lambda_arn]")
-        Validators::EventTriggerDefinitionList.validate!(input[:event_triggers], context: "#{context}[:event_triggers]") unless input[:event_triggers].nil?
+        EventTriggerDefinitionList.validate!(input[:event_triggers], context: "#{context}[:event_triggers]") unless input[:event_triggers].nil?
       end
     end
 
@@ -582,7 +584,7 @@ module AWS::SDK::Snowball
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LambdaResource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LambdaResource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -599,7 +601,7 @@ module AWS::SDK::Snowball
     class ListClusterJobsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListClusterJobsOutput, context: context)
-        Validators::JobListEntryList.validate!(input[:job_list_entries], context: "#{context}[:job_list_entries]") unless input[:job_list_entries].nil?
+        JobListEntryList.validate!(input[:job_list_entries], context: "#{context}[:job_list_entries]") unless input[:job_list_entries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -615,7 +617,7 @@ module AWS::SDK::Snowball
     class ListClustersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListClustersOutput, context: context)
-        Validators::ClusterListEntryList.validate!(input[:cluster_list_entries], context: "#{context}[:cluster_list_entries]") unless input[:cluster_list_entries].nil?
+        ClusterListEntryList.validate!(input[:cluster_list_entries], context: "#{context}[:cluster_list_entries]") unless input[:cluster_list_entries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -631,7 +633,7 @@ module AWS::SDK::Snowball
     class ListCompatibleImagesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListCompatibleImagesOutput, context: context)
-        Validators::CompatibleImageList.validate!(input[:compatible_images], context: "#{context}[:compatible_images]") unless input[:compatible_images].nil?
+        CompatibleImageList.validate!(input[:compatible_images], context: "#{context}[:compatible_images]") unless input[:compatible_images].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -647,7 +649,7 @@ module AWS::SDK::Snowball
     class ListJobsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListJobsOutput, context: context)
-        Validators::JobListEntryList.validate!(input[:job_list_entries], context: "#{context}[:job_list_entries]") unless input[:job_list_entries].nil?
+        JobListEntryList.validate!(input[:job_list_entries], context: "#{context}[:job_list_entries]") unless input[:job_list_entries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -663,7 +665,7 @@ module AWS::SDK::Snowball
     class ListLongTermPricingOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListLongTermPricingOutput, context: context)
-        Validators::LongTermPricingEntryList.validate!(input[:long_term_pricing_entries], context: "#{context}[:long_term_pricing_entries]") unless input[:long_term_pricing_entries].nil?
+        LongTermPricingEntryList.validate!(input[:long_term_pricing_entries], context: "#{context}[:long_term_pricing_entries]") unless input[:long_term_pricing_entries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -681,7 +683,7 @@ module AWS::SDK::Snowball
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LongTermPricingListEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LongTermPricingListEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -698,7 +700,7 @@ module AWS::SDK::Snowball
         Hearth::Validator.validate!(input[:is_long_term_pricing_auto_renew], ::TrueClass, ::FalseClass, context: "#{context}[:is_long_term_pricing_auto_renew]")
         Hearth::Validator.validate!(input[:long_term_pricing_status], ::String, context: "#{context}[:long_term_pricing_status]")
         Hearth::Validator.validate!(input[:snowball_type], ::String, context: "#{context}[:snowball_type]")
-        Validators::LongTermPricingAssociatedJobIdList.validate!(input[:job_ids], context: "#{context}[:job_ids]") unless input[:job_ids].nil?
+        LongTermPricingAssociatedJobIdList.validate!(input[:job_ids], context: "#{context}[:job_ids]") unless input[:job_ids].nil?
       end
     end
 
@@ -714,7 +716,7 @@ module AWS::SDK::Snowball
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Notification, context: context)
         Hearth::Validator.validate!(input[:sns_topic_arn], ::String, context: "#{context}[:sns_topic_arn]")
-        Validators::JobStateList.validate!(input[:job_states_to_notify], context: "#{context}[:job_states_to_notify]") unless input[:job_states_to_notify].nil?
+        JobStateList.validate!(input[:job_states_to_notify], context: "#{context}[:job_states_to_notify]") unless input[:job_states_to_notify].nil?
         Hearth::Validator.validate!(input[:notify_all], ::TrueClass, ::FalseClass, context: "#{context}[:notify_all]")
       end
     end
@@ -722,8 +724,8 @@ module AWS::SDK::Snowball
     class OnDeviceServiceConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::OnDeviceServiceConfiguration, context: context)
-        Validators::NFSOnDeviceServiceConfiguration.validate!(input[:nfs_on_device_service], context: "#{context}[:nfs_on_device_service]") unless input[:nfs_on_device_service].nil?
-        Validators::TGWOnDeviceServiceConfiguration.validate!(input[:tgw_on_device_service], context: "#{context}[:tgw_on_device_service]") unless input[:tgw_on_device_service].nil?
+        NFSOnDeviceServiceConfiguration.validate!(input[:nfs_on_device_service], context: "#{context}[:nfs_on_device_service]") unless input[:nfs_on_device_service].nil?
+        TGWOnDeviceServiceConfiguration.validate!(input[:tgw_on_device_service], context: "#{context}[:tgw_on_device_service]") unless input[:tgw_on_device_service].nil?
       end
     end
 
@@ -738,8 +740,8 @@ module AWS::SDK::Snowball
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::S3Resource, context: context)
         Hearth::Validator.validate!(input[:bucket_arn], ::String, context: "#{context}[:bucket_arn]")
-        Validators::KeyRange.validate!(input[:key_range], context: "#{context}[:key_range]") unless input[:key_range].nil?
-        Validators::TargetOnDeviceServiceList.validate!(input[:target_on_device_services], context: "#{context}[:target_on_device_services]") unless input[:target_on_device_services].nil?
+        KeyRange.validate!(input[:key_range], context: "#{context}[:key_range]") unless input[:key_range].nil?
+        TargetOnDeviceServiceList.validate!(input[:target_on_device_services], context: "#{context}[:target_on_device_services]") unless input[:target_on_device_services].nil?
       end
     end
 
@@ -747,7 +749,7 @@ module AWS::SDK::Snowball
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::S3Resource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          S3Resource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -764,15 +766,15 @@ module AWS::SDK::Snowball
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ShippingDetails, context: context)
         Hearth::Validator.validate!(input[:shipping_option], ::String, context: "#{context}[:shipping_option]")
-        Validators::Shipment.validate!(input[:inbound_shipment], context: "#{context}[:inbound_shipment]") unless input[:inbound_shipment].nil?
-        Validators::Shipment.validate!(input[:outbound_shipment], context: "#{context}[:outbound_shipment]") unless input[:outbound_shipment].nil?
+        Shipment.validate!(input[:inbound_shipment], context: "#{context}[:inbound_shipment]") unless input[:inbound_shipment].nil?
+        Shipment.validate!(input[:outbound_shipment], context: "#{context}[:outbound_shipment]") unless input[:outbound_shipment].nil?
       end
     end
 
     class SnowconeDeviceConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SnowconeDeviceConfiguration, context: context)
-        Validators::WirelessConnection.validate!(input[:wireless_connection], context: "#{context}[:wireless_connection]") unless input[:wireless_connection].nil?
+        WirelessConnection.validate!(input[:wireless_connection], context: "#{context}[:wireless_connection]") unless input[:wireless_connection].nil?
       end
     end
 
@@ -796,7 +798,7 @@ module AWS::SDK::Snowball
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TargetOnDeviceService.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TargetOnDeviceService.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -804,7 +806,7 @@ module AWS::SDK::Snowball
     class TaxDocuments
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TaxDocuments, context: context)
-        Validators::INDTaxDocuments.validate!(input[:ind], context: "#{context}[:ind]") unless input[:ind].nil?
+        INDTaxDocuments.validate!(input[:ind], context: "#{context}[:ind]") unless input[:ind].nil?
       end
     end
 
@@ -821,11 +823,11 @@ module AWS::SDK::Snowball
         Hearth::Validator.validate!(input[:cluster_id], ::String, context: "#{context}[:cluster_id]")
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::JobResource.validate!(input[:resources], context: "#{context}[:resources]") unless input[:resources].nil?
-        Validators::OnDeviceServiceConfiguration.validate!(input[:on_device_service_configuration], context: "#{context}[:on_device_service_configuration]") unless input[:on_device_service_configuration].nil?
+        JobResource.validate!(input[:resources], context: "#{context}[:resources]") unless input[:resources].nil?
+        OnDeviceServiceConfiguration.validate!(input[:on_device_service_configuration], context: "#{context}[:on_device_service_configuration]") unless input[:on_device_service_configuration].nil?
         Hearth::Validator.validate!(input[:address_id], ::String, context: "#{context}[:address_id]")
         Hearth::Validator.validate!(input[:shipping_option], ::String, context: "#{context}[:shipping_option]")
-        Validators::Notification.validate!(input[:notification], context: "#{context}[:notification]") unless input[:notification].nil?
+        Notification.validate!(input[:notification], context: "#{context}[:notification]") unless input[:notification].nil?
         Hearth::Validator.validate!(input[:forwarding_address_id], ::String, context: "#{context}[:forwarding_address_id]")
       end
     end
@@ -841,9 +843,9 @@ module AWS::SDK::Snowball
         Hearth::Validator.validate!(input, Types::UpdateJobInput, context: context)
         Hearth::Validator.validate!(input[:job_id], ::String, context: "#{context}[:job_id]")
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
-        Validators::Notification.validate!(input[:notification], context: "#{context}[:notification]") unless input[:notification].nil?
-        Validators::JobResource.validate!(input[:resources], context: "#{context}[:resources]") unless input[:resources].nil?
-        Validators::OnDeviceServiceConfiguration.validate!(input[:on_device_service_configuration], context: "#{context}[:on_device_service_configuration]") unless input[:on_device_service_configuration].nil?
+        Notification.validate!(input[:notification], context: "#{context}[:notification]") unless input[:notification].nil?
+        JobResource.validate!(input[:resources], context: "#{context}[:resources]") unless input[:resources].nil?
+        OnDeviceServiceConfiguration.validate!(input[:on_device_service_configuration], context: "#{context}[:on_device_service_configuration]") unless input[:on_device_service_configuration].nil?
         Hearth::Validator.validate!(input[:address_id], ::String, context: "#{context}[:address_id]")
         Hearth::Validator.validate!(input[:shipping_option], ::String, context: "#{context}[:shipping_option]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")

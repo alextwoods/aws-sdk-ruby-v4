@@ -7,14 +7,16 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::CodeDeploy
   module Validators
 
     class AddTagsToOnPremisesInstancesInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AddTagsToOnPremisesInstancesInput, context: context)
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::InstanceNameList.validate!(input[:instance_names], context: "#{context}[:instance_names]") unless input[:instance_names].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        InstanceNameList.validate!(input[:instance_names], context: "#{context}[:instance_names]") unless input[:instance_names].nil?
       end
     end
 
@@ -36,7 +38,7 @@ module AWS::SDK::CodeDeploy
         Hearth::Validator.validate!(input, Types::AlarmConfiguration, context: context)
         Hearth::Validator.validate!(input[:enabled], ::TrueClass, ::FalseClass, context: "#{context}[:enabled]")
         Hearth::Validator.validate!(input[:ignore_poll_alarm_failure], ::TrueClass, ::FalseClass, context: "#{context}[:ignore_poll_alarm_failure]")
-        Validators::AlarmList.validate!(input[:alarms], context: "#{context}[:alarms]") unless input[:alarms].nil?
+        AlarmList.validate!(input[:alarms], context: "#{context}[:alarms]") unless input[:alarms].nil?
       end
     end
 
@@ -44,7 +46,7 @@ module AWS::SDK::CodeDeploy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Alarm.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Alarm.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -108,7 +110,7 @@ module AWS::SDK::CodeDeploy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ApplicationInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ApplicationInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -133,7 +135,7 @@ module AWS::SDK::CodeDeploy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AutoRollbackConfiguration, context: context)
         Hearth::Validator.validate!(input[:enabled], ::TrueClass, ::FalseClass, context: "#{context}[:enabled]")
-        Validators::AutoRollbackEventsList.validate!(input[:events], context: "#{context}[:events]") unless input[:events].nil?
+        AutoRollbackEventsList.validate!(input[:events], context: "#{context}[:events]") unless input[:events].nil?
       end
     end
 
@@ -158,7 +160,7 @@ module AWS::SDK::CodeDeploy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AutoScalingGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AutoScalingGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -176,7 +178,7 @@ module AWS::SDK::CodeDeploy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchGetApplicationRevisionsInput, context: context)
         Hearth::Validator.validate!(input[:application_name], ::String, context: "#{context}[:application_name]")
-        Validators::RevisionLocationList.validate!(input[:revisions], context: "#{context}[:revisions]") unless input[:revisions].nil?
+        RevisionLocationList.validate!(input[:revisions], context: "#{context}[:revisions]") unless input[:revisions].nil?
       end
     end
 
@@ -185,21 +187,21 @@ module AWS::SDK::CodeDeploy
         Hearth::Validator.validate!(input, Types::BatchGetApplicationRevisionsOutput, context: context)
         Hearth::Validator.validate!(input[:application_name], ::String, context: "#{context}[:application_name]")
         Hearth::Validator.validate!(input[:error_message], ::String, context: "#{context}[:error_message]")
-        Validators::RevisionInfoList.validate!(input[:revisions], context: "#{context}[:revisions]") unless input[:revisions].nil?
+        RevisionInfoList.validate!(input[:revisions], context: "#{context}[:revisions]") unless input[:revisions].nil?
       end
     end
 
     class BatchGetApplicationsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchGetApplicationsInput, context: context)
-        Validators::ApplicationsList.validate!(input[:application_names], context: "#{context}[:application_names]") unless input[:application_names].nil?
+        ApplicationsList.validate!(input[:application_names], context: "#{context}[:application_names]") unless input[:application_names].nil?
       end
     end
 
     class BatchGetApplicationsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchGetApplicationsOutput, context: context)
-        Validators::ApplicationsInfoList.validate!(input[:applications_info], context: "#{context}[:applications_info]") unless input[:applications_info].nil?
+        ApplicationsInfoList.validate!(input[:applications_info], context: "#{context}[:applications_info]") unless input[:applications_info].nil?
       end
     end
 
@@ -207,14 +209,14 @@ module AWS::SDK::CodeDeploy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchGetDeploymentGroupsInput, context: context)
         Hearth::Validator.validate!(input[:application_name], ::String, context: "#{context}[:application_name]")
-        Validators::DeploymentGroupsList.validate!(input[:deployment_group_names], context: "#{context}[:deployment_group_names]") unless input[:deployment_group_names].nil?
+        DeploymentGroupsList.validate!(input[:deployment_group_names], context: "#{context}[:deployment_group_names]") unless input[:deployment_group_names].nil?
       end
     end
 
     class BatchGetDeploymentGroupsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchGetDeploymentGroupsOutput, context: context)
-        Validators::DeploymentGroupInfoList.validate!(input[:deployment_groups_info], context: "#{context}[:deployment_groups_info]") unless input[:deployment_groups_info].nil?
+        DeploymentGroupInfoList.validate!(input[:deployment_groups_info], context: "#{context}[:deployment_groups_info]") unless input[:deployment_groups_info].nil?
         Hearth::Validator.validate!(input[:error_message], ::String, context: "#{context}[:error_message]")
       end
     end
@@ -223,14 +225,14 @@ module AWS::SDK::CodeDeploy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchGetDeploymentInstancesInput, context: context)
         Hearth::Validator.validate!(input[:deployment_id], ::String, context: "#{context}[:deployment_id]")
-        Validators::InstancesList.validate!(input[:instance_ids], context: "#{context}[:instance_ids]") unless input[:instance_ids].nil?
+        InstancesList.validate!(input[:instance_ids], context: "#{context}[:instance_ids]") unless input[:instance_ids].nil?
       end
     end
 
     class BatchGetDeploymentInstancesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchGetDeploymentInstancesOutput, context: context)
-        Validators::InstanceSummaryList.validate!(input[:instances_summary], context: "#{context}[:instances_summary]") unless input[:instances_summary].nil?
+        InstanceSummaryList.validate!(input[:instances_summary], context: "#{context}[:instances_summary]") unless input[:instances_summary].nil?
         Hearth::Validator.validate!(input[:error_message], ::String, context: "#{context}[:error_message]")
       end
     end
@@ -239,42 +241,42 @@ module AWS::SDK::CodeDeploy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchGetDeploymentTargetsInput, context: context)
         Hearth::Validator.validate!(input[:deployment_id], ::String, context: "#{context}[:deployment_id]")
-        Validators::TargetIdList.validate!(input[:target_ids], context: "#{context}[:target_ids]") unless input[:target_ids].nil?
+        TargetIdList.validate!(input[:target_ids], context: "#{context}[:target_ids]") unless input[:target_ids].nil?
       end
     end
 
     class BatchGetDeploymentTargetsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchGetDeploymentTargetsOutput, context: context)
-        Validators::DeploymentTargetList.validate!(input[:deployment_targets], context: "#{context}[:deployment_targets]") unless input[:deployment_targets].nil?
+        DeploymentTargetList.validate!(input[:deployment_targets], context: "#{context}[:deployment_targets]") unless input[:deployment_targets].nil?
       end
     end
 
     class BatchGetDeploymentsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchGetDeploymentsInput, context: context)
-        Validators::DeploymentsList.validate!(input[:deployment_ids], context: "#{context}[:deployment_ids]") unless input[:deployment_ids].nil?
+        DeploymentsList.validate!(input[:deployment_ids], context: "#{context}[:deployment_ids]") unless input[:deployment_ids].nil?
       end
     end
 
     class BatchGetDeploymentsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchGetDeploymentsOutput, context: context)
-        Validators::DeploymentsInfoList.validate!(input[:deployments_info], context: "#{context}[:deployments_info]") unless input[:deployments_info].nil?
+        DeploymentsInfoList.validate!(input[:deployments_info], context: "#{context}[:deployments_info]") unless input[:deployments_info].nil?
       end
     end
 
     class BatchGetOnPremisesInstancesInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchGetOnPremisesInstancesInput, context: context)
-        Validators::InstanceNameList.validate!(input[:instance_names], context: "#{context}[:instance_names]") unless input[:instance_names].nil?
+        InstanceNameList.validate!(input[:instance_names], context: "#{context}[:instance_names]") unless input[:instance_names].nil?
       end
     end
 
     class BatchGetOnPremisesInstancesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchGetOnPremisesInstancesOutput, context: context)
-        Validators::InstanceInfoList.validate!(input[:instance_infos], context: "#{context}[:instance_infos]") unless input[:instance_infos].nil?
+        InstanceInfoList.validate!(input[:instance_infos], context: "#{context}[:instance_infos]") unless input[:instance_infos].nil?
       end
     end
 
@@ -288,9 +290,9 @@ module AWS::SDK::CodeDeploy
     class BlueGreenDeploymentConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BlueGreenDeploymentConfiguration, context: context)
-        Validators::BlueInstanceTerminationOption.validate!(input[:terminate_blue_instances_on_deployment_success], context: "#{context}[:terminate_blue_instances_on_deployment_success]") unless input[:terminate_blue_instances_on_deployment_success].nil?
-        Validators::DeploymentReadyOption.validate!(input[:deployment_ready_option], context: "#{context}[:deployment_ready_option]") unless input[:deployment_ready_option].nil?
-        Validators::GreenFleetProvisioningOption.validate!(input[:green_fleet_provisioning_option], context: "#{context}[:green_fleet_provisioning_option]") unless input[:green_fleet_provisioning_option].nil?
+        BlueInstanceTerminationOption.validate!(input[:terminate_blue_instances_on_deployment_success], context: "#{context}[:terminate_blue_instances_on_deployment_success]") unless input[:terminate_blue_instances_on_deployment_success].nil?
+        DeploymentReadyOption.validate!(input[:deployment_ready_option], context: "#{context}[:deployment_ready_option]") unless input[:deployment_ready_option].nil?
+        GreenFleetProvisioningOption.validate!(input[:green_fleet_provisioning_option], context: "#{context}[:green_fleet_provisioning_option]") unless input[:green_fleet_provisioning_option].nil?
       end
     end
 
@@ -315,7 +317,7 @@ module AWS::SDK::CodeDeploy
         Hearth::Validator.validate!(input[:deployment_id], ::String, context: "#{context}[:deployment_id]")
         Hearth::Validator.validate!(input[:target_id], ::String, context: "#{context}[:target_id]")
         Hearth::Validator.validate!(input[:last_updated_at], ::Time, context: "#{context}[:last_updated_at]")
-        Validators::LifecycleEventList.validate!(input[:lifecycle_events], context: "#{context}[:lifecycle_events]") unless input[:lifecycle_events].nil?
+        LifecycleEventList.validate!(input[:lifecycle_events], context: "#{context}[:lifecycle_events]") unless input[:lifecycle_events].nil?
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:resource_type], ::String, context: "#{context}[:resource_type]")
         Hearth::Validator.validate!(input[:target_version_weight], ::Float, context: "#{context}[:target_version_weight]")
@@ -341,7 +343,7 @@ module AWS::SDK::CodeDeploy
         Hearth::Validator.validate!(input, Types::CreateApplicationInput, context: context)
         Hearth::Validator.validate!(input[:application_name], ::String, context: "#{context}[:application_name]")
         Hearth::Validator.validate!(input[:compute_platform], ::String, context: "#{context}[:compute_platform]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -356,8 +358,8 @@ module AWS::SDK::CodeDeploy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateDeploymentConfigInput, context: context)
         Hearth::Validator.validate!(input[:deployment_config_name], ::String, context: "#{context}[:deployment_config_name]")
-        Validators::MinimumHealthyHosts.validate!(input[:minimum_healthy_hosts], context: "#{context}[:minimum_healthy_hosts]") unless input[:minimum_healthy_hosts].nil?
-        Validators::TrafficRoutingConfig.validate!(input[:traffic_routing_config], context: "#{context}[:traffic_routing_config]") unless input[:traffic_routing_config].nil?
+        MinimumHealthyHosts.validate!(input[:minimum_healthy_hosts], context: "#{context}[:minimum_healthy_hosts]") unless input[:minimum_healthy_hosts].nil?
+        TrafficRoutingConfig.validate!(input[:traffic_routing_config], context: "#{context}[:traffic_routing_config]") unless input[:traffic_routing_config].nil?
         Hearth::Validator.validate!(input[:compute_platform], ::String, context: "#{context}[:compute_platform]")
       end
     end
@@ -375,21 +377,21 @@ module AWS::SDK::CodeDeploy
         Hearth::Validator.validate!(input[:application_name], ::String, context: "#{context}[:application_name]")
         Hearth::Validator.validate!(input[:deployment_group_name], ::String, context: "#{context}[:deployment_group_name]")
         Hearth::Validator.validate!(input[:deployment_config_name], ::String, context: "#{context}[:deployment_config_name]")
-        Validators::EC2TagFilterList.validate!(input[:ec2_tag_filters], context: "#{context}[:ec2_tag_filters]") unless input[:ec2_tag_filters].nil?
-        Validators::TagFilterList.validate!(input[:on_premises_instance_tag_filters], context: "#{context}[:on_premises_instance_tag_filters]") unless input[:on_premises_instance_tag_filters].nil?
-        Validators::AutoScalingGroupNameList.validate!(input[:auto_scaling_groups], context: "#{context}[:auto_scaling_groups]") unless input[:auto_scaling_groups].nil?
+        EC2TagFilterList.validate!(input[:ec2_tag_filters], context: "#{context}[:ec2_tag_filters]") unless input[:ec2_tag_filters].nil?
+        TagFilterList.validate!(input[:on_premises_instance_tag_filters], context: "#{context}[:on_premises_instance_tag_filters]") unless input[:on_premises_instance_tag_filters].nil?
+        AutoScalingGroupNameList.validate!(input[:auto_scaling_groups], context: "#{context}[:auto_scaling_groups]") unless input[:auto_scaling_groups].nil?
         Hearth::Validator.validate!(input[:service_role_arn], ::String, context: "#{context}[:service_role_arn]")
-        Validators::TriggerConfigList.validate!(input[:trigger_configurations], context: "#{context}[:trigger_configurations]") unless input[:trigger_configurations].nil?
-        Validators::AlarmConfiguration.validate!(input[:alarm_configuration], context: "#{context}[:alarm_configuration]") unless input[:alarm_configuration].nil?
-        Validators::AutoRollbackConfiguration.validate!(input[:auto_rollback_configuration], context: "#{context}[:auto_rollback_configuration]") unless input[:auto_rollback_configuration].nil?
+        TriggerConfigList.validate!(input[:trigger_configurations], context: "#{context}[:trigger_configurations]") unless input[:trigger_configurations].nil?
+        AlarmConfiguration.validate!(input[:alarm_configuration], context: "#{context}[:alarm_configuration]") unless input[:alarm_configuration].nil?
+        AutoRollbackConfiguration.validate!(input[:auto_rollback_configuration], context: "#{context}[:auto_rollback_configuration]") unless input[:auto_rollback_configuration].nil?
         Hearth::Validator.validate!(input[:outdated_instances_strategy], ::String, context: "#{context}[:outdated_instances_strategy]")
-        Validators::DeploymentStyle.validate!(input[:deployment_style], context: "#{context}[:deployment_style]") unless input[:deployment_style].nil?
-        Validators::BlueGreenDeploymentConfiguration.validate!(input[:blue_green_deployment_configuration], context: "#{context}[:blue_green_deployment_configuration]") unless input[:blue_green_deployment_configuration].nil?
-        Validators::LoadBalancerInfo.validate!(input[:load_balancer_info], context: "#{context}[:load_balancer_info]") unless input[:load_balancer_info].nil?
-        Validators::EC2TagSet.validate!(input[:ec2_tag_set], context: "#{context}[:ec2_tag_set]") unless input[:ec2_tag_set].nil?
-        Validators::ECSServiceList.validate!(input[:ecs_services], context: "#{context}[:ecs_services]") unless input[:ecs_services].nil?
-        Validators::OnPremisesTagSet.validate!(input[:on_premises_tag_set], context: "#{context}[:on_premises_tag_set]") unless input[:on_premises_tag_set].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        DeploymentStyle.validate!(input[:deployment_style], context: "#{context}[:deployment_style]") unless input[:deployment_style].nil?
+        BlueGreenDeploymentConfiguration.validate!(input[:blue_green_deployment_configuration], context: "#{context}[:blue_green_deployment_configuration]") unless input[:blue_green_deployment_configuration].nil?
+        LoadBalancerInfo.validate!(input[:load_balancer_info], context: "#{context}[:load_balancer_info]") unless input[:load_balancer_info].nil?
+        EC2TagSet.validate!(input[:ec2_tag_set], context: "#{context}[:ec2_tag_set]") unless input[:ec2_tag_set].nil?
+        ECSServiceList.validate!(input[:ecs_services], context: "#{context}[:ecs_services]") unless input[:ecs_services].nil?
+        OnPremisesTagSet.validate!(input[:on_premises_tag_set], context: "#{context}[:on_premises_tag_set]") unless input[:on_premises_tag_set].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -405,12 +407,12 @@ module AWS::SDK::CodeDeploy
         Hearth::Validator.validate!(input, Types::CreateDeploymentInput, context: context)
         Hearth::Validator.validate!(input[:application_name], ::String, context: "#{context}[:application_name]")
         Hearth::Validator.validate!(input[:deployment_group_name], ::String, context: "#{context}[:deployment_group_name]")
-        Validators::RevisionLocation.validate!(input[:revision], context: "#{context}[:revision]") unless input[:revision].nil?
+        RevisionLocation.validate!(input[:revision], context: "#{context}[:revision]") unless input[:revision].nil?
         Hearth::Validator.validate!(input[:deployment_config_name], ::String, context: "#{context}[:deployment_config_name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:ignore_application_stop_failures], ::TrueClass, ::FalseClass, context: "#{context}[:ignore_application_stop_failures]")
-        Validators::TargetInstances.validate!(input[:target_instances], context: "#{context}[:target_instances]") unless input[:target_instances].nil?
-        Validators::AutoRollbackConfiguration.validate!(input[:auto_rollback_configuration], context: "#{context}[:auto_rollback_configuration]") unless input[:auto_rollback_configuration].nil?
+        TargetInstances.validate!(input[:target_instances], context: "#{context}[:target_instances]") unless input[:target_instances].nil?
+        AutoRollbackConfiguration.validate!(input[:auto_rollback_configuration], context: "#{context}[:auto_rollback_configuration]") unless input[:auto_rollback_configuration].nil?
         Hearth::Validator.validate!(input[:update_outdated_instances_only], ::TrueClass, ::FalseClass, context: "#{context}[:update_outdated_instances_only]")
         Hearth::Validator.validate!(input[:file_exists_behavior], ::String, context: "#{context}[:file_exists_behavior]")
       end
@@ -460,7 +462,7 @@ module AWS::SDK::CodeDeploy
     class DeleteDeploymentGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteDeploymentGroupOutput, context: context)
-        Validators::AutoScalingGroupList.validate!(input[:hooks_not_cleaned_up], context: "#{context}[:hooks_not_cleaned_up]") unless input[:hooks_not_cleaned_up].nil?
+        AutoScalingGroupList.validate!(input[:hooks_not_cleaned_up], context: "#{context}[:hooks_not_cleaned_up]") unless input[:hooks_not_cleaned_up].nil?
       end
     end
 
@@ -524,10 +526,10 @@ module AWS::SDK::CodeDeploy
         Hearth::Validator.validate!(input, Types::DeploymentConfigInfo, context: context)
         Hearth::Validator.validate!(input[:deployment_config_id], ::String, context: "#{context}[:deployment_config_id]")
         Hearth::Validator.validate!(input[:deployment_config_name], ::String, context: "#{context}[:deployment_config_name]")
-        Validators::MinimumHealthyHosts.validate!(input[:minimum_healthy_hosts], context: "#{context}[:minimum_healthy_hosts]") unless input[:minimum_healthy_hosts].nil?
+        MinimumHealthyHosts.validate!(input[:minimum_healthy_hosts], context: "#{context}[:minimum_healthy_hosts]") unless input[:minimum_healthy_hosts].nil?
         Hearth::Validator.validate!(input[:create_time], ::Time, context: "#{context}[:create_time]")
         Hearth::Validator.validate!(input[:compute_platform], ::String, context: "#{context}[:compute_platform]")
-        Validators::TrafficRoutingConfig.validate!(input[:traffic_routing_config], context: "#{context}[:traffic_routing_config]") unless input[:traffic_routing_config].nil?
+        TrafficRoutingConfig.validate!(input[:traffic_routing_config], context: "#{context}[:traffic_routing_config]") unless input[:traffic_routing_config].nil?
       end
     end
 
@@ -582,24 +584,24 @@ module AWS::SDK::CodeDeploy
         Hearth::Validator.validate!(input[:deployment_group_id], ::String, context: "#{context}[:deployment_group_id]")
         Hearth::Validator.validate!(input[:deployment_group_name], ::String, context: "#{context}[:deployment_group_name]")
         Hearth::Validator.validate!(input[:deployment_config_name], ::String, context: "#{context}[:deployment_config_name]")
-        Validators::EC2TagFilterList.validate!(input[:ec2_tag_filters], context: "#{context}[:ec2_tag_filters]") unless input[:ec2_tag_filters].nil?
-        Validators::TagFilterList.validate!(input[:on_premises_instance_tag_filters], context: "#{context}[:on_premises_instance_tag_filters]") unless input[:on_premises_instance_tag_filters].nil?
-        Validators::AutoScalingGroupList.validate!(input[:auto_scaling_groups], context: "#{context}[:auto_scaling_groups]") unless input[:auto_scaling_groups].nil?
+        EC2TagFilterList.validate!(input[:ec2_tag_filters], context: "#{context}[:ec2_tag_filters]") unless input[:ec2_tag_filters].nil?
+        TagFilterList.validate!(input[:on_premises_instance_tag_filters], context: "#{context}[:on_premises_instance_tag_filters]") unless input[:on_premises_instance_tag_filters].nil?
+        AutoScalingGroupList.validate!(input[:auto_scaling_groups], context: "#{context}[:auto_scaling_groups]") unless input[:auto_scaling_groups].nil?
         Hearth::Validator.validate!(input[:service_role_arn], ::String, context: "#{context}[:service_role_arn]")
-        Validators::RevisionLocation.validate!(input[:target_revision], context: "#{context}[:target_revision]") unless input[:target_revision].nil?
-        Validators::TriggerConfigList.validate!(input[:trigger_configurations], context: "#{context}[:trigger_configurations]") unless input[:trigger_configurations].nil?
-        Validators::AlarmConfiguration.validate!(input[:alarm_configuration], context: "#{context}[:alarm_configuration]") unless input[:alarm_configuration].nil?
-        Validators::AutoRollbackConfiguration.validate!(input[:auto_rollback_configuration], context: "#{context}[:auto_rollback_configuration]") unless input[:auto_rollback_configuration].nil?
-        Validators::DeploymentStyle.validate!(input[:deployment_style], context: "#{context}[:deployment_style]") unless input[:deployment_style].nil?
+        RevisionLocation.validate!(input[:target_revision], context: "#{context}[:target_revision]") unless input[:target_revision].nil?
+        TriggerConfigList.validate!(input[:trigger_configurations], context: "#{context}[:trigger_configurations]") unless input[:trigger_configurations].nil?
+        AlarmConfiguration.validate!(input[:alarm_configuration], context: "#{context}[:alarm_configuration]") unless input[:alarm_configuration].nil?
+        AutoRollbackConfiguration.validate!(input[:auto_rollback_configuration], context: "#{context}[:auto_rollback_configuration]") unless input[:auto_rollback_configuration].nil?
+        DeploymentStyle.validate!(input[:deployment_style], context: "#{context}[:deployment_style]") unless input[:deployment_style].nil?
         Hearth::Validator.validate!(input[:outdated_instances_strategy], ::String, context: "#{context}[:outdated_instances_strategy]")
-        Validators::BlueGreenDeploymentConfiguration.validate!(input[:blue_green_deployment_configuration], context: "#{context}[:blue_green_deployment_configuration]") unless input[:blue_green_deployment_configuration].nil?
-        Validators::LoadBalancerInfo.validate!(input[:load_balancer_info], context: "#{context}[:load_balancer_info]") unless input[:load_balancer_info].nil?
-        Validators::LastDeploymentInfo.validate!(input[:last_successful_deployment], context: "#{context}[:last_successful_deployment]") unless input[:last_successful_deployment].nil?
-        Validators::LastDeploymentInfo.validate!(input[:last_attempted_deployment], context: "#{context}[:last_attempted_deployment]") unless input[:last_attempted_deployment].nil?
-        Validators::EC2TagSet.validate!(input[:ec2_tag_set], context: "#{context}[:ec2_tag_set]") unless input[:ec2_tag_set].nil?
-        Validators::OnPremisesTagSet.validate!(input[:on_premises_tag_set], context: "#{context}[:on_premises_tag_set]") unless input[:on_premises_tag_set].nil?
+        BlueGreenDeploymentConfiguration.validate!(input[:blue_green_deployment_configuration], context: "#{context}[:blue_green_deployment_configuration]") unless input[:blue_green_deployment_configuration].nil?
+        LoadBalancerInfo.validate!(input[:load_balancer_info], context: "#{context}[:load_balancer_info]") unless input[:load_balancer_info].nil?
+        LastDeploymentInfo.validate!(input[:last_successful_deployment], context: "#{context}[:last_successful_deployment]") unless input[:last_successful_deployment].nil?
+        LastDeploymentInfo.validate!(input[:last_attempted_deployment], context: "#{context}[:last_attempted_deployment]") unless input[:last_attempted_deployment].nil?
+        EC2TagSet.validate!(input[:ec2_tag_set], context: "#{context}[:ec2_tag_set]") unless input[:ec2_tag_set].nil?
+        OnPremisesTagSet.validate!(input[:on_premises_tag_set], context: "#{context}[:on_premises_tag_set]") unless input[:on_premises_tag_set].nil?
         Hearth::Validator.validate!(input[:compute_platform], ::String, context: "#{context}[:compute_platform]")
-        Validators::ECSServiceList.validate!(input[:ecs_services], context: "#{context}[:ecs_services]") unless input[:ecs_services].nil?
+        ECSServiceList.validate!(input[:ecs_services], context: "#{context}[:ecs_services]") unless input[:ecs_services].nil?
       end
     end
 
@@ -607,7 +609,7 @@ module AWS::SDK::CodeDeploy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DeploymentGroupInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DeploymentGroupInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -649,31 +651,31 @@ module AWS::SDK::CodeDeploy
         Hearth::Validator.validate!(input[:deployment_group_name], ::String, context: "#{context}[:deployment_group_name]")
         Hearth::Validator.validate!(input[:deployment_config_name], ::String, context: "#{context}[:deployment_config_name]")
         Hearth::Validator.validate!(input[:deployment_id], ::String, context: "#{context}[:deployment_id]")
-        Validators::RevisionLocation.validate!(input[:previous_revision], context: "#{context}[:previous_revision]") unless input[:previous_revision].nil?
-        Validators::RevisionLocation.validate!(input[:revision], context: "#{context}[:revision]") unless input[:revision].nil?
+        RevisionLocation.validate!(input[:previous_revision], context: "#{context}[:previous_revision]") unless input[:previous_revision].nil?
+        RevisionLocation.validate!(input[:revision], context: "#{context}[:revision]") unless input[:revision].nil?
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::ErrorInformation.validate!(input[:error_information], context: "#{context}[:error_information]") unless input[:error_information].nil?
+        ErrorInformation.validate!(input[:error_information], context: "#{context}[:error_information]") unless input[:error_information].nil?
         Hearth::Validator.validate!(input[:create_time], ::Time, context: "#{context}[:create_time]")
         Hearth::Validator.validate!(input[:start_time], ::Time, context: "#{context}[:start_time]")
         Hearth::Validator.validate!(input[:complete_time], ::Time, context: "#{context}[:complete_time]")
-        Validators::DeploymentOverview.validate!(input[:deployment_overview], context: "#{context}[:deployment_overview]") unless input[:deployment_overview].nil?
+        DeploymentOverview.validate!(input[:deployment_overview], context: "#{context}[:deployment_overview]") unless input[:deployment_overview].nil?
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:creator], ::String, context: "#{context}[:creator]")
         Hearth::Validator.validate!(input[:ignore_application_stop_failures], ::TrueClass, ::FalseClass, context: "#{context}[:ignore_application_stop_failures]")
-        Validators::AutoRollbackConfiguration.validate!(input[:auto_rollback_configuration], context: "#{context}[:auto_rollback_configuration]") unless input[:auto_rollback_configuration].nil?
+        AutoRollbackConfiguration.validate!(input[:auto_rollback_configuration], context: "#{context}[:auto_rollback_configuration]") unless input[:auto_rollback_configuration].nil?
         Hearth::Validator.validate!(input[:update_outdated_instances_only], ::TrueClass, ::FalseClass, context: "#{context}[:update_outdated_instances_only]")
-        Validators::RollbackInfo.validate!(input[:rollback_info], context: "#{context}[:rollback_info]") unless input[:rollback_info].nil?
-        Validators::DeploymentStyle.validate!(input[:deployment_style], context: "#{context}[:deployment_style]") unless input[:deployment_style].nil?
-        Validators::TargetInstances.validate!(input[:target_instances], context: "#{context}[:target_instances]") unless input[:target_instances].nil?
+        RollbackInfo.validate!(input[:rollback_info], context: "#{context}[:rollback_info]") unless input[:rollback_info].nil?
+        DeploymentStyle.validate!(input[:deployment_style], context: "#{context}[:deployment_style]") unless input[:deployment_style].nil?
+        TargetInstances.validate!(input[:target_instances], context: "#{context}[:target_instances]") unless input[:target_instances].nil?
         Hearth::Validator.validate!(input[:instance_termination_wait_time_started], ::TrueClass, ::FalseClass, context: "#{context}[:instance_termination_wait_time_started]")
-        Validators::BlueGreenDeploymentConfiguration.validate!(input[:blue_green_deployment_configuration], context: "#{context}[:blue_green_deployment_configuration]") unless input[:blue_green_deployment_configuration].nil?
-        Validators::LoadBalancerInfo.validate!(input[:load_balancer_info], context: "#{context}[:load_balancer_info]") unless input[:load_balancer_info].nil?
+        BlueGreenDeploymentConfiguration.validate!(input[:blue_green_deployment_configuration], context: "#{context}[:blue_green_deployment_configuration]") unless input[:blue_green_deployment_configuration].nil?
+        LoadBalancerInfo.validate!(input[:load_balancer_info], context: "#{context}[:load_balancer_info]") unless input[:load_balancer_info].nil?
         Hearth::Validator.validate!(input[:additional_deployment_status_info], ::String, context: "#{context}[:additional_deployment_status_info]")
         Hearth::Validator.validate!(input[:file_exists_behavior], ::String, context: "#{context}[:file_exists_behavior]")
-        Validators::DeploymentStatusMessageList.validate!(input[:deployment_status_messages], context: "#{context}[:deployment_status_messages]") unless input[:deployment_status_messages].nil?
+        DeploymentStatusMessageList.validate!(input[:deployment_status_messages], context: "#{context}[:deployment_status_messages]") unless input[:deployment_status_messages].nil?
         Hearth::Validator.validate!(input[:compute_platform], ::String, context: "#{context}[:compute_platform]")
         Hearth::Validator.validate!(input[:external_id], ::String, context: "#{context}[:external_id]")
-        Validators::RelatedDeployments.validate!(input[:related_deployments], context: "#{context}[:related_deployments]") unless input[:related_deployments].nil?
+        RelatedDeployments.validate!(input[:related_deployments], context: "#{context}[:related_deployments]") unless input[:related_deployments].nil?
       end
     end
 
@@ -748,10 +750,10 @@ module AWS::SDK::CodeDeploy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeploymentTarget, context: context)
         Hearth::Validator.validate!(input[:deployment_target_type], ::String, context: "#{context}[:deployment_target_type]")
-        Validators::InstanceTarget.validate!(input[:instance_target], context: "#{context}[:instance_target]") unless input[:instance_target].nil?
-        Validators::LambdaTarget.validate!(input[:lambda_target], context: "#{context}[:lambda_target]") unless input[:lambda_target].nil?
-        Validators::ECSTarget.validate!(input[:ecs_target], context: "#{context}[:ecs_target]") unless input[:ecs_target].nil?
-        Validators::CloudFormationTarget.validate!(input[:cloud_formation_target], context: "#{context}[:cloud_formation_target]") unless input[:cloud_formation_target].nil?
+        InstanceTarget.validate!(input[:instance_target], context: "#{context}[:instance_target]") unless input[:instance_target].nil?
+        LambdaTarget.validate!(input[:lambda_target], context: "#{context}[:lambda_target]") unless input[:lambda_target].nil?
+        ECSTarget.validate!(input[:ecs_target], context: "#{context}[:ecs_target]") unless input[:ecs_target].nil?
+        CloudFormationTarget.validate!(input[:cloud_formation_target], context: "#{context}[:cloud_formation_target]") unless input[:cloud_formation_target].nil?
       end
     end
 
@@ -773,7 +775,7 @@ module AWS::SDK::CodeDeploy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DeploymentTarget.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DeploymentTarget.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -789,7 +791,7 @@ module AWS::SDK::CodeDeploy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DeploymentInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DeploymentInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -846,7 +848,7 @@ module AWS::SDK::CodeDeploy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EC2TagFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EC2TagFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -854,7 +856,7 @@ module AWS::SDK::CodeDeploy
     class EC2TagSet
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::EC2TagSet, context: context)
-        Validators::EC2TagSetList.validate!(input[:ec2_tag_set_list], context: "#{context}[:ec2_tag_set_list]") unless input[:ec2_tag_set_list].nil?
+        EC2TagSetList.validate!(input[:ec2_tag_set_list], context: "#{context}[:ec2_tag_set_list]") unless input[:ec2_tag_set_list].nil?
       end
     end
 
@@ -862,7 +864,7 @@ module AWS::SDK::CodeDeploy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EC2TagFilterList.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EC2TagFilterList.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -879,7 +881,7 @@ module AWS::SDK::CodeDeploy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ECSService.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ECSService.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -898,9 +900,9 @@ module AWS::SDK::CodeDeploy
         Hearth::Validator.validate!(input[:target_id], ::String, context: "#{context}[:target_id]")
         Hearth::Validator.validate!(input[:target_arn], ::String, context: "#{context}[:target_arn]")
         Hearth::Validator.validate!(input[:last_updated_at], ::Time, context: "#{context}[:last_updated_at]")
-        Validators::LifecycleEventList.validate!(input[:lifecycle_events], context: "#{context}[:lifecycle_events]") unless input[:lifecycle_events].nil?
+        LifecycleEventList.validate!(input[:lifecycle_events], context: "#{context}[:lifecycle_events]") unless input[:lifecycle_events].nil?
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::ECSTaskSetList.validate!(input[:task_sets_info], context: "#{context}[:task_sets_info]") unless input[:task_sets_info].nil?
+        ECSTaskSetList.validate!(input[:task_sets_info], context: "#{context}[:task_sets_info]") unless input[:task_sets_info].nil?
       end
     end
 
@@ -913,7 +915,7 @@ module AWS::SDK::CodeDeploy
         Hearth::Validator.validate!(input[:running_count], ::Integer, context: "#{context}[:running_count]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:traffic_weight], ::Float, context: "#{context}[:traffic_weight]")
-        Validators::TargetGroupInfo.validate!(input[:target_group], context: "#{context}[:target_group]") unless input[:target_group].nil?
+        TargetGroupInfo.validate!(input[:target_group], context: "#{context}[:target_group]") unless input[:target_group].nil?
         Hearth::Validator.validate!(input[:task_set_label], ::String, context: "#{context}[:task_set_label]")
       end
     end
@@ -922,7 +924,7 @@ module AWS::SDK::CodeDeploy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ECSTaskSet.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ECSTaskSet.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -938,7 +940,7 @@ module AWS::SDK::CodeDeploy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ELBInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ELBInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -964,7 +966,7 @@ module AWS::SDK::CodeDeploy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GenericRevisionInfo, context: context)
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::DeploymentGroupsList.validate!(input[:deployment_groups], context: "#{context}[:deployment_groups]") unless input[:deployment_groups].nil?
+        DeploymentGroupsList.validate!(input[:deployment_groups], context: "#{context}[:deployment_groups]") unless input[:deployment_groups].nil?
         Hearth::Validator.validate!(input[:first_used_time], ::Time, context: "#{context}[:first_used_time]")
         Hearth::Validator.validate!(input[:last_used_time], ::Time, context: "#{context}[:last_used_time]")
         Hearth::Validator.validate!(input[:register_time], ::Time, context: "#{context}[:register_time]")
@@ -981,7 +983,7 @@ module AWS::SDK::CodeDeploy
     class GetApplicationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetApplicationOutput, context: context)
-        Validators::ApplicationInfo.validate!(input[:application], context: "#{context}[:application]") unless input[:application].nil?
+        ApplicationInfo.validate!(input[:application], context: "#{context}[:application]") unless input[:application].nil?
       end
     end
 
@@ -989,7 +991,7 @@ module AWS::SDK::CodeDeploy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetApplicationRevisionInput, context: context)
         Hearth::Validator.validate!(input[:application_name], ::String, context: "#{context}[:application_name]")
-        Validators::RevisionLocation.validate!(input[:revision], context: "#{context}[:revision]") unless input[:revision].nil?
+        RevisionLocation.validate!(input[:revision], context: "#{context}[:revision]") unless input[:revision].nil?
       end
     end
 
@@ -997,8 +999,8 @@ module AWS::SDK::CodeDeploy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetApplicationRevisionOutput, context: context)
         Hearth::Validator.validate!(input[:application_name], ::String, context: "#{context}[:application_name]")
-        Validators::RevisionLocation.validate!(input[:revision], context: "#{context}[:revision]") unless input[:revision].nil?
-        Validators::GenericRevisionInfo.validate!(input[:revision_info], context: "#{context}[:revision_info]") unless input[:revision_info].nil?
+        RevisionLocation.validate!(input[:revision], context: "#{context}[:revision]") unless input[:revision].nil?
+        GenericRevisionInfo.validate!(input[:revision_info], context: "#{context}[:revision_info]") unless input[:revision_info].nil?
       end
     end
 
@@ -1012,7 +1014,7 @@ module AWS::SDK::CodeDeploy
     class GetDeploymentConfigOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetDeploymentConfigOutput, context: context)
-        Validators::DeploymentConfigInfo.validate!(input[:deployment_config_info], context: "#{context}[:deployment_config_info]") unless input[:deployment_config_info].nil?
+        DeploymentConfigInfo.validate!(input[:deployment_config_info], context: "#{context}[:deployment_config_info]") unless input[:deployment_config_info].nil?
       end
     end
 
@@ -1027,7 +1029,7 @@ module AWS::SDK::CodeDeploy
     class GetDeploymentGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetDeploymentGroupOutput, context: context)
-        Validators::DeploymentGroupInfo.validate!(input[:deployment_group_info], context: "#{context}[:deployment_group_info]") unless input[:deployment_group_info].nil?
+        DeploymentGroupInfo.validate!(input[:deployment_group_info], context: "#{context}[:deployment_group_info]") unless input[:deployment_group_info].nil?
       end
     end
 
@@ -1049,14 +1051,14 @@ module AWS::SDK::CodeDeploy
     class GetDeploymentInstanceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetDeploymentInstanceOutput, context: context)
-        Validators::InstanceSummary.validate!(input[:instance_summary], context: "#{context}[:instance_summary]") unless input[:instance_summary].nil?
+        InstanceSummary.validate!(input[:instance_summary], context: "#{context}[:instance_summary]") unless input[:instance_summary].nil?
       end
     end
 
     class GetDeploymentOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetDeploymentOutput, context: context)
-        Validators::DeploymentInfo.validate!(input[:deployment_info], context: "#{context}[:deployment_info]") unless input[:deployment_info].nil?
+        DeploymentInfo.validate!(input[:deployment_info], context: "#{context}[:deployment_info]") unless input[:deployment_info].nil?
       end
     end
 
@@ -1071,7 +1073,7 @@ module AWS::SDK::CodeDeploy
     class GetDeploymentTargetOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetDeploymentTargetOutput, context: context)
-        Validators::DeploymentTarget.validate!(input[:deployment_target], context: "#{context}[:deployment_target]") unless input[:deployment_target].nil?
+        DeploymentTarget.validate!(input[:deployment_target], context: "#{context}[:deployment_target]") unless input[:deployment_target].nil?
       end
     end
 
@@ -1085,7 +1087,7 @@ module AWS::SDK::CodeDeploy
     class GetOnPremisesInstanceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetOnPremisesInstanceOutput, context: context)
-        Validators::InstanceInfo.validate!(input[:instance_info], context: "#{context}[:instance_info]") unless input[:instance_info].nil?
+        InstanceInfo.validate!(input[:instance_info], context: "#{context}[:instance_info]") unless input[:instance_info].nil?
       end
     end
 
@@ -1178,7 +1180,7 @@ module AWS::SDK::CodeDeploy
         Hearth::Validator.validate!(input[:instance_arn], ::String, context: "#{context}[:instance_arn]")
         Hearth::Validator.validate!(input[:register_time], ::Time, context: "#{context}[:register_time]")
         Hearth::Validator.validate!(input[:deregister_time], ::Time, context: "#{context}[:deregister_time]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1186,7 +1188,7 @@ module AWS::SDK::CodeDeploy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::InstanceInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          InstanceInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1244,7 +1246,7 @@ module AWS::SDK::CodeDeploy
         Hearth::Validator.validate!(input[:instance_id], ::String, context: "#{context}[:instance_id]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:last_updated_at], ::Time, context: "#{context}[:last_updated_at]")
-        Validators::LifecycleEventList.validate!(input[:lifecycle_events], context: "#{context}[:lifecycle_events]") unless input[:lifecycle_events].nil?
+        LifecycleEventList.validate!(input[:lifecycle_events], context: "#{context}[:lifecycle_events]") unless input[:lifecycle_events].nil?
         Hearth::Validator.validate!(input[:instance_type], ::String, context: "#{context}[:instance_type]")
       end
     end
@@ -1253,7 +1255,7 @@ module AWS::SDK::CodeDeploy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::InstanceSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          InstanceSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1266,7 +1268,7 @@ module AWS::SDK::CodeDeploy
         Hearth::Validator.validate!(input[:target_arn], ::String, context: "#{context}[:target_arn]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:last_updated_at], ::Time, context: "#{context}[:last_updated_at]")
-        Validators::LifecycleEventList.validate!(input[:lifecycle_events], context: "#{context}[:lifecycle_events]") unless input[:lifecycle_events].nil?
+        LifecycleEventList.validate!(input[:lifecycle_events], context: "#{context}[:lifecycle_events]") unless input[:lifecycle_events].nil?
         Hearth::Validator.validate!(input[:instance_label], ::String, context: "#{context}[:instance_label]")
       end
     end
@@ -1686,8 +1688,8 @@ module AWS::SDK::CodeDeploy
         Hearth::Validator.validate!(input[:target_arn], ::String, context: "#{context}[:target_arn]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:last_updated_at], ::Time, context: "#{context}[:last_updated_at]")
-        Validators::LifecycleEventList.validate!(input[:lifecycle_events], context: "#{context}[:lifecycle_events]") unless input[:lifecycle_events].nil?
-        Validators::LambdaFunctionInfo.validate!(input[:lambda_function_info], context: "#{context}[:lambda_function_info]") unless input[:lambda_function_info].nil?
+        LifecycleEventList.validate!(input[:lifecycle_events], context: "#{context}[:lifecycle_events]") unless input[:lifecycle_events].nil?
+        LambdaFunctionInfo.validate!(input[:lambda_function_info], context: "#{context}[:lambda_function_info]") unless input[:lambda_function_info].nil?
       end
     end
 
@@ -1705,7 +1707,7 @@ module AWS::SDK::CodeDeploy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::LifecycleEvent, context: context)
         Hearth::Validator.validate!(input[:lifecycle_event_name], ::String, context: "#{context}[:lifecycle_event_name]")
-        Validators::Diagnostics.validate!(input[:diagnostics], context: "#{context}[:diagnostics]") unless input[:diagnostics].nil?
+        Diagnostics.validate!(input[:diagnostics], context: "#{context}[:diagnostics]") unless input[:diagnostics].nil?
         Hearth::Validator.validate!(input[:start_time], ::Time, context: "#{context}[:start_time]")
         Hearth::Validator.validate!(input[:end_time], ::Time, context: "#{context}[:end_time]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
@@ -1723,7 +1725,7 @@ module AWS::SDK::CodeDeploy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LifecycleEvent.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LifecycleEvent.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1751,7 +1753,7 @@ module AWS::SDK::CodeDeploy
     class ListApplicationRevisionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListApplicationRevisionsOutput, context: context)
-        Validators::RevisionLocationList.validate!(input[:revisions], context: "#{context}[:revisions]") unless input[:revisions].nil?
+        RevisionLocationList.validate!(input[:revisions], context: "#{context}[:revisions]") unless input[:revisions].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1766,7 +1768,7 @@ module AWS::SDK::CodeDeploy
     class ListApplicationsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListApplicationsOutput, context: context)
-        Validators::ApplicationsList.validate!(input[:applications], context: "#{context}[:applications]") unless input[:applications].nil?
+        ApplicationsList.validate!(input[:applications], context: "#{context}[:applications]") unless input[:applications].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1781,7 +1783,7 @@ module AWS::SDK::CodeDeploy
     class ListDeploymentConfigsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDeploymentConfigsOutput, context: context)
-        Validators::DeploymentConfigsList.validate!(input[:deployment_configs_list], context: "#{context}[:deployment_configs_list]") unless input[:deployment_configs_list].nil?
+        DeploymentConfigsList.validate!(input[:deployment_configs_list], context: "#{context}[:deployment_configs_list]") unless input[:deployment_configs_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1798,7 +1800,7 @@ module AWS::SDK::CodeDeploy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDeploymentGroupsOutput, context: context)
         Hearth::Validator.validate!(input[:application_name], ::String, context: "#{context}[:application_name]")
-        Validators::DeploymentGroupsList.validate!(input[:deployment_groups], context: "#{context}[:deployment_groups]") unless input[:deployment_groups].nil?
+        DeploymentGroupsList.validate!(input[:deployment_groups], context: "#{context}[:deployment_groups]") unless input[:deployment_groups].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1808,15 +1810,15 @@ module AWS::SDK::CodeDeploy
         Hearth::Validator.validate!(input, Types::ListDeploymentInstancesInput, context: context)
         Hearth::Validator.validate!(input[:deployment_id], ::String, context: "#{context}[:deployment_id]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::InstanceStatusList.validate!(input[:instance_status_filter], context: "#{context}[:instance_status_filter]") unless input[:instance_status_filter].nil?
-        Validators::InstanceTypeList.validate!(input[:instance_type_filter], context: "#{context}[:instance_type_filter]") unless input[:instance_type_filter].nil?
+        InstanceStatusList.validate!(input[:instance_status_filter], context: "#{context}[:instance_status_filter]") unless input[:instance_status_filter].nil?
+        InstanceTypeList.validate!(input[:instance_type_filter], context: "#{context}[:instance_type_filter]") unless input[:instance_type_filter].nil?
       end
     end
 
     class ListDeploymentInstancesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDeploymentInstancesOutput, context: context)
-        Validators::InstancesList.validate!(input[:instances_list], context: "#{context}[:instances_list]") unless input[:instances_list].nil?
+        InstancesList.validate!(input[:instances_list], context: "#{context}[:instances_list]") unless input[:instances_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1826,14 +1828,14 @@ module AWS::SDK::CodeDeploy
         Hearth::Validator.validate!(input, Types::ListDeploymentTargetsInput, context: context)
         Hearth::Validator.validate!(input[:deployment_id], ::String, context: "#{context}[:deployment_id]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::TargetFilters.validate!(input[:target_filters], context: "#{context}[:target_filters]") unless input[:target_filters].nil?
+        TargetFilters.validate!(input[:target_filters], context: "#{context}[:target_filters]") unless input[:target_filters].nil?
       end
     end
 
     class ListDeploymentTargetsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDeploymentTargetsOutput, context: context)
-        Validators::TargetIdList.validate!(input[:target_ids], context: "#{context}[:target_ids]") unless input[:target_ids].nil?
+        TargetIdList.validate!(input[:target_ids], context: "#{context}[:target_ids]") unless input[:target_ids].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1844,8 +1846,8 @@ module AWS::SDK::CodeDeploy
         Hearth::Validator.validate!(input[:application_name], ::String, context: "#{context}[:application_name]")
         Hearth::Validator.validate!(input[:deployment_group_name], ::String, context: "#{context}[:deployment_group_name]")
         Hearth::Validator.validate!(input[:external_id], ::String, context: "#{context}[:external_id]")
-        Validators::DeploymentStatusList.validate!(input[:include_only_statuses], context: "#{context}[:include_only_statuses]") unless input[:include_only_statuses].nil?
-        Validators::TimeRange.validate!(input[:create_time_range], context: "#{context}[:create_time_range]") unless input[:create_time_range].nil?
+        DeploymentStatusList.validate!(input[:include_only_statuses], context: "#{context}[:include_only_statuses]") unless input[:include_only_statuses].nil?
+        TimeRange.validate!(input[:create_time_range], context: "#{context}[:create_time_range]") unless input[:create_time_range].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1853,7 +1855,7 @@ module AWS::SDK::CodeDeploy
     class ListDeploymentsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDeploymentsOutput, context: context)
-        Validators::DeploymentsList.validate!(input[:deployments], context: "#{context}[:deployments]") unless input[:deployments].nil?
+        DeploymentsList.validate!(input[:deployments], context: "#{context}[:deployments]") unless input[:deployments].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1868,7 +1870,7 @@ module AWS::SDK::CodeDeploy
     class ListGitHubAccountTokenNamesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListGitHubAccountTokenNamesOutput, context: context)
-        Validators::GitHubAccountTokenNameList.validate!(input[:token_name_list], context: "#{context}[:token_name_list]") unless input[:token_name_list].nil?
+        GitHubAccountTokenNameList.validate!(input[:token_name_list], context: "#{context}[:token_name_list]") unless input[:token_name_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1877,7 +1879,7 @@ module AWS::SDK::CodeDeploy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListOnPremisesInstancesInput, context: context)
         Hearth::Validator.validate!(input[:registration_status], ::String, context: "#{context}[:registration_status]")
-        Validators::TagFilterList.validate!(input[:tag_filters], context: "#{context}[:tag_filters]") unless input[:tag_filters].nil?
+        TagFilterList.validate!(input[:tag_filters], context: "#{context}[:tag_filters]") unless input[:tag_filters].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1885,7 +1887,7 @@ module AWS::SDK::CodeDeploy
     class ListOnPremisesInstancesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListOnPremisesInstancesOutput, context: context)
-        Validators::InstanceNameList.validate!(input[:instance_names], context: "#{context}[:instance_names]") unless input[:instance_names].nil?
+        InstanceNameList.validate!(input[:instance_names], context: "#{context}[:instance_names]") unless input[:instance_names].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1901,7 +1903,7 @@ module AWS::SDK::CodeDeploy
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1918,9 +1920,9 @@ module AWS::SDK::CodeDeploy
     class LoadBalancerInfo
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::LoadBalancerInfo, context: context)
-        Validators::ELBInfoList.validate!(input[:elb_info_list], context: "#{context}[:elb_info_list]") unless input[:elb_info_list].nil?
-        Validators::TargetGroupInfoList.validate!(input[:target_group_info_list], context: "#{context}[:target_group_info_list]") unless input[:target_group_info_list].nil?
-        Validators::TargetGroupPairInfoList.validate!(input[:target_group_pair_info_list], context: "#{context}[:target_group_pair_info_list]") unless input[:target_group_pair_info_list].nil?
+        ELBInfoList.validate!(input[:elb_info_list], context: "#{context}[:elb_info_list]") unless input[:elb_info_list].nil?
+        TargetGroupInfoList.validate!(input[:target_group_info_list], context: "#{context}[:target_group_info_list]") unless input[:target_group_info_list].nil?
+        TargetGroupPairInfoList.validate!(input[:target_group_pair_info_list], context: "#{context}[:target_group_pair_info_list]") unless input[:target_group_pair_info_list].nil?
       end
     end
 
@@ -1942,7 +1944,7 @@ module AWS::SDK::CodeDeploy
     class OnPremisesTagSet
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::OnPremisesTagSet, context: context)
-        Validators::OnPremisesTagSetList.validate!(input[:on_premises_tag_set_list], context: "#{context}[:on_premises_tag_set_list]") unless input[:on_premises_tag_set_list].nil?
+        OnPremisesTagSetList.validate!(input[:on_premises_tag_set_list], context: "#{context}[:on_premises_tag_set_list]") unless input[:on_premises_tag_set_list].nil?
       end
     end
 
@@ -1950,7 +1952,7 @@ module AWS::SDK::CodeDeploy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TagFilterList.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TagFilterList.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1991,7 +1993,7 @@ module AWS::SDK::CodeDeploy
         Hearth::Validator.validate!(input, Types::RegisterApplicationRevisionInput, context: context)
         Hearth::Validator.validate!(input[:application_name], ::String, context: "#{context}[:application_name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::RevisionLocation.validate!(input[:revision], context: "#{context}[:revision]") unless input[:revision].nil?
+        RevisionLocation.validate!(input[:revision], context: "#{context}[:revision]") unless input[:revision].nil?
       end
     end
 
@@ -2020,15 +2022,15 @@ module AWS::SDK::CodeDeploy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RelatedDeployments, context: context)
         Hearth::Validator.validate!(input[:auto_update_outdated_instances_root_deployment_id], ::String, context: "#{context}[:auto_update_outdated_instances_root_deployment_id]")
-        Validators::DeploymentsList.validate!(input[:auto_update_outdated_instances_deployment_ids], context: "#{context}[:auto_update_outdated_instances_deployment_ids]") unless input[:auto_update_outdated_instances_deployment_ids].nil?
+        DeploymentsList.validate!(input[:auto_update_outdated_instances_deployment_ids], context: "#{context}[:auto_update_outdated_instances_deployment_ids]") unless input[:auto_update_outdated_instances_deployment_ids].nil?
       end
     end
 
     class RemoveTagsFromOnPremisesInstancesInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RemoveTagsFromOnPremisesInstancesInput, context: context)
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::InstanceNameList.validate!(input[:instance_names], context: "#{context}[:instance_names]") unless input[:instance_names].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        InstanceNameList.validate!(input[:instance_names], context: "#{context}[:instance_names]") unless input[:instance_names].nil?
       end
     end
 
@@ -2062,8 +2064,8 @@ module AWS::SDK::CodeDeploy
     class RevisionInfo
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RevisionInfo, context: context)
-        Validators::RevisionLocation.validate!(input[:revision_location], context: "#{context}[:revision_location]") unless input[:revision_location].nil?
-        Validators::GenericRevisionInfo.validate!(input[:generic_revision_info], context: "#{context}[:generic_revision_info]") unless input[:generic_revision_info].nil?
+        RevisionLocation.validate!(input[:revision_location], context: "#{context}[:revision_location]") unless input[:revision_location].nil?
+        GenericRevisionInfo.validate!(input[:generic_revision_info], context: "#{context}[:generic_revision_info]") unless input[:generic_revision_info].nil?
       end
     end
 
@@ -2071,7 +2073,7 @@ module AWS::SDK::CodeDeploy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RevisionInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RevisionInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2080,10 +2082,10 @@ module AWS::SDK::CodeDeploy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RevisionLocation, context: context)
         Hearth::Validator.validate!(input[:revision_type], ::String, context: "#{context}[:revision_type]")
-        Validators::S3Location.validate!(input[:s3_location], context: "#{context}[:s3_location]") unless input[:s3_location].nil?
-        Validators::GitHubLocation.validate!(input[:git_hub_location], context: "#{context}[:git_hub_location]") unless input[:git_hub_location].nil?
-        Validators::RawString.validate!(input[:string], context: "#{context}[:string]") unless input[:string].nil?
-        Validators::AppSpecContent.validate!(input[:app_spec_content], context: "#{context}[:app_spec_content]") unless input[:app_spec_content].nil?
+        S3Location.validate!(input[:s3_location], context: "#{context}[:s3_location]") unless input[:s3_location].nil?
+        GitHubLocation.validate!(input[:git_hub_location], context: "#{context}[:git_hub_location]") unless input[:git_hub_location].nil?
+        RawString.validate!(input[:string], context: "#{context}[:string]") unless input[:string].nil?
+        AppSpecContent.validate!(input[:app_spec_content], context: "#{context}[:app_spec_content]") unless input[:app_spec_content].nil?
       end
     end
 
@@ -2091,7 +2093,7 @@ module AWS::SDK::CodeDeploy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RevisionLocation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RevisionLocation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2180,7 +2182,7 @@ module AWS::SDK::CodeDeploy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TagFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TagFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2205,7 +2207,7 @@ module AWS::SDK::CodeDeploy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2221,7 +2223,7 @@ module AWS::SDK::CodeDeploy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -2243,7 +2245,7 @@ module AWS::SDK::CodeDeploy
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::FilterValueList.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          FilterValueList.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -2259,7 +2261,7 @@ module AWS::SDK::CodeDeploy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TargetGroupInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TargetGroupInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2267,9 +2269,9 @@ module AWS::SDK::CodeDeploy
     class TargetGroupPairInfo
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TargetGroupPairInfo, context: context)
-        Validators::TargetGroupInfoList.validate!(input[:target_groups], context: "#{context}[:target_groups]") unless input[:target_groups].nil?
-        Validators::TrafficRoute.validate!(input[:prod_traffic_route], context: "#{context}[:prod_traffic_route]") unless input[:prod_traffic_route].nil?
-        Validators::TrafficRoute.validate!(input[:test_traffic_route], context: "#{context}[:test_traffic_route]") unless input[:test_traffic_route].nil?
+        TargetGroupInfoList.validate!(input[:target_groups], context: "#{context}[:target_groups]") unless input[:target_groups].nil?
+        TrafficRoute.validate!(input[:prod_traffic_route], context: "#{context}[:prod_traffic_route]") unless input[:prod_traffic_route].nil?
+        TrafficRoute.validate!(input[:test_traffic_route], context: "#{context}[:test_traffic_route]") unless input[:test_traffic_route].nil?
       end
     end
 
@@ -2277,7 +2279,7 @@ module AWS::SDK::CodeDeploy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TargetGroupPairInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TargetGroupPairInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2294,9 +2296,9 @@ module AWS::SDK::CodeDeploy
     class TargetInstances
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TargetInstances, context: context)
-        Validators::EC2TagFilterList.validate!(input[:tag_filters], context: "#{context}[:tag_filters]") unless input[:tag_filters].nil?
-        Validators::AutoScalingGroupNameList.validate!(input[:auto_scaling_groups], context: "#{context}[:auto_scaling_groups]") unless input[:auto_scaling_groups].nil?
-        Validators::EC2TagSet.validate!(input[:ec2_tag_set], context: "#{context}[:ec2_tag_set]") unless input[:ec2_tag_set].nil?
+        EC2TagFilterList.validate!(input[:tag_filters], context: "#{context}[:tag_filters]") unless input[:tag_filters].nil?
+        AutoScalingGroupNameList.validate!(input[:auto_scaling_groups], context: "#{context}[:auto_scaling_groups]") unless input[:auto_scaling_groups].nil?
+        EC2TagSet.validate!(input[:ec2_tag_set], context: "#{context}[:ec2_tag_set]") unless input[:ec2_tag_set].nil?
       end
     end
 
@@ -2334,7 +2336,7 @@ module AWS::SDK::CodeDeploy
     class TrafficRoute
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TrafficRoute, context: context)
-        Validators::ListenerArnList.validate!(input[:listener_arns], context: "#{context}[:listener_arns]") unless input[:listener_arns].nil?
+        ListenerArnList.validate!(input[:listener_arns], context: "#{context}[:listener_arns]") unless input[:listener_arns].nil?
       end
     end
 
@@ -2342,8 +2344,8 @@ module AWS::SDK::CodeDeploy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TrafficRoutingConfig, context: context)
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::TimeBasedCanary.validate!(input[:time_based_canary], context: "#{context}[:time_based_canary]") unless input[:time_based_canary].nil?
-        Validators::TimeBasedLinear.validate!(input[:time_based_linear], context: "#{context}[:time_based_linear]") unless input[:time_based_linear].nil?
+        TimeBasedCanary.validate!(input[:time_based_canary], context: "#{context}[:time_based_canary]") unless input[:time_based_canary].nil?
+        TimeBasedLinear.validate!(input[:time_based_linear], context: "#{context}[:time_based_linear]") unless input[:time_based_linear].nil?
       end
     end
 
@@ -2352,7 +2354,7 @@ module AWS::SDK::CodeDeploy
         Hearth::Validator.validate!(input, Types::TriggerConfig, context: context)
         Hearth::Validator.validate!(input[:trigger_name], ::String, context: "#{context}[:trigger_name]")
         Hearth::Validator.validate!(input[:trigger_target_arn], ::String, context: "#{context}[:trigger_target_arn]")
-        Validators::TriggerEventTypeList.validate!(input[:trigger_events], context: "#{context}[:trigger_events]") unless input[:trigger_events].nil?
+        TriggerEventTypeList.validate!(input[:trigger_events], context: "#{context}[:trigger_events]") unless input[:trigger_events].nil?
       end
     end
 
@@ -2360,7 +2362,7 @@ module AWS::SDK::CodeDeploy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TriggerConfig.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TriggerConfig.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2392,7 +2394,7 @@ module AWS::SDK::CodeDeploy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -2423,27 +2425,27 @@ module AWS::SDK::CodeDeploy
         Hearth::Validator.validate!(input[:current_deployment_group_name], ::String, context: "#{context}[:current_deployment_group_name]")
         Hearth::Validator.validate!(input[:new_deployment_group_name], ::String, context: "#{context}[:new_deployment_group_name]")
         Hearth::Validator.validate!(input[:deployment_config_name], ::String, context: "#{context}[:deployment_config_name]")
-        Validators::EC2TagFilterList.validate!(input[:ec2_tag_filters], context: "#{context}[:ec2_tag_filters]") unless input[:ec2_tag_filters].nil?
-        Validators::TagFilterList.validate!(input[:on_premises_instance_tag_filters], context: "#{context}[:on_premises_instance_tag_filters]") unless input[:on_premises_instance_tag_filters].nil?
-        Validators::AutoScalingGroupNameList.validate!(input[:auto_scaling_groups], context: "#{context}[:auto_scaling_groups]") unless input[:auto_scaling_groups].nil?
+        EC2TagFilterList.validate!(input[:ec2_tag_filters], context: "#{context}[:ec2_tag_filters]") unless input[:ec2_tag_filters].nil?
+        TagFilterList.validate!(input[:on_premises_instance_tag_filters], context: "#{context}[:on_premises_instance_tag_filters]") unless input[:on_premises_instance_tag_filters].nil?
+        AutoScalingGroupNameList.validate!(input[:auto_scaling_groups], context: "#{context}[:auto_scaling_groups]") unless input[:auto_scaling_groups].nil?
         Hearth::Validator.validate!(input[:service_role_arn], ::String, context: "#{context}[:service_role_arn]")
-        Validators::TriggerConfigList.validate!(input[:trigger_configurations], context: "#{context}[:trigger_configurations]") unless input[:trigger_configurations].nil?
-        Validators::AlarmConfiguration.validate!(input[:alarm_configuration], context: "#{context}[:alarm_configuration]") unless input[:alarm_configuration].nil?
-        Validators::AutoRollbackConfiguration.validate!(input[:auto_rollback_configuration], context: "#{context}[:auto_rollback_configuration]") unless input[:auto_rollback_configuration].nil?
+        TriggerConfigList.validate!(input[:trigger_configurations], context: "#{context}[:trigger_configurations]") unless input[:trigger_configurations].nil?
+        AlarmConfiguration.validate!(input[:alarm_configuration], context: "#{context}[:alarm_configuration]") unless input[:alarm_configuration].nil?
+        AutoRollbackConfiguration.validate!(input[:auto_rollback_configuration], context: "#{context}[:auto_rollback_configuration]") unless input[:auto_rollback_configuration].nil?
         Hearth::Validator.validate!(input[:outdated_instances_strategy], ::String, context: "#{context}[:outdated_instances_strategy]")
-        Validators::DeploymentStyle.validate!(input[:deployment_style], context: "#{context}[:deployment_style]") unless input[:deployment_style].nil?
-        Validators::BlueGreenDeploymentConfiguration.validate!(input[:blue_green_deployment_configuration], context: "#{context}[:blue_green_deployment_configuration]") unless input[:blue_green_deployment_configuration].nil?
-        Validators::LoadBalancerInfo.validate!(input[:load_balancer_info], context: "#{context}[:load_balancer_info]") unless input[:load_balancer_info].nil?
-        Validators::EC2TagSet.validate!(input[:ec2_tag_set], context: "#{context}[:ec2_tag_set]") unless input[:ec2_tag_set].nil?
-        Validators::ECSServiceList.validate!(input[:ecs_services], context: "#{context}[:ecs_services]") unless input[:ecs_services].nil?
-        Validators::OnPremisesTagSet.validate!(input[:on_premises_tag_set], context: "#{context}[:on_premises_tag_set]") unless input[:on_premises_tag_set].nil?
+        DeploymentStyle.validate!(input[:deployment_style], context: "#{context}[:deployment_style]") unless input[:deployment_style].nil?
+        BlueGreenDeploymentConfiguration.validate!(input[:blue_green_deployment_configuration], context: "#{context}[:blue_green_deployment_configuration]") unless input[:blue_green_deployment_configuration].nil?
+        LoadBalancerInfo.validate!(input[:load_balancer_info], context: "#{context}[:load_balancer_info]") unless input[:load_balancer_info].nil?
+        EC2TagSet.validate!(input[:ec2_tag_set], context: "#{context}[:ec2_tag_set]") unless input[:ec2_tag_set].nil?
+        ECSServiceList.validate!(input[:ecs_services], context: "#{context}[:ecs_services]") unless input[:ecs_services].nil?
+        OnPremisesTagSet.validate!(input[:on_premises_tag_set], context: "#{context}[:on_premises_tag_set]") unless input[:on_premises_tag_set].nil?
       end
     end
 
     class UpdateDeploymentGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateDeploymentGroupOutput, context: context)
-        Validators::AutoScalingGroupList.validate!(input[:hooks_not_cleaned_up], context: "#{context}[:hooks_not_cleaned_up]") unless input[:hooks_not_cleaned_up].nil?
+        AutoScalingGroupList.validate!(input[:hooks_not_cleaned_up], context: "#{context}[:hooks_not_cleaned_up]") unless input[:hooks_not_cleaned_up].nil?
       end
     end
 

@@ -469,7 +469,7 @@ module AWS::SDK::IoTSiteWise
         type.asset_id = params[:asset_id]
         type.hierarchy_id = params[:hierarchy_id]
         type.child_asset_id = params[:child_asset_id]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -489,7 +489,7 @@ module AWS::SDK::IoTSiteWise
         type.alias = params[:alias]
         type.asset_id = params[:asset_id]
         type.property_id = params[:property_id]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -556,7 +556,7 @@ module AWS::SDK::IoTSiteWise
         type = Types::BatchAssociateProjectAssetsInput.new
         type.project_id = params[:project_id]
         type.asset_ids = IDs.build(params[:asset_ids], context: "#{context}[:asset_ids]") unless params[:asset_ids].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -587,7 +587,7 @@ module AWS::SDK::IoTSiteWise
         type = Types::BatchDisassociateProjectAssetsInput.new
         type.project_id = params[:project_id]
         type.asset_ids = IDs.build(params[:asset_ids], context: "#{context}[:asset_ids]") unless params[:asset_ids].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -1083,7 +1083,7 @@ module AWS::SDK::IoTSiteWise
         type.access_policy_identity = Identity.build(params[:access_policy_identity], context: "#{context}[:access_policy_identity]") unless params[:access_policy_identity].nil?
         type.access_policy_resource = Resource.build(params[:access_policy_resource], context: "#{context}[:access_policy_resource]") unless params[:access_policy_resource].nil?
         type.access_policy_permission = params[:access_policy_permission]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.tags = TagMap.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type
       end
@@ -1105,7 +1105,7 @@ module AWS::SDK::IoTSiteWise
         type = Types::CreateAssetInput.new
         type.asset_name = params[:asset_name]
         type.asset_model_id = params[:asset_model_id]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.tags = TagMap.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type.asset_description = params[:asset_description]
         type
@@ -1121,7 +1121,7 @@ module AWS::SDK::IoTSiteWise
         type.asset_model_properties = AssetModelPropertyDefinitions.build(params[:asset_model_properties], context: "#{context}[:asset_model_properties]") unless params[:asset_model_properties].nil?
         type.asset_model_hierarchies = AssetModelHierarchyDefinitions.build(params[:asset_model_hierarchies], context: "#{context}[:asset_model_hierarchies]") unless params[:asset_model_hierarchies].nil?
         type.asset_model_composite_models = AssetModelCompositeModelDefinitions.build(params[:asset_model_composite_models], context: "#{context}[:asset_model_composite_models]") unless params[:asset_model_composite_models].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.tags = TagMap.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type
       end
@@ -1157,7 +1157,7 @@ module AWS::SDK::IoTSiteWise
         type.dashboard_name = params[:dashboard_name]
         type.dashboard_description = params[:dashboard_description]
         type.dashboard_definition = params[:dashboard_definition]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.tags = TagMap.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type
       end
@@ -1201,7 +1201,7 @@ module AWS::SDK::IoTSiteWise
         type.portal_name = params[:portal_name]
         type.portal_description = params[:portal_description]
         type.portal_contact_email = params[:portal_contact_email]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.portal_logo_image_file = ImageFile.build(params[:portal_logo_image_file], context: "#{context}[:portal_logo_image_file]") unless params[:portal_logo_image_file].nil?
         type.role_arn = params[:role_arn]
         type.tags = TagMap.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
@@ -1232,7 +1232,7 @@ module AWS::SDK::IoTSiteWise
         type.portal_id = params[:portal_id]
         type.project_name = params[:project_name]
         type.project_description = params[:project_description]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.tags = TagMap.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type
       end
@@ -1287,7 +1287,7 @@ module AWS::SDK::IoTSiteWise
         Hearth::Validator.validate!(params, ::Hash, Types::DeleteAccessPolicyInput, context: context)
         type = Types::DeleteAccessPolicyInput.new
         type.access_policy_id = params[:access_policy_id]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -1305,7 +1305,7 @@ module AWS::SDK::IoTSiteWise
         Hearth::Validator.validate!(params, ::Hash, Types::DeleteAssetInput, context: context)
         type = Types::DeleteAssetInput.new
         type.asset_id = params[:asset_id]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -1315,7 +1315,7 @@ module AWS::SDK::IoTSiteWise
         Hearth::Validator.validate!(params, ::Hash, Types::DeleteAssetModelInput, context: context)
         type = Types::DeleteAssetModelInput.new
         type.asset_model_id = params[:asset_model_id]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -1343,7 +1343,7 @@ module AWS::SDK::IoTSiteWise
         Hearth::Validator.validate!(params, ::Hash, Types::DeleteDashboardInput, context: context)
         type = Types::DeleteDashboardInput.new
         type.dashboard_id = params[:dashboard_id]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -1378,7 +1378,7 @@ module AWS::SDK::IoTSiteWise
         Hearth::Validator.validate!(params, ::Hash, Types::DeletePortalInput, context: context)
         type = Types::DeletePortalInput.new
         type.portal_id = params[:portal_id]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -1397,7 +1397,7 @@ module AWS::SDK::IoTSiteWise
         Hearth::Validator.validate!(params, ::Hash, Types::DeleteProjectInput, context: context)
         type = Types::DeleteProjectInput.new
         type.project_id = params[:project_id]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -1417,7 +1417,7 @@ module AWS::SDK::IoTSiteWise
         type.alias = params[:alias]
         type.asset_id = params[:asset_id]
         type.property_id = params[:property_id]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -1772,7 +1772,7 @@ module AWS::SDK::IoTSiteWise
         type.asset_id = params[:asset_id]
         type.hierarchy_id = params[:hierarchy_id]
         type.child_asset_id = params[:child_asset_id]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -1792,7 +1792,7 @@ module AWS::SDK::IoTSiteWise
         type.alias = params[:alias]
         type.asset_id = params[:asset_id]
         type.property_id = params[:property_id]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -2923,7 +2923,7 @@ module AWS::SDK::IoTSiteWise
         type.access_policy_identity = Identity.build(params[:access_policy_identity], context: "#{context}[:access_policy_identity]") unless params[:access_policy_identity].nil?
         type.access_policy_resource = Resource.build(params[:access_policy_resource], context: "#{context}[:access_policy_resource]") unless params[:access_policy_resource].nil?
         type.access_policy_permission = params[:access_policy_permission]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -2942,7 +2942,7 @@ module AWS::SDK::IoTSiteWise
         type = Types::UpdateAssetInput.new
         type.asset_id = params[:asset_id]
         type.asset_name = params[:asset_name]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.asset_description = params[:asset_description]
         type
       end
@@ -2958,7 +2958,7 @@ module AWS::SDK::IoTSiteWise
         type.asset_model_properties = AssetModelProperties.build(params[:asset_model_properties], context: "#{context}[:asset_model_properties]") unless params[:asset_model_properties].nil?
         type.asset_model_hierarchies = AssetModelHierarchies.build(params[:asset_model_hierarchies], context: "#{context}[:asset_model_hierarchies]") unless params[:asset_model_hierarchies].nil?
         type.asset_model_composite_models = AssetModelCompositeModels.build(params[:asset_model_composite_models], context: "#{context}[:asset_model_composite_models]") unless params[:asset_model_composite_models].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -2989,7 +2989,7 @@ module AWS::SDK::IoTSiteWise
         type.property_id = params[:property_id]
         type.property_alias = params[:property_alias]
         type.property_notification_state = params[:property_notification_state]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -3010,7 +3010,7 @@ module AWS::SDK::IoTSiteWise
         type.dashboard_name = params[:dashboard_name]
         type.dashboard_description = params[:dashboard_description]
         type.dashboard_definition = params[:dashboard_definition]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -3072,7 +3072,7 @@ module AWS::SDK::IoTSiteWise
         type.portal_contact_email = params[:portal_contact_email]
         type.portal_logo_image = Image.build(params[:portal_logo_image], context: "#{context}[:portal_logo_image]") unless params[:portal_logo_image].nil?
         type.role_arn = params[:role_arn]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.notification_sender_email = params[:notification_sender_email]
         type.alarms = Alarms.build(params[:alarms], context: "#{context}[:alarms]") unless params[:alarms].nil?
         type
@@ -3095,7 +3095,7 @@ module AWS::SDK::IoTSiteWise
         type.project_id = params[:project_id]
         type.project_name = params[:project_name]
         type.project_description = params[:project_description]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end

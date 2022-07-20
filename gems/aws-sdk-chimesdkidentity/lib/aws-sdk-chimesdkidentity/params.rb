@@ -220,7 +220,7 @@ module AWS::SDK::ChimeSDKIdentity
         type = Types::CreateAppInstanceInput.new
         type.name = params[:name]
         type.metadata = params[:metadata]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type
       end
@@ -243,7 +243,7 @@ module AWS::SDK::ChimeSDKIdentity
         type.app_instance_user_id = params[:app_instance_user_id]
         type.name = params[:name]
         type.metadata = params[:metadata]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type
       end
@@ -593,7 +593,7 @@ module AWS::SDK::ChimeSDKIdentity
         type.type = params[:type]
         type.resource_arn = params[:resource_arn]
         type.endpoint_attributes = EndpointAttributes.build(params[:endpoint_attributes], context: "#{context}[:endpoint_attributes]") unless params[:endpoint_attributes].nil?
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.allow_messages = params[:allow_messages]
         type
       end

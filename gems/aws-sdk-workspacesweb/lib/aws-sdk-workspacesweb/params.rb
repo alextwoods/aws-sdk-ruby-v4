@@ -222,7 +222,7 @@ module AWS::SDK::WorkSpacesWeb
         type.customer_managed_key = params[:customer_managed_key]
         type.additional_encryption_context = EncryptionContextMap.build(params[:additional_encryption_context], context: "#{context}[:additional_encryption_context]") unless params[:additional_encryption_context].nil?
         type.browser_policy = params[:browser_policy]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -244,7 +244,7 @@ module AWS::SDK::WorkSpacesWeb
         type.identity_provider_name = params[:identity_provider_name]
         type.identity_provider_type = params[:identity_provider_type]
         type.identity_provider_details = IdentityProviderDetails.build(params[:identity_provider_details], context: "#{context}[:identity_provider_details]") unless params[:identity_provider_details].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -266,7 +266,7 @@ module AWS::SDK::WorkSpacesWeb
         type.subnet_ids = SubnetIdList.build(params[:subnet_ids], context: "#{context}[:subnet_ids]") unless params[:subnet_ids].nil?
         type.security_group_ids = SecurityGroupIdList.build(params[:security_group_ids], context: "#{context}[:security_group_ids]") unless params[:security_group_ids].nil?
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -288,7 +288,7 @@ module AWS::SDK::WorkSpacesWeb
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type.customer_managed_key = params[:customer_managed_key]
         type.additional_encryption_context = EncryptionContextMap.build(params[:additional_encryption_context], context: "#{context}[:additional_encryption_context]") unless params[:additional_encryption_context].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -309,7 +309,7 @@ module AWS::SDK::WorkSpacesWeb
         type = Types::CreateTrustStoreInput.new
         type.certificate_list = CertificateList.build(params[:certificate_list], context: "#{context}[:certificate_list]") unless params[:certificate_list].nil?
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -335,7 +335,7 @@ module AWS::SDK::WorkSpacesWeb
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type.disconnect_timeout_in_minutes = params[:disconnect_timeout_in_minutes]
         type.idle_disconnect_timeout_in_minutes = params[:idle_disconnect_timeout_in_minutes]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -1061,7 +1061,7 @@ module AWS::SDK::WorkSpacesWeb
         type = Types::TagResourceInput.new
         type.resource_arn = params[:resource_arn]
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -1150,7 +1150,7 @@ module AWS::SDK::WorkSpacesWeb
         type = Types::UpdateBrowserSettingsInput.new
         type.browser_settings_arn = params[:browser_settings_arn]
         type.browser_policy = params[:browser_policy]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -1172,7 +1172,7 @@ module AWS::SDK::WorkSpacesWeb
         type.identity_provider_name = params[:identity_provider_name]
         type.identity_provider_type = params[:identity_provider_type]
         type.identity_provider_details = IdentityProviderDetails.build(params[:identity_provider_details], context: "#{context}[:identity_provider_details]") unless params[:identity_provider_details].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -1194,7 +1194,7 @@ module AWS::SDK::WorkSpacesWeb
         type.vpc_id = params[:vpc_id]
         type.subnet_ids = SubnetIdList.build(params[:subnet_ids], context: "#{context}[:subnet_ids]") unless params[:subnet_ids].nil?
         type.security_group_ids = SecurityGroupIdList.build(params[:security_group_ids], context: "#{context}[:security_group_ids]") unless params[:security_group_ids].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -1234,7 +1234,7 @@ module AWS::SDK::WorkSpacesWeb
         type.trust_store_arn = params[:trust_store_arn]
         type.certificates_to_add = CertificateList.build(params[:certificates_to_add], context: "#{context}[:certificates_to_add]") unless params[:certificates_to_add].nil?
         type.certificates_to_delete = CertificateThumbprintList.build(params[:certificates_to_delete], context: "#{context}[:certificates_to_delete]") unless params[:certificates_to_delete].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -1260,7 +1260,7 @@ module AWS::SDK::WorkSpacesWeb
         type.print_allowed = params[:print_allowed]
         type.disconnect_timeout_in_minutes = params[:disconnect_timeout_in_minutes]
         type.idle_disconnect_timeout_in_minutes = params[:idle_disconnect_timeout_in_minutes]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end

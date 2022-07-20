@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::ResourceGroupsTaggingAPI
@@ -58,7 +60,7 @@ module AWS::SDK::ResourceGroupsTaggingAPI
     def describe_report_creation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeReportCreationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeReportCreationInput,
         validate_input: @config.validate_input
@@ -219,7 +221,7 @@ module AWS::SDK::ResourceGroupsTaggingAPI
     def get_compliance_summary(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetComplianceSummaryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetComplianceSummaryInput,
         validate_input: @config.validate_input
@@ -467,7 +469,7 @@ module AWS::SDK::ResourceGroupsTaggingAPI
     def get_resources(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetResourcesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetResourcesInput,
         validate_input: @config.validate_input
@@ -547,7 +549,7 @@ module AWS::SDK::ResourceGroupsTaggingAPI
     def get_tag_keys(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetTagKeysInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetTagKeysInput,
         validate_input: @config.validate_input
@@ -632,7 +634,7 @@ module AWS::SDK::ResourceGroupsTaggingAPI
     def get_tag_values(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetTagValuesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetTagValuesInput,
         validate_input: @config.validate_input
@@ -713,7 +715,7 @@ module AWS::SDK::ResourceGroupsTaggingAPI
     def start_report_creation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartReportCreationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartReportCreationInput,
         validate_input: @config.validate_input
@@ -848,7 +850,7 @@ module AWS::SDK::ResourceGroupsTaggingAPI
     def tag_resources(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourcesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourcesInput,
         validate_input: @config.validate_input
@@ -970,7 +972,7 @@ module AWS::SDK::ResourceGroupsTaggingAPI
     def untag_resources(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourcesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourcesInput,
         validate_input: @config.validate_input

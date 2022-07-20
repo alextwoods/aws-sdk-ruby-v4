@@ -42,8 +42,8 @@ module AWS::SDK::Ivschat
           update_time: Time.now,
           maximum_message_rate_per_second: 1,
           maximum_message_length: 1,
-          message_review_handler: Stubs::MessageReviewHandler.default(visited),
-          tags: Stubs::Tags.default(visited),
+          message_review_handler: MessageReviewHandler.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -158,8 +158,8 @@ module AWS::SDK::Ivschat
           update_time: Time.now,
           maximum_message_rate_per_second: 1,
           maximum_message_length: 1,
-          message_review_handler: Stubs::MessageReviewHandler.default(visited),
-          tags: Stubs::Tags.default(visited),
+          message_review_handler: MessageReviewHandler.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -184,7 +184,7 @@ module AWS::SDK::Ivschat
     class ListRooms
       def self.default(visited=[])
         {
-          rooms: Stubs::RoomList.default(visited),
+          rooms: RoomList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -205,7 +205,7 @@ module AWS::SDK::Ivschat
         return nil if visited.include?('RoomList')
         visited = visited + ['RoomList']
         [
-          Stubs::RoomSummary.default(visited)
+          RoomSummary.default(visited)
         ]
       end
 
@@ -228,10 +228,10 @@ module AWS::SDK::Ivschat
           arn: 'arn',
           id: 'id',
           name: 'name',
-          message_review_handler: Stubs::MessageReviewHandler.default(visited),
+          message_review_handler: MessageReviewHandler.default(visited),
           create_time: Time.now,
           update_time: Time.now,
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -253,7 +253,7 @@ module AWS::SDK::Ivschat
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -320,8 +320,8 @@ module AWS::SDK::Ivschat
           update_time: Time.now,
           maximum_message_rate_per_second: 1,
           maximum_message_length: 1,
-          message_review_handler: Stubs::MessageReviewHandler.default(visited),
-          tags: Stubs::Tags.default(visited),
+          message_review_handler: MessageReviewHandler.default(visited),
+          tags: Tags.default(visited),
         }
       end
 

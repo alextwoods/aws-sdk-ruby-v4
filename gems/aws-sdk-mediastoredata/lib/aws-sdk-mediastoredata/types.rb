@@ -185,11 +185,11 @@ module AWS::SDK::MediaStoreData
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status_code ||= 0
       end
-
     end
 
     # <p>The service is temporarily unavailable.</p>

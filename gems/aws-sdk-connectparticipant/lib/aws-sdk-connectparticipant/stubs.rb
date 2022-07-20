@@ -27,8 +27,8 @@ module AWS::SDK::ConnectParticipant
     class CreateParticipantConnection
       def self.default(visited=[])
         {
-          websocket: Stubs::Websocket.default(visited),
-          connection_credentials: Stubs::ConnectionCredentials.default(visited),
+          websocket: Websocket.default(visited),
+          connection_credentials: ConnectionCredentials.default(visited),
         }
       end
 
@@ -119,7 +119,7 @@ module AWS::SDK::ConnectParticipant
       def self.default(visited=[])
         {
           initial_contact_id: 'initial_contact_id',
-          transcript: Stubs::Transcript.default(visited),
+          transcript: Transcript.default(visited),
           next_token: 'next_token',
         }
       end
@@ -141,7 +141,7 @@ module AWS::SDK::ConnectParticipant
         return nil if visited.include?('Transcript')
         visited = visited + ['Transcript']
         [
-          Stubs::Item.default(visited)
+          Item.default(visited)
         ]
       end
 
@@ -169,7 +169,7 @@ module AWS::SDK::ConnectParticipant
           participant_id: 'participant_id',
           display_name: 'display_name',
           participant_role: 'participant_role',
-          attachments: Stubs::Attachments.default(visited),
+          attachments: Attachments.default(visited),
         }
       end
 
@@ -195,7 +195,7 @@ module AWS::SDK::ConnectParticipant
         return nil if visited.include?('Attachments')
         visited = visited + ['Attachments']
         [
-          Stubs::AttachmentItem.default(visited)
+          AttachmentItem.default(visited)
         ]
       end
 
@@ -276,7 +276,7 @@ module AWS::SDK::ConnectParticipant
       def self.default(visited=[])
         {
           attachment_id: 'attachment_id',
-          upload_metadata: Stubs::UploadMetadata.default(visited),
+          upload_metadata: UploadMetadata.default(visited),
         }
       end
 
@@ -298,7 +298,7 @@ module AWS::SDK::ConnectParticipant
         {
           url: 'url',
           url_expiry: 'url_expiry',
-          headers_to_include: Stubs::UploadMetadataSignedHeaders.default(visited),
+          headers_to_include: UploadMetadataSignedHeaders.default(visited),
         }
       end
 

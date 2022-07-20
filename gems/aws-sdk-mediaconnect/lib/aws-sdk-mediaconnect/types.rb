@@ -248,12 +248,12 @@ module AWS::SDK::MediaConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.clock_rate ||= 0
         self.media_stream_id ||= 0
       end
-
     end
 
     # The output that you want to add to this flow.
@@ -354,6 +354,7 @@ module AWS::SDK::MediaConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_latency ||= 0
@@ -362,7 +363,6 @@ module AWS::SDK::MediaConnect
         self.sender_control_port ||= 0
         self.smoothing_latency ||= 0
       end
-
     end
 
     # Includes enum constants for Algorithm
@@ -660,11 +660,11 @@ module AWS::SDK::MediaConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.destination_port ||= 0
       end
-
     end
 
     # The transport parameters that you want to associate with an outbound media stream.
@@ -691,11 +691,11 @@ module AWS::SDK::MediaConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.destination_port ||= 0
       end
-
     end
 
     # Includes enum constants for DurationUnits
@@ -758,11 +758,11 @@ module AWS::SDK::MediaConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.compression_factor ||= 0
       end
-
     end
 
     # A collection of parameters that determine how MediaConnect will convert the content. These fields only apply to outputs on flows that have a CDI source.
@@ -785,11 +785,11 @@ module AWS::SDK::MediaConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.compression_factor ||= 0
       end
-
     end
 
     # Information about the encryption of the flow.
@@ -908,11 +908,11 @@ module AWS::SDK::MediaConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.data_transfer_subscriber_fee_percent ||= 0
       end
-
     end
 
     # Includes enum constants for EntitlementStatus
@@ -959,11 +959,11 @@ module AWS::SDK::MediaConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.recovery_window ||= 0
       end
-
     end
 
     # Includes enum constants for FailoverMode
@@ -1245,11 +1245,11 @@ module AWS::SDK::MediaConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.data_transfer_subscriber_fee_percent ||= 0
       end
-
     end
 
     # Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
@@ -1328,11 +1328,11 @@ module AWS::SDK::MediaConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.input_port ||= 0
       end
-
     end
 
     # The transport parameters that you want to associate with an incoming media stream.
@@ -1353,11 +1353,11 @@ module AWS::SDK::MediaConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.input_port ||= 0
       end
-
     end
 
     # The VPC interface that is used for the media stream associated with the source or output.
@@ -1434,11 +1434,11 @@ module AWS::SDK::MediaConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute entitlements
@@ -1475,11 +1475,11 @@ module AWS::SDK::MediaConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute flows
@@ -1516,11 +1516,11 @@ module AWS::SDK::MediaConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute next_token
@@ -1557,11 +1557,11 @@ module AWS::SDK::MediaConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute next_token
@@ -1630,11 +1630,11 @@ module AWS::SDK::MediaConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.data_transfer_subscriber_fee_percent ||= 0
       end
-
     end
 
     # Provides a summary of a flow, including its ARN, Availability Zone, and source type.
@@ -1813,13 +1813,13 @@ module AWS::SDK::MediaConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.clock_rate ||= 0
         self.fmt ||= 0
         self.media_stream_id ||= 0
       end
-
     end
 
     # Attributes that are related to the media stream.
@@ -2100,11 +2100,11 @@ module AWS::SDK::MediaConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.duration ||= 0
       end
-
     end
 
     # The settings for an output.
@@ -2191,12 +2191,12 @@ module AWS::SDK::MediaConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.data_transfer_subscriber_fee_percent ||= 0
         self.port ||= 0
       end
-
     end
 
     # Includes enum constants for PriceUnits
@@ -2541,11 +2541,11 @@ module AWS::SDK::MediaConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.duration ||= 0
       end
-
     end
 
     # Includes enum constants for ReservationState
@@ -2588,11 +2588,11 @@ module AWS::SDK::MediaConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.reserved_bitrate ||= 0
       end
-
     end
 
     # Includes enum constants for ResourceType
@@ -2773,6 +2773,7 @@ module AWS::SDK::MediaConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.ingest_port ||= 0
@@ -2782,7 +2783,6 @@ module AWS::SDK::MediaConnect
         self.min_latency ||= 0
         self.sender_control_port ||= 0
       end
-
     end
 
     # The settings for the source of the flow.
@@ -2875,13 +2875,13 @@ module AWS::SDK::MediaConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.data_transfer_subscriber_fee_percent ||= 0
         self.ingest_port ||= 0
         self.sender_control_port ||= 0
       end
-
     end
 
     # The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
@@ -3173,6 +3173,7 @@ module AWS::SDK::MediaConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_bitrate ||= 0
@@ -3182,7 +3183,6 @@ module AWS::SDK::MediaConnect
         self.sender_control_port ||= 0
         self.smoothing_latency ||= 0
       end
-
     end
 
     # @!attribute resource_arn
@@ -3308,11 +3308,11 @@ module AWS::SDK::MediaConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.recovery_window ||= 0
       end
-
     end
 
     # The entitlement fields that you want to update.
@@ -3455,11 +3455,11 @@ module AWS::SDK::MediaConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.clock_rate ||= 0
       end
-
     end
 
     # @!attribute flow_arn
@@ -3602,6 +3602,7 @@ module AWS::SDK::MediaConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_latency ||= 0
@@ -3610,7 +3611,6 @@ module AWS::SDK::MediaConnect
         self.sender_control_port ||= 0
         self.smoothing_latency ||= 0
       end
-
     end
 
     # @!attribute flow_arn
@@ -3741,6 +3741,7 @@ module AWS::SDK::MediaConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.ingest_port ||= 0
@@ -3750,7 +3751,6 @@ module AWS::SDK::MediaConnect
         self.min_latency ||= 0
         self.sender_control_port ||= 0
       end
-
     end
 
     # @!attribute flow_arn

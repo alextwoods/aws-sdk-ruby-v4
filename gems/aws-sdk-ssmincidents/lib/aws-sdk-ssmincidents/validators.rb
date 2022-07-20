@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::SSMIncidents
   module Validators
 
@@ -21,7 +23,7 @@ module AWS::SDK::SSMIncidents
       def self.validate!(input, context:)
         case input
         when Types::Action::SsmAutomation
-          Validators::SsmAutomation.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          SsmAutomation.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         else
           raise ArgumentError,
                 "Expected #{context} to be a union member of "\
@@ -40,7 +42,7 @@ module AWS::SDK::SSMIncidents
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Action.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Action.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -57,9 +59,9 @@ module AWS::SDK::SSMIncidents
       def self.validate!(input, context:)
         case input
         when Types::AttributeValueList::StringValues
-          Validators::StringList.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          StringList.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::AttributeValueList::IntegerValues
-          Validators::IntegerList.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          IntegerList.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         else
           raise ArgumentError,
                 "Expected #{context} to be a union member of "\
@@ -103,7 +105,7 @@ module AWS::SDK::SSMIncidents
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AutomationExecution.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AutomationExecution.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -112,9 +114,9 @@ module AWS::SDK::SSMIncidents
       def self.validate!(input, context:)
         case input
         when Types::ChatChannel::Empty
-          Validators::EmptyChatChannel.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          EmptyChatChannel.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::ChatChannel::ChatbotSns
-          Validators::ChatbotSnsConfigurationSet.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          ChatbotSnsConfigurationSet.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         else
           raise ArgumentError,
                 "Expected #{context} to be a union member of "\
@@ -137,7 +139,7 @@ module AWS::SDK::SSMIncidents
 
     class ChatbotSnsConfigurationSet
       def self.validate!(input, context:)
-        Hearth::Validator.validate!(input, ::Set, context: context)
+        Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
           Hearth::Validator.validate!(element, ::String, context: "#{context}[#{index}]")
         end
@@ -152,7 +154,7 @@ module AWS::SDK::SSMIncidents
         when Types::Condition::After
           Hearth::Validator.validate!(input.__getobj__, ::Time, context: context)
         when Types::Condition::Equals
-          Validators::AttributeValueList.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          AttributeValueList.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         else
           raise ArgumentError,
                 "Expected #{context} to be a union member of "\
@@ -192,7 +194,7 @@ module AWS::SDK::SSMIncidents
     class CreateReplicationSetInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateReplicationSetInput, context: context)
-        Validators::RegionMapInput.validate!(input[:regions], context: "#{context}[:regions]") unless input[:regions].nil?
+        RegionMapInput.validate!(input[:regions], context: "#{context}[:regions]") unless input[:regions].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
       end
     end
@@ -210,11 +212,11 @@ module AWS::SDK::SSMIncidents
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:display_name], ::String, context: "#{context}[:display_name]")
-        Validators::IncidentTemplate.validate!(input[:incident_template], context: "#{context}[:incident_template]") unless input[:incident_template].nil?
-        Validators::ChatChannel.validate!(input[:chat_channel], context: "#{context}[:chat_channel]") unless input[:chat_channel].nil?
-        Validators::EngagementSet.validate!(input[:engagements], context: "#{context}[:engagements]") unless input[:engagements].nil?
-        Validators::ActionsList.validate!(input[:actions], context: "#{context}[:actions]") unless input[:actions].nil?
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        IncidentTemplate.validate!(input[:incident_template], context: "#{context}[:incident_template]") unless input[:incident_template].nil?
+        ChatChannel.validate!(input[:chat_channel], context: "#{context}[:chat_channel]") unless input[:chat_channel].nil?
+        EngagementSet.validate!(input[:engagements], context: "#{context}[:engagements]") unless input[:engagements].nil?
+        ActionsList.validate!(input[:actions], context: "#{context}[:actions]") unless input[:actions].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -342,7 +344,7 @@ module AWS::SDK::SSMIncidents
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::DynamicSsmParameterValue.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          DynamicSsmParameterValue.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -355,7 +357,7 @@ module AWS::SDK::SSMIncidents
 
     class EngagementSet
       def self.validate!(input, context:)
-        Hearth::Validator.validate!(input, ::Set, context: context)
+        Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
           Hearth::Validator.validate!(element, ::String, context: "#{context}[#{index}]")
         end
@@ -377,7 +379,7 @@ module AWS::SDK::SSMIncidents
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EventSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EventSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -386,7 +388,7 @@ module AWS::SDK::SSMIncidents
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Filter, context: context)
         Hearth::Validator.validate!(input[:key], ::String, context: "#{context}[:key]")
-        Validators::Condition.validate!(input[:condition], context: "#{context}[:condition]") unless input[:condition].nil?
+        Condition.validate!(input[:condition], context: "#{context}[:condition]") unless input[:condition].nil?
       end
     end
 
@@ -394,7 +396,7 @@ module AWS::SDK::SSMIncidents
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Filter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Filter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -409,7 +411,7 @@ module AWS::SDK::SSMIncidents
     class GetIncidentRecordOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetIncidentRecordOutput, context: context)
-        Validators::IncidentRecord.validate!(input[:incident_record], context: "#{context}[:incident_record]") unless input[:incident_record].nil?
+        IncidentRecord.validate!(input[:incident_record], context: "#{context}[:incident_record]") unless input[:incident_record].nil?
       end
     end
 
@@ -423,7 +425,7 @@ module AWS::SDK::SSMIncidents
     class GetReplicationSetOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetReplicationSetOutput, context: context)
-        Validators::ReplicationSet.validate!(input[:replication_set], context: "#{context}[:replication_set]") unless input[:replication_set].nil?
+        ReplicationSet.validate!(input[:replication_set], context: "#{context}[:replication_set]") unless input[:replication_set].nil?
       end
     end
 
@@ -439,7 +441,7 @@ module AWS::SDK::SSMIncidents
     class GetResourcePoliciesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetResourcePoliciesOutput, context: context)
-        Validators::ResourcePolicyList.validate!(input[:resource_policies], context: "#{context}[:resource_policies]") unless input[:resource_policies].nil?
+        ResourcePolicyList.validate!(input[:resource_policies], context: "#{context}[:resource_policies]") unless input[:resource_policies].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -457,10 +459,10 @@ module AWS::SDK::SSMIncidents
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:display_name], ::String, context: "#{context}[:display_name]")
-        Validators::IncidentTemplate.validate!(input[:incident_template], context: "#{context}[:incident_template]") unless input[:incident_template].nil?
-        Validators::ChatChannel.validate!(input[:chat_channel], context: "#{context}[:chat_channel]") unless input[:chat_channel].nil?
-        Validators::EngagementSet.validate!(input[:engagements], context: "#{context}[:engagements]") unless input[:engagements].nil?
-        Validators::ActionsList.validate!(input[:actions], context: "#{context}[:actions]") unless input[:actions].nil?
+        IncidentTemplate.validate!(input[:incident_template], context: "#{context}[:incident_template]") unless input[:incident_template].nil?
+        ChatChannel.validate!(input[:chat_channel], context: "#{context}[:chat_channel]") unless input[:chat_channel].nil?
+        EngagementSet.validate!(input[:engagements], context: "#{context}[:engagements]") unless input[:engagements].nil?
+        ActionsList.validate!(input[:actions], context: "#{context}[:actions]") unless input[:actions].nil?
       end
     end
 
@@ -475,7 +477,7 @@ module AWS::SDK::SSMIncidents
     class GetTimelineEventOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetTimelineEventOutput, context: context)
-        Validators::TimelineEvent.validate!(input[:event], context: "#{context}[:event]") unless input[:event].nil?
+        TimelineEvent.validate!(input[:event], context: "#{context}[:event]") unless input[:event].nil?
       end
     end
 
@@ -491,11 +493,11 @@ module AWS::SDK::SSMIncidents
         Hearth::Validator.validate!(input[:resolved_time], ::Time, context: "#{context}[:resolved_time]")
         Hearth::Validator.validate!(input[:last_modified_time], ::Time, context: "#{context}[:last_modified_time]")
         Hearth::Validator.validate!(input[:last_modified_by], ::String, context: "#{context}[:last_modified_by]")
-        Validators::AutomationExecutionSet.validate!(input[:automation_executions], context: "#{context}[:automation_executions]") unless input[:automation_executions].nil?
-        Validators::IncidentRecordSource.validate!(input[:incident_record_source], context: "#{context}[:incident_record_source]") unless input[:incident_record_source].nil?
+        AutomationExecutionSet.validate!(input[:automation_executions], context: "#{context}[:automation_executions]") unless input[:automation_executions].nil?
+        IncidentRecordSource.validate!(input[:incident_record_source], context: "#{context}[:incident_record_source]") unless input[:incident_record_source].nil?
         Hearth::Validator.validate!(input[:dedupe_string], ::String, context: "#{context}[:dedupe_string]")
-        Validators::ChatChannel.validate!(input[:chat_channel], context: "#{context}[:chat_channel]") unless input[:chat_channel].nil?
-        Validators::NotificationTargetSet.validate!(input[:notification_targets], context: "#{context}[:notification_targets]") unless input[:notification_targets].nil?
+        ChatChannel.validate!(input[:chat_channel], context: "#{context}[:chat_channel]") unless input[:chat_channel].nil?
+        NotificationTargetSet.validate!(input[:notification_targets], context: "#{context}[:notification_targets]") unless input[:notification_targets].nil?
       end
     end
 
@@ -518,7 +520,7 @@ module AWS::SDK::SSMIncidents
         Hearth::Validator.validate!(input[:impact], ::Integer, context: "#{context}[:impact]")
         Hearth::Validator.validate!(input[:creation_time], ::Time, context: "#{context}[:creation_time]")
         Hearth::Validator.validate!(input[:resolved_time], ::Time, context: "#{context}[:resolved_time]")
-        Validators::IncidentRecordSource.validate!(input[:incident_record_source], context: "#{context}[:incident_record_source]") unless input[:incident_record_source].nil?
+        IncidentRecordSource.validate!(input[:incident_record_source], context: "#{context}[:incident_record_source]") unless input[:incident_record_source].nil?
       end
     end
 
@@ -526,7 +528,7 @@ module AWS::SDK::SSMIncidents
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::IncidentRecordSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          IncidentRecordSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -538,7 +540,7 @@ module AWS::SDK::SSMIncidents
         Hearth::Validator.validate!(input[:impact], ::Integer, context: "#{context}[:impact]")
         Hearth::Validator.validate!(input[:summary], ::String, context: "#{context}[:summary]")
         Hearth::Validator.validate!(input[:dedupe_string], ::String, context: "#{context}[:dedupe_string]")
-        Validators::NotificationTargetSet.validate!(input[:notification_targets], context: "#{context}[:notification_targets]") unless input[:notification_targets].nil?
+        NotificationTargetSet.validate!(input[:notification_targets], context: "#{context}[:notification_targets]") unless input[:notification_targets].nil?
       end
     end
 
@@ -561,7 +563,7 @@ module AWS::SDK::SSMIncidents
     class ItemIdentifier
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ItemIdentifier, context: context)
-        Validators::ItemValue.validate!(input[:value], context: "#{context}[:value]") unless input[:value].nil?
+        ItemValue.validate!(input[:value], context: "#{context}[:value]") unless input[:value].nil?
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
       end
     end
@@ -604,7 +606,7 @@ module AWS::SDK::SSMIncidents
     class ListIncidentRecordsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListIncidentRecordsInput, context: context)
-        Validators::FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -613,7 +615,7 @@ module AWS::SDK::SSMIncidents
     class ListIncidentRecordsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListIncidentRecordsOutput, context: context)
-        Validators::IncidentRecordSummaryList.validate!(input[:incident_record_summaries], context: "#{context}[:incident_record_summaries]") unless input[:incident_record_summaries].nil?
+        IncidentRecordSummaryList.validate!(input[:incident_record_summaries], context: "#{context}[:incident_record_summaries]") unless input[:incident_record_summaries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -630,7 +632,7 @@ module AWS::SDK::SSMIncidents
     class ListRelatedItemsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListRelatedItemsOutput, context: context)
-        Validators::RelatedItemList.validate!(input[:related_items], context: "#{context}[:related_items]") unless input[:related_items].nil?
+        RelatedItemList.validate!(input[:related_items], context: "#{context}[:related_items]") unless input[:related_items].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -646,7 +648,7 @@ module AWS::SDK::SSMIncidents
     class ListReplicationSetsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListReplicationSetsOutput, context: context)
-        Validators::ReplicationSetArnList.validate!(input[:replication_set_arns], context: "#{context}[:replication_set_arns]") unless input[:replication_set_arns].nil?
+        ReplicationSetArnList.validate!(input[:replication_set_arns], context: "#{context}[:replication_set_arns]") unless input[:replication_set_arns].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -662,7 +664,7 @@ module AWS::SDK::SSMIncidents
     class ListResponsePlansOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListResponsePlansOutput, context: context)
-        Validators::ResponsePlanSummaryList.validate!(input[:response_plan_summaries], context: "#{context}[:response_plan_summaries]") unless input[:response_plan_summaries].nil?
+        ResponsePlanSummaryList.validate!(input[:response_plan_summaries], context: "#{context}[:response_plan_summaries]") unless input[:response_plan_summaries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -677,7 +679,7 @@ module AWS::SDK::SSMIncidents
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -685,7 +687,7 @@ module AWS::SDK::SSMIncidents
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTimelineEventsInput, context: context)
         Hearth::Validator.validate!(input[:incident_record_arn], ::String, context: "#{context}[:incident_record_arn]")
-        Validators::FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:sort_by], ::String, context: "#{context}[:sort_by]")
         Hearth::Validator.validate!(input[:sort_order], ::String, context: "#{context}[:sort_order]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
@@ -696,7 +698,7 @@ module AWS::SDK::SSMIncidents
     class ListTimelineEventsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTimelineEventsOutput, context: context)
-        Validators::EventSummaryList.validate!(input[:event_summaries], context: "#{context}[:event_summaries]") unless input[:event_summaries].nil?
+        EventSummaryList.validate!(input[:event_summaries], context: "#{context}[:event_summaries]") unless input[:event_summaries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -724,7 +726,7 @@ module AWS::SDK::SSMIncidents
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::NotificationTargetItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          NotificationTargetItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -759,7 +761,7 @@ module AWS::SDK::SSMIncidents
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::RegionInfo.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          RegionInfo.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -769,7 +771,7 @@ module AWS::SDK::SSMIncidents
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::RegionMapInputValue.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          RegionMapInputValue.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -784,7 +786,7 @@ module AWS::SDK::SSMIncidents
     class RelatedItem
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RelatedItem, context: context)
-        Validators::ItemIdentifier.validate!(input[:identifier], context: "#{context}[:identifier]") unless input[:identifier].nil?
+        ItemIdentifier.validate!(input[:identifier], context: "#{context}[:identifier]") unless input[:identifier].nil?
         Hearth::Validator.validate!(input[:title], ::String, context: "#{context}[:title]")
       end
     end
@@ -793,7 +795,7 @@ module AWS::SDK::SSMIncidents
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RelatedItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RelatedItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -802,9 +804,9 @@ module AWS::SDK::SSMIncidents
       def self.validate!(input, context:)
         case input
         when Types::RelatedItemsUpdate::ItemToAdd
-          Validators::RelatedItem.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          RelatedItem.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::RelatedItemsUpdate::ItemToRemove
-          Validators::ItemIdentifier.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          ItemIdentifier.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         else
           raise ArgumentError,
                 "Expected #{context} to be a union member of "\
@@ -829,7 +831,7 @@ module AWS::SDK::SSMIncidents
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ReplicationSet, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Validators::RegionInfoMap.validate!(input[:region_map], context: "#{context}[:region_map]") unless input[:region_map].nil?
+        RegionInfoMap.validate!(input[:region_map], context: "#{context}[:region_map]") unless input[:region_map].nil?
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:deletion_protected], ::TrueClass, ::FalseClass, context: "#{context}[:deletion_protected]")
         Hearth::Validator.validate!(input[:created_time], ::Time, context: "#{context}[:created_time]")
@@ -870,7 +872,7 @@ module AWS::SDK::SSMIncidents
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ResourcePolicy.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ResourcePolicy.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -888,7 +890,7 @@ module AWS::SDK::SSMIncidents
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ResponsePlanSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ResponsePlanSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -911,8 +913,8 @@ module AWS::SDK::SSMIncidents
         Hearth::Validator.validate!(input[:document_name], ::String, context: "#{context}[:document_name]")
         Hearth::Validator.validate!(input[:document_version], ::String, context: "#{context}[:document_version]")
         Hearth::Validator.validate!(input[:target_account], ::String, context: "#{context}[:target_account]")
-        Validators::SsmParameters.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
-        Validators::DynamicSsmParameters.validate!(input[:dynamic_parameters], context: "#{context}[:dynamic_parameters]") unless input[:dynamic_parameters].nil?
+        SsmParameters.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
+        DynamicSsmParameters.validate!(input[:dynamic_parameters], context: "#{context}[:dynamic_parameters]") unless input[:dynamic_parameters].nil?
       end
     end
 
@@ -930,7 +932,7 @@ module AWS::SDK::SSMIncidents
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::SsmParameterValues.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          SsmParameterValues.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -942,8 +944,8 @@ module AWS::SDK::SSMIncidents
         Hearth::Validator.validate!(input[:response_plan_arn], ::String, context: "#{context}[:response_plan_arn]")
         Hearth::Validator.validate!(input[:title], ::String, context: "#{context}[:title]")
         Hearth::Validator.validate!(input[:impact], ::Integer, context: "#{context}[:impact]")
-        Validators::TriggerDetails.validate!(input[:trigger_details], context: "#{context}[:trigger_details]") unless input[:trigger_details].nil?
-        Validators::RelatedItemList.validate!(input[:related_items], context: "#{context}[:related_items]") unless input[:related_items].nil?
+        TriggerDetails.validate!(input[:trigger_details], context: "#{context}[:trigger_details]") unless input[:trigger_details].nil?
+        RelatedItemList.validate!(input[:related_items], context: "#{context}[:related_items]") unless input[:related_items].nil?
       end
     end
 
@@ -986,7 +988,7 @@ module AWS::SDK::SSMIncidents
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1031,7 +1033,7 @@ module AWS::SDK::SSMIncidents
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -1045,7 +1047,7 @@ module AWS::SDK::SSMIncidents
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::UpdateReplicationSetAction.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          UpdateReplicationSetAction.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1074,8 +1076,8 @@ module AWS::SDK::SSMIncidents
         Hearth::Validator.validate!(input[:summary], ::String, context: "#{context}[:summary]")
         Hearth::Validator.validate!(input[:impact], ::Integer, context: "#{context}[:impact]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::ChatChannel.validate!(input[:chat_channel], context: "#{context}[:chat_channel]") unless input[:chat_channel].nil?
-        Validators::NotificationTargetSet.validate!(input[:notification_targets], context: "#{context}[:notification_targets]") unless input[:notification_targets].nil?
+        ChatChannel.validate!(input[:chat_channel], context: "#{context}[:chat_channel]") unless input[:chat_channel].nil?
+        NotificationTargetSet.validate!(input[:notification_targets], context: "#{context}[:notification_targets]") unless input[:notification_targets].nil?
       end
     end
 
@@ -1090,7 +1092,7 @@ module AWS::SDK::SSMIncidents
         Hearth::Validator.validate!(input, Types::UpdateRelatedItemsInput, context: context)
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
         Hearth::Validator.validate!(input[:incident_record_arn], ::String, context: "#{context}[:incident_record_arn]")
-        Validators::RelatedItemsUpdate.validate!(input[:related_items_update], context: "#{context}[:related_items_update]") unless input[:related_items_update].nil?
+        RelatedItemsUpdate.validate!(input[:related_items_update], context: "#{context}[:related_items_update]") unless input[:related_items_update].nil?
       end
     end
 
@@ -1104,9 +1106,9 @@ module AWS::SDK::SSMIncidents
       def self.validate!(input, context:)
         case input
         when Types::UpdateReplicationSetAction::AddRegionAction
-          Validators::AddRegionAction.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          AddRegionAction.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::UpdateReplicationSetAction::DeleteRegionAction
-          Validators::DeleteRegionAction.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          DeleteRegionAction.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         else
           raise ArgumentError,
                 "Expected #{context} to be a union member of "\
@@ -1131,7 +1133,7 @@ module AWS::SDK::SSMIncidents
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateReplicationSetInput, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Validators::UpdateActionList.validate!(input[:actions], context: "#{context}[:actions]") unless input[:actions].nil?
+        UpdateActionList.validate!(input[:actions], context: "#{context}[:actions]") unless input[:actions].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
       end
     end
@@ -1152,10 +1154,10 @@ module AWS::SDK::SSMIncidents
         Hearth::Validator.validate!(input[:incident_template_impact], ::Integer, context: "#{context}[:incident_template_impact]")
         Hearth::Validator.validate!(input[:incident_template_summary], ::String, context: "#{context}[:incident_template_summary]")
         Hearth::Validator.validate!(input[:incident_template_dedupe_string], ::String, context: "#{context}[:incident_template_dedupe_string]")
-        Validators::NotificationTargetSet.validate!(input[:incident_template_notification_targets], context: "#{context}[:incident_template_notification_targets]") unless input[:incident_template_notification_targets].nil?
-        Validators::ChatChannel.validate!(input[:chat_channel], context: "#{context}[:chat_channel]") unless input[:chat_channel].nil?
-        Validators::EngagementSet.validate!(input[:engagements], context: "#{context}[:engagements]") unless input[:engagements].nil?
-        Validators::ActionsList.validate!(input[:actions], context: "#{context}[:actions]") unless input[:actions].nil?
+        NotificationTargetSet.validate!(input[:incident_template_notification_targets], context: "#{context}[:incident_template_notification_targets]") unless input[:incident_template_notification_targets].nil?
+        ChatChannel.validate!(input[:chat_channel], context: "#{context}[:chat_channel]") unless input[:chat_channel].nil?
+        EngagementSet.validate!(input[:engagements], context: "#{context}[:engagements]") unless input[:engagements].nil?
+        ActionsList.validate!(input[:actions], context: "#{context}[:actions]") unless input[:actions].nil?
       end
     end
 

@@ -15,7 +15,7 @@ module AWS::SDK::CustomerProfiles
       def self.default(visited=[])
         {
           key_name: 'key_name',
-          values: Stubs::RequestValueList.default(visited),
+          values: RequestValueList.default(visited),
         }
       end
 
@@ -57,10 +57,10 @@ module AWS::SDK::CustomerProfiles
           default_expiration_days: 1,
           default_encryption_key: 'default_encryption_key',
           dead_letter_queue_url: 'dead_letter_queue_url',
-          matching: Stubs::MatchingResponse.default(visited),
+          matching: MatchingResponse.default(visited),
           created_at: Time.now,
           last_updated_at: Time.now,
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -107,9 +107,9 @@ module AWS::SDK::CustomerProfiles
         visited = visited + ['MatchingResponse']
         {
           enabled: false,
-          job_schedule: Stubs::JobSchedule.default(visited),
-          auto_merging: Stubs::AutoMerging.default(visited),
-          exporting_config: Stubs::ExportingConfig.default(visited),
+          job_schedule: JobSchedule.default(visited),
+          auto_merging: AutoMerging.default(visited),
+          exporting_config: ExportingConfig.default(visited),
         }
       end
 
@@ -130,7 +130,7 @@ module AWS::SDK::CustomerProfiles
         return nil if visited.include?('ExportingConfig')
         visited = visited + ['ExportingConfig']
         {
-          s3_exporting: Stubs::S3ExportingConfig.default(visited),
+          s3_exporting: S3ExportingConfig.default(visited),
         }
       end
 
@@ -169,8 +169,8 @@ module AWS::SDK::CustomerProfiles
         visited = visited + ['AutoMerging']
         {
           enabled: false,
-          consolidation: Stubs::Consolidation.default(visited),
-          conflict_resolution: Stubs::ConflictResolution.default(visited),
+          consolidation: Consolidation.default(visited),
+          conflict_resolution: ConflictResolution.default(visited),
         }
       end
 
@@ -210,7 +210,7 @@ module AWS::SDK::CustomerProfiles
         return nil if visited.include?('Consolidation')
         visited = visited + ['Consolidation']
         {
-          matching_attributes_list: Stubs::MatchingAttributesList.default(visited),
+          matching_attributes_list: MatchingAttributesList.default(visited),
         }
       end
 
@@ -228,7 +228,7 @@ module AWS::SDK::CustomerProfiles
         return nil if visited.include?('MatchingAttributesList')
         visited = visited + ['MatchingAttributesList']
         [
-          Stubs::MatchingAttributes.default(visited)
+          MatchingAttributes.default(visited)
         ]
       end
 
@@ -464,11 +464,11 @@ module AWS::SDK::CustomerProfiles
           default_expiration_days: 1,
           default_encryption_key: 'default_encryption_key',
           dead_letter_queue_url: 'dead_letter_queue_url',
-          stats: Stubs::DomainStats.default(visited),
-          matching: Stubs::MatchingResponse.default(visited),
+          stats: DomainStats.default(visited),
+          matching: MatchingResponse.default(visited),
           created_at: Time.now,
           last_updated_at: Time.now,
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -525,9 +525,9 @@ module AWS::SDK::CustomerProfiles
           job_end_time: Time.now,
           last_updated_at: Time.now,
           job_expiration_time: Time.now,
-          auto_merging: Stubs::AutoMerging.default(visited),
-          exporting_location: Stubs::ExportingLocation.default(visited),
-          job_stats: Stubs::JobStats.default(visited),
+          auto_merging: AutoMerging.default(visited),
+          exporting_location: ExportingLocation.default(visited),
+          job_stats: JobStats.default(visited),
         }
       end
 
@@ -578,7 +578,7 @@ module AWS::SDK::CustomerProfiles
         return nil if visited.include?('ExportingLocation')
         visited = visited + ['ExportingLocation']
         {
-          s3_exporting: Stubs::S3ExportingLocation.default(visited),
+          s3_exporting: S3ExportingLocation.default(visited),
         }
       end
 
@@ -619,8 +619,8 @@ module AWS::SDK::CustomerProfiles
           object_type_name: 'object_type_name',
           created_at: Time.now,
           last_updated_at: Time.now,
-          tags: Stubs::TagMap.default(visited),
-          object_type_names: Stubs::ObjectTypeNames.default(visited),
+          tags: TagMap.default(visited),
+          object_type_names: ObjectTypeNames.default(visited),
           workflow_id: 'workflow_id',
         }
       end
@@ -668,7 +668,7 @@ module AWS::SDK::CustomerProfiles
           next_token: 'next_token',
           match_generation_date: Time.now,
           potential_matches: 1,
-          matches: Stubs::MatchesList.default(visited),
+          matches: MatchesList.default(visited),
         }
       end
 
@@ -690,7 +690,7 @@ module AWS::SDK::CustomerProfiles
         return nil if visited.include?('MatchesList')
         visited = visited + ['MatchesList']
         [
-          Stubs::MatchItem.default(visited)
+          MatchItem.default(visited)
         ]
       end
 
@@ -711,7 +711,7 @@ module AWS::SDK::CustomerProfiles
         visited = visited + ['MatchItem']
         {
           match_id: 'match_id',
-          profile_ids: Stubs::ProfileIdList.default(visited),
+          profile_ids: ProfileIdList.default(visited),
           confidence_score: 1.0,
         }
       end
@@ -757,11 +757,11 @@ module AWS::SDK::CustomerProfiles
           encryption_key: 'encryption_key',
           allow_profile_creation: false,
           source_last_updated_timestamp_format: 'source_last_updated_timestamp_format',
-          fields: Stubs::FieldMap.default(visited),
-          keys: Stubs::KeyMap.default(visited),
+          fields: FieldMap.default(visited),
+          keys: KeyMap.default(visited),
           created_at: Time.now,
           last_updated_at: Time.now,
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -791,7 +791,7 @@ module AWS::SDK::CustomerProfiles
         return nil if visited.include?('KeyMap')
         visited = visited + ['KeyMap']
         {
-          test_key: Stubs::ObjectTypeKeyList.default(visited)
+          test_key: ObjectTypeKeyList.default(visited)
         }
       end
 
@@ -811,7 +811,7 @@ module AWS::SDK::CustomerProfiles
         return nil if visited.include?('ObjectTypeKeyList')
         visited = visited + ['ObjectTypeKeyList']
         [
-          Stubs::ObjectTypeKey.default(visited)
+          ObjectTypeKey.default(visited)
         ]
       end
 
@@ -831,8 +831,8 @@ module AWS::SDK::CustomerProfiles
         return nil if visited.include?('ObjectTypeKey')
         visited = visited + ['ObjectTypeKey']
         {
-          standard_identifiers: Stubs::StandardIdentifierList.default(visited),
-          field_names: Stubs::FieldNameList.default(visited),
+          standard_identifiers: StandardIdentifierList.default(visited),
+          field_names: FieldNameList.default(visited),
         }
       end
 
@@ -891,7 +891,7 @@ module AWS::SDK::CustomerProfiles
         return nil if visited.include?('FieldMap')
         visited = visited + ['FieldMap']
         {
-          test_key: Stubs::ObjectTypeField.default(visited)
+          test_key: ObjectTypeField.default(visited)
         }
       end
 
@@ -936,8 +936,8 @@ module AWS::SDK::CustomerProfiles
           source_object: 'source_object',
           allow_profile_creation: false,
           source_last_updated_timestamp_format: 'source_last_updated_timestamp_format',
-          fields: Stubs::FieldMap.default(visited),
-          keys: Stubs::KeyMap.default(visited),
+          fields: FieldMap.default(visited),
+          keys: KeyMap.default(visited),
         }
       end
 
@@ -966,8 +966,8 @@ module AWS::SDK::CustomerProfiles
           error_description: 'error_description',
           start_date: Time.now,
           last_updated_at: Time.now,
-          attributes: Stubs::WorkflowAttributes.default(visited),
-          metrics: Stubs::WorkflowMetrics.default(visited),
+          attributes: WorkflowAttributes.default(visited),
+          metrics: WorkflowMetrics.default(visited),
         }
       end
 
@@ -993,7 +993,7 @@ module AWS::SDK::CustomerProfiles
         return nil if visited.include?('WorkflowMetrics')
         visited = visited + ['WorkflowMetrics']
         {
-          appflow_integration: Stubs::AppflowIntegrationWorkflowMetrics.default(visited),
+          appflow_integration: AppflowIntegrationWorkflowMetrics.default(visited),
         }
       end
 
@@ -1033,7 +1033,7 @@ module AWS::SDK::CustomerProfiles
         return nil if visited.include?('WorkflowAttributes')
         visited = visited + ['WorkflowAttributes']
         {
-          appflow_integration: Stubs::AppflowIntegrationWorkflowAttributes.default(visited),
+          appflow_integration: AppflowIntegrationWorkflowAttributes.default(visited),
         }
       end
 
@@ -1073,7 +1073,7 @@ module AWS::SDK::CustomerProfiles
         {
           workflow_id: 'workflow_id',
           workflow_type: 'workflow_type',
-          items: Stubs::WorkflowStepsList.default(visited),
+          items: WorkflowStepsList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1096,7 +1096,7 @@ module AWS::SDK::CustomerProfiles
         return nil if visited.include?('WorkflowStepsList')
         visited = visited + ['WorkflowStepsList']
         [
-          Stubs::WorkflowStepItem.default(visited)
+          WorkflowStepItem.default(visited)
         ]
       end
 
@@ -1116,7 +1116,7 @@ module AWS::SDK::CustomerProfiles
         return nil if visited.include?('WorkflowStepItem')
         visited = visited + ['WorkflowStepItem']
         {
-          appflow_integration: Stubs::AppflowIntegrationWorkflowStep.default(visited),
+          appflow_integration: AppflowIntegrationWorkflowStep.default(visited),
         }
       end
 
@@ -1164,7 +1164,7 @@ module AWS::SDK::CustomerProfiles
     class ListAccountIntegrations
       def self.default(visited=[])
         {
-          items: Stubs::IntegrationList.default(visited),
+          items: IntegrationList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1185,7 +1185,7 @@ module AWS::SDK::CustomerProfiles
         return nil if visited.include?('IntegrationList')
         visited = visited + ['IntegrationList']
         [
-          Stubs::ListIntegrationItem.default(visited)
+          ListIntegrationItem.default(visited)
         ]
       end
 
@@ -1210,8 +1210,8 @@ module AWS::SDK::CustomerProfiles
           object_type_name: 'object_type_name',
           created_at: Time.now,
           last_updated_at: Time.now,
-          tags: Stubs::TagMap.default(visited),
-          object_type_names: Stubs::ObjectTypeNames.default(visited),
+          tags: TagMap.default(visited),
+          object_type_names: ObjectTypeNames.default(visited),
           workflow_id: 'workflow_id',
         }
       end
@@ -1235,7 +1235,7 @@ module AWS::SDK::CustomerProfiles
     class ListDomains
       def self.default(visited=[])
         {
-          items: Stubs::DomainList.default(visited),
+          items: DomainList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1256,7 +1256,7 @@ module AWS::SDK::CustomerProfiles
         return nil if visited.include?('DomainList')
         visited = visited + ['DomainList']
         [
-          Stubs::ListDomainItem.default(visited)
+          ListDomainItem.default(visited)
         ]
       end
 
@@ -1279,7 +1279,7 @@ module AWS::SDK::CustomerProfiles
           domain_name: 'domain_name',
           created_at: Time.now,
           last_updated_at: Time.now,
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -1298,7 +1298,7 @@ module AWS::SDK::CustomerProfiles
     class ListIdentityResolutionJobs
       def self.default(visited=[])
         {
-          identity_resolution_jobs_list: Stubs::IdentityResolutionJobsList.default(visited),
+          identity_resolution_jobs_list: IdentityResolutionJobsList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1319,7 +1319,7 @@ module AWS::SDK::CustomerProfiles
         return nil if visited.include?('IdentityResolutionJobsList')
         visited = visited + ['IdentityResolutionJobsList']
         [
-          Stubs::IdentityResolutionJob.default(visited)
+          IdentityResolutionJob.default(visited)
         ]
       end
 
@@ -1344,8 +1344,8 @@ module AWS::SDK::CustomerProfiles
           status: 'status',
           job_start_time: Time.now,
           job_end_time: Time.now,
-          job_stats: Stubs::JobStats.default(visited),
-          exporting_location: Stubs::ExportingLocation.default(visited),
+          job_stats: JobStats.default(visited),
+          exporting_location: ExportingLocation.default(visited),
           message: 'message',
         }
       end
@@ -1369,7 +1369,7 @@ module AWS::SDK::CustomerProfiles
     class ListIntegrations
       def self.default(visited=[])
         {
-          items: Stubs::IntegrationList.default(visited),
+          items: IntegrationList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1388,7 +1388,7 @@ module AWS::SDK::CustomerProfiles
     class ListProfileObjectTypeTemplates
       def self.default(visited=[])
         {
-          items: Stubs::ProfileObjectTypeTemplateList.default(visited),
+          items: ProfileObjectTypeTemplateList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1409,7 +1409,7 @@ module AWS::SDK::CustomerProfiles
         return nil if visited.include?('ProfileObjectTypeTemplateList')
         visited = visited + ['ProfileObjectTypeTemplateList']
         [
-          Stubs::ListProfileObjectTypeTemplateItem.default(visited)
+          ListProfileObjectTypeTemplateItem.default(visited)
         ]
       end
 
@@ -1449,7 +1449,7 @@ module AWS::SDK::CustomerProfiles
     class ListProfileObjectTypes
       def self.default(visited=[])
         {
-          items: Stubs::ProfileObjectTypeList.default(visited),
+          items: ProfileObjectTypeList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1470,7 +1470,7 @@ module AWS::SDK::CustomerProfiles
         return nil if visited.include?('ProfileObjectTypeList')
         visited = visited + ['ProfileObjectTypeList']
         [
-          Stubs::ListProfileObjectTypeItem.default(visited)
+          ListProfileObjectTypeItem.default(visited)
         ]
       end
 
@@ -1494,7 +1494,7 @@ module AWS::SDK::CustomerProfiles
           description: 'description',
           created_at: Time.now,
           last_updated_at: Time.now,
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -1514,7 +1514,7 @@ module AWS::SDK::CustomerProfiles
     class ListProfileObjects
       def self.default(visited=[])
         {
-          items: Stubs::ProfileObjectList.default(visited),
+          items: ProfileObjectList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1535,7 +1535,7 @@ module AWS::SDK::CustomerProfiles
         return nil if visited.include?('ProfileObjectList')
         visited = visited + ['ProfileObjectList']
         [
-          Stubs::ListProfileObjectsItem.default(visited)
+          ListProfileObjectsItem.default(visited)
         ]
       end
 
@@ -1575,7 +1575,7 @@ module AWS::SDK::CustomerProfiles
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -1592,7 +1592,7 @@ module AWS::SDK::CustomerProfiles
     class ListWorkflows
       def self.default(visited=[])
         {
-          items: Stubs::WorkflowList.default(visited),
+          items: WorkflowList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1613,7 +1613,7 @@ module AWS::SDK::CustomerProfiles
         return nil if visited.include?('WorkflowList')
         visited = visited + ['WorkflowList']
         [
-          Stubs::ListWorkflowsItem.default(visited)
+          ListWorkflowsItem.default(visited)
         ]
       end
 
@@ -1681,8 +1681,8 @@ module AWS::SDK::CustomerProfiles
           object_type_name: 'object_type_name',
           created_at: Time.now,
           last_updated_at: Time.now,
-          tags: Stubs::TagMap.default(visited),
-          object_type_names: Stubs::ObjectTypeNames.default(visited),
+          tags: TagMap.default(visited),
+          object_type_names: ObjectTypeNames.default(visited),
           workflow_id: 'workflow_id',
         }
       end
@@ -1731,11 +1731,11 @@ module AWS::SDK::CustomerProfiles
           encryption_key: 'encryption_key',
           allow_profile_creation: false,
           source_last_updated_timestamp_format: 'source_last_updated_timestamp_format',
-          fields: Stubs::FieldMap.default(visited),
-          keys: Stubs::KeyMap.default(visited),
+          fields: FieldMap.default(visited),
+          keys: KeyMap.default(visited),
           created_at: Time.now,
           last_updated_at: Time.now,
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -1763,7 +1763,7 @@ module AWS::SDK::CustomerProfiles
     class SearchProfiles
       def self.default(visited=[])
         {
-          items: Stubs::ProfileList.default(visited),
+          items: ProfileList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1784,7 +1784,7 @@ module AWS::SDK::CustomerProfiles
         return nil if visited.include?('ProfileList')
         visited = visited + ['ProfileList']
         [
-          Stubs::Profile.default(visited)
+          Profile.default(visited)
         ]
       end
 
@@ -1821,11 +1821,11 @@ module AWS::SDK::CustomerProfiles
           email_address: 'email_address',
           personal_email_address: 'personal_email_address',
           business_email_address: 'business_email_address',
-          address: Stubs::Address.default(visited),
-          shipping_address: Stubs::Address.default(visited),
-          mailing_address: Stubs::Address.default(visited),
-          billing_address: Stubs::Address.default(visited),
-          attributes: Stubs::Attributes.default(visited),
+          address: Address.default(visited),
+          shipping_address: Address.default(visited),
+          mailing_address: Address.default(visited),
+          billing_address: Address.default(visited),
+          attributes: Attributes.default(visited),
         }
       end
 
@@ -1948,10 +1948,10 @@ module AWS::SDK::CustomerProfiles
           default_expiration_days: 1,
           default_encryption_key: 'default_encryption_key',
           dead_letter_queue_url: 'dead_letter_queue_url',
-          matching: Stubs::MatchingResponse.default(visited),
+          matching: MatchingResponse.default(visited),
           created_at: Time.now,
           last_updated_at: Time.now,
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 

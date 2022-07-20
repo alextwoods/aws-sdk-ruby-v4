@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::Route53
   module Validators
 
@@ -29,7 +31,7 @@ module AWS::SDK::Route53
     class ActivateKeySigningKeyOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ActivateKeySigningKeyOutput, context: context)
-        Validators::ChangeInfo.validate!(input[:change_info], context: "#{context}[:change_info]") unless input[:change_info].nil?
+        ChangeInfo.validate!(input[:change_info], context: "#{context}[:change_info]") unless input[:change_info].nil?
       end
     end
 
@@ -54,7 +56,7 @@ module AWS::SDK::Route53
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AssociateVPCWithHostedZoneInput, context: context)
         Hearth::Validator.validate!(input[:hosted_zone_id], ::String, context: "#{context}[:hosted_zone_id]")
-        Validators::VPC.validate!(input[:vpc], context: "#{context}[:vpc]") unless input[:vpc].nil?
+        VPC.validate!(input[:vpc], context: "#{context}[:vpc]") unless input[:vpc].nil?
         Hearth::Validator.validate!(input[:comment], ::String, context: "#{context}[:comment]")
       end
     end
@@ -62,7 +64,7 @@ module AWS::SDK::Route53
     class AssociateVPCWithHostedZoneOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AssociateVPCWithHostedZoneOutput, context: context)
-        Validators::ChangeInfo.validate!(input[:change_info], context: "#{context}[:change_info]") unless input[:change_info].nil?
+        ChangeInfo.validate!(input[:change_info], context: "#{context}[:change_info]") unless input[:change_info].nil?
       end
     end
 
@@ -70,7 +72,7 @@ module AWS::SDK::Route53
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Change, context: context)
         Hearth::Validator.validate!(input[:action], ::String, context: "#{context}[:action]")
-        Validators::ResourceRecordSet.validate!(input[:resource_record_set], context: "#{context}[:resource_record_set]") unless input[:resource_record_set].nil?
+        ResourceRecordSet.validate!(input[:resource_record_set], context: "#{context}[:resource_record_set]") unless input[:resource_record_set].nil?
       end
     end
 
@@ -78,7 +80,7 @@ module AWS::SDK::Route53
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ChangeBatch, context: context)
         Hearth::Validator.validate!(input[:comment], ::String, context: "#{context}[:comment]")
-        Validators::Changes.validate!(input[:changes], context: "#{context}[:changes]") unless input[:changes].nil?
+        Changes.validate!(input[:changes], context: "#{context}[:changes]") unless input[:changes].nil?
       end
     end
 
@@ -87,7 +89,7 @@ module AWS::SDK::Route53
         Hearth::Validator.validate!(input, Types::ChangeCidrCollectionInput, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:collection_version], ::Integer, context: "#{context}[:collection_version]")
-        Validators::CidrCollectionChanges.validate!(input[:changes], context: "#{context}[:changes]") unless input[:changes].nil?
+        CidrCollectionChanges.validate!(input[:changes], context: "#{context}[:changes]") unless input[:changes].nil?
       end
     end
 
@@ -112,14 +114,14 @@ module AWS::SDK::Route53
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ChangeResourceRecordSetsInput, context: context)
         Hearth::Validator.validate!(input[:hosted_zone_id], ::String, context: "#{context}[:hosted_zone_id]")
-        Validators::ChangeBatch.validate!(input[:change_batch], context: "#{context}[:change_batch]") unless input[:change_batch].nil?
+        ChangeBatch.validate!(input[:change_batch], context: "#{context}[:change_batch]") unless input[:change_batch].nil?
       end
     end
 
     class ChangeResourceRecordSetsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ChangeResourceRecordSetsOutput, context: context)
-        Validators::ChangeInfo.validate!(input[:change_info], context: "#{context}[:change_info]") unless input[:change_info].nil?
+        ChangeInfo.validate!(input[:change_info], context: "#{context}[:change_info]") unless input[:change_info].nil?
       end
     end
 
@@ -128,8 +130,8 @@ module AWS::SDK::Route53
         Hearth::Validator.validate!(input, Types::ChangeTagsForResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_type], ::String, context: "#{context}[:resource_type]")
         Hearth::Validator.validate!(input[:resource_id], ::String, context: "#{context}[:resource_id]")
-        Validators::TagList.validate!(input[:add_tags], context: "#{context}[:add_tags]") unless input[:add_tags].nil?
-        Validators::TagKeyList.validate!(input[:remove_tag_keys], context: "#{context}[:remove_tag_keys]") unless input[:remove_tag_keys].nil?
+        TagList.validate!(input[:add_tags], context: "#{context}[:add_tags]") unless input[:add_tags].nil?
+        TagKeyList.validate!(input[:remove_tag_keys], context: "#{context}[:remove_tag_keys]") unless input[:remove_tag_keys].nil?
       end
     end
 
@@ -143,7 +145,7 @@ module AWS::SDK::Route53
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Change.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Change.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -177,7 +179,7 @@ module AWS::SDK::Route53
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CidrBlockSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CidrBlockSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -212,7 +214,7 @@ module AWS::SDK::Route53
         Hearth::Validator.validate!(input, Types::CidrCollectionChange, context: context)
         Hearth::Validator.validate!(input[:location_name], ::String, context: "#{context}[:location_name]")
         Hearth::Validator.validate!(input[:action], ::String, context: "#{context}[:action]")
-        Validators::CidrList.validate!(input[:cidr_list], context: "#{context}[:cidr_list]") unless input[:cidr_list].nil?
+        CidrList.validate!(input[:cidr_list], context: "#{context}[:cidr_list]") unless input[:cidr_list].nil?
       end
     end
 
@@ -220,7 +222,7 @@ module AWS::SDK::Route53
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CidrCollectionChange.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CidrCollectionChange.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -266,7 +268,7 @@ module AWS::SDK::Route53
         Hearth::Validator.validate!(input[:metric_name], ::String, context: "#{context}[:metric_name]")
         Hearth::Validator.validate!(input[:namespace], ::String, context: "#{context}[:namespace]")
         Hearth::Validator.validate!(input[:statistic], ::String, context: "#{context}[:statistic]")
-        Validators::DimensionList.validate!(input[:dimensions], context: "#{context}[:dimensions]") unless input[:dimensions].nil?
+        DimensionList.validate!(input[:dimensions], context: "#{context}[:dimensions]") unless input[:dimensions].nil?
       end
     end
 
@@ -274,7 +276,7 @@ module AWS::SDK::Route53
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CollectionSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CollectionSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -321,7 +323,7 @@ module AWS::SDK::Route53
     class CreateCidrCollectionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateCidrCollectionOutput, context: context)
-        Validators::CidrCollection.validate!(input[:collection], context: "#{context}[:collection]") unless input[:collection].nil?
+        CidrCollection.validate!(input[:collection], context: "#{context}[:collection]") unless input[:collection].nil?
         Hearth::Validator.validate!(input[:location], ::String, context: "#{context}[:location]")
       end
     end
@@ -330,14 +332,14 @@ module AWS::SDK::Route53
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateHealthCheckInput, context: context)
         Hearth::Validator.validate!(input[:caller_reference], ::String, context: "#{context}[:caller_reference]")
-        Validators::HealthCheckConfig.validate!(input[:health_check_config], context: "#{context}[:health_check_config]") unless input[:health_check_config].nil?
+        HealthCheckConfig.validate!(input[:health_check_config], context: "#{context}[:health_check_config]") unless input[:health_check_config].nil?
       end
     end
 
     class CreateHealthCheckOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateHealthCheckOutput, context: context)
-        Validators::HealthCheck.validate!(input[:health_check], context: "#{context}[:health_check]") unless input[:health_check].nil?
+        HealthCheck.validate!(input[:health_check], context: "#{context}[:health_check]") unless input[:health_check].nil?
         Hearth::Validator.validate!(input[:location], ::String, context: "#{context}[:location]")
       end
     end
@@ -346,9 +348,9 @@ module AWS::SDK::Route53
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateHostedZoneInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::VPC.validate!(input[:vpc], context: "#{context}[:vpc]") unless input[:vpc].nil?
+        VPC.validate!(input[:vpc], context: "#{context}[:vpc]") unless input[:vpc].nil?
         Hearth::Validator.validate!(input[:caller_reference], ::String, context: "#{context}[:caller_reference]")
-        Validators::HostedZoneConfig.validate!(input[:hosted_zone_config], context: "#{context}[:hosted_zone_config]") unless input[:hosted_zone_config].nil?
+        HostedZoneConfig.validate!(input[:hosted_zone_config], context: "#{context}[:hosted_zone_config]") unless input[:hosted_zone_config].nil?
         Hearth::Validator.validate!(input[:delegation_set_id], ::String, context: "#{context}[:delegation_set_id]")
       end
     end
@@ -356,10 +358,10 @@ module AWS::SDK::Route53
     class CreateHostedZoneOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateHostedZoneOutput, context: context)
-        Validators::HostedZone.validate!(input[:hosted_zone], context: "#{context}[:hosted_zone]") unless input[:hosted_zone].nil?
-        Validators::ChangeInfo.validate!(input[:change_info], context: "#{context}[:change_info]") unless input[:change_info].nil?
-        Validators::DelegationSet.validate!(input[:delegation_set], context: "#{context}[:delegation_set]") unless input[:delegation_set].nil?
-        Validators::VPC.validate!(input[:vpc], context: "#{context}[:vpc]") unless input[:vpc].nil?
+        HostedZone.validate!(input[:hosted_zone], context: "#{context}[:hosted_zone]") unless input[:hosted_zone].nil?
+        ChangeInfo.validate!(input[:change_info], context: "#{context}[:change_info]") unless input[:change_info].nil?
+        DelegationSet.validate!(input[:delegation_set], context: "#{context}[:delegation_set]") unless input[:delegation_set].nil?
+        VPC.validate!(input[:vpc], context: "#{context}[:vpc]") unless input[:vpc].nil?
         Hearth::Validator.validate!(input[:location], ::String, context: "#{context}[:location]")
       end
     end
@@ -378,8 +380,8 @@ module AWS::SDK::Route53
     class CreateKeySigningKeyOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateKeySigningKeyOutput, context: context)
-        Validators::ChangeInfo.validate!(input[:change_info], context: "#{context}[:change_info]") unless input[:change_info].nil?
-        Validators::KeySigningKey.validate!(input[:key_signing_key], context: "#{context}[:key_signing_key]") unless input[:key_signing_key].nil?
+        ChangeInfo.validate!(input[:change_info], context: "#{context}[:change_info]") unless input[:change_info].nil?
+        KeySigningKey.validate!(input[:key_signing_key], context: "#{context}[:key_signing_key]") unless input[:key_signing_key].nil?
         Hearth::Validator.validate!(input[:location], ::String, context: "#{context}[:location]")
       end
     end
@@ -395,7 +397,7 @@ module AWS::SDK::Route53
     class CreateQueryLoggingConfigOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateQueryLoggingConfigOutput, context: context)
-        Validators::QueryLoggingConfig.validate!(input[:query_logging_config], context: "#{context}[:query_logging_config]") unless input[:query_logging_config].nil?
+        QueryLoggingConfig.validate!(input[:query_logging_config], context: "#{context}[:query_logging_config]") unless input[:query_logging_config].nil?
         Hearth::Validator.validate!(input[:location], ::String, context: "#{context}[:location]")
       end
     end
@@ -411,7 +413,7 @@ module AWS::SDK::Route53
     class CreateReusableDelegationSetOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateReusableDelegationSetOutput, context: context)
-        Validators::DelegationSet.validate!(input[:delegation_set], context: "#{context}[:delegation_set]") unless input[:delegation_set].nil?
+        DelegationSet.validate!(input[:delegation_set], context: "#{context}[:delegation_set]") unless input[:delegation_set].nil?
         Hearth::Validator.validate!(input[:location], ::String, context: "#{context}[:location]")
       end
     end
@@ -439,7 +441,7 @@ module AWS::SDK::Route53
     class CreateTrafficPolicyInstanceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateTrafficPolicyInstanceOutput, context: context)
-        Validators::TrafficPolicyInstance.validate!(input[:traffic_policy_instance], context: "#{context}[:traffic_policy_instance]") unless input[:traffic_policy_instance].nil?
+        TrafficPolicyInstance.validate!(input[:traffic_policy_instance], context: "#{context}[:traffic_policy_instance]") unless input[:traffic_policy_instance].nil?
         Hearth::Validator.validate!(input[:location], ::String, context: "#{context}[:location]")
       end
     end
@@ -447,7 +449,7 @@ module AWS::SDK::Route53
     class CreateTrafficPolicyOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateTrafficPolicyOutput, context: context)
-        Validators::TrafficPolicy.validate!(input[:traffic_policy], context: "#{context}[:traffic_policy]") unless input[:traffic_policy].nil?
+        TrafficPolicy.validate!(input[:traffic_policy], context: "#{context}[:traffic_policy]") unless input[:traffic_policy].nil?
         Hearth::Validator.validate!(input[:location], ::String, context: "#{context}[:location]")
       end
     end
@@ -464,7 +466,7 @@ module AWS::SDK::Route53
     class CreateTrafficPolicyVersionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateTrafficPolicyVersionOutput, context: context)
-        Validators::TrafficPolicy.validate!(input[:traffic_policy], context: "#{context}[:traffic_policy]") unless input[:traffic_policy].nil?
+        TrafficPolicy.validate!(input[:traffic_policy], context: "#{context}[:traffic_policy]") unless input[:traffic_policy].nil?
         Hearth::Validator.validate!(input[:location], ::String, context: "#{context}[:location]")
       end
     end
@@ -473,7 +475,7 @@ module AWS::SDK::Route53
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateVPCAssociationAuthorizationInput, context: context)
         Hearth::Validator.validate!(input[:hosted_zone_id], ::String, context: "#{context}[:hosted_zone_id]")
-        Validators::VPC.validate!(input[:vpc], context: "#{context}[:vpc]") unless input[:vpc].nil?
+        VPC.validate!(input[:vpc], context: "#{context}[:vpc]") unless input[:vpc].nil?
       end
     end
 
@@ -481,7 +483,7 @@ module AWS::SDK::Route53
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateVPCAssociationAuthorizationOutput, context: context)
         Hearth::Validator.validate!(input[:hosted_zone_id], ::String, context: "#{context}[:hosted_zone_id]")
-        Validators::VPC.validate!(input[:vpc], context: "#{context}[:vpc]") unless input[:vpc].nil?
+        VPC.validate!(input[:vpc], context: "#{context}[:vpc]") unless input[:vpc].nil?
       end
     end
 
@@ -511,7 +513,7 @@ module AWS::SDK::Route53
     class DeactivateKeySigningKeyOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeactivateKeySigningKeyOutput, context: context)
-        Validators::ChangeInfo.validate!(input[:change_info], context: "#{context}[:change_info]") unless input[:change_info].nil?
+        ChangeInfo.validate!(input[:change_info], context: "#{context}[:change_info]") unless input[:change_info].nil?
       end
     end
 
@@ -520,7 +522,7 @@ module AWS::SDK::Route53
         Hearth::Validator.validate!(input, Types::DelegationSet, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:caller_reference], ::String, context: "#{context}[:caller_reference]")
-        Validators::DelegationSetNameServers.validate!(input[:name_servers], context: "#{context}[:name_servers]") unless input[:name_servers].nil?
+        DelegationSetNameServers.validate!(input[:name_servers], context: "#{context}[:name_servers]") unless input[:name_servers].nil?
       end
     end
 
@@ -572,7 +574,7 @@ module AWS::SDK::Route53
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DelegationSet.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DelegationSet.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -613,7 +615,7 @@ module AWS::SDK::Route53
     class DeleteHostedZoneOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteHostedZoneOutput, context: context)
-        Validators::ChangeInfo.validate!(input[:change_info], context: "#{context}[:change_info]") unless input[:change_info].nil?
+        ChangeInfo.validate!(input[:change_info], context: "#{context}[:change_info]") unless input[:change_info].nil?
       end
     end
 
@@ -628,7 +630,7 @@ module AWS::SDK::Route53
     class DeleteKeySigningKeyOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteKeySigningKeyOutput, context: context)
-        Validators::ChangeInfo.validate!(input[:change_info], context: "#{context}[:change_info]") unless input[:change_info].nil?
+        ChangeInfo.validate!(input[:change_info], context: "#{context}[:change_info]") unless input[:change_info].nil?
       end
     end
 
@@ -689,7 +691,7 @@ module AWS::SDK::Route53
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteVPCAssociationAuthorizationInput, context: context)
         Hearth::Validator.validate!(input[:hosted_zone_id], ::String, context: "#{context}[:hosted_zone_id]")
-        Validators::VPC.validate!(input[:vpc], context: "#{context}[:vpc]") unless input[:vpc].nil?
+        VPC.validate!(input[:vpc], context: "#{context}[:vpc]") unless input[:vpc].nil?
       end
     end
 
@@ -711,7 +713,7 @@ module AWS::SDK::Route53
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Dimension.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Dimension.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -726,7 +728,7 @@ module AWS::SDK::Route53
     class DisableHostedZoneDNSSECOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DisableHostedZoneDNSSECOutput, context: context)
-        Validators::ChangeInfo.validate!(input[:change_info], context: "#{context}[:change_info]") unless input[:change_info].nil?
+        ChangeInfo.validate!(input[:change_info], context: "#{context}[:change_info]") unless input[:change_info].nil?
       end
     end
 
@@ -734,7 +736,7 @@ module AWS::SDK::Route53
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DisassociateVPCFromHostedZoneInput, context: context)
         Hearth::Validator.validate!(input[:hosted_zone_id], ::String, context: "#{context}[:hosted_zone_id]")
-        Validators::VPC.validate!(input[:vpc], context: "#{context}[:vpc]") unless input[:vpc].nil?
+        VPC.validate!(input[:vpc], context: "#{context}[:vpc]") unless input[:vpc].nil?
         Hearth::Validator.validate!(input[:comment], ::String, context: "#{context}[:comment]")
       end
     end
@@ -742,7 +744,7 @@ module AWS::SDK::Route53
     class DisassociateVPCFromHostedZoneOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DisassociateVPCFromHostedZoneOutput, context: context)
-        Validators::ChangeInfo.validate!(input[:change_info], context: "#{context}[:change_info]") unless input[:change_info].nil?
+        ChangeInfo.validate!(input[:change_info], context: "#{context}[:change_info]") unless input[:change_info].nil?
       end
     end
 
@@ -756,7 +758,7 @@ module AWS::SDK::Route53
     class EnableHostedZoneDNSSECOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::EnableHostedZoneDNSSECOutput, context: context)
-        Validators::ChangeInfo.validate!(input[:change_info], context: "#{context}[:change_info]") unless input[:change_info].nil?
+        ChangeInfo.validate!(input[:change_info], context: "#{context}[:change_info]") unless input[:change_info].nil?
       end
     end
 
@@ -794,7 +796,7 @@ module AWS::SDK::Route53
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::GeoLocationDetails.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          GeoLocationDetails.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -809,7 +811,7 @@ module AWS::SDK::Route53
     class GetAccountLimitOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetAccountLimitOutput, context: context)
-        Validators::AccountLimit.validate!(input[:limit], context: "#{context}[:limit]") unless input[:limit].nil?
+        AccountLimit.validate!(input[:limit], context: "#{context}[:limit]") unless input[:limit].nil?
         Hearth::Validator.validate!(input[:count], ::Integer, context: "#{context}[:count]")
       end
     end
@@ -824,7 +826,7 @@ module AWS::SDK::Route53
     class GetChangeOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetChangeOutput, context: context)
-        Validators::ChangeInfo.validate!(input[:change_info], context: "#{context}[:change_info]") unless input[:change_info].nil?
+        ChangeInfo.validate!(input[:change_info], context: "#{context}[:change_info]") unless input[:change_info].nil?
       end
     end
 
@@ -837,7 +839,7 @@ module AWS::SDK::Route53
     class GetCheckerIpRangesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetCheckerIpRangesOutput, context: context)
-        Validators::CheckerIpRanges.validate!(input[:checker_ip_ranges], context: "#{context}[:checker_ip_ranges]") unless input[:checker_ip_ranges].nil?
+        CheckerIpRanges.validate!(input[:checker_ip_ranges], context: "#{context}[:checker_ip_ranges]") unless input[:checker_ip_ranges].nil?
       end
     end
 
@@ -851,8 +853,8 @@ module AWS::SDK::Route53
     class GetDNSSECOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetDNSSECOutput, context: context)
-        Validators::DNSSECStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
-        Validators::KeySigningKeys.validate!(input[:key_signing_keys], context: "#{context}[:key_signing_keys]") unless input[:key_signing_keys].nil?
+        DNSSECStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
+        KeySigningKeys.validate!(input[:key_signing_keys], context: "#{context}[:key_signing_keys]") unless input[:key_signing_keys].nil?
       end
     end
 
@@ -868,7 +870,7 @@ module AWS::SDK::Route53
     class GetGeoLocationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetGeoLocationOutput, context: context)
-        Validators::GeoLocationDetails.validate!(input[:geo_location_details], context: "#{context}[:geo_location_details]") unless input[:geo_location_details].nil?
+        GeoLocationDetails.validate!(input[:geo_location_details], context: "#{context}[:geo_location_details]") unless input[:geo_location_details].nil?
       end
     end
 
@@ -902,14 +904,14 @@ module AWS::SDK::Route53
     class GetHealthCheckLastFailureReasonOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetHealthCheckLastFailureReasonOutput, context: context)
-        Validators::HealthCheckObservations.validate!(input[:health_check_observations], context: "#{context}[:health_check_observations]") unless input[:health_check_observations].nil?
+        HealthCheckObservations.validate!(input[:health_check_observations], context: "#{context}[:health_check_observations]") unless input[:health_check_observations].nil?
       end
     end
 
     class GetHealthCheckOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetHealthCheckOutput, context: context)
-        Validators::HealthCheck.validate!(input[:health_check], context: "#{context}[:health_check]") unless input[:health_check].nil?
+        HealthCheck.validate!(input[:health_check], context: "#{context}[:health_check]") unless input[:health_check].nil?
       end
     end
 
@@ -923,7 +925,7 @@ module AWS::SDK::Route53
     class GetHealthCheckStatusOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetHealthCheckStatusOutput, context: context)
-        Validators::HealthCheckObservations.validate!(input[:health_check_observations], context: "#{context}[:health_check_observations]") unless input[:health_check_observations].nil?
+        HealthCheckObservations.validate!(input[:health_check_observations], context: "#{context}[:health_check_observations]") unless input[:health_check_observations].nil?
       end
     end
 
@@ -958,7 +960,7 @@ module AWS::SDK::Route53
     class GetHostedZoneLimitOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetHostedZoneLimitOutput, context: context)
-        Validators::HostedZoneLimit.validate!(input[:limit], context: "#{context}[:limit]") unless input[:limit].nil?
+        HostedZoneLimit.validate!(input[:limit], context: "#{context}[:limit]") unless input[:limit].nil?
         Hearth::Validator.validate!(input[:count], ::Integer, context: "#{context}[:count]")
       end
     end
@@ -966,9 +968,9 @@ module AWS::SDK::Route53
     class GetHostedZoneOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetHostedZoneOutput, context: context)
-        Validators::HostedZone.validate!(input[:hosted_zone], context: "#{context}[:hosted_zone]") unless input[:hosted_zone].nil?
-        Validators::DelegationSet.validate!(input[:delegation_set], context: "#{context}[:delegation_set]") unless input[:delegation_set].nil?
-        Validators::VPCs.validate!(input[:vp_cs], context: "#{context}[:vp_cs]") unless input[:vp_cs].nil?
+        HostedZone.validate!(input[:hosted_zone], context: "#{context}[:hosted_zone]") unless input[:hosted_zone].nil?
+        DelegationSet.validate!(input[:delegation_set], context: "#{context}[:delegation_set]") unless input[:delegation_set].nil?
+        VPCs.validate!(input[:vp_cs], context: "#{context}[:vp_cs]") unless input[:vp_cs].nil?
       end
     end
 
@@ -982,7 +984,7 @@ module AWS::SDK::Route53
     class GetQueryLoggingConfigOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetQueryLoggingConfigOutput, context: context)
-        Validators::QueryLoggingConfig.validate!(input[:query_logging_config], context: "#{context}[:query_logging_config]") unless input[:query_logging_config].nil?
+        QueryLoggingConfig.validate!(input[:query_logging_config], context: "#{context}[:query_logging_config]") unless input[:query_logging_config].nil?
       end
     end
 
@@ -1004,7 +1006,7 @@ module AWS::SDK::Route53
     class GetReusableDelegationSetLimitOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetReusableDelegationSetLimitOutput, context: context)
-        Validators::ReusableDelegationSetLimit.validate!(input[:limit], context: "#{context}[:limit]") unless input[:limit].nil?
+        ReusableDelegationSetLimit.validate!(input[:limit], context: "#{context}[:limit]") unless input[:limit].nil?
         Hearth::Validator.validate!(input[:count], ::Integer, context: "#{context}[:count]")
       end
     end
@@ -1012,7 +1014,7 @@ module AWS::SDK::Route53
     class GetReusableDelegationSetOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetReusableDelegationSetOutput, context: context)
-        Validators::DelegationSet.validate!(input[:delegation_set], context: "#{context}[:delegation_set]") unless input[:delegation_set].nil?
+        DelegationSet.validate!(input[:delegation_set], context: "#{context}[:delegation_set]") unless input[:delegation_set].nil?
       end
     end
 
@@ -1047,14 +1049,14 @@ module AWS::SDK::Route53
     class GetTrafficPolicyInstanceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetTrafficPolicyInstanceOutput, context: context)
-        Validators::TrafficPolicyInstance.validate!(input[:traffic_policy_instance], context: "#{context}[:traffic_policy_instance]") unless input[:traffic_policy_instance].nil?
+        TrafficPolicyInstance.validate!(input[:traffic_policy_instance], context: "#{context}[:traffic_policy_instance]") unless input[:traffic_policy_instance].nil?
       end
     end
 
     class GetTrafficPolicyOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetTrafficPolicyOutput, context: context)
-        Validators::TrafficPolicy.validate!(input[:traffic_policy], context: "#{context}[:traffic_policy]") unless input[:traffic_policy].nil?
+        TrafficPolicy.validate!(input[:traffic_policy], context: "#{context}[:traffic_policy]") unless input[:traffic_policy].nil?
       end
     end
 
@@ -1063,10 +1065,10 @@ module AWS::SDK::Route53
         Hearth::Validator.validate!(input, Types::HealthCheck, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:caller_reference], ::String, context: "#{context}[:caller_reference]")
-        Validators::LinkedService.validate!(input[:linked_service], context: "#{context}[:linked_service]") unless input[:linked_service].nil?
-        Validators::HealthCheckConfig.validate!(input[:health_check_config], context: "#{context}[:health_check_config]") unless input[:health_check_config].nil?
+        LinkedService.validate!(input[:linked_service], context: "#{context}[:linked_service]") unless input[:linked_service].nil?
+        HealthCheckConfig.validate!(input[:health_check_config], context: "#{context}[:health_check_config]") unless input[:health_check_config].nil?
         Hearth::Validator.validate!(input[:health_check_version], ::Integer, context: "#{context}[:health_check_version]")
-        Validators::CloudWatchAlarmConfiguration.validate!(input[:cloud_watch_alarm_configuration], context: "#{context}[:cloud_watch_alarm_configuration]") unless input[:cloud_watch_alarm_configuration].nil?
+        CloudWatchAlarmConfiguration.validate!(input[:cloud_watch_alarm_configuration], context: "#{context}[:cloud_watch_alarm_configuration]") unless input[:cloud_watch_alarm_configuration].nil?
       end
     end
 
@@ -1092,10 +1094,10 @@ module AWS::SDK::Route53
         Hearth::Validator.validate!(input[:inverted], ::TrueClass, ::FalseClass, context: "#{context}[:inverted]")
         Hearth::Validator.validate!(input[:disabled], ::TrueClass, ::FalseClass, context: "#{context}[:disabled]")
         Hearth::Validator.validate!(input[:health_threshold], ::Integer, context: "#{context}[:health_threshold]")
-        Validators::ChildHealthCheckList.validate!(input[:child_health_checks], context: "#{context}[:child_health_checks]") unless input[:child_health_checks].nil?
+        ChildHealthCheckList.validate!(input[:child_health_checks], context: "#{context}[:child_health_checks]") unless input[:child_health_checks].nil?
         Hearth::Validator.validate!(input[:enable_sni], ::TrueClass, ::FalseClass, context: "#{context}[:enable_sni]")
-        Validators::HealthCheckRegionList.validate!(input[:regions], context: "#{context}[:regions]") unless input[:regions].nil?
-        Validators::AlarmIdentifier.validate!(input[:alarm_identifier], context: "#{context}[:alarm_identifier]") unless input[:alarm_identifier].nil?
+        HealthCheckRegionList.validate!(input[:regions], context: "#{context}[:regions]") unless input[:regions].nil?
+        AlarmIdentifier.validate!(input[:alarm_identifier], context: "#{context}[:alarm_identifier]") unless input[:alarm_identifier].nil?
         Hearth::Validator.validate!(input[:insufficient_data_health_status], ::String, context: "#{context}[:insufficient_data_health_status]")
         Hearth::Validator.validate!(input[:routing_control_arn], ::String, context: "#{context}[:routing_control_arn]")
       end
@@ -1113,7 +1115,7 @@ module AWS::SDK::Route53
         Hearth::Validator.validate!(input, Types::HealthCheckObservation, context: context)
         Hearth::Validator.validate!(input[:region], ::String, context: "#{context}[:region]")
         Hearth::Validator.validate!(input[:ip_address], ::String, context: "#{context}[:ip_address]")
-        Validators::StatusReport.validate!(input[:status_report], context: "#{context}[:status_report]") unless input[:status_report].nil?
+        StatusReport.validate!(input[:status_report], context: "#{context}[:status_report]") unless input[:status_report].nil?
       end
     end
 
@@ -1121,7 +1123,7 @@ module AWS::SDK::Route53
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::HealthCheckObservation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          HealthCheckObservation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1146,7 +1148,7 @@ module AWS::SDK::Route53
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::HealthCheck.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          HealthCheck.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1157,9 +1159,9 @@ module AWS::SDK::Route53
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:caller_reference], ::String, context: "#{context}[:caller_reference]")
-        Validators::HostedZoneConfig.validate!(input[:config], context: "#{context}[:config]") unless input[:config].nil?
+        HostedZoneConfig.validate!(input[:config], context: "#{context}[:config]") unless input[:config].nil?
         Hearth::Validator.validate!(input[:resource_record_set_count], ::Integer, context: "#{context}[:resource_record_set_count]")
-        Validators::LinkedService.validate!(input[:linked_service], context: "#{context}[:linked_service]") unless input[:linked_service].nil?
+        LinkedService.validate!(input[:linked_service], context: "#{context}[:linked_service]") unless input[:linked_service].nil?
       end
     end
 
@@ -1226,7 +1228,7 @@ module AWS::SDK::Route53
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::HostedZoneSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          HostedZoneSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1236,7 +1238,7 @@ module AWS::SDK::Route53
         Hearth::Validator.validate!(input, Types::HostedZoneSummary, context: context)
         Hearth::Validator.validate!(input[:hosted_zone_id], ::String, context: "#{context}[:hosted_zone_id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::HostedZoneOwner.validate!(input[:owner], context: "#{context}[:owner]") unless input[:owner].nil?
+        HostedZoneOwner.validate!(input[:owner], context: "#{context}[:owner]") unless input[:owner].nil?
       end
     end
 
@@ -1244,7 +1246,7 @@ module AWS::SDK::Route53
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::HostedZone.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          HostedZone.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1273,7 +1275,7 @@ module AWS::SDK::Route53
     class InvalidChangeBatch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::InvalidChangeBatch, context: context)
-        Validators::ErrorMessages.validate!(input[:messages], context: "#{context}[:messages]") unless input[:messages].nil?
+        ErrorMessages.validate!(input[:messages], context: "#{context}[:messages]") unless input[:messages].nil?
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
       end
     end
@@ -1395,7 +1397,7 @@ module AWS::SDK::Route53
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::KeySigningKey.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          KeySigningKey.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1436,7 +1438,7 @@ module AWS::SDK::Route53
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListCidrBlocksOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::CidrBlockSummaries.validate!(input[:cidr_blocks], context: "#{context}[:cidr_blocks]") unless input[:cidr_blocks].nil?
+        CidrBlockSummaries.validate!(input[:cidr_blocks], context: "#{context}[:cidr_blocks]") unless input[:cidr_blocks].nil?
       end
     end
 
@@ -1452,7 +1454,7 @@ module AWS::SDK::Route53
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListCidrCollectionsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::CollectionSummaries.validate!(input[:cidr_collections], context: "#{context}[:cidr_collections]") unless input[:cidr_collections].nil?
+        CollectionSummaries.validate!(input[:cidr_collections], context: "#{context}[:cidr_collections]") unless input[:cidr_collections].nil?
       end
     end
 
@@ -1469,7 +1471,7 @@ module AWS::SDK::Route53
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListCidrLocationsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::LocationSummaries.validate!(input[:cidr_locations], context: "#{context}[:cidr_locations]") unless input[:cidr_locations].nil?
+        LocationSummaries.validate!(input[:cidr_locations], context: "#{context}[:cidr_locations]") unless input[:cidr_locations].nil?
       end
     end
 
@@ -1486,7 +1488,7 @@ module AWS::SDK::Route53
     class ListGeoLocationsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListGeoLocationsOutput, context: context)
-        Validators::GeoLocationDetailsList.validate!(input[:geo_location_details_list], context: "#{context}[:geo_location_details_list]") unless input[:geo_location_details_list].nil?
+        GeoLocationDetailsList.validate!(input[:geo_location_details_list], context: "#{context}[:geo_location_details_list]") unless input[:geo_location_details_list].nil?
         Hearth::Validator.validate!(input[:is_truncated], ::TrueClass, ::FalseClass, context: "#{context}[:is_truncated]")
         Hearth::Validator.validate!(input[:next_continent_code], ::String, context: "#{context}[:next_continent_code]")
         Hearth::Validator.validate!(input[:next_country_code], ::String, context: "#{context}[:next_country_code]")
@@ -1506,7 +1508,7 @@ module AWS::SDK::Route53
     class ListHealthChecksOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListHealthChecksOutput, context: context)
-        Validators::HealthChecks.validate!(input[:health_checks], context: "#{context}[:health_checks]") unless input[:health_checks].nil?
+        HealthChecks.validate!(input[:health_checks], context: "#{context}[:health_checks]") unless input[:health_checks].nil?
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
         Hearth::Validator.validate!(input[:is_truncated], ::TrueClass, ::FalseClass, context: "#{context}[:is_truncated]")
         Hearth::Validator.validate!(input[:next_marker], ::String, context: "#{context}[:next_marker]")
@@ -1526,7 +1528,7 @@ module AWS::SDK::Route53
     class ListHostedZonesByNameOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListHostedZonesByNameOutput, context: context)
-        Validators::HostedZones.validate!(input[:hosted_zones], context: "#{context}[:hosted_zones]") unless input[:hosted_zones].nil?
+        HostedZones.validate!(input[:hosted_zones], context: "#{context}[:hosted_zones]") unless input[:hosted_zones].nil?
         Hearth::Validator.validate!(input[:dns_name], ::String, context: "#{context}[:dns_name]")
         Hearth::Validator.validate!(input[:hosted_zone_id], ::String, context: "#{context}[:hosted_zone_id]")
         Hearth::Validator.validate!(input[:is_truncated], ::TrueClass, ::FalseClass, context: "#{context}[:is_truncated]")
@@ -1549,7 +1551,7 @@ module AWS::SDK::Route53
     class ListHostedZonesByVPCOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListHostedZonesByVPCOutput, context: context)
-        Validators::HostedZoneSummaries.validate!(input[:hosted_zone_summaries], context: "#{context}[:hosted_zone_summaries]") unless input[:hosted_zone_summaries].nil?
+        HostedZoneSummaries.validate!(input[:hosted_zone_summaries], context: "#{context}[:hosted_zone_summaries]") unless input[:hosted_zone_summaries].nil?
         Hearth::Validator.validate!(input[:max_items], ::Integer, context: "#{context}[:max_items]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -1567,7 +1569,7 @@ module AWS::SDK::Route53
     class ListHostedZonesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListHostedZonesOutput, context: context)
-        Validators::HostedZones.validate!(input[:hosted_zones], context: "#{context}[:hosted_zones]") unless input[:hosted_zones].nil?
+        HostedZones.validate!(input[:hosted_zones], context: "#{context}[:hosted_zones]") unless input[:hosted_zones].nil?
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
         Hearth::Validator.validate!(input[:is_truncated], ::TrueClass, ::FalseClass, context: "#{context}[:is_truncated]")
         Hearth::Validator.validate!(input[:next_marker], ::String, context: "#{context}[:next_marker]")
@@ -1587,7 +1589,7 @@ module AWS::SDK::Route53
     class ListQueryLoggingConfigsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListQueryLoggingConfigsOutput, context: context)
-        Validators::QueryLoggingConfigs.validate!(input[:query_logging_configs], context: "#{context}[:query_logging_configs]") unless input[:query_logging_configs].nil?
+        QueryLoggingConfigs.validate!(input[:query_logging_configs], context: "#{context}[:query_logging_configs]") unless input[:query_logging_configs].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1606,7 +1608,7 @@ module AWS::SDK::Route53
     class ListResourceRecordSetsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListResourceRecordSetsOutput, context: context)
-        Validators::ResourceRecordSets.validate!(input[:resource_record_sets], context: "#{context}[:resource_record_sets]") unless input[:resource_record_sets].nil?
+        ResourceRecordSets.validate!(input[:resource_record_sets], context: "#{context}[:resource_record_sets]") unless input[:resource_record_sets].nil?
         Hearth::Validator.validate!(input[:is_truncated], ::TrueClass, ::FalseClass, context: "#{context}[:is_truncated]")
         Hearth::Validator.validate!(input[:next_record_name], ::String, context: "#{context}[:next_record_name]")
         Hearth::Validator.validate!(input[:next_record_type], ::String, context: "#{context}[:next_record_type]")
@@ -1626,7 +1628,7 @@ module AWS::SDK::Route53
     class ListReusableDelegationSetsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListReusableDelegationSetsOutput, context: context)
-        Validators::DelegationSets.validate!(input[:delegation_sets], context: "#{context}[:delegation_sets]") unless input[:delegation_sets].nil?
+        DelegationSets.validate!(input[:delegation_sets], context: "#{context}[:delegation_sets]") unless input[:delegation_sets].nil?
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
         Hearth::Validator.validate!(input[:is_truncated], ::TrueClass, ::FalseClass, context: "#{context}[:is_truncated]")
         Hearth::Validator.validate!(input[:next_marker], ::String, context: "#{context}[:next_marker]")
@@ -1645,7 +1647,7 @@ module AWS::SDK::Route53
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::ResourceTagSet.validate!(input[:resource_tag_set], context: "#{context}[:resource_tag_set]") unless input[:resource_tag_set].nil?
+        ResourceTagSet.validate!(input[:resource_tag_set], context: "#{context}[:resource_tag_set]") unless input[:resource_tag_set].nil?
       end
     end
 
@@ -1653,14 +1655,14 @@ module AWS::SDK::Route53
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourcesInput, context: context)
         Hearth::Validator.validate!(input[:resource_type], ::String, context: "#{context}[:resource_type]")
-        Validators::TagResourceIdList.validate!(input[:resource_ids], context: "#{context}[:resource_ids]") unless input[:resource_ids].nil?
+        TagResourceIdList.validate!(input[:resource_ids], context: "#{context}[:resource_ids]") unless input[:resource_ids].nil?
       end
     end
 
     class ListTagsForResourcesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourcesOutput, context: context)
-        Validators::ResourceTagSetList.validate!(input[:resource_tag_sets], context: "#{context}[:resource_tag_sets]") unless input[:resource_tag_sets].nil?
+        ResourceTagSetList.validate!(input[:resource_tag_sets], context: "#{context}[:resource_tag_sets]") unless input[:resource_tag_sets].nil?
       end
     end
 
@@ -1675,7 +1677,7 @@ module AWS::SDK::Route53
     class ListTrafficPoliciesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTrafficPoliciesOutput, context: context)
-        Validators::TrafficPolicySummaries.validate!(input[:traffic_policy_summaries], context: "#{context}[:traffic_policy_summaries]") unless input[:traffic_policy_summaries].nil?
+        TrafficPolicySummaries.validate!(input[:traffic_policy_summaries], context: "#{context}[:traffic_policy_summaries]") unless input[:traffic_policy_summaries].nil?
         Hearth::Validator.validate!(input[:is_truncated], ::TrueClass, ::FalseClass, context: "#{context}[:is_truncated]")
         Hearth::Validator.validate!(input[:traffic_policy_id_marker], ::String, context: "#{context}[:traffic_policy_id_marker]")
         Hearth::Validator.validate!(input[:max_items], ::Integer, context: "#{context}[:max_items]")
@@ -1695,7 +1697,7 @@ module AWS::SDK::Route53
     class ListTrafficPolicyInstancesByHostedZoneOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTrafficPolicyInstancesByHostedZoneOutput, context: context)
-        Validators::TrafficPolicyInstances.validate!(input[:traffic_policy_instances], context: "#{context}[:traffic_policy_instances]") unless input[:traffic_policy_instances].nil?
+        TrafficPolicyInstances.validate!(input[:traffic_policy_instances], context: "#{context}[:traffic_policy_instances]") unless input[:traffic_policy_instances].nil?
         Hearth::Validator.validate!(input[:traffic_policy_instance_name_marker], ::String, context: "#{context}[:traffic_policy_instance_name_marker]")
         Hearth::Validator.validate!(input[:traffic_policy_instance_type_marker], ::String, context: "#{context}[:traffic_policy_instance_type_marker]")
         Hearth::Validator.validate!(input[:is_truncated], ::TrueClass, ::FalseClass, context: "#{context}[:is_truncated]")
@@ -1718,7 +1720,7 @@ module AWS::SDK::Route53
     class ListTrafficPolicyInstancesByPolicyOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTrafficPolicyInstancesByPolicyOutput, context: context)
-        Validators::TrafficPolicyInstances.validate!(input[:traffic_policy_instances], context: "#{context}[:traffic_policy_instances]") unless input[:traffic_policy_instances].nil?
+        TrafficPolicyInstances.validate!(input[:traffic_policy_instances], context: "#{context}[:traffic_policy_instances]") unless input[:traffic_policy_instances].nil?
         Hearth::Validator.validate!(input[:hosted_zone_id_marker], ::String, context: "#{context}[:hosted_zone_id_marker]")
         Hearth::Validator.validate!(input[:traffic_policy_instance_name_marker], ::String, context: "#{context}[:traffic_policy_instance_name_marker]")
         Hearth::Validator.validate!(input[:traffic_policy_instance_type_marker], ::String, context: "#{context}[:traffic_policy_instance_type_marker]")
@@ -1740,7 +1742,7 @@ module AWS::SDK::Route53
     class ListTrafficPolicyInstancesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTrafficPolicyInstancesOutput, context: context)
-        Validators::TrafficPolicyInstances.validate!(input[:traffic_policy_instances], context: "#{context}[:traffic_policy_instances]") unless input[:traffic_policy_instances].nil?
+        TrafficPolicyInstances.validate!(input[:traffic_policy_instances], context: "#{context}[:traffic_policy_instances]") unless input[:traffic_policy_instances].nil?
         Hearth::Validator.validate!(input[:hosted_zone_id_marker], ::String, context: "#{context}[:hosted_zone_id_marker]")
         Hearth::Validator.validate!(input[:traffic_policy_instance_name_marker], ::String, context: "#{context}[:traffic_policy_instance_name_marker]")
         Hearth::Validator.validate!(input[:traffic_policy_instance_type_marker], ::String, context: "#{context}[:traffic_policy_instance_type_marker]")
@@ -1761,7 +1763,7 @@ module AWS::SDK::Route53
     class ListTrafficPolicyVersionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTrafficPolicyVersionsOutput, context: context)
-        Validators::TrafficPolicies.validate!(input[:traffic_policies], context: "#{context}[:traffic_policies]") unless input[:traffic_policies].nil?
+        TrafficPolicies.validate!(input[:traffic_policies], context: "#{context}[:traffic_policies]") unless input[:traffic_policies].nil?
         Hearth::Validator.validate!(input[:is_truncated], ::TrueClass, ::FalseClass, context: "#{context}[:is_truncated]")
         Hearth::Validator.validate!(input[:traffic_policy_version_marker], ::String, context: "#{context}[:traffic_policy_version_marker]")
         Hearth::Validator.validate!(input[:max_items], ::Integer, context: "#{context}[:max_items]")
@@ -1782,7 +1784,7 @@ module AWS::SDK::Route53
         Hearth::Validator.validate!(input, Types::ListVPCAssociationAuthorizationsOutput, context: context)
         Hearth::Validator.validate!(input[:hosted_zone_id], ::String, context: "#{context}[:hosted_zone_id]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::VPCs.validate!(input[:vp_cs], context: "#{context}[:vp_cs]") unless input[:vp_cs].nil?
+        VPCs.validate!(input[:vp_cs], context: "#{context}[:vp_cs]") unless input[:vp_cs].nil?
       end
     end
 
@@ -1790,7 +1792,7 @@ module AWS::SDK::Route53
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LocationSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LocationSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1927,7 +1929,7 @@ module AWS::SDK::Route53
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::QueryLoggingConfig.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          QueryLoggingConfig.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1965,15 +1967,15 @@ module AWS::SDK::Route53
         Hearth::Validator.validate!(input[:set_identifier], ::String, context: "#{context}[:set_identifier]")
         Hearth::Validator.validate!(input[:weight], ::Integer, context: "#{context}[:weight]")
         Hearth::Validator.validate!(input[:region], ::String, context: "#{context}[:region]")
-        Validators::GeoLocation.validate!(input[:geo_location], context: "#{context}[:geo_location]") unless input[:geo_location].nil?
+        GeoLocation.validate!(input[:geo_location], context: "#{context}[:geo_location]") unless input[:geo_location].nil?
         Hearth::Validator.validate!(input[:failover], ::String, context: "#{context}[:failover]")
         Hearth::Validator.validate!(input[:multi_value_answer], ::TrueClass, ::FalseClass, context: "#{context}[:multi_value_answer]")
         Hearth::Validator.validate!(input[:ttl], ::Integer, context: "#{context}[:ttl]")
-        Validators::ResourceRecords.validate!(input[:resource_records], context: "#{context}[:resource_records]") unless input[:resource_records].nil?
-        Validators::AliasTarget.validate!(input[:alias_target], context: "#{context}[:alias_target]") unless input[:alias_target].nil?
+        ResourceRecords.validate!(input[:resource_records], context: "#{context}[:resource_records]") unless input[:resource_records].nil?
+        AliasTarget.validate!(input[:alias_target], context: "#{context}[:alias_target]") unless input[:alias_target].nil?
         Hearth::Validator.validate!(input[:health_check_id], ::String, context: "#{context}[:health_check_id]")
         Hearth::Validator.validate!(input[:traffic_policy_instance_id], ::String, context: "#{context}[:traffic_policy_instance_id]")
-        Validators::CidrRoutingConfig.validate!(input[:cidr_routing_config], context: "#{context}[:cidr_routing_config]") unless input[:cidr_routing_config].nil?
+        CidrRoutingConfig.validate!(input[:cidr_routing_config], context: "#{context}[:cidr_routing_config]") unless input[:cidr_routing_config].nil?
       end
     end
 
@@ -1981,7 +1983,7 @@ module AWS::SDK::Route53
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ResourceRecordSet.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ResourceRecordSet.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1990,7 +1992,7 @@ module AWS::SDK::Route53
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ResourceRecord.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ResourceRecord.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2000,7 +2002,7 @@ module AWS::SDK::Route53
         Hearth::Validator.validate!(input, Types::ResourceTagSet, context: context)
         Hearth::Validator.validate!(input[:resource_type], ::String, context: "#{context}[:resource_type]")
         Hearth::Validator.validate!(input[:resource_id], ::String, context: "#{context}[:resource_id]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -2008,7 +2010,7 @@ module AWS::SDK::Route53
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ResourceTagSet.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ResourceTagSet.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2050,7 +2052,7 @@ module AWS::SDK::Route53
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2082,7 +2084,7 @@ module AWS::SDK::Route53
         Hearth::Validator.validate!(input[:nameserver], ::String, context: "#{context}[:nameserver]")
         Hearth::Validator.validate!(input[:record_name], ::String, context: "#{context}[:record_name]")
         Hearth::Validator.validate!(input[:record_type], ::String, context: "#{context}[:record_type]")
-        Validators::RecordData.validate!(input[:record_data], context: "#{context}[:record_data]") unless input[:record_data].nil?
+        RecordData.validate!(input[:record_data], context: "#{context}[:record_data]") unless input[:record_data].nil?
         Hearth::Validator.validate!(input[:response_code], ::String, context: "#{context}[:response_code]")
         Hearth::Validator.validate!(input[:protocol], ::String, context: "#{context}[:protocol]")
       end
@@ -2148,7 +2150,7 @@ module AWS::SDK::Route53
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TrafficPolicy.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TrafficPolicy.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2205,7 +2207,7 @@ module AWS::SDK::Route53
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TrafficPolicyInstance.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TrafficPolicyInstance.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2214,7 +2216,7 @@ module AWS::SDK::Route53
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TrafficPolicySummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TrafficPolicySummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2244,19 +2246,19 @@ module AWS::SDK::Route53
         Hearth::Validator.validate!(input[:inverted], ::TrueClass, ::FalseClass, context: "#{context}[:inverted]")
         Hearth::Validator.validate!(input[:disabled], ::TrueClass, ::FalseClass, context: "#{context}[:disabled]")
         Hearth::Validator.validate!(input[:health_threshold], ::Integer, context: "#{context}[:health_threshold]")
-        Validators::ChildHealthCheckList.validate!(input[:child_health_checks], context: "#{context}[:child_health_checks]") unless input[:child_health_checks].nil?
+        ChildHealthCheckList.validate!(input[:child_health_checks], context: "#{context}[:child_health_checks]") unless input[:child_health_checks].nil?
         Hearth::Validator.validate!(input[:enable_sni], ::TrueClass, ::FalseClass, context: "#{context}[:enable_sni]")
-        Validators::HealthCheckRegionList.validate!(input[:regions], context: "#{context}[:regions]") unless input[:regions].nil?
-        Validators::AlarmIdentifier.validate!(input[:alarm_identifier], context: "#{context}[:alarm_identifier]") unless input[:alarm_identifier].nil?
+        HealthCheckRegionList.validate!(input[:regions], context: "#{context}[:regions]") unless input[:regions].nil?
+        AlarmIdentifier.validate!(input[:alarm_identifier], context: "#{context}[:alarm_identifier]") unless input[:alarm_identifier].nil?
         Hearth::Validator.validate!(input[:insufficient_data_health_status], ::String, context: "#{context}[:insufficient_data_health_status]")
-        Validators::ResettableElementNameList.validate!(input[:reset_elements], context: "#{context}[:reset_elements]") unless input[:reset_elements].nil?
+        ResettableElementNameList.validate!(input[:reset_elements], context: "#{context}[:reset_elements]") unless input[:reset_elements].nil?
       end
     end
 
     class UpdateHealthCheckOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateHealthCheckOutput, context: context)
-        Validators::HealthCheck.validate!(input[:health_check], context: "#{context}[:health_check]") unless input[:health_check].nil?
+        HealthCheck.validate!(input[:health_check], context: "#{context}[:health_check]") unless input[:health_check].nil?
       end
     end
 
@@ -2271,7 +2273,7 @@ module AWS::SDK::Route53
     class UpdateHostedZoneCommentOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateHostedZoneCommentOutput, context: context)
-        Validators::HostedZone.validate!(input[:hosted_zone], context: "#{context}[:hosted_zone]") unless input[:hosted_zone].nil?
+        HostedZone.validate!(input[:hosted_zone], context: "#{context}[:hosted_zone]") unless input[:hosted_zone].nil?
       end
     end
 
@@ -2287,7 +2289,7 @@ module AWS::SDK::Route53
     class UpdateTrafficPolicyCommentOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateTrafficPolicyCommentOutput, context: context)
-        Validators::TrafficPolicy.validate!(input[:traffic_policy], context: "#{context}[:traffic_policy]") unless input[:traffic_policy].nil?
+        TrafficPolicy.validate!(input[:traffic_policy], context: "#{context}[:traffic_policy]") unless input[:traffic_policy].nil?
       end
     end
 
@@ -2304,7 +2306,7 @@ module AWS::SDK::Route53
     class UpdateTrafficPolicyInstanceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateTrafficPolicyInstanceOutput, context: context)
-        Validators::TrafficPolicyInstance.validate!(input[:traffic_policy_instance], context: "#{context}[:traffic_policy_instance]") unless input[:traffic_policy_instance].nil?
+        TrafficPolicyInstance.validate!(input[:traffic_policy_instance], context: "#{context}[:traffic_policy_instance]") unless input[:traffic_policy_instance].nil?
       end
     end
 
@@ -2334,7 +2336,7 @@ module AWS::SDK::Route53
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::VPC.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          VPC.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

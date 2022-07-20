@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::GroundStation
   module Validators
 
@@ -20,16 +22,16 @@ module AWS::SDK::GroundStation
     class AntennaDownlinkConfig
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AntennaDownlinkConfig, context: context)
-        Validators::SpectrumConfig.validate!(input[:spectrum_config], context: "#{context}[:spectrum_config]") unless input[:spectrum_config].nil?
+        SpectrumConfig.validate!(input[:spectrum_config], context: "#{context}[:spectrum_config]") unless input[:spectrum_config].nil?
       end
     end
 
     class AntennaDownlinkDemodDecodeConfig
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AntennaDownlinkDemodDecodeConfig, context: context)
-        Validators::SpectrumConfig.validate!(input[:spectrum_config], context: "#{context}[:spectrum_config]") unless input[:spectrum_config].nil?
-        Validators::DemodulationConfig.validate!(input[:demodulation_config], context: "#{context}[:demodulation_config]") unless input[:demodulation_config].nil?
-        Validators::DecodeConfig.validate!(input[:decode_config], context: "#{context}[:decode_config]") unless input[:decode_config].nil?
+        SpectrumConfig.validate!(input[:spectrum_config], context: "#{context}[:spectrum_config]") unless input[:spectrum_config].nil?
+        DemodulationConfig.validate!(input[:demodulation_config], context: "#{context}[:demodulation_config]") unless input[:demodulation_config].nil?
+        DecodeConfig.validate!(input[:decode_config], context: "#{context}[:decode_config]") unless input[:decode_config].nil?
       end
     end
 
@@ -37,8 +39,8 @@ module AWS::SDK::GroundStation
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AntennaUplinkConfig, context: context)
         Hearth::Validator.validate!(input[:transmit_disabled], ::TrueClass, ::FalseClass, context: "#{context}[:transmit_disabled]")
-        Validators::UplinkSpectrumConfig.validate!(input[:spectrum_config], context: "#{context}[:spectrum_config]") unless input[:spectrum_config].nil?
-        Validators::Eirp.validate!(input[:target_eirp], context: "#{context}[:target_eirp]") unless input[:target_eirp].nil?
+        UplinkSpectrumConfig.validate!(input[:spectrum_config], context: "#{context}[:spectrum_config]") unless input[:spectrum_config].nil?
+        Eirp.validate!(input[:target_eirp], context: "#{context}[:target_eirp]") unless input[:target_eirp].nil?
       end
     end
 
@@ -60,11 +62,11 @@ module AWS::SDK::GroundStation
       def self.validate!(input, context:)
         case input
         when Types::ConfigDetails::EndpointDetails
-          Validators::EndpointDetails.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          EndpointDetails.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::ConfigDetails::AntennaDemodDecodeDetails
-          Validators::AntennaDemodDecodeDetails.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          AntennaDemodDecodeDetails.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::ConfigDetails::S3RecordingDetails
-          Validators::S3RecordingDetails.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          S3RecordingDetails.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         else
           raise ArgumentError,
                 "Expected #{context} to be a union member of "\
@@ -95,7 +97,7 @@ module AWS::SDK::GroundStation
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ConfigListItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ConfigListItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -114,19 +116,19 @@ module AWS::SDK::GroundStation
       def self.validate!(input, context:)
         case input
         when Types::ConfigTypeData::AntennaDownlinkConfig
-          Validators::AntennaDownlinkConfig.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          AntennaDownlinkConfig.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::ConfigTypeData::TrackingConfig
-          Validators::TrackingConfig.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          TrackingConfig.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::ConfigTypeData::DataflowEndpointConfig
-          Validators::DataflowEndpointConfig.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          DataflowEndpointConfig.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::ConfigTypeData::AntennaDownlinkDemodDecodeConfig
-          Validators::AntennaDownlinkDemodDecodeConfig.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          AntennaDownlinkDemodDecodeConfig.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::ConfigTypeData::AntennaUplinkConfig
-          Validators::AntennaUplinkConfig.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          AntennaUplinkConfig.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::ConfigTypeData::UplinkEchoConfig
-          Validators::UplinkEchoConfig.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          UplinkEchoConfig.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::ConfigTypeData::S3RecordingConfig
-          Validators::S3RecordingConfig.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          S3RecordingConfig.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         else
           raise ArgumentError,
                 "Expected #{context} to be a union member of "\
@@ -190,9 +192,9 @@ module AWS::SDK::GroundStation
         Hearth::Validator.validate!(input[:ground_station], ::String, context: "#{context}[:ground_station]")
         Hearth::Validator.validate!(input[:contact_status], ::String, context: "#{context}[:contact_status]")
         Hearth::Validator.validate!(input[:error_message], ::String, context: "#{context}[:error_message]")
-        Validators::Elevation.validate!(input[:maximum_elevation], context: "#{context}[:maximum_elevation]") unless input[:maximum_elevation].nil?
+        Elevation.validate!(input[:maximum_elevation], context: "#{context}[:maximum_elevation]") unless input[:maximum_elevation].nil?
         Hearth::Validator.validate!(input[:region], ::String, context: "#{context}[:region]")
-        Validators::TagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -200,7 +202,7 @@ module AWS::SDK::GroundStation
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ContactData.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ContactData.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -209,8 +211,8 @@ module AWS::SDK::GroundStation
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateConfigInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::ConfigTypeData.validate!(input[:config_data], context: "#{context}[:config_data]") unless input[:config_data].nil?
-        Validators::TagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ConfigTypeData.validate!(input[:config_data], context: "#{context}[:config_data]") unless input[:config_data].nil?
+        TagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -226,8 +228,8 @@ module AWS::SDK::GroundStation
     class CreateDataflowEndpointGroupInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateDataflowEndpointGroupInput, context: context)
-        Validators::EndpointDetailsList.validate!(input[:endpoint_details], context: "#{context}[:endpoint_details]") unless input[:endpoint_details].nil?
-        Validators::TagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        EndpointDetailsList.validate!(input[:endpoint_details], context: "#{context}[:endpoint_details]") unless input[:endpoint_details].nil?
+        TagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -245,9 +247,9 @@ module AWS::SDK::GroundStation
         Hearth::Validator.validate!(input[:contact_pre_pass_duration_seconds], ::Integer, context: "#{context}[:contact_pre_pass_duration_seconds]")
         Hearth::Validator.validate!(input[:contact_post_pass_duration_seconds], ::Integer, context: "#{context}[:contact_post_pass_duration_seconds]")
         Hearth::Validator.validate!(input[:minimum_viable_contact_duration_seconds], ::Integer, context: "#{context}[:minimum_viable_contact_duration_seconds]")
-        Validators::DataflowEdgeList.validate!(input[:dataflow_edges], context: "#{context}[:dataflow_edges]") unless input[:dataflow_edges].nil?
+        DataflowEdgeList.validate!(input[:dataflow_edges], context: "#{context}[:dataflow_edges]") unless input[:dataflow_edges].nil?
         Hearth::Validator.validate!(input[:tracking_config_arn], ::String, context: "#{context}[:tracking_config_arn]")
-        Validators::TagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -261,8 +263,8 @@ module AWS::SDK::GroundStation
     class DataflowDetail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DataflowDetail, context: context)
-        Validators::Source.validate!(input[:source], context: "#{context}[:source]") unless input[:source].nil?
-        Validators::Destination.validate!(input[:destination], context: "#{context}[:destination]") unless input[:destination].nil?
+        Source.validate!(input[:source], context: "#{context}[:source]") unless input[:source].nil?
+        Destination.validate!(input[:destination], context: "#{context}[:destination]") unless input[:destination].nil?
         Hearth::Validator.validate!(input[:error_message], ::String, context: "#{context}[:error_message]")
       end
     end
@@ -280,7 +282,7 @@ module AWS::SDK::GroundStation
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DataflowEdge.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DataflowEdge.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -289,7 +291,7 @@ module AWS::SDK::GroundStation
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DataflowEndpoint, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::SocketAddress.validate!(input[:address], context: "#{context}[:address]") unless input[:address].nil?
+        SocketAddress.validate!(input[:address], context: "#{context}[:address]") unless input[:address].nil?
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:mtu], ::Integer, context: "#{context}[:mtu]")
       end
@@ -307,7 +309,7 @@ module AWS::SDK::GroundStation
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DataflowEndpointListItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DataflowEndpointListItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -324,7 +326,7 @@ module AWS::SDK::GroundStation
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DataflowDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DataflowDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -416,10 +418,10 @@ module AWS::SDK::GroundStation
         Hearth::Validator.validate!(input[:ground_station], ::String, context: "#{context}[:ground_station]")
         Hearth::Validator.validate!(input[:contact_status], ::String, context: "#{context}[:contact_status]")
         Hearth::Validator.validate!(input[:error_message], ::String, context: "#{context}[:error_message]")
-        Validators::Elevation.validate!(input[:maximum_elevation], context: "#{context}[:maximum_elevation]") unless input[:maximum_elevation].nil?
-        Validators::TagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Elevation.validate!(input[:maximum_elevation], context: "#{context}[:maximum_elevation]") unless input[:maximum_elevation].nil?
+        TagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:region], ::String, context: "#{context}[:region]")
-        Validators::DataflowList.validate!(input[:dataflow_list], context: "#{context}[:dataflow_list]") unless input[:dataflow_list].nil?
+        DataflowList.validate!(input[:dataflow_list], context: "#{context}[:dataflow_list]") unless input[:dataflow_list].nil?
       end
     end
 
@@ -428,7 +430,7 @@ module AWS::SDK::GroundStation
         Hearth::Validator.validate!(input, Types::Destination, context: context)
         Hearth::Validator.validate!(input[:config_type], ::String, context: "#{context}[:config_type]")
         Hearth::Validator.validate!(input[:config_id], ::String, context: "#{context}[:config_id]")
-        Validators::ConfigDetails.validate!(input[:config_details], context: "#{context}[:config_details]") unless input[:config_details].nil?
+        ConfigDetails.validate!(input[:config_details], context: "#{context}[:config_details]") unless input[:config_details].nil?
         Hearth::Validator.validate!(input[:dataflow_destination_region], ::String, context: "#{context}[:dataflow_destination_region]")
       end
     end
@@ -452,8 +454,8 @@ module AWS::SDK::GroundStation
     class EndpointDetails
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::EndpointDetails, context: context)
-        Validators::SecurityDetails.validate!(input[:security_details], context: "#{context}[:security_details]") unless input[:security_details].nil?
-        Validators::DataflowEndpoint.validate!(input[:endpoint], context: "#{context}[:endpoint]") unless input[:endpoint].nil?
+        SecurityDetails.validate!(input[:security_details], context: "#{context}[:security_details]") unless input[:security_details].nil?
+        DataflowEndpoint.validate!(input[:endpoint], context: "#{context}[:endpoint]") unless input[:endpoint].nil?
       end
     end
 
@@ -461,7 +463,7 @@ module AWS::SDK::GroundStation
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EndpointDetails.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EndpointDetails.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -497,8 +499,8 @@ module AWS::SDK::GroundStation
         Hearth::Validator.validate!(input[:config_arn], ::String, context: "#{context}[:config_arn]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:config_type], ::String, context: "#{context}[:config_type]")
-        Validators::ConfigTypeData.validate!(input[:config_data], context: "#{context}[:config_data]") unless input[:config_data].nil?
-        Validators::TagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ConfigTypeData.validate!(input[:config_data], context: "#{context}[:config_data]") unless input[:config_data].nil?
+        TagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -514,8 +516,8 @@ module AWS::SDK::GroundStation
         Hearth::Validator.validate!(input, Types::GetDataflowEndpointGroupOutput, context: context)
         Hearth::Validator.validate!(input[:dataflow_endpoint_group_id], ::String, context: "#{context}[:dataflow_endpoint_group_id]")
         Hearth::Validator.validate!(input[:dataflow_endpoint_group_arn], ::String, context: "#{context}[:dataflow_endpoint_group_arn]")
-        Validators::EndpointDetailsList.validate!(input[:endpoints_details], context: "#{context}[:endpoints_details]") unless input[:endpoints_details].nil?
-        Validators::TagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        EndpointDetailsList.validate!(input[:endpoints_details], context: "#{context}[:endpoints_details]") unless input[:endpoints_details].nil?
+        TagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -555,9 +557,9 @@ module AWS::SDK::GroundStation
         Hearth::Validator.validate!(input[:contact_pre_pass_duration_seconds], ::Integer, context: "#{context}[:contact_pre_pass_duration_seconds]")
         Hearth::Validator.validate!(input[:contact_post_pass_duration_seconds], ::Integer, context: "#{context}[:contact_post_pass_duration_seconds]")
         Hearth::Validator.validate!(input[:minimum_viable_contact_duration_seconds], ::Integer, context: "#{context}[:minimum_viable_contact_duration_seconds]")
-        Validators::DataflowEdgeList.validate!(input[:dataflow_edges], context: "#{context}[:dataflow_edges]") unless input[:dataflow_edges].nil?
+        DataflowEdgeList.validate!(input[:dataflow_edges], context: "#{context}[:dataflow_edges]") unless input[:dataflow_edges].nil?
         Hearth::Validator.validate!(input[:tracking_config_arn], ::String, context: "#{context}[:tracking_config_arn]")
-        Validators::TagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -574,7 +576,7 @@ module AWS::SDK::GroundStation
         Hearth::Validator.validate!(input[:satellite_id], ::String, context: "#{context}[:satellite_id]")
         Hearth::Validator.validate!(input[:satellite_arn], ::String, context: "#{context}[:satellite_arn]")
         Hearth::Validator.validate!(input[:norad_satellite_id], ::Integer, context: "#{context}[:norad_satellite_id]")
-        Validators::GroundStationIdList.validate!(input[:ground_stations], context: "#{context}[:ground_stations]") unless input[:ground_stations].nil?
+        GroundStationIdList.validate!(input[:ground_stations], context: "#{context}[:ground_stations]") unless input[:ground_stations].nil?
       end
     end
 
@@ -600,7 +602,7 @@ module AWS::SDK::GroundStation
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::GroundStationData.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          GroundStationData.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -625,7 +627,7 @@ module AWS::SDK::GroundStation
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListConfigsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::ConfigList.validate!(input[:config_list], context: "#{context}[:config_list]") unless input[:config_list].nil?
+        ConfigList.validate!(input[:config_list], context: "#{context}[:config_list]") unless input[:config_list].nil?
       end
     end
 
@@ -634,7 +636,7 @@ module AWS::SDK::GroundStation
         Hearth::Validator.validate!(input, Types::ListContactsInput, context: context)
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::StatusList.validate!(input[:status_list], context: "#{context}[:status_list]") unless input[:status_list].nil?
+        StatusList.validate!(input[:status_list], context: "#{context}[:status_list]") unless input[:status_list].nil?
         Hearth::Validator.validate!(input[:start_time], ::Time, context: "#{context}[:start_time]")
         Hearth::Validator.validate!(input[:end_time], ::Time, context: "#{context}[:end_time]")
         Hearth::Validator.validate!(input[:ground_station], ::String, context: "#{context}[:ground_station]")
@@ -647,7 +649,7 @@ module AWS::SDK::GroundStation
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListContactsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::ContactList.validate!(input[:contact_list], context: "#{context}[:contact_list]") unless input[:contact_list].nil?
+        ContactList.validate!(input[:contact_list], context: "#{context}[:contact_list]") unless input[:contact_list].nil?
       end
     end
 
@@ -663,7 +665,7 @@ module AWS::SDK::GroundStation
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDataflowEndpointGroupsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::DataflowEndpointGroupList.validate!(input[:dataflow_endpoint_group_list], context: "#{context}[:dataflow_endpoint_group_list]") unless input[:dataflow_endpoint_group_list].nil?
+        DataflowEndpointGroupList.validate!(input[:dataflow_endpoint_group_list], context: "#{context}[:dataflow_endpoint_group_list]") unless input[:dataflow_endpoint_group_list].nil?
       end
     end
 
@@ -680,7 +682,7 @@ module AWS::SDK::GroundStation
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListGroundStationsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::GroundStationList.validate!(input[:ground_station_list], context: "#{context}[:ground_station_list]") unless input[:ground_station_list].nil?
+        GroundStationList.validate!(input[:ground_station_list], context: "#{context}[:ground_station_list]") unless input[:ground_station_list].nil?
       end
     end
 
@@ -696,7 +698,7 @@ module AWS::SDK::GroundStation
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListMissionProfilesOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::MissionProfileList.validate!(input[:mission_profile_list], context: "#{context}[:mission_profile_list]") unless input[:mission_profile_list].nil?
+        MissionProfileList.validate!(input[:mission_profile_list], context: "#{context}[:mission_profile_list]") unless input[:mission_profile_list].nil?
       end
     end
 
@@ -712,7 +714,7 @@ module AWS::SDK::GroundStation
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListSatellitesOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::SatelliteList.validate!(input[:satellites], context: "#{context}[:satellites]") unless input[:satellites].nil?
+        SatelliteList.validate!(input[:satellites], context: "#{context}[:satellites]") unless input[:satellites].nil?
       end
     end
 
@@ -726,7 +728,7 @@ module AWS::SDK::GroundStation
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -734,7 +736,7 @@ module AWS::SDK::GroundStation
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MissionProfileListItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MissionProfileListItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -757,7 +759,7 @@ module AWS::SDK::GroundStation
         Hearth::Validator.validate!(input[:start_time], ::Time, context: "#{context}[:start_time]")
         Hearth::Validator.validate!(input[:end_time], ::Time, context: "#{context}[:end_time]")
         Hearth::Validator.validate!(input[:ground_station], ::String, context: "#{context}[:ground_station]")
-        Validators::TagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -804,7 +806,7 @@ module AWS::SDK::GroundStation
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SatelliteListItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SatelliteListItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -815,15 +817,15 @@ module AWS::SDK::GroundStation
         Hearth::Validator.validate!(input[:satellite_id], ::String, context: "#{context}[:satellite_id]")
         Hearth::Validator.validate!(input[:satellite_arn], ::String, context: "#{context}[:satellite_arn]")
         Hearth::Validator.validate!(input[:norad_satellite_id], ::Integer, context: "#{context}[:norad_satellite_id]")
-        Validators::GroundStationIdList.validate!(input[:ground_stations], context: "#{context}[:ground_stations]") unless input[:ground_stations].nil?
+        GroundStationIdList.validate!(input[:ground_stations], context: "#{context}[:ground_stations]") unless input[:ground_stations].nil?
       end
     end
 
     class SecurityDetails
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SecurityDetails, context: context)
-        Validators::SubnetList.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
-        Validators::SecurityGroupIdList.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
+        SubnetList.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
+        SecurityGroupIdList.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
       end
     end
@@ -850,7 +852,7 @@ module AWS::SDK::GroundStation
         Hearth::Validator.validate!(input, Types::Source, context: context)
         Hearth::Validator.validate!(input[:config_type], ::String, context: "#{context}[:config_type]")
         Hearth::Validator.validate!(input[:config_id], ::String, context: "#{context}[:config_id]")
-        Validators::ConfigDetails.validate!(input[:config_details], context: "#{context}[:config_details]") unless input[:config_details].nil?
+        ConfigDetails.validate!(input[:config_details], context: "#{context}[:config_details]") unless input[:config_details].nil?
         Hearth::Validator.validate!(input[:dataflow_source_region], ::String, context: "#{context}[:dataflow_source_region]")
       end
     end
@@ -858,8 +860,8 @@ module AWS::SDK::GroundStation
     class SpectrumConfig
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SpectrumConfig, context: context)
-        Validators::Frequency.validate!(input[:center_frequency], context: "#{context}[:center_frequency]") unless input[:center_frequency].nil?
-        Validators::FrequencyBandwidth.validate!(input[:bandwidth], context: "#{context}[:bandwidth]") unless input[:bandwidth].nil?
+        Frequency.validate!(input[:center_frequency], context: "#{context}[:center_frequency]") unless input[:center_frequency].nil?
+        FrequencyBandwidth.validate!(input[:bandwidth], context: "#{context}[:bandwidth]") unless input[:bandwidth].nil?
         Hearth::Validator.validate!(input[:polarization], ::String, context: "#{context}[:polarization]")
       end
     end
@@ -895,7 +897,7 @@ module AWS::SDK::GroundStation
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -926,7 +928,7 @@ module AWS::SDK::GroundStation
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeys.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeys.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -942,7 +944,7 @@ module AWS::SDK::GroundStation
         Hearth::Validator.validate!(input[:config_id], ::String, context: "#{context}[:config_id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:config_type], ::String, context: "#{context}[:config_type]")
-        Validators::ConfigTypeData.validate!(input[:config_data], context: "#{context}[:config_data]") unless input[:config_data].nil?
+        ConfigTypeData.validate!(input[:config_data], context: "#{context}[:config_data]") unless input[:config_data].nil?
       end
     end
 
@@ -963,7 +965,7 @@ module AWS::SDK::GroundStation
         Hearth::Validator.validate!(input[:contact_pre_pass_duration_seconds], ::Integer, context: "#{context}[:contact_pre_pass_duration_seconds]")
         Hearth::Validator.validate!(input[:contact_post_pass_duration_seconds], ::Integer, context: "#{context}[:contact_post_pass_duration_seconds]")
         Hearth::Validator.validate!(input[:minimum_viable_contact_duration_seconds], ::Integer, context: "#{context}[:minimum_viable_contact_duration_seconds]")
-        Validators::DataflowEdgeList.validate!(input[:dataflow_edges], context: "#{context}[:dataflow_edges]") unless input[:dataflow_edges].nil?
+        DataflowEdgeList.validate!(input[:dataflow_edges], context: "#{context}[:dataflow_edges]") unless input[:dataflow_edges].nil?
         Hearth::Validator.validate!(input[:tracking_config_arn], ::String, context: "#{context}[:tracking_config_arn]")
       end
     end
@@ -986,7 +988,7 @@ module AWS::SDK::GroundStation
     class UplinkSpectrumConfig
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UplinkSpectrumConfig, context: context)
-        Validators::Frequency.validate!(input[:center_frequency], context: "#{context}[:center_frequency]") unless input[:center_frequency].nil?
+        Frequency.validate!(input[:center_frequency], context: "#{context}[:center_frequency]") unless input[:center_frequency].nil?
         Hearth::Validator.validate!(input[:polarization], ::String, context: "#{context}[:polarization]")
       end
     end

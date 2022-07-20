@@ -101,11 +101,11 @@ module AWS::SDK::MigrationHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     AssociateCreatedArtifactOutput = ::Struct.new(
@@ -146,11 +146,11 @@ module AWS::SDK::MigrationHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     AssociateDiscoveredResourceOutput = ::Struct.new(
@@ -179,11 +179,11 @@ module AWS::SDK::MigrationHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     CreateProgressUpdateStreamOutput = ::Struct.new(
@@ -234,11 +234,11 @@ module AWS::SDK::MigrationHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     DeleteProgressUpdateStreamOutput = ::Struct.new(
@@ -345,11 +345,11 @@ module AWS::SDK::MigrationHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     DisassociateCreatedArtifactOutput = ::Struct.new(
@@ -391,11 +391,11 @@ module AWS::SDK::MigrationHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     DisassociateDiscoveredResourceOutput = ::Struct.new(
@@ -479,11 +479,11 @@ module AWS::SDK::MigrationHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     ImportMigrationTaskOutput = ::Struct.new(
@@ -886,11 +886,11 @@ module AWS::SDK::MigrationHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     NotifyApplicationStateOutput = ::Struct.new(
@@ -945,12 +945,12 @@ module AWS::SDK::MigrationHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.next_update_seconds ||= 0
         self.dry_run ||= false
       end
-
     end
 
     NotifyMigrationTaskStateOutput = ::Struct.new(
@@ -1050,11 +1050,11 @@ module AWS::SDK::MigrationHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     PutResourceAttributesOutput = ::Struct.new(
@@ -1263,11 +1263,11 @@ module AWS::SDK::MigrationHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.retry_after_seconds ||= 0
       end
-
     end
 
     # <p>Exception raised to indicate a request was not authorized when the <code>DryRun</code>

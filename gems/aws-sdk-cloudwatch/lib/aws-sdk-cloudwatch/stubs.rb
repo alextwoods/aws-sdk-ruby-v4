@@ -68,7 +68,7 @@ module AWS::SDK::CloudWatch
     class DeleteInsightRules
       def self.default(visited=[])
         {
-          failures: Stubs::BatchFailures.default(visited),
+          failures: BatchFailures.default(visited),
         }
       end
 
@@ -90,7 +90,7 @@ module AWS::SDK::CloudWatch
         return nil if visited.include?('BatchFailures')
         visited = visited + ['BatchFailures']
         [
-          Stubs::PartialFailure.default(visited)
+          PartialFailure.default(visited)
         ]
       end
 
@@ -149,7 +149,7 @@ module AWS::SDK::CloudWatch
     class DescribeAlarmHistory
       def self.default(visited=[])
         {
-          alarm_history_items: Stubs::AlarmHistoryItems.default(visited),
+          alarm_history_items: AlarmHistoryItems.default(visited),
           next_token: 'next_token',
         }
       end
@@ -173,7 +173,7 @@ module AWS::SDK::CloudWatch
         return nil if visited.include?('AlarmHistoryItems')
         visited = visited + ['AlarmHistoryItems']
         [
-          Stubs::AlarmHistoryItem.default(visited)
+          AlarmHistoryItem.default(visited)
         ]
       end
 
@@ -218,8 +218,8 @@ module AWS::SDK::CloudWatch
     class DescribeAlarms
       def self.default(visited=[])
         {
-          composite_alarms: Stubs::CompositeAlarms.default(visited),
-          metric_alarms: Stubs::MetricAlarms.default(visited),
+          composite_alarms: CompositeAlarms.default(visited),
+          metric_alarms: MetricAlarms.default(visited),
           next_token: 'next_token',
         }
       end
@@ -244,7 +244,7 @@ module AWS::SDK::CloudWatch
         return nil if visited.include?('MetricAlarms')
         visited = visited + ['MetricAlarms']
         [
-          Stubs::MetricAlarm.default(visited)
+          MetricAlarm.default(visited)
         ]
       end
 
@@ -268,9 +268,9 @@ module AWS::SDK::CloudWatch
           alarm_description: 'alarm_description',
           alarm_configuration_updated_timestamp: Time.now,
           actions_enabled: false,
-          ok_actions: Stubs::ResourceList.default(visited),
-          alarm_actions: Stubs::ResourceList.default(visited),
-          insufficient_data_actions: Stubs::ResourceList.default(visited),
+          ok_actions: ResourceList.default(visited),
+          alarm_actions: ResourceList.default(visited),
+          insufficient_data_actions: ResourceList.default(visited),
           state_value: 'state_value',
           state_reason: 'state_reason',
           state_reason_data: 'state_reason_data',
@@ -279,7 +279,7 @@ module AWS::SDK::CloudWatch
           namespace: 'namespace',
           statistic: 'statistic',
           extended_statistic: 'extended_statistic',
-          dimensions: Stubs::Dimensions.default(visited),
+          dimensions: Dimensions.default(visited),
           period: 1,
           unit: 'unit',
           evaluation_periods: 1,
@@ -288,7 +288,7 @@ module AWS::SDK::CloudWatch
           comparison_operator: 'comparison_operator',
           treat_missing_data: 'treat_missing_data',
           evaluate_low_sample_count_percentile: 'evaluate_low_sample_count_percentile',
-          metrics: Stubs::MetricDataQueries.default(visited),
+          metrics: MetricDataQueries.default(visited),
           threshold_metric_id: 'threshold_metric_id',
         }
       end
@@ -333,7 +333,7 @@ module AWS::SDK::CloudWatch
         return nil if visited.include?('MetricDataQueries')
         visited = visited + ['MetricDataQueries']
         [
-          Stubs::MetricDataQuery.default(visited)
+          MetricDataQuery.default(visited)
         ]
       end
 
@@ -353,7 +353,7 @@ module AWS::SDK::CloudWatch
         visited = visited + ['MetricDataQuery']
         {
           id: 'id',
-          metric_stat: Stubs::MetricStat.default(visited),
+          metric_stat: MetricStat.default(visited),
           expression: 'expression',
           label: 'label',
           return_data: false,
@@ -382,7 +382,7 @@ module AWS::SDK::CloudWatch
         return nil if visited.include?('MetricStat')
         visited = visited + ['MetricStat']
         {
-          metric: Stubs::Metric.default(visited),
+          metric: Metric.default(visited),
           period: 1,
           stat: 'stat',
           unit: 'unit',
@@ -408,7 +408,7 @@ module AWS::SDK::CloudWatch
         {
           namespace: 'namespace',
           metric_name: 'metric_name',
-          dimensions: Stubs::Dimensions.default(visited),
+          dimensions: Dimensions.default(visited),
         }
       end
 
@@ -428,7 +428,7 @@ module AWS::SDK::CloudWatch
         return nil if visited.include?('Dimensions')
         visited = visited + ['Dimensions']
         [
-          Stubs::Dimension.default(visited)
+          Dimension.default(visited)
         ]
       end
 
@@ -486,7 +486,7 @@ module AWS::SDK::CloudWatch
         return nil if visited.include?('CompositeAlarms')
         visited = visited + ['CompositeAlarms']
         [
-          Stubs::CompositeAlarm.default(visited)
+          CompositeAlarm.default(visited)
         ]
       end
 
@@ -506,14 +506,14 @@ module AWS::SDK::CloudWatch
         visited = visited + ['CompositeAlarm']
         {
           actions_enabled: false,
-          alarm_actions: Stubs::ResourceList.default(visited),
+          alarm_actions: ResourceList.default(visited),
           alarm_arn: 'alarm_arn',
           alarm_configuration_updated_timestamp: Time.now,
           alarm_description: 'alarm_description',
           alarm_name: 'alarm_name',
           alarm_rule: 'alarm_rule',
-          insufficient_data_actions: Stubs::ResourceList.default(visited),
-          ok_actions: Stubs::ResourceList.default(visited),
+          insufficient_data_actions: ResourceList.default(visited),
+          ok_actions: ResourceList.default(visited),
           state_reason: 'state_reason',
           state_reason_data: 'state_reason_data',
           state_updated_timestamp: Time.now,
@@ -545,7 +545,7 @@ module AWS::SDK::CloudWatch
     class DescribeAlarmsForMetric
       def self.default(visited=[])
         {
-          metric_alarms: Stubs::MetricAlarms.default(visited),
+          metric_alarms: MetricAlarms.default(visited),
         }
       end
 
@@ -565,7 +565,7 @@ module AWS::SDK::CloudWatch
     class DescribeAnomalyDetectors
       def self.default(visited=[])
         {
-          anomaly_detectors: Stubs::AnomalyDetectors.default(visited),
+          anomaly_detectors: AnomalyDetectors.default(visited),
           next_token: 'next_token',
         }
       end
@@ -589,7 +589,7 @@ module AWS::SDK::CloudWatch
         return nil if visited.include?('AnomalyDetectors')
         visited = visited + ['AnomalyDetectors']
         [
-          Stubs::AnomalyDetector.default(visited)
+          AnomalyDetector.default(visited)
         ]
       end
 
@@ -610,12 +610,12 @@ module AWS::SDK::CloudWatch
         {
           namespace: 'namespace',
           metric_name: 'metric_name',
-          dimensions: Stubs::Dimensions.default(visited),
+          dimensions: Dimensions.default(visited),
           stat: 'stat',
-          configuration: Stubs::AnomalyDetectorConfiguration.default(visited),
+          configuration: AnomalyDetectorConfiguration.default(visited),
           state_value: 'state_value',
-          single_metric_anomaly_detector: Stubs::SingleMetricAnomalyDetector.default(visited),
-          metric_math_anomaly_detector: Stubs::MetricMathAnomalyDetector.default(visited),
+          single_metric_anomaly_detector: SingleMetricAnomalyDetector.default(visited),
+          metric_math_anomaly_detector: MetricMathAnomalyDetector.default(visited),
         }
       end
 
@@ -640,7 +640,7 @@ module AWS::SDK::CloudWatch
         return nil if visited.include?('MetricMathAnomalyDetector')
         visited = visited + ['MetricMathAnomalyDetector']
         {
-          metric_data_queries: Stubs::MetricDataQueries.default(visited),
+          metric_data_queries: MetricDataQueries.default(visited),
         }
       end
 
@@ -660,7 +660,7 @@ module AWS::SDK::CloudWatch
         {
           namespace: 'namespace',
           metric_name: 'metric_name',
-          dimensions: Stubs::Dimensions.default(visited),
+          dimensions: Dimensions.default(visited),
           stat: 'stat',
         }
       end
@@ -682,7 +682,7 @@ module AWS::SDK::CloudWatch
         return nil if visited.include?('AnomalyDetectorConfiguration')
         visited = visited + ['AnomalyDetectorConfiguration']
         {
-          excluded_time_ranges: Stubs::AnomalyDetectorExcludedTimeRanges.default(visited),
+          excluded_time_ranges: AnomalyDetectorExcludedTimeRanges.default(visited),
           metric_timezone: 'metric_timezone',
         }
       end
@@ -702,7 +702,7 @@ module AWS::SDK::CloudWatch
         return nil if visited.include?('AnomalyDetectorExcludedTimeRanges')
         visited = visited + ['AnomalyDetectorExcludedTimeRanges']
         [
-          Stubs::Range.default(visited)
+          Range.default(visited)
         ]
       end
 
@@ -740,7 +740,7 @@ module AWS::SDK::CloudWatch
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          insight_rules: Stubs::InsightRules.default(visited),
+          insight_rules: InsightRules.default(visited),
         }
       end
 
@@ -763,7 +763,7 @@ module AWS::SDK::CloudWatch
         return nil if visited.include?('InsightRules')
         visited = visited + ['InsightRules']
         [
-          Stubs::InsightRule.default(visited)
+          InsightRule.default(visited)
         ]
       end
 
@@ -822,7 +822,7 @@ module AWS::SDK::CloudWatch
     class DisableInsightRules
       def self.default(visited=[])
         {
-          failures: Stubs::BatchFailures.default(visited),
+          failures: BatchFailures.default(visited),
         }
       end
 
@@ -860,7 +860,7 @@ module AWS::SDK::CloudWatch
     class EnableInsightRules
       def self.default(visited=[])
         {
-          failures: Stubs::BatchFailures.default(visited),
+          failures: BatchFailures.default(visited),
         }
       end
 
@@ -904,12 +904,12 @@ module AWS::SDK::CloudWatch
     class GetInsightRuleReport
       def self.default(visited=[])
         {
-          key_labels: Stubs::InsightRuleContributorKeyLabels.default(visited),
+          key_labels: InsightRuleContributorKeyLabels.default(visited),
           aggregation_statistic: 'aggregation_statistic',
           aggregate_value: 1.0,
           approximate_unique_count: 1,
-          contributors: Stubs::InsightRuleContributors.default(visited),
-          metric_datapoints: Stubs::InsightRuleMetricDatapoints.default(visited),
+          contributors: InsightRuleContributors.default(visited),
+          metric_datapoints: InsightRuleMetricDatapoints.default(visited),
         }
       end
 
@@ -936,7 +936,7 @@ module AWS::SDK::CloudWatch
         return nil if visited.include?('InsightRuleMetricDatapoints')
         visited = visited + ['InsightRuleMetricDatapoints']
         [
-          Stubs::InsightRuleMetricDatapoint.default(visited)
+          InsightRuleMetricDatapoint.default(visited)
         ]
       end
 
@@ -987,7 +987,7 @@ module AWS::SDK::CloudWatch
         return nil if visited.include?('InsightRuleContributors')
         visited = visited + ['InsightRuleContributors']
         [
-          Stubs::InsightRuleContributor.default(visited)
+          InsightRuleContributor.default(visited)
         ]
       end
 
@@ -1006,9 +1006,9 @@ module AWS::SDK::CloudWatch
         return nil if visited.include?('InsightRuleContributor')
         visited = visited + ['InsightRuleContributor']
         {
-          keys: Stubs::InsightRuleContributorKeys.default(visited),
+          keys: InsightRuleContributorKeys.default(visited),
           approximate_aggregate_value: 1.0,
-          datapoints: Stubs::InsightRuleContributorDatapoints.default(visited),
+          datapoints: InsightRuleContributorDatapoints.default(visited),
         }
       end
 
@@ -1028,7 +1028,7 @@ module AWS::SDK::CloudWatch
         return nil if visited.include?('InsightRuleContributorDatapoints')
         visited = visited + ['InsightRuleContributorDatapoints']
         [
-          Stubs::InsightRuleContributorDatapoint.default(visited)
+          InsightRuleContributorDatapoint.default(visited)
         ]
       end
 
@@ -1103,9 +1103,9 @@ module AWS::SDK::CloudWatch
     class GetMetricData
       def self.default(visited=[])
         {
-          metric_data_results: Stubs::MetricDataResults.default(visited),
+          metric_data_results: MetricDataResults.default(visited),
           next_token: 'next_token',
-          messages: Stubs::MetricDataResultMessages.default(visited),
+          messages: MetricDataResultMessages.default(visited),
         }
       end
 
@@ -1129,7 +1129,7 @@ module AWS::SDK::CloudWatch
         return nil if visited.include?('MetricDataResultMessages')
         visited = visited + ['MetricDataResultMessages']
         [
-          Stubs::MessageData.default(visited)
+          MessageData.default(visited)
         ]
       end
 
@@ -1168,7 +1168,7 @@ module AWS::SDK::CloudWatch
         return nil if visited.include?('MetricDataResults')
         visited = visited + ['MetricDataResults']
         [
-          Stubs::MetricDataResult.default(visited)
+          MetricDataResult.default(visited)
         ]
       end
 
@@ -1189,10 +1189,10 @@ module AWS::SDK::CloudWatch
         {
           id: 'id',
           label: 'label',
-          timestamps: Stubs::Timestamps.default(visited),
-          values: Stubs::DatapointValues.default(visited),
+          timestamps: Timestamps.default(visited),
+          values: DatapointValues.default(visited),
           status_code: 'status_code',
-          messages: Stubs::MetricDataResultMessages.default(visited),
+          messages: MetricDataResultMessages.default(visited),
         }
       end
 
@@ -1252,7 +1252,7 @@ module AWS::SDK::CloudWatch
       def self.default(visited=[])
         {
           label: 'label',
-          datapoints: Stubs::Datapoints.default(visited),
+          datapoints: Datapoints.default(visited),
         }
       end
 
@@ -1275,7 +1275,7 @@ module AWS::SDK::CloudWatch
         return nil if visited.include?('Datapoints')
         visited = visited + ['Datapoints']
         [
-          Stubs::Datapoint.default(visited)
+          Datapoint.default(visited)
         ]
       end
 
@@ -1301,7 +1301,7 @@ module AWS::SDK::CloudWatch
           minimum: 1.0,
           maximum: 1.0,
           unit: 'unit',
-          extended_statistics: Stubs::DatapointValueMap.default(visited),
+          extended_statistics: DatapointValueMap.default(visited),
         }
       end
 
@@ -1348,15 +1348,15 @@ module AWS::SDK::CloudWatch
         {
           arn: 'arn',
           name: 'name',
-          include_filters: Stubs::MetricStreamFilters.default(visited),
-          exclude_filters: Stubs::MetricStreamFilters.default(visited),
+          include_filters: MetricStreamFilters.default(visited),
+          exclude_filters: MetricStreamFilters.default(visited),
           firehose_arn: 'firehose_arn',
           role_arn: 'role_arn',
           state: 'state',
           creation_date: Time.now,
           last_update_date: Time.now,
           output_format: 'output_format',
-          statistics_configurations: Stubs::MetricStreamStatisticsConfigurations.default(visited),
+          statistics_configurations: MetricStreamStatisticsConfigurations.default(visited),
         }
       end
 
@@ -1388,7 +1388,7 @@ module AWS::SDK::CloudWatch
         return nil if visited.include?('MetricStreamStatisticsConfigurations')
         visited = visited + ['MetricStreamStatisticsConfigurations']
         [
-          Stubs::MetricStreamStatisticsConfiguration.default(visited)
+          MetricStreamStatisticsConfiguration.default(visited)
         ]
       end
 
@@ -1407,8 +1407,8 @@ module AWS::SDK::CloudWatch
         return nil if visited.include?('MetricStreamStatisticsConfiguration')
         visited = visited + ['MetricStreamStatisticsConfiguration']
         {
-          include_metrics: Stubs::MetricStreamStatisticsIncludeMetrics.default(visited),
-          additional_statistics: Stubs::MetricStreamStatisticsAdditionalStatistics.default(visited),
+          include_metrics: MetricStreamStatisticsIncludeMetrics.default(visited),
+          additional_statistics: MetricStreamStatisticsAdditionalStatistics.default(visited),
         }
       end
 
@@ -1446,7 +1446,7 @@ module AWS::SDK::CloudWatch
         return nil if visited.include?('MetricStreamStatisticsIncludeMetrics')
         visited = visited + ['MetricStreamStatisticsIncludeMetrics']
         [
-          Stubs::MetricStreamStatisticsMetric.default(visited)
+          MetricStreamStatisticsMetric.default(visited)
         ]
       end
 
@@ -1485,7 +1485,7 @@ module AWS::SDK::CloudWatch
         return nil if visited.include?('MetricStreamFilters')
         visited = visited + ['MetricStreamFilters']
         [
-          Stubs::MetricStreamFilter.default(visited)
+          MetricStreamFilter.default(visited)
         ]
       end
 
@@ -1540,7 +1540,7 @@ module AWS::SDK::CloudWatch
     class ListDashboards
       def self.default(visited=[])
         {
-          dashboard_entries: Stubs::DashboardEntries.default(visited),
+          dashboard_entries: DashboardEntries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1564,7 +1564,7 @@ module AWS::SDK::CloudWatch
         return nil if visited.include?('DashboardEntries')
         visited = visited + ['DashboardEntries']
         [
-          Stubs::DashboardEntry.default(visited)
+          DashboardEntry.default(visited)
         ]
       end
 
@@ -1606,7 +1606,7 @@ module AWS::SDK::CloudWatch
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          entries: Stubs::MetricStreamEntries.default(visited),
+          entries: MetricStreamEntries.default(visited),
         }
       end
 
@@ -1629,7 +1629,7 @@ module AWS::SDK::CloudWatch
         return nil if visited.include?('MetricStreamEntries')
         visited = visited + ['MetricStreamEntries']
         [
-          Stubs::MetricStreamEntry.default(visited)
+          MetricStreamEntry.default(visited)
         ]
       end
 
@@ -1676,7 +1676,7 @@ module AWS::SDK::CloudWatch
     class ListMetrics
       def self.default(visited=[])
         {
-          metrics: Stubs::Metrics.default(visited),
+          metrics: Metrics.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1700,7 +1700,7 @@ module AWS::SDK::CloudWatch
         return nil if visited.include?('Metrics')
         visited = visited + ['Metrics']
         [
-          Stubs::Metric.default(visited)
+          Metric.default(visited)
         ]
       end
 
@@ -1717,7 +1717,7 @@ module AWS::SDK::CloudWatch
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -1739,7 +1739,7 @@ module AWS::SDK::CloudWatch
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -1812,7 +1812,7 @@ module AWS::SDK::CloudWatch
     class PutDashboard
       def self.default(visited=[])
         {
-          dashboard_validation_messages: Stubs::DashboardValidationMessages.default(visited),
+          dashboard_validation_messages: DashboardValidationMessages.default(visited),
         }
       end
 
@@ -1834,7 +1834,7 @@ module AWS::SDK::CloudWatch
         return nil if visited.include?('DashboardValidationMessages')
         visited = visited + ['DashboardValidationMessages']
         [
-          Stubs::DashboardValidationMessage.default(visited)
+          DashboardValidationMessage.default(visited)
         ]
       end
 

@@ -159,11 +159,11 @@ module AWS::SDK::Detective
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.disable_email_notification ||= false
       end
-
     end
 
     # @!attribute members
@@ -270,11 +270,11 @@ module AWS::SDK::Detective
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.auto_enable ||= false
       end
-
     end
 
     DisableOrganizationAdminAccountInput = ::Struct.new(
@@ -1029,11 +1029,11 @@ module AWS::SDK::Detective
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.auto_enable ||= false
       end
-
     end
 
     UpdateOrganizationConfigurationOutput = ::Struct.new(

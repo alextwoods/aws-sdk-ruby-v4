@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::FraudDetector
@@ -89,7 +91,7 @@ module AWS::SDK::FraudDetector
     def batch_create_variable(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchCreateVariableInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchCreateVariableInput,
         validate_input: @config.validate_input
@@ -175,7 +177,7 @@ module AWS::SDK::FraudDetector
     def batch_get_variable(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchGetVariableInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchGetVariableInput,
         validate_input: @config.validate_input
@@ -244,7 +246,7 @@ module AWS::SDK::FraudDetector
     def cancel_batch_import_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelBatchImportJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelBatchImportJobInput,
         validate_input: @config.validate_input
@@ -312,7 +314,7 @@ module AWS::SDK::FraudDetector
     def cancel_batch_prediction_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelBatchPredictionJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelBatchPredictionJobInput,
         validate_input: @config.validate_input
@@ -406,7 +408,7 @@ module AWS::SDK::FraudDetector
     def create_batch_import_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateBatchImportJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateBatchImportJobInput,
         validate_input: @config.validate_input
@@ -507,7 +509,7 @@ module AWS::SDK::FraudDetector
     def create_batch_prediction_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateBatchPredictionJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateBatchPredictionJobInput,
         validate_input: @config.validate_input
@@ -626,7 +628,7 @@ module AWS::SDK::FraudDetector
     def create_detector_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDetectorVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDetectorVersionInput,
         validate_input: @config.validate_input
@@ -715,7 +717,7 @@ module AWS::SDK::FraudDetector
     def create_model(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateModelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateModelInput,
         validate_input: @config.validate_input
@@ -837,7 +839,7 @@ module AWS::SDK::FraudDetector
     def create_model_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateModelVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateModelVersionInput,
         validate_input: @config.validate_input
@@ -940,7 +942,7 @@ module AWS::SDK::FraudDetector
     def create_rule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateRuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateRuleInput,
         validate_input: @config.validate_input
@@ -1040,7 +1042,7 @@ module AWS::SDK::FraudDetector
     def create_variable(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateVariableInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateVariableInput,
         validate_input: @config.validate_input
@@ -1108,7 +1110,7 @@ module AWS::SDK::FraudDetector
     def delete_batch_import_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteBatchImportJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteBatchImportJobInput,
         validate_input: @config.validate_input
@@ -1176,7 +1178,7 @@ module AWS::SDK::FraudDetector
     def delete_batch_prediction_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteBatchPredictionJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteBatchPredictionJobInput,
         validate_input: @config.validate_input
@@ -1245,7 +1247,7 @@ module AWS::SDK::FraudDetector
     def delete_detector(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDetectorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDetectorInput,
         validate_input: @config.validate_input
@@ -1318,7 +1320,7 @@ module AWS::SDK::FraudDetector
     def delete_detector_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDetectorVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDetectorVersionInput,
         validate_input: @config.validate_input
@@ -1388,7 +1390,7 @@ module AWS::SDK::FraudDetector
     def delete_entity_type(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteEntityTypeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteEntityTypeInput,
         validate_input: @config.validate_input
@@ -1465,7 +1467,7 @@ module AWS::SDK::FraudDetector
     def delete_event(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteEventInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteEventInput,
         validate_input: @config.validate_input
@@ -1535,7 +1537,7 @@ module AWS::SDK::FraudDetector
     def delete_event_type(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteEventTypeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteEventTypeInput,
         validate_input: @config.validate_input
@@ -1605,7 +1607,7 @@ module AWS::SDK::FraudDetector
     def delete_events_by_event_type(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteEventsByEventTypeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteEventsByEventTypeInput,
         validate_input: @config.validate_input
@@ -1674,7 +1676,7 @@ module AWS::SDK::FraudDetector
     def delete_external_model(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteExternalModelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteExternalModelInput,
         validate_input: @config.validate_input
@@ -1746,7 +1748,7 @@ module AWS::SDK::FraudDetector
     def delete_label(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteLabelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteLabelInput,
         validate_input: @config.validate_input
@@ -1820,7 +1822,7 @@ module AWS::SDK::FraudDetector
     def delete_model(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteModelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteModelInput,
         validate_input: @config.validate_input
@@ -1898,7 +1900,7 @@ module AWS::SDK::FraudDetector
     def delete_model_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteModelVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteModelVersionInput,
         validate_input: @config.validate_input
@@ -1968,7 +1970,7 @@ module AWS::SDK::FraudDetector
     def delete_outcome(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteOutcomeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteOutcomeInput,
         validate_input: @config.validate_input
@@ -2041,7 +2043,7 @@ module AWS::SDK::FraudDetector
     def delete_rule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteRuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteRuleInput,
         validate_input: @config.validate_input
@@ -2112,7 +2114,7 @@ module AWS::SDK::FraudDetector
     def delete_variable(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteVariableInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteVariableInput,
         validate_input: @config.validate_input
@@ -2197,7 +2199,7 @@ module AWS::SDK::FraudDetector
     def describe_detector(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDetectorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDetectorInput,
         validate_input: @config.validate_input
@@ -2335,7 +2337,7 @@ module AWS::SDK::FraudDetector
     def describe_model_versions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeModelVersionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeModelVersionsInput,
         validate_input: @config.validate_input
@@ -2430,7 +2432,7 @@ module AWS::SDK::FraudDetector
     def get_batch_import_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetBatchImportJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetBatchImportJobsInput,
         validate_input: @config.validate_input
@@ -2524,7 +2526,7 @@ module AWS::SDK::FraudDetector
     def get_batch_prediction_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetBatchPredictionJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetBatchPredictionJobsInput,
         validate_input: @config.validate_input
@@ -2594,7 +2596,7 @@ module AWS::SDK::FraudDetector
     def get_delete_events_by_event_type_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDeleteEventsByEventTypeStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDeleteEventsByEventTypeStatusInput,
         validate_input: @config.validate_input
@@ -2687,7 +2689,7 @@ module AWS::SDK::FraudDetector
     def get_detector_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDetectorVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDetectorVersionInput,
         validate_input: @config.validate_input
@@ -2777,7 +2779,7 @@ module AWS::SDK::FraudDetector
     def get_detectors(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDetectorsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDetectorsInput,
         validate_input: @config.validate_input
@@ -2866,7 +2868,7 @@ module AWS::SDK::FraudDetector
     def get_entity_types(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetEntityTypesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetEntityTypesInput,
         validate_input: @config.validate_input
@@ -2950,7 +2952,7 @@ module AWS::SDK::FraudDetector
     def get_event(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetEventInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetEventInput,
         validate_input: @config.validate_input
@@ -3097,7 +3099,7 @@ module AWS::SDK::FraudDetector
     def get_event_prediction(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetEventPredictionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetEventPredictionInput,
         validate_input: @config.validate_input
@@ -3242,7 +3244,7 @@ module AWS::SDK::FraudDetector
     def get_event_prediction_metadata(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetEventPredictionMetadataInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetEventPredictionMetadataInput,
         validate_input: @config.validate_input
@@ -3343,7 +3345,7 @@ module AWS::SDK::FraudDetector
     def get_event_types(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetEventTypesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetEventTypesInput,
         validate_input: @config.validate_input
@@ -3446,7 +3448,7 @@ module AWS::SDK::FraudDetector
     def get_external_models(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetExternalModelsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetExternalModelsInput,
         validate_input: @config.validate_input
@@ -3511,7 +3513,7 @@ module AWS::SDK::FraudDetector
     def get_kms_encryption_key(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetKMSEncryptionKeyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetKMSEncryptionKeyInput,
         validate_input: @config.validate_input
@@ -3600,7 +3602,7 @@ module AWS::SDK::FraudDetector
     def get_labels(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetLabelsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetLabelsInput,
         validate_input: @config.validate_input
@@ -3697,7 +3699,7 @@ module AWS::SDK::FraudDetector
     def get_model_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetModelVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetModelVersionInput,
         validate_input: @config.validate_input
@@ -3793,7 +3795,7 @@ module AWS::SDK::FraudDetector
     def get_models(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetModelsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetModelsInput,
         validate_input: @config.validate_input
@@ -3882,7 +3884,7 @@ module AWS::SDK::FraudDetector
     def get_outcomes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetOutcomesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetOutcomesInput,
         validate_input: @config.validate_input
@@ -3981,7 +3983,7 @@ module AWS::SDK::FraudDetector
     def get_rules(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetRulesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetRulesInput,
         validate_input: @config.validate_input
@@ -4074,7 +4076,7 @@ module AWS::SDK::FraudDetector
     def get_variables(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetVariablesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetVariablesInput,
         validate_input: @config.validate_input
@@ -4204,7 +4206,7 @@ module AWS::SDK::FraudDetector
     def list_event_predictions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListEventPredictionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListEventPredictionsInput,
         validate_input: @config.validate_input
@@ -4287,7 +4289,7 @@ module AWS::SDK::FraudDetector
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -4372,7 +4374,7 @@ module AWS::SDK::FraudDetector
     def put_detector(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutDetectorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutDetectorInput,
         validate_input: @config.validate_input
@@ -4453,7 +4455,7 @@ module AWS::SDK::FraudDetector
     def put_entity_type(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutEntityTypeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutEntityTypeInput,
         validate_input: @config.validate_input
@@ -4553,7 +4555,7 @@ module AWS::SDK::FraudDetector
     def put_event_type(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutEventTypeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutEventTypeInput,
         validate_input: @config.validate_input
@@ -4664,7 +4666,7 @@ module AWS::SDK::FraudDetector
     def put_external_model(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutExternalModelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutExternalModelInput,
         validate_input: @config.validate_input
@@ -4732,7 +4734,7 @@ module AWS::SDK::FraudDetector
     def put_kms_encryption_key(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutKMSEncryptionKeyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutKMSEncryptionKeyInput,
         validate_input: @config.validate_input
@@ -4813,7 +4815,7 @@ module AWS::SDK::FraudDetector
     def put_label(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutLabelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutLabelInput,
         validate_input: @config.validate_input
@@ -4894,7 +4896,7 @@ module AWS::SDK::FraudDetector
     def put_outcome(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutOutcomeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutOutcomeInput,
         validate_input: @config.validate_input
@@ -4993,7 +4995,7 @@ module AWS::SDK::FraudDetector
     def send_event(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SendEventInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SendEventInput,
         validate_input: @config.validate_input
@@ -5070,7 +5072,7 @@ module AWS::SDK::FraudDetector
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -5144,7 +5146,7 @@ module AWS::SDK::FraudDetector
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -5254,7 +5256,7 @@ module AWS::SDK::FraudDetector
     def update_detector_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDetectorVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDetectorVersionInput,
         validate_input: @config.validate_input
@@ -5331,7 +5333,7 @@ module AWS::SDK::FraudDetector
     def update_detector_version_metadata(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDetectorVersionMetadataInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDetectorVersionMetadataInput,
         validate_input: @config.validate_input
@@ -5408,7 +5410,7 @@ module AWS::SDK::FraudDetector
     def update_detector_version_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDetectorVersionStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDetectorVersionStatusInput,
         validate_input: @config.validate_input
@@ -5488,7 +5490,7 @@ module AWS::SDK::FraudDetector
     def update_event_label(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateEventLabelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateEventLabelInput,
         validate_input: @config.validate_input
@@ -5564,7 +5566,7 @@ module AWS::SDK::FraudDetector
     def update_model(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateModelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateModelInput,
         validate_input: @config.validate_input
@@ -5669,7 +5671,7 @@ module AWS::SDK::FraudDetector
     def update_model_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateModelVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateModelVersionInput,
         validate_input: @config.validate_input
@@ -5761,7 +5763,7 @@ module AWS::SDK::FraudDetector
     def update_model_version_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateModelVersionStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateModelVersionStatusInput,
         validate_input: @config.validate_input
@@ -5837,7 +5839,7 @@ module AWS::SDK::FraudDetector
     def update_rule_metadata(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateRuleMetadataInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateRuleMetadataInput,
         validate_input: @config.validate_input
@@ -5940,7 +5942,7 @@ module AWS::SDK::FraudDetector
     def update_rule_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateRuleVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateRuleVersionInput,
         validate_input: @config.validate_input
@@ -6020,7 +6022,7 @@ module AWS::SDK::FraudDetector
     def update_variable(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateVariableInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateVariableInput,
         validate_input: @config.validate_input

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::EMR
@@ -121,7 +123,7 @@ module AWS::SDK::EMR
     def add_instance_fleet(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AddInstanceFleetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AddInstanceFleetInput,
         validate_input: @config.validate_input
@@ -266,7 +268,7 @@ module AWS::SDK::EMR
     def add_instance_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AddInstanceGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AddInstanceGroupsInput,
         validate_input: @config.validate_input
@@ -379,7 +381,7 @@ module AWS::SDK::EMR
     def add_job_flow_steps(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AddJobFlowStepsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AddJobFlowStepsInput,
         validate_input: @config.validate_input
@@ -463,7 +465,7 @@ module AWS::SDK::EMR
     def add_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AddTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AddTagsInput,
         validate_input: @config.validate_input
@@ -552,7 +554,7 @@ module AWS::SDK::EMR
     def cancel_steps(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelStepsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelStepsInput,
         validate_input: @config.validate_input
@@ -630,7 +632,7 @@ module AWS::SDK::EMR
     def create_security_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateSecurityConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateSecurityConfigurationInput,
         validate_input: @config.validate_input
@@ -777,7 +779,7 @@ module AWS::SDK::EMR
     def create_studio(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateStudioInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateStudioInput,
         validate_input: @config.validate_input
@@ -875,7 +877,7 @@ module AWS::SDK::EMR
     def create_studio_session_mapping(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateStudioSessionMappingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateStudioSessionMappingInput,
         validate_input: @config.validate_input
@@ -943,7 +945,7 @@ module AWS::SDK::EMR
     def delete_security_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteSecurityConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteSecurityConfigurationInput,
         validate_input: @config.validate_input
@@ -1011,7 +1013,7 @@ module AWS::SDK::EMR
     def delete_studio(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteStudioInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteStudioInput,
         validate_input: @config.validate_input
@@ -1096,7 +1098,7 @@ module AWS::SDK::EMR
     def delete_studio_session_mapping(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteStudioSessionMappingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteStudioSessionMappingInput,
         validate_input: @config.validate_input
@@ -1239,7 +1241,7 @@ module AWS::SDK::EMR
     def describe_cluster(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeClusterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeClusterInput,
         validate_input: @config.validate_input
@@ -1426,7 +1428,7 @@ module AWS::SDK::EMR
     def describe_job_flows(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeJobFlowsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeJobFlowsInput,
         validate_input: @config.validate_input
@@ -1514,7 +1516,7 @@ module AWS::SDK::EMR
     def describe_notebook_execution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeNotebookExecutionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeNotebookExecutionInput,
         validate_input: @config.validate_input
@@ -1601,7 +1603,7 @@ module AWS::SDK::EMR
     def describe_release_label(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeReleaseLabelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeReleaseLabelInput,
         validate_input: @config.validate_input
@@ -1673,7 +1675,7 @@ module AWS::SDK::EMR
     def describe_security_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeSecurityConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeSecurityConfigurationInput,
         validate_input: @config.validate_input
@@ -1769,7 +1771,7 @@ module AWS::SDK::EMR
     def describe_step(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeStepInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeStepInput,
         validate_input: @config.validate_input
@@ -1860,7 +1862,7 @@ module AWS::SDK::EMR
     def describe_studio(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeStudioInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeStudioInput,
         validate_input: @config.validate_input
@@ -1931,7 +1933,7 @@ module AWS::SDK::EMR
     def get_auto_termination_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAutoTerminationPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAutoTerminationPolicyInput,
         validate_input: @config.validate_input
@@ -2013,7 +2015,7 @@ module AWS::SDK::EMR
     def get_block_public_access_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetBlockPublicAccessConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetBlockPublicAccessConfigurationInput,
         validate_input: @config.validate_input
@@ -2089,7 +2091,7 @@ module AWS::SDK::EMR
     def get_managed_scaling_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetManagedScalingPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetManagedScalingPolicyInput,
         validate_input: @config.validate_input
@@ -2183,7 +2185,7 @@ module AWS::SDK::EMR
     def get_studio_session_mapping(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetStudioSessionMappingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetStudioSessionMappingInput,
         validate_input: @config.validate_input
@@ -2262,7 +2264,7 @@ module AWS::SDK::EMR
     def list_bootstrap_actions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListBootstrapActionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListBootstrapActionsInput,
         validate_input: @config.validate_input
@@ -2366,7 +2368,7 @@ module AWS::SDK::EMR
     def list_clusters(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListClustersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListClustersInput,
         validate_input: @config.validate_input
@@ -2494,7 +2496,7 @@ module AWS::SDK::EMR
     def list_instance_fleets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListInstanceFleetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListInstanceFleetsInput,
         validate_input: @config.validate_input
@@ -2644,7 +2646,7 @@ module AWS::SDK::EMR
     def list_instance_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListInstanceGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListInstanceGroupsInput,
         validate_input: @config.validate_input
@@ -2769,7 +2771,7 @@ module AWS::SDK::EMR
     def list_instances(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListInstancesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListInstancesInput,
         validate_input: @config.validate_input
@@ -2920,7 +2922,7 @@ module AWS::SDK::EMR
     def list_notebook_executions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListNotebookExecutionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListNotebookExecutionsInput,
         validate_input: @config.validate_input
@@ -3010,7 +3012,7 @@ module AWS::SDK::EMR
     def list_release_labels(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListReleaseLabelsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListReleaseLabelsInput,
         validate_input: @config.validate_input
@@ -3086,7 +3088,7 @@ module AWS::SDK::EMR
     def list_security_configurations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListSecurityConfigurationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListSecurityConfigurationsInput,
         validate_input: @config.validate_input
@@ -3206,7 +3208,7 @@ module AWS::SDK::EMR
     def list_steps(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListStepsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListStepsInput,
         validate_input: @config.validate_input
@@ -3293,7 +3295,7 @@ module AWS::SDK::EMR
     def list_studio_session_mappings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListStudioSessionMappingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListStudioSessionMappingsInput,
         validate_input: @config.validate_input
@@ -3372,7 +3374,7 @@ module AWS::SDK::EMR
     def list_studios(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListStudiosInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListStudiosInput,
         validate_input: @config.validate_input
@@ -3449,7 +3451,7 @@ module AWS::SDK::EMR
     def modify_cluster(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyClusterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyClusterInput,
         validate_input: @config.validate_input
@@ -3531,7 +3533,7 @@ module AWS::SDK::EMR
     def modify_instance_fleet(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyInstanceFleetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyInstanceFleetInput,
         validate_input: @config.validate_input
@@ -3631,7 +3633,7 @@ module AWS::SDK::EMR
     def modify_instance_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyInstanceGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyInstanceGroupsInput,
         validate_input: @config.validate_input
@@ -3785,7 +3787,7 @@ module AWS::SDK::EMR
     def put_auto_scaling_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutAutoScalingPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutAutoScalingPolicyInput,
         validate_input: @config.validate_input
@@ -3868,7 +3870,7 @@ module AWS::SDK::EMR
     def put_auto_termination_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutAutoTerminationPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutAutoTerminationPolicyInput,
         validate_input: @config.validate_input
@@ -3970,7 +3972,7 @@ module AWS::SDK::EMR
     def put_block_public_access_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutBlockPublicAccessConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutBlockPublicAccessConfigurationInput,
         validate_input: @config.validate_input
@@ -4053,7 +4055,7 @@ module AWS::SDK::EMR
     def put_managed_scaling_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutManagedScalingPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutManagedScalingPolicyInput,
         validate_input: @config.validate_input
@@ -4127,7 +4129,7 @@ module AWS::SDK::EMR
     def remove_auto_scaling_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RemoveAutoScalingPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RemoveAutoScalingPolicyInput,
         validate_input: @config.validate_input
@@ -4196,7 +4198,7 @@ module AWS::SDK::EMR
     def remove_auto_termination_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RemoveAutoTerminationPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RemoveAutoTerminationPolicyInput,
         validate_input: @config.validate_input
@@ -4265,7 +4267,7 @@ module AWS::SDK::EMR
     def remove_managed_scaling_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RemoveManagedScalingPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RemoveManagedScalingPolicyInput,
         validate_input: @config.validate_input
@@ -4344,7 +4346,7 @@ module AWS::SDK::EMR
     def remove_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RemoveTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RemoveTagsInput,
         validate_input: @config.validate_input
@@ -4849,7 +4851,7 @@ module AWS::SDK::EMR
     def run_job_flow(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RunJobFlowInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RunJobFlowInput,
         validate_input: @config.validate_input
@@ -4939,7 +4941,7 @@ module AWS::SDK::EMR
     def set_termination_protection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SetTerminationProtectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SetTerminationProtectionInput,
         validate_input: @config.validate_input
@@ -5029,7 +5031,7 @@ module AWS::SDK::EMR
     def set_visible_to_all_users(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SetVisibleToAllUsersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SetVisibleToAllUsersInput,
         validate_input: @config.validate_input
@@ -5147,7 +5149,7 @@ module AWS::SDK::EMR
     def start_notebook_execution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartNotebookExecutionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartNotebookExecutionInput,
         validate_input: @config.validate_input
@@ -5215,7 +5217,7 @@ module AWS::SDK::EMR
     def stop_notebook_execution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopNotebookExecutionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopNotebookExecutionInput,
         validate_input: @config.validate_input
@@ -5292,7 +5294,7 @@ module AWS::SDK::EMR
     def terminate_job_flows(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TerminateJobFlowsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TerminateJobFlowsInput,
         validate_input: @config.validate_input
@@ -5382,7 +5384,7 @@ module AWS::SDK::EMR
     def update_studio(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateStudioInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateStudioInput,
         validate_input: @config.validate_input
@@ -5472,7 +5474,7 @@ module AWS::SDK::EMR
     def update_studio_session_mapping(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateStudioSessionMappingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateStudioSessionMappingInput,
         validate_input: @config.validate_input

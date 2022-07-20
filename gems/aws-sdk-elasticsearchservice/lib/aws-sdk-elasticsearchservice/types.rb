@@ -577,11 +577,11 @@ module AWS::SDK::ElasticsearchService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.update_version ||= 0
       end
-
     end
 
     # Includes enum constants for AutoTuneType
@@ -736,11 +736,11 @@ module AWS::SDK::ElasticsearchService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.total_number_of_stages ||= 0
       end
-
     end
 
     # <p>Options to specify the Cognito user and identity pools for Kibana authentication. For more information, see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-cognito-auth.html" target="_blank">Amazon Cognito Authentication for Kibana</a>.</p>
@@ -1282,11 +1282,11 @@ module AWS::SDK::ElasticsearchService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # <p>The result of <code>DescribeDomainAutoTunes</code> request. See the <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html" target="_blank">Developer Guide</a> for more information. </p>
@@ -1551,11 +1551,11 @@ module AWS::SDK::ElasticsearchService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # <p>The result of a <code><a>DescribeInboundCrossClusterSearchConnections</a></code> request. Contains the list of connections matching the filter criteria.</p>
@@ -1613,11 +1613,11 @@ module AWS::SDK::ElasticsearchService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # <p>The result of a <code><a>DescribeOutboundCrossClusterSearchConnections</a></code> request. Contains the list of connections matching the filter criteria.</p>
@@ -1709,11 +1709,11 @@ module AWS::SDK::ElasticsearchService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # <p>
@@ -1766,11 +1766,11 @@ module AWS::SDK::ElasticsearchService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # <p>Container for results from <code>DescribeReservedElasticsearchInstanceOfferings</code></p>
@@ -1818,11 +1818,11 @@ module AWS::SDK::ElasticsearchService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # <p>Container for results from <code>DescribeReservedElasticsearchInstances</code></p>
@@ -2147,11 +2147,11 @@ module AWS::SDK::ElasticsearchService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.value ||= 0
       end
-
     end
 
     # <p>Options to enable, disable, and specify the properties of EBS storage volumes. For more information, see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-ebs" target="_blank"> Configuring EBS-based Storage</a>.</p>
@@ -3004,11 +3004,11 @@ module AWS::SDK::ElasticsearchService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # <p>
@@ -3076,11 +3076,11 @@ module AWS::SDK::ElasticsearchService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # <p>
@@ -3309,12 +3309,12 @@ module AWS::SDK::ElasticsearchService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.minimum_instance_count ||= 0
         self.maximum_instance_count ||= 0
       end
-
     end
 
     # <p>InstanceLimits represents the list of instance related attributes that are available for given InstanceType.
@@ -3500,11 +3500,11 @@ module AWS::SDK::ElasticsearchService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # <p>
@@ -3577,11 +3577,11 @@ module AWS::SDK::ElasticsearchService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # <p>
@@ -3665,11 +3665,11 @@ module AWS::SDK::ElasticsearchService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # <p>
@@ -3732,11 +3732,11 @@ module AWS::SDK::ElasticsearchService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # <p>
@@ -3980,11 +3980,11 @@ module AWS::SDK::ElasticsearchService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.update_version ||= 0
       end
-
     end
 
     # <p>Specifies details of an outbound connection.</p>
@@ -4291,11 +4291,11 @@ module AWS::SDK::ElasticsearchService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.instance_count ||= 0
       end
-
     end
 
     # <p>Represents the output of a <code>PurchaseReservedElasticsearchInstanceOffering</code> operation.</p>
@@ -4481,12 +4481,12 @@ module AWS::SDK::ElasticsearchService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.duration ||= 0
         self.elasticsearch_instance_count ||= 0
       end
-
     end
 
     # <p>Details of a reserved Elasticsearch instance offering.</p>
@@ -4547,11 +4547,11 @@ module AWS::SDK::ElasticsearchService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.duration ||= 0
       end
-
     end
 
     # Includes enum constants for ReservedElasticsearchInstancePaymentOption

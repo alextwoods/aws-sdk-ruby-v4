@@ -14,7 +14,7 @@ module AWS::SDK::CodeGuruProfiler
     class AddNotificationChannels
       def self.default(visited=[])
         {
-          notification_configuration: Stubs::NotificationConfiguration.default(visited),
+          notification_configuration: NotificationConfiguration.default(visited),
         }
       end
 
@@ -33,7 +33,7 @@ module AWS::SDK::CodeGuruProfiler
         return nil if visited.include?('NotificationConfiguration')
         visited = visited + ['NotificationConfiguration']
         {
-          channels: Stubs::Channels.default(visited),
+          channels: Channels.default(visited),
         }
       end
 
@@ -45,23 +45,23 @@ module AWS::SDK::CodeGuruProfiler
       end
     end
 
-    # Set Stubber for Channels
+    # List Stubber for Channels
     class Channels
       def self.default(visited=[])
         return nil if visited.include?('Channels')
         visited = visited + ['Channels']
         [
-          Stubs::Channel.default(visited)
+          Channel.default(visited)
         ]
       end
 
       def self.stub(stub)
         stub ||= []
-        data = Set.new
+        data = []
         stub.each do |element|
           data << Stubs::Channel.stub(element) unless element.nil?
         end
-        data.to_a
+        data
       end
     end
 
@@ -73,7 +73,7 @@ module AWS::SDK::CodeGuruProfiler
         {
           id: 'id',
           uri: 'uri',
-          event_publishers: Stubs::EventPublishers.default(visited),
+          event_publishers: EventPublishers.default(visited),
         }
       end
 
@@ -87,7 +87,7 @@ module AWS::SDK::CodeGuruProfiler
       end
     end
 
-    # Set Stubber for EventPublishers
+    # List Stubber for EventPublishers
     class EventPublishers
       def self.default(visited=[])
         return nil if visited.include?('EventPublishers')
@@ -99,11 +99,11 @@ module AWS::SDK::CodeGuruProfiler
 
       def self.stub(stub)
         stub ||= []
-        data = Set.new
+        data = []
         stub.each do |element|
           data << element unless element.nil?
         end
-        data.to_a
+        data
       end
     end
 
@@ -114,9 +114,9 @@ module AWS::SDK::CodeGuruProfiler
           start_time: Time.now,
           end_time: Time.now,
           resolution: 'resolution',
-          end_times: Stubs::ListOfTimestamps.default(visited),
-          unprocessed_end_times: Stubs::UnprocessedEndTimeMap.default(visited),
-          frame_metric_data: Stubs::FrameMetricData.default(visited),
+          end_times: ListOfTimestamps.default(visited),
+          unprocessed_end_times: UnprocessedEndTimeMap.default(visited),
+          frame_metric_data: FrameMetricData.default(visited),
         }
       end
 
@@ -140,7 +140,7 @@ module AWS::SDK::CodeGuruProfiler
         return nil if visited.include?('FrameMetricData')
         visited = visited + ['FrameMetricData']
         [
-          Stubs::FrameMetricDatum.default(visited)
+          FrameMetricDatum.default(visited)
         ]
       end
 
@@ -160,8 +160,8 @@ module AWS::SDK::CodeGuruProfiler
         return nil if visited.include?('FrameMetricDatum')
         visited = visited + ['FrameMetricDatum']
         {
-          frame_metric: Stubs::FrameMetric.default(visited),
-          values: Stubs::FrameMetricValues.default(visited),
+          frame_metric: FrameMetric.default(visited),
+          values: FrameMetricValues.default(visited),
         }
       end
 
@@ -202,7 +202,7 @@ module AWS::SDK::CodeGuruProfiler
         {
           frame_name: 'frame_name',
           type: 'type',
-          thread_states: Stubs::ThreadStates.default(visited),
+          thread_states: ThreadStates.default(visited),
         }
       end
 
@@ -242,7 +242,7 @@ module AWS::SDK::CodeGuruProfiler
         return nil if visited.include?('UnprocessedEndTimeMap')
         visited = visited + ['UnprocessedEndTimeMap']
         {
-          test_key: Stubs::ListOfTimestamps.default(visited)
+          test_key: ListOfTimestamps.default(visited)
         }
       end
 
@@ -262,7 +262,7 @@ module AWS::SDK::CodeGuruProfiler
         return nil if visited.include?('ListOfTimestamps')
         visited = visited + ['ListOfTimestamps']
         [
-          Stubs::TimestampStructure.default(visited)
+          TimestampStructure.default(visited)
         ]
       end
 
@@ -298,7 +298,7 @@ module AWS::SDK::CodeGuruProfiler
     class ConfigureAgent
       def self.default(visited=[])
         {
-          configuration: Stubs::AgentConfiguration.default(visited),
+          configuration: AgentConfiguration.default(visited),
         }
       end
 
@@ -319,7 +319,7 @@ module AWS::SDK::CodeGuruProfiler
         {
           should_profile: false,
           period_in_seconds: 1,
-          agent_parameters: Stubs::AgentParameters.default(visited),
+          agent_parameters: AgentParameters.default(visited),
         }
       end
 
@@ -357,7 +357,7 @@ module AWS::SDK::CodeGuruProfiler
     class CreateProfilingGroup
       def self.default(visited=[])
         {
-          profiling_group: Stubs::ProfilingGroupDescription.default(visited),
+          profiling_group: ProfilingGroupDescription.default(visited),
         }
       end
 
@@ -377,13 +377,13 @@ module AWS::SDK::CodeGuruProfiler
         visited = visited + ['ProfilingGroupDescription']
         {
           name: 'name',
-          agent_orchestration_config: Stubs::AgentOrchestrationConfig.default(visited),
+          agent_orchestration_config: AgentOrchestrationConfig.default(visited),
           arn: 'arn',
           created_at: Time.now,
           updated_at: Time.now,
-          profiling_status: Stubs::ProfilingStatus.default(visited),
+          profiling_status: ProfilingStatus.default(visited),
           compute_platform: 'compute_platform',
-          tags: Stubs::TagsMap.default(visited),
+          tags: TagsMap.default(visited),
         }
       end
 
@@ -429,7 +429,7 @@ module AWS::SDK::CodeGuruProfiler
         visited = visited + ['ProfilingStatus']
         {
           latest_agent_profile_reported_at: Time.now,
-          latest_aggregated_profile: Stubs::AggregatedProfileTime.default(visited),
+          latest_aggregated_profile: AggregatedProfileTime.default(visited),
           latest_agent_orchestrated_at: Time.now,
         }
       end
@@ -499,7 +499,7 @@ module AWS::SDK::CodeGuruProfiler
     class DescribeProfilingGroup
       def self.default(visited=[])
         {
-          profiling_group: Stubs::ProfilingGroupDescription.default(visited),
+          profiling_group: ProfilingGroupDescription.default(visited),
         }
       end
 
@@ -516,7 +516,7 @@ module AWS::SDK::CodeGuruProfiler
     class GetFindingsReportAccountSummary
       def self.default(visited=[])
         {
-          report_summaries: Stubs::FindingsReportSummaries.default(visited),
+          report_summaries: FindingsReportSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -537,7 +537,7 @@ module AWS::SDK::CodeGuruProfiler
         return nil if visited.include?('FindingsReportSummaries')
         visited = visited + ['FindingsReportSummaries']
         [
-          Stubs::FindingsReportSummary.default(visited)
+          FindingsReportSummary.default(visited)
         ]
       end
 
@@ -581,7 +581,7 @@ module AWS::SDK::CodeGuruProfiler
     class GetNotificationConfiguration
       def self.default(visited=[])
         {
-          notification_configuration: Stubs::NotificationConfiguration.default(visited),
+          notification_configuration: NotificationConfiguration.default(visited),
         }
       end
 
@@ -640,8 +640,8 @@ module AWS::SDK::CodeGuruProfiler
           profiling_group_name: 'profiling_group_name',
           profile_start_time: Time.now,
           profile_end_time: Time.now,
-          recommendations: Stubs::Recommendations.default(visited),
-          anomalies: Stubs::Anomalies.default(visited),
+          recommendations: Recommendations.default(visited),
+          anomalies: Anomalies.default(visited),
         }
       end
 
@@ -664,7 +664,7 @@ module AWS::SDK::CodeGuruProfiler
         return nil if visited.include?('Anomalies')
         visited = visited + ['Anomalies']
         [
-          Stubs::Anomaly.default(visited)
+          Anomaly.default(visited)
         ]
       end
 
@@ -684,9 +684,9 @@ module AWS::SDK::CodeGuruProfiler
         return nil if visited.include?('Anomaly')
         visited = visited + ['Anomaly']
         {
-          metric: Stubs::Metric.default(visited),
+          metric: Metric.default(visited),
           reason: 'reason',
-          instances: Stubs::AnomalyInstances.default(visited),
+          instances: AnomalyInstances.default(visited),
         }
       end
 
@@ -706,7 +706,7 @@ module AWS::SDK::CodeGuruProfiler
         return nil if visited.include?('AnomalyInstances')
         visited = visited + ['AnomalyInstances']
         [
-          Stubs::AnomalyInstance.default(visited)
+          AnomalyInstance.default(visited)
         ]
       end
 
@@ -729,7 +729,7 @@ module AWS::SDK::CodeGuruProfiler
           id: 'id',
           start_time: Time.now,
           end_time: Time.now,
-          user_feedback: Stubs::UserFeedback.default(visited),
+          user_feedback: UserFeedback.default(visited),
         }
       end
 
@@ -770,7 +770,7 @@ module AWS::SDK::CodeGuruProfiler
         {
           frame_name: 'frame_name',
           type: 'type',
-          thread_states: Stubs::Strings.default(visited),
+          thread_states: Strings.default(visited),
         }
       end
 
@@ -810,7 +810,7 @@ module AWS::SDK::CodeGuruProfiler
         return nil if visited.include?('Recommendations')
         visited = visited + ['Recommendations']
         [
-          Stubs::Recommendation.default(visited)
+          Recommendation.default(visited)
         ]
       end
 
@@ -832,8 +832,8 @@ module AWS::SDK::CodeGuruProfiler
         {
           all_matches_count: 1,
           all_matches_sum: 1.0,
-          pattern: Stubs::Pattern.default(visited),
-          top_matches: Stubs::Matches.default(visited),
+          pattern: Pattern.default(visited),
+          top_matches: Matches.default(visited),
           start_time: Time.now,
           end_time: Time.now,
         }
@@ -858,7 +858,7 @@ module AWS::SDK::CodeGuruProfiler
         return nil if visited.include?('Matches')
         visited = visited + ['Matches']
         [
-          Stubs::Match.default(visited)
+          Match.default(visited)
         ]
       end
 
@@ -904,9 +904,9 @@ module AWS::SDK::CodeGuruProfiler
           name: 'name',
           description: 'description',
           resolution_steps: 'resolution_steps',
-          target_frames: Stubs::TargetFrames.default(visited),
+          target_frames: TargetFrames.default(visited),
           threshold_percent: 1.0,
-          counters_to_aggregate: Stubs::Strings.default(visited),
+          counters_to_aggregate: Strings.default(visited),
         }
       end
 
@@ -930,7 +930,7 @@ module AWS::SDK::CodeGuruProfiler
         return nil if visited.include?('TargetFrames')
         visited = visited + ['TargetFrames']
         [
-          Stubs::TargetFrame.default(visited)
+          TargetFrame.default(visited)
         ]
       end
 
@@ -968,7 +968,7 @@ module AWS::SDK::CodeGuruProfiler
     class ListFindingsReports
       def self.default(visited=[])
         {
-          findings_report_summaries: Stubs::FindingsReportSummaries.default(visited),
+          findings_report_summaries: FindingsReportSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -987,7 +987,7 @@ module AWS::SDK::CodeGuruProfiler
     class ListProfileTimes
       def self.default(visited=[])
         {
-          profile_times: Stubs::ProfileTimes.default(visited),
+          profile_times: ProfileTimes.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1008,7 +1008,7 @@ module AWS::SDK::CodeGuruProfiler
         return nil if visited.include?('ProfileTimes')
         visited = visited + ['ProfileTimes']
         [
-          Stubs::ProfileTime.default(visited)
+          ProfileTime.default(visited)
         ]
       end
 
@@ -1044,8 +1044,8 @@ module AWS::SDK::CodeGuruProfiler
     class ListProfilingGroups
       def self.default(visited=[])
         {
-          profiling_group_names: Stubs::ProfilingGroupNames.default(visited),
-          profiling_groups: Stubs::ProfilingGroupDescriptions.default(visited),
+          profiling_group_names: ProfilingGroupNames.default(visited),
+          profiling_groups: ProfilingGroupDescriptions.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1067,7 +1067,7 @@ module AWS::SDK::CodeGuruProfiler
         return nil if visited.include?('ProfilingGroupDescriptions')
         visited = visited + ['ProfilingGroupDescriptions']
         [
-          Stubs::ProfilingGroupDescription.default(visited)
+          ProfilingGroupDescription.default(visited)
         ]
       end
 
@@ -1105,7 +1105,7 @@ module AWS::SDK::CodeGuruProfiler
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagsMap.default(visited),
+          tags: TagsMap.default(visited),
         }
       end
 
@@ -1154,7 +1154,7 @@ module AWS::SDK::CodeGuruProfiler
     class RemoveNotificationChannel
       def self.default(visited=[])
         {
-          notification_configuration: Stubs::NotificationConfiguration.default(visited),
+          notification_configuration: NotificationConfiguration.default(visited),
         }
       end
 
@@ -1229,7 +1229,7 @@ module AWS::SDK::CodeGuruProfiler
     class UpdateProfilingGroup
       def self.default(visited=[])
         {
-          profiling_group: Stubs::ProfilingGroupDescription.default(visited),
+          profiling_group: ProfilingGroupDescription.default(visited),
         }
       end
 

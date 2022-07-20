@@ -214,13 +214,13 @@ module AWS::SDK::CustomerProfiles
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.records_processed ||= 0
         self.steps_completed ||= 0
         self.total_steps ||= 0
       end
-
     end
 
     # <p>Workflow step details for <code>APPFLOW_INTEGRATION</code> workflow.</p>
@@ -279,11 +279,11 @@ module AWS::SDK::CustomerProfiles
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.records_processed ||= 0
       end
-
     end
 
     # <p>Configuration settings for how to perform the auto-merging of profiles.</p>
@@ -1061,6 +1061,7 @@ module AWS::SDK::CustomerProfiles
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.profile_count ||= 0
@@ -1068,7 +1069,6 @@ module AWS::SDK::CustomerProfiles
         self.object_count ||= 0
         self.total_size ||= 0
       end
-
     end
 
     # <p>Configuration information about the S3 bucket where Identity Resolution Jobs writes result files. </p>
@@ -1380,13 +1380,13 @@ module AWS::SDK::CustomerProfiles
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.number_of_matches_in_sample ||= 0
         self.number_of_profiles_in_sample ||= 0
         self.number_of_profiles_will_be_merged ||= 0
       end
-
     end
 
     # @!attribute domain_name
@@ -1826,11 +1826,11 @@ module AWS::SDK::CustomerProfiles
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.allow_profile_creation ||= false
       end
-
     end
 
     # @!attribute template_id
@@ -1896,11 +1896,11 @@ module AWS::SDK::CustomerProfiles
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.allow_profile_creation ||= false
       end
-
     end
 
     # @!attribute domain_name
@@ -2288,13 +2288,13 @@ module AWS::SDK::CustomerProfiles
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.number_of_profiles_reviewed ||= 0
         self.number_of_matches_found ||= 0
         self.number_of_merges_done ||= 0
       end
-
     end
 
     # @!attribute uri
@@ -3673,11 +3673,11 @@ module AWS::SDK::CustomerProfiles
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.allow_profile_creation ||= false
       end
-
     end
 
     # @!attribute object_type_name
@@ -3763,11 +3763,11 @@ module AWS::SDK::CustomerProfiles
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.allow_profile_creation ||= false
       end
-
     end
 
     # <p>The requested resource does not exist, or access was denied.</p>
@@ -4040,12 +4040,12 @@ module AWS::SDK::CustomerProfiles
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enable_dynamic_field_update ||= false
         self.include_deleted_records ||= false
       end
-
     end
 
     # <p>Specifies the configuration details of a scheduled-trigger flow that you define.

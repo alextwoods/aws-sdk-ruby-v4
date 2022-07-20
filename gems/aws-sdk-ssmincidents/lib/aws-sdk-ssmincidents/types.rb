@@ -351,7 +351,7 @@ module AWS::SDK::SSMIncidents
     #   <p>The contacts and escalation plans that the response plan engages during an
     #               incident.</p>
     #
-    #   @return [Set<String>]
+    #   @return [Array<String>]
     #
     # @!attribute actions
     #   <p>The actions that the response plan starts at the beginning of an incident.</p>
@@ -841,7 +841,7 @@ module AWS::SDK::SSMIncidents
     #   <p>The contacts and escalation plans that the response plan engages during an
     #               incident.</p>
     #
-    #   @return [Set<String>]
+    #   @return [Array<String>]
     #
     # @!attribute actions
     #   <p>The actions that this response plan takes at the beginning of the incident.</p>
@@ -2744,7 +2744,7 @@ module AWS::SDK::SSMIncidents
     # @!attribute engagements
     #   <p>The contacts and escalation plans that Incident Manager engages at the start of the incident.</p>
     #
-    #   @return [Set<String>]
+    #   @return [Array<String>]
     #
     # @!attribute actions
     #   <p>The actions that this response plan takes at the beginning of an incident.</p>

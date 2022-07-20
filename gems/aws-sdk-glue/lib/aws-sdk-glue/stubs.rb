@@ -14,7 +14,7 @@ module AWS::SDK::Glue
     class BatchCreatePartition
       def self.default(visited=[])
         {
-          errors: Stubs::PartitionErrors.default(visited),
+          errors: PartitionErrors.default(visited),
         }
       end
 
@@ -32,7 +32,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('PartitionErrors')
         visited = visited + ['PartitionErrors']
         [
-          Stubs::PartitionError.default(visited)
+          PartitionError.default(visited)
         ]
       end
 
@@ -52,8 +52,8 @@ module AWS::SDK::Glue
         return nil if visited.include?('PartitionError')
         visited = visited + ['PartitionError']
         {
-          partition_values: Stubs::ValueStringList.default(visited),
-          error_detail: Stubs::ErrorDetail.default(visited),
+          partition_values: ValueStringList.default(visited),
+          error_detail: ErrorDetail.default(visited),
         }
       end
 
@@ -110,8 +110,8 @@ module AWS::SDK::Glue
     class BatchDeleteConnection
       def self.default(visited=[])
         {
-          succeeded: Stubs::NameStringList.default(visited),
-          errors: Stubs::ErrorByName.default(visited),
+          succeeded: NameStringList.default(visited),
+          errors: ErrorByName.default(visited),
         }
       end
 
@@ -130,7 +130,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('ErrorByName')
         visited = visited + ['ErrorByName']
         {
-          test_key: Stubs::ErrorDetail.default(visited)
+          test_key: ErrorDetail.default(visited)
         }
       end
 
@@ -168,7 +168,7 @@ module AWS::SDK::Glue
     class BatchDeletePartition
       def self.default(visited=[])
         {
-          errors: Stubs::PartitionErrors.default(visited),
+          errors: PartitionErrors.default(visited),
         }
       end
 
@@ -184,7 +184,7 @@ module AWS::SDK::Glue
     class BatchDeleteTable
       def self.default(visited=[])
         {
-          errors: Stubs::TableErrors.default(visited),
+          errors: TableErrors.default(visited),
         }
       end
 
@@ -202,7 +202,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('TableErrors')
         visited = visited + ['TableErrors']
         [
-          Stubs::TableError.default(visited)
+          TableError.default(visited)
         ]
       end
 
@@ -223,7 +223,7 @@ module AWS::SDK::Glue
         visited = visited + ['TableError']
         {
           table_name: 'table_name',
-          error_detail: Stubs::ErrorDetail.default(visited),
+          error_detail: ErrorDetail.default(visited),
         }
       end
 
@@ -240,7 +240,7 @@ module AWS::SDK::Glue
     class BatchDeleteTableVersion
       def self.default(visited=[])
         {
-          errors: Stubs::TableVersionErrors.default(visited),
+          errors: TableVersionErrors.default(visited),
         }
       end
 
@@ -258,7 +258,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('TableVersionErrors')
         visited = visited + ['TableVersionErrors']
         [
-          Stubs::TableVersionError.default(visited)
+          TableVersionError.default(visited)
         ]
       end
 
@@ -280,7 +280,7 @@ module AWS::SDK::Glue
         {
           table_name: 'table_name',
           version_id: 'version_id',
-          error_detail: Stubs::ErrorDetail.default(visited),
+          error_detail: ErrorDetail.default(visited),
         }
       end
 
@@ -298,8 +298,8 @@ module AWS::SDK::Glue
     class BatchGetBlueprints
       def self.default(visited=[])
         {
-          blueprints: Stubs::Blueprints.default(visited),
-          missing_blueprints: Stubs::BlueprintNames.default(visited),
+          blueprints: Blueprints.default(visited),
+          missing_blueprints: BlueprintNames.default(visited),
         }
       end
 
@@ -338,7 +338,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('Blueprints')
         visited = visited + ['Blueprints']
         [
-          Stubs::Blueprint.default(visited)
+          Blueprint.default(visited)
         ]
       end
 
@@ -367,7 +367,7 @@ module AWS::SDK::Glue
           blueprint_service_location: 'blueprint_service_location',
           status: 'status',
           error_message: 'error_message',
-          last_active_definition: Stubs::LastActiveDefinition.default(visited),
+          last_active_definition: LastActiveDefinition.default(visited),
         }
       end
 
@@ -418,8 +418,8 @@ module AWS::SDK::Glue
     class BatchGetCrawlers
       def self.default(visited=[])
         {
-          crawlers: Stubs::CrawlerList.default(visited),
-          crawlers_not_found: Stubs::CrawlerNameList.default(visited),
+          crawlers: CrawlerList.default(visited),
+          crawlers_not_found: CrawlerNameList.default(visited),
         }
       end
 
@@ -458,7 +458,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('CrawlerList')
         visited = visited + ['CrawlerList']
         [
-          Stubs::Crawler.default(visited)
+          Crawler.default(visited)
         ]
       end
 
@@ -480,24 +480,24 @@ module AWS::SDK::Glue
         {
           name: 'name',
           role: 'role',
-          targets: Stubs::CrawlerTargets.default(visited),
+          targets: CrawlerTargets.default(visited),
           database_name: 'database_name',
           description: 'description',
-          classifiers: Stubs::ClassifierNameList.default(visited),
-          recrawl_policy: Stubs::RecrawlPolicy.default(visited),
-          schema_change_policy: Stubs::SchemaChangePolicy.default(visited),
-          lineage_configuration: Stubs::LineageConfiguration.default(visited),
+          classifiers: ClassifierNameList.default(visited),
+          recrawl_policy: RecrawlPolicy.default(visited),
+          schema_change_policy: SchemaChangePolicy.default(visited),
+          lineage_configuration: LineageConfiguration.default(visited),
           state: 'state',
           table_prefix: 'table_prefix',
-          schedule: Stubs::Schedule.default(visited),
+          schedule: Schedule.default(visited),
           crawl_elapsed_time: 1,
           creation_time: Time.now,
           last_updated: Time.now,
-          last_crawl: Stubs::LastCrawlInfo.default(visited),
+          last_crawl: LastCrawlInfo.default(visited),
           version: 1,
           configuration: 'configuration',
           crawler_security_configuration: 'crawler_security_configuration',
-          lake_formation_configuration: Stubs::LakeFormationConfiguration.default(visited),
+          lake_formation_configuration: LakeFormationConfiguration.default(visited),
         }
       end
 
@@ -678,12 +678,12 @@ module AWS::SDK::Glue
         return nil if visited.include?('CrawlerTargets')
         visited = visited + ['CrawlerTargets']
         {
-          s3_targets: Stubs::S3TargetList.default(visited),
-          jdbc_targets: Stubs::JdbcTargetList.default(visited),
-          mongo_db_targets: Stubs::MongoDBTargetList.default(visited),
-          dynamo_db_targets: Stubs::DynamoDBTargetList.default(visited),
-          catalog_targets: Stubs::CatalogTargetList.default(visited),
-          delta_targets: Stubs::DeltaTargetList.default(visited),
+          s3_targets: S3TargetList.default(visited),
+          jdbc_targets: JdbcTargetList.default(visited),
+          mongo_db_targets: MongoDBTargetList.default(visited),
+          dynamo_db_targets: DynamoDBTargetList.default(visited),
+          catalog_targets: CatalogTargetList.default(visited),
+          delta_targets: DeltaTargetList.default(visited),
         }
       end
 
@@ -706,7 +706,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('DeltaTargetList')
         visited = visited + ['DeltaTargetList']
         [
-          Stubs::DeltaTarget.default(visited)
+          DeltaTarget.default(visited)
         ]
       end
 
@@ -726,7 +726,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('DeltaTarget')
         visited = visited + ['DeltaTarget']
         {
-          delta_tables: Stubs::PathList.default(visited),
+          delta_tables: PathList.default(visited),
           connection_name: 'connection_name',
           write_manifest: false,
         }
@@ -768,7 +768,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('CatalogTargetList')
         visited = visited + ['CatalogTargetList']
         [
-          Stubs::CatalogTarget.default(visited)
+          CatalogTarget.default(visited)
         ]
       end
 
@@ -789,7 +789,7 @@ module AWS::SDK::Glue
         visited = visited + ['CatalogTarget']
         {
           database_name: 'database_name',
-          tables: Stubs::CatalogTablesList.default(visited),
+          tables: CatalogTablesList.default(visited),
           connection_name: 'connection_name',
         }
       end
@@ -830,7 +830,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('DynamoDBTargetList')
         visited = visited + ['DynamoDBTargetList']
         [
-          Stubs::DynamoDBTarget.default(visited)
+          DynamoDBTarget.default(visited)
         ]
       end
 
@@ -872,7 +872,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('MongoDBTargetList')
         visited = visited + ['MongoDBTargetList']
         [
-          Stubs::MongoDBTarget.default(visited)
+          MongoDBTarget.default(visited)
         ]
       end
 
@@ -914,7 +914,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('JdbcTargetList')
         visited = visited + ['JdbcTargetList']
         [
-          Stubs::JdbcTarget.default(visited)
+          JdbcTarget.default(visited)
         ]
       end
 
@@ -936,7 +936,7 @@ module AWS::SDK::Glue
         {
           connection_name: 'connection_name',
           path: 'path',
-          exclusions: Stubs::PathList.default(visited),
+          exclusions: PathList.default(visited),
         }
       end
 
@@ -956,7 +956,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('S3TargetList')
         visited = visited + ['S3TargetList']
         [
-          Stubs::S3Target.default(visited)
+          S3Target.default(visited)
         ]
       end
 
@@ -977,7 +977,7 @@ module AWS::SDK::Glue
         visited = visited + ['S3Target']
         {
           path: 'path',
-          exclusions: Stubs::PathList.default(visited),
+          exclusions: PathList.default(visited),
           connection_name: 'connection_name',
           sample_size: 1,
           event_queue_arn: 'event_queue_arn',
@@ -1002,8 +1002,8 @@ module AWS::SDK::Glue
     class BatchGetCustomEntityTypes
       def self.default(visited=[])
         {
-          custom_entity_types: Stubs::CustomEntityTypes.default(visited),
-          custom_entity_types_not_found: Stubs::CustomEntityTypeNames.default(visited),
+          custom_entity_types: CustomEntityTypes.default(visited),
+          custom_entity_types_not_found: CustomEntityTypeNames.default(visited),
         }
       end
 
@@ -1042,7 +1042,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('CustomEntityTypes')
         visited = visited + ['CustomEntityTypes']
         [
-          Stubs::CustomEntityType.default(visited)
+          CustomEntityType.default(visited)
         ]
       end
 
@@ -1064,7 +1064,7 @@ module AWS::SDK::Glue
         {
           name: 'name',
           regex_string: 'regex_string',
-          context_words: Stubs::ContextWords.default(visited),
+          context_words: ContextWords.default(visited),
         }
       end
 
@@ -1102,8 +1102,8 @@ module AWS::SDK::Glue
     class BatchGetDevEndpoints
       def self.default(visited=[])
         {
-          dev_endpoints: Stubs::DevEndpointList.default(visited),
-          dev_endpoints_not_found: Stubs::DevEndpointNames.default(visited),
+          dev_endpoints: DevEndpointList.default(visited),
+          dev_endpoints_not_found: DevEndpointNames.default(visited),
         }
       end
 
@@ -1142,7 +1142,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('DevEndpointList')
         visited = visited + ['DevEndpointList']
         [
-          Stubs::DevEndpoint.default(visited)
+          DevEndpoint.default(visited)
         ]
       end
 
@@ -1164,7 +1164,7 @@ module AWS::SDK::Glue
         {
           endpoint_name: 'endpoint_name',
           role_arn: 'role_arn',
-          security_group_ids: Stubs::StringList.default(visited),
+          security_group_ids: StringList.default(visited),
           subnet_id: 'subnet_id',
           yarn_endpoint_address: 'yarn_endpoint_address',
           private_address: 'private_address',
@@ -1184,9 +1184,9 @@ module AWS::SDK::Glue
           created_timestamp: Time.now,
           last_modified_timestamp: Time.now,
           public_key: 'public_key',
-          public_keys: Stubs::PublicKeysList.default(visited),
+          public_keys: PublicKeysList.default(visited),
           security_configuration: 'security_configuration',
-          arguments: Stubs::MapValue.default(visited),
+          arguments: MapValue.default(visited),
         }
       end
 
@@ -1286,8 +1286,8 @@ module AWS::SDK::Glue
     class BatchGetJobs
       def self.default(visited=[])
         {
-          jobs: Stubs::JobList.default(visited),
-          jobs_not_found: Stubs::JobNameList.default(visited),
+          jobs: JobList.default(visited),
+          jobs_not_found: JobNameList.default(visited),
         }
       end
 
@@ -1326,7 +1326,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('JobList')
         visited = visited + ['JobList']
         [
-          Stubs::Job.default(visited)
+          Job.default(visited)
         ]
       end
 
@@ -1352,11 +1352,11 @@ module AWS::SDK::Glue
           role: 'role',
           created_on: Time.now,
           last_modified_on: Time.now,
-          execution_property: Stubs::ExecutionProperty.default(visited),
-          command: Stubs::JobCommand.default(visited),
-          default_arguments: Stubs::GenericMap.default(visited),
-          non_overridable_arguments: Stubs::GenericMap.default(visited),
-          connections: Stubs::ConnectionsList.default(visited),
+          execution_property: ExecutionProperty.default(visited),
+          command: JobCommand.default(visited),
+          default_arguments: GenericMap.default(visited),
+          non_overridable_arguments: GenericMap.default(visited),
+          connections: ConnectionsList.default(visited),
           max_retries: 1,
           allocated_capacity: 1,
           timeout: 1,
@@ -1364,9 +1364,9 @@ module AWS::SDK::Glue
           worker_type: 'worker_type',
           number_of_workers: 1,
           security_configuration: 'security_configuration',
-          notification_property: Stubs::NotificationProperty.default(visited),
+          notification_property: NotificationProperty.default(visited),
           glue_version: 'glue_version',
-          code_gen_configuration_nodes: Stubs::CodeGenConfigurationNodes.default(visited),
+          code_gen_configuration_nodes: CodeGenConfigurationNodes.default(visited),
         }
       end
 
@@ -1404,7 +1404,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('CodeGenConfigurationNodes')
         visited = visited + ['CodeGenConfigurationNodes']
         {
-          test_key: Stubs::CodeGenConfigurationNode.default(visited)
+          test_key: CodeGenConfigurationNode.default(visited)
         }
       end
 
@@ -1424,56 +1424,56 @@ module AWS::SDK::Glue
         return nil if visited.include?('CodeGenConfigurationNode')
         visited = visited + ['CodeGenConfigurationNode']
         {
-          athena_connector_source: Stubs::AthenaConnectorSource.default(visited),
-          jdbc_connector_source: Stubs::JDBCConnectorSource.default(visited),
-          spark_connector_source: Stubs::SparkConnectorSource.default(visited),
-          catalog_source: Stubs::CatalogSource.default(visited),
-          redshift_source: Stubs::RedshiftSource.default(visited),
-          s3_catalog_source: Stubs::S3CatalogSource.default(visited),
-          s3_csv_source: Stubs::S3CsvSource.default(visited),
-          s3_json_source: Stubs::S3JsonSource.default(visited),
-          s3_parquet_source: Stubs::S3ParquetSource.default(visited),
-          relational_catalog_source: Stubs::RelationalCatalogSource.default(visited),
-          dynamo_db_catalog_source: Stubs::DynamoDBCatalogSource.default(visited),
-          jdbc_connector_target: Stubs::JDBCConnectorTarget.default(visited),
-          spark_connector_target: Stubs::SparkConnectorTarget.default(visited),
-          catalog_target: Stubs::BasicCatalogTarget.default(visited),
-          redshift_target: Stubs::RedshiftTarget.default(visited),
-          s3_catalog_target: Stubs::S3CatalogTarget.default(visited),
-          s3_glue_parquet_target: Stubs::S3GlueParquetTarget.default(visited),
-          s3_direct_target: Stubs::S3DirectTarget.default(visited),
-          apply_mapping: Stubs::ApplyMapping.default(visited),
-          select_fields: Stubs::SelectFields.default(visited),
-          drop_fields: Stubs::DropFields.default(visited),
-          rename_field: Stubs::RenameField.default(visited),
-          spigot: Stubs::Spigot.default(visited),
-          join: Stubs::Join.default(visited),
-          split_fields: Stubs::SplitFields.default(visited),
-          select_from_collection: Stubs::SelectFromCollection.default(visited),
-          fill_missing_values: Stubs::FillMissingValues.default(visited),
-          filter: Stubs::Filter.default(visited),
-          custom_code: Stubs::CustomCode.default(visited),
-          spark_sql: Stubs::SparkSQL.default(visited),
-          direct_kinesis_source: Stubs::DirectKinesisSource.default(visited),
-          direct_kafka_source: Stubs::DirectKafkaSource.default(visited),
-          catalog_kinesis_source: Stubs::CatalogKinesisSource.default(visited),
-          catalog_kafka_source: Stubs::CatalogKafkaSource.default(visited),
-          drop_null_fields: Stubs::DropNullFields.default(visited),
-          merge: Stubs::Merge.default(visited),
-          union: Stubs::Union.default(visited),
-          pii_detection: Stubs::PIIDetection.default(visited),
-          aggregate: Stubs::Aggregate.default(visited),
-          drop_duplicates: Stubs::DropDuplicates.default(visited),
-          governed_catalog_target: Stubs::GovernedCatalogTarget.default(visited),
-          governed_catalog_source: Stubs::GovernedCatalogSource.default(visited),
-          microsoft_sql_server_catalog_source: Stubs::MicrosoftSQLServerCatalogSource.default(visited),
-          my_sql_catalog_source: Stubs::MySQLCatalogSource.default(visited),
-          oracle_sql_catalog_source: Stubs::OracleSQLCatalogSource.default(visited),
-          postgre_sql_catalog_source: Stubs::PostgreSQLCatalogSource.default(visited),
-          microsoft_sql_server_catalog_target: Stubs::MicrosoftSQLServerCatalogTarget.default(visited),
-          my_sql_catalog_target: Stubs::MySQLCatalogTarget.default(visited),
-          oracle_sql_catalog_target: Stubs::OracleSQLCatalogTarget.default(visited),
-          postgre_sql_catalog_target: Stubs::PostgreSQLCatalogTarget.default(visited),
+          athena_connector_source: AthenaConnectorSource.default(visited),
+          jdbc_connector_source: JDBCConnectorSource.default(visited),
+          spark_connector_source: SparkConnectorSource.default(visited),
+          catalog_source: CatalogSource.default(visited),
+          redshift_source: RedshiftSource.default(visited),
+          s3_catalog_source: S3CatalogSource.default(visited),
+          s3_csv_source: S3CsvSource.default(visited),
+          s3_json_source: S3JsonSource.default(visited),
+          s3_parquet_source: S3ParquetSource.default(visited),
+          relational_catalog_source: RelationalCatalogSource.default(visited),
+          dynamo_db_catalog_source: DynamoDBCatalogSource.default(visited),
+          jdbc_connector_target: JDBCConnectorTarget.default(visited),
+          spark_connector_target: SparkConnectorTarget.default(visited),
+          catalog_target: BasicCatalogTarget.default(visited),
+          redshift_target: RedshiftTarget.default(visited),
+          s3_catalog_target: S3CatalogTarget.default(visited),
+          s3_glue_parquet_target: S3GlueParquetTarget.default(visited),
+          s3_direct_target: S3DirectTarget.default(visited),
+          apply_mapping: ApplyMapping.default(visited),
+          select_fields: SelectFields.default(visited),
+          drop_fields: DropFields.default(visited),
+          rename_field: RenameField.default(visited),
+          spigot: Spigot.default(visited),
+          join: Join.default(visited),
+          split_fields: SplitFields.default(visited),
+          select_from_collection: SelectFromCollection.default(visited),
+          fill_missing_values: FillMissingValues.default(visited),
+          filter: Filter.default(visited),
+          custom_code: CustomCode.default(visited),
+          spark_sql: SparkSQL.default(visited),
+          direct_kinesis_source: DirectKinesisSource.default(visited),
+          direct_kafka_source: DirectKafkaSource.default(visited),
+          catalog_kinesis_source: CatalogKinesisSource.default(visited),
+          catalog_kafka_source: CatalogKafkaSource.default(visited),
+          drop_null_fields: DropNullFields.default(visited),
+          merge: Merge.default(visited),
+          union: Union.default(visited),
+          pii_detection: PIIDetection.default(visited),
+          aggregate: Aggregate.default(visited),
+          drop_duplicates: DropDuplicates.default(visited),
+          governed_catalog_target: GovernedCatalogTarget.default(visited),
+          governed_catalog_source: GovernedCatalogSource.default(visited),
+          microsoft_sql_server_catalog_source: MicrosoftSQLServerCatalogSource.default(visited),
+          my_sql_catalog_source: MySQLCatalogSource.default(visited),
+          oracle_sql_catalog_source: OracleSQLCatalogSource.default(visited),
+          postgre_sql_catalog_source: PostgreSQLCatalogSource.default(visited),
+          microsoft_sql_server_catalog_target: MicrosoftSQLServerCatalogTarget.default(visited),
+          my_sql_catalog_target: MySQLCatalogTarget.default(visited),
+          oracle_sql_catalog_target: OracleSQLCatalogTarget.default(visited),
+          postgre_sql_catalog_target: PostgreSQLCatalogTarget.default(visited),
         }
       end
 
@@ -1541,7 +1541,7 @@ module AWS::SDK::Glue
         visited = visited + ['PostgreSQLCatalogTarget']
         {
           name: 'name',
-          inputs: Stubs::OneInput.default(visited),
+          inputs: OneInput.default(visited),
           database: 'database',
           table: 'table',
         }
@@ -1585,7 +1585,7 @@ module AWS::SDK::Glue
         visited = visited + ['OracleSQLCatalogTarget']
         {
           name: 'name',
-          inputs: Stubs::OneInput.default(visited),
+          inputs: OneInput.default(visited),
           database: 'database',
           table: 'table',
         }
@@ -1609,7 +1609,7 @@ module AWS::SDK::Glue
         visited = visited + ['MySQLCatalogTarget']
         {
           name: 'name',
-          inputs: Stubs::OneInput.default(visited),
+          inputs: OneInput.default(visited),
           database: 'database',
           table: 'table',
         }
@@ -1633,7 +1633,7 @@ module AWS::SDK::Glue
         visited = visited + ['MicrosoftSQLServerCatalogTarget']
         {
           name: 'name',
-          inputs: Stubs::OneInput.default(visited),
+          inputs: OneInput.default(visited),
           database: 'database',
           table: 'table',
         }
@@ -1748,7 +1748,7 @@ module AWS::SDK::Glue
           database: 'database',
           table: 'table',
           partition_predicate: 'partition_predicate',
-          additional_options: Stubs::S3SourceAdditionalOptions.default(visited),
+          additional_options: S3SourceAdditionalOptions.default(visited),
         }
       end
 
@@ -1791,11 +1791,11 @@ module AWS::SDK::Glue
         visited = visited + ['GovernedCatalogTarget']
         {
           name: 'name',
-          inputs: Stubs::OneInput.default(visited),
-          partition_keys: Stubs::GlueStudioPathList.default(visited),
+          inputs: OneInput.default(visited),
+          partition_keys: GlueStudioPathList.default(visited),
           table: 'table',
           database: 'database',
-          schema_change_policy: Stubs::CatalogSchemaChangePolicy.default(visited),
+          schema_change_policy: CatalogSchemaChangePolicy.default(visited),
         }
       end
 
@@ -1838,7 +1838,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('GlueStudioPathList')
         visited = visited + ['GlueStudioPathList']
         [
-          Stubs::EnclosedInStringProperties.default(visited)
+          EnclosedInStringProperties.default(visited)
         ]
       end
 
@@ -1879,8 +1879,8 @@ module AWS::SDK::Glue
         visited = visited + ['DropDuplicates']
         {
           name: 'name',
-          inputs: Stubs::OneInput.default(visited),
-          columns: Stubs::LimitedPathList.default(visited),
+          inputs: OneInput.default(visited),
+          columns: LimitedPathList.default(visited),
         }
       end
 
@@ -1900,7 +1900,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('LimitedPathList')
         visited = visited + ['LimitedPathList']
         [
-          Stubs::LimitedStringList.default(visited)
+          LimitedStringList.default(visited)
         ]
       end
 
@@ -1941,9 +1941,9 @@ module AWS::SDK::Glue
         visited = visited + ['Aggregate']
         {
           name: 'name',
-          inputs: Stubs::OneInput.default(visited),
-          groups: Stubs::GlueStudioPathList.default(visited),
-          aggs: Stubs::AggregateOperations.default(visited),
+          inputs: OneInput.default(visited),
+          groups: GlueStudioPathList.default(visited),
+          aggs: AggregateOperations.default(visited),
         }
       end
 
@@ -1964,7 +1964,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('AggregateOperations')
         visited = visited + ['AggregateOperations']
         [
-          Stubs::AggregateOperation.default(visited)
+          AggregateOperation.default(visited)
         ]
       end
 
@@ -1984,7 +1984,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('AggregateOperation')
         visited = visited + ['AggregateOperation']
         {
-          column: Stubs::EnclosedInStringProperties.default(visited),
+          column: EnclosedInStringProperties.default(visited),
           agg_func: 'agg_func',
         }
       end
@@ -2005,9 +2005,9 @@ module AWS::SDK::Glue
         visited = visited + ['PIIDetection']
         {
           name: 'name',
-          inputs: Stubs::OneInput.default(visited),
+          inputs: OneInput.default(visited),
           pii_type: 'pii_type',
-          entity_types_to_detect: Stubs::EnclosedInStringProperties.default(visited),
+          entity_types_to_detect: EnclosedInStringProperties.default(visited),
           output_column_name: 'output_column_name',
           sample_fraction: 1.0,
           threshold_fraction: 1.0,
@@ -2037,7 +2037,7 @@ module AWS::SDK::Glue
         visited = visited + ['Union']
         {
           name: 'name',
-          inputs: Stubs::TwoInputs.default(visited),
+          inputs: TwoInputs.default(visited),
           union_type: 'union_type',
         }
       end
@@ -2079,9 +2079,9 @@ module AWS::SDK::Glue
         visited = visited + ['Merge']
         {
           name: 'name',
-          inputs: Stubs::TwoInputs.default(visited),
+          inputs: TwoInputs.default(visited),
           source: 'source',
-          primary_keys: Stubs::GlueStudioPathList.default(visited),
+          primary_keys: GlueStudioPathList.default(visited),
         }
       end
 
@@ -2103,9 +2103,9 @@ module AWS::SDK::Glue
         visited = visited + ['DropNullFields']
         {
           name: 'name',
-          inputs: Stubs::OneInput.default(visited),
-          null_check_box_list: Stubs::NullCheckBoxList.default(visited),
-          null_text_list: Stubs::NullValueFields.default(visited),
+          inputs: OneInput.default(visited),
+          null_check_box_list: NullCheckBoxList.default(visited),
+          null_text_list: NullValueFields.default(visited),
         }
       end
 
@@ -2126,7 +2126,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('NullValueFields')
         visited = visited + ['NullValueFields']
         [
-          Stubs::NullValueField.default(visited)
+          NullValueField.default(visited)
         ]
       end
 
@@ -2147,7 +2147,7 @@ module AWS::SDK::Glue
         visited = visited + ['NullValueField']
         {
           value: 'value',
-          datatype: Stubs::Datatype.default(visited),
+          datatype: Datatype.default(visited),
         }
       end
 
@@ -2213,8 +2213,8 @@ module AWS::SDK::Glue
           detect_schema: false,
           table: 'table',
           database: 'database',
-          streaming_options: Stubs::KafkaStreamingSourceOptions.default(visited),
-          data_preview_options: Stubs::StreamingDataPreviewOptions.default(visited),
+          streaming_options: KafkaStreamingSourceOptions.default(visited),
+          data_preview_options: StreamingDataPreviewOptions.default(visited),
         }
       end
 
@@ -2309,8 +2309,8 @@ module AWS::SDK::Glue
           detect_schema: false,
           table: 'table',
           database: 'database',
-          streaming_options: Stubs::KinesisStreamingSourceOptions.default(visited),
-          data_preview_options: Stubs::StreamingDataPreviewOptions.default(visited),
+          streaming_options: KinesisStreamingSourceOptions.default(visited),
+          data_preview_options: StreamingDataPreviewOptions.default(visited),
         }
       end
 
@@ -2387,10 +2387,10 @@ module AWS::SDK::Glue
         visited = visited + ['DirectKafkaSource']
         {
           name: 'name',
-          streaming_options: Stubs::KafkaStreamingSourceOptions.default(visited),
+          streaming_options: KafkaStreamingSourceOptions.default(visited),
           window_size: 1,
           detect_schema: false,
-          data_preview_options: Stubs::StreamingDataPreviewOptions.default(visited),
+          data_preview_options: StreamingDataPreviewOptions.default(visited),
         }
       end
 
@@ -2415,8 +2415,8 @@ module AWS::SDK::Glue
           name: 'name',
           window_size: 1,
           detect_schema: false,
-          streaming_options: Stubs::KinesisStreamingSourceOptions.default(visited),
-          data_preview_options: Stubs::StreamingDataPreviewOptions.default(visited),
+          streaming_options: KinesisStreamingSourceOptions.default(visited),
+          data_preview_options: StreamingDataPreviewOptions.default(visited),
         }
       end
 
@@ -2439,10 +2439,10 @@ module AWS::SDK::Glue
         visited = visited + ['SparkSQL']
         {
           name: 'name',
-          inputs: Stubs::ManyInputs.default(visited),
+          inputs: ManyInputs.default(visited),
           sql_query: 'sql_query',
-          sql_aliases: Stubs::SqlAliases.default(visited),
-          output_schemas: Stubs::GlueSchemas.default(visited),
+          sql_aliases: SqlAliases.default(visited),
+          output_schemas: GlueSchemas.default(visited),
         }
       end
 
@@ -2464,7 +2464,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('GlueSchemas')
         visited = visited + ['GlueSchemas']
         [
-          Stubs::GlueSchema.default(visited)
+          GlueSchema.default(visited)
         ]
       end
 
@@ -2484,7 +2484,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('GlueSchema')
         visited = visited + ['GlueSchema']
         {
-          columns: Stubs::GlueStudioSchemaColumnList.default(visited),
+          columns: GlueStudioSchemaColumnList.default(visited),
         }
       end
 
@@ -2502,7 +2502,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('GlueStudioSchemaColumnList')
         visited = visited + ['GlueStudioSchemaColumnList']
         [
-          Stubs::GlueStudioSchemaColumn.default(visited)
+          GlueStudioSchemaColumn.default(visited)
         ]
       end
 
@@ -2542,7 +2542,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('SqlAliases')
         visited = visited + ['SqlAliases']
         [
-          Stubs::SqlAlias.default(visited)
+          SqlAlias.default(visited)
         ]
       end
 
@@ -2603,10 +2603,10 @@ module AWS::SDK::Glue
         visited = visited + ['CustomCode']
         {
           name: 'name',
-          inputs: Stubs::ManyInputs.default(visited),
+          inputs: ManyInputs.default(visited),
           code: 'code',
           class_name: 'class_name',
-          output_schemas: Stubs::GlueSchemas.default(visited),
+          output_schemas: GlueSchemas.default(visited),
         }
       end
 
@@ -2629,9 +2629,9 @@ module AWS::SDK::Glue
         visited = visited + ['Filter']
         {
           name: 'name',
-          inputs: Stubs::OneInput.default(visited),
+          inputs: OneInput.default(visited),
           logical_operator: 'logical_operator',
-          filters: Stubs::FilterExpressions.default(visited),
+          filters: FilterExpressions.default(visited),
         }
       end
 
@@ -2652,7 +2652,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('FilterExpressions')
         visited = visited + ['FilterExpressions']
         [
-          Stubs::FilterExpression.default(visited)
+          FilterExpression.default(visited)
         ]
       end
 
@@ -2674,7 +2674,7 @@ module AWS::SDK::Glue
         {
           operation: 'operation',
           negated: false,
-          values: Stubs::FilterValues.default(visited),
+          values: FilterValues.default(visited),
         }
       end
 
@@ -2694,7 +2694,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('FilterValues')
         visited = visited + ['FilterValues']
         [
-          Stubs::FilterValue.default(visited)
+          FilterValue.default(visited)
         ]
       end
 
@@ -2715,7 +2715,7 @@ module AWS::SDK::Glue
         visited = visited + ['FilterValue']
         {
           type: 'type',
-          value: Stubs::EnclosedInStringProperties.default(visited),
+          value: EnclosedInStringProperties.default(visited),
         }
       end
 
@@ -2735,7 +2735,7 @@ module AWS::SDK::Glue
         visited = visited + ['FillMissingValues']
         {
           name: 'name',
-          inputs: Stubs::OneInput.default(visited),
+          inputs: OneInput.default(visited),
           imputed_path: 'imputed_path',
           filled_path: 'filled_path',
         }
@@ -2759,7 +2759,7 @@ module AWS::SDK::Glue
         visited = visited + ['SelectFromCollection']
         {
           name: 'name',
-          inputs: Stubs::OneInput.default(visited),
+          inputs: OneInput.default(visited),
           index: 1,
         }
       end
@@ -2781,8 +2781,8 @@ module AWS::SDK::Glue
         visited = visited + ['SplitFields']
         {
           name: 'name',
-          inputs: Stubs::OneInput.default(visited),
-          paths: Stubs::GlueStudioPathList.default(visited),
+          inputs: OneInput.default(visited),
+          paths: GlueStudioPathList.default(visited),
         }
       end
 
@@ -2803,9 +2803,9 @@ module AWS::SDK::Glue
         visited = visited + ['Join']
         {
           name: 'name',
-          inputs: Stubs::TwoInputs.default(visited),
+          inputs: TwoInputs.default(visited),
           join_type: 'join_type',
-          columns: Stubs::JoinColumns.default(visited),
+          columns: JoinColumns.default(visited),
         }
       end
 
@@ -2826,7 +2826,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('JoinColumns')
         visited = visited + ['JoinColumns']
         [
-          Stubs::JoinColumn.default(visited)
+          JoinColumn.default(visited)
         ]
       end
 
@@ -2847,7 +2847,7 @@ module AWS::SDK::Glue
         visited = visited + ['JoinColumn']
         {
           from: 'from',
-          keys: Stubs::GlueStudioPathList.default(visited),
+          keys: GlueStudioPathList.default(visited),
         }
       end
 
@@ -2867,7 +2867,7 @@ module AWS::SDK::Glue
         visited = visited + ['Spigot']
         {
           name: 'name',
-          inputs: Stubs::OneInput.default(visited),
+          inputs: OneInput.default(visited),
           path: 'path',
           topk: 1,
           prob: 1.0,
@@ -2893,9 +2893,9 @@ module AWS::SDK::Glue
         visited = visited + ['RenameField']
         {
           name: 'name',
-          inputs: Stubs::OneInput.default(visited),
-          source_path: Stubs::EnclosedInStringProperties.default(visited),
-          target_path: Stubs::EnclosedInStringProperties.default(visited),
+          inputs: OneInput.default(visited),
+          source_path: EnclosedInStringProperties.default(visited),
+          target_path: EnclosedInStringProperties.default(visited),
         }
       end
 
@@ -2917,8 +2917,8 @@ module AWS::SDK::Glue
         visited = visited + ['DropFields']
         {
           name: 'name',
-          inputs: Stubs::OneInput.default(visited),
-          paths: Stubs::GlueStudioPathList.default(visited),
+          inputs: OneInput.default(visited),
+          paths: GlueStudioPathList.default(visited),
         }
       end
 
@@ -2939,8 +2939,8 @@ module AWS::SDK::Glue
         visited = visited + ['SelectFields']
         {
           name: 'name',
-          inputs: Stubs::OneInput.default(visited),
-          paths: Stubs::GlueStudioPathList.default(visited),
+          inputs: OneInput.default(visited),
+          paths: GlueStudioPathList.default(visited),
         }
       end
 
@@ -2961,8 +2961,8 @@ module AWS::SDK::Glue
         visited = visited + ['ApplyMapping']
         {
           name: 'name',
-          inputs: Stubs::OneInput.default(visited),
-          mapping: Stubs::Mappings.default(visited),
+          inputs: OneInput.default(visited),
+          mapping: Mappings.default(visited),
         }
       end
 
@@ -2982,7 +2982,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('Mappings')
         visited = visited + ['Mappings']
         [
-          Stubs::Mapping.default(visited)
+          Mapping.default(visited)
         ]
       end
 
@@ -3003,11 +3003,11 @@ module AWS::SDK::Glue
         visited = visited + ['Mapping']
         {
           to_key: 'to_key',
-          from_path: Stubs::EnclosedInStringProperties.default(visited),
+          from_path: EnclosedInStringProperties.default(visited),
           from_type: 'from_type',
           to_type: 'to_type',
           dropped: false,
-          children: Stubs::Mappings.default(visited),
+          children: Mappings.default(visited),
         }
       end
 
@@ -3031,12 +3031,12 @@ module AWS::SDK::Glue
         visited = visited + ['S3DirectTarget']
         {
           name: 'name',
-          inputs: Stubs::OneInput.default(visited),
-          partition_keys: Stubs::GlueStudioPathList.default(visited),
+          inputs: OneInput.default(visited),
+          partition_keys: GlueStudioPathList.default(visited),
           path: 'path',
           compression: 'compression',
           format: 'format',
-          schema_change_policy: Stubs::DirectSchemaChangePolicy.default(visited),
+          schema_change_policy: DirectSchemaChangePolicy.default(visited),
         }
       end
 
@@ -3085,11 +3085,11 @@ module AWS::SDK::Glue
         visited = visited + ['S3GlueParquetTarget']
         {
           name: 'name',
-          inputs: Stubs::OneInput.default(visited),
-          partition_keys: Stubs::GlueStudioPathList.default(visited),
+          inputs: OneInput.default(visited),
+          partition_keys: GlueStudioPathList.default(visited),
           path: 'path',
           compression: 'compression',
-          schema_change_policy: Stubs::DirectSchemaChangePolicy.default(visited),
+          schema_change_policy: DirectSchemaChangePolicy.default(visited),
         }
       end
 
@@ -3113,11 +3113,11 @@ module AWS::SDK::Glue
         visited = visited + ['S3CatalogTarget']
         {
           name: 'name',
-          inputs: Stubs::OneInput.default(visited),
-          partition_keys: Stubs::GlueStudioPathList.default(visited),
+          inputs: OneInput.default(visited),
+          partition_keys: GlueStudioPathList.default(visited),
           table: 'table',
           database: 'database',
-          schema_change_policy: Stubs::CatalogSchemaChangePolicy.default(visited),
+          schema_change_policy: CatalogSchemaChangePolicy.default(visited),
         }
       end
 
@@ -3141,12 +3141,12 @@ module AWS::SDK::Glue
         visited = visited + ['RedshiftTarget']
         {
           name: 'name',
-          inputs: Stubs::OneInput.default(visited),
+          inputs: OneInput.default(visited),
           database: 'database',
           table: 'table',
           redshift_tmp_dir: 'redshift_tmp_dir',
           tmp_dir_iam_role: 'tmp_dir_iam_role',
-          upsert_redshift_options: Stubs::UpsertRedshiftTargetOptions.default(visited),
+          upsert_redshift_options: UpsertRedshiftTargetOptions.default(visited),
         }
       end
 
@@ -3172,7 +3172,7 @@ module AWS::SDK::Glue
         {
           table_location: 'table_location',
           connection_name: 'connection_name',
-          upsert_keys: Stubs::EnclosedInStringPropertiesMinOne.default(visited),
+          upsert_keys: EnclosedInStringPropertiesMinOne.default(visited),
         }
       end
 
@@ -3213,7 +3213,7 @@ module AWS::SDK::Glue
         visited = visited + ['BasicCatalogTarget']
         {
           name: 'name',
-          inputs: Stubs::OneInput.default(visited),
+          inputs: OneInput.default(visited),
           database: 'database',
           table: 'table',
         }
@@ -3237,12 +3237,12 @@ module AWS::SDK::Glue
         visited = visited + ['SparkConnectorTarget']
         {
           name: 'name',
-          inputs: Stubs::OneInput.default(visited),
+          inputs: OneInput.default(visited),
           connection_name: 'connection_name',
           connector_name: 'connector_name',
           connection_type: 'connection_type',
-          additional_options: Stubs::AdditionalOptions.default(visited),
-          output_schemas: Stubs::GlueSchemas.default(visited),
+          additional_options: AdditionalOptions.default(visited),
+          output_schemas: GlueSchemas.default(visited),
         }
       end
 
@@ -3287,13 +3287,13 @@ module AWS::SDK::Glue
         visited = visited + ['JDBCConnectorTarget']
         {
           name: 'name',
-          inputs: Stubs::OneInput.default(visited),
+          inputs: OneInput.default(visited),
           connection_name: 'connection_name',
           connection_table: 'connection_table',
           connector_name: 'connector_name',
           connection_type: 'connection_type',
-          additional_options: Stubs::AdditionalOptions.default(visited),
-          output_schemas: Stubs::GlueSchemas.default(visited),
+          additional_options: AdditionalOptions.default(visited),
+          output_schemas: GlueSchemas.default(visited),
         }
       end
 
@@ -3363,16 +3363,16 @@ module AWS::SDK::Glue
         visited = visited + ['S3ParquetSource']
         {
           name: 'name',
-          paths: Stubs::EnclosedInStringProperties.default(visited),
+          paths: EnclosedInStringProperties.default(visited),
           compression_type: 'compression_type',
-          exclusions: Stubs::EnclosedInStringProperties.default(visited),
+          exclusions: EnclosedInStringProperties.default(visited),
           group_size: 'group_size',
           group_files: 'group_files',
           recurse: false,
           max_band: 1,
           max_files_in_band: 1,
-          additional_options: Stubs::S3DirectSourceAdditionalOptions.default(visited),
-          output_schemas: Stubs::GlueSchemas.default(visited),
+          additional_options: S3DirectSourceAdditionalOptions.default(visited),
+          output_schemas: GlueSchemas.default(visited),
         }
       end
 
@@ -3425,18 +3425,18 @@ module AWS::SDK::Glue
         visited = visited + ['S3JsonSource']
         {
           name: 'name',
-          paths: Stubs::EnclosedInStringProperties.default(visited),
+          paths: EnclosedInStringProperties.default(visited),
           compression_type: 'compression_type',
-          exclusions: Stubs::EnclosedInStringProperties.default(visited),
+          exclusions: EnclosedInStringProperties.default(visited),
           group_size: 'group_size',
           group_files: 'group_files',
           recurse: false,
           max_band: 1,
           max_files_in_band: 1,
-          additional_options: Stubs::S3DirectSourceAdditionalOptions.default(visited),
+          additional_options: S3DirectSourceAdditionalOptions.default(visited),
           json_path: 'json_path',
           multiline: false,
-          output_schemas: Stubs::GlueSchemas.default(visited),
+          output_schemas: GlueSchemas.default(visited),
         }
       end
 
@@ -3467,15 +3467,15 @@ module AWS::SDK::Glue
         visited = visited + ['S3CsvSource']
         {
           name: 'name',
-          paths: Stubs::EnclosedInStringProperties.default(visited),
+          paths: EnclosedInStringProperties.default(visited),
           compression_type: 'compression_type',
-          exclusions: Stubs::EnclosedInStringProperties.default(visited),
+          exclusions: EnclosedInStringProperties.default(visited),
           group_size: 'group_size',
           group_files: 'group_files',
           recurse: false,
           max_band: 1,
           max_files_in_band: 1,
-          additional_options: Stubs::S3DirectSourceAdditionalOptions.default(visited),
+          additional_options: S3DirectSourceAdditionalOptions.default(visited),
           separator: 'separator',
           escaper: 'escaper',
           quote_char: 'quote_char',
@@ -3484,7 +3484,7 @@ module AWS::SDK::Glue
           write_header: false,
           skip_first: false,
           optimize_performance: false,
-          output_schemas: Stubs::GlueSchemas.default(visited),
+          output_schemas: GlueSchemas.default(visited),
         }
       end
 
@@ -3524,7 +3524,7 @@ module AWS::SDK::Glue
           database: 'database',
           table: 'table',
           partition_predicate: 'partition_predicate',
-          additional_options: Stubs::S3SourceAdditionalOptions.default(visited),
+          additional_options: S3SourceAdditionalOptions.default(visited),
         }
       end
 
@@ -3598,8 +3598,8 @@ module AWS::SDK::Glue
           connection_name: 'connection_name',
           connector_name: 'connector_name',
           connection_type: 'connection_type',
-          additional_options: Stubs::AdditionalOptions.default(visited),
-          output_schemas: Stubs::GlueSchemas.default(visited),
+          additional_options: AdditionalOptions.default(visited),
+          output_schemas: GlueSchemas.default(visited),
         }
       end
 
@@ -3626,10 +3626,10 @@ module AWS::SDK::Glue
           connection_name: 'connection_name',
           connector_name: 'connector_name',
           connection_type: 'connection_type',
-          additional_options: Stubs::JDBCConnectorOptions.default(visited),
+          additional_options: JDBCConnectorOptions.default(visited),
           connection_table: 'connection_table',
           query: 'query',
-          output_schemas: Stubs::GlueSchemas.default(visited),
+          output_schemas: GlueSchemas.default(visited),
         }
       end
 
@@ -3659,9 +3659,9 @@ module AWS::SDK::Glue
           lower_bound: 1,
           upper_bound: 1,
           num_partitions: 1,
-          job_bookmark_keys: Stubs::EnclosedInStringProperties.default(visited),
+          job_bookmark_keys: EnclosedInStringProperties.default(visited),
           job_bookmark_keys_sort_order: 'job_bookmark_keys_sort_order',
-          data_type_mapping: Stubs::JDBCDataTypeMapping.default(visited),
+          data_type_mapping: JDBCDataTypeMapping.default(visited),
         }
       end
 
@@ -3712,7 +3712,7 @@ module AWS::SDK::Glue
           connection_type: 'connection_type',
           connection_table: 'connection_table',
           schema_name: 'schema_name',
-          output_schemas: Stubs::GlueSchemas.default(visited),
+          output_schemas: GlueSchemas.default(visited),
         }
       end
 
@@ -3754,7 +3754,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('ConnectionsList')
         visited = visited + ['ConnectionsList']
         {
-          connections: Stubs::OrchestrationStringList.default(visited),
+          connections: OrchestrationStringList.default(visited),
         }
       end
 
@@ -3850,8 +3850,8 @@ module AWS::SDK::Glue
     class BatchGetPartition
       def self.default(visited=[])
         {
-          partitions: Stubs::PartitionList.default(visited),
-          unprocessed_keys: Stubs::BatchGetPartitionValueList.default(visited),
+          partitions: PartitionList.default(visited),
+          unprocessed_keys: BatchGetPartitionValueList.default(visited),
         }
       end
 
@@ -3870,7 +3870,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('BatchGetPartitionValueList')
         visited = visited + ['BatchGetPartitionValueList']
         [
-          Stubs::PartitionValueList.default(visited)
+          PartitionValueList.default(visited)
         ]
       end
 
@@ -3890,7 +3890,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('PartitionValueList')
         visited = visited + ['PartitionValueList']
         {
-          values: Stubs::ValueStringList.default(visited),
+          values: ValueStringList.default(visited),
         }
       end
 
@@ -3908,7 +3908,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('PartitionList')
         visited = visited + ['PartitionList']
         [
-          Stubs::Partition.default(visited)
+          Partition.default(visited)
         ]
       end
 
@@ -3928,13 +3928,13 @@ module AWS::SDK::Glue
         return nil if visited.include?('Partition')
         visited = visited + ['Partition']
         {
-          values: Stubs::ValueStringList.default(visited),
+          values: ValueStringList.default(visited),
           database_name: 'database_name',
           table_name: 'table_name',
           creation_time: Time.now,
           last_access_time: Time.now,
-          storage_descriptor: Stubs::StorageDescriptor.default(visited),
-          parameters: Stubs::ParametersMap.default(visited),
+          storage_descriptor: StorageDescriptor.default(visited),
+          parameters: ParametersMap.default(visited),
           last_analyzed_time: Time.now,
           catalog_id: 'catalog_id',
         }
@@ -3982,20 +3982,20 @@ module AWS::SDK::Glue
         return nil if visited.include?('StorageDescriptor')
         visited = visited + ['StorageDescriptor']
         {
-          columns: Stubs::ColumnList.default(visited),
+          columns: ColumnList.default(visited),
           location: 'location',
-          additional_locations: Stubs::LocationStringList.default(visited),
+          additional_locations: LocationStringList.default(visited),
           input_format: 'input_format',
           output_format: 'output_format',
           compressed: false,
           number_of_buckets: 1,
-          serde_info: Stubs::SerDeInfo.default(visited),
-          bucket_columns: Stubs::NameStringList.default(visited),
-          sort_columns: Stubs::OrderList.default(visited),
-          parameters: Stubs::ParametersMap.default(visited),
-          skewed_info: Stubs::SkewedInfo.default(visited),
+          serde_info: SerDeInfo.default(visited),
+          bucket_columns: NameStringList.default(visited),
+          sort_columns: OrderList.default(visited),
+          parameters: ParametersMap.default(visited),
+          skewed_info: SkewedInfo.default(visited),
           stored_as_sub_directories: false,
-          schema_reference: Stubs::SchemaReference.default(visited),
+          schema_reference: SchemaReference.default(visited),
         }
       end
 
@@ -4026,7 +4026,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('SchemaReference')
         visited = visited + ['SchemaReference']
         {
-          schema_id: Stubs::SchemaId.default(visited),
+          schema_id: SchemaId.default(visited),
           schema_version_id: 'schema_version_id',
           schema_version_number: 1,
         }
@@ -4070,9 +4070,9 @@ module AWS::SDK::Glue
         return nil if visited.include?('SkewedInfo')
         visited = visited + ['SkewedInfo']
         {
-          skewed_column_names: Stubs::NameStringList.default(visited),
-          skewed_column_values: Stubs::ColumnValueStringList.default(visited),
-          skewed_column_value_location_maps: Stubs::LocationMap.default(visited),
+          skewed_column_names: NameStringList.default(visited),
+          skewed_column_values: ColumnValueStringList.default(visited),
+          skewed_column_value_location_maps: LocationMap.default(visited),
         }
       end
 
@@ -4132,7 +4132,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('OrderList')
         visited = visited + ['OrderList']
         [
-          Stubs::Order.default(visited)
+          Order.default(visited)
         ]
       end
 
@@ -4174,7 +4174,7 @@ module AWS::SDK::Glue
         {
           name: 'name',
           serialization_library: 'serialization_library',
-          parameters: Stubs::ParametersMap.default(visited),
+          parameters: ParametersMap.default(visited),
         }
       end
 
@@ -4214,7 +4214,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('ColumnList')
         visited = visited + ['ColumnList']
         [
-          Stubs::Column.default(visited)
+          Column.default(visited)
         ]
       end
 
@@ -4237,7 +4237,7 @@ module AWS::SDK::Glue
           name: 'name',
           type: 'type',
           comment: 'comment',
-          parameters: Stubs::ParametersMap.default(visited),
+          parameters: ParametersMap.default(visited),
         }
       end
 
@@ -4256,8 +4256,8 @@ module AWS::SDK::Glue
     class BatchGetTriggers
       def self.default(visited=[])
         {
-          triggers: Stubs::TriggerList.default(visited),
-          triggers_not_found: Stubs::TriggerNameList.default(visited),
+          triggers: TriggerList.default(visited),
+          triggers_not_found: TriggerNameList.default(visited),
         }
       end
 
@@ -4296,7 +4296,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('TriggerList')
         visited = visited + ['TriggerList']
         [
-          Stubs::Trigger.default(visited)
+          Trigger.default(visited)
         ]
       end
 
@@ -4323,9 +4323,9 @@ module AWS::SDK::Glue
           state: 'state',
           description: 'description',
           schedule: 'schedule',
-          actions: Stubs::ActionList.default(visited),
-          predicate: Stubs::Predicate.default(visited),
-          event_batching_condition: Stubs::EventBatchingCondition.default(visited),
+          actions: ActionList.default(visited),
+          predicate: Predicate.default(visited),
+          event_batching_condition: EventBatchingCondition.default(visited),
         }
       end
 
@@ -4373,7 +4373,7 @@ module AWS::SDK::Glue
         visited = visited + ['Predicate']
         {
           logical: 'logical',
-          conditions: Stubs::ConditionList.default(visited),
+          conditions: ConditionList.default(visited),
         }
       end
 
@@ -4392,7 +4392,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('ConditionList')
         visited = visited + ['ConditionList']
         [
-          Stubs::Condition.default(visited)
+          Condition.default(visited)
         ]
       end
 
@@ -4438,7 +4438,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('ActionList')
         visited = visited + ['ActionList']
         [
-          Stubs::Action.default(visited)
+          Action.default(visited)
         ]
       end
 
@@ -4459,10 +4459,10 @@ module AWS::SDK::Glue
         visited = visited + ['Action']
         {
           job_name: 'job_name',
-          arguments: Stubs::GenericMap.default(visited),
+          arguments: GenericMap.default(visited),
           timeout: 1,
           security_configuration: 'security_configuration',
-          notification_property: Stubs::NotificationProperty.default(visited),
+          notification_property: NotificationProperty.default(visited),
           crawler_name: 'crawler_name',
         }
       end
@@ -4484,8 +4484,8 @@ module AWS::SDK::Glue
     class BatchGetWorkflows
       def self.default(visited=[])
         {
-          workflows: Stubs::Workflows.default(visited),
-          missing_workflows: Stubs::WorkflowNames.default(visited),
+          workflows: Workflows.default(visited),
+          missing_workflows: WorkflowNames.default(visited),
         }
       end
 
@@ -4524,7 +4524,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('Workflows')
         visited = visited + ['Workflows']
         [
-          Stubs::Workflow.default(visited)
+          Workflow.default(visited)
         ]
       end
 
@@ -4546,13 +4546,13 @@ module AWS::SDK::Glue
         {
           name: 'name',
           description: 'description',
-          default_run_properties: Stubs::WorkflowRunProperties.default(visited),
+          default_run_properties: WorkflowRunProperties.default(visited),
           created_on: Time.now,
           last_modified_on: Time.now,
-          last_run: Stubs::WorkflowRun.default(visited),
-          graph: Stubs::WorkflowGraph.default(visited),
+          last_run: WorkflowRun.default(visited),
+          graph: WorkflowGraph.default(visited),
           max_concurrent_runs: 1,
-          blueprint_details: Stubs::BlueprintDetails.default(visited),
+          blueprint_details: BlueprintDetails.default(visited),
         }
       end
 
@@ -4598,8 +4598,8 @@ module AWS::SDK::Glue
         return nil if visited.include?('WorkflowGraph')
         visited = visited + ['WorkflowGraph']
         {
-          nodes: Stubs::NodeList.default(visited),
-          edges: Stubs::EdgeList.default(visited),
+          nodes: NodeList.default(visited),
+          edges: EdgeList.default(visited),
         }
       end
 
@@ -4618,7 +4618,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('EdgeList')
         visited = visited + ['EdgeList']
         [
-          Stubs::Edge.default(visited)
+          Edge.default(visited)
         ]
       end
 
@@ -4658,7 +4658,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('NodeList')
         visited = visited + ['NodeList']
         [
-          Stubs::Node.default(visited)
+          Node.default(visited)
         ]
       end
 
@@ -4681,9 +4681,9 @@ module AWS::SDK::Glue
           type: 'type',
           name: 'name',
           unique_id: 'unique_id',
-          trigger_details: Stubs::TriggerNodeDetails.default(visited),
-          job_details: Stubs::JobNodeDetails.default(visited),
-          crawler_details: Stubs::CrawlerNodeDetails.default(visited),
+          trigger_details: TriggerNodeDetails.default(visited),
+          job_details: JobNodeDetails.default(visited),
+          crawler_details: CrawlerNodeDetails.default(visited),
         }
       end
 
@@ -4706,7 +4706,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('CrawlerNodeDetails')
         visited = visited + ['CrawlerNodeDetails']
         {
-          crawls: Stubs::CrawlList.default(visited),
+          crawls: CrawlList.default(visited),
         }
       end
 
@@ -4724,7 +4724,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('CrawlList')
         visited = visited + ['CrawlList']
         [
-          Stubs::Crawl.default(visited)
+          Crawl.default(visited)
         ]
       end
 
@@ -4772,7 +4772,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('JobNodeDetails')
         visited = visited + ['JobNodeDetails']
         {
-          job_runs: Stubs::JobRunList.default(visited),
+          job_runs: JobRunList.default(visited),
         }
       end
 
@@ -4790,7 +4790,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('JobRunList')
         visited = visited + ['JobRunList']
         [
-          Stubs::JobRun.default(visited)
+          JobRun.default(visited)
         ]
       end
 
@@ -4819,9 +4819,9 @@ module AWS::SDK::Glue
           last_modified_on: Time.now,
           completed_on: Time.now,
           job_run_state: 'job_run_state',
-          arguments: Stubs::GenericMap.default(visited),
+          arguments: GenericMap.default(visited),
           error_message: 'error_message',
-          predecessor_runs: Stubs::PredecessorList.default(visited),
+          predecessor_runs: PredecessorList.default(visited),
           allocated_capacity: 1,
           execution_time: 1,
           timeout: 1,
@@ -4830,7 +4830,7 @@ module AWS::SDK::Glue
           number_of_workers: 1,
           security_configuration: 'security_configuration',
           log_group_name: 'log_group_name',
-          notification_property: Stubs::NotificationProperty.default(visited),
+          notification_property: NotificationProperty.default(visited),
           glue_version: 'glue_version',
           dpu_seconds: 1.0,
         }
@@ -4872,7 +4872,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('PredecessorList')
         visited = visited + ['PredecessorList']
         [
-          Stubs::Predecessor.default(visited)
+          Predecessor.default(visited)
         ]
       end
 
@@ -4912,7 +4912,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('TriggerNodeDetails')
         visited = visited + ['TriggerNodeDetails']
         {
-          trigger: Stubs::Trigger.default(visited),
+          trigger: Trigger.default(visited),
         }
       end
 
@@ -4933,14 +4933,14 @@ module AWS::SDK::Glue
           name: 'name',
           workflow_run_id: 'workflow_run_id',
           previous_run_id: 'previous_run_id',
-          workflow_run_properties: Stubs::WorkflowRunProperties.default(visited),
+          workflow_run_properties: WorkflowRunProperties.default(visited),
           started_on: Time.now,
           completed_on: Time.now,
           status: 'status',
           error_message: 'error_message',
-          statistics: Stubs::WorkflowRunStatistics.default(visited),
-          graph: Stubs::WorkflowGraph.default(visited),
-          starting_event_batch_condition: Stubs::StartingEventBatchCondition.default(visited),
+          statistics: WorkflowRunStatistics.default(visited),
+          graph: WorkflowGraph.default(visited),
+          starting_event_batch_condition: StartingEventBatchCondition.default(visited),
         }
       end
 
@@ -5034,8 +5034,8 @@ module AWS::SDK::Glue
     class BatchStopJobRun
       def self.default(visited=[])
         {
-          successful_submissions: Stubs::BatchStopJobRunSuccessfulSubmissionList.default(visited),
-          errors: Stubs::BatchStopJobRunErrorList.default(visited),
+          successful_submissions: BatchStopJobRunSuccessfulSubmissionList.default(visited),
+          errors: BatchStopJobRunErrorList.default(visited),
         }
       end
 
@@ -5054,7 +5054,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('BatchStopJobRunErrorList')
         visited = visited + ['BatchStopJobRunErrorList']
         [
-          Stubs::BatchStopJobRunError.default(visited)
+          BatchStopJobRunError.default(visited)
         ]
       end
 
@@ -5076,7 +5076,7 @@ module AWS::SDK::Glue
         {
           job_name: 'job_name',
           job_run_id: 'job_run_id',
-          error_detail: Stubs::ErrorDetail.default(visited),
+          error_detail: ErrorDetail.default(visited),
         }
       end
 
@@ -5096,7 +5096,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('BatchStopJobRunSuccessfulSubmissionList')
         visited = visited + ['BatchStopJobRunSuccessfulSubmissionList']
         [
-          Stubs::BatchStopJobRunSuccessfulSubmission.default(visited)
+          BatchStopJobRunSuccessfulSubmission.default(visited)
         ]
       end
 
@@ -5134,7 +5134,7 @@ module AWS::SDK::Glue
     class BatchUpdatePartition
       def self.default(visited=[])
         {
-          errors: Stubs::BatchUpdatePartitionFailureList.default(visited),
+          errors: BatchUpdatePartitionFailureList.default(visited),
         }
       end
 
@@ -5152,7 +5152,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('BatchUpdatePartitionFailureList')
         visited = visited + ['BatchUpdatePartitionFailureList']
         [
-          Stubs::BatchUpdatePartitionFailureEntry.default(visited)
+          BatchUpdatePartitionFailureEntry.default(visited)
         ]
       end
 
@@ -5172,8 +5172,8 @@ module AWS::SDK::Glue
         return nil if visited.include?('BatchUpdatePartitionFailureEntry')
         visited = visited + ['BatchUpdatePartitionFailureEntry']
         {
-          partition_value_list: Stubs::BoundedPartitionValueList.default(visited),
-          error_detail: Stubs::ErrorDetail.default(visited),
+          partition_value_list: BoundedPartitionValueList.default(visited),
+          error_detail: ErrorDetail.default(visited),
         }
       end
 
@@ -5352,7 +5352,7 @@ module AWS::SDK::Glue
         {
           endpoint_name: 'endpoint_name',
           status: 'status',
-          security_group_ids: Stubs::StringList.default(visited),
+          security_group_ids: StringList.default(visited),
           subnet_id: 'subnet_id',
           role_arn: 'role_arn',
           yarn_endpoint_address: 'yarn_endpoint_address',
@@ -5368,7 +5368,7 @@ module AWS::SDK::Glue
           failure_reason: 'failure_reason',
           security_configuration: 'security_configuration',
           created_timestamp: Time.now,
-          arguments: Stubs::MapValue.default(visited),
+          arguments: MapValue.default(visited),
         }
       end
 
@@ -5465,7 +5465,7 @@ module AWS::SDK::Glue
           registry_arn: 'registry_arn',
           registry_name: 'registry_name',
           description: 'description',
-          tags: Stubs::TagsMap.default(visited),
+          tags: TagsMap.default(visited),
         }
       end
 
@@ -5515,7 +5515,7 @@ module AWS::SDK::Glue
           latest_schema_version: 1,
           next_schema_version: 1,
           schema_status: 'schema_status',
-          tags: Stubs::TagsMap.default(visited),
+          tags: TagsMap.default(visited),
           schema_version_id: 'schema_version_id',
           schema_version_status: 'schema_version_status',
         }
@@ -5582,7 +5582,7 @@ module AWS::SDK::Glue
     class CreateSession
       def self.default(visited=[])
         {
-          session: Stubs::Session.default(visited),
+          session: Session.default(visited),
         }
       end
 
@@ -5606,9 +5606,9 @@ module AWS::SDK::Glue
           error_message: 'error_message',
           description: 'description',
           role: 'role',
-          command: Stubs::SessionCommand.default(visited),
-          default_arguments: Stubs::OrchestrationArgumentsMap.default(visited),
-          connections: Stubs::ConnectionsList.default(visited),
+          command: SessionCommand.default(visited),
+          default_arguments: OrchestrationArgumentsMap.default(visited),
+          connections: ConnectionsList.default(visited),
           progress: 1.0,
           max_capacity: 1.0,
           security_configuration: 'security_configuration',
@@ -5984,7 +5984,7 @@ module AWS::SDK::Glue
     class DeleteSchemaVersions
       def self.default(visited=[])
         {
-          schema_version_errors: Stubs::SchemaVersionErrorList.default(visited),
+          schema_version_errors: SchemaVersionErrorList.default(visited),
         }
       end
 
@@ -6002,7 +6002,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('SchemaVersionErrorList')
         visited = visited + ['SchemaVersionErrorList']
         [
-          Stubs::SchemaVersionErrorItem.default(visited)
+          SchemaVersionErrorItem.default(visited)
         ]
       end
 
@@ -6023,7 +6023,7 @@ module AWS::SDK::Glue
         visited = visited + ['SchemaVersionErrorItem']
         {
           version_number: 1,
-          error_details: Stubs::ErrorDetails.default(visited),
+          error_details: ErrorDetails.default(visited),
         }
       end
 
@@ -6164,7 +6164,7 @@ module AWS::SDK::Glue
     class GetBlueprint
       def self.default(visited=[])
         {
-          blueprint: Stubs::Blueprint.default(visited),
+          blueprint: Blueprint.default(visited),
         }
       end
 
@@ -6180,7 +6180,7 @@ module AWS::SDK::Glue
     class GetBlueprintRun
       def self.default(visited=[])
         {
-          blueprint_run: Stubs::BlueprintRun.default(visited),
+          blueprint_run: BlueprintRun.default(visited),
         }
       end
 
@@ -6232,7 +6232,7 @@ module AWS::SDK::Glue
     class GetBlueprintRuns
       def self.default(visited=[])
         {
-          blueprint_runs: Stubs::BlueprintRuns.default(visited),
+          blueprint_runs: BlueprintRuns.default(visited),
           next_token: 'next_token',
         }
       end
@@ -6252,7 +6252,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('BlueprintRuns')
         visited = visited + ['BlueprintRuns']
         [
-          Stubs::BlueprintRun.default(visited)
+          BlueprintRun.default(visited)
         ]
       end
 
@@ -6270,7 +6270,7 @@ module AWS::SDK::Glue
     class GetCatalogImportStatus
       def self.default(visited=[])
         {
-          import_status: Stubs::CatalogImportStatus.default(visited),
+          import_status: CatalogImportStatus.default(visited),
         }
       end
 
@@ -6308,7 +6308,7 @@ module AWS::SDK::Glue
     class GetClassifier
       def self.default(visited=[])
         {
-          classifier: Stubs::Classifier.default(visited),
+          classifier: Classifier.default(visited),
         }
       end
 
@@ -6326,10 +6326,10 @@ module AWS::SDK::Glue
         return nil if visited.include?('Classifier')
         visited = visited + ['Classifier']
         {
-          grok_classifier: Stubs::GrokClassifier.default(visited),
-          xml_classifier: Stubs::XMLClassifier.default(visited),
-          json_classifier: Stubs::JsonClassifier.default(visited),
-          csv_classifier: Stubs::CsvClassifier.default(visited),
+          grok_classifier: GrokClassifier.default(visited),
+          xml_classifier: XMLClassifier.default(visited),
+          json_classifier: JsonClassifier.default(visited),
+          csv_classifier: CsvClassifier.default(visited),
         }
       end
 
@@ -6357,7 +6357,7 @@ module AWS::SDK::Glue
           delimiter: 'delimiter',
           quote_symbol: 'quote_symbol',
           contains_header: 'contains_header',
-          header: Stubs::CsvHeader.default(visited),
+          header: CsvHeader.default(visited),
           disable_value_trimming: false,
           allow_single_column: false,
         }
@@ -6488,7 +6488,7 @@ module AWS::SDK::Glue
     class GetClassifiers
       def self.default(visited=[])
         {
-          classifiers: Stubs::ClassifierList.default(visited),
+          classifiers: ClassifierList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -6508,7 +6508,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('ClassifierList')
         visited = visited + ['ClassifierList']
         [
-          Stubs::Classifier.default(visited)
+          Classifier.default(visited)
         ]
       end
 
@@ -6526,8 +6526,8 @@ module AWS::SDK::Glue
     class GetColumnStatisticsForPartition
       def self.default(visited=[])
         {
-          column_statistics_list: Stubs::ColumnStatisticsList.default(visited),
-          errors: Stubs::ColumnErrors.default(visited),
+          column_statistics_list: ColumnStatisticsList.default(visited),
+          errors: ColumnErrors.default(visited),
         }
       end
 
@@ -6546,7 +6546,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('ColumnErrors')
         visited = visited + ['ColumnErrors']
         [
-          Stubs::ColumnError.default(visited)
+          ColumnError.default(visited)
         ]
       end
 
@@ -6567,7 +6567,7 @@ module AWS::SDK::Glue
         visited = visited + ['ColumnError']
         {
           column_name: 'column_name',
-          error: Stubs::ErrorDetail.default(visited),
+          error: ErrorDetail.default(visited),
         }
       end
 
@@ -6586,7 +6586,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('ColumnStatisticsList')
         visited = visited + ['ColumnStatisticsList']
         [
-          Stubs::ColumnStatistics.default(visited)
+          ColumnStatistics.default(visited)
         ]
       end
 
@@ -6609,7 +6609,7 @@ module AWS::SDK::Glue
           column_name: 'column_name',
           column_type: 'column_type',
           analyzed_time: Time.now,
-          statistics_data: Stubs::ColumnStatisticsData.default(visited),
+          statistics_data: ColumnStatisticsData.default(visited),
         }
       end
 
@@ -6631,13 +6631,13 @@ module AWS::SDK::Glue
         visited = visited + ['ColumnStatisticsData']
         {
           type: 'type',
-          boolean_column_statistics_data: Stubs::BooleanColumnStatisticsData.default(visited),
-          date_column_statistics_data: Stubs::DateColumnStatisticsData.default(visited),
-          decimal_column_statistics_data: Stubs::DecimalColumnStatisticsData.default(visited),
-          double_column_statistics_data: Stubs::DoubleColumnStatisticsData.default(visited),
-          long_column_statistics_data: Stubs::LongColumnStatisticsData.default(visited),
-          string_column_statistics_data: Stubs::StringColumnStatisticsData.default(visited),
-          binary_column_statistics_data: Stubs::BinaryColumnStatisticsData.default(visited),
+          boolean_column_statistics_data: BooleanColumnStatisticsData.default(visited),
+          date_column_statistics_data: DateColumnStatisticsData.default(visited),
+          decimal_column_statistics_data: DecimalColumnStatisticsData.default(visited),
+          double_column_statistics_data: DoubleColumnStatisticsData.default(visited),
+          long_column_statistics_data: LongColumnStatisticsData.default(visited),
+          string_column_statistics_data: StringColumnStatisticsData.default(visited),
+          binary_column_statistics_data: BinaryColumnStatisticsData.default(visited),
         }
       end
 
@@ -6756,8 +6756,8 @@ module AWS::SDK::Glue
         return nil if visited.include?('DecimalColumnStatisticsData')
         visited = visited + ['DecimalColumnStatisticsData']
         {
-          minimum_value: Stubs::DecimalNumber.default(visited),
-          maximum_value: Stubs::DecimalNumber.default(visited),
+          minimum_value: DecimalNumber.default(visited),
+          maximum_value: DecimalNumber.default(visited),
           number_of_nulls: 1,
           number_of_distinct_values: 1,
         }
@@ -6844,8 +6844,8 @@ module AWS::SDK::Glue
     class GetColumnStatisticsForTable
       def self.default(visited=[])
         {
-          column_statistics_list: Stubs::ColumnStatisticsList.default(visited),
-          errors: Stubs::ColumnErrors.default(visited),
+          column_statistics_list: ColumnStatisticsList.default(visited),
+          errors: ColumnErrors.default(visited),
         }
       end
 
@@ -6862,7 +6862,7 @@ module AWS::SDK::Glue
     class GetConnection
       def self.default(visited=[])
         {
-          connection: Stubs::Connection.default(visited),
+          connection: Connection.default(visited),
         }
       end
 
@@ -6883,9 +6883,9 @@ module AWS::SDK::Glue
           name: 'name',
           description: 'description',
           connection_type: 'connection_type',
-          match_criteria: Stubs::MatchCriteria.default(visited),
-          connection_properties: Stubs::ConnectionProperties.default(visited),
-          physical_connection_requirements: Stubs::PhysicalConnectionRequirements.default(visited),
+          match_criteria: MatchCriteria.default(visited),
+          connection_properties: ConnectionProperties.default(visited),
+          physical_connection_requirements: PhysicalConnectionRequirements.default(visited),
           creation_time: Time.now,
           last_updated_time: Time.now,
           last_updated_by: 'last_updated_by',
@@ -6915,7 +6915,7 @@ module AWS::SDK::Glue
         visited = visited + ['PhysicalConnectionRequirements']
         {
           subnet_id: 'subnet_id',
-          security_group_id_list: Stubs::SecurityGroupIdList.default(visited),
+          security_group_id_list: SecurityGroupIdList.default(visited),
           availability_zone: 'availability_zone',
         }
       end
@@ -6994,7 +6994,7 @@ module AWS::SDK::Glue
     class GetConnections
       def self.default(visited=[])
         {
-          connection_list: Stubs::ConnectionList.default(visited),
+          connection_list: ConnectionList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -7014,7 +7014,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('ConnectionList')
         visited = visited + ['ConnectionList']
         [
-          Stubs::Connection.default(visited)
+          Connection.default(visited)
         ]
       end
 
@@ -7032,7 +7032,7 @@ module AWS::SDK::Glue
     class GetCrawler
       def self.default(visited=[])
         {
-          crawler: Stubs::Crawler.default(visited),
+          crawler: Crawler.default(visited),
         }
       end
 
@@ -7048,7 +7048,7 @@ module AWS::SDK::Glue
     class GetCrawlerMetrics
       def self.default(visited=[])
         {
-          crawler_metrics_list: Stubs::CrawlerMetricsList.default(visited),
+          crawler_metrics_list: CrawlerMetricsList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -7068,7 +7068,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('CrawlerMetricsList')
         visited = visited + ['CrawlerMetricsList']
         [
-          Stubs::CrawlerMetrics.default(visited)
+          CrawlerMetrics.default(visited)
         ]
       end
 
@@ -7118,7 +7118,7 @@ module AWS::SDK::Glue
     class GetCrawlers
       def self.default(visited=[])
         {
-          crawlers: Stubs::CrawlerList.default(visited),
+          crawlers: CrawlerList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -7138,7 +7138,7 @@ module AWS::SDK::Glue
         {
           name: 'name',
           regex_string: 'regex_string',
-          context_words: Stubs::ContextWords.default(visited),
+          context_words: ContextWords.default(visited),
         }
       end
 
@@ -7156,7 +7156,7 @@ module AWS::SDK::Glue
     class GetDataCatalogEncryptionSettings
       def self.default(visited=[])
         {
-          data_catalog_encryption_settings: Stubs::DataCatalogEncryptionSettings.default(visited),
+          data_catalog_encryption_settings: DataCatalogEncryptionSettings.default(visited),
         }
       end
 
@@ -7174,8 +7174,8 @@ module AWS::SDK::Glue
         return nil if visited.include?('DataCatalogEncryptionSettings')
         visited = visited + ['DataCatalogEncryptionSettings']
         {
-          encryption_at_rest: Stubs::EncryptionAtRest.default(visited),
-          connection_password_encryption: Stubs::ConnectionPasswordEncryption.default(visited),
+          encryption_at_rest: EncryptionAtRest.default(visited),
+          connection_password_encryption: ConnectionPasswordEncryption.default(visited),
         }
       end
 
@@ -7232,7 +7232,7 @@ module AWS::SDK::Glue
     class GetDatabase
       def self.default(visited=[])
         {
-          database: Stubs::Database.default(visited),
+          database: Database.default(visited),
         }
       end
 
@@ -7253,10 +7253,10 @@ module AWS::SDK::Glue
           name: 'name',
           description: 'description',
           location_uri: 'location_uri',
-          parameters: Stubs::ParametersMap.default(visited),
+          parameters: ParametersMap.default(visited),
           create_time: Time.now,
-          create_table_default_permissions: Stubs::PrincipalPermissionsList.default(visited),
-          target_database: Stubs::DatabaseIdentifier.default(visited),
+          create_table_default_permissions: PrincipalPermissionsList.default(visited),
+          target_database: DatabaseIdentifier.default(visited),
           catalog_id: 'catalog_id',
         }
       end
@@ -7302,7 +7302,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('PrincipalPermissionsList')
         visited = visited + ['PrincipalPermissionsList']
         [
-          Stubs::PrincipalPermissions.default(visited)
+          PrincipalPermissions.default(visited)
         ]
       end
 
@@ -7322,8 +7322,8 @@ module AWS::SDK::Glue
         return nil if visited.include?('PrincipalPermissions')
         visited = visited + ['PrincipalPermissions']
         {
-          principal: Stubs::DataLakePrincipal.default(visited),
-          permissions: Stubs::PermissionList.default(visited),
+          principal: DataLakePrincipal.default(visited),
+          permissions: PermissionList.default(visited),
         }
       end
 
@@ -7378,7 +7378,7 @@ module AWS::SDK::Glue
     class GetDatabases
       def self.default(visited=[])
         {
-          database_list: Stubs::DatabaseList.default(visited),
+          database_list: DatabaseList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -7398,7 +7398,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('DatabaseList')
         visited = visited + ['DatabaseList']
         [
-          Stubs::Database.default(visited)
+          Database.default(visited)
         ]
       end
 
@@ -7416,8 +7416,8 @@ module AWS::SDK::Glue
     class GetDataflowGraph
       def self.default(visited=[])
         {
-          dag_nodes: Stubs::DagNodes.default(visited),
-          dag_edges: Stubs::DagEdges.default(visited),
+          dag_nodes: DagNodes.default(visited),
+          dag_edges: DagEdges.default(visited),
         }
       end
 
@@ -7436,7 +7436,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('DagEdges')
         visited = visited + ['DagEdges']
         [
-          Stubs::CodeGenEdge.default(visited)
+          CodeGenEdge.default(visited)
         ]
       end
 
@@ -7478,7 +7478,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('DagNodes')
         visited = visited + ['DagNodes']
         [
-          Stubs::CodeGenNode.default(visited)
+          CodeGenNode.default(visited)
         ]
       end
 
@@ -7500,7 +7500,7 @@ module AWS::SDK::Glue
         {
           id: 'id',
           node_type: 'node_type',
-          args: Stubs::CodeGenNodeArgs.default(visited),
+          args: CodeGenNodeArgs.default(visited),
           line_number: 1,
         }
       end
@@ -7522,7 +7522,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('CodeGenNodeArgs')
         visited = visited + ['CodeGenNodeArgs']
         [
-          Stubs::CodeGenNodeArg.default(visited)
+          CodeGenNodeArg.default(visited)
         ]
       end
 
@@ -7562,7 +7562,7 @@ module AWS::SDK::Glue
     class GetDevEndpoint
       def self.default(visited=[])
         {
-          dev_endpoint: Stubs::DevEndpoint.default(visited),
+          dev_endpoint: DevEndpoint.default(visited),
         }
       end
 
@@ -7578,7 +7578,7 @@ module AWS::SDK::Glue
     class GetDevEndpoints
       def self.default(visited=[])
         {
-          dev_endpoints: Stubs::DevEndpointList.default(visited),
+          dev_endpoints: DevEndpointList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -7596,7 +7596,7 @@ module AWS::SDK::Glue
     class GetJob
       def self.default(visited=[])
         {
-          job: Stubs::Job.default(visited),
+          job: Job.default(visited),
         }
       end
 
@@ -7612,7 +7612,7 @@ module AWS::SDK::Glue
     class GetJobBookmark
       def self.default(visited=[])
         {
-          job_bookmark_entry: Stubs::JobBookmarkEntry.default(visited),
+          job_bookmark_entry: JobBookmarkEntry.default(visited),
         }
       end
 
@@ -7658,7 +7658,7 @@ module AWS::SDK::Glue
     class GetJobRun
       def self.default(visited=[])
         {
-          job_run: Stubs::JobRun.default(visited),
+          job_run: JobRun.default(visited),
         }
       end
 
@@ -7674,7 +7674,7 @@ module AWS::SDK::Glue
     class GetJobRuns
       def self.default(visited=[])
         {
-          job_runs: Stubs::JobRunList.default(visited),
+          job_runs: JobRunList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -7692,7 +7692,7 @@ module AWS::SDK::Glue
     class GetJobs
       def self.default(visited=[])
         {
-          jobs: Stubs::JobList.default(visited),
+          jobs: JobList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -7714,7 +7714,7 @@ module AWS::SDK::Glue
           task_run_id: 'task_run_id',
           status: 'status',
           log_group_name: 'log_group_name',
-          properties: Stubs::TaskRunProperties.default(visited),
+          properties: TaskRunProperties.default(visited),
           error_string: 'error_string',
           started_on: Time.now,
           last_modified_on: Time.now,
@@ -7747,10 +7747,10 @@ module AWS::SDK::Glue
         visited = visited + ['TaskRunProperties']
         {
           task_type: 'task_type',
-          import_labels_task_run_properties: Stubs::ImportLabelsTaskRunProperties.default(visited),
-          export_labels_task_run_properties: Stubs::ExportLabelsTaskRunProperties.default(visited),
-          labeling_set_generation_task_run_properties: Stubs::LabelingSetGenerationTaskRunProperties.default(visited),
-          find_matches_task_run_properties: Stubs::FindMatchesTaskRunProperties.default(visited),
+          import_labels_task_run_properties: ImportLabelsTaskRunProperties.default(visited),
+          export_labels_task_run_properties: ExportLabelsTaskRunProperties.default(visited),
+          labeling_set_generation_task_run_properties: LabelingSetGenerationTaskRunProperties.default(visited),
+          find_matches_task_run_properties: FindMatchesTaskRunProperties.default(visited),
         }
       end
 
@@ -7848,7 +7848,7 @@ module AWS::SDK::Glue
     class GetMLTaskRuns
       def self.default(visited=[])
         {
-          task_runs: Stubs::TaskRunList.default(visited),
+          task_runs: TaskRunList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -7868,7 +7868,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('TaskRunList')
         visited = visited + ['TaskRunList']
         [
-          Stubs::TaskRun.default(visited)
+          TaskRun.default(visited)
         ]
       end
 
@@ -7892,7 +7892,7 @@ module AWS::SDK::Glue
           task_run_id: 'task_run_id',
           status: 'status',
           log_group_name: 'log_group_name',
-          properties: Stubs::TaskRunProperties.default(visited),
+          properties: TaskRunProperties.default(visited),
           error_string: 'error_string',
           started_on: Time.now,
           last_modified_on: Time.now,
@@ -7928,11 +7928,11 @@ module AWS::SDK::Glue
           status: 'status',
           created_on: Time.now,
           last_modified_on: Time.now,
-          input_record_tables: Stubs::GlueTables.default(visited),
-          parameters: Stubs::TransformParameters.default(visited),
-          evaluation_metrics: Stubs::EvaluationMetrics.default(visited),
+          input_record_tables: GlueTables.default(visited),
+          parameters: TransformParameters.default(visited),
+          evaluation_metrics: EvaluationMetrics.default(visited),
           label_count: 1,
-          schema: Stubs::TransformSchema.default(visited),
+          schema: TransformSchema.default(visited),
           role: 'role',
           glue_version: 'glue_version',
           max_capacity: 1.0,
@@ -7940,7 +7940,7 @@ module AWS::SDK::Glue
           number_of_workers: 1,
           timeout: 1,
           max_retries: 1,
-          transform_encryption: Stubs::TransformEncryption.default(visited),
+          transform_encryption: TransformEncryption.default(visited),
         }
       end
 
@@ -7976,7 +7976,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('TransformEncryption')
         visited = visited + ['TransformEncryption']
         {
-          ml_user_data_encryption: Stubs::MLUserDataEncryption.default(visited),
+          ml_user_data_encryption: MLUserDataEncryption.default(visited),
           task_run_security_configuration_name: 'task_run_security_configuration_name',
         }
       end
@@ -8016,7 +8016,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('TransformSchema')
         visited = visited + ['TransformSchema']
         [
-          Stubs::SchemaColumn.default(visited)
+          SchemaColumn.default(visited)
         ]
       end
 
@@ -8057,7 +8057,7 @@ module AWS::SDK::Glue
         visited = visited + ['EvaluationMetrics']
         {
           transform_type: 'transform_type',
-          find_matches_metrics: Stubs::FindMatchesMetrics.default(visited),
+          find_matches_metrics: FindMatchesMetrics.default(visited),
         }
       end
 
@@ -8080,8 +8080,8 @@ module AWS::SDK::Glue
           precision: 1.0,
           recall: 1.0,
           f1: 1.0,
-          confusion_matrix: Stubs::ConfusionMatrix.default(visited),
-          column_importances: Stubs::ColumnImportanceList.default(visited),
+          confusion_matrix: ConfusionMatrix.default(visited),
+          column_importances: ColumnImportanceList.default(visited),
         }
       end
 
@@ -8104,7 +8104,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('ColumnImportanceList')
         visited = visited + ['ColumnImportanceList']
         [
-          Stubs::ColumnImportance.default(visited)
+          ColumnImportance.default(visited)
         ]
       end
 
@@ -8169,7 +8169,7 @@ module AWS::SDK::Glue
         visited = visited + ['TransformParameters']
         {
           transform_type: 'transform_type',
-          find_matches_parameters: Stubs::FindMatchesParameters.default(visited),
+          find_matches_parameters: FindMatchesParameters.default(visited),
         }
       end
 
@@ -8212,7 +8212,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('GlueTables')
         visited = visited + ['GlueTables']
         [
-          Stubs::GlueTable.default(visited)
+          GlueTable.default(visited)
         ]
       end
 
@@ -8254,7 +8254,7 @@ module AWS::SDK::Glue
     class GetMLTransforms
       def self.default(visited=[])
         {
-          transforms: Stubs::TransformList.default(visited),
+          transforms: TransformList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -8274,7 +8274,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('TransformList')
         visited = visited + ['TransformList']
         [
-          Stubs::MLTransform.default(visited)
+          MLTransform.default(visited)
         ]
       end
 
@@ -8300,11 +8300,11 @@ module AWS::SDK::Glue
           status: 'status',
           created_on: Time.now,
           last_modified_on: Time.now,
-          input_record_tables: Stubs::GlueTables.default(visited),
-          parameters: Stubs::TransformParameters.default(visited),
-          evaluation_metrics: Stubs::EvaluationMetrics.default(visited),
+          input_record_tables: GlueTables.default(visited),
+          parameters: TransformParameters.default(visited),
+          evaluation_metrics: EvaluationMetrics.default(visited),
           label_count: 1,
-          schema: Stubs::TransformSchema.default(visited),
+          schema: TransformSchema.default(visited),
           role: 'role',
           glue_version: 'glue_version',
           max_capacity: 1.0,
@@ -8312,7 +8312,7 @@ module AWS::SDK::Glue
           number_of_workers: 1,
           timeout: 1,
           max_retries: 1,
-          transform_encryption: Stubs::TransformEncryption.default(visited),
+          transform_encryption: TransformEncryption.default(visited),
         }
       end
 
@@ -8346,7 +8346,7 @@ module AWS::SDK::Glue
     class GetMapping
       def self.default(visited=[])
         {
-          mapping: Stubs::MappingList.default(visited),
+          mapping: MappingList.default(visited),
         }
       end
 
@@ -8364,7 +8364,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('MappingList')
         visited = visited + ['MappingList']
         [
-          Stubs::MappingEntry.default(visited)
+          MappingEntry.default(visited)
         ]
       end
 
@@ -8410,7 +8410,7 @@ module AWS::SDK::Glue
     class GetPartition
       def self.default(visited=[])
         {
-          partition: Stubs::Partition.default(visited),
+          partition: Partition.default(visited),
         }
       end
 
@@ -8426,7 +8426,7 @@ module AWS::SDK::Glue
     class GetPartitionIndexes
       def self.default(visited=[])
         {
-          partition_index_descriptor_list: Stubs::PartitionIndexDescriptorList.default(visited),
+          partition_index_descriptor_list: PartitionIndexDescriptorList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -8446,7 +8446,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('PartitionIndexDescriptorList')
         visited = visited + ['PartitionIndexDescriptorList']
         [
-          Stubs::PartitionIndexDescriptor.default(visited)
+          PartitionIndexDescriptor.default(visited)
         ]
       end
 
@@ -8467,9 +8467,9 @@ module AWS::SDK::Glue
         visited = visited + ['PartitionIndexDescriptor']
         {
           index_name: 'index_name',
-          keys: Stubs::KeySchemaElementList.default(visited),
+          keys: KeySchemaElementList.default(visited),
           index_status: 'index_status',
-          backfill_errors: Stubs::BackfillErrors.default(visited),
+          backfill_errors: BackfillErrors.default(visited),
         }
       end
 
@@ -8490,7 +8490,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('BackfillErrors')
         visited = visited + ['BackfillErrors']
         [
-          Stubs::BackfillError.default(visited)
+          BackfillError.default(visited)
         ]
       end
 
@@ -8511,7 +8511,7 @@ module AWS::SDK::Glue
         visited = visited + ['BackfillError']
         {
           code: 'code',
-          partitions: Stubs::BackfillErroredPartitionsList.default(visited),
+          partitions: BackfillErroredPartitionsList.default(visited),
         }
       end
 
@@ -8530,7 +8530,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('BackfillErroredPartitionsList')
         visited = visited + ['BackfillErroredPartitionsList']
         [
-          Stubs::PartitionValueList.default(visited)
+          PartitionValueList.default(visited)
         ]
       end
 
@@ -8550,7 +8550,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('KeySchemaElementList')
         visited = visited + ['KeySchemaElementList']
         [
-          Stubs::KeySchemaElement.default(visited)
+          KeySchemaElement.default(visited)
         ]
       end
 
@@ -8588,7 +8588,7 @@ module AWS::SDK::Glue
     class GetPartitions
       def self.default(visited=[])
         {
-          partitions: Stubs::PartitionList.default(visited),
+          partitions: PartitionList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -8650,7 +8650,7 @@ module AWS::SDK::Glue
     class GetResourcePolicies
       def self.default(visited=[])
         {
-          get_resource_policies_response_list: Stubs::GetResourcePoliciesResponseList.default(visited),
+          get_resource_policies_response_list: GetResourcePoliciesResponseList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -8670,7 +8670,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('GetResourcePoliciesResponseList')
         visited = visited + ['GetResourcePoliciesResponseList']
         [
-          Stubs::GluePolicy.default(visited)
+          GluePolicy.default(visited)
         ]
       end
 
@@ -8842,7 +8842,7 @@ module AWS::SDK::Glue
     class GetSecurityConfiguration
       def self.default(visited=[])
         {
-          security_configuration: Stubs::SecurityConfiguration.default(visited),
+          security_configuration: SecurityConfiguration.default(visited),
         }
       end
 
@@ -8862,7 +8862,7 @@ module AWS::SDK::Glue
         {
           name: 'name',
           created_time_stamp: Time.now,
-          encryption_configuration: Stubs::EncryptionConfiguration.default(visited),
+          encryption_configuration: EncryptionConfiguration.default(visited),
         }
       end
 
@@ -8882,9 +8882,9 @@ module AWS::SDK::Glue
         return nil if visited.include?('EncryptionConfiguration')
         visited = visited + ['EncryptionConfiguration']
         {
-          s3_encryption: Stubs::S3EncryptionList.default(visited),
-          cloud_watch_encryption: Stubs::CloudWatchEncryption.default(visited),
-          job_bookmarks_encryption: Stubs::JobBookmarksEncryption.default(visited),
+          s3_encryption: S3EncryptionList.default(visited),
+          cloud_watch_encryption: CloudWatchEncryption.default(visited),
+          job_bookmarks_encryption: JobBookmarksEncryption.default(visited),
         }
       end
 
@@ -8944,7 +8944,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('S3EncryptionList')
         visited = visited + ['S3EncryptionList']
         [
-          Stubs::S3Encryption.default(visited)
+          S3Encryption.default(visited)
         ]
       end
 
@@ -8982,7 +8982,7 @@ module AWS::SDK::Glue
     class GetSecurityConfigurations
       def self.default(visited=[])
         {
-          security_configurations: Stubs::SecurityConfigurationList.default(visited),
+          security_configurations: SecurityConfigurationList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -9002,7 +9002,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('SecurityConfigurationList')
         visited = visited + ['SecurityConfigurationList']
         [
-          Stubs::SecurityConfiguration.default(visited)
+          SecurityConfiguration.default(visited)
         ]
       end
 
@@ -9020,7 +9020,7 @@ module AWS::SDK::Glue
     class GetSession
       def self.default(visited=[])
         {
-          session: Stubs::Session.default(visited),
+          session: Session.default(visited),
         }
       end
 
@@ -9036,7 +9036,7 @@ module AWS::SDK::Glue
     class GetStatement
       def self.default(visited=[])
         {
-          statement: Stubs::Statement.default(visited),
+          statement: Statement.default(visited),
         }
       end
 
@@ -9057,7 +9057,7 @@ module AWS::SDK::Glue
           id: 1,
           code: 'code',
           state: 'state',
-          output: Stubs::StatementOutput.default(visited),
+          output: StatementOutput.default(visited),
           progress: 1.0,
           started_on: 1,
           completed_on: 1,
@@ -9084,12 +9084,12 @@ module AWS::SDK::Glue
         return nil if visited.include?('StatementOutput')
         visited = visited + ['StatementOutput']
         {
-          data: Stubs::StatementOutputData.default(visited),
+          data: StatementOutputData.default(visited),
           execution_count: 1,
           status: 'status',
           error_name: 'error_name',
           error_value: 'error_value',
-          traceback: Stubs::OrchestrationStringList.default(visited),
+          traceback: OrchestrationStringList.default(visited),
         }
       end
 
@@ -9128,7 +9128,7 @@ module AWS::SDK::Glue
     class GetTable
       def self.default(visited=[])
         {
-          table: Stubs::Table.default(visited),
+          table: Table.default(visited),
         }
       end
 
@@ -9155,15 +9155,15 @@ module AWS::SDK::Glue
           last_access_time: Time.now,
           last_analyzed_time: Time.now,
           retention: 1,
-          storage_descriptor: Stubs::StorageDescriptor.default(visited),
-          partition_keys: Stubs::ColumnList.default(visited),
+          storage_descriptor: StorageDescriptor.default(visited),
+          partition_keys: ColumnList.default(visited),
           view_original_text: 'view_original_text',
           view_expanded_text: 'view_expanded_text',
           table_type: 'table_type',
-          parameters: Stubs::ParametersMap.default(visited),
+          parameters: ParametersMap.default(visited),
           created_by: 'created_by',
           is_registered_with_lake_formation: false,
-          target_table: Stubs::TableIdentifier.default(visited),
+          target_table: TableIdentifier.default(visited),
           catalog_id: 'catalog_id',
           version_id: 'version_id',
         }
@@ -9222,7 +9222,7 @@ module AWS::SDK::Glue
     class GetTableVersion
       def self.default(visited=[])
         {
-          table_version: Stubs::TableVersion.default(visited),
+          table_version: TableVersion.default(visited),
         }
       end
 
@@ -9240,7 +9240,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('TableVersion')
         visited = visited + ['TableVersion']
         {
-          table: Stubs::Table.default(visited),
+          table: Table.default(visited),
           version_id: 'version_id',
         }
       end
@@ -9258,7 +9258,7 @@ module AWS::SDK::Glue
     class GetTableVersions
       def self.default(visited=[])
         {
-          table_versions: Stubs::GetTableVersionsList.default(visited),
+          table_versions: GetTableVersionsList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -9278,7 +9278,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('GetTableVersionsList')
         visited = visited + ['GetTableVersionsList']
         [
-          Stubs::TableVersion.default(visited)
+          TableVersion.default(visited)
         ]
       end
 
@@ -9296,7 +9296,7 @@ module AWS::SDK::Glue
     class GetTables
       def self.default(visited=[])
         {
-          table_list: Stubs::TableList.default(visited),
+          table_list: TableList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -9316,7 +9316,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('TableList')
         visited = visited + ['TableList']
         [
-          Stubs::Table.default(visited)
+          Table.default(visited)
         ]
       end
 
@@ -9334,7 +9334,7 @@ module AWS::SDK::Glue
     class GetTags
       def self.default(visited=[])
         {
-          tags: Stubs::TagsMap.default(visited),
+          tags: TagsMap.default(visited),
         }
       end
 
@@ -9350,7 +9350,7 @@ module AWS::SDK::Glue
     class GetTrigger
       def self.default(visited=[])
         {
-          trigger: Stubs::Trigger.default(visited),
+          trigger: Trigger.default(visited),
         }
       end
 
@@ -9366,7 +9366,7 @@ module AWS::SDK::Glue
     class GetTriggers
       def self.default(visited=[])
         {
-          triggers: Stubs::TriggerList.default(visited),
+          triggers: TriggerList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -9384,8 +9384,8 @@ module AWS::SDK::Glue
     class GetUnfilteredPartitionMetadata
       def self.default(visited=[])
         {
-          partition: Stubs::Partition.default(visited),
-          authorized_columns: Stubs::NameStringList.default(visited),
+          partition: Partition.default(visited),
+          authorized_columns: NameStringList.default(visited),
           is_registered_with_lake_formation: false,
         }
       end
@@ -9404,7 +9404,7 @@ module AWS::SDK::Glue
     class GetUnfilteredPartitionsMetadata
       def self.default(visited=[])
         {
-          unfiltered_partitions: Stubs::UnfilteredPartitionList.default(visited),
+          unfiltered_partitions: UnfilteredPartitionList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -9424,7 +9424,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('UnfilteredPartitionList')
         visited = visited + ['UnfilteredPartitionList']
         [
-          Stubs::UnfilteredPartition.default(visited)
+          UnfilteredPartition.default(visited)
         ]
       end
 
@@ -9444,8 +9444,8 @@ module AWS::SDK::Glue
         return nil if visited.include?('UnfilteredPartition')
         visited = visited + ['UnfilteredPartition']
         {
-          partition: Stubs::Partition.default(visited),
-          authorized_columns: Stubs::NameStringList.default(visited),
+          partition: Partition.default(visited),
+          authorized_columns: NameStringList.default(visited),
           is_registered_with_lake_formation: false,
         }
       end
@@ -9464,10 +9464,10 @@ module AWS::SDK::Glue
     class GetUnfilteredTableMetadata
       def self.default(visited=[])
         {
-          table: Stubs::Table.default(visited),
-          authorized_columns: Stubs::NameStringList.default(visited),
+          table: Table.default(visited),
+          authorized_columns: NameStringList.default(visited),
           is_registered_with_lake_formation: false,
-          cell_filters: Stubs::ColumnRowFilterList.default(visited),
+          cell_filters: ColumnRowFilterList.default(visited),
         }
       end
 
@@ -9488,7 +9488,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('ColumnRowFilterList')
         visited = visited + ['ColumnRowFilterList']
         [
-          Stubs::ColumnRowFilter.default(visited)
+          ColumnRowFilter.default(visited)
         ]
       end
 
@@ -9526,7 +9526,7 @@ module AWS::SDK::Glue
     class GetUserDefinedFunction
       def self.default(visited=[])
         {
-          user_defined_function: Stubs::UserDefinedFunction.default(visited),
+          user_defined_function: UserDefinedFunction.default(visited),
         }
       end
 
@@ -9550,7 +9550,7 @@ module AWS::SDK::Glue
           owner_name: 'owner_name',
           owner_type: 'owner_type',
           create_time: Time.now,
-          resource_uris: Stubs::ResourceUriList.default(visited),
+          resource_uris: ResourceUriList.default(visited),
           catalog_id: 'catalog_id',
         }
       end
@@ -9576,7 +9576,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('ResourceUriList')
         visited = visited + ['ResourceUriList']
         [
-          Stubs::ResourceUri.default(visited)
+          ResourceUri.default(visited)
         ]
       end
 
@@ -9614,7 +9614,7 @@ module AWS::SDK::Glue
     class GetUserDefinedFunctions
       def self.default(visited=[])
         {
-          user_defined_functions: Stubs::UserDefinedFunctionList.default(visited),
+          user_defined_functions: UserDefinedFunctionList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -9634,7 +9634,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('UserDefinedFunctionList')
         visited = visited + ['UserDefinedFunctionList']
         [
-          Stubs::UserDefinedFunction.default(visited)
+          UserDefinedFunction.default(visited)
         ]
       end
 
@@ -9652,7 +9652,7 @@ module AWS::SDK::Glue
     class GetWorkflow
       def self.default(visited=[])
         {
-          workflow: Stubs::Workflow.default(visited),
+          workflow: Workflow.default(visited),
         }
       end
 
@@ -9668,7 +9668,7 @@ module AWS::SDK::Glue
     class GetWorkflowRun
       def self.default(visited=[])
         {
-          run: Stubs::WorkflowRun.default(visited),
+          run: WorkflowRun.default(visited),
         }
       end
 
@@ -9684,7 +9684,7 @@ module AWS::SDK::Glue
     class GetWorkflowRunProperties
       def self.default(visited=[])
         {
-          run_properties: Stubs::WorkflowRunProperties.default(visited),
+          run_properties: WorkflowRunProperties.default(visited),
         }
       end
 
@@ -9700,7 +9700,7 @@ module AWS::SDK::Glue
     class GetWorkflowRuns
       def self.default(visited=[])
         {
-          runs: Stubs::WorkflowRuns.default(visited),
+          runs: WorkflowRuns.default(visited),
           next_token: 'next_token',
         }
       end
@@ -9720,7 +9720,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('WorkflowRuns')
         visited = visited + ['WorkflowRuns']
         [
-          Stubs::WorkflowRun.default(visited)
+          WorkflowRun.default(visited)
         ]
       end
 
@@ -9752,7 +9752,7 @@ module AWS::SDK::Glue
     class ListBlueprints
       def self.default(visited=[])
         {
-          blueprints: Stubs::BlueprintNames.default(visited),
+          blueprints: BlueprintNames.default(visited),
           next_token: 'next_token',
         }
       end
@@ -9770,7 +9770,7 @@ module AWS::SDK::Glue
     class ListCrawlers
       def self.default(visited=[])
         {
-          crawler_names: Stubs::CrawlerNameList.default(visited),
+          crawler_names: CrawlerNameList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -9788,7 +9788,7 @@ module AWS::SDK::Glue
     class ListCustomEntityTypes
       def self.default(visited=[])
         {
-          custom_entity_types: Stubs::CustomEntityTypes.default(visited),
+          custom_entity_types: CustomEntityTypes.default(visited),
           next_token: 'next_token',
         }
       end
@@ -9806,7 +9806,7 @@ module AWS::SDK::Glue
     class ListDevEndpoints
       def self.default(visited=[])
         {
-          dev_endpoint_names: Stubs::DevEndpointNameList.default(visited),
+          dev_endpoint_names: DevEndpointNameList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -9844,7 +9844,7 @@ module AWS::SDK::Glue
     class ListJobs
       def self.default(visited=[])
         {
-          job_names: Stubs::JobNameList.default(visited),
+          job_names: JobNameList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -9862,7 +9862,7 @@ module AWS::SDK::Glue
     class ListMLTransforms
       def self.default(visited=[])
         {
-          transform_ids: Stubs::TransformIdList.default(visited),
+          transform_ids: TransformIdList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -9900,7 +9900,7 @@ module AWS::SDK::Glue
     class ListRegistries
       def self.default(visited=[])
         {
-          registries: Stubs::RegistryListDefinition.default(visited),
+          registries: RegistryListDefinition.default(visited),
           next_token: 'next_token',
         }
       end
@@ -9920,7 +9920,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('RegistryListDefinition')
         visited = visited + ['RegistryListDefinition']
         [
-          Stubs::RegistryListItem.default(visited)
+          RegistryListItem.default(visited)
         ]
       end
 
@@ -9966,7 +9966,7 @@ module AWS::SDK::Glue
     class ListSchemaVersions
       def self.default(visited=[])
         {
-          schemas: Stubs::SchemaVersionList.default(visited),
+          schemas: SchemaVersionList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -9986,7 +9986,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('SchemaVersionList')
         visited = visited + ['SchemaVersionList']
         [
-          Stubs::SchemaVersionListItem.default(visited)
+          SchemaVersionListItem.default(visited)
         ]
       end
 
@@ -10030,7 +10030,7 @@ module AWS::SDK::Glue
     class ListSchemas
       def self.default(visited=[])
         {
-          schemas: Stubs::SchemaListDefinition.default(visited),
+          schemas: SchemaListDefinition.default(visited),
           next_token: 'next_token',
         }
       end
@@ -10050,7 +10050,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('SchemaListDefinition')
         visited = visited + ['SchemaListDefinition']
         [
-          Stubs::SchemaListItem.default(visited)
+          SchemaListItem.default(visited)
         ]
       end
 
@@ -10098,8 +10098,8 @@ module AWS::SDK::Glue
     class ListSessions
       def self.default(visited=[])
         {
-          ids: Stubs::SessionIdList.default(visited),
-          sessions: Stubs::SessionList.default(visited),
+          ids: SessionIdList.default(visited),
+          sessions: SessionList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -10120,7 +10120,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('SessionList')
         visited = visited + ['SessionList']
         [
-          Stubs::Session.default(visited)
+          Session.default(visited)
         ]
       end
 
@@ -10158,7 +10158,7 @@ module AWS::SDK::Glue
     class ListStatements
       def self.default(visited=[])
         {
-          statements: Stubs::StatementList.default(visited),
+          statements: StatementList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -10178,7 +10178,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('StatementList')
         visited = visited + ['StatementList']
         [
-          Stubs::Statement.default(visited)
+          Statement.default(visited)
         ]
       end
 
@@ -10196,7 +10196,7 @@ module AWS::SDK::Glue
     class ListTriggers
       def self.default(visited=[])
         {
-          trigger_names: Stubs::TriggerNameList.default(visited),
+          trigger_names: TriggerNameList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -10214,7 +10214,7 @@ module AWS::SDK::Glue
     class ListWorkflows
       def self.default(visited=[])
         {
-          workflows: Stubs::WorkflowNames.default(visited),
+          workflows: WorkflowNames.default(visited),
           next_token: 'next_token',
         }
       end
@@ -10306,7 +10306,7 @@ module AWS::SDK::Glue
     class QuerySchemaVersionMetadata
       def self.default(visited=[])
         {
-          metadata_info_map: Stubs::MetadataInfoMap.default(visited),
+          metadata_info_map: MetadataInfoMap.default(visited),
           schema_version_id: 'schema_version_id',
           next_token: 'next_token',
         }
@@ -10328,7 +10328,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('MetadataInfoMap')
         visited = visited + ['MetadataInfoMap']
         {
-          test_key: Stubs::MetadataInfo.default(visited)
+          test_key: MetadataInfo.default(visited)
         }
       end
 
@@ -10350,7 +10350,7 @@ module AWS::SDK::Glue
         {
           metadata_value: 'metadata_value',
           created_time: 'created_time',
-          other_metadata_value_list: Stubs::OtherMetadataValueList.default(visited),
+          other_metadata_value_list: OtherMetadataValueList.default(visited),
         }
       end
 
@@ -10370,7 +10370,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('OtherMetadataValueList')
         visited = visited + ['OtherMetadataValueList']
         [
-          Stubs::OtherMetadataValueListItem.default(visited)
+          OtherMetadataValueListItem.default(visited)
         ]
       end
 
@@ -10458,7 +10458,7 @@ module AWS::SDK::Glue
     class ResetJobBookmark
       def self.default(visited=[])
         {
-          job_bookmark_entry: Stubs::JobBookmarkEntry.default(visited),
+          job_bookmark_entry: JobBookmarkEntry.default(visited),
         }
       end
 
@@ -10475,7 +10475,7 @@ module AWS::SDK::Glue
       def self.default(visited=[])
         {
           run_id: 'run_id',
-          node_ids: Stubs::NodeIdList.default(visited),
+          node_ids: NodeIdList.default(visited),
         }
       end
 
@@ -10529,7 +10529,7 @@ module AWS::SDK::Glue
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          table_list: Stubs::TableList.default(visited),
+          table_list: TableList.default(visited),
         }
       end
 
@@ -10834,7 +10834,7 @@ module AWS::SDK::Glue
     class UpdateColumnStatisticsForPartition
       def self.default(visited=[])
         {
-          errors: Stubs::ColumnStatisticsErrors.default(visited),
+          errors: ColumnStatisticsErrors.default(visited),
         }
       end
 
@@ -10852,7 +10852,7 @@ module AWS::SDK::Glue
         return nil if visited.include?('ColumnStatisticsErrors')
         visited = visited + ['ColumnStatisticsErrors']
         [
-          Stubs::ColumnStatisticsError.default(visited)
+          ColumnStatisticsError.default(visited)
         ]
       end
 
@@ -10872,8 +10872,8 @@ module AWS::SDK::Glue
         return nil if visited.include?('ColumnStatisticsError')
         visited = visited + ['ColumnStatisticsError']
         {
-          column_statistics: Stubs::ColumnStatistics.default(visited),
-          error: Stubs::ErrorDetail.default(visited),
+          column_statistics: ColumnStatistics.default(visited),
+          error: ErrorDetail.default(visited),
         }
       end
 
@@ -10890,7 +10890,7 @@ module AWS::SDK::Glue
     class UpdateColumnStatisticsForTable
       def self.default(visited=[])
         {
-          errors: Stubs::ColumnStatisticsErrors.default(visited),
+          errors: ColumnStatisticsErrors.default(visited),
         }
       end
 
@@ -11074,7 +11074,7 @@ module AWS::SDK::Glue
     class UpdateTrigger
       def self.default(visited=[])
         {
-          trigger: Stubs::Trigger.default(visited),
+          trigger: Trigger.default(visited),
         }
       end
 

@@ -89,11 +89,11 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.set_as_active ||= false
       end
-
     end
 
     AcceptCertificateTransferOutput = ::Struct.new(
@@ -423,11 +423,11 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.override_dynamic_groups ||= false
       end
-
     end
 
     AddThingToThingGroupOutput = ::Struct.new(
@@ -850,11 +850,11 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.merge ||= false
       end
-
     end
 
     # <p>Which audit checks are enabled and disabled for this account.</p>
@@ -869,11 +869,11 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # <p>Information about the audit check.</p>
@@ -1270,11 +1270,11 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # Includes enum constants for AuditNotificationType
@@ -1742,11 +1742,11 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.increment_factor ||= 0
       end
-
     end
 
     # <p>Configuration information for pre-signed URLs. Valid when <code>protocols</code>
@@ -2060,11 +2060,11 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.count ||= 0
       end
-
     end
 
     # <p>The type of bucketed aggregation performed.</p>
@@ -2344,11 +2344,11 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.force ||= false
       end
-
     end
 
     CancelJobExecutionOutput = ::Struct.new(
@@ -2391,11 +2391,11 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.force ||= false
       end
-
     end
 
     # @!attribute job_arn
@@ -2946,11 +2946,11 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # @!attribute confirmation_token
@@ -3213,11 +3213,11 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.set_as_active ||= false
       end
-
     end
 
     # <p>The output from the CreateCertificateFromCsr operation.</p>
@@ -3915,11 +3915,11 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.set_as_active ||= false
       end
-
     end
 
     # <p>The output of the CreateKeysAndCertificate operation.</p>
@@ -4229,11 +4229,11 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.set_as_default ||= false
       end
-
     end
 
     # <p>The output of the CreatePolicyVersion operation.</p>
@@ -4266,11 +4266,11 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_default_version ||= false
       end
-
     end
 
     # @!attribute template_name
@@ -4369,11 +4369,11 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # @!attribute template_arn
@@ -4422,11 +4422,11 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.set_as_default ||= false
       end
-
     end
 
     # @!attribute template_arn
@@ -4458,11 +4458,11 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_default_version ||= false
       end
-
     end
 
     # @!attribute role_alias
@@ -5071,11 +5071,11 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.delete_scheduled_audits ||= false
       end
-
     end
 
     DeleteAccountAuditConfigurationOutput = ::Struct.new(
@@ -5204,11 +5204,11 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.force_delete ||= false
       end
-
     end
 
     DeleteCertificateOutput = ::Struct.new(
@@ -5394,11 +5394,11 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.force ||= false
       end
-
     end
 
     DeleteJobExecutionOutput = ::Struct.new(
@@ -5449,11 +5449,11 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.force ||= false
       end
-
     end
 
     DeleteJobOutput = ::Struct.new(
@@ -5525,12 +5525,12 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.delete_stream ||= false
         self.force_delete_aws_job ||= false
       end
-
     end
 
     DeleteOTAUpdateOutput = ::Struct.new(
@@ -5923,11 +5923,11 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.undo_deprecate ||= false
       end
-
     end
 
     # <p>The output for the DeprecateThingType operation.</p>
@@ -6262,11 +6262,11 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.version ||= 0
       end
-
     end
 
     # <p>The input for the DescribeCACertificate operation.</p>
@@ -6772,11 +6772,11 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.version ||= 0
       end
-
     end
 
     # @!attribute index_name
@@ -7212,11 +7212,11 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # @!attribute template_name
@@ -7265,11 +7265,11 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_default_version ||= false
       end
-
     end
 
     # @!attribute role_alias
@@ -7464,11 +7464,11 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.version ||= 0
       end
-
     end
 
     # @!attribute stream_id
@@ -7573,11 +7573,11 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.version ||= 0
       end
-
     end
 
     # <p>The input for the DescribeThing operation.</p>
@@ -7656,11 +7656,11 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.version ||= 0
       end
-
     end
 
     # @!attribute task_id
@@ -7753,13 +7753,13 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.success_count ||= 0
         self.failure_count ||= 0
         self.percentage_progress ||= 0
       end
-
     end
 
     # <p>The input for the DescribeThingType operation.</p>
@@ -8188,12 +8188,12 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.only_active_violations_included ||= false
         self.suppressed_alerts_included ||= false
       end
-
     end
 
     # <p>
@@ -8340,11 +8340,11 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.optional ||= false
       end
-
     end
 
     # Includes enum constants for DomainConfigurationStatus
@@ -8783,11 +8783,11 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.increment_factor ||= 0
       end
-
     end
 
     # <p>Describes the name and data type at a field.</p>
@@ -9130,11 +9130,11 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.total_count ||= 0
       end
-
     end
 
     # @!attribute index_name
@@ -9177,11 +9177,11 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.cardinality ||= 0
       end
-
     end
 
     # @!attribute principal
@@ -9510,11 +9510,11 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_default_version ||= false
       end
-
     end
 
     # <p>The input to the GetRegistrationCode operation.</p>
@@ -9673,11 +9673,11 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.disable_all_logs ||= false
       end
-
     end
 
     # <p>The name and ARN of a group.</p>
@@ -10360,11 +10360,11 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.version_number ||= 0
       end
-
     end
 
     # Includes enum constants for JobExecutionFailureType
@@ -10973,11 +10973,11 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.recursive ||= false
       end
-
     end
 
     # @!attribute policies
@@ -11056,11 +11056,11 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.list_suppressed_findings ||= false
       end
-
     end
 
     # @!attribute findings
@@ -11249,11 +11249,11 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.ascending_order ||= false
       end
-
     end
 
     # @!attribute suppressions
@@ -11377,11 +11377,11 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.ascending_order ||= false
       end
-
     end
 
     # @!attribute authorizers
@@ -11470,11 +11470,11 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.ascending_order ||= false
       end
-
     end
 
     # <p>The output from the ListCACertificates operation.</p>
@@ -11529,11 +11529,11 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.ascending_order ||= false
       end
-
     end
 
     # <p>The output of the ListCertificatesByCA operation.</p>
@@ -11582,11 +11582,11 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.ascending_order ||= false
       end
-
     end
 
     # <p>The output of the ListCertificates operation.</p>
@@ -12432,11 +12432,11 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.ascending_order ||= false
       end
-
     end
 
     # <p>The output from the ListOutgoingCertificates operation.</p>
@@ -12484,11 +12484,11 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.ascending_order ||= false
       end
-
     end
 
     # <p>The output from the ListPolicies operation.</p>
@@ -12543,11 +12543,11 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.ascending_order ||= false
       end
-
     end
 
     # <p>The output from the ListPolicyPrincipals operation.</p>
@@ -12630,11 +12630,11 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.ascending_order ||= false
       end
-
     end
 
     # <p>The output from the ListPrincipalPolicies operation.</p>
@@ -12806,11 +12806,11 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.ascending_order ||= false
       end
-
     end
 
     # @!attribute role_aliases
@@ -12896,11 +12896,11 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.recursive ||= false
       end
-
     end
 
     # @!attribute security_profile_target_mappings
@@ -12996,11 +12996,11 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.ascending_order ||= false
       end
-
     end
 
     # @!attribute streams
@@ -13521,11 +13521,11 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.recursive ||= false
       end
-
     end
 
     # @!attribute things
@@ -13594,11 +13594,11 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.use_prefix_attribute_value ||= false
       end
-
     end
 
     # <p>The output from the ListThings operation.</p>
@@ -14693,12 +14693,12 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.percent ||= 0
         self.value ||= 0
       end
-
     end
 
     # <p>Describes an IoT policy.</p>
@@ -14753,11 +14753,11 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_default_version ||= false
       end
-
     end
 
     # <p>Information about the version of the policy associated with the resource.</p>
@@ -14881,11 +14881,11 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # <p>A summary of information about a fleet provision template version.</p>
@@ -14913,11 +14913,11 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_default_version ||= false
       end
-
     end
 
     # <p>Parameters to define a mitigation action that publishes findings to Amazon SNS. You can implement your own custom actions in response to the Amazon SNS messages.</p>
@@ -15101,12 +15101,12 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.set_as_active ||= false
         self.allow_auto_registration ||= false
       end
-
     end
 
     # <p>The output from the RegisterCACertificateResponse operation.</p>
@@ -16211,11 +16211,11 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.disable_all_logs ||= false
       end
-
     end
 
     SetV2LoggingOptionsOutput = ::Struct.new(
@@ -16645,11 +16645,11 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.count ||= 0
       end
-
     end
 
     # Includes enum constants for Status
@@ -17024,11 +17024,11 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_buckets ||= 0
       end
-
     end
 
     # @!attribute principal
@@ -17204,11 +17204,11 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.version ||= 0
       end
-
     end
 
     # <p>The connectivity status of the thing.</p>
@@ -17237,11 +17237,11 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.connected ||= false
       end
-
     end
 
     # Includes enum constants for ThingConnectivityIndexingMode
@@ -17618,11 +17618,11 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.deprecated ||= false
       end
-
     end
 
     # <p>The ThingTypeProperties contains information about the thing type including: a thing type description,
@@ -18496,11 +18496,11 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.version ||= 0
       end
-
     end
 
     # <p>The input to the UpdateCACertificate operation.</p>
@@ -18547,11 +18547,11 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.remove_auto_registration ||= false
       end
-
     end
 
     UpdateCACertificateOutput = ::Struct.new(
@@ -18807,11 +18807,11 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.remove_authorizer_config ||= false
       end
-
     end
 
     # @!attribute domain_configuration_name
@@ -18891,11 +18891,11 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.version ||= 0
       end
-
     end
 
     # @!attribute event_configurations
@@ -19180,11 +19180,11 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     UpdateProvisioningTemplateOutput = ::Struct.new(
@@ -19388,13 +19388,13 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.delete_behaviors ||= false
         self.delete_alert_targets ||= false
         self.delete_additional_metrics_to_retain ||= false
       end
-
     end
 
     # @!attribute security_profile_name
@@ -19473,11 +19473,11 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.version ||= 0
       end
-
     end
 
     # @!attribute stream_id
@@ -19575,11 +19575,11 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.version ||= 0
       end
-
     end
 
     # @!attribute thing_name
@@ -19613,11 +19613,11 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.override_dynamic_groups ||= false
       end
-
     end
 
     UpdateThingGroupsForThingOutput = ::Struct.new(
@@ -19674,11 +19674,11 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.remove_thing_type ||= false
       end
-
     end
 
     # <p>The output from the UpdateThing operation.</p>
@@ -19776,11 +19776,11 @@ module AWS::SDK::IoT
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.valid ||= false
       end
-
     end
 
     # <p>Information about an error found in a behavior specification.</p>

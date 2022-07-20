@@ -44,7 +44,7 @@ module AWS::SDK::AutoScalingPlans
     class DescribeScalingPlanResources
       def self.default(visited=[])
         {
-          scaling_plan_resources: Stubs::ScalingPlanResources.default(visited),
+          scaling_plan_resources: ScalingPlanResources.default(visited),
           next_token: 'next_token',
         }
       end
@@ -64,7 +64,7 @@ module AWS::SDK::AutoScalingPlans
         return nil if visited.include?('ScalingPlanResources')
         visited = visited + ['ScalingPlanResources']
         [
-          Stubs::ScalingPlanResource.default(visited)
+          ScalingPlanResource.default(visited)
         ]
       end
 
@@ -89,7 +89,7 @@ module AWS::SDK::AutoScalingPlans
           service_namespace: 'service_namespace',
           resource_id: 'resource_id',
           scalable_dimension: 'scalable_dimension',
-          scaling_policies: Stubs::ScalingPolicies.default(visited),
+          scaling_policies: ScalingPolicies.default(visited),
           scaling_status_code: 'scaling_status_code',
           scaling_status_message: 'scaling_status_message',
         }
@@ -116,7 +116,7 @@ module AWS::SDK::AutoScalingPlans
         return nil if visited.include?('ScalingPolicies')
         visited = visited + ['ScalingPolicies']
         [
-          Stubs::ScalingPolicy.default(visited)
+          ScalingPolicy.default(visited)
         ]
       end
 
@@ -138,7 +138,7 @@ module AWS::SDK::AutoScalingPlans
         {
           policy_name: 'policy_name',
           policy_type: 'policy_type',
-          target_tracking_configuration: Stubs::TargetTrackingConfiguration.default(visited),
+          target_tracking_configuration: TargetTrackingConfiguration.default(visited),
         }
       end
 
@@ -158,8 +158,8 @@ module AWS::SDK::AutoScalingPlans
         return nil if visited.include?('TargetTrackingConfiguration')
         visited = visited + ['TargetTrackingConfiguration']
         {
-          predefined_scaling_metric_specification: Stubs::PredefinedScalingMetricSpecification.default(visited),
-          customized_scaling_metric_specification: Stubs::CustomizedScalingMetricSpecification.default(visited),
+          predefined_scaling_metric_specification: PredefinedScalingMetricSpecification.default(visited),
+          customized_scaling_metric_specification: CustomizedScalingMetricSpecification.default(visited),
           target_value: 1.0,
           disable_scale_in: false,
           scale_out_cooldown: 1,
@@ -190,7 +190,7 @@ module AWS::SDK::AutoScalingPlans
         {
           metric_name: 'metric_name',
           namespace: 'namespace',
-          dimensions: Stubs::MetricDimensions.default(visited),
+          dimensions: MetricDimensions.default(visited),
           statistic: 'statistic',
           unit: 'unit',
         }
@@ -214,7 +214,7 @@ module AWS::SDK::AutoScalingPlans
         return nil if visited.include?('MetricDimensions')
         visited = visited + ['MetricDimensions']
         [
-          Stubs::MetricDimension.default(visited)
+          MetricDimension.default(visited)
         ]
       end
 
@@ -272,7 +272,7 @@ module AWS::SDK::AutoScalingPlans
     class DescribeScalingPlans
       def self.default(visited=[])
         {
-          scaling_plans: Stubs::ScalingPlans.default(visited),
+          scaling_plans: ScalingPlans.default(visited),
           next_token: 'next_token',
         }
       end
@@ -292,7 +292,7 @@ module AWS::SDK::AutoScalingPlans
         return nil if visited.include?('ScalingPlans')
         visited = visited + ['ScalingPlans']
         [
-          Stubs::ScalingPlan.default(visited)
+          ScalingPlan.default(visited)
         ]
       end
 
@@ -314,8 +314,8 @@ module AWS::SDK::AutoScalingPlans
         {
           scaling_plan_name: 'scaling_plan_name',
           scaling_plan_version: 1,
-          application_source: Stubs::ApplicationSource.default(visited),
-          scaling_instructions: Stubs::ScalingInstructions.default(visited),
+          application_source: ApplicationSource.default(visited),
+          scaling_instructions: ScalingInstructions.default(visited),
           status_code: 'status_code',
           status_message: 'status_message',
           status_start_time: Time.now,
@@ -344,7 +344,7 @@ module AWS::SDK::AutoScalingPlans
         return nil if visited.include?('ScalingInstructions')
         visited = visited + ['ScalingInstructions']
         [
-          Stubs::ScalingInstruction.default(visited)
+          ScalingInstruction.default(visited)
         ]
       end
 
@@ -369,9 +369,9 @@ module AWS::SDK::AutoScalingPlans
           scalable_dimension: 'scalable_dimension',
           min_capacity: 1,
           max_capacity: 1,
-          target_tracking_configurations: Stubs::TargetTrackingConfigurations.default(visited),
-          predefined_load_metric_specification: Stubs::PredefinedLoadMetricSpecification.default(visited),
-          customized_load_metric_specification: Stubs::CustomizedLoadMetricSpecification.default(visited),
+          target_tracking_configurations: TargetTrackingConfigurations.default(visited),
+          predefined_load_metric_specification: PredefinedLoadMetricSpecification.default(visited),
+          customized_load_metric_specification: CustomizedLoadMetricSpecification.default(visited),
           scheduled_action_buffer_time: 1,
           predictive_scaling_max_capacity_behavior: 'predictive_scaling_max_capacity_behavior',
           predictive_scaling_max_capacity_buffer: 1,
@@ -410,7 +410,7 @@ module AWS::SDK::AutoScalingPlans
         {
           metric_name: 'metric_name',
           namespace: 'namespace',
-          dimensions: Stubs::MetricDimensions.default(visited),
+          dimensions: MetricDimensions.default(visited),
           statistic: 'statistic',
           unit: 'unit',
         }
@@ -454,7 +454,7 @@ module AWS::SDK::AutoScalingPlans
         return nil if visited.include?('TargetTrackingConfigurations')
         visited = visited + ['TargetTrackingConfigurations']
         [
-          Stubs::TargetTrackingConfiguration.default(visited)
+          TargetTrackingConfiguration.default(visited)
         ]
       end
 
@@ -475,7 +475,7 @@ module AWS::SDK::AutoScalingPlans
         visited = visited + ['ApplicationSource']
         {
           cloud_formation_stack_arn: 'cloud_formation_stack_arn',
-          tag_filters: Stubs::TagFilters.default(visited),
+          tag_filters: TagFilters.default(visited),
         }
       end
 
@@ -494,7 +494,7 @@ module AWS::SDK::AutoScalingPlans
         return nil if visited.include?('TagFilters')
         visited = visited + ['TagFilters']
         [
-          Stubs::TagFilter.default(visited)
+          TagFilter.default(visited)
         ]
       end
 
@@ -515,7 +515,7 @@ module AWS::SDK::AutoScalingPlans
         visited = visited + ['TagFilter']
         {
           key: 'key',
-          values: Stubs::TagValues.default(visited),
+          values: TagValues.default(visited),
         }
       end
 
@@ -552,7 +552,7 @@ module AWS::SDK::AutoScalingPlans
     class GetScalingPlanResourceForecastData
       def self.default(visited=[])
         {
-          datapoints: Stubs::Datapoints.default(visited),
+          datapoints: Datapoints.default(visited),
         }
       end
 
@@ -570,7 +570,7 @@ module AWS::SDK::AutoScalingPlans
         return nil if visited.include?('Datapoints')
         visited = visited + ['Datapoints']
         [
-          Stubs::Datapoint.default(visited)
+          Datapoint.default(visited)
         ]
       end
 

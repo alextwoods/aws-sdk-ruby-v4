@@ -160,12 +160,12 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.bitrate ||= 0
         self.sample_rate ||= 0
       end
-
     end
 
     # Includes enum constants for AacSpecification
@@ -428,13 +428,13 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.bitrate ||= 0
         self.dialnorm ||= 0
         self.sample_rate ||= 0
       end
-
     end
 
     # Includes enum constants for AccelerationMode
@@ -529,13 +529,13 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.bit_depth ||= 0
         self.channels ||= 0
         self.sample_rate ||= 0
       end
-
     end
 
     # Use Allowed renditions to specify a list of possible resolutions in your ABR stack. * MediaConvert will create an ABR stack exclusively from the list of resolutions that you specify. * Some resolutions in the Allowed renditions list may not be included, however you can force a resolution to be included by setting Required to ENABLED. * You must specify at least one resolution that is greater than or equal to any resolutions that you specify in Min top rendition size or Min bottom rendition size. * If you specify Allowed renditions, you must not specify a separate rule for Force include renditions.
@@ -564,12 +564,12 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.height ||= 0
         self.width ||= 0
       end
-
     end
 
     # Includes enum constants for AlphaBehavior
@@ -624,11 +624,11 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.source_ancillary_channel_number ||= 0
       end
-
     end
 
     # Includes enum constants for AncillaryTerminateCaptions
@@ -968,11 +968,11 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.audio_type ||= 0
       end
-
     end
 
     # Includes enum constants for AudioLanguageCodeControl
@@ -1093,12 +1093,12 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.correction_gate_level ||= 0
         self.target_lkfs ||= 0
       end
-
     end
 
     # Use Audio selectors (AudioSelectors) to specify a track or set of tracks from the input that you will use in your outputs. You can use multiple Audio selectors per input.
@@ -1179,12 +1179,12 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.offset ||= 0
         self.program_selection ||= 0
       end
-
     end
 
     # Use audio selector groups to combine multiple sidecar audio inputs so that you can assign them to a single output audio tab (AudioDescription). Note that, if you're working with embedded audio, it's simpler to assign multiple input tracks into a single audio selector rather than use an audio selector group.
@@ -1303,13 +1303,13 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_abr_bitrate ||= 0
         self.max_renditions ||= 0
         self.min_abr_bitrate ||= 0
       end
-
     end
 
     # Use automated encoding to have MediaConvert choose your encoding settings for you, based on characteristics of your input video.
@@ -1412,12 +1412,12 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.qvbr_quality_level ||= 0
         self.qvbr_quality_level_fine_tune ||= 0
       end
-
     end
 
     # Includes enum constants for Av1RateControlMode
@@ -1524,6 +1524,7 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.framerate_denominator ||= 0
@@ -1533,7 +1534,6 @@ module AWS::SDK::MediaConvert
         self.number_b_frames_between_reference_frames ||= 0
         self.slices ||= 0
       end
-
     end
 
     # Includes enum constants for Av1SpatialAdaptiveQuantization
@@ -1726,12 +1726,12 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.framerate_denominator ||= 0
         self.framerate_numerator ||= 0
       end
-
     end
 
     # Includes enum constants for AvcIntraSlowPal
@@ -1983,6 +1983,7 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.background_opacity ||= 0
@@ -1996,7 +1997,6 @@ module AWS::SDK::MediaConvert
         self.x_position ||= 0
         self.y_position ||= 0
       end
-
     end
 
     # Includes enum constants for BurninSubtitleAlignment
@@ -2436,12 +2436,12 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.framerate_denominator ||= 0
         self.framerate_numerator ||= 0
       end
-
     end
 
     # If your input captions are SCC, TTML, STL, SMI, SRT, or IMSC in an xml file, specify the URI of the input captions source file. If your input captions are IMSC in an IMF package, use TrackSourceSettings instead of FileSoureSettings.
@@ -2860,6 +2860,7 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.fragment_length ||= 0
@@ -2867,7 +2868,6 @@ module AWS::SDK::MediaConvert
         self.min_final_segment_length ||= 0
         self.segment_length ||= 0
       end
-
     end
 
     # Includes enum constants for CmafImageBasedTrickPlay
@@ -2934,6 +2934,7 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.thumbnail_height ||= 0
@@ -2942,7 +2943,6 @@ module AWS::SDK::MediaConvert
         self.tile_height ||= 0
         self.tile_width ||= 0
       end
-
     end
 
     # Includes enum constants for CmafInitializationVectorInManifest
@@ -3349,6 +3349,7 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.brightness ||= 0
@@ -3356,7 +3357,6 @@ module AWS::SDK::MediaConvert
         self.hue ||= 0
         self.saturation ||= 0
       end
-
     end
 
     # Includes enum constants for ColorMetadata
@@ -3664,11 +3664,11 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.priority ||= 0
       end
-
     end
 
     # @!attribute job
@@ -3749,11 +3749,11 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.priority ||= 0
       end
-
     end
 
     # @!attribute job_template
@@ -4058,6 +4058,7 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.fragment_length ||= 0
@@ -4065,7 +4066,6 @@ module AWS::SDK::MediaConvert
         self.min_final_segment_length ||= 0
         self.segment_length ||= 0
       end
-
     end
 
     # Includes enum constants for DashIsoHbbtvCompliance
@@ -4144,6 +4144,7 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.thumbnail_height ||= 0
@@ -4152,7 +4153,6 @@ module AWS::SDK::MediaConvert
         self.tile_height ||= 0
         self.tile_width ||= 0
       end
-
     end
 
     # Includes enum constants for DashIsoIntervalCadence
@@ -4432,11 +4432,11 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # Includes enum constants for DescribeEndpointsMode
@@ -4558,12 +4558,12 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_cll ||= 0
         self.max_fall ||= 0
       end
-
     end
 
     # Includes enum constants for DolbyVisionLevel6Mode
@@ -4642,12 +4642,12 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.network_id ||= 0
         self.nit_interval ||= 0
       end
-
     end
 
     # Use these settings to insert a DVB Service Description Table (SDT) in the transport stream of this output. When you work directly in your JSON job specification, include this object only when your job has a transport stream output and the container settings contain the object M2tsSettings.
@@ -4682,11 +4682,11 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.sdt_interval ||= 0
       end
-
     end
 
     # Settings related to DVB-Sub captions. Set up DVB-Sub captions in the same output as your video. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/dvb-sub-output-captions.html. When you work directly in your JSON job specification, include this object and any required children when you set destinationType to DVB_SUB.
@@ -4883,6 +4883,7 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.background_opacity ||= 0
@@ -4900,7 +4901,6 @@ module AWS::SDK::MediaConvert
         self.x_position ||= 0
         self.y_position ||= 0
       end
-
     end
 
     # DVB Sub Source Settings
@@ -4915,11 +4915,11 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.pid ||= 0
       end
-
     end
 
     # Includes enum constants for DvbSubSubtitleFallbackFont
@@ -5134,11 +5134,11 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.tdt_interval ||= 0
       end
-
     end
 
     # Includes enum constants for DvbddsHandling
@@ -5429,6 +5429,7 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.bitrate ||= 0
@@ -5439,7 +5440,6 @@ module AWS::SDK::MediaConvert
         self.sample_rate ||= 0
         self.speech_threshold ||= 0
       end
-
     end
 
     # Includes enum constants for Eac3AtmosStereoDownmix
@@ -5818,6 +5818,7 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.bitrate ||= 0
@@ -5828,7 +5829,6 @@ module AWS::SDK::MediaConvert
         self.lt_rt_surround_mix_level ||= 0
         self.sample_rate ||= 0
       end
-
     end
 
     # Includes enum constants for Eac3StereoDownmix
@@ -5913,12 +5913,12 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.destination608_channel_number ||= 0
         self.destination708_service_number ||= 0
       end
-
     end
 
     # Settings for embedded captions Source
@@ -5955,12 +5955,12 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.source608_channel_number ||= 0
         self.source608_track_number ||= 0
       end
-
     end
 
     # Includes enum constants for EmbeddedTerminateCaptions
@@ -6039,11 +6039,11 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.response_signal_preroll ||= 0
       end
-
     end
 
     # ESAM SignalProcessingNotification data defined by OC-SP-ESAM-API-I03-131025.
@@ -6184,11 +6184,11 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.time_delta ||= 0
       end
-
     end
 
     # Includes enum constants for FileSourceTimeDeltaUnits
@@ -6250,12 +6250,12 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.height ||= 0
         self.width ||= 0
       end
-
     end
 
     # Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value FRAME_CAPTURE.
@@ -6288,6 +6288,7 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.framerate_denominator ||= 0
@@ -6295,7 +6296,6 @@ module AWS::SDK::MediaConvert
         self.max_captures ||= 0
         self.quality ||= 0
       end
-
     end
 
     # @!attribute id
@@ -6729,13 +6729,13 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_average_bitrate ||= 0
         self.qvbr_quality_level ||= 0
         self.qvbr_quality_level_fine_tune ||= 0
       end
-
     end
 
     # Includes enum constants for H264RateControlMode
@@ -7088,6 +7088,7 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.bitrate ||= 0
@@ -7106,7 +7107,6 @@ module AWS::SDK::MediaConvert
         self.slices ||= 0
         self.softness ||= 0
       end
-
     end
 
     # Includes enum constants for H264SlowPal
@@ -7481,13 +7481,13 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_average_bitrate ||= 0
         self.qvbr_quality_level ||= 0
         self.qvbr_quality_level_fine_tune ||= 0
       end
-
     end
 
     # Includes enum constants for H265RateControlMode
@@ -7846,6 +7846,7 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.bitrate ||= 0
@@ -7863,7 +7864,6 @@ module AWS::SDK::MediaConvert
         self.par_numerator ||= 0
         self.slices ||= 0
       end
-
     end
 
     # Includes enum constants for H265SlowPal
@@ -8044,6 +8044,7 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.blue_primary_x ||= 0
@@ -8059,7 +8060,6 @@ module AWS::SDK::MediaConvert
         self.white_point_x ||= 0
         self.white_point_y ||= 0
       end
-
     end
 
     # Setting for HDR10+ metadata insertion
@@ -8080,12 +8080,12 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.mastering_monitor_nits ||= 0
         self.target_monitor_nits ||= 0
       end
-
     end
 
     # Includes enum constants for HlsAdMarkers
@@ -8196,11 +8196,11 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.caption_channel ||= 0
       end
-
     end
 
     # Includes enum constants for HlsCaptionLanguageSetting
@@ -8573,6 +8573,7 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.min_final_segment_length ||= 0
@@ -8583,7 +8584,6 @@ module AWS::SDK::MediaConvert
         self.timed_metadata_id3_period ||= 0
         self.timestamp_delta_milliseconds ||= 0
       end
-
     end
 
     # Includes enum constants for HlsIFrameOnlyManifest
@@ -8662,6 +8662,7 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.thumbnail_height ||= 0
@@ -8670,7 +8671,6 @@ module AWS::SDK::MediaConvert
         self.tile_height ||= 0
         self.tile_width ||= 0
       end
-
     end
 
     # Includes enum constants for HlsInitializationVectorInManifest
@@ -8943,12 +8943,12 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.priority ||= 0
         self.wait_minutes ||= 0
       end
-
     end
 
     # To insert ID3 tags in your output, specify two values. Use ID3 tag (Id3) to specify the base 64 encoded string and use Timecode (TimeCode) to specify the time when the tag should be inserted. To insert multiple ID3 tags in your output, create multiple instances of ID3 insertion (Id3Insertion).
@@ -9183,12 +9183,12 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.filter_strength ||= 0
         self.program_number ||= 0
       end
-
     end
 
     # To transcode only portions of your input, include one input clip for each part of your input that you want in your output. All input clips that you specify will be included in every output of the job. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/assembling-multiple-inputs-and-input-clips.html.
@@ -9487,12 +9487,12 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.filter_strength ||= 0
         self.program_number ||= 0
       end
-
     end
 
     # Includes enum constants for InputTimecodeSource
@@ -9523,11 +9523,11 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.duration ||= 0
       end
-
     end
 
     # These settings apply to a specific graphic overlay. You can include multiple overlays in your job.
@@ -9602,6 +9602,7 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.duration ||= 0
@@ -9614,7 +9615,6 @@ module AWS::SDK::MediaConvert
         self.opacity ||= 0
         self.width ||= 0
       end
-
     end
 
     # The service encountered an unexpected condition and can't fulfill your request.
@@ -9798,6 +9798,7 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.error_code ||= 0
@@ -9805,7 +9806,6 @@ module AWS::SDK::MediaConvert
         self.priority ||= 0
         self.retry_count ||= 0
       end
-
     end
 
     # Provides messages from the service about jobs that you have already successfully submitted.
@@ -9922,11 +9922,11 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.ad_avail_offset ||= 0
       end
-
     end
 
     # Includes enum constants for JobStatus
@@ -10041,11 +10041,11 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.priority ||= 0
       end
-
     end
 
     # Includes enum constants for JobTemplateListBy
@@ -10142,11 +10142,11 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.ad_avail_offset ||= 0
       end
-
     end
 
     # Use these settings only when you use Kantar watermarking. Specify the values that MediaConvert uses to generate and place Kantar watermarks in your output audio. These settings apply to every output in your job. In addition to specifying these values, you also need to store your Kantar credentials in AWS Secrets Manager. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/kantar-watermarking.html.
@@ -10233,12 +10233,12 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.file_offset ||= 0
         self.kantar_license_id ||= 0
       end
-
     end
 
     # Includes enum constants for LanguageCode
@@ -11051,11 +11051,11 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute job_templates
@@ -11114,11 +11114,11 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute jobs
@@ -11177,11 +11177,11 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute next_token
@@ -11234,11 +11234,11 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute next_token
@@ -11439,11 +11439,11 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.scte35_esam_pid ||= 0
       end
-
     end
 
     # Includes enum constants for M2tsScte35Source
@@ -11768,6 +11768,7 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.audio_frames_per_pes ||= 0
@@ -11789,7 +11790,6 @@ module AWS::SDK::MediaConvert
         self.transport_stream_id ||= 0
         self.video_pid ||= 0
       end
-
     end
 
     # Includes enum constants for M3u8AudioDuration
@@ -11984,6 +11984,7 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.audio_frames_per_pes ||= 0
@@ -11999,7 +12000,6 @@ module AWS::SDK::MediaConvert
         self.transport_stream_id ||= 0
         self.video_pid ||= 0
       end
-
     end
 
     # Use Min bottom rendition size to specify a minimum size for the lowest resolution in your ABR stack. * The lowest resolution in your ABR stack will be equal to or greater than the value that you enter. For example: If you specify 640x360 the lowest resolution in your ABR stack will be equal to or greater than to 640x360. * If you specify a Min top rendition size rule, the value that you specify for Min bottom rendition size must be less than, or equal to, Min top rendition size.
@@ -12020,12 +12020,12 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.height ||= 0
         self.width ||= 0
       end
-
     end
 
     # Use Min top rendition size to specify a minimum size for the highest resolution in your ABR stack. * The highest resolution in your ABR stack will be equal to or greater than the value that you enter. For example: If you specify 1280x720 the highest resolution in your ABR stack will be equal to or greater than 1280x720. * If you specify a value for Max resolution, the value that you specify for Min top rendition size must be less than, or equal to, Max resolution.
@@ -12046,12 +12046,12 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.height ||= 0
         self.width ||= 0
       end
-
     end
 
     # Overlay motion graphics on top of your video. The motion graphics that you specify here appear on all outputs in all output groups. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/motion-graphic-overlay.html.
@@ -12120,12 +12120,12 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.framerate_denominator ||= 0
         self.framerate_numerator ||= 0
       end
-
     end
 
     # Includes enum constants for MotionImageInsertionMode
@@ -12158,12 +12158,12 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.image_x ||= 0
         self.image_y ||= 0
       end
-
     end
 
     # Includes enum constants for MotionImagePlayback
@@ -12310,13 +12310,13 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.bitrate ||= 0
         self.channels ||= 0
         self.sample_rate ||= 0
       end
-
     end
 
     # Includes enum constants for Mp3RateControlMode
@@ -12369,6 +12369,7 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.bitrate ||= 0
@@ -12376,7 +12377,6 @@ module AWS::SDK::MediaConvert
         self.sample_rate ||= 0
         self.vbr_quality ||= 0
       end
-
     end
 
     # Includes enum constants for Mp4CslgAtom
@@ -12465,11 +12465,11 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.ctts_version ||= 0
       end
-
     end
 
     # Includes enum constants for MpdAccessibilityCaptionHints
@@ -13072,6 +13072,7 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.bitrate ||= 0
@@ -13088,7 +13089,6 @@ module AWS::SDK::MediaConvert
         self.par_numerator ||= 0
         self.softness ||= 0
       end
-
     end
 
     # Includes enum constants for Mpeg2SlowPal
@@ -13273,11 +13273,11 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.fragment_length ||= 0
       end
-
     end
 
     # Includes enum constants for MsSmoothManifestEncoding
@@ -13386,11 +13386,11 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_anc_data_size ||= 0
       end
-
     end
 
     # For forensic video watermarking, MediaConvert supports Nagra NexGuard File Marker watermarking. MediaConvert supports both PreRelease Content (NGPR/G2) and OTT Streaming workflows.
@@ -13425,11 +13425,11 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.payload ||= 0
       end
-
     end
 
     # Includes enum constants for NielsenActiveWatermarkProcessType
@@ -13466,11 +13466,11 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.breakout_code ||= 0
       end
-
     end
 
     # Ignore these settings unless you are using Nielsen non-linear watermarking. Specify the values that  MediaConvert uses to generate and place Nielsen watermarks in your output audio. In addition to  specifying these values, you also need to set up your cloud TIC server. These settings apply to  every output in your job. The MediaConvert implementation is currently with the following Nielsen versions: Nielsen Watermark SDK Version 5.2.1 Nielsen NLM Watermark Engine Version 1.2.7 Nielsen Watermark Authenticator [SID_TIC] Version [5.0.0]
@@ -13551,11 +13551,11 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.source_id ||= 0
       end
-
     end
 
     # Includes enum constants for NielsenSourceWatermarkStatusType
@@ -13696,11 +13696,11 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.strength ||= 0
       end
-
     end
 
     # Noise reducer filter settings for spatial filter.
@@ -13727,13 +13727,13 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.post_filter_sharpen_strength ||= 0
         self.speed ||= 0
         self.strength ||= 0
       end
-
     end
 
     # Noise reducer filter settings for temporal filter.
@@ -13776,13 +13776,13 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.aggressive_mode ||= 0
         self.speed ||= 0
         self.strength ||= 0
       end
-
     end
 
     # The resource you requested doesn't exist.
@@ -13822,13 +13822,13 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.bitrate ||= 0
         self.channels ||= 0
         self.sample_rate ||= 0
       end
-
     end
 
     # Includes enum constants for Order
@@ -13937,11 +13937,11 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.duration_in_ms ||= 0
       end
-
     end
 
     # Group of outputs
@@ -14494,6 +14494,7 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.framerate_denominator ||= 0
@@ -14501,7 +14502,6 @@ module AWS::SDK::MediaConvert
         self.par_denominator ||= 0
         self.par_numerator ||= 0
       end
-
     end
 
     # Includes enum constants for ProresSlowPal
@@ -14630,12 +14630,12 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.progressing_jobs_count ||= 0
         self.submitted_jobs_count ||= 0
       end
-
     end
 
     # Includes enum constants for QueueListBy
@@ -14718,6 +14718,7 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.height ||= 0
@@ -14725,7 +14726,6 @@ module AWS::SDK::MediaConvert
         self.x ||= 0
         self.y ||= 0
       end
-
     end
 
     # Use Manual audio remixing (RemixSettings) to adjust audio levels for each audio channel in each output of your job. With audio remixing, you can output more or fewer audio channels than your input audio source provides.
@@ -14752,12 +14752,12 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.channels_in ||= 0
         self.channels_out ||= 0
       end
-
     end
 
     # Includes enum constants for RenewalType
@@ -14832,11 +14832,11 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.reserved_slots ||= 0
       end
-
     end
 
     # Details about the pricing plan for your reserved queue. Required for reserved queues and not applicable to on-demand queues.
@@ -14867,11 +14867,11 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.reserved_slots ||= 0
       end
-
     end
 
     # Includes enum constants for ReservationPlanStatus
@@ -15418,11 +15418,11 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.font_size ||= 0
       end
-
     end
 
     # Includes enum constants for TimecodeBurninPosition
@@ -15592,11 +15592,11 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.track_number ||= 0
       end
-
     end
 
     # Settings related to TTML captions. TTML is a sidecar format that holds captions in a file that is separate from the video container. Set up sidecar captions in the same output group, but different output from your video. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/ttml-and-webvtt-output-captions.html. When you work directly in your JSON job specification, include this object and any required children when you set destinationType to TTML.
@@ -15724,11 +15724,11 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.priority ||= 0
       end
-
     end
 
     # @!attribute job_template
@@ -15971,12 +15971,12 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.framerate_denominator ||= 0
         self.framerate_numerator ||= 0
       end
-
     end
 
     # Includes enum constants for Vc3SlowPal
@@ -16255,6 +16255,7 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.fixed_afd ||= 0
@@ -16262,7 +16263,6 @@ module AWS::SDK::MediaConvert
         self.sharpness ||= 0
         self.width ||= 0
       end
-
     end
 
     # Contains details about the output's video stream
@@ -16283,12 +16283,12 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.height_in_px ||= 0
         self.width_in_px ||= 0
       end
-
     end
 
     # Find additional transcoding features under Preprocessors (VideoPreprocessors). Enable the features at each output individually. These features are disabled by default.
@@ -16427,12 +16427,12 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.pid ||= 0
         self.program_number ||= 0
       end
-
     end
 
     # Includes enum constants for VideoTimecodeInsertion
@@ -16471,13 +16471,13 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.channels ||= 0
         self.sample_rate ||= 0
         self.vbr_quality ||= 0
       end
-
     end
 
     # Includes enum constants for Vp8FramerateControl
@@ -16634,6 +16634,7 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.bitrate ||= 0
@@ -16645,7 +16646,6 @@ module AWS::SDK::MediaConvert
         self.par_denominator ||= 0
         self.par_numerator ||= 0
       end
-
     end
 
     # Includes enum constants for Vp9FramerateControl
@@ -16802,6 +16802,7 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.bitrate ||= 0
@@ -16813,7 +16814,6 @@ module AWS::SDK::MediaConvert
         self.par_denominator ||= 0
         self.par_numerator ||= 0
       end
-
     end
 
     # Includes enum constants for WatermarkingStrength
@@ -16884,13 +16884,13 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.bit_depth ||= 0
         self.channels ||= 0
         self.sample_rate ||= 0
       end
-
     end
 
     # Includes enum constants for WebvttAccessibilitySubs
@@ -17145,13 +17145,13 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.gop_closed_cadence ||= 0
         self.hrd_buffer_size ||= 0
         self.slices ||= 0
       end
-
     end
 
     # Includes enum constants for XavcAdaptiveQuantization
@@ -17390,13 +17390,13 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.gop_closed_cadence ||= 0
         self.hrd_buffer_size ||= 0
         self.slices ||= 0
       end
-
     end
 
     # Includes enum constants for XavcHdProfileTelecine
@@ -17577,13 +17577,13 @@ module AWS::SDK::MediaConvert
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.framerate_denominator ||= 0
         self.framerate_numerator ||= 0
         self.softness ||= 0
       end
-
     end
 
     # Includes enum constants for XavcSlowPal

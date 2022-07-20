@@ -42,7 +42,7 @@ module AWS::SDK::AppIntegrations
         type.source_uri = params[:source_uri]
         type.schedule_config = ScheduleConfiguration.build(params[:schedule_config], context: "#{context}[:schedule_config]") unless params[:schedule_config].nil?
         type.tags = TagMap.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -72,7 +72,7 @@ module AWS::SDK::AppIntegrations
         type.description = params[:description]
         type.event_filter = EventFilter.build(params[:event_filter], context: "#{context}[:event_filter]") unless params[:event_filter].nil?
         type.event_bridge_bus = params[:event_bridge_bus]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.tags = TagMap.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type
       end

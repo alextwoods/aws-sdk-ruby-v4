@@ -116,13 +116,13 @@ module AWS::SDK::LookoutEquipment
         {
           job_id: 'job_id',
           dataset_arn: 'dataset_arn',
-          ingestion_input_configuration: Stubs::IngestionInputConfiguration.default(visited),
+          ingestion_input_configuration: IngestionInputConfiguration.default(visited),
           role_arn: 'role_arn',
           created_at: Time.now,
           status: 'status',
           failed_reason: 'failed_reason',
-          data_quality_summary: Stubs::DataQualitySummary.default(visited),
-          ingested_files_summary: Stubs::IngestedFilesSummary.default(visited),
+          data_quality_summary: DataQualitySummary.default(visited),
+          ingested_files_summary: IngestedFilesSummary.default(visited),
           status_detail: 'status_detail',
           ingested_data_size: 1,
           data_start_time: Time.now,
@@ -158,7 +158,7 @@ module AWS::SDK::LookoutEquipment
         {
           total_number_of_files: 1,
           ingested_number_of_files: 1,
-          discarded_files: Stubs::ListOfDiscardedFiles.default(visited),
+          discarded_files: ListOfDiscardedFiles.default(visited),
         }
       end
 
@@ -178,7 +178,7 @@ module AWS::SDK::LookoutEquipment
         return nil if visited.include?('ListOfDiscardedFiles')
         visited = visited + ['ListOfDiscardedFiles']
         [
-          Stubs::S3Object.default(visited)
+          S3Object.default(visited)
         ]
       end
 
@@ -218,11 +218,11 @@ module AWS::SDK::LookoutEquipment
         return nil if visited.include?('DataQualitySummary')
         visited = visited + ['DataQualitySummary']
         {
-          insufficient_sensor_data: Stubs::InsufficientSensorData.default(visited),
-          missing_sensor_data: Stubs::MissingSensorData.default(visited),
-          invalid_sensor_data: Stubs::InvalidSensorData.default(visited),
-          unsupported_timestamps: Stubs::UnsupportedTimestamps.default(visited),
-          duplicate_timestamps: Stubs::DuplicateTimestamps.default(visited),
+          insufficient_sensor_data: InsufficientSensorData.default(visited),
+          missing_sensor_data: MissingSensorData.default(visited),
+          invalid_sensor_data: InvalidSensorData.default(visited),
+          unsupported_timestamps: UnsupportedTimestamps.default(visited),
+          duplicate_timestamps: DuplicateTimestamps.default(visited),
         }
       end
 
@@ -320,8 +320,8 @@ module AWS::SDK::LookoutEquipment
         return nil if visited.include?('InsufficientSensorData')
         visited = visited + ['InsufficientSensorData']
         {
-          missing_complete_sensor_data: Stubs::MissingCompleteSensorData.default(visited),
-          sensors_with_short_date_range: Stubs::SensorsWithShortDateRange.default(visited),
+          missing_complete_sensor_data: MissingCompleteSensorData.default(visited),
+          sensors_with_short_date_range: SensorsWithShortDateRange.default(visited),
         }
       end
 
@@ -376,7 +376,7 @@ module AWS::SDK::LookoutEquipment
         return nil if visited.include?('IngestionInputConfiguration')
         visited = visited + ['IngestionInputConfiguration']
         {
-          s3_input_configuration: Stubs::IngestionS3InputConfiguration.default(visited),
+          s3_input_configuration: IngestionS3InputConfiguration.default(visited),
         }
       end
 
@@ -421,9 +421,9 @@ module AWS::SDK::LookoutEquipment
           status: 'status',
           schema: 'schema',
           server_side_kms_key_id: 'server_side_kms_key_id',
-          ingestion_input_configuration: Stubs::IngestionInputConfiguration.default(visited),
-          data_quality_summary: Stubs::DataQualitySummary.default(visited),
-          ingested_files_summary: Stubs::IngestedFilesSummary.default(visited),
+          ingestion_input_configuration: IngestionInputConfiguration.default(visited),
+          data_quality_summary: DataQualitySummary.default(visited),
+          ingested_files_summary: IngestedFilesSummary.default(visited),
           role_arn: 'role_arn',
           data_start_time: Time.now,
           data_end_time: Time.now,
@@ -463,8 +463,8 @@ module AWS::SDK::LookoutEquipment
           data_upload_frequency: 'data_upload_frequency',
           created_at: Time.now,
           updated_at: Time.now,
-          data_input_configuration: Stubs::InferenceInputConfiguration.default(visited),
-          data_output_configuration: Stubs::InferenceOutputConfiguration.default(visited),
+          data_input_configuration: InferenceInputConfiguration.default(visited),
+          data_output_configuration: InferenceOutputConfiguration.default(visited),
           role_arn: 'role_arn',
           server_side_kms_key_id: 'server_side_kms_key_id',
         }
@@ -496,7 +496,7 @@ module AWS::SDK::LookoutEquipment
         return nil if visited.include?('InferenceOutputConfiguration')
         visited = visited + ['InferenceOutputConfiguration']
         {
-          s3_output_configuration: Stubs::InferenceS3OutputConfiguration.default(visited),
+          s3_output_configuration: InferenceS3OutputConfiguration.default(visited),
           kms_key_id: 'kms_key_id',
         }
       end
@@ -536,9 +536,9 @@ module AWS::SDK::LookoutEquipment
         return nil if visited.include?('InferenceInputConfiguration')
         visited = visited + ['InferenceInputConfiguration']
         {
-          s3_input_configuration: Stubs::InferenceS3InputConfiguration.default(visited),
+          s3_input_configuration: InferenceS3InputConfiguration.default(visited),
           input_time_zone_offset: 'input_time_zone_offset',
-          inference_input_name_configuration: Stubs::InferenceInputNameConfiguration.default(visited),
+          inference_input_name_configuration: InferenceInputNameConfiguration.default(visited),
         }
       end
 
@@ -601,13 +601,13 @@ module AWS::SDK::LookoutEquipment
           dataset_name: 'dataset_name',
           dataset_arn: 'dataset_arn',
           schema: 'schema',
-          labels_input_configuration: Stubs::LabelsInputConfiguration.default(visited),
+          labels_input_configuration: LabelsInputConfiguration.default(visited),
           training_data_start_time: Time.now,
           training_data_end_time: Time.now,
           evaluation_data_start_time: Time.now,
           evaluation_data_end_time: Time.now,
           role_arn: 'role_arn',
-          data_pre_processing_configuration: Stubs::DataPreProcessingConfiguration.default(visited),
+          data_pre_processing_configuration: DataPreProcessingConfiguration.default(visited),
           status: 'status',
           training_execution_start_time: Time.now,
           training_execution_end_time: Time.now,
@@ -672,7 +672,7 @@ module AWS::SDK::LookoutEquipment
         return nil if visited.include?('LabelsInputConfiguration')
         visited = visited + ['LabelsInputConfiguration']
         {
-          s3_input_configuration: Stubs::LabelsS3InputConfiguration.default(visited),
+          s3_input_configuration: LabelsS3InputConfiguration.default(visited),
         }
       end
 
@@ -709,7 +709,7 @@ module AWS::SDK::LookoutEquipment
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          data_ingestion_job_summaries: Stubs::DataIngestionJobSummaries.default(visited),
+          data_ingestion_job_summaries: DataIngestionJobSummaries.default(visited),
         }
       end
 
@@ -728,7 +728,7 @@ module AWS::SDK::LookoutEquipment
         return nil if visited.include?('DataIngestionJobSummaries')
         visited = visited + ['DataIngestionJobSummaries']
         [
-          Stubs::DataIngestionJobSummary.default(visited)
+          DataIngestionJobSummary.default(visited)
         ]
       end
 
@@ -751,7 +751,7 @@ module AWS::SDK::LookoutEquipment
           job_id: 'job_id',
           dataset_name: 'dataset_name',
           dataset_arn: 'dataset_arn',
-          ingestion_input_configuration: Stubs::IngestionInputConfiguration.default(visited),
+          ingestion_input_configuration: IngestionInputConfiguration.default(visited),
           status: 'status',
         }
       end
@@ -773,7 +773,7 @@ module AWS::SDK::LookoutEquipment
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          dataset_summaries: Stubs::DatasetSummaries.default(visited),
+          dataset_summaries: DatasetSummaries.default(visited),
         }
       end
 
@@ -792,7 +792,7 @@ module AWS::SDK::LookoutEquipment
         return nil if visited.include?('DatasetSummaries')
         visited = visited + ['DatasetSummaries']
         [
-          Stubs::DatasetSummary.default(visited)
+          DatasetSummary.default(visited)
         ]
       end
 
@@ -835,7 +835,7 @@ module AWS::SDK::LookoutEquipment
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          inference_execution_summaries: Stubs::InferenceExecutionSummaries.default(visited),
+          inference_execution_summaries: InferenceExecutionSummaries.default(visited),
         }
       end
 
@@ -854,7 +854,7 @@ module AWS::SDK::LookoutEquipment
         return nil if visited.include?('InferenceExecutionSummaries')
         visited = visited + ['InferenceExecutionSummaries']
         [
-          Stubs::InferenceExecutionSummary.default(visited)
+          InferenceExecutionSummary.default(visited)
         ]
       end
 
@@ -881,9 +881,9 @@ module AWS::SDK::LookoutEquipment
           scheduled_start_time: Time.now,
           data_start_time: Time.now,
           data_end_time: Time.now,
-          data_input_configuration: Stubs::InferenceInputConfiguration.default(visited),
-          data_output_configuration: Stubs::InferenceOutputConfiguration.default(visited),
-          customer_result_object: Stubs::S3Object.default(visited),
+          data_input_configuration: InferenceInputConfiguration.default(visited),
+          data_output_configuration: InferenceOutputConfiguration.default(visited),
+          customer_result_object: S3Object.default(visited),
           status: 'status',
           failed_reason: 'failed_reason',
         }
@@ -913,7 +913,7 @@ module AWS::SDK::LookoutEquipment
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          inference_scheduler_summaries: Stubs::InferenceSchedulerSummaries.default(visited),
+          inference_scheduler_summaries: InferenceSchedulerSummaries.default(visited),
         }
       end
 
@@ -932,7 +932,7 @@ module AWS::SDK::LookoutEquipment
         return nil if visited.include?('InferenceSchedulerSummaries')
         visited = visited + ['InferenceSchedulerSummaries']
         [
-          Stubs::InferenceSchedulerSummary.default(visited)
+          InferenceSchedulerSummary.default(visited)
         ]
       end
 
@@ -981,7 +981,7 @@ module AWS::SDK::LookoutEquipment
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          model_summaries: Stubs::ModelSummaries.default(visited),
+          model_summaries: ModelSummaries.default(visited),
         }
       end
 
@@ -1000,7 +1000,7 @@ module AWS::SDK::LookoutEquipment
         return nil if visited.include?('ModelSummaries')
         visited = visited + ['ModelSummaries']
         [
-          Stubs::ModelSummary.default(visited)
+          ModelSummary.default(visited)
         ]
       end
 
@@ -1046,7 +1046,7 @@ module AWS::SDK::LookoutEquipment
     class ListSensorStatistics
       def self.default(visited=[])
         {
-          sensor_statistics_summaries: Stubs::SensorStatisticsSummaries.default(visited),
+          sensor_statistics_summaries: SensorStatisticsSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1066,7 +1066,7 @@ module AWS::SDK::LookoutEquipment
         return nil if visited.include?('SensorStatisticsSummaries')
         visited = visited + ['SensorStatisticsSummaries']
         [
-          Stubs::SensorStatisticsSummary.default(visited)
+          SensorStatisticsSummary.default(visited)
         ]
       end
 
@@ -1089,14 +1089,14 @@ module AWS::SDK::LookoutEquipment
           component_name: 'component_name',
           sensor_name: 'sensor_name',
           data_exists: false,
-          missing_values: Stubs::CountPercent.default(visited),
-          invalid_values: Stubs::CountPercent.default(visited),
-          invalid_date_entries: Stubs::CountPercent.default(visited),
-          duplicate_timestamps: Stubs::CountPercent.default(visited),
-          categorical_values: Stubs::CategoricalValues.default(visited),
-          multiple_operating_modes: Stubs::MultipleOperatingModes.default(visited),
-          large_timestamp_gaps: Stubs::LargeTimestampGaps.default(visited),
-          monotonic_values: Stubs::MonotonicValues.default(visited),
+          missing_values: CountPercent.default(visited),
+          invalid_values: CountPercent.default(visited),
+          invalid_date_entries: CountPercent.default(visited),
+          duplicate_timestamps: CountPercent.default(visited),
+          categorical_values: CategoricalValues.default(visited),
+          multiple_operating_modes: MultipleOperatingModes.default(visited),
+          large_timestamp_gaps: LargeTimestampGaps.default(visited),
+          monotonic_values: MonotonicValues.default(visited),
           data_start_time: Time.now,
           data_end_time: Time.now,
         }
@@ -1226,7 +1226,7 @@ module AWS::SDK::LookoutEquipment
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -1244,7 +1244,7 @@ module AWS::SDK::LookoutEquipment
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 

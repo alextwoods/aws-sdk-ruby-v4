@@ -14,8 +14,8 @@ module AWS::SDK::DynamoDB
     class BatchExecuteStatement
       def self.default(visited=[])
         {
-          responses: Stubs::PartiQLBatchResponse.default(visited),
-          consumed_capacity: Stubs::ConsumedCapacityMultiple.default(visited),
+          responses: PartiQLBatchResponse.default(visited),
+          consumed_capacity: ConsumedCapacityMultiple.default(visited),
         }
       end
 
@@ -34,7 +34,7 @@ module AWS::SDK::DynamoDB
         return nil if visited.include?('ConsumedCapacityMultiple')
         visited = visited + ['ConsumedCapacityMultiple']
         [
-          Stubs::ConsumedCapacity.default(visited)
+          ConsumedCapacity.default(visited)
         ]
       end
 
@@ -58,9 +58,9 @@ module AWS::SDK::DynamoDB
           capacity_units: 1.0,
           read_capacity_units: 1.0,
           write_capacity_units: 1.0,
-          table: Stubs::Capacity.default(visited),
-          local_secondary_indexes: Stubs::SecondaryIndexesCapacityMap.default(visited),
-          global_secondary_indexes: Stubs::SecondaryIndexesCapacityMap.default(visited),
+          table: Capacity.default(visited),
+          local_secondary_indexes: SecondaryIndexesCapacityMap.default(visited),
+          global_secondary_indexes: SecondaryIndexesCapacityMap.default(visited),
         }
       end
 
@@ -84,7 +84,7 @@ module AWS::SDK::DynamoDB
         return nil if visited.include?('SecondaryIndexesCapacityMap')
         visited = visited + ['SecondaryIndexesCapacityMap']
         {
-          test_key: Stubs::Capacity.default(visited)
+          test_key: Capacity.default(visited)
         }
       end
 
@@ -126,7 +126,7 @@ module AWS::SDK::DynamoDB
         return nil if visited.include?('PartiQLBatchResponse')
         visited = visited + ['PartiQLBatchResponse']
         [
-          Stubs::BatchStatementResponse.default(visited)
+          BatchStatementResponse.default(visited)
         ]
       end
 
@@ -146,9 +146,9 @@ module AWS::SDK::DynamoDB
         return nil if visited.include?('BatchStatementResponse')
         visited = visited + ['BatchStatementResponse']
         {
-          error: Stubs::BatchStatementError.default(visited),
+          error: BatchStatementError.default(visited),
           table_name: 'table_name',
-          item: Stubs::AttributeMap.default(visited),
+          item: AttributeMap.default(visited),
         }
       end
 
@@ -168,7 +168,7 @@ module AWS::SDK::DynamoDB
         return nil if visited.include?('AttributeMap')
         visited = visited + ['AttributeMap']
         {
-          test_key: Stubs::AttributeValue.default(visited)
+          test_key: AttributeValue.default(visited)
         }
       end
 
@@ -230,7 +230,7 @@ module AWS::SDK::DynamoDB
         return nil if visited.include?('ListAttributeValue')
         visited = visited + ['ListAttributeValue']
         [
-          Stubs::AttributeValue.default(visited)
+          AttributeValue.default(visited)
         ]
       end
 
@@ -250,7 +250,7 @@ module AWS::SDK::DynamoDB
         return nil if visited.include?('MapAttributeValue')
         visited = visited + ['MapAttributeValue']
         {
-          test_key: Stubs::AttributeValue.default(visited)
+          test_key: AttributeValue.default(visited)
         }
       end
 
@@ -348,9 +348,9 @@ module AWS::SDK::DynamoDB
     class BatchGetItem
       def self.default(visited=[])
         {
-          responses: Stubs::BatchGetResponseMap.default(visited),
-          unprocessed_keys: Stubs::BatchGetRequestMap.default(visited),
-          consumed_capacity: Stubs::ConsumedCapacityMultiple.default(visited),
+          responses: BatchGetResponseMap.default(visited),
+          unprocessed_keys: BatchGetRequestMap.default(visited),
+          consumed_capacity: ConsumedCapacityMultiple.default(visited),
         }
       end
 
@@ -370,7 +370,7 @@ module AWS::SDK::DynamoDB
         return nil if visited.include?('BatchGetRequestMap')
         visited = visited + ['BatchGetRequestMap']
         {
-          test_key: Stubs::KeysAndAttributes.default(visited)
+          test_key: KeysAndAttributes.default(visited)
         }
       end
 
@@ -390,11 +390,11 @@ module AWS::SDK::DynamoDB
         return nil if visited.include?('KeysAndAttributes')
         visited = visited + ['KeysAndAttributes']
         {
-          keys: Stubs::KeyList.default(visited),
-          attributes_to_get: Stubs::AttributeNameList.default(visited),
+          keys: KeyList.default(visited),
+          attributes_to_get: AttributeNameList.default(visited),
           consistent_read: false,
           projection_expression: 'projection_expression',
-          expression_attribute_names: Stubs::ExpressionAttributeNameMap.default(visited),
+          expression_attribute_names: ExpressionAttributeNameMap.default(visited),
         }
       end
 
@@ -456,7 +456,7 @@ module AWS::SDK::DynamoDB
         return nil if visited.include?('KeyList')
         visited = visited + ['KeyList']
         [
-          Stubs::Key.default(visited)
+          Key.default(visited)
         ]
       end
 
@@ -476,7 +476,7 @@ module AWS::SDK::DynamoDB
         return nil if visited.include?('Key')
         visited = visited + ['Key']
         {
-          test_key: Stubs::AttributeValue.default(visited)
+          test_key: AttributeValue.default(visited)
         }
       end
 
@@ -496,7 +496,7 @@ module AWS::SDK::DynamoDB
         return nil if visited.include?('BatchGetResponseMap')
         visited = visited + ['BatchGetResponseMap']
         {
-          test_key: Stubs::ItemList.default(visited)
+          test_key: ItemList.default(visited)
         }
       end
 
@@ -516,7 +516,7 @@ module AWS::SDK::DynamoDB
         return nil if visited.include?('ItemList')
         visited = visited + ['ItemList']
         [
-          Stubs::AttributeMap.default(visited)
+          AttributeMap.default(visited)
         ]
       end
 
@@ -534,9 +534,9 @@ module AWS::SDK::DynamoDB
     class BatchWriteItem
       def self.default(visited=[])
         {
-          unprocessed_items: Stubs::BatchWriteItemRequestMap.default(visited),
-          item_collection_metrics: Stubs::ItemCollectionMetricsPerTable.default(visited),
-          consumed_capacity: Stubs::ConsumedCapacityMultiple.default(visited),
+          unprocessed_items: BatchWriteItemRequestMap.default(visited),
+          item_collection_metrics: ItemCollectionMetricsPerTable.default(visited),
+          consumed_capacity: ConsumedCapacityMultiple.default(visited),
         }
       end
 
@@ -556,7 +556,7 @@ module AWS::SDK::DynamoDB
         return nil if visited.include?('ItemCollectionMetricsPerTable')
         visited = visited + ['ItemCollectionMetricsPerTable']
         {
-          test_key: Stubs::ItemCollectionMetricsMultiple.default(visited)
+          test_key: ItemCollectionMetricsMultiple.default(visited)
         }
       end
 
@@ -576,7 +576,7 @@ module AWS::SDK::DynamoDB
         return nil if visited.include?('ItemCollectionMetricsMultiple')
         visited = visited + ['ItemCollectionMetricsMultiple']
         [
-          Stubs::ItemCollectionMetrics.default(visited)
+          ItemCollectionMetrics.default(visited)
         ]
       end
 
@@ -596,8 +596,8 @@ module AWS::SDK::DynamoDB
         return nil if visited.include?('ItemCollectionMetrics')
         visited = visited + ['ItemCollectionMetrics']
         {
-          item_collection_key: Stubs::ItemCollectionKeyAttributeMap.default(visited),
-          size_estimate_range_gb: Stubs::ItemCollectionSizeEstimateRange.default(visited),
+          item_collection_key: ItemCollectionKeyAttributeMap.default(visited),
+          size_estimate_range_gb: ItemCollectionSizeEstimateRange.default(visited),
         }
       end
 
@@ -636,7 +636,7 @@ module AWS::SDK::DynamoDB
         return nil if visited.include?('ItemCollectionKeyAttributeMap')
         visited = visited + ['ItemCollectionKeyAttributeMap']
         {
-          test_key: Stubs::AttributeValue.default(visited)
+          test_key: AttributeValue.default(visited)
         }
       end
 
@@ -656,7 +656,7 @@ module AWS::SDK::DynamoDB
         return nil if visited.include?('BatchWriteItemRequestMap')
         visited = visited + ['BatchWriteItemRequestMap']
         {
-          test_key: Stubs::WriteRequests.default(visited)
+          test_key: WriteRequests.default(visited)
         }
       end
 
@@ -676,7 +676,7 @@ module AWS::SDK::DynamoDB
         return nil if visited.include?('WriteRequests')
         visited = visited + ['WriteRequests']
         [
-          Stubs::WriteRequest.default(visited)
+          WriteRequest.default(visited)
         ]
       end
 
@@ -696,8 +696,8 @@ module AWS::SDK::DynamoDB
         return nil if visited.include?('WriteRequest')
         visited = visited + ['WriteRequest']
         {
-          put_request: Stubs::PutRequest.default(visited),
-          delete_request: Stubs::DeleteRequest.default(visited),
+          put_request: PutRequest.default(visited),
+          delete_request: DeleteRequest.default(visited),
         }
       end
 
@@ -716,7 +716,7 @@ module AWS::SDK::DynamoDB
         return nil if visited.include?('DeleteRequest')
         visited = visited + ['DeleteRequest']
         {
-          key: Stubs::Key.default(visited),
+          key: Key.default(visited),
         }
       end
 
@@ -734,7 +734,7 @@ module AWS::SDK::DynamoDB
         return nil if visited.include?('PutRequest')
         visited = visited + ['PutRequest']
         {
-          item: Stubs::PutItemInputAttributeMap.default(visited),
+          item: PutItemInputAttributeMap.default(visited),
         }
       end
 
@@ -752,7 +752,7 @@ module AWS::SDK::DynamoDB
         return nil if visited.include?('PutItemInputAttributeMap')
         visited = visited + ['PutItemInputAttributeMap']
         {
-          test_key: Stubs::AttributeValue.default(visited)
+          test_key: AttributeValue.default(visited)
         }
       end
 
@@ -770,7 +770,7 @@ module AWS::SDK::DynamoDB
     class CreateBackup
       def self.default(visited=[])
         {
-          backup_details: Stubs::BackupDetails.default(visited),
+          backup_details: BackupDetails.default(visited),
         }
       end
 
@@ -816,7 +816,7 @@ module AWS::SDK::DynamoDB
     class CreateGlobalTable
       def self.default(visited=[])
         {
-          global_table_description: Stubs::GlobalTableDescription.default(visited),
+          global_table_description: GlobalTableDescription.default(visited),
         }
       end
 
@@ -834,7 +834,7 @@ module AWS::SDK::DynamoDB
         return nil if visited.include?('GlobalTableDescription')
         visited = visited + ['GlobalTableDescription']
         {
-          replication_group: Stubs::ReplicaDescriptionList.default(visited),
+          replication_group: ReplicaDescriptionList.default(visited),
           global_table_arn: 'global_table_arn',
           creation_date_time: Time.now,
           global_table_status: 'global_table_status',
@@ -860,7 +860,7 @@ module AWS::SDK::DynamoDB
         return nil if visited.include?('ReplicaDescriptionList')
         visited = visited + ['ReplicaDescriptionList']
         [
-          Stubs::ReplicaDescription.default(visited)
+          ReplicaDescription.default(visited)
         ]
       end
 
@@ -885,10 +885,10 @@ module AWS::SDK::DynamoDB
           replica_status_description: 'replica_status_description',
           replica_status_percent_progress: 'replica_status_percent_progress',
           kms_master_key_id: 'kms_master_key_id',
-          provisioned_throughput_override: Stubs::ProvisionedThroughputOverride.default(visited),
-          global_secondary_indexes: Stubs::ReplicaGlobalSecondaryIndexDescriptionList.default(visited),
+          provisioned_throughput_override: ProvisionedThroughputOverride.default(visited),
+          global_secondary_indexes: ReplicaGlobalSecondaryIndexDescriptionList.default(visited),
           replica_inaccessible_date_time: Time.now,
-          replica_table_class_summary: Stubs::TableClassSummary.default(visited),
+          replica_table_class_summary: TableClassSummary.default(visited),
         }
       end
 
@@ -934,7 +934,7 @@ module AWS::SDK::DynamoDB
         return nil if visited.include?('ReplicaGlobalSecondaryIndexDescriptionList')
         visited = visited + ['ReplicaGlobalSecondaryIndexDescriptionList']
         [
-          Stubs::ReplicaGlobalSecondaryIndexDescription.default(visited)
+          ReplicaGlobalSecondaryIndexDescription.default(visited)
         ]
       end
 
@@ -955,7 +955,7 @@ module AWS::SDK::DynamoDB
         visited = visited + ['ReplicaGlobalSecondaryIndexDescription']
         {
           index_name: 'index_name',
-          provisioned_throughput_override: Stubs::ProvisionedThroughputOverride.default(visited),
+          provisioned_throughput_override: ProvisionedThroughputOverride.default(visited),
         }
       end
 
@@ -990,7 +990,7 @@ module AWS::SDK::DynamoDB
     class CreateTable
       def self.default(visited=[])
         {
-          table_description: Stubs::TableDescription.default(visited),
+          table_description: TableDescription.default(visited),
         }
       end
 
@@ -1008,28 +1008,28 @@ module AWS::SDK::DynamoDB
         return nil if visited.include?('TableDescription')
         visited = visited + ['TableDescription']
         {
-          attribute_definitions: Stubs::AttributeDefinitions.default(visited),
+          attribute_definitions: AttributeDefinitions.default(visited),
           table_name: 'table_name',
-          key_schema: Stubs::KeySchema.default(visited),
+          key_schema: KeySchema.default(visited),
           table_status: 'table_status',
           creation_date_time: Time.now,
-          provisioned_throughput: Stubs::ProvisionedThroughputDescription.default(visited),
+          provisioned_throughput: ProvisionedThroughputDescription.default(visited),
           table_size_bytes: 1,
           item_count: 1,
           table_arn: 'table_arn',
           table_id: 'table_id',
-          billing_mode_summary: Stubs::BillingModeSummary.default(visited),
-          local_secondary_indexes: Stubs::LocalSecondaryIndexDescriptionList.default(visited),
-          global_secondary_indexes: Stubs::GlobalSecondaryIndexDescriptionList.default(visited),
-          stream_specification: Stubs::StreamSpecification.default(visited),
+          billing_mode_summary: BillingModeSummary.default(visited),
+          local_secondary_indexes: LocalSecondaryIndexDescriptionList.default(visited),
+          global_secondary_indexes: GlobalSecondaryIndexDescriptionList.default(visited),
+          stream_specification: StreamSpecification.default(visited),
           latest_stream_label: 'latest_stream_label',
           latest_stream_arn: 'latest_stream_arn',
           global_table_version: 'global_table_version',
-          replicas: Stubs::ReplicaDescriptionList.default(visited),
-          restore_summary: Stubs::RestoreSummary.default(visited),
-          sse_description: Stubs::SSEDescription.default(visited),
-          archival_summary: Stubs::ArchivalSummary.default(visited),
-          table_class_summary: Stubs::TableClassSummary.default(visited),
+          replicas: ReplicaDescriptionList.default(visited),
+          restore_summary: RestoreSummary.default(visited),
+          sse_description: SSEDescription.default(visited),
+          archival_summary: ArchivalSummary.default(visited),
+          table_class_summary: TableClassSummary.default(visited),
         }
       end
 
@@ -1158,7 +1158,7 @@ module AWS::SDK::DynamoDB
         return nil if visited.include?('GlobalSecondaryIndexDescriptionList')
         visited = visited + ['GlobalSecondaryIndexDescriptionList']
         [
-          Stubs::GlobalSecondaryIndexDescription.default(visited)
+          GlobalSecondaryIndexDescription.default(visited)
         ]
       end
 
@@ -1179,11 +1179,11 @@ module AWS::SDK::DynamoDB
         visited = visited + ['GlobalSecondaryIndexDescription']
         {
           index_name: 'index_name',
-          key_schema: Stubs::KeySchema.default(visited),
-          projection: Stubs::Projection.default(visited),
+          key_schema: KeySchema.default(visited),
+          projection: Projection.default(visited),
           index_status: 'index_status',
           backfilling: false,
-          provisioned_throughput: Stubs::ProvisionedThroughputDescription.default(visited),
+          provisioned_throughput: ProvisionedThroughputDescription.default(visited),
           index_size_bytes: 1,
           item_count: 1,
           index_arn: 'index_arn',
@@ -1239,7 +1239,7 @@ module AWS::SDK::DynamoDB
         visited = visited + ['Projection']
         {
           projection_type: 'projection_type',
-          non_key_attributes: Stubs::NonKeyAttributeNameList.default(visited),
+          non_key_attributes: NonKeyAttributeNameList.default(visited),
         }
       end
 
@@ -1278,7 +1278,7 @@ module AWS::SDK::DynamoDB
         return nil if visited.include?('KeySchema')
         visited = visited + ['KeySchema']
         [
-          Stubs::KeySchemaElement.default(visited)
+          KeySchemaElement.default(visited)
         ]
       end
 
@@ -1318,7 +1318,7 @@ module AWS::SDK::DynamoDB
         return nil if visited.include?('LocalSecondaryIndexDescriptionList')
         visited = visited + ['LocalSecondaryIndexDescriptionList']
         [
-          Stubs::LocalSecondaryIndexDescription.default(visited)
+          LocalSecondaryIndexDescription.default(visited)
         ]
       end
 
@@ -1339,8 +1339,8 @@ module AWS::SDK::DynamoDB
         visited = visited + ['LocalSecondaryIndexDescription']
         {
           index_name: 'index_name',
-          key_schema: Stubs::KeySchema.default(visited),
-          projection: Stubs::Projection.default(visited),
+          key_schema: KeySchema.default(visited),
+          projection: Projection.default(visited),
           index_size_bytes: 1,
           item_count: 1,
           index_arn: 'index_arn',
@@ -1386,7 +1386,7 @@ module AWS::SDK::DynamoDB
         return nil if visited.include?('AttributeDefinitions')
         visited = visited + ['AttributeDefinitions']
         [
-          Stubs::AttributeDefinition.default(visited)
+          AttributeDefinition.default(visited)
         ]
       end
 
@@ -1424,7 +1424,7 @@ module AWS::SDK::DynamoDB
     class DeleteBackup
       def self.default(visited=[])
         {
-          backup_description: Stubs::BackupDescription.default(visited),
+          backup_description: BackupDescription.default(visited),
         }
       end
 
@@ -1442,9 +1442,9 @@ module AWS::SDK::DynamoDB
         return nil if visited.include?('BackupDescription')
         visited = visited + ['BackupDescription']
         {
-          backup_details: Stubs::BackupDetails.default(visited),
-          source_table_details: Stubs::SourceTableDetails.default(visited),
-          source_table_feature_details: Stubs::SourceTableFeatureDetails.default(visited),
+          backup_details: BackupDetails.default(visited),
+          source_table_details: SourceTableDetails.default(visited),
+          source_table_feature_details: SourceTableFeatureDetails.default(visited),
         }
       end
 
@@ -1464,11 +1464,11 @@ module AWS::SDK::DynamoDB
         return nil if visited.include?('SourceTableFeatureDetails')
         visited = visited + ['SourceTableFeatureDetails']
         {
-          local_secondary_indexes: Stubs::LocalSecondaryIndexes.default(visited),
-          global_secondary_indexes: Stubs::GlobalSecondaryIndexes.default(visited),
-          stream_description: Stubs::StreamSpecification.default(visited),
-          time_to_live_description: Stubs::TimeToLiveDescription.default(visited),
-          sse_description: Stubs::SSEDescription.default(visited),
+          local_secondary_indexes: LocalSecondaryIndexes.default(visited),
+          global_secondary_indexes: GlobalSecondaryIndexes.default(visited),
+          stream_description: StreamSpecification.default(visited),
+          time_to_live_description: TimeToLiveDescription.default(visited),
+          sse_description: SSEDescription.default(visited),
         }
       end
 
@@ -1510,7 +1510,7 @@ module AWS::SDK::DynamoDB
         return nil if visited.include?('GlobalSecondaryIndexes')
         visited = visited + ['GlobalSecondaryIndexes']
         [
-          Stubs::GlobalSecondaryIndexInfo.default(visited)
+          GlobalSecondaryIndexInfo.default(visited)
         ]
       end
 
@@ -1531,9 +1531,9 @@ module AWS::SDK::DynamoDB
         visited = visited + ['GlobalSecondaryIndexInfo']
         {
           index_name: 'index_name',
-          key_schema: Stubs::KeySchema.default(visited),
-          projection: Stubs::Projection.default(visited),
-          provisioned_throughput: Stubs::ProvisionedThroughput.default(visited),
+          key_schema: KeySchema.default(visited),
+          projection: Projection.default(visited),
+          provisioned_throughput: ProvisionedThroughput.default(visited),
         }
       end
 
@@ -1574,7 +1574,7 @@ module AWS::SDK::DynamoDB
         return nil if visited.include?('LocalSecondaryIndexes')
         visited = visited + ['LocalSecondaryIndexes']
         [
-          Stubs::LocalSecondaryIndexInfo.default(visited)
+          LocalSecondaryIndexInfo.default(visited)
         ]
       end
 
@@ -1595,8 +1595,8 @@ module AWS::SDK::DynamoDB
         visited = visited + ['LocalSecondaryIndexInfo']
         {
           index_name: 'index_name',
-          key_schema: Stubs::KeySchema.default(visited),
-          projection: Stubs::Projection.default(visited),
+          key_schema: KeySchema.default(visited),
+          projection: Projection.default(visited),
         }
       end
 
@@ -1620,9 +1620,9 @@ module AWS::SDK::DynamoDB
           table_id: 'table_id',
           table_arn: 'table_arn',
           table_size_bytes: 1,
-          key_schema: Stubs::KeySchema.default(visited),
+          key_schema: KeySchema.default(visited),
           table_creation_date_time: Time.now,
-          provisioned_throughput: Stubs::ProvisionedThroughput.default(visited),
+          provisioned_throughput: ProvisionedThroughput.default(visited),
           item_count: 1,
           billing_mode: 'billing_mode',
         }
@@ -1648,9 +1648,9 @@ module AWS::SDK::DynamoDB
     class DeleteItem
       def self.default(visited=[])
         {
-          attributes: Stubs::AttributeMap.default(visited),
-          consumed_capacity: Stubs::ConsumedCapacity.default(visited),
-          item_collection_metrics: Stubs::ItemCollectionMetrics.default(visited),
+          attributes: AttributeMap.default(visited),
+          consumed_capacity: ConsumedCapacity.default(visited),
+          item_collection_metrics: ItemCollectionMetrics.default(visited),
         }
       end
 
@@ -1668,7 +1668,7 @@ module AWS::SDK::DynamoDB
     class DeleteTable
       def self.default(visited=[])
         {
-          table_description: Stubs::TableDescription.default(visited),
+          table_description: TableDescription.default(visited),
         }
       end
 
@@ -1684,7 +1684,7 @@ module AWS::SDK::DynamoDB
     class DescribeBackup
       def self.default(visited=[])
         {
-          backup_description: Stubs::BackupDescription.default(visited),
+          backup_description: BackupDescription.default(visited),
         }
       end
 
@@ -1700,7 +1700,7 @@ module AWS::SDK::DynamoDB
     class DescribeContinuousBackups
       def self.default(visited=[])
         {
-          continuous_backups_description: Stubs::ContinuousBackupsDescription.default(visited),
+          continuous_backups_description: ContinuousBackupsDescription.default(visited),
         }
       end
 
@@ -1719,7 +1719,7 @@ module AWS::SDK::DynamoDB
         visited = visited + ['ContinuousBackupsDescription']
         {
           continuous_backups_status: 'continuous_backups_status',
-          point_in_time_recovery_description: Stubs::PointInTimeRecoveryDescription.default(visited),
+          point_in_time_recovery_description: PointInTimeRecoveryDescription.default(visited),
         }
       end
 
@@ -1760,10 +1760,10 @@ module AWS::SDK::DynamoDB
         {
           table_name: 'table_name',
           index_name: 'index_name',
-          contributor_insights_rule_list: Stubs::ContributorInsightsRuleList.default(visited),
+          contributor_insights_rule_list: ContributorInsightsRuleList.default(visited),
           contributor_insights_status: 'contributor_insights_status',
           last_update_date_time: Time.now,
-          failure_exception: Stubs::FailureException.default(visited),
+          failure_exception: FailureException.default(visited),
         }
       end
 
@@ -1824,7 +1824,7 @@ module AWS::SDK::DynamoDB
     class DescribeEndpoints
       def self.default(visited=[])
         {
-          endpoints: Stubs::Endpoints.default(visited),
+          endpoints: Endpoints.default(visited),
         }
       end
 
@@ -1842,7 +1842,7 @@ module AWS::SDK::DynamoDB
         return nil if visited.include?('Endpoints')
         visited = visited + ['Endpoints']
         [
-          Stubs::Endpoint.default(visited)
+          Endpoint.default(visited)
         ]
       end
 
@@ -1880,7 +1880,7 @@ module AWS::SDK::DynamoDB
     class DescribeExport
       def self.default(visited=[])
         {
-          export_description: Stubs::ExportDescription.default(visited),
+          export_description: ExportDescription.default(visited),
         }
       end
 
@@ -1950,7 +1950,7 @@ module AWS::SDK::DynamoDB
     class DescribeGlobalTable
       def self.default(visited=[])
         {
-          global_table_description: Stubs::GlobalTableDescription.default(visited),
+          global_table_description: GlobalTableDescription.default(visited),
         }
       end
 
@@ -1967,7 +1967,7 @@ module AWS::SDK::DynamoDB
       def self.default(visited=[])
         {
           global_table_name: 'global_table_name',
-          replica_settings: Stubs::ReplicaSettingsDescriptionList.default(visited),
+          replica_settings: ReplicaSettingsDescriptionList.default(visited),
         }
       end
 
@@ -1986,7 +1986,7 @@ module AWS::SDK::DynamoDB
         return nil if visited.include?('ReplicaSettingsDescriptionList')
         visited = visited + ['ReplicaSettingsDescriptionList']
         [
-          Stubs::ReplicaSettingsDescription.default(visited)
+          ReplicaSettingsDescription.default(visited)
         ]
       end
 
@@ -2008,13 +2008,13 @@ module AWS::SDK::DynamoDB
         {
           region_name: 'region_name',
           replica_status: 'replica_status',
-          replica_billing_mode_summary: Stubs::BillingModeSummary.default(visited),
+          replica_billing_mode_summary: BillingModeSummary.default(visited),
           replica_provisioned_read_capacity_units: 1,
-          replica_provisioned_read_capacity_auto_scaling_settings: Stubs::AutoScalingSettingsDescription.default(visited),
+          replica_provisioned_read_capacity_auto_scaling_settings: AutoScalingSettingsDescription.default(visited),
           replica_provisioned_write_capacity_units: 1,
-          replica_provisioned_write_capacity_auto_scaling_settings: Stubs::AutoScalingSettingsDescription.default(visited),
-          replica_global_secondary_index_settings: Stubs::ReplicaGlobalSecondaryIndexSettingsDescriptionList.default(visited),
-          replica_table_class_summary: Stubs::TableClassSummary.default(visited),
+          replica_provisioned_write_capacity_auto_scaling_settings: AutoScalingSettingsDescription.default(visited),
+          replica_global_secondary_index_settings: ReplicaGlobalSecondaryIndexSettingsDescriptionList.default(visited),
+          replica_table_class_summary: TableClassSummary.default(visited),
         }
       end
 
@@ -2040,7 +2040,7 @@ module AWS::SDK::DynamoDB
         return nil if visited.include?('ReplicaGlobalSecondaryIndexSettingsDescriptionList')
         visited = visited + ['ReplicaGlobalSecondaryIndexSettingsDescriptionList']
         [
-          Stubs::ReplicaGlobalSecondaryIndexSettingsDescription.default(visited)
+          ReplicaGlobalSecondaryIndexSettingsDescription.default(visited)
         ]
       end
 
@@ -2063,9 +2063,9 @@ module AWS::SDK::DynamoDB
           index_name: 'index_name',
           index_status: 'index_status',
           provisioned_read_capacity_units: 1,
-          provisioned_read_capacity_auto_scaling_settings: Stubs::AutoScalingSettingsDescription.default(visited),
+          provisioned_read_capacity_auto_scaling_settings: AutoScalingSettingsDescription.default(visited),
           provisioned_write_capacity_units: 1,
-          provisioned_write_capacity_auto_scaling_settings: Stubs::AutoScalingSettingsDescription.default(visited),
+          provisioned_write_capacity_auto_scaling_settings: AutoScalingSettingsDescription.default(visited),
         }
       end
 
@@ -2092,7 +2092,7 @@ module AWS::SDK::DynamoDB
           maximum_units: 1,
           auto_scaling_disabled: false,
           auto_scaling_role_arn: 'auto_scaling_role_arn',
-          scaling_policies: Stubs::AutoScalingPolicyDescriptionList.default(visited),
+          scaling_policies: AutoScalingPolicyDescriptionList.default(visited),
         }
       end
 
@@ -2114,7 +2114,7 @@ module AWS::SDK::DynamoDB
         return nil if visited.include?('AutoScalingPolicyDescriptionList')
         visited = visited + ['AutoScalingPolicyDescriptionList']
         [
-          Stubs::AutoScalingPolicyDescription.default(visited)
+          AutoScalingPolicyDescription.default(visited)
         ]
       end
 
@@ -2135,7 +2135,7 @@ module AWS::SDK::DynamoDB
         visited = visited + ['AutoScalingPolicyDescription']
         {
           policy_name: 'policy_name',
-          target_tracking_scaling_policy_configuration: Stubs::AutoScalingTargetTrackingScalingPolicyConfigurationDescription.default(visited),
+          target_tracking_scaling_policy_configuration: AutoScalingTargetTrackingScalingPolicyConfigurationDescription.default(visited),
         }
       end
 
@@ -2177,7 +2177,7 @@ module AWS::SDK::DynamoDB
       def self.default(visited=[])
         {
           table_name: 'table_name',
-          kinesis_data_stream_destinations: Stubs::KinesisDataStreamDestinations.default(visited),
+          kinesis_data_stream_destinations: KinesisDataStreamDestinations.default(visited),
         }
       end
 
@@ -2196,7 +2196,7 @@ module AWS::SDK::DynamoDB
         return nil if visited.include?('KinesisDataStreamDestinations')
         visited = visited + ['KinesisDataStreamDestinations']
         [
-          Stubs::KinesisDataStreamDestination.default(visited)
+          KinesisDataStreamDestination.default(visited)
         ]
       end
 
@@ -2258,7 +2258,7 @@ module AWS::SDK::DynamoDB
     class DescribeTable
       def self.default(visited=[])
         {
-          table: Stubs::TableDescription.default(visited),
+          table: TableDescription.default(visited),
         }
       end
 
@@ -2274,7 +2274,7 @@ module AWS::SDK::DynamoDB
     class DescribeTableReplicaAutoScaling
       def self.default(visited=[])
         {
-          table_auto_scaling_description: Stubs::TableAutoScalingDescription.default(visited),
+          table_auto_scaling_description: TableAutoScalingDescription.default(visited),
         }
       end
 
@@ -2294,7 +2294,7 @@ module AWS::SDK::DynamoDB
         {
           table_name: 'table_name',
           table_status: 'table_status',
-          replicas: Stubs::ReplicaAutoScalingDescriptionList.default(visited),
+          replicas: ReplicaAutoScalingDescriptionList.default(visited),
         }
       end
 
@@ -2314,7 +2314,7 @@ module AWS::SDK::DynamoDB
         return nil if visited.include?('ReplicaAutoScalingDescriptionList')
         visited = visited + ['ReplicaAutoScalingDescriptionList']
         [
-          Stubs::ReplicaAutoScalingDescription.default(visited)
+          ReplicaAutoScalingDescription.default(visited)
         ]
       end
 
@@ -2335,9 +2335,9 @@ module AWS::SDK::DynamoDB
         visited = visited + ['ReplicaAutoScalingDescription']
         {
           region_name: 'region_name',
-          global_secondary_indexes: Stubs::ReplicaGlobalSecondaryIndexAutoScalingDescriptionList.default(visited),
-          replica_provisioned_read_capacity_auto_scaling_settings: Stubs::AutoScalingSettingsDescription.default(visited),
-          replica_provisioned_write_capacity_auto_scaling_settings: Stubs::AutoScalingSettingsDescription.default(visited),
+          global_secondary_indexes: ReplicaGlobalSecondaryIndexAutoScalingDescriptionList.default(visited),
+          replica_provisioned_read_capacity_auto_scaling_settings: AutoScalingSettingsDescription.default(visited),
+          replica_provisioned_write_capacity_auto_scaling_settings: AutoScalingSettingsDescription.default(visited),
           replica_status: 'replica_status',
         }
       end
@@ -2360,7 +2360,7 @@ module AWS::SDK::DynamoDB
         return nil if visited.include?('ReplicaGlobalSecondaryIndexAutoScalingDescriptionList')
         visited = visited + ['ReplicaGlobalSecondaryIndexAutoScalingDescriptionList']
         [
-          Stubs::ReplicaGlobalSecondaryIndexAutoScalingDescription.default(visited)
+          ReplicaGlobalSecondaryIndexAutoScalingDescription.default(visited)
         ]
       end
 
@@ -2382,8 +2382,8 @@ module AWS::SDK::DynamoDB
         {
           index_name: 'index_name',
           index_status: 'index_status',
-          provisioned_read_capacity_auto_scaling_settings: Stubs::AutoScalingSettingsDescription.default(visited),
-          provisioned_write_capacity_auto_scaling_settings: Stubs::AutoScalingSettingsDescription.default(visited),
+          provisioned_read_capacity_auto_scaling_settings: AutoScalingSettingsDescription.default(visited),
+          provisioned_write_capacity_auto_scaling_settings: AutoScalingSettingsDescription.default(visited),
         }
       end
 
@@ -2402,7 +2402,7 @@ module AWS::SDK::DynamoDB
     class DescribeTimeToLive
       def self.default(visited=[])
         {
-          time_to_live_description: Stubs::TimeToLiveDescription.default(visited),
+          time_to_live_description: TimeToLiveDescription.default(visited),
         }
       end
 
@@ -2458,10 +2458,10 @@ module AWS::SDK::DynamoDB
     class ExecuteStatement
       def self.default(visited=[])
         {
-          items: Stubs::ItemList.default(visited),
+          items: ItemList.default(visited),
           next_token: 'next_token',
-          consumed_capacity: Stubs::ConsumedCapacity.default(visited),
-          last_evaluated_key: Stubs::Key.default(visited),
+          consumed_capacity: ConsumedCapacity.default(visited),
+          last_evaluated_key: Key.default(visited),
         }
       end
 
@@ -2480,8 +2480,8 @@ module AWS::SDK::DynamoDB
     class ExecuteTransaction
       def self.default(visited=[])
         {
-          responses: Stubs::ItemResponseList.default(visited),
-          consumed_capacity: Stubs::ConsumedCapacityMultiple.default(visited),
+          responses: ItemResponseList.default(visited),
+          consumed_capacity: ConsumedCapacityMultiple.default(visited),
         }
       end
 
@@ -2500,7 +2500,7 @@ module AWS::SDK::DynamoDB
         return nil if visited.include?('ItemResponseList')
         visited = visited + ['ItemResponseList']
         [
-          Stubs::ItemResponse.default(visited)
+          ItemResponse.default(visited)
         ]
       end
 
@@ -2520,7 +2520,7 @@ module AWS::SDK::DynamoDB
         return nil if visited.include?('ItemResponse')
         visited = visited + ['ItemResponse']
         {
-          item: Stubs::AttributeMap.default(visited),
+          item: AttributeMap.default(visited),
         }
       end
 
@@ -2536,7 +2536,7 @@ module AWS::SDK::DynamoDB
     class ExportTableToPointInTime
       def self.default(visited=[])
         {
-          export_description: Stubs::ExportDescription.default(visited),
+          export_description: ExportDescription.default(visited),
         }
       end
 
@@ -2552,8 +2552,8 @@ module AWS::SDK::DynamoDB
     class GetItem
       def self.default(visited=[])
         {
-          item: Stubs::AttributeMap.default(visited),
-          consumed_capacity: Stubs::ConsumedCapacity.default(visited),
+          item: AttributeMap.default(visited),
+          consumed_capacity: ConsumedCapacity.default(visited),
         }
       end
 
@@ -2570,7 +2570,7 @@ module AWS::SDK::DynamoDB
     class ListBackups
       def self.default(visited=[])
         {
-          backup_summaries: Stubs::BackupSummaries.default(visited),
+          backup_summaries: BackupSummaries.default(visited),
           last_evaluated_backup_arn: 'last_evaluated_backup_arn',
         }
       end
@@ -2590,7 +2590,7 @@ module AWS::SDK::DynamoDB
         return nil if visited.include?('BackupSummaries')
         visited = visited + ['BackupSummaries']
         [
-          Stubs::BackupSummary.default(visited)
+          BackupSummary.default(visited)
         ]
       end
 
@@ -2644,7 +2644,7 @@ module AWS::SDK::DynamoDB
     class ListContributorInsights
       def self.default(visited=[])
         {
-          contributor_insights_summaries: Stubs::ContributorInsightsSummaries.default(visited),
+          contributor_insights_summaries: ContributorInsightsSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2664,7 +2664,7 @@ module AWS::SDK::DynamoDB
         return nil if visited.include?('ContributorInsightsSummaries')
         visited = visited + ['ContributorInsightsSummaries']
         [
-          Stubs::ContributorInsightsSummary.default(visited)
+          ContributorInsightsSummary.default(visited)
         ]
       end
 
@@ -2704,7 +2704,7 @@ module AWS::SDK::DynamoDB
     class ListExports
       def self.default(visited=[])
         {
-          export_summaries: Stubs::ExportSummaries.default(visited),
+          export_summaries: ExportSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2724,7 +2724,7 @@ module AWS::SDK::DynamoDB
         return nil if visited.include?('ExportSummaries')
         visited = visited + ['ExportSummaries']
         [
-          Stubs::ExportSummary.default(visited)
+          ExportSummary.default(visited)
         ]
       end
 
@@ -2762,7 +2762,7 @@ module AWS::SDK::DynamoDB
     class ListGlobalTables
       def self.default(visited=[])
         {
-          global_tables: Stubs::GlobalTableList.default(visited),
+          global_tables: GlobalTableList.default(visited),
           last_evaluated_global_table_name: 'last_evaluated_global_table_name',
         }
       end
@@ -2782,7 +2782,7 @@ module AWS::SDK::DynamoDB
         return nil if visited.include?('GlobalTableList')
         visited = visited + ['GlobalTableList']
         [
-          Stubs::GlobalTable.default(visited)
+          GlobalTable.default(visited)
         ]
       end
 
@@ -2803,7 +2803,7 @@ module AWS::SDK::DynamoDB
         visited = visited + ['GlobalTable']
         {
           global_table_name: 'global_table_name',
-          replication_group: Stubs::ReplicaList.default(visited),
+          replication_group: ReplicaList.default(visited),
         }
       end
 
@@ -2822,7 +2822,7 @@ module AWS::SDK::DynamoDB
         return nil if visited.include?('ReplicaList')
         visited = visited + ['ReplicaList']
         [
-          Stubs::Replica.default(visited)
+          Replica.default(visited)
         ]
       end
 
@@ -2858,7 +2858,7 @@ module AWS::SDK::DynamoDB
     class ListTables
       def self.default(visited=[])
         {
-          table_names: Stubs::TableNameList.default(visited),
+          table_names: TableNameList.default(visited),
           last_evaluated_table_name: 'last_evaluated_table_name',
         }
       end
@@ -2896,7 +2896,7 @@ module AWS::SDK::DynamoDB
     class ListTagsOfResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2916,7 +2916,7 @@ module AWS::SDK::DynamoDB
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -2954,9 +2954,9 @@ module AWS::SDK::DynamoDB
     class PutItem
       def self.default(visited=[])
         {
-          attributes: Stubs::AttributeMap.default(visited),
-          consumed_capacity: Stubs::ConsumedCapacity.default(visited),
-          item_collection_metrics: Stubs::ItemCollectionMetrics.default(visited),
+          attributes: AttributeMap.default(visited),
+          consumed_capacity: ConsumedCapacity.default(visited),
+          item_collection_metrics: ItemCollectionMetrics.default(visited),
         }
       end
 
@@ -2974,11 +2974,11 @@ module AWS::SDK::DynamoDB
     class Query
       def self.default(visited=[])
         {
-          items: Stubs::ItemList.default(visited),
+          items: ItemList.default(visited),
           count: 1,
           scanned_count: 1,
-          last_evaluated_key: Stubs::Key.default(visited),
-          consumed_capacity: Stubs::ConsumedCapacity.default(visited),
+          last_evaluated_key: Key.default(visited),
+          consumed_capacity: ConsumedCapacity.default(visited),
         }
       end
 
@@ -2998,7 +2998,7 @@ module AWS::SDK::DynamoDB
     class RestoreTableFromBackup
       def self.default(visited=[])
         {
-          table_description: Stubs::TableDescription.default(visited),
+          table_description: TableDescription.default(visited),
         }
       end
 
@@ -3014,7 +3014,7 @@ module AWS::SDK::DynamoDB
     class RestoreTableToPointInTime
       def self.default(visited=[])
         {
-          table_description: Stubs::TableDescription.default(visited),
+          table_description: TableDescription.default(visited),
         }
       end
 
@@ -3030,11 +3030,11 @@ module AWS::SDK::DynamoDB
     class Scan
       def self.default(visited=[])
         {
-          items: Stubs::ItemList.default(visited),
+          items: ItemList.default(visited),
           count: 1,
           scanned_count: 1,
-          last_evaluated_key: Stubs::Key.default(visited),
-          consumed_capacity: Stubs::ConsumedCapacity.default(visited),
+          last_evaluated_key: Key.default(visited),
+          consumed_capacity: ConsumedCapacity.default(visited),
         }
       end
 
@@ -3068,8 +3068,8 @@ module AWS::SDK::DynamoDB
     class TransactGetItems
       def self.default(visited=[])
         {
-          consumed_capacity: Stubs::ConsumedCapacityMultiple.default(visited),
-          responses: Stubs::ItemResponseList.default(visited),
+          consumed_capacity: ConsumedCapacityMultiple.default(visited),
+          responses: ItemResponseList.default(visited),
         }
       end
 
@@ -3086,8 +3086,8 @@ module AWS::SDK::DynamoDB
     class TransactWriteItems
       def self.default(visited=[])
         {
-          consumed_capacity: Stubs::ConsumedCapacityMultiple.default(visited),
-          item_collection_metrics: Stubs::ItemCollectionMetricsPerTable.default(visited),
+          consumed_capacity: ConsumedCapacityMultiple.default(visited),
+          item_collection_metrics: ItemCollectionMetricsPerTable.default(visited),
         }
       end
 
@@ -3118,7 +3118,7 @@ module AWS::SDK::DynamoDB
     class UpdateContinuousBackups
       def self.default(visited=[])
         {
-          continuous_backups_description: Stubs::ContinuousBackupsDescription.default(visited),
+          continuous_backups_description: ContinuousBackupsDescription.default(visited),
         }
       end
 
@@ -3154,7 +3154,7 @@ module AWS::SDK::DynamoDB
     class UpdateGlobalTable
       def self.default(visited=[])
         {
-          global_table_description: Stubs::GlobalTableDescription.default(visited),
+          global_table_description: GlobalTableDescription.default(visited),
         }
       end
 
@@ -3171,7 +3171,7 @@ module AWS::SDK::DynamoDB
       def self.default(visited=[])
         {
           global_table_name: 'global_table_name',
-          replica_settings: Stubs::ReplicaSettingsDescriptionList.default(visited),
+          replica_settings: ReplicaSettingsDescriptionList.default(visited),
         }
       end
 
@@ -3188,9 +3188,9 @@ module AWS::SDK::DynamoDB
     class UpdateItem
       def self.default(visited=[])
         {
-          attributes: Stubs::AttributeMap.default(visited),
-          consumed_capacity: Stubs::ConsumedCapacity.default(visited),
-          item_collection_metrics: Stubs::ItemCollectionMetrics.default(visited),
+          attributes: AttributeMap.default(visited),
+          consumed_capacity: ConsumedCapacity.default(visited),
+          item_collection_metrics: ItemCollectionMetrics.default(visited),
         }
       end
 
@@ -3208,7 +3208,7 @@ module AWS::SDK::DynamoDB
     class UpdateTable
       def self.default(visited=[])
         {
-          table_description: Stubs::TableDescription.default(visited),
+          table_description: TableDescription.default(visited),
         }
       end
 
@@ -3224,7 +3224,7 @@ module AWS::SDK::DynamoDB
     class UpdateTableReplicaAutoScaling
       def self.default(visited=[])
         {
-          table_auto_scaling_description: Stubs::TableAutoScalingDescription.default(visited),
+          table_auto_scaling_description: TableAutoScalingDescription.default(visited),
         }
       end
 
@@ -3240,7 +3240,7 @@ module AWS::SDK::DynamoDB
     class UpdateTimeToLive
       def self.default(visited=[])
         {
-          time_to_live_specification: Stubs::TimeToLiveSpecification.default(visited),
+          time_to_live_specification: TimeToLiveSpecification.default(visited),
         }
       end
 

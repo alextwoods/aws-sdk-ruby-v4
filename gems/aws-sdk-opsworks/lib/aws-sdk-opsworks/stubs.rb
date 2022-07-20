@@ -322,7 +322,7 @@ module AWS::SDK::OpsWorks
     class DescribeAgentVersions
       def self.default(visited=[])
         {
-          agent_versions: Stubs::AgentVersions.default(visited),
+          agent_versions: AgentVersions.default(visited),
         }
       end
 
@@ -340,7 +340,7 @@ module AWS::SDK::OpsWorks
         return nil if visited.include?('AgentVersions')
         visited = visited + ['AgentVersions']
         [
-          Stubs::AgentVersion.default(visited)
+          AgentVersion.default(visited)
         ]
       end
 
@@ -361,7 +361,7 @@ module AWS::SDK::OpsWorks
         visited = visited + ['AgentVersion']
         {
           version: 'version',
-          configuration_manager: Stubs::StackConfigurationManager.default(visited),
+          configuration_manager: StackConfigurationManager.default(visited),
         }
       end
 
@@ -398,7 +398,7 @@ module AWS::SDK::OpsWorks
     class DescribeApps
       def self.default(visited=[])
         {
-          apps: Stubs::Apps.default(visited),
+          apps: Apps.default(visited),
         }
       end
 
@@ -416,7 +416,7 @@ module AWS::SDK::OpsWorks
         return nil if visited.include?('Apps')
         visited = visited + ['Apps']
         [
-          Stubs::App.default(visited)
+          App.default(visited)
         ]
       end
 
@@ -441,15 +441,15 @@ module AWS::SDK::OpsWorks
           shortname: 'shortname',
           name: 'name',
           description: 'description',
-          data_sources: Stubs::DataSources.default(visited),
+          data_sources: DataSources.default(visited),
           type: 'type',
-          app_source: Stubs::Source.default(visited),
-          domains: Stubs::Strings.default(visited),
+          app_source: Source.default(visited),
+          domains: Strings.default(visited),
           enable_ssl: false,
-          ssl_configuration: Stubs::SslConfiguration.default(visited),
-          attributes: Stubs::AppAttributes.default(visited),
+          ssl_configuration: SslConfiguration.default(visited),
+          attributes: AppAttributes.default(visited),
           created_at: 'created_at',
-          environment: Stubs::EnvironmentVariables.default(visited),
+          environment: EnvironmentVariables.default(visited),
         }
       end
 
@@ -480,7 +480,7 @@ module AWS::SDK::OpsWorks
         return nil if visited.include?('EnvironmentVariables')
         visited = visited + ['EnvironmentVariables']
         [
-          Stubs::EnvironmentVariable.default(visited)
+          EnvironmentVariable.default(visited)
         ]
       end
 
@@ -612,7 +612,7 @@ module AWS::SDK::OpsWorks
         return nil if visited.include?('DataSources')
         visited = visited + ['DataSources']
         [
-          Stubs::DataSource.default(visited)
+          DataSource.default(visited)
         ]
       end
 
@@ -652,7 +652,7 @@ module AWS::SDK::OpsWorks
     class DescribeCommands
       def self.default(visited=[])
         {
-          commands: Stubs::Commands.default(visited),
+          commands: Commands.default(visited),
         }
       end
 
@@ -670,7 +670,7 @@ module AWS::SDK::OpsWorks
         return nil if visited.include?('Commands')
         visited = visited + ['Commands']
         [
-          Stubs::Command.default(visited)
+          Command.default(visited)
         ]
       end
 
@@ -724,7 +724,7 @@ module AWS::SDK::OpsWorks
     class DescribeDeployments
       def self.default(visited=[])
         {
-          deployments: Stubs::Deployments.default(visited),
+          deployments: Deployments.default(visited),
         }
       end
 
@@ -742,7 +742,7 @@ module AWS::SDK::OpsWorks
         return nil if visited.include?('Deployments')
         visited = visited + ['Deployments']
         [
-          Stubs::Deployment.default(visited)
+          Deployment.default(visited)
         ]
       end
 
@@ -770,10 +770,10 @@ module AWS::SDK::OpsWorks
           duration: 1,
           iam_user_arn: 'iam_user_arn',
           comment: 'comment',
-          command: Stubs::DeploymentCommand.default(visited),
+          command: DeploymentCommand.default(visited),
           status: 'status',
           custom_json: 'custom_json',
-          instance_ids: Stubs::Strings.default(visited),
+          instance_ids: Strings.default(visited),
         }
       end
 
@@ -803,7 +803,7 @@ module AWS::SDK::OpsWorks
         visited = visited + ['DeploymentCommand']
         {
           name: 'name',
-          args: Stubs::DeploymentCommandArgs.default(visited),
+          args: DeploymentCommandArgs.default(visited),
         }
       end
 
@@ -822,7 +822,7 @@ module AWS::SDK::OpsWorks
         return nil if visited.include?('DeploymentCommandArgs')
         visited = visited + ['DeploymentCommandArgs']
         {
-          test_key: Stubs::Strings.default(visited)
+          test_key: Strings.default(visited)
         }
       end
 
@@ -840,7 +840,7 @@ module AWS::SDK::OpsWorks
     class DescribeEcsClusters
       def self.default(visited=[])
         {
-          ecs_clusters: Stubs::EcsClusters.default(visited),
+          ecs_clusters: EcsClusters.default(visited),
           next_token: 'next_token',
         }
       end
@@ -860,7 +860,7 @@ module AWS::SDK::OpsWorks
         return nil if visited.include?('EcsClusters')
         visited = visited + ['EcsClusters']
         [
-          Stubs::EcsCluster.default(visited)
+          EcsCluster.default(visited)
         ]
       end
 
@@ -902,7 +902,7 @@ module AWS::SDK::OpsWorks
     class DescribeElasticIps
       def self.default(visited=[])
         {
-          elastic_ips: Stubs::ElasticIps.default(visited),
+          elastic_ips: ElasticIps.default(visited),
         }
       end
 
@@ -920,7 +920,7 @@ module AWS::SDK::OpsWorks
         return nil if visited.include?('ElasticIps')
         visited = visited + ['ElasticIps']
         [
-          Stubs::ElasticIp.default(visited)
+          ElasticIp.default(visited)
         ]
       end
 
@@ -964,7 +964,7 @@ module AWS::SDK::OpsWorks
     class DescribeElasticLoadBalancers
       def self.default(visited=[])
         {
-          elastic_load_balancers: Stubs::ElasticLoadBalancers.default(visited),
+          elastic_load_balancers: ElasticLoadBalancers.default(visited),
         }
       end
 
@@ -982,7 +982,7 @@ module AWS::SDK::OpsWorks
         return nil if visited.include?('ElasticLoadBalancers')
         visited = visited + ['ElasticLoadBalancers']
         [
-          Stubs::ElasticLoadBalancer.default(visited)
+          ElasticLoadBalancer.default(visited)
         ]
       end
 
@@ -1008,9 +1008,9 @@ module AWS::SDK::OpsWorks
           stack_id: 'stack_id',
           layer_id: 'layer_id',
           vpc_id: 'vpc_id',
-          availability_zones: Stubs::Strings.default(visited),
-          subnet_ids: Stubs::Strings.default(visited),
-          ec2_instance_ids: Stubs::Strings.default(visited),
+          availability_zones: Strings.default(visited),
+          subnet_ids: Strings.default(visited),
+          ec2_instance_ids: Strings.default(visited),
         }
       end
 
@@ -1034,7 +1034,7 @@ module AWS::SDK::OpsWorks
     class DescribeInstances
       def self.default(visited=[])
         {
-          instances: Stubs::Instances.default(visited),
+          instances: Instances.default(visited),
         }
       end
 
@@ -1052,7 +1052,7 @@ module AWS::SDK::OpsWorks
         return nil if visited.include?('Instances')
         visited = visited + ['Instances']
         [
-          Stubs::Instance.default(visited)
+          Instance.default(visited)
         ]
       end
 
@@ -1078,7 +1078,7 @@ module AWS::SDK::OpsWorks
           arn: 'arn',
           auto_scaling_type: 'auto_scaling_type',
           availability_zone: 'availability_zone',
-          block_device_mappings: Stubs::BlockDeviceMappings.default(visited),
+          block_device_mappings: BlockDeviceMappings.default(visited),
           created_at: 'created_at',
           ebs_optimized: false,
           ec2_instance_id: 'ec2_instance_id',
@@ -1092,7 +1092,7 @@ module AWS::SDK::OpsWorks
           instance_profile_arn: 'instance_profile_arn',
           instance_type: 'instance_type',
           last_service_error_id: 'last_service_error_id',
-          layer_ids: Stubs::Strings.default(visited),
+          layer_ids: Strings.default(visited),
           os: 'os',
           platform: 'platform',
           private_dns: 'private_dns',
@@ -1101,10 +1101,10 @@ module AWS::SDK::OpsWorks
           public_ip: 'public_ip',
           registered_by: 'registered_by',
           reported_agent_version: 'reported_agent_version',
-          reported_os: Stubs::ReportedOs.default(visited),
+          reported_os: ReportedOs.default(visited),
           root_device_type: 'root_device_type',
           root_device_volume_id: 'root_device_volume_id',
-          security_group_ids: Stubs::Strings.default(visited),
+          security_group_ids: Strings.default(visited),
           ssh_host_dsa_key_fingerprint: 'ssh_host_dsa_key_fingerprint',
           ssh_host_rsa_key_fingerprint: 'ssh_host_rsa_key_fingerprint',
           ssh_key_name: 'ssh_key_name',
@@ -1192,7 +1192,7 @@ module AWS::SDK::OpsWorks
         return nil if visited.include?('BlockDeviceMappings')
         visited = visited + ['BlockDeviceMappings']
         [
-          Stubs::BlockDeviceMapping.default(visited)
+          BlockDeviceMapping.default(visited)
         ]
       end
 
@@ -1215,7 +1215,7 @@ module AWS::SDK::OpsWorks
           device_name: 'device_name',
           no_device: 'no_device',
           virtual_name: 'virtual_name',
-          ebs: Stubs::EbsBlockDevice.default(visited),
+          ebs: EbsBlockDevice.default(visited),
         }
       end
 
@@ -1260,7 +1260,7 @@ module AWS::SDK::OpsWorks
     class DescribeLayers
       def self.default(visited=[])
         {
-          layers: Stubs::Layers.default(visited),
+          layers: Layers.default(visited),
         }
       end
 
@@ -1278,7 +1278,7 @@ module AWS::SDK::OpsWorks
         return nil if visited.include?('Layers')
         visited = visited + ['Layers']
         [
-          Stubs::Layer.default(visited)
+          Layer.default(visited)
         ]
       end
 
@@ -1304,23 +1304,23 @@ module AWS::SDK::OpsWorks
           type: 'type',
           name: 'name',
           shortname: 'shortname',
-          attributes: Stubs::LayerAttributes.default(visited),
-          cloud_watch_logs_configuration: Stubs::CloudWatchLogsConfiguration.default(visited),
+          attributes: LayerAttributes.default(visited),
+          cloud_watch_logs_configuration: CloudWatchLogsConfiguration.default(visited),
           custom_instance_profile_arn: 'custom_instance_profile_arn',
           custom_json: 'custom_json',
-          custom_security_group_ids: Stubs::Strings.default(visited),
-          default_security_group_names: Stubs::Strings.default(visited),
-          packages: Stubs::Strings.default(visited),
-          volume_configurations: Stubs::VolumeConfigurations.default(visited),
+          custom_security_group_ids: Strings.default(visited),
+          default_security_group_names: Strings.default(visited),
+          packages: Strings.default(visited),
+          volume_configurations: VolumeConfigurations.default(visited),
           enable_auto_healing: false,
           auto_assign_elastic_ips: false,
           auto_assign_public_ips: false,
-          default_recipes: Stubs::Recipes.default(visited),
-          custom_recipes: Stubs::Recipes.default(visited),
+          default_recipes: Recipes.default(visited),
+          custom_recipes: Recipes.default(visited),
           created_at: 'created_at',
           install_updates_on_boot: false,
           use_ebs_optimized_instances: false,
-          lifecycle_event_configuration: Stubs::LifecycleEventConfiguration.default(visited),
+          lifecycle_event_configuration: LifecycleEventConfiguration.default(visited),
         }
       end
 
@@ -1360,7 +1360,7 @@ module AWS::SDK::OpsWorks
         return nil if visited.include?('LifecycleEventConfiguration')
         visited = visited + ['LifecycleEventConfiguration']
         {
-          shutdown: Stubs::ShutdownEventConfiguration.default(visited),
+          shutdown: ShutdownEventConfiguration.default(visited),
         }
       end
 
@@ -1398,11 +1398,11 @@ module AWS::SDK::OpsWorks
         return nil if visited.include?('Recipes')
         visited = visited + ['Recipes']
         {
-          setup: Stubs::Strings.default(visited),
-          configure: Stubs::Strings.default(visited),
-          deploy: Stubs::Strings.default(visited),
-          undeploy: Stubs::Strings.default(visited),
-          shutdown: Stubs::Strings.default(visited),
+          setup: Strings.default(visited),
+          configure: Strings.default(visited),
+          deploy: Strings.default(visited),
+          undeploy: Strings.default(visited),
+          shutdown: Strings.default(visited),
         }
       end
 
@@ -1424,7 +1424,7 @@ module AWS::SDK::OpsWorks
         return nil if visited.include?('VolumeConfigurations')
         visited = visited + ['VolumeConfigurations']
         [
-          Stubs::VolumeConfiguration.default(visited)
+          VolumeConfiguration.default(visited)
         ]
       end
 
@@ -1475,7 +1475,7 @@ module AWS::SDK::OpsWorks
         visited = visited + ['CloudWatchLogsConfiguration']
         {
           enabled: false,
-          log_streams: Stubs::CloudWatchLogsLogStreams.default(visited),
+          log_streams: CloudWatchLogsLogStreams.default(visited),
         }
       end
 
@@ -1494,7 +1494,7 @@ module AWS::SDK::OpsWorks
         return nil if visited.include?('CloudWatchLogsLogStreams')
         visited = visited + ['CloudWatchLogsLogStreams']
         [
-          Stubs::CloudWatchLogsLogStream.default(visited)
+          CloudWatchLogsLogStream.default(visited)
         ]
       end
 
@@ -1570,7 +1570,7 @@ module AWS::SDK::OpsWorks
     class DescribeLoadBasedAutoScaling
       def self.default(visited=[])
         {
-          load_based_auto_scaling_configurations: Stubs::LoadBasedAutoScalingConfigurations.default(visited),
+          load_based_auto_scaling_configurations: LoadBasedAutoScalingConfigurations.default(visited),
         }
       end
 
@@ -1588,7 +1588,7 @@ module AWS::SDK::OpsWorks
         return nil if visited.include?('LoadBasedAutoScalingConfigurations')
         visited = visited + ['LoadBasedAutoScalingConfigurations']
         [
-          Stubs::LoadBasedAutoScalingConfiguration.default(visited)
+          LoadBasedAutoScalingConfiguration.default(visited)
         ]
       end
 
@@ -1610,8 +1610,8 @@ module AWS::SDK::OpsWorks
         {
           layer_id: 'layer_id',
           enable: false,
-          up_scaling: Stubs::AutoScalingThresholds.default(visited),
-          down_scaling: Stubs::AutoScalingThresholds.default(visited),
+          up_scaling: AutoScalingThresholds.default(visited),
+          down_scaling: AutoScalingThresholds.default(visited),
         }
       end
 
@@ -1638,7 +1638,7 @@ module AWS::SDK::OpsWorks
           cpu_threshold: 1.0,
           memory_threshold: 1.0,
           load_threshold: 1.0,
-          alarms: Stubs::Strings.default(visited),
+          alarms: Strings.default(visited),
         }
       end
 
@@ -1660,7 +1660,7 @@ module AWS::SDK::OpsWorks
     class DescribeMyUserProfile
       def self.default(visited=[])
         {
-          user_profile: Stubs::SelfUserProfile.default(visited),
+          user_profile: SelfUserProfile.default(visited),
         }
       end
 
@@ -1700,7 +1700,7 @@ module AWS::SDK::OpsWorks
     class DescribeOperatingSystems
       def self.default(visited=[])
         {
-          operating_systems: Stubs::OperatingSystems.default(visited),
+          operating_systems: OperatingSystems.default(visited),
         }
       end
 
@@ -1718,7 +1718,7 @@ module AWS::SDK::OpsWorks
         return nil if visited.include?('OperatingSystems')
         visited = visited + ['OperatingSystems']
         [
-          Stubs::OperatingSystem.default(visited)
+          OperatingSystem.default(visited)
         ]
       end
 
@@ -1741,7 +1741,7 @@ module AWS::SDK::OpsWorks
           name: 'name',
           id: 'id',
           type: 'type',
-          configuration_managers: Stubs::OperatingSystemConfigurationManagers.default(visited),
+          configuration_managers: OperatingSystemConfigurationManagers.default(visited),
           reported_name: 'reported_name',
           reported_version: 'reported_version',
           supported: false,
@@ -1768,7 +1768,7 @@ module AWS::SDK::OpsWorks
         return nil if visited.include?('OperatingSystemConfigurationManagers')
         visited = visited + ['OperatingSystemConfigurationManagers']
         [
-          Stubs::OperatingSystemConfigurationManager.default(visited)
+          OperatingSystemConfigurationManager.default(visited)
         ]
       end
 
@@ -1806,7 +1806,7 @@ module AWS::SDK::OpsWorks
     class DescribePermissions
       def self.default(visited=[])
         {
-          permissions: Stubs::Permissions.default(visited),
+          permissions: Permissions.default(visited),
         }
       end
 
@@ -1824,7 +1824,7 @@ module AWS::SDK::OpsWorks
         return nil if visited.include?('Permissions')
         visited = visited + ['Permissions']
         [
-          Stubs::Permission.default(visited)
+          Permission.default(visited)
         ]
       end
 
@@ -1868,7 +1868,7 @@ module AWS::SDK::OpsWorks
     class DescribeRaidArrays
       def self.default(visited=[])
         {
-          raid_arrays: Stubs::RaidArrays.default(visited),
+          raid_arrays: RaidArrays.default(visited),
         }
       end
 
@@ -1886,7 +1886,7 @@ module AWS::SDK::OpsWorks
         return nil if visited.include?('RaidArrays')
         visited = visited + ['RaidArrays']
         [
-          Stubs::RaidArray.default(visited)
+          RaidArray.default(visited)
         ]
       end
 
@@ -1946,7 +1946,7 @@ module AWS::SDK::OpsWorks
     class DescribeRdsDbInstances
       def self.default(visited=[])
         {
-          rds_db_instances: Stubs::RdsDbInstances.default(visited),
+          rds_db_instances: RdsDbInstances.default(visited),
         }
       end
 
@@ -1964,7 +1964,7 @@ module AWS::SDK::OpsWorks
         return nil if visited.include?('RdsDbInstances')
         visited = visited + ['RdsDbInstances']
         [
-          Stubs::RdsDbInstance.default(visited)
+          RdsDbInstance.default(visited)
         ]
       end
 
@@ -2016,7 +2016,7 @@ module AWS::SDK::OpsWorks
     class DescribeServiceErrors
       def self.default(visited=[])
         {
-          service_errors: Stubs::ServiceErrors.default(visited),
+          service_errors: ServiceErrors.default(visited),
         }
       end
 
@@ -2034,7 +2034,7 @@ module AWS::SDK::OpsWorks
         return nil if visited.include?('ServiceErrors')
         visited = visited + ['ServiceErrors']
         [
-          Stubs::ServiceError.default(visited)
+          ServiceError.default(visited)
         ]
       end
 
@@ -2081,7 +2081,7 @@ module AWS::SDK::OpsWorks
       def self.default(visited=[])
         {
           agent_installer_url: 'agent_installer_url',
-          parameters: Stubs::Parameters.default(visited),
+          parameters: Parameters.default(visited),
         }
       end
 
@@ -2118,7 +2118,7 @@ module AWS::SDK::OpsWorks
     class DescribeStackSummary
       def self.default(visited=[])
         {
-          stack_summary: Stubs::StackSummary.default(visited),
+          stack_summary: StackSummary.default(visited),
         }
       end
 
@@ -2141,7 +2141,7 @@ module AWS::SDK::OpsWorks
           arn: 'arn',
           layers_count: 1,
           apps_count: 1,
-          instances_count: Stubs::InstancesCount.default(visited),
+          instances_count: InstancesCount.default(visited),
         }
       end
 
@@ -2218,7 +2218,7 @@ module AWS::SDK::OpsWorks
     class DescribeStacks
       def self.default(visited=[])
         {
-          stacks: Stubs::Stacks.default(visited),
+          stacks: Stacks.default(visited),
         }
       end
 
@@ -2236,7 +2236,7 @@ module AWS::SDK::OpsWorks
         return nil if visited.include?('Stacks')
         visited = visited + ['Stacks']
         [
-          Stubs::Stack.default(visited)
+          Stack.default(visited)
         ]
       end
 
@@ -2261,7 +2261,7 @@ module AWS::SDK::OpsWorks
           arn: 'arn',
           region: 'region',
           vpc_id: 'vpc_id',
-          attributes: Stubs::StackAttributes.default(visited),
+          attributes: StackAttributes.default(visited),
           service_role_arn: 'service_role_arn',
           default_instance_profile_arn: 'default_instance_profile_arn',
           default_os: 'default_os',
@@ -2269,11 +2269,11 @@ module AWS::SDK::OpsWorks
           default_availability_zone: 'default_availability_zone',
           default_subnet_id: 'default_subnet_id',
           custom_json: 'custom_json',
-          configuration_manager: Stubs::StackConfigurationManager.default(visited),
-          chef_configuration: Stubs::ChefConfiguration.default(visited),
+          configuration_manager: StackConfigurationManager.default(visited),
+          chef_configuration: ChefConfiguration.default(visited),
           use_custom_cookbooks: false,
           use_opsworks_security_groups: false,
-          custom_cookbooks_source: Stubs::Source.default(visited),
+          custom_cookbooks_source: Source.default(visited),
           default_ssh_key_name: 'default_ssh_key_name',
           created_at: 'created_at',
           default_root_device_type: 'default_root_device_type',
@@ -2354,7 +2354,7 @@ module AWS::SDK::OpsWorks
     class DescribeTimeBasedAutoScaling
       def self.default(visited=[])
         {
-          time_based_auto_scaling_configurations: Stubs::TimeBasedAutoScalingConfigurations.default(visited),
+          time_based_auto_scaling_configurations: TimeBasedAutoScalingConfigurations.default(visited),
         }
       end
 
@@ -2372,7 +2372,7 @@ module AWS::SDK::OpsWorks
         return nil if visited.include?('TimeBasedAutoScalingConfigurations')
         visited = visited + ['TimeBasedAutoScalingConfigurations']
         [
-          Stubs::TimeBasedAutoScalingConfiguration.default(visited)
+          TimeBasedAutoScalingConfiguration.default(visited)
         ]
       end
 
@@ -2393,7 +2393,7 @@ module AWS::SDK::OpsWorks
         visited = visited + ['TimeBasedAutoScalingConfiguration']
         {
           instance_id: 'instance_id',
-          auto_scaling_schedule: Stubs::WeeklyAutoScalingSchedule.default(visited),
+          auto_scaling_schedule: WeeklyAutoScalingSchedule.default(visited),
         }
       end
 
@@ -2412,13 +2412,13 @@ module AWS::SDK::OpsWorks
         return nil if visited.include?('WeeklyAutoScalingSchedule')
         visited = visited + ['WeeklyAutoScalingSchedule']
         {
-          monday: Stubs::DailyAutoScalingSchedule.default(visited),
-          tuesday: Stubs::DailyAutoScalingSchedule.default(visited),
-          wednesday: Stubs::DailyAutoScalingSchedule.default(visited),
-          thursday: Stubs::DailyAutoScalingSchedule.default(visited),
-          friday: Stubs::DailyAutoScalingSchedule.default(visited),
-          saturday: Stubs::DailyAutoScalingSchedule.default(visited),
-          sunday: Stubs::DailyAutoScalingSchedule.default(visited),
+          monday: DailyAutoScalingSchedule.default(visited),
+          tuesday: DailyAutoScalingSchedule.default(visited),
+          wednesday: DailyAutoScalingSchedule.default(visited),
+          thursday: DailyAutoScalingSchedule.default(visited),
+          friday: DailyAutoScalingSchedule.default(visited),
+          saturday: DailyAutoScalingSchedule.default(visited),
+          sunday: DailyAutoScalingSchedule.default(visited),
         }
       end
 
@@ -2460,7 +2460,7 @@ module AWS::SDK::OpsWorks
     class DescribeUserProfiles
       def self.default(visited=[])
         {
-          user_profiles: Stubs::UserProfiles.default(visited),
+          user_profiles: UserProfiles.default(visited),
         }
       end
 
@@ -2478,7 +2478,7 @@ module AWS::SDK::OpsWorks
         return nil if visited.include?('UserProfiles')
         visited = visited + ['UserProfiles']
         [
-          Stubs::UserProfile.default(visited)
+          UserProfile.default(visited)
         ]
       end
 
@@ -2522,7 +2522,7 @@ module AWS::SDK::OpsWorks
     class DescribeVolumes
       def self.default(visited=[])
         {
-          volumes: Stubs::Volumes.default(visited),
+          volumes: Volumes.default(visited),
         }
       end
 
@@ -2540,7 +2540,7 @@ module AWS::SDK::OpsWorks
         return nil if visited.include?('Volumes')
         visited = visited + ['Volumes']
         [
-          Stubs::Volume.default(visited)
+          Volume.default(visited)
         ]
       end
 
@@ -2648,7 +2648,7 @@ module AWS::SDK::OpsWorks
     class GrantAccess
       def self.default(visited=[])
         {
-          temporary_credential: Stubs::TemporaryCredential.default(visited),
+          temporary_credential: TemporaryCredential.default(visited),
         }
       end
 
@@ -2688,7 +2688,7 @@ module AWS::SDK::OpsWorks
     class ListTags
       def self.default(visited=[])
         {
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
           next_token: 'next_token',
         }
       end

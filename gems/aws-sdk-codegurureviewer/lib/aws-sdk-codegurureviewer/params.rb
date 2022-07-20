@@ -37,7 +37,7 @@ module AWS::SDK::CodeGuruReviewer
         Hearth::Validator.validate!(params, ::Hash, Types::AssociateRepositoryInput, context: context)
         type = Types::AssociateRepositoryInput.new
         type.repository = Repository.build(params[:repository], context: "#{context}[:repository]") unless params[:repository].nil?
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.tags = TagMap.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type.kms_key_details = KMSKeyDetails.build(params[:kms_key_details], context: "#{context}[:kms_key_details]") unless params[:kms_key_details].nil?
         type
@@ -175,7 +175,7 @@ module AWS::SDK::CodeGuruReviewer
         type.name = params[:name]
         type.repository_association_arn = params[:repository_association_arn]
         type.type = CodeReviewType.build(params[:type], context: "#{context}[:type]") unless params[:type].nil?
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type
       end
     end

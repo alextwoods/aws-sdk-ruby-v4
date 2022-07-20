@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::ServiceQuotas
   module Validators
 
@@ -89,7 +91,7 @@ module AWS::SDK::ServiceQuotas
     class GetAWSDefaultServiceQuotaOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetAWSDefaultServiceQuotaOutput, context: context)
-        Validators::ServiceQuota.validate!(input[:quota], context: "#{context}[:quota]") unless input[:quota].nil?
+        ServiceQuota.validate!(input[:quota], context: "#{context}[:quota]") unless input[:quota].nil?
       end
     end
 
@@ -116,7 +118,7 @@ module AWS::SDK::ServiceQuotas
     class GetRequestedServiceQuotaChangeOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetRequestedServiceQuotaChangeOutput, context: context)
-        Validators::RequestedServiceQuotaChange.validate!(input[:requested_quota], context: "#{context}[:requested_quota]") unless input[:requested_quota].nil?
+        RequestedServiceQuotaChange.validate!(input[:requested_quota], context: "#{context}[:requested_quota]") unless input[:requested_quota].nil?
       end
     end
 
@@ -132,7 +134,7 @@ module AWS::SDK::ServiceQuotas
     class GetServiceQuotaIncreaseRequestFromTemplateOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetServiceQuotaIncreaseRequestFromTemplateOutput, context: context)
-        Validators::ServiceQuotaIncreaseRequestInTemplate.validate!(input[:service_quota_increase_request_in_template], context: "#{context}[:service_quota_increase_request_in_template]") unless input[:service_quota_increase_request_in_template].nil?
+        ServiceQuotaIncreaseRequestInTemplate.validate!(input[:service_quota_increase_request_in_template], context: "#{context}[:service_quota_increase_request_in_template]") unless input[:service_quota_increase_request_in_template].nil?
       end
     end
 
@@ -147,7 +149,7 @@ module AWS::SDK::ServiceQuotas
     class GetServiceQuotaOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetServiceQuotaOutput, context: context)
-        Validators::ServiceQuota.validate!(input[:quota], context: "#{context}[:quota]") unless input[:quota].nil?
+        ServiceQuota.validate!(input[:quota], context: "#{context}[:quota]") unless input[:quota].nil?
       end
     end
 
@@ -171,7 +173,7 @@ module AWS::SDK::ServiceQuotas
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -203,7 +205,7 @@ module AWS::SDK::ServiceQuotas
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAWSDefaultServiceQuotasOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::ServiceQuotaListDefinition.validate!(input[:quotas], context: "#{context}[:quotas]") unless input[:quotas].nil?
+        ServiceQuotaListDefinition.validate!(input[:quotas], context: "#{context}[:quotas]") unless input[:quotas].nil?
       end
     end
 
@@ -222,7 +224,7 @@ module AWS::SDK::ServiceQuotas
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListRequestedServiceQuotaChangeHistoryByQuotaOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::RequestedServiceQuotaChangeHistoryListDefinition.validate!(input[:requested_quotas], context: "#{context}[:requested_quotas]") unless input[:requested_quotas].nil?
+        RequestedServiceQuotaChangeHistoryListDefinition.validate!(input[:requested_quotas], context: "#{context}[:requested_quotas]") unless input[:requested_quotas].nil?
       end
     end
 
@@ -240,7 +242,7 @@ module AWS::SDK::ServiceQuotas
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListRequestedServiceQuotaChangeHistoryOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::RequestedServiceQuotaChangeHistoryListDefinition.validate!(input[:requested_quotas], context: "#{context}[:requested_quotas]") unless input[:requested_quotas].nil?
+        RequestedServiceQuotaChangeHistoryListDefinition.validate!(input[:requested_quotas], context: "#{context}[:requested_quotas]") unless input[:requested_quotas].nil?
       end
     end
 
@@ -257,7 +259,7 @@ module AWS::SDK::ServiceQuotas
     class ListServiceQuotaIncreaseRequestsInTemplateOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListServiceQuotaIncreaseRequestsInTemplateOutput, context: context)
-        Validators::ServiceQuotaIncreaseRequestInTemplateList.validate!(input[:service_quota_increase_request_in_template_list], context: "#{context}[:service_quota_increase_request_in_template_list]") unless input[:service_quota_increase_request_in_template_list].nil?
+        ServiceQuotaIncreaseRequestInTemplateList.validate!(input[:service_quota_increase_request_in_template_list], context: "#{context}[:service_quota_increase_request_in_template_list]") unless input[:service_quota_increase_request_in_template_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -275,7 +277,7 @@ module AWS::SDK::ServiceQuotas
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListServiceQuotasOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::ServiceQuotaListDefinition.validate!(input[:quotas], context: "#{context}[:quotas]") unless input[:quotas].nil?
+        ServiceQuotaListDefinition.validate!(input[:quotas], context: "#{context}[:quotas]") unless input[:quotas].nil?
       end
     end
 
@@ -291,7 +293,7 @@ module AWS::SDK::ServiceQuotas
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListServicesOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::ServiceInfoListDefinition.validate!(input[:services], context: "#{context}[:services]") unless input[:services].nil?
+        ServiceInfoListDefinition.validate!(input[:services], context: "#{context}[:services]") unless input[:services].nil?
       end
     end
 
@@ -305,7 +307,7 @@ module AWS::SDK::ServiceQuotas
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::OutputTags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        OutputTags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -324,7 +326,7 @@ module AWS::SDK::ServiceQuotas
         Hearth::Validator.validate!(input, Types::MetricInfo, context: context)
         Hearth::Validator.validate!(input[:metric_namespace], ::String, context: "#{context}[:metric_namespace]")
         Hearth::Validator.validate!(input[:metric_name], ::String, context: "#{context}[:metric_name]")
-        Validators::MetricDimensionsMapDefinition.validate!(input[:metric_dimensions], context: "#{context}[:metric_dimensions]") unless input[:metric_dimensions].nil?
+        MetricDimensionsMapDefinition.validate!(input[:metric_dimensions], context: "#{context}[:metric_dimensions]") unless input[:metric_dimensions].nil?
         Hearth::Validator.validate!(input[:metric_statistic_recommendation], ::String, context: "#{context}[:metric_statistic_recommendation]")
       end
     end
@@ -354,7 +356,7 @@ module AWS::SDK::ServiceQuotas
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -372,7 +374,7 @@ module AWS::SDK::ServiceQuotas
     class PutServiceQuotaIncreaseRequestIntoTemplateOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutServiceQuotaIncreaseRequestIntoTemplateOutput, context: context)
-        Validators::ServiceQuotaIncreaseRequestInTemplate.validate!(input[:service_quota_increase_request_in_template], context: "#{context}[:service_quota_increase_request_in_template]") unless input[:service_quota_increase_request_in_template].nil?
+        ServiceQuotaIncreaseRequestInTemplate.validate!(input[:service_quota_increase_request_in_template], context: "#{context}[:service_quota_increase_request_in_template]") unless input[:service_quota_increase_request_in_template].nil?
       end
     end
 
@@ -403,7 +405,7 @@ module AWS::SDK::ServiceQuotas
     class RequestServiceQuotaIncreaseOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RequestServiceQuotaIncreaseOutput, context: context)
-        Validators::RequestedServiceQuotaChange.validate!(input[:requested_quota], context: "#{context}[:requested_quota]") unless input[:requested_quota].nil?
+        RequestedServiceQuotaChange.validate!(input[:requested_quota], context: "#{context}[:requested_quota]") unless input[:requested_quota].nil?
       end
     end
 
@@ -431,7 +433,7 @@ module AWS::SDK::ServiceQuotas
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RequestedServiceQuotaChange.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RequestedServiceQuotaChange.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -462,7 +464,7 @@ module AWS::SDK::ServiceQuotas
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ServiceInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ServiceInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -479,9 +481,9 @@ module AWS::SDK::ServiceQuotas
         Hearth::Validator.validate!(input[:unit], ::String, context: "#{context}[:unit]")
         Hearth::Validator.validate!(input[:adjustable], ::TrueClass, ::FalseClass, context: "#{context}[:adjustable]")
         Hearth::Validator.validate!(input[:global_quota], ::TrueClass, ::FalseClass, context: "#{context}[:global_quota]")
-        Validators::MetricInfo.validate!(input[:usage_metric], context: "#{context}[:usage_metric]") unless input[:usage_metric].nil?
-        Validators::QuotaPeriod.validate!(input[:period], context: "#{context}[:period]") unless input[:period].nil?
-        Validators::ErrorReason.validate!(input[:error_reason], context: "#{context}[:error_reason]") unless input[:error_reason].nil?
+        MetricInfo.validate!(input[:usage_metric], context: "#{context}[:usage_metric]") unless input[:usage_metric].nil?
+        QuotaPeriod.validate!(input[:period], context: "#{context}[:period]") unless input[:period].nil?
+        ErrorReason.validate!(input[:error_reason], context: "#{context}[:error_reason]") unless input[:error_reason].nil?
       end
     end
 
@@ -503,7 +505,7 @@ module AWS::SDK::ServiceQuotas
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ServiceQuotaIncreaseRequestInTemplate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ServiceQuotaIncreaseRequestInTemplate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -512,7 +514,7 @@ module AWS::SDK::ServiceQuotas
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ServiceQuota.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ServiceQuota.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -543,7 +545,7 @@ module AWS::SDK::ServiceQuotas
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::InputTags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        InputTags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -578,7 +580,7 @@ module AWS::SDK::ServiceQuotas
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::InputTagKeys.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        InputTagKeys.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 

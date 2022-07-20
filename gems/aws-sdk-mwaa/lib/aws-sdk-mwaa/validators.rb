@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::MWAA
   module Validators
 
@@ -49,19 +51,19 @@ module AWS::SDK::MWAA
         Hearth::Validator.validate!(input[:execution_role_arn], ::String, context: "#{context}[:execution_role_arn]")
         Hearth::Validator.validate!(input[:source_bucket_arn], ::String, context: "#{context}[:source_bucket_arn]")
         Hearth::Validator.validate!(input[:dag_s3_path], ::String, context: "#{context}[:dag_s3_path]")
-        Validators::NetworkConfiguration.validate!(input[:network_configuration], context: "#{context}[:network_configuration]") unless input[:network_configuration].nil?
+        NetworkConfiguration.validate!(input[:network_configuration], context: "#{context}[:network_configuration]") unless input[:network_configuration].nil?
         Hearth::Validator.validate!(input[:plugins_s3_path], ::String, context: "#{context}[:plugins_s3_path]")
         Hearth::Validator.validate!(input[:plugins_s3_object_version], ::String, context: "#{context}[:plugins_s3_object_version]")
         Hearth::Validator.validate!(input[:requirements_s3_path], ::String, context: "#{context}[:requirements_s3_path]")
         Hearth::Validator.validate!(input[:requirements_s3_object_version], ::String, context: "#{context}[:requirements_s3_object_version]")
-        Validators::AirflowConfigurationOptions.validate!(input[:airflow_configuration_options], context: "#{context}[:airflow_configuration_options]") unless input[:airflow_configuration_options].nil?
+        AirflowConfigurationOptions.validate!(input[:airflow_configuration_options], context: "#{context}[:airflow_configuration_options]") unless input[:airflow_configuration_options].nil?
         Hearth::Validator.validate!(input[:environment_class], ::String, context: "#{context}[:environment_class]")
         Hearth::Validator.validate!(input[:max_workers], ::Integer, context: "#{context}[:max_workers]")
         Hearth::Validator.validate!(input[:kms_key], ::String, context: "#{context}[:kms_key]")
         Hearth::Validator.validate!(input[:airflow_version], ::String, context: "#{context}[:airflow_version]")
-        Validators::LoggingConfigurationInput.validate!(input[:logging_configuration], context: "#{context}[:logging_configuration]") unless input[:logging_configuration].nil?
+        LoggingConfigurationInput.validate!(input[:logging_configuration], context: "#{context}[:logging_configuration]") unless input[:logging_configuration].nil?
         Hearth::Validator.validate!(input[:weekly_maintenance_window_start], ::String, context: "#{context}[:weekly_maintenance_window_start]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:webserver_access_mode], ::String, context: "#{context}[:webserver_access_mode]")
         Hearth::Validator.validate!(input[:min_workers], ::Integer, context: "#{context}[:min_workers]")
         Hearth::Validator.validate!(input[:schedulers], ::Integer, context: "#{context}[:schedulers]")
@@ -115,7 +117,7 @@ module AWS::SDK::MWAA
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Dimension.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Dimension.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -138,14 +140,14 @@ module AWS::SDK::MWAA
         Hearth::Validator.validate!(input[:plugins_s3_object_version], ::String, context: "#{context}[:plugins_s3_object_version]")
         Hearth::Validator.validate!(input[:requirements_s3_path], ::String, context: "#{context}[:requirements_s3_path]")
         Hearth::Validator.validate!(input[:requirements_s3_object_version], ::String, context: "#{context}[:requirements_s3_object_version]")
-        Validators::AirflowConfigurationOptions.validate!(input[:airflow_configuration_options], context: "#{context}[:airflow_configuration_options]") unless input[:airflow_configuration_options].nil?
+        AirflowConfigurationOptions.validate!(input[:airflow_configuration_options], context: "#{context}[:airflow_configuration_options]") unless input[:airflow_configuration_options].nil?
         Hearth::Validator.validate!(input[:environment_class], ::String, context: "#{context}[:environment_class]")
         Hearth::Validator.validate!(input[:max_workers], ::Integer, context: "#{context}[:max_workers]")
-        Validators::NetworkConfiguration.validate!(input[:network_configuration], context: "#{context}[:network_configuration]") unless input[:network_configuration].nil?
-        Validators::LoggingConfiguration.validate!(input[:logging_configuration], context: "#{context}[:logging_configuration]") unless input[:logging_configuration].nil?
-        Validators::LastUpdate.validate!(input[:last_update], context: "#{context}[:last_update]") unless input[:last_update].nil?
+        NetworkConfiguration.validate!(input[:network_configuration], context: "#{context}[:network_configuration]") unless input[:network_configuration].nil?
+        LoggingConfiguration.validate!(input[:logging_configuration], context: "#{context}[:logging_configuration]") unless input[:logging_configuration].nil?
+        LastUpdate.validate!(input[:last_update], context: "#{context}[:last_update]") unless input[:last_update].nil?
         Hearth::Validator.validate!(input[:weekly_maintenance_window_start], ::String, context: "#{context}[:weekly_maintenance_window_start]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:webserver_access_mode], ::String, context: "#{context}[:webserver_access_mode]")
         Hearth::Validator.validate!(input[:min_workers], ::Integer, context: "#{context}[:min_workers]")
         Hearth::Validator.validate!(input[:schedulers], ::Integer, context: "#{context}[:schedulers]")
@@ -171,7 +173,7 @@ module AWS::SDK::MWAA
     class GetEnvironmentOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetEnvironmentOutput, context: context)
-        Validators::Environment.validate!(input[:environment], context: "#{context}[:environment]") unless input[:environment].nil?
+        Environment.validate!(input[:environment], context: "#{context}[:environment]") unless input[:environment].nil?
       end
     end
 
@@ -187,7 +189,7 @@ module AWS::SDK::MWAA
         Hearth::Validator.validate!(input, Types::LastUpdate, context: context)
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
-        Validators::UpdateError.validate!(input[:error], context: "#{context}[:error]") unless input[:error].nil?
+        UpdateError.validate!(input[:error], context: "#{context}[:error]") unless input[:error].nil?
         Hearth::Validator.validate!(input[:source], ::String, context: "#{context}[:source]")
       end
     end
@@ -203,7 +205,7 @@ module AWS::SDK::MWAA
     class ListEnvironmentsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListEnvironmentsOutput, context: context)
-        Validators::EnvironmentList.validate!(input[:environments], context: "#{context}[:environments]") unless input[:environments].nil?
+        EnvironmentList.validate!(input[:environments], context: "#{context}[:environments]") unless input[:environments].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -218,29 +220,29 @@ module AWS::SDK::MWAA
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class LoggingConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::LoggingConfiguration, context: context)
-        Validators::ModuleLoggingConfiguration.validate!(input[:dag_processing_logs], context: "#{context}[:dag_processing_logs]") unless input[:dag_processing_logs].nil?
-        Validators::ModuleLoggingConfiguration.validate!(input[:scheduler_logs], context: "#{context}[:scheduler_logs]") unless input[:scheduler_logs].nil?
-        Validators::ModuleLoggingConfiguration.validate!(input[:webserver_logs], context: "#{context}[:webserver_logs]") unless input[:webserver_logs].nil?
-        Validators::ModuleLoggingConfiguration.validate!(input[:worker_logs], context: "#{context}[:worker_logs]") unless input[:worker_logs].nil?
-        Validators::ModuleLoggingConfiguration.validate!(input[:task_logs], context: "#{context}[:task_logs]") unless input[:task_logs].nil?
+        ModuleLoggingConfiguration.validate!(input[:dag_processing_logs], context: "#{context}[:dag_processing_logs]") unless input[:dag_processing_logs].nil?
+        ModuleLoggingConfiguration.validate!(input[:scheduler_logs], context: "#{context}[:scheduler_logs]") unless input[:scheduler_logs].nil?
+        ModuleLoggingConfiguration.validate!(input[:webserver_logs], context: "#{context}[:webserver_logs]") unless input[:webserver_logs].nil?
+        ModuleLoggingConfiguration.validate!(input[:worker_logs], context: "#{context}[:worker_logs]") unless input[:worker_logs].nil?
+        ModuleLoggingConfiguration.validate!(input[:task_logs], context: "#{context}[:task_logs]") unless input[:task_logs].nil?
       end
     end
 
     class LoggingConfigurationInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::LoggingConfigurationInput, context: context)
-        Validators::ModuleLoggingConfigurationInput.validate!(input[:dag_processing_logs], context: "#{context}[:dag_processing_logs]") unless input[:dag_processing_logs].nil?
-        Validators::ModuleLoggingConfigurationInput.validate!(input[:scheduler_logs], context: "#{context}[:scheduler_logs]") unless input[:scheduler_logs].nil?
-        Validators::ModuleLoggingConfigurationInput.validate!(input[:webserver_logs], context: "#{context}[:webserver_logs]") unless input[:webserver_logs].nil?
-        Validators::ModuleLoggingConfigurationInput.validate!(input[:worker_logs], context: "#{context}[:worker_logs]") unless input[:worker_logs].nil?
-        Validators::ModuleLoggingConfigurationInput.validate!(input[:task_logs], context: "#{context}[:task_logs]") unless input[:task_logs].nil?
+        ModuleLoggingConfigurationInput.validate!(input[:dag_processing_logs], context: "#{context}[:dag_processing_logs]") unless input[:dag_processing_logs].nil?
+        ModuleLoggingConfigurationInput.validate!(input[:scheduler_logs], context: "#{context}[:scheduler_logs]") unless input[:scheduler_logs].nil?
+        ModuleLoggingConfigurationInput.validate!(input[:webserver_logs], context: "#{context}[:webserver_logs]") unless input[:webserver_logs].nil?
+        ModuleLoggingConfigurationInput.validate!(input[:worker_logs], context: "#{context}[:worker_logs]") unless input[:worker_logs].nil?
+        ModuleLoggingConfigurationInput.validate!(input[:task_logs], context: "#{context}[:task_logs]") unless input[:task_logs].nil?
       end
     end
 
@@ -248,7 +250,7 @@ module AWS::SDK::MWAA
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MetricDatum.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MetricDatum.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -258,10 +260,10 @@ module AWS::SDK::MWAA
         Hearth::Validator.validate!(input, Types::MetricDatum, context: context)
         Hearth::Validator.validate!(input[:metric_name], ::String, context: "#{context}[:metric_name]")
         Hearth::Validator.validate!(input[:timestamp], ::Time, context: "#{context}[:timestamp]")
-        Validators::Dimensions.validate!(input[:dimensions], context: "#{context}[:dimensions]") unless input[:dimensions].nil?
+        Dimensions.validate!(input[:dimensions], context: "#{context}[:dimensions]") unless input[:dimensions].nil?
         Hearth::Validator.validate!(input[:value], ::Float, context: "#{context}[:value]")
         Hearth::Validator.validate!(input[:unit], ::String, context: "#{context}[:unit]")
-        Validators::StatisticSet.validate!(input[:statistic_values], context: "#{context}[:statistic_values]") unless input[:statistic_values].nil?
+        StatisticSet.validate!(input[:statistic_values], context: "#{context}[:statistic_values]") unless input[:statistic_values].nil?
       end
     end
 
@@ -285,8 +287,8 @@ module AWS::SDK::MWAA
     class NetworkConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::NetworkConfiguration, context: context)
-        Validators::SubnetList.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
-        Validators::SecurityGroupList.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
+        SubnetList.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
+        SecurityGroupList.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
       end
     end
 
@@ -294,7 +296,7 @@ module AWS::SDK::MWAA
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PublishMetricsInput, context: context)
         Hearth::Validator.validate!(input[:environment_name], ::String, context: "#{context}[:environment_name]")
-        Validators::MetricData.validate!(input[:metric_data], context: "#{context}[:metric_data]") unless input[:metric_data].nil?
+        MetricData.validate!(input[:metric_data], context: "#{context}[:metric_data]") unless input[:metric_data].nil?
       end
     end
 
@@ -362,7 +364,7 @@ module AWS::SDK::MWAA
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -376,7 +378,7 @@ module AWS::SDK::MWAA
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -398,11 +400,11 @@ module AWS::SDK::MWAA
         Hearth::Validator.validate!(input[:plugins_s3_object_version], ::String, context: "#{context}[:plugins_s3_object_version]")
         Hearth::Validator.validate!(input[:requirements_s3_path], ::String, context: "#{context}[:requirements_s3_path]")
         Hearth::Validator.validate!(input[:requirements_s3_object_version], ::String, context: "#{context}[:requirements_s3_object_version]")
-        Validators::AirflowConfigurationOptions.validate!(input[:airflow_configuration_options], context: "#{context}[:airflow_configuration_options]") unless input[:airflow_configuration_options].nil?
+        AirflowConfigurationOptions.validate!(input[:airflow_configuration_options], context: "#{context}[:airflow_configuration_options]") unless input[:airflow_configuration_options].nil?
         Hearth::Validator.validate!(input[:environment_class], ::String, context: "#{context}[:environment_class]")
         Hearth::Validator.validate!(input[:max_workers], ::Integer, context: "#{context}[:max_workers]")
-        Validators::UpdateNetworkConfigurationInput.validate!(input[:network_configuration], context: "#{context}[:network_configuration]") unless input[:network_configuration].nil?
-        Validators::LoggingConfigurationInput.validate!(input[:logging_configuration], context: "#{context}[:logging_configuration]") unless input[:logging_configuration].nil?
+        UpdateNetworkConfigurationInput.validate!(input[:network_configuration], context: "#{context}[:network_configuration]") unless input[:network_configuration].nil?
+        LoggingConfigurationInput.validate!(input[:logging_configuration], context: "#{context}[:logging_configuration]") unless input[:logging_configuration].nil?
         Hearth::Validator.validate!(input[:weekly_maintenance_window_start], ::String, context: "#{context}[:weekly_maintenance_window_start]")
         Hearth::Validator.validate!(input[:webserver_access_mode], ::String, context: "#{context}[:webserver_access_mode]")
         Hearth::Validator.validate!(input[:min_workers], ::Integer, context: "#{context}[:min_workers]")
@@ -428,7 +430,7 @@ module AWS::SDK::MWAA
     class UpdateNetworkConfigurationInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateNetworkConfigurationInput, context: context)
-        Validators::SecurityGroupList.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
+        SecurityGroupList.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
       end
     end
 

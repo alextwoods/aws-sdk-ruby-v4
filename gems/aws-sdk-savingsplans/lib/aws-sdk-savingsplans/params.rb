@@ -20,7 +20,7 @@ module AWS::SDK::Savingsplans
         type.commitment = params[:commitment]
         type.upfront_payment_amount = params[:upfront_payment_amount]
         type.purchase_time = params[:purchase_time]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.tags = TagMap.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type
       end

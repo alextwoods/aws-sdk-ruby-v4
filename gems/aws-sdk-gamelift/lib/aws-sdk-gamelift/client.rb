@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::GameLift
@@ -164,7 +166,7 @@ module AWS::SDK::GameLift
     def accept_match(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AcceptMatchInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AcceptMatchInput,
         validate_input: @config.validate_input
@@ -310,7 +312,7 @@ module AWS::SDK::GameLift
     def claim_game_server(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ClaimGameServerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ClaimGameServerInput,
         validate_input: @config.validate_input
@@ -443,7 +445,7 @@ module AWS::SDK::GameLift
     def create_alias(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateAliasInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateAliasInput,
         validate_input: @config.validate_input
@@ -629,7 +631,7 @@ module AWS::SDK::GameLift
     def create_build(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateBuildInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateBuildInput,
         validate_input: @config.validate_input
@@ -974,7 +976,7 @@ module AWS::SDK::GameLift
     def create_fleet(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateFleetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateFleetInput,
         validate_input: @config.validate_input
@@ -1100,7 +1102,7 @@ module AWS::SDK::GameLift
     def create_fleet_locations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateFleetLocationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateFleetLocationsInput,
         validate_input: @config.validate_input
@@ -1374,7 +1376,7 @@ module AWS::SDK::GameLift
     def create_game_server_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateGameServerGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateGameServerGroupInput,
         validate_input: @config.validate_input
@@ -1581,7 +1583,7 @@ module AWS::SDK::GameLift
     def create_game_session(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateGameSessionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateGameSessionInput,
         validate_input: @config.validate_input
@@ -1793,7 +1795,7 @@ module AWS::SDK::GameLift
     def create_game_session_queue(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateGameSessionQueueInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateGameSessionQueueInput,
         validate_input: @config.validate_input
@@ -2044,7 +2046,7 @@ module AWS::SDK::GameLift
     def create_matchmaking_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateMatchmakingConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateMatchmakingConfigurationInput,
         validate_input: @config.validate_input
@@ -2187,7 +2189,7 @@ module AWS::SDK::GameLift
     def create_matchmaking_rule_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateMatchmakingRuleSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateMatchmakingRuleSetInput,
         validate_input: @config.validate_input
@@ -2301,7 +2303,7 @@ module AWS::SDK::GameLift
     def create_player_session(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreatePlayerSessionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreatePlayerSessionInput,
         validate_input: @config.validate_input
@@ -2423,7 +2425,7 @@ module AWS::SDK::GameLift
     def create_player_sessions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreatePlayerSessionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreatePlayerSessionsInput,
         validate_input: @config.validate_input
@@ -2591,7 +2593,7 @@ module AWS::SDK::GameLift
     def create_script(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateScriptInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateScriptInput,
         validate_input: @config.validate_input
@@ -2706,7 +2708,7 @@ module AWS::SDK::GameLift
     def create_vpc_peering_authorization(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateVpcPeeringAuthorizationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateVpcPeeringAuthorizationInput,
         validate_input: @config.validate_input
@@ -2818,7 +2820,7 @@ module AWS::SDK::GameLift
     def create_vpc_peering_connection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateVpcPeeringConnectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateVpcPeeringConnectionInput,
         validate_input: @config.validate_input
@@ -2901,7 +2903,7 @@ module AWS::SDK::GameLift
     def delete_alias(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAliasInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAliasInput,
         validate_input: @config.validate_input
@@ -2990,7 +2992,7 @@ module AWS::SDK::GameLift
     def delete_build(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteBuildInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteBuildInput,
         validate_input: @config.validate_input
@@ -3092,7 +3094,7 @@ module AWS::SDK::GameLift
     def delete_fleet(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteFleetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteFleetInput,
         validate_input: @config.validate_input
@@ -3202,7 +3204,7 @@ module AWS::SDK::GameLift
     def delete_fleet_locations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteFleetLocationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteFleetLocationsInput,
         validate_input: @config.validate_input
@@ -3357,7 +3359,7 @@ module AWS::SDK::GameLift
     def delete_game_server_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteGameServerGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteGameServerGroupInput,
         validate_input: @config.validate_input
@@ -3448,7 +3450,7 @@ module AWS::SDK::GameLift
     def delete_game_session_queue(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteGameSessionQueueInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteGameSessionQueueInput,
         validate_input: @config.validate_input
@@ -3532,7 +3534,7 @@ module AWS::SDK::GameLift
     def delete_matchmaking_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteMatchmakingConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteMatchmakingConfigurationInput,
         validate_input: @config.validate_input
@@ -3628,7 +3630,7 @@ module AWS::SDK::GameLift
     def delete_matchmaking_rule_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteMatchmakingRuleSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteMatchmakingRuleSetInput,
         validate_input: @config.validate_input
@@ -3718,7 +3720,7 @@ module AWS::SDK::GameLift
     def delete_scaling_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteScalingPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteScalingPolicyInput,
         validate_input: @config.validate_input
@@ -3809,7 +3811,7 @@ module AWS::SDK::GameLift
     def delete_script(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteScriptInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteScriptInput,
         validate_input: @config.validate_input
@@ -3898,7 +3900,7 @@ module AWS::SDK::GameLift
     def delete_vpc_peering_authorization(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteVpcPeeringAuthorizationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteVpcPeeringAuthorizationInput,
         validate_input: @config.validate_input
@@ -3989,7 +3991,7 @@ module AWS::SDK::GameLift
     def delete_vpc_peering_connection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteVpcPeeringConnectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteVpcPeeringConnectionInput,
         validate_input: @config.validate_input
@@ -4088,7 +4090,7 @@ module AWS::SDK::GameLift
     def deregister_game_server(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeregisterGameServerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeregisterGameServerInput,
         validate_input: @config.validate_input
@@ -4183,7 +4185,7 @@ module AWS::SDK::GameLift
     def describe_alias(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAliasInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAliasInput,
         validate_input: @config.validate_input
@@ -4279,7 +4281,7 @@ module AWS::SDK::GameLift
     def describe_build(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeBuildInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeBuildInput,
         validate_input: @config.validate_input
@@ -4431,7 +4433,7 @@ module AWS::SDK::GameLift
     def describe_ec2_instance_limits(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeEC2InstanceLimitsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeEC2InstanceLimitsInput,
         validate_input: @config.validate_input
@@ -4587,7 +4589,7 @@ module AWS::SDK::GameLift
     def describe_fleet_attributes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeFleetAttributesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeFleetAttributesInput,
         validate_input: @config.validate_input
@@ -4733,7 +4735,7 @@ module AWS::SDK::GameLift
     def describe_fleet_capacity(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeFleetCapacityInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeFleetCapacityInput,
         validate_input: @config.validate_input
@@ -4859,7 +4861,7 @@ module AWS::SDK::GameLift
     def describe_fleet_events(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeFleetEventsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeFleetEventsInput,
         validate_input: @config.validate_input
@@ -4994,7 +4996,7 @@ module AWS::SDK::GameLift
     def describe_fleet_location_attributes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeFleetLocationAttributesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeFleetLocationAttributesInput,
         validate_input: @config.validate_input
@@ -5113,7 +5115,7 @@ module AWS::SDK::GameLift
     def describe_fleet_location_capacity(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeFleetLocationCapacityInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeFleetLocationCapacityInput,
         validate_input: @config.validate_input
@@ -5227,7 +5229,7 @@ module AWS::SDK::GameLift
     def describe_fleet_location_utilization(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeFleetLocationUtilizationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeFleetLocationUtilizationInput,
         validate_input: @config.validate_input
@@ -5351,7 +5353,7 @@ module AWS::SDK::GameLift
     def describe_fleet_port_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeFleetPortSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeFleetPortSettingsInput,
         validate_input: @config.validate_input
@@ -5492,7 +5494,7 @@ module AWS::SDK::GameLift
     def describe_fleet_utilization(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeFleetUtilizationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeFleetUtilizationInput,
         validate_input: @config.validate_input
@@ -5601,7 +5603,7 @@ module AWS::SDK::GameLift
     def describe_game_server(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeGameServerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeGameServerInput,
         validate_input: @config.validate_input
@@ -5714,7 +5716,7 @@ module AWS::SDK::GameLift
     def describe_game_server_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeGameServerGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeGameServerGroupInput,
         validate_input: @config.validate_input
@@ -5847,7 +5849,7 @@ module AWS::SDK::GameLift
     def describe_game_server_instances(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeGameServerInstancesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeGameServerInstancesInput,
         validate_input: @config.validate_input
@@ -6019,7 +6021,7 @@ module AWS::SDK::GameLift
     def describe_game_session_details(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeGameSessionDetailsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeGameSessionDetailsInput,
         validate_input: @config.validate_input
@@ -6141,7 +6143,7 @@ module AWS::SDK::GameLift
     def describe_game_session_placement(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeGameSessionPlacementInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeGameSessionPlacementInput,
         validate_input: @config.validate_input
@@ -6267,7 +6269,7 @@ module AWS::SDK::GameLift
     def describe_game_session_queues(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeGameSessionQueuesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeGameSessionQueuesInput,
         validate_input: @config.validate_input
@@ -6454,7 +6456,7 @@ module AWS::SDK::GameLift
     def describe_game_sessions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeGameSessionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeGameSessionsInput,
         validate_input: @config.validate_input
@@ -6592,7 +6594,7 @@ module AWS::SDK::GameLift
     def describe_instances(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeInstancesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeInstancesInput,
         validate_input: @config.validate_input
@@ -6730,7 +6732,7 @@ module AWS::SDK::GameLift
     def describe_matchmaking(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeMatchmakingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeMatchmakingInput,
         validate_input: @config.validate_input
@@ -6865,7 +6867,7 @@ module AWS::SDK::GameLift
     def describe_matchmaking_configurations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeMatchmakingConfigurationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeMatchmakingConfigurationsInput,
         validate_input: @config.validate_input
@@ -6980,7 +6982,7 @@ module AWS::SDK::GameLift
     def describe_matchmaking_rule_sets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeMatchmakingRuleSetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeMatchmakingRuleSetsInput,
         validate_input: @config.validate_input
@@ -7142,7 +7144,7 @@ module AWS::SDK::GameLift
     def describe_player_sessions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribePlayerSessionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribePlayerSessionsInput,
         validate_input: @config.validate_input
@@ -7251,7 +7253,7 @@ module AWS::SDK::GameLift
     def describe_runtime_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeRuntimeConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeRuntimeConfigurationInput,
         validate_input: @config.validate_input
@@ -7416,7 +7418,7 @@ module AWS::SDK::GameLift
     def describe_scaling_policies(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeScalingPoliciesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeScalingPoliciesInput,
         validate_input: @config.validate_input
@@ -7516,7 +7518,7 @@ module AWS::SDK::GameLift
     def describe_script(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeScriptInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeScriptInput,
         validate_input: @config.validate_input
@@ -7600,7 +7602,7 @@ module AWS::SDK::GameLift
     def describe_vpc_peering_authorizations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeVpcPeeringAuthorizationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeVpcPeeringAuthorizationsInput,
         validate_input: @config.validate_input
@@ -7697,7 +7699,7 @@ module AWS::SDK::GameLift
     def describe_vpc_peering_connections(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeVpcPeeringConnectionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeVpcPeeringConnectionsInput,
         validate_input: @config.validate_input
@@ -7788,7 +7790,7 @@ module AWS::SDK::GameLift
     def get_game_session_log_url(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetGameSessionLogUrlInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetGameSessionLogUrlInput,
         validate_input: @config.validate_input
@@ -7907,7 +7909,7 @@ module AWS::SDK::GameLift
     def get_instance_access(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetInstanceAccessInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetInstanceAccessInput,
         validate_input: @config.validate_input
@@ -8032,7 +8034,7 @@ module AWS::SDK::GameLift
     def list_aliases(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAliasesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAliasesInput,
         validate_input: @config.validate_input
@@ -8164,7 +8166,7 @@ module AWS::SDK::GameLift
     def list_builds(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListBuildsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListBuildsInput,
         validate_input: @config.validate_input
@@ -8295,7 +8297,7 @@ module AWS::SDK::GameLift
     def list_fleets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListFleetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListFleetsInput,
         validate_input: @config.validate_input
@@ -8411,7 +8413,7 @@ module AWS::SDK::GameLift
     def list_game_server_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListGameServerGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListGameServerGroupsInput,
         validate_input: @config.validate_input
@@ -8532,7 +8534,7 @@ module AWS::SDK::GameLift
     def list_game_servers(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListGameServersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListGameServersInput,
         validate_input: @config.validate_input
@@ -8635,7 +8637,7 @@ module AWS::SDK::GameLift
     def list_scripts(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListScriptsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListScriptsInput,
         validate_input: @config.validate_input
@@ -8760,7 +8762,7 @@ module AWS::SDK::GameLift
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -9038,7 +9040,7 @@ module AWS::SDK::GameLift
     def put_scaling_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutScalingPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutScalingPolicyInput,
         validate_input: @config.validate_input
@@ -9175,7 +9177,7 @@ module AWS::SDK::GameLift
     def register_game_server(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RegisterGameServerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RegisterGameServerInput,
         validate_input: @config.validate_input
@@ -9275,7 +9277,7 @@ module AWS::SDK::GameLift
     def request_upload_credentials(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RequestUploadCredentialsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RequestUploadCredentialsInput,
         validate_input: @config.validate_input
@@ -9358,7 +9360,7 @@ module AWS::SDK::GameLift
     def resolve_alias(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ResolveAliasInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ResolveAliasInput,
         validate_input: @config.validate_input
@@ -9480,7 +9482,7 @@ module AWS::SDK::GameLift
     def resume_game_server_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ResumeGameServerGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ResumeGameServerGroupInput,
         validate_input: @config.validate_input
@@ -9786,7 +9788,7 @@ module AWS::SDK::GameLift
     def search_game_sessions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SearchGameSessionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SearchGameSessionsInput,
         validate_input: @config.validate_input
@@ -9904,7 +9906,7 @@ module AWS::SDK::GameLift
     def start_fleet_actions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartFleetActionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartFleetActionsInput,
         validate_input: @config.validate_input
@@ -10105,7 +10107,7 @@ module AWS::SDK::GameLift
     def start_game_session_placement(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartGameSessionPlacementInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartGameSessionPlacementInput,
         validate_input: @config.validate_input
@@ -10309,7 +10311,7 @@ module AWS::SDK::GameLift
     def start_match_backfill(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartMatchBackfillInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartMatchBackfillInput,
         validate_input: @config.validate_input
@@ -10485,7 +10487,7 @@ module AWS::SDK::GameLift
     def start_matchmaking(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartMatchmakingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartMatchmakingInput,
         validate_input: @config.validate_input
@@ -10608,7 +10610,7 @@ module AWS::SDK::GameLift
     def stop_fleet_actions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopFleetActionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopFleetActionsInput,
         validate_input: @config.validate_input
@@ -10722,7 +10724,7 @@ module AWS::SDK::GameLift
     def stop_game_session_placement(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopGameSessionPlacementInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopGameSessionPlacementInput,
         validate_input: @config.validate_input
@@ -10819,7 +10821,7 @@ module AWS::SDK::GameLift
     def stop_matchmaking(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopMatchmakingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopMatchmakingInput,
         validate_input: @config.validate_input
@@ -10951,7 +10953,7 @@ module AWS::SDK::GameLift
     def suspend_game_server_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SuspendGameServerGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SuspendGameServerGroupInput,
         validate_input: @config.validate_input
@@ -11086,7 +11088,7 @@ module AWS::SDK::GameLift
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -11215,7 +11217,7 @@ module AWS::SDK::GameLift
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -11327,7 +11329,7 @@ module AWS::SDK::GameLift
     def update_alias(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateAliasInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateAliasInput,
         validate_input: @config.validate_input
@@ -11432,7 +11434,7 @@ module AWS::SDK::GameLift
     def update_build(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateBuildInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateBuildInput,
         validate_input: @config.validate_input
@@ -11573,7 +11575,7 @@ module AWS::SDK::GameLift
     def update_fleet_attributes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateFleetAttributesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateFleetAttributesInput,
         validate_input: @config.validate_input
@@ -11725,7 +11727,7 @@ module AWS::SDK::GameLift
     def update_fleet_capacity(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateFleetCapacityInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateFleetCapacityInput,
         validate_input: @config.validate_input
@@ -11842,7 +11844,7 @@ module AWS::SDK::GameLift
     def update_fleet_port_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateFleetPortSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateFleetPortSettingsInput,
         validate_input: @config.validate_input
@@ -11988,7 +11990,7 @@ module AWS::SDK::GameLift
     def update_game_server(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateGameServerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateGameServerInput,
         validate_input: @config.validate_input
@@ -12162,7 +12164,7 @@ module AWS::SDK::GameLift
     def update_game_server_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateGameServerGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateGameServerGroupInput,
         validate_input: @config.validate_input
@@ -12300,7 +12302,7 @@ module AWS::SDK::GameLift
     def update_game_session(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateGameSessionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateGameSessionInput,
         validate_input: @config.validate_input
@@ -12470,7 +12472,7 @@ module AWS::SDK::GameLift
     def update_game_session_queue(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateGameSessionQueueInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateGameSessionQueueInput,
         validate_input: @config.validate_input
@@ -12682,7 +12684,7 @@ module AWS::SDK::GameLift
     def update_matchmaking_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateMatchmakingConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateMatchmakingConfigurationInput,
         validate_input: @config.validate_input
@@ -12810,7 +12812,7 @@ module AWS::SDK::GameLift
     def update_runtime_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateRuntimeConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateRuntimeConfigurationInput,
         validate_input: @config.validate_input
@@ -12948,7 +12950,7 @@ module AWS::SDK::GameLift
     def update_script(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateScriptInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateScriptInput,
         validate_input: @config.validate_input
@@ -13044,7 +13046,7 @@ module AWS::SDK::GameLift
     def validate_matchmaking_rule_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ValidateMatchmakingRuleSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ValidateMatchmakingRuleSetInput,
         validate_input: @config.validate_input

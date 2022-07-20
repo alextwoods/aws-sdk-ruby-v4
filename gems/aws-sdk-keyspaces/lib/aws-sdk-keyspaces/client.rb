@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::Keyspaces
@@ -87,7 +89,7 @@ module AWS::SDK::Keyspaces
     def create_keyspace(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateKeyspaceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateKeyspaceInput,
         validate_input: @config.validate_input
@@ -306,7 +308,7 @@ module AWS::SDK::Keyspaces
     def create_table(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateTableInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateTableInput,
         validate_input: @config.validate_input
@@ -374,7 +376,7 @@ module AWS::SDK::Keyspaces
     def delete_keyspace(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteKeyspaceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteKeyspaceInput,
         validate_input: @config.validate_input
@@ -450,7 +452,7 @@ module AWS::SDK::Keyspaces
     def delete_table(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteTableInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteTableInput,
         validate_input: @config.validate_input
@@ -520,7 +522,7 @@ module AWS::SDK::Keyspaces
     def get_keyspace(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetKeyspaceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetKeyspaceInput,
         validate_input: @config.validate_input
@@ -631,7 +633,7 @@ module AWS::SDK::Keyspaces
     def get_table(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetTableInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetTableInput,
         validate_input: @config.validate_input
@@ -710,7 +712,7 @@ module AWS::SDK::Keyspaces
     def list_keyspaces(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListKeyspacesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListKeyspacesInput,
         validate_input: @config.validate_input
@@ -794,7 +796,7 @@ module AWS::SDK::Keyspaces
     def list_tables(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTablesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTablesInput,
         validate_input: @config.validate_input
@@ -877,7 +879,7 @@ module AWS::SDK::Keyspaces
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -1046,7 +1048,7 @@ module AWS::SDK::Keyspaces
     def restore_table(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RestoreTableInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RestoreTableInput,
         validate_input: @config.validate_input
@@ -1129,7 +1131,7 @@ module AWS::SDK::Keyspaces
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -1206,7 +1208,7 @@ module AWS::SDK::Keyspaces
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -1357,7 +1359,7 @@ module AWS::SDK::Keyspaces
     def update_table(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateTableInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateTableInput,
         validate_input: @config.validate_input

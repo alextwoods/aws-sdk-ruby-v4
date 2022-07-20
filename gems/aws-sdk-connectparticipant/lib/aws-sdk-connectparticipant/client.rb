@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::ConnectParticipant
@@ -76,7 +78,7 @@ module AWS::SDK::ConnectParticipant
     def complete_attachment_upload(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CompleteAttachmentUploadInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CompleteAttachmentUploadInput,
         validate_input: @config.validate_input
@@ -191,7 +193,7 @@ module AWS::SDK::ConnectParticipant
     def create_participant_connection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateParticipantConnectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateParticipantConnectionInput,
         validate_input: @config.validate_input
@@ -267,7 +269,7 @@ module AWS::SDK::ConnectParticipant
     def disconnect_participant(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisconnectParticipantInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisconnectParticipantInput,
         validate_input: @config.validate_input
@@ -344,7 +346,7 @@ module AWS::SDK::ConnectParticipant
     def get_attachment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAttachmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAttachmentInput,
         validate_input: @config.validate_input
@@ -463,7 +465,7 @@ module AWS::SDK::ConnectParticipant
     def get_transcript(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetTranscriptInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetTranscriptInput,
         validate_input: @config.validate_input
@@ -559,7 +561,7 @@ module AWS::SDK::ConnectParticipant
     def send_event(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SendEventInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SendEventInput,
         validate_input: @config.validate_input
@@ -645,7 +647,7 @@ module AWS::SDK::ConnectParticipant
     def send_message(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SendMessageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SendMessageInput,
         validate_input: @config.validate_input
@@ -738,7 +740,7 @@ module AWS::SDK::ConnectParticipant
     def start_attachment_upload(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartAttachmentUploadInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartAttachmentUploadInput,
         validate_input: @config.validate_input

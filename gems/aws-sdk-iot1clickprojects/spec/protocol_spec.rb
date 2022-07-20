@@ -9,9 +9,6 @@
 
 require 'aws-sdk-iot1clickprojects'
 
-require 'hearth/xml/node_matcher'
-require 'hearth/query/param_matcher'
-
 module AWS::SDK::IoT1ClickProjects
   describe Client do
     let(:endpoint) { 'http://127.0.0.1' }

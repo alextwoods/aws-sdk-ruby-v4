@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::SageMakerA2IRuntime
   module Validators
 
@@ -56,14 +58,14 @@ module AWS::SDK::SageMakerA2IRuntime
         Hearth::Validator.validate!(input[:human_loop_name], ::String, context: "#{context}[:human_loop_name]")
         Hearth::Validator.validate!(input[:human_loop_arn], ::String, context: "#{context}[:human_loop_arn]")
         Hearth::Validator.validate!(input[:flow_definition_arn], ::String, context: "#{context}[:flow_definition_arn]")
-        Validators::HumanLoopOutput.validate!(input[:human_loop_output], context: "#{context}[:human_loop_output]") unless input[:human_loop_output].nil?
+        HumanLoopOutput.validate!(input[:human_loop_output], context: "#{context}[:human_loop_output]") unless input[:human_loop_output].nil?
       end
     end
 
     class HumanLoopDataAttributes
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::HumanLoopDataAttributes, context: context)
-        Validators::ContentClassifiers.validate!(input[:content_classifiers], context: "#{context}[:content_classifiers]") unless input[:content_classifiers].nil?
+        ContentClassifiers.validate!(input[:content_classifiers], context: "#{context}[:content_classifiers]") unless input[:content_classifiers].nil?
       end
     end
 
@@ -85,7 +87,7 @@ module AWS::SDK::SageMakerA2IRuntime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::HumanLoopSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          HumanLoopSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -123,7 +125,7 @@ module AWS::SDK::SageMakerA2IRuntime
     class ListHumanLoopsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListHumanLoopsOutput, context: context)
-        Validators::HumanLoopSummaries.validate!(input[:human_loop_summaries], context: "#{context}[:human_loop_summaries]") unless input[:human_loop_summaries].nil?
+        HumanLoopSummaries.validate!(input[:human_loop_summaries], context: "#{context}[:human_loop_summaries]") unless input[:human_loop_summaries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -147,8 +149,8 @@ module AWS::SDK::SageMakerA2IRuntime
         Hearth::Validator.validate!(input, Types::StartHumanLoopInput, context: context)
         Hearth::Validator.validate!(input[:human_loop_name], ::String, context: "#{context}[:human_loop_name]")
         Hearth::Validator.validate!(input[:flow_definition_arn], ::String, context: "#{context}[:flow_definition_arn]")
-        Validators::HumanLoopInput.validate!(input[:human_loop_input], context: "#{context}[:human_loop_input]") unless input[:human_loop_input].nil?
-        Validators::HumanLoopDataAttributes.validate!(input[:data_attributes], context: "#{context}[:data_attributes]") unless input[:data_attributes].nil?
+        HumanLoopInput.validate!(input[:human_loop_input], context: "#{context}[:human_loop_input]") unless input[:human_loop_input].nil?
+        HumanLoopDataAttributes.validate!(input[:data_attributes], context: "#{context}[:data_attributes]") unless input[:data_attributes].nil?
       end
     end
 

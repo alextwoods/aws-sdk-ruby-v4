@@ -14,7 +14,7 @@ module AWS::SDK::MigrationHubConfig
     class CreateHomeRegionControl
       def self.default(visited=[])
         {
-          home_region_control: Stubs::HomeRegionControl.default(visited),
+          home_region_control: HomeRegionControl.default(visited),
         }
       end
 
@@ -34,7 +34,7 @@ module AWS::SDK::MigrationHubConfig
         {
           control_id: 'control_id',
           home_region: 'home_region',
-          target: Stubs::Target.default(visited),
+          target: Target.default(visited),
           requested_time: Time.now,
         }
       end
@@ -74,7 +74,7 @@ module AWS::SDK::MigrationHubConfig
     class DescribeHomeRegionControls
       def self.default(visited=[])
         {
-          home_region_controls: Stubs::HomeRegionControls.default(visited),
+          home_region_controls: HomeRegionControls.default(visited),
           next_token: 'next_token',
         }
       end
@@ -94,7 +94,7 @@ module AWS::SDK::MigrationHubConfig
         return nil if visited.include?('HomeRegionControls')
         visited = visited + ['HomeRegionControls']
         [
-          Stubs::HomeRegionControl.default(visited)
+          HomeRegionControl.default(visited)
         ]
       end
 

@@ -32,7 +32,7 @@ module AWS::SDK::Neptune
     class AddSourceIdentifierToSubscription
       def self.default(visited=[])
         {
-          event_subscription: Stubs::EventSubscription.default(visited),
+          event_subscription: EventSubscription.default(visited),
         }
       end
 
@@ -60,8 +60,8 @@ module AWS::SDK::Neptune
           status: 'status',
           subscription_creation_time: 'subscription_creation_time',
           source_type: 'source_type',
-          source_ids_list: Stubs::SourceIdsList.default(visited),
-          event_categories_list: Stubs::EventCategoriesList.default(visited),
+          source_ids_list: SourceIdsList.default(visited),
+          event_categories_list: EventCategoriesList.default(visited),
           enabled: false,
           event_subscription_arn: 'event_subscription_arn',
         }
@@ -144,7 +144,7 @@ module AWS::SDK::Neptune
     class ApplyPendingMaintenanceAction
       def self.default(visited=[])
         {
-          resource_pending_maintenance_actions: Stubs::ResourcePendingMaintenanceActions.default(visited),
+          resource_pending_maintenance_actions: ResourcePendingMaintenanceActions.default(visited),
         }
       end
 
@@ -167,7 +167,7 @@ module AWS::SDK::Neptune
         visited = visited + ['ResourcePendingMaintenanceActions']
         {
           resource_identifier: 'resource_identifier',
-          pending_maintenance_action_details: Stubs::PendingMaintenanceActionDetails.default(visited),
+          pending_maintenance_action_details: PendingMaintenanceActionDetails.default(visited),
         }
       end
 
@@ -186,7 +186,7 @@ module AWS::SDK::Neptune
         return nil if visited.include?('PendingMaintenanceActionDetails')
         visited = visited + ['PendingMaintenanceActionDetails']
         [
-          Stubs::PendingMaintenanceAction.default(visited)
+          PendingMaintenanceAction.default(visited)
         ]
       end
 
@@ -231,7 +231,7 @@ module AWS::SDK::Neptune
     class CopyDBClusterParameterGroup
       def self.default(visited=[])
         {
-          db_cluster_parameter_group: Stubs::DBClusterParameterGroup.default(visited),
+          db_cluster_parameter_group: DBClusterParameterGroup.default(visited),
         }
       end
 
@@ -275,7 +275,7 @@ module AWS::SDK::Neptune
     class CopyDBClusterSnapshot
       def self.default(visited=[])
         {
-          db_cluster_snapshot: Stubs::DBClusterSnapshot.default(visited),
+          db_cluster_snapshot: DBClusterSnapshot.default(visited),
         }
       end
 
@@ -297,7 +297,7 @@ module AWS::SDK::Neptune
         return nil if visited.include?('DBClusterSnapshot')
         visited = visited + ['DBClusterSnapshot']
         {
-          availability_zones: Stubs::AvailabilityZones.default(visited),
+          availability_zones: AvailabilityZones.default(visited),
           db_cluster_snapshot_identifier: 'db_cluster_snapshot_identifier',
           db_cluster_identifier: 'db_cluster_identifier',
           snapshot_create_time: Time.now,
@@ -370,7 +370,7 @@ module AWS::SDK::Neptune
     class CopyDBParameterGroup
       def self.default(visited=[])
         {
-          db_parameter_group: Stubs::DBParameterGroup.default(visited),
+          db_parameter_group: DBParameterGroup.default(visited),
         }
       end
 
@@ -414,7 +414,7 @@ module AWS::SDK::Neptune
     class CreateDBCluster
       def self.default(visited=[])
         {
-          db_cluster: Stubs::DBCluster.default(visited),
+          db_cluster: DBCluster.default(visited),
         }
       end
 
@@ -437,7 +437,7 @@ module AWS::SDK::Neptune
         visited = visited + ['DBCluster']
         {
           allocated_storage: 1,
-          availability_zones: Stubs::AvailabilityZones.default(visited),
+          availability_zones: AvailabilityZones.default(visited),
           backup_retention_period: 1,
           character_set_name: 'character_set_name',
           database_name: 'database_name',
@@ -455,24 +455,24 @@ module AWS::SDK::Neptune
           latest_restorable_time: Time.now,
           port: 1,
           master_username: 'master_username',
-          db_cluster_option_group_memberships: Stubs::DBClusterOptionGroupMemberships.default(visited),
+          db_cluster_option_group_memberships: DBClusterOptionGroupMemberships.default(visited),
           preferred_backup_window: 'preferred_backup_window',
           preferred_maintenance_window: 'preferred_maintenance_window',
           replication_source_identifier: 'replication_source_identifier',
-          read_replica_identifiers: Stubs::ReadReplicaIdentifierList.default(visited),
-          db_cluster_members: Stubs::DBClusterMemberList.default(visited),
-          vpc_security_groups: Stubs::VpcSecurityGroupMembershipList.default(visited),
+          read_replica_identifiers: ReadReplicaIdentifierList.default(visited),
+          db_cluster_members: DBClusterMemberList.default(visited),
+          vpc_security_groups: VpcSecurityGroupMembershipList.default(visited),
           hosted_zone_id: 'hosted_zone_id',
           storage_encrypted: false,
           kms_key_id: 'kms_key_id',
           db_cluster_resource_id: 'db_cluster_resource_id',
           db_cluster_arn: 'db_cluster_arn',
-          associated_roles: Stubs::DBClusterRoles.default(visited),
+          associated_roles: DBClusterRoles.default(visited),
           iam_database_authentication_enabled: false,
           clone_group_id: 'clone_group_id',
           cluster_create_time: Time.now,
           copy_tags_to_snapshot: false,
-          enabled_cloudwatch_logs_exports: Stubs::LogTypeList.default(visited),
+          enabled_cloudwatch_logs_exports: LogTypeList.default(visited),
           deletion_protection: false,
           cross_account_clone: false,
           automatic_restart_time: Time.now,
@@ -551,7 +551,7 @@ module AWS::SDK::Neptune
         return nil if visited.include?('DBClusterRoles')
         visited = visited + ['DBClusterRoles']
         [
-          Stubs::DBClusterRole.default(visited)
+          DBClusterRole.default(visited)
         ]
       end
 
@@ -592,7 +592,7 @@ module AWS::SDK::Neptune
         return nil if visited.include?('VpcSecurityGroupMembershipList')
         visited = visited + ['VpcSecurityGroupMembershipList']
         [
-          Stubs::VpcSecurityGroupMembership.default(visited)
+          VpcSecurityGroupMembership.default(visited)
         ]
       end
 
@@ -631,7 +631,7 @@ module AWS::SDK::Neptune
         return nil if visited.include?('DBClusterMemberList')
         visited = visited + ['DBClusterMemberList']
         [
-          Stubs::DBClusterMember.default(visited)
+          DBClusterMember.default(visited)
         ]
       end
 
@@ -693,7 +693,7 @@ module AWS::SDK::Neptune
         return nil if visited.include?('DBClusterOptionGroupMemberships')
         visited = visited + ['DBClusterOptionGroupMemberships']
         [
-          Stubs::DBClusterOptionGroupStatus.default(visited)
+          DBClusterOptionGroupStatus.default(visited)
         ]
       end
 
@@ -737,8 +737,8 @@ module AWS::SDK::Neptune
           status: 'status',
           endpoint_type: 'endpoint_type',
           custom_endpoint_type: 'custom_endpoint_type',
-          static_members: Stubs::StringList.default(visited),
-          excluded_members: Stubs::StringList.default(visited),
+          static_members: StringList.default(visited),
+          excluded_members: StringList.default(visited),
           db_cluster_endpoint_arn: 'db_cluster_endpoint_arn',
         }
       end
@@ -787,7 +787,7 @@ module AWS::SDK::Neptune
     class CreateDBClusterParameterGroup
       def self.default(visited=[])
         {
-          db_cluster_parameter_group: Stubs::DBClusterParameterGroup.default(visited),
+          db_cluster_parameter_group: DBClusterParameterGroup.default(visited),
         }
       end
 
@@ -807,7 +807,7 @@ module AWS::SDK::Neptune
     class CreateDBClusterSnapshot
       def self.default(visited=[])
         {
-          db_cluster_snapshot: Stubs::DBClusterSnapshot.default(visited),
+          db_cluster_snapshot: DBClusterSnapshot.default(visited),
         }
       end
 
@@ -827,7 +827,7 @@ module AWS::SDK::Neptune
     class CreateDBInstance
       def self.default(visited=[])
         {
-          db_instance: Stubs::DBInstance.default(visited),
+          db_instance: DBInstance.default(visited),
         }
       end
 
@@ -855,32 +855,32 @@ module AWS::SDK::Neptune
           db_instance_status: 'db_instance_status',
           master_username: 'master_username',
           db_name: 'db_name',
-          endpoint: Stubs::Endpoint.default(visited),
+          endpoint: Endpoint.default(visited),
           allocated_storage: 1,
           instance_create_time: Time.now,
           preferred_backup_window: 'preferred_backup_window',
           backup_retention_period: 1,
-          db_security_groups: Stubs::DBSecurityGroupMembershipList.default(visited),
-          vpc_security_groups: Stubs::VpcSecurityGroupMembershipList.default(visited),
-          db_parameter_groups: Stubs::DBParameterGroupStatusList.default(visited),
+          db_security_groups: DBSecurityGroupMembershipList.default(visited),
+          vpc_security_groups: VpcSecurityGroupMembershipList.default(visited),
+          db_parameter_groups: DBParameterGroupStatusList.default(visited),
           availability_zone: 'availability_zone',
-          db_subnet_group: Stubs::DBSubnetGroup.default(visited),
+          db_subnet_group: DBSubnetGroup.default(visited),
           preferred_maintenance_window: 'preferred_maintenance_window',
-          pending_modified_values: Stubs::PendingModifiedValues.default(visited),
+          pending_modified_values: PendingModifiedValues.default(visited),
           latest_restorable_time: Time.now,
           multi_az: false,
           engine_version: 'engine_version',
           auto_minor_version_upgrade: false,
           read_replica_source_db_instance_identifier: 'read_replica_source_db_instance_identifier',
-          read_replica_db_instance_identifiers: Stubs::ReadReplicaDBInstanceIdentifierList.default(visited),
-          read_replica_db_cluster_identifiers: Stubs::ReadReplicaDBClusterIdentifierList.default(visited),
+          read_replica_db_instance_identifiers: ReadReplicaDBInstanceIdentifierList.default(visited),
+          read_replica_db_cluster_identifiers: ReadReplicaDBClusterIdentifierList.default(visited),
           license_model: 'license_model',
           iops: 1,
-          option_group_memberships: Stubs::OptionGroupMembershipList.default(visited),
+          option_group_memberships: OptionGroupMembershipList.default(visited),
           character_set_name: 'character_set_name',
           secondary_availability_zone: 'secondary_availability_zone',
           publicly_accessible: false,
-          status_infos: Stubs::DBInstanceStatusInfoList.default(visited),
+          status_infos: DBInstanceStatusInfoList.default(visited),
           storage_type: 'storage_type',
           tde_credential_arn: 'tde_credential_arn',
           db_instance_port: 1,
@@ -889,7 +889,7 @@ module AWS::SDK::Neptune
           kms_key_id: 'kms_key_id',
           dbi_resource_id: 'dbi_resource_id',
           ca_certificate_identifier: 'ca_certificate_identifier',
-          domain_memberships: Stubs::DomainMembershipList.default(visited),
+          domain_memberships: DomainMembershipList.default(visited),
           copy_tags_to_snapshot: false,
           monitoring_interval: 1,
           enhanced_monitoring_resource_arn: 'enhanced_monitoring_resource_arn',
@@ -900,7 +900,7 @@ module AWS::SDK::Neptune
           iam_database_authentication_enabled: false,
           performance_insights_enabled: false,
           performance_insights_kms_key_id: 'performance_insights_kms_key_id',
-          enabled_cloudwatch_logs_exports: Stubs::LogTypeList.default(visited),
+          enabled_cloudwatch_logs_exports: LogTypeList.default(visited),
           deletion_protection: false,
         }
       end
@@ -971,7 +971,7 @@ module AWS::SDK::Neptune
         return nil if visited.include?('DomainMembershipList')
         visited = visited + ['DomainMembershipList']
         [
-          Stubs::DomainMembership.default(visited)
+          DomainMembership.default(visited)
         ]
       end
 
@@ -1014,7 +1014,7 @@ module AWS::SDK::Neptune
         return nil if visited.include?('DBInstanceStatusInfoList')
         visited = visited + ['DBInstanceStatusInfoList']
         [
-          Stubs::DBInstanceStatusInfo.default(visited)
+          DBInstanceStatusInfo.default(visited)
         ]
       end
 
@@ -1057,7 +1057,7 @@ module AWS::SDK::Neptune
         return nil if visited.include?('OptionGroupMembershipList')
         visited = visited + ['OptionGroupMembershipList']
         [
-          Stubs::OptionGroupMembership.default(visited)
+          OptionGroupMembership.default(visited)
         ]
       end
 
@@ -1147,7 +1147,7 @@ module AWS::SDK::Neptune
           storage_type: 'storage_type',
           ca_certificate_identifier: 'ca_certificate_identifier',
           db_subnet_group_name: 'db_subnet_group_name',
-          pending_cloudwatch_logs_exports: Stubs::PendingCloudwatchLogsExports.default(visited),
+          pending_cloudwatch_logs_exports: PendingCloudwatchLogsExports.default(visited),
         }
       end
 
@@ -1178,8 +1178,8 @@ module AWS::SDK::Neptune
         return nil if visited.include?('PendingCloudwatchLogsExports')
         visited = visited + ['PendingCloudwatchLogsExports']
         {
-          log_types_to_enable: Stubs::LogTypeList.default(visited),
-          log_types_to_disable: Stubs::LogTypeList.default(visited),
+          log_types_to_enable: LogTypeList.default(visited),
+          log_types_to_disable: LogTypeList.default(visited),
         }
       end
 
@@ -1202,7 +1202,7 @@ module AWS::SDK::Neptune
           db_subnet_group_description: 'db_subnet_group_description',
           vpc_id: 'vpc_id',
           subnet_group_status: 'subnet_group_status',
-          subnets: Stubs::SubnetList.default(visited),
+          subnets: SubnetList.default(visited),
           db_subnet_group_arn: 'db_subnet_group_arn',
         }
       end
@@ -1226,7 +1226,7 @@ module AWS::SDK::Neptune
         return nil if visited.include?('SubnetList')
         visited = visited + ['SubnetList']
         [
-          Stubs::Subnet.default(visited)
+          Subnet.default(visited)
         ]
       end
 
@@ -1246,7 +1246,7 @@ module AWS::SDK::Neptune
         visited = visited + ['Subnet']
         {
           subnet_identifier: 'subnet_identifier',
-          subnet_availability_zone: Stubs::AvailabilityZone.default(visited),
+          subnet_availability_zone: AvailabilityZone.default(visited),
           subnet_status: 'subnet_status',
         }
       end
@@ -1285,7 +1285,7 @@ module AWS::SDK::Neptune
         return nil if visited.include?('DBParameterGroupStatusList')
         visited = visited + ['DBParameterGroupStatusList']
         [
-          Stubs::DBParameterGroupStatus.default(visited)
+          DBParameterGroupStatus.default(visited)
         ]
       end
 
@@ -1324,7 +1324,7 @@ module AWS::SDK::Neptune
         return nil if visited.include?('DBSecurityGroupMembershipList')
         visited = visited + ['DBSecurityGroupMembershipList']
         [
-          Stubs::DBSecurityGroupMembership.default(visited)
+          DBSecurityGroupMembership.default(visited)
         ]
       end
 
@@ -1383,7 +1383,7 @@ module AWS::SDK::Neptune
     class CreateDBParameterGroup
       def self.default(visited=[])
         {
-          db_parameter_group: Stubs::DBParameterGroup.default(visited),
+          db_parameter_group: DBParameterGroup.default(visited),
         }
       end
 
@@ -1403,7 +1403,7 @@ module AWS::SDK::Neptune
     class CreateDBSubnetGroup
       def self.default(visited=[])
         {
-          db_subnet_group: Stubs::DBSubnetGroup.default(visited),
+          db_subnet_group: DBSubnetGroup.default(visited),
         }
       end
 
@@ -1423,7 +1423,7 @@ module AWS::SDK::Neptune
     class CreateEventSubscription
       def self.default(visited=[])
         {
-          event_subscription: Stubs::EventSubscription.default(visited),
+          event_subscription: EventSubscription.default(visited),
         }
       end
 
@@ -1443,7 +1443,7 @@ module AWS::SDK::Neptune
     class CreateGlobalCluster
       def self.default(visited=[])
         {
-          global_cluster: Stubs::GlobalCluster.default(visited),
+          global_cluster: GlobalCluster.default(visited),
         }
       end
 
@@ -1473,7 +1473,7 @@ module AWS::SDK::Neptune
           engine_version: 'engine_version',
           storage_encrypted: false,
           deletion_protection: false,
-          global_cluster_members: Stubs::GlobalClusterMemberList.default(visited),
+          global_cluster_members: GlobalClusterMemberList.default(visited),
         }
       end
 
@@ -1499,7 +1499,7 @@ module AWS::SDK::Neptune
         return nil if visited.include?('GlobalClusterMemberList')
         visited = visited + ['GlobalClusterMemberList']
         [
-          Stubs::GlobalClusterMember.default(visited)
+          GlobalClusterMember.default(visited)
         ]
       end
 
@@ -1519,7 +1519,7 @@ module AWS::SDK::Neptune
         visited = visited + ['GlobalClusterMember']
         {
           db_cluster_arn: 'db_cluster_arn',
-          readers: Stubs::ReadersArnList.default(visited),
+          readers: ReadersArnList.default(visited),
           is_writer: false,
         }
       end
@@ -1557,7 +1557,7 @@ module AWS::SDK::Neptune
     class DeleteDBCluster
       def self.default(visited=[])
         {
-          db_cluster: Stubs::DBCluster.default(visited),
+          db_cluster: DBCluster.default(visited),
         }
       end
 
@@ -1584,8 +1584,8 @@ module AWS::SDK::Neptune
           status: 'status',
           endpoint_type: 'endpoint_type',
           custom_endpoint_type: 'custom_endpoint_type',
-          static_members: Stubs::StringList.default(visited),
-          excluded_members: Stubs::StringList.default(visited),
+          static_members: StringList.default(visited),
+          excluded_members: StringList.default(visited),
           db_cluster_endpoint_arn: 'db_cluster_endpoint_arn',
         }
       end
@@ -1633,7 +1633,7 @@ module AWS::SDK::Neptune
     class DeleteDBClusterSnapshot
       def self.default(visited=[])
         {
-          db_cluster_snapshot: Stubs::DBClusterSnapshot.default(visited),
+          db_cluster_snapshot: DBClusterSnapshot.default(visited),
         }
       end
 
@@ -1653,7 +1653,7 @@ module AWS::SDK::Neptune
     class DeleteDBInstance
       def self.default(visited=[])
         {
-          db_instance: Stubs::DBInstance.default(visited),
+          db_instance: DBInstance.default(visited),
         }
       end
 
@@ -1709,7 +1709,7 @@ module AWS::SDK::Neptune
     class DeleteEventSubscription
       def self.default(visited=[])
         {
-          event_subscription: Stubs::EventSubscription.default(visited),
+          event_subscription: EventSubscription.default(visited),
         }
       end
 
@@ -1729,7 +1729,7 @@ module AWS::SDK::Neptune
     class DeleteGlobalCluster
       def self.default(visited=[])
         {
-          global_cluster: Stubs::GlobalCluster.default(visited),
+          global_cluster: GlobalCluster.default(visited),
         }
       end
 
@@ -1750,7 +1750,7 @@ module AWS::SDK::Neptune
       def self.default(visited=[])
         {
           marker: 'marker',
-          db_cluster_endpoints: Stubs::DBClusterEndpointList.default(visited),
+          db_cluster_endpoints: DBClusterEndpointList.default(visited),
         }
       end
 
@@ -1773,7 +1773,7 @@ module AWS::SDK::Neptune
         return nil if visited.include?('DBClusterEndpointList')
         visited = visited + ['DBClusterEndpointList']
         [
-          Stubs::DBClusterEndpoint.default(visited)
+          DBClusterEndpoint.default(visited)
         ]
       end
 
@@ -1799,8 +1799,8 @@ module AWS::SDK::Neptune
           status: 'status',
           endpoint_type: 'endpoint_type',
           custom_endpoint_type: 'custom_endpoint_type',
-          static_members: Stubs::StringList.default(visited),
-          excluded_members: Stubs::StringList.default(visited),
+          static_members: StringList.default(visited),
+          excluded_members: StringList.default(visited),
           db_cluster_endpoint_arn: 'db_cluster_endpoint_arn',
         }
       end
@@ -1827,7 +1827,7 @@ module AWS::SDK::Neptune
       def self.default(visited=[])
         {
           marker: 'marker',
-          db_cluster_parameter_groups: Stubs::DBClusterParameterGroupList.default(visited),
+          db_cluster_parameter_groups: DBClusterParameterGroupList.default(visited),
         }
       end
 
@@ -1850,7 +1850,7 @@ module AWS::SDK::Neptune
         return nil if visited.include?('DBClusterParameterGroupList')
         visited = visited + ['DBClusterParameterGroupList']
         [
-          Stubs::DBClusterParameterGroup.default(visited)
+          DBClusterParameterGroup.default(visited)
         ]
       end
 
@@ -1867,7 +1867,7 @@ module AWS::SDK::Neptune
     class DescribeDBClusterParameters
       def self.default(visited=[])
         {
-          parameters: Stubs::ParametersList.default(visited),
+          parameters: ParametersList.default(visited),
           marker: 'marker',
         }
       end
@@ -1891,7 +1891,7 @@ module AWS::SDK::Neptune
         return nil if visited.include?('ParametersList')
         visited = visited + ['ParametersList']
         [
-          Stubs::Parameter.default(visited)
+          Parameter.default(visited)
         ]
       end
 
@@ -1944,7 +1944,7 @@ module AWS::SDK::Neptune
     class DescribeDBClusterSnapshotAttributes
       def self.default(visited=[])
         {
-          db_cluster_snapshot_attributes_result: Stubs::DBClusterSnapshotAttributesResult.default(visited),
+          db_cluster_snapshot_attributes_result: DBClusterSnapshotAttributesResult.default(visited),
         }
       end
 
@@ -1967,7 +1967,7 @@ module AWS::SDK::Neptune
         visited = visited + ['DBClusterSnapshotAttributesResult']
         {
           db_cluster_snapshot_identifier: 'db_cluster_snapshot_identifier',
-          db_cluster_snapshot_attributes: Stubs::DBClusterSnapshotAttributeList.default(visited),
+          db_cluster_snapshot_attributes: DBClusterSnapshotAttributeList.default(visited),
         }
       end
 
@@ -1986,7 +1986,7 @@ module AWS::SDK::Neptune
         return nil if visited.include?('DBClusterSnapshotAttributeList')
         visited = visited + ['DBClusterSnapshotAttributeList']
         [
-          Stubs::DBClusterSnapshotAttribute.default(visited)
+          DBClusterSnapshotAttribute.default(visited)
         ]
       end
 
@@ -2006,7 +2006,7 @@ module AWS::SDK::Neptune
         visited = visited + ['DBClusterSnapshotAttribute']
         {
           attribute_name: 'attribute_name',
-          attribute_values: Stubs::AttributeValueList.default(visited),
+          attribute_values: AttributeValueList.default(visited),
         }
       end
 
@@ -2043,7 +2043,7 @@ module AWS::SDK::Neptune
       def self.default(visited=[])
         {
           marker: 'marker',
-          db_cluster_snapshots: Stubs::DBClusterSnapshotList.default(visited),
+          db_cluster_snapshots: DBClusterSnapshotList.default(visited),
         }
       end
 
@@ -2066,7 +2066,7 @@ module AWS::SDK::Neptune
         return nil if visited.include?('DBClusterSnapshotList')
         visited = visited + ['DBClusterSnapshotList']
         [
-          Stubs::DBClusterSnapshot.default(visited)
+          DBClusterSnapshot.default(visited)
         ]
       end
 
@@ -2084,7 +2084,7 @@ module AWS::SDK::Neptune
       def self.default(visited=[])
         {
           marker: 'marker',
-          db_clusters: Stubs::DBClusterList.default(visited),
+          db_clusters: DBClusterList.default(visited),
         }
       end
 
@@ -2107,7 +2107,7 @@ module AWS::SDK::Neptune
         return nil if visited.include?('DBClusterList')
         visited = visited + ['DBClusterList']
         [
-          Stubs::DBCluster.default(visited)
+          DBCluster.default(visited)
         ]
       end
 
@@ -2125,7 +2125,7 @@ module AWS::SDK::Neptune
       def self.default(visited=[])
         {
           marker: 'marker',
-          db_engine_versions: Stubs::DBEngineVersionList.default(visited),
+          db_engine_versions: DBEngineVersionList.default(visited),
         }
       end
 
@@ -2148,7 +2148,7 @@ module AWS::SDK::Neptune
         return nil if visited.include?('DBEngineVersionList')
         visited = visited + ['DBEngineVersionList']
         [
-          Stubs::DBEngineVersion.default(visited)
+          DBEngineVersion.default(visited)
         ]
       end
 
@@ -2172,11 +2172,11 @@ module AWS::SDK::Neptune
           db_parameter_group_family: 'db_parameter_group_family',
           db_engine_description: 'db_engine_description',
           db_engine_version_description: 'db_engine_version_description',
-          default_character_set: Stubs::CharacterSet.default(visited),
-          supported_character_sets: Stubs::SupportedCharacterSetsList.default(visited),
-          valid_upgrade_target: Stubs::ValidUpgradeTargetList.default(visited),
-          supported_timezones: Stubs::SupportedTimezonesList.default(visited),
-          exportable_log_types: Stubs::LogTypeList.default(visited),
+          default_character_set: CharacterSet.default(visited),
+          supported_character_sets: SupportedCharacterSetsList.default(visited),
+          valid_upgrade_target: ValidUpgradeTargetList.default(visited),
+          supported_timezones: SupportedTimezonesList.default(visited),
+          exportable_log_types: LogTypeList.default(visited),
           supports_log_exports_to_cloudwatch_logs: false,
           supports_read_replica: false,
           supports_global_databases: false,
@@ -2209,7 +2209,7 @@ module AWS::SDK::Neptune
         return nil if visited.include?('SupportedTimezonesList')
         visited = visited + ['SupportedTimezonesList']
         [
-          Stubs::Timezone.default(visited)
+          Timezone.default(visited)
         ]
       end
 
@@ -2246,7 +2246,7 @@ module AWS::SDK::Neptune
         return nil if visited.include?('ValidUpgradeTargetList')
         visited = visited + ['ValidUpgradeTargetList']
         [
-          Stubs::UpgradeTarget.default(visited)
+          UpgradeTarget.default(visited)
         ]
       end
 
@@ -2293,7 +2293,7 @@ module AWS::SDK::Neptune
         return nil if visited.include?('SupportedCharacterSetsList')
         visited = visited + ['SupportedCharacterSetsList']
         [
-          Stubs::CharacterSet.default(visited)
+          CharacterSet.default(visited)
         ]
       end
 
@@ -2331,7 +2331,7 @@ module AWS::SDK::Neptune
       def self.default(visited=[])
         {
           marker: 'marker',
-          db_instances: Stubs::DBInstanceList.default(visited),
+          db_instances: DBInstanceList.default(visited),
         }
       end
 
@@ -2354,7 +2354,7 @@ module AWS::SDK::Neptune
         return nil if visited.include?('DBInstanceList')
         visited = visited + ['DBInstanceList']
         [
-          Stubs::DBInstance.default(visited)
+          DBInstance.default(visited)
         ]
       end
 
@@ -2372,7 +2372,7 @@ module AWS::SDK::Neptune
       def self.default(visited=[])
         {
           marker: 'marker',
-          db_parameter_groups: Stubs::DBParameterGroupList.default(visited),
+          db_parameter_groups: DBParameterGroupList.default(visited),
         }
       end
 
@@ -2395,7 +2395,7 @@ module AWS::SDK::Neptune
         return nil if visited.include?('DBParameterGroupList')
         visited = visited + ['DBParameterGroupList']
         [
-          Stubs::DBParameterGroup.default(visited)
+          DBParameterGroup.default(visited)
         ]
       end
 
@@ -2412,7 +2412,7 @@ module AWS::SDK::Neptune
     class DescribeDBParameters
       def self.default(visited=[])
         {
-          parameters: Stubs::ParametersList.default(visited),
+          parameters: ParametersList.default(visited),
           marker: 'marker',
         }
       end
@@ -2435,7 +2435,7 @@ module AWS::SDK::Neptune
       def self.default(visited=[])
         {
           marker: 'marker',
-          db_subnet_groups: Stubs::DBSubnetGroups.default(visited),
+          db_subnet_groups: DBSubnetGroups.default(visited),
         }
       end
 
@@ -2458,7 +2458,7 @@ module AWS::SDK::Neptune
         return nil if visited.include?('DBSubnetGroups')
         visited = visited + ['DBSubnetGroups']
         [
-          Stubs::DBSubnetGroup.default(visited)
+          DBSubnetGroup.default(visited)
         ]
       end
 
@@ -2475,7 +2475,7 @@ module AWS::SDK::Neptune
     class DescribeEngineDefaultClusterParameters
       def self.default(visited=[])
         {
-          engine_defaults: Stubs::EngineDefaults.default(visited),
+          engine_defaults: EngineDefaults.default(visited),
         }
       end
 
@@ -2499,7 +2499,7 @@ module AWS::SDK::Neptune
         {
           db_parameter_group_family: 'db_parameter_group_family',
           marker: 'marker',
-          parameters: Stubs::ParametersList.default(visited),
+          parameters: ParametersList.default(visited),
         }
       end
 
@@ -2517,7 +2517,7 @@ module AWS::SDK::Neptune
     class DescribeEngineDefaultParameters
       def self.default(visited=[])
         {
-          engine_defaults: Stubs::EngineDefaults.default(visited),
+          engine_defaults: EngineDefaults.default(visited),
         }
       end
 
@@ -2537,7 +2537,7 @@ module AWS::SDK::Neptune
     class DescribeEventCategories
       def self.default(visited=[])
         {
-          event_categories_map_list: Stubs::EventCategoriesMapList.default(visited),
+          event_categories_map_list: EventCategoriesMapList.default(visited),
         }
       end
 
@@ -2559,7 +2559,7 @@ module AWS::SDK::Neptune
         return nil if visited.include?('EventCategoriesMapList')
         visited = visited + ['EventCategoriesMapList']
         [
-          Stubs::EventCategoriesMap.default(visited)
+          EventCategoriesMap.default(visited)
         ]
       end
 
@@ -2579,7 +2579,7 @@ module AWS::SDK::Neptune
         visited = visited + ['EventCategoriesMap']
         {
           source_type: 'source_type',
-          event_categories: Stubs::EventCategoriesList.default(visited),
+          event_categories: EventCategoriesList.default(visited),
         }
       end
 
@@ -2597,7 +2597,7 @@ module AWS::SDK::Neptune
       def self.default(visited=[])
         {
           marker: 'marker',
-          event_subscriptions_list: Stubs::EventSubscriptionsList.default(visited),
+          event_subscriptions_list: EventSubscriptionsList.default(visited),
         }
       end
 
@@ -2620,7 +2620,7 @@ module AWS::SDK::Neptune
         return nil if visited.include?('EventSubscriptionsList')
         visited = visited + ['EventSubscriptionsList']
         [
-          Stubs::EventSubscription.default(visited)
+          EventSubscription.default(visited)
         ]
       end
 
@@ -2638,7 +2638,7 @@ module AWS::SDK::Neptune
       def self.default(visited=[])
         {
           marker: 'marker',
-          events: Stubs::EventList.default(visited),
+          events: EventList.default(visited),
         }
       end
 
@@ -2661,7 +2661,7 @@ module AWS::SDK::Neptune
         return nil if visited.include?('EventList')
         visited = visited + ['EventList']
         [
-          Stubs::Event.default(visited)
+          Event.default(visited)
         ]
       end
 
@@ -2683,7 +2683,7 @@ module AWS::SDK::Neptune
           source_identifier: 'source_identifier',
           source_type: 'source_type',
           message: 'message',
-          event_categories: Stubs::EventCategoriesList.default(visited),
+          event_categories: EventCategoriesList.default(visited),
           date: Time.now,
           source_arn: 'source_arn',
         }
@@ -2707,7 +2707,7 @@ module AWS::SDK::Neptune
       def self.default(visited=[])
         {
           marker: 'marker',
-          global_clusters: Stubs::GlobalClusterList.default(visited),
+          global_clusters: GlobalClusterList.default(visited),
         }
       end
 
@@ -2730,7 +2730,7 @@ module AWS::SDK::Neptune
         return nil if visited.include?('GlobalClusterList')
         visited = visited + ['GlobalClusterList']
         [
-          Stubs::GlobalCluster.default(visited)
+          GlobalCluster.default(visited)
         ]
       end
 
@@ -2747,7 +2747,7 @@ module AWS::SDK::Neptune
     class DescribeOrderableDBInstanceOptions
       def self.default(visited=[])
         {
-          orderable_db_instance_options: Stubs::OrderableDBInstanceOptionsList.default(visited),
+          orderable_db_instance_options: OrderableDBInstanceOptionsList.default(visited),
           marker: 'marker',
         }
       end
@@ -2771,7 +2771,7 @@ module AWS::SDK::Neptune
         return nil if visited.include?('OrderableDBInstanceOptionsList')
         visited = visited + ['OrderableDBInstanceOptionsList']
         [
-          Stubs::OrderableDBInstanceOption.default(visited)
+          OrderableDBInstanceOption.default(visited)
         ]
       end
 
@@ -2794,7 +2794,7 @@ module AWS::SDK::Neptune
           engine_version: 'engine_version',
           db_instance_class: 'db_instance_class',
           license_model: 'license_model',
-          availability_zones: Stubs::AvailabilityZoneList.default(visited),
+          availability_zones: AvailabilityZoneList.default(visited),
           multi_az_capable: false,
           read_replica_capable: false,
           vpc: false,
@@ -2848,7 +2848,7 @@ module AWS::SDK::Neptune
         return nil if visited.include?('AvailabilityZoneList')
         visited = visited + ['AvailabilityZoneList']
         [
-          Stubs::AvailabilityZone.default(visited)
+          AvailabilityZone.default(visited)
         ]
       end
 
@@ -2865,7 +2865,7 @@ module AWS::SDK::Neptune
     class DescribePendingMaintenanceActions
       def self.default(visited=[])
         {
-          pending_maintenance_actions: Stubs::PendingMaintenanceActions.default(visited),
+          pending_maintenance_actions: PendingMaintenanceActions.default(visited),
           marker: 'marker',
         }
       end
@@ -2889,7 +2889,7 @@ module AWS::SDK::Neptune
         return nil if visited.include?('PendingMaintenanceActions')
         visited = visited + ['PendingMaintenanceActions']
         [
-          Stubs::ResourcePendingMaintenanceActions.default(visited)
+          ResourcePendingMaintenanceActions.default(visited)
         ]
       end
 
@@ -2906,7 +2906,7 @@ module AWS::SDK::Neptune
     class DescribeValidDBInstanceModifications
       def self.default(visited=[])
         {
-          valid_db_instance_modifications_message: Stubs::ValidDBInstanceModificationsMessage.default(visited),
+          valid_db_instance_modifications_message: ValidDBInstanceModificationsMessage.default(visited),
         }
       end
 
@@ -2928,7 +2928,7 @@ module AWS::SDK::Neptune
         return nil if visited.include?('ValidDBInstanceModificationsMessage')
         visited = visited + ['ValidDBInstanceModificationsMessage']
         {
-          storage: Stubs::ValidStorageOptionsList.default(visited),
+          storage: ValidStorageOptionsList.default(visited),
         }
       end
 
@@ -2946,7 +2946,7 @@ module AWS::SDK::Neptune
         return nil if visited.include?('ValidStorageOptionsList')
         visited = visited + ['ValidStorageOptionsList']
         [
-          Stubs::ValidStorageOptions.default(visited)
+          ValidStorageOptions.default(visited)
         ]
       end
 
@@ -2966,9 +2966,9 @@ module AWS::SDK::Neptune
         visited = visited + ['ValidStorageOptions']
         {
           storage_type: 'storage_type',
-          storage_size: Stubs::RangeList.default(visited),
-          provisioned_iops: Stubs::RangeList.default(visited),
-          iops_to_storage_ratio: Stubs::DoubleRangeList.default(visited),
+          storage_size: RangeList.default(visited),
+          provisioned_iops: RangeList.default(visited),
+          iops_to_storage_ratio: DoubleRangeList.default(visited),
         }
       end
 
@@ -2989,7 +2989,7 @@ module AWS::SDK::Neptune
         return nil if visited.include?('DoubleRangeList')
         visited = visited + ['DoubleRangeList']
         [
-          Stubs::DoubleRange.default(visited)
+          DoubleRange.default(visited)
         ]
       end
 
@@ -3028,7 +3028,7 @@ module AWS::SDK::Neptune
         return nil if visited.include?('RangeList')
         visited = visited + ['RangeList']
         [
-          Stubs::Range.default(visited)
+          Range.default(visited)
         ]
       end
 
@@ -3067,7 +3067,7 @@ module AWS::SDK::Neptune
     class FailoverDBCluster
       def self.default(visited=[])
         {
-          db_cluster: Stubs::DBCluster.default(visited),
+          db_cluster: DBCluster.default(visited),
         }
       end
 
@@ -3087,7 +3087,7 @@ module AWS::SDK::Neptune
     class FailoverGlobalCluster
       def self.default(visited=[])
         {
-          global_cluster: Stubs::GlobalCluster.default(visited),
+          global_cluster: GlobalCluster.default(visited),
         }
       end
 
@@ -3107,7 +3107,7 @@ module AWS::SDK::Neptune
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tag_list: Stubs::TagList.default(visited),
+          tag_list: TagList.default(visited),
         }
       end
 
@@ -3129,7 +3129,7 @@ module AWS::SDK::Neptune
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -3166,7 +3166,7 @@ module AWS::SDK::Neptune
     class ModifyDBCluster
       def self.default(visited=[])
         {
-          db_cluster: Stubs::DBCluster.default(visited),
+          db_cluster: DBCluster.default(visited),
         }
       end
 
@@ -3193,8 +3193,8 @@ module AWS::SDK::Neptune
           status: 'status',
           endpoint_type: 'endpoint_type',
           custom_endpoint_type: 'custom_endpoint_type',
-          static_members: Stubs::StringList.default(visited),
-          excluded_members: Stubs::StringList.default(visited),
+          static_members: StringList.default(visited),
+          excluded_members: StringList.default(visited),
           db_cluster_endpoint_arn: 'db_cluster_endpoint_arn',
         }
       end
@@ -3244,7 +3244,7 @@ module AWS::SDK::Neptune
     class ModifyDBClusterSnapshotAttribute
       def self.default(visited=[])
         {
-          db_cluster_snapshot_attributes_result: Stubs::DBClusterSnapshotAttributesResult.default(visited),
+          db_cluster_snapshot_attributes_result: DBClusterSnapshotAttributesResult.default(visited),
         }
       end
 
@@ -3264,7 +3264,7 @@ module AWS::SDK::Neptune
     class ModifyDBInstance
       def self.default(visited=[])
         {
-          db_instance: Stubs::DBInstance.default(visited),
+          db_instance: DBInstance.default(visited),
         }
       end
 
@@ -3304,7 +3304,7 @@ module AWS::SDK::Neptune
     class ModifyDBSubnetGroup
       def self.default(visited=[])
         {
-          db_subnet_group: Stubs::DBSubnetGroup.default(visited),
+          db_subnet_group: DBSubnetGroup.default(visited),
         }
       end
 
@@ -3324,7 +3324,7 @@ module AWS::SDK::Neptune
     class ModifyEventSubscription
       def self.default(visited=[])
         {
-          event_subscription: Stubs::EventSubscription.default(visited),
+          event_subscription: EventSubscription.default(visited),
         }
       end
 
@@ -3344,7 +3344,7 @@ module AWS::SDK::Neptune
     class ModifyGlobalCluster
       def self.default(visited=[])
         {
-          global_cluster: Stubs::GlobalCluster.default(visited),
+          global_cluster: GlobalCluster.default(visited),
         }
       end
 
@@ -3364,7 +3364,7 @@ module AWS::SDK::Neptune
     class PromoteReadReplicaDBCluster
       def self.default(visited=[])
         {
-          db_cluster: Stubs::DBCluster.default(visited),
+          db_cluster: DBCluster.default(visited),
         }
       end
 
@@ -3384,7 +3384,7 @@ module AWS::SDK::Neptune
     class RebootDBInstance
       def self.default(visited=[])
         {
-          db_instance: Stubs::DBInstance.default(visited),
+          db_instance: DBInstance.default(visited),
         }
       end
 
@@ -3404,7 +3404,7 @@ module AWS::SDK::Neptune
     class RemoveFromGlobalCluster
       def self.default(visited=[])
         {
-          global_cluster: Stubs::GlobalCluster.default(visited),
+          global_cluster: GlobalCluster.default(visited),
         }
       end
 
@@ -3442,7 +3442,7 @@ module AWS::SDK::Neptune
     class RemoveSourceIdentifierFromSubscription
       def self.default(visited=[])
         {
-          event_subscription: Stubs::EventSubscription.default(visited),
+          event_subscription: EventSubscription.default(visited),
         }
       end
 
@@ -3520,7 +3520,7 @@ module AWS::SDK::Neptune
     class RestoreDBClusterFromSnapshot
       def self.default(visited=[])
         {
-          db_cluster: Stubs::DBCluster.default(visited),
+          db_cluster: DBCluster.default(visited),
         }
       end
 
@@ -3540,7 +3540,7 @@ module AWS::SDK::Neptune
     class RestoreDBClusterToPointInTime
       def self.default(visited=[])
         {
-          db_cluster: Stubs::DBCluster.default(visited),
+          db_cluster: DBCluster.default(visited),
         }
       end
 
@@ -3560,7 +3560,7 @@ module AWS::SDK::Neptune
     class StartDBCluster
       def self.default(visited=[])
         {
-          db_cluster: Stubs::DBCluster.default(visited),
+          db_cluster: DBCluster.default(visited),
         }
       end
 
@@ -3580,7 +3580,7 @@ module AWS::SDK::Neptune
     class StopDBCluster
       def self.default(visited=[])
         {
-          db_cluster: Stubs::DBCluster.default(visited),
+          db_cluster: DBCluster.default(visited),
         }
       end
 

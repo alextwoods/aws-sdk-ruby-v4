@@ -512,11 +512,11 @@ module AWS::SDK::ECR
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.base_score ||= 0
       end
-
     end
 
     # <p>Details on adjustments Amazon Inspector made to the CVSS score for a finding.</p>
@@ -575,11 +575,11 @@ module AWS::SDK::ECR
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.score ||= 0
       end
-
     end
 
     # @!attribute registry_id
@@ -729,11 +729,11 @@ module AWS::SDK::ECR
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.force ||= false
       end
-
     end
 
     # @!attribute repository
@@ -1368,11 +1368,11 @@ module AWS::SDK::ECR
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.score ||= 0
       end
-
     end
 
     # Includes enum constants for FindingSeverity
@@ -2166,11 +2166,11 @@ module AWS::SDK::ECR
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.scan_on_push ||= false
       end
-
     end
 
     # <p>The specified image is tagged with a tag that already exists. The repository is
@@ -3592,11 +3592,11 @@ module AWS::SDK::ECR
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.scan_on_push ||= false
       end
-
     end
 
     # <p>The details about any failures associated with the scanning configuration of a
@@ -3854,11 +3854,11 @@ module AWS::SDK::ECR
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.force ||= false
       end
-
     end
 
     # @!attribute registry_id

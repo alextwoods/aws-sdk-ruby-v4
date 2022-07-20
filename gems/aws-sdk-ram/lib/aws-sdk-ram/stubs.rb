@@ -14,7 +14,7 @@ module AWS::SDK::RAM
     class AcceptResourceShareInvitation
       def self.default(visited=[])
         {
-          resource_share_invitation: Stubs::ResourceShareInvitation.default(visited),
+          resource_share_invitation: ResourceShareInvitation.default(visited),
           client_token: 'client_token',
         }
       end
@@ -42,7 +42,7 @@ module AWS::SDK::RAM
           receiver_account_id: 'receiver_account_id',
           invitation_timestamp: Time.now,
           status: 'status',
-          resource_share_associations: Stubs::ResourceShareAssociationList.default(visited),
+          resource_share_associations: ResourceShareAssociationList.default(visited),
           receiver_arn: 'receiver_arn',
         }
       end
@@ -69,7 +69,7 @@ module AWS::SDK::RAM
         return nil if visited.include?('ResourceShareAssociationList')
         visited = visited + ['ResourceShareAssociationList']
         [
-          Stubs::ResourceShareAssociation.default(visited)
+          ResourceShareAssociation.default(visited)
         ]
       end
 
@@ -121,7 +121,7 @@ module AWS::SDK::RAM
     class AssociateResourceShare
       def self.default(visited=[])
         {
-          resource_share_associations: Stubs::ResourceShareAssociationList.default(visited),
+          resource_share_associations: ResourceShareAssociationList.default(visited),
           client_token: 'client_token',
         }
       end
@@ -159,7 +159,7 @@ module AWS::SDK::RAM
     class CreateResourceShare
       def self.default(visited=[])
         {
-          resource_share: Stubs::ResourceShare.default(visited),
+          resource_share: ResourceShare.default(visited),
           client_token: 'client_token',
         }
       end
@@ -186,7 +186,7 @@ module AWS::SDK::RAM
           allow_external_principals: false,
           status: 'status',
           status_message: 'status_message',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           creation_time: Time.now,
           last_updated_time: Time.now,
           feature_set: 'feature_set',
@@ -216,7 +216,7 @@ module AWS::SDK::RAM
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -273,7 +273,7 @@ module AWS::SDK::RAM
     class DisassociateResourceShare
       def self.default(visited=[])
         {
-          resource_share_associations: Stubs::ResourceShareAssociationList.default(visited),
+          resource_share_associations: ResourceShareAssociationList.default(visited),
           client_token: 'client_token',
         }
       end
@@ -328,7 +328,7 @@ module AWS::SDK::RAM
     class GetPermission
       def self.default(visited=[])
         {
-          permission: Stubs::ResourceSharePermissionDetail.default(visited),
+          permission: ResourceSharePermissionDetail.default(visited),
         }
       end
 
@@ -379,7 +379,7 @@ module AWS::SDK::RAM
     class GetResourcePolicies
       def self.default(visited=[])
         {
-          policies: Stubs::PolicyList.default(visited),
+          policies: PolicyList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -418,7 +418,7 @@ module AWS::SDK::RAM
     class GetResourceShareAssociations
       def self.default(visited=[])
         {
-          resource_share_associations: Stubs::ResourceShareAssociationList.default(visited),
+          resource_share_associations: ResourceShareAssociationList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -437,7 +437,7 @@ module AWS::SDK::RAM
     class GetResourceShareInvitations
       def self.default(visited=[])
         {
-          resource_share_invitations: Stubs::ResourceShareInvitationList.default(visited),
+          resource_share_invitations: ResourceShareInvitationList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -458,7 +458,7 @@ module AWS::SDK::RAM
         return nil if visited.include?('ResourceShareInvitationList')
         visited = visited + ['ResourceShareInvitationList']
         [
-          Stubs::ResourceShareInvitation.default(visited)
+          ResourceShareInvitation.default(visited)
         ]
       end
 
@@ -476,7 +476,7 @@ module AWS::SDK::RAM
     class GetResourceShares
       def self.default(visited=[])
         {
-          resource_shares: Stubs::ResourceShareList.default(visited),
+          resource_shares: ResourceShareList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -497,7 +497,7 @@ module AWS::SDK::RAM
         return nil if visited.include?('ResourceShareList')
         visited = visited + ['ResourceShareList']
         [
-          Stubs::ResourceShare.default(visited)
+          ResourceShare.default(visited)
         ]
       end
 
@@ -515,7 +515,7 @@ module AWS::SDK::RAM
     class ListPendingInvitationResources
       def self.default(visited=[])
         {
-          resources: Stubs::ResourceList.default(visited),
+          resources: ResourceList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -536,7 +536,7 @@ module AWS::SDK::RAM
         return nil if visited.include?('ResourceList')
         visited = visited + ['ResourceList']
         [
-          Stubs::Resource.default(visited)
+          Resource.default(visited)
         ]
       end
 
@@ -588,7 +588,7 @@ module AWS::SDK::RAM
     class ListPermissionVersions
       def self.default(visited=[])
         {
-          permissions: Stubs::ResourceSharePermissionList.default(visited),
+          permissions: ResourceSharePermissionList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -609,7 +609,7 @@ module AWS::SDK::RAM
         return nil if visited.include?('ResourceSharePermissionList')
         visited = visited + ['ResourceSharePermissionList']
         [
-          Stubs::ResourceSharePermissionSummary.default(visited)
+          ResourceSharePermissionSummary.default(visited)
         ]
       end
 
@@ -661,7 +661,7 @@ module AWS::SDK::RAM
     class ListPermissions
       def self.default(visited=[])
         {
-          permissions: Stubs::ResourceSharePermissionList.default(visited),
+          permissions: ResourceSharePermissionList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -680,7 +680,7 @@ module AWS::SDK::RAM
     class ListPrincipals
       def self.default(visited=[])
         {
-          principals: Stubs::PrincipalList.default(visited),
+          principals: PrincipalList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -701,7 +701,7 @@ module AWS::SDK::RAM
         return nil if visited.include?('PrincipalList')
         visited = visited + ['PrincipalList']
         [
-          Stubs::Principal.default(visited)
+          Principal.default(visited)
         ]
       end
 
@@ -745,7 +745,7 @@ module AWS::SDK::RAM
     class ListResourceSharePermissions
       def self.default(visited=[])
         {
-          permissions: Stubs::ResourceSharePermissionList.default(visited),
+          permissions: ResourceSharePermissionList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -764,7 +764,7 @@ module AWS::SDK::RAM
     class ListResourceTypes
       def self.default(visited=[])
         {
-          resource_types: Stubs::ServiceNameAndResourceTypeList.default(visited),
+          resource_types: ServiceNameAndResourceTypeList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -785,7 +785,7 @@ module AWS::SDK::RAM
         return nil if visited.include?('ServiceNameAndResourceTypeList')
         visited = visited + ['ServiceNameAndResourceTypeList']
         [
-          Stubs::ServiceNameAndResourceType.default(visited)
+          ServiceNameAndResourceType.default(visited)
         ]
       end
 
@@ -825,7 +825,7 @@ module AWS::SDK::RAM
     class ListResources
       def self.default(visited=[])
         {
-          resources: Stubs::ResourceList.default(visited),
+          resources: ResourceList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -861,7 +861,7 @@ module AWS::SDK::RAM
     class RejectResourceShareInvitation
       def self.default(visited=[])
         {
-          resource_share_invitation: Stubs::ResourceShareInvitation.default(visited),
+          resource_share_invitation: ResourceShareInvitation.default(visited),
           client_token: 'client_token',
         }
       end
@@ -906,7 +906,7 @@ module AWS::SDK::RAM
     class UpdateResourceShare
       def self.default(visited=[])
         {
-          resource_share: Stubs::ResourceShare.default(visited),
+          resource_share: ResourceShare.default(visited),
           client_token: 'client_token',
         }
       end

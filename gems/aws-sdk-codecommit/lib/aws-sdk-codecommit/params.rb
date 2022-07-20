@@ -1001,7 +1001,7 @@ module AWS::SDK::CodeCommit
         type.title = params[:title]
         type.description = params[:description]
         type.targets = TargetList.build(params[:targets], context: "#{context}[:targets]") unless params[:targets].nil?
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -3253,7 +3253,7 @@ module AWS::SDK::CodeCommit
         type.after_commit_id = params[:after_commit_id]
         type.location = Location.build(params[:location], context: "#{context}[:location]") unless params[:location].nil?
         type.content = params[:content]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -3283,7 +3283,7 @@ module AWS::SDK::CodeCommit
         type.after_commit_id = params[:after_commit_id]
         type.location = Location.build(params[:location], context: "#{context}[:location]") unless params[:location].nil?
         type.content = params[:content]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -3309,7 +3309,7 @@ module AWS::SDK::CodeCommit
         Hearth::Validator.validate!(params, ::Hash, Types::PostCommentReplyInput, context: context)
         type = Types::PostCommentReplyInput.new
         type.in_reply_to = params[:in_reply_to]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.content = params[:content]
         type
       end

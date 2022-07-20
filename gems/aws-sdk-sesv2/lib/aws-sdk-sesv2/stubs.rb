@@ -113,7 +113,7 @@ module AWS::SDK::SESv2
         {
           identity_type: 'identity_type',
           verified_for_sending_status: false,
-          dkim_attributes: Stubs::DkimAttributes.default(visited),
+          dkim_attributes: DkimAttributes.default(visited),
         }
       end
 
@@ -136,7 +136,7 @@ module AWS::SDK::SESv2
         {
           signing_enabled: false,
           status: 'status',
-          tokens: Stubs::DnsTokenList.default(visited),
+          tokens: DnsTokenList.default(visited),
           signing_attributes_origin: 'signing_attributes_origin',
           next_signing_key_length: 'next_signing_key_length',
           current_signing_key_length: 'current_signing_key_length',
@@ -358,10 +358,10 @@ module AWS::SDK::SESv2
           dedicated_ip_auto_warmup_enabled: false,
           enforcement_status: 'enforcement_status',
           production_access_enabled: false,
-          send_quota: Stubs::SendQuota.default(visited),
+          send_quota: SendQuota.default(visited),
           sending_enabled: false,
-          suppression_attributes: Stubs::SuppressionAttributes.default(visited),
-          details: Stubs::AccountDetails.default(visited),
+          suppression_attributes: SuppressionAttributes.default(visited),
+          details: AccountDetails.default(visited),
         }
       end
 
@@ -390,8 +390,8 @@ module AWS::SDK::SESv2
           website_url: 'website_url',
           contact_language: 'contact_language',
           use_case_description: 'use_case_description',
-          additional_contact_email_addresses: Stubs::AdditionalContactEmailAddresses.default(visited),
-          review_details: Stubs::ReviewDetails.default(visited),
+          additional_contact_email_addresses: AdditionalContactEmailAddresses.default(visited),
+          review_details: ReviewDetails.default(visited),
         }
       end
 
@@ -454,7 +454,7 @@ module AWS::SDK::SESv2
         return nil if visited.include?('SuppressionAttributes')
         visited = visited + ['SuppressionAttributes']
         {
-          suppressed_reasons: Stubs::SuppressionListReasons.default(visited),
+          suppressed_reasons: SuppressionListReasons.default(visited),
         }
       end
 
@@ -512,7 +512,7 @@ module AWS::SDK::SESv2
     class GetBlacklistReports
       def self.default(visited=[])
         {
-          blacklist_report: Stubs::BlacklistReport.default(visited),
+          blacklist_report: BlacklistReport.default(visited),
         }
       end
 
@@ -531,7 +531,7 @@ module AWS::SDK::SESv2
         return nil if visited.include?('BlacklistReport')
         visited = visited + ['BlacklistReport']
         {
-          test_key: Stubs::BlacklistEntries.default(visited)
+          test_key: BlacklistEntries.default(visited)
         }
       end
 
@@ -551,7 +551,7 @@ module AWS::SDK::SESv2
         return nil if visited.include?('BlacklistEntries')
         visited = visited + ['BlacklistEntries']
         [
-          Stubs::BlacklistEntry.default(visited)
+          BlacklistEntry.default(visited)
         ]
       end
 
@@ -592,12 +592,12 @@ module AWS::SDK::SESv2
       def self.default(visited=[])
         {
           configuration_set_name: 'configuration_set_name',
-          tracking_options: Stubs::TrackingOptions.default(visited),
-          delivery_options: Stubs::DeliveryOptions.default(visited),
-          reputation_options: Stubs::ReputationOptions.default(visited),
-          sending_options: Stubs::SendingOptions.default(visited),
-          tags: Stubs::TagList.default(visited),
-          suppression_options: Stubs::SuppressionOptions.default(visited),
+          tracking_options: TrackingOptions.default(visited),
+          delivery_options: DeliveryOptions.default(visited),
+          reputation_options: ReputationOptions.default(visited),
+          sending_options: SendingOptions.default(visited),
+          tags: TagList.default(visited),
+          suppression_options: SuppressionOptions.default(visited),
         }
       end
 
@@ -622,7 +622,7 @@ module AWS::SDK::SESv2
         return nil if visited.include?('SuppressionOptions')
         visited = visited + ['SuppressionOptions']
         {
-          suppressed_reasons: Stubs::SuppressionListReasons.default(visited),
+          suppressed_reasons: SuppressionListReasons.default(visited),
         }
       end
 
@@ -640,7 +640,7 @@ module AWS::SDK::SESv2
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -754,7 +754,7 @@ module AWS::SDK::SESv2
     class GetConfigurationSetEventDestinations
       def self.default(visited=[])
         {
-          event_destinations: Stubs::EventDestinations.default(visited),
+          event_destinations: EventDestinations.default(visited),
         }
       end
 
@@ -773,7 +773,7 @@ module AWS::SDK::SESv2
         return nil if visited.include?('EventDestinations')
         visited = visited + ['EventDestinations']
         [
-          Stubs::EventDestination.default(visited)
+          EventDestination.default(visited)
         ]
       end
 
@@ -795,11 +795,11 @@ module AWS::SDK::SESv2
         {
           name: 'name',
           enabled: false,
-          matching_event_types: Stubs::EventTypes.default(visited),
-          kinesis_firehose_destination: Stubs::KinesisFirehoseDestination.default(visited),
-          cloud_watch_destination: Stubs::CloudWatchDestination.default(visited),
-          sns_destination: Stubs::SnsDestination.default(visited),
-          pinpoint_destination: Stubs::PinpointDestination.default(visited),
+          matching_event_types: EventTypes.default(visited),
+          kinesis_firehose_destination: KinesisFirehoseDestination.default(visited),
+          cloud_watch_destination: CloudWatchDestination.default(visited),
+          sns_destination: SnsDestination.default(visited),
+          pinpoint_destination: PinpointDestination.default(visited),
         }
       end
 
@@ -859,7 +859,7 @@ module AWS::SDK::SESv2
         return nil if visited.include?('CloudWatchDestination')
         visited = visited + ['CloudWatchDestination']
         {
-          dimension_configurations: Stubs::CloudWatchDimensionConfigurations.default(visited),
+          dimension_configurations: CloudWatchDimensionConfigurations.default(visited),
         }
       end
 
@@ -877,7 +877,7 @@ module AWS::SDK::SESv2
         return nil if visited.include?('CloudWatchDimensionConfigurations')
         visited = visited + ['CloudWatchDimensionConfigurations']
         [
-          Stubs::CloudWatchDimensionConfiguration.default(visited)
+          CloudWatchDimensionConfiguration.default(visited)
         ]
       end
 
@@ -959,8 +959,8 @@ module AWS::SDK::SESv2
         {
           contact_list_name: 'contact_list_name',
           email_address: 'email_address',
-          topic_preferences: Stubs::TopicPreferenceList.default(visited),
-          topic_default_preferences: Stubs::TopicPreferenceList.default(visited),
+          topic_preferences: TopicPreferenceList.default(visited),
+          topic_default_preferences: TopicPreferenceList.default(visited),
           unsubscribe_all: false,
           attributes_data: 'attributes_data',
           created_timestamp: Time.now,
@@ -990,7 +990,7 @@ module AWS::SDK::SESv2
         return nil if visited.include?('TopicPreferenceList')
         visited = visited + ['TopicPreferenceList']
         [
-          Stubs::TopicPreference.default(visited)
+          TopicPreference.default(visited)
         ]
       end
 
@@ -1029,11 +1029,11 @@ module AWS::SDK::SESv2
       def self.default(visited=[])
         {
           contact_list_name: 'contact_list_name',
-          topics: Stubs::Topics.default(visited),
+          topics: Topics.default(visited),
           description: 'description',
           created_timestamp: Time.now,
           last_updated_timestamp: Time.now,
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -1057,7 +1057,7 @@ module AWS::SDK::SESv2
         return nil if visited.include?('Topics')
         visited = visited + ['Topics']
         [
-          Stubs::Topic.default(visited)
+          Topic.default(visited)
         ]
       end
 
@@ -1126,7 +1126,7 @@ module AWS::SDK::SESv2
     class GetDedicatedIp
       def self.default(visited=[])
         {
-          dedicated_ip: Stubs::DedicatedIp.default(visited),
+          dedicated_ip: DedicatedIp.default(visited),
         }
       end
 
@@ -1167,7 +1167,7 @@ module AWS::SDK::SESv2
     class GetDedicatedIps
       def self.default(visited=[])
         {
-          dedicated_ips: Stubs::DedicatedIpList.default(visited),
+          dedicated_ips: DedicatedIpList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1188,7 +1188,7 @@ module AWS::SDK::SESv2
         return nil if visited.include?('DedicatedIpList')
         visited = visited + ['DedicatedIpList']
         [
-          Stubs::DedicatedIp.default(visited)
+          DedicatedIp.default(visited)
         ]
       end
 
@@ -1209,8 +1209,8 @@ module AWS::SDK::SESv2
           dashboard_enabled: false,
           subscription_expiry_date: Time.now,
           account_status: 'account_status',
-          active_subscribed_domains: Stubs::DomainDeliverabilityTrackingOptions.default(visited),
-          pending_expiration_subscribed_domains: Stubs::DomainDeliverabilityTrackingOptions.default(visited),
+          active_subscribed_domains: DomainDeliverabilityTrackingOptions.default(visited),
+          pending_expiration_subscribed_domains: DomainDeliverabilityTrackingOptions.default(visited),
         }
       end
 
@@ -1233,7 +1233,7 @@ module AWS::SDK::SESv2
         return nil if visited.include?('DomainDeliverabilityTrackingOptions')
         visited = visited + ['DomainDeliverabilityTrackingOptions']
         [
-          Stubs::DomainDeliverabilityTrackingOption.default(visited)
+          DomainDeliverabilityTrackingOption.default(visited)
         ]
       end
 
@@ -1255,7 +1255,7 @@ module AWS::SDK::SESv2
         {
           domain: 'domain',
           subscription_start_date: Time.now,
-          inbox_placement_tracking_option: Stubs::InboxPlacementTrackingOption.default(visited),
+          inbox_placement_tracking_option: InboxPlacementTrackingOption.default(visited),
         }
       end
 
@@ -1276,7 +1276,7 @@ module AWS::SDK::SESv2
         visited = visited + ['InboxPlacementTrackingOption']
         {
           global: false,
-          tracked_isps: Stubs::IspNameList.default(visited),
+          tracked_isps: IspNameList.default(visited),
         }
       end
 
@@ -1313,11 +1313,11 @@ module AWS::SDK::SESv2
     class GetDeliverabilityTestReport
       def self.default(visited=[])
         {
-          deliverability_test_report: Stubs::DeliverabilityTestReport.default(visited),
-          overall_placement: Stubs::PlacementStatistics.default(visited),
-          isp_placements: Stubs::IspPlacements.default(visited),
+          deliverability_test_report: DeliverabilityTestReport.default(visited),
+          overall_placement: PlacementStatistics.default(visited),
+          isp_placements: IspPlacements.default(visited),
           message: 'message',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -1340,7 +1340,7 @@ module AWS::SDK::SESv2
         return nil if visited.include?('IspPlacements')
         visited = visited + ['IspPlacements']
         [
-          Stubs::IspPlacement.default(visited)
+          IspPlacement.default(visited)
         ]
       end
 
@@ -1361,7 +1361,7 @@ module AWS::SDK::SESv2
         visited = visited + ['IspPlacement']
         {
           isp_name: 'isp_name',
-          placement_statistics: Stubs::PlacementStatistics.default(visited),
+          placement_statistics: PlacementStatistics.default(visited),
         }
       end
 
@@ -1432,7 +1432,7 @@ module AWS::SDK::SESv2
     class GetDomainDeliverabilityCampaign
       def self.default(visited=[])
         {
-          domain_deliverability_campaign: Stubs::DomainDeliverabilityCampaign.default(visited),
+          domain_deliverability_campaign: DomainDeliverabilityCampaign.default(visited),
         }
       end
 
@@ -1455,7 +1455,7 @@ module AWS::SDK::SESv2
           image_url: 'image_url',
           subject: 'subject',
           from_address: 'from_address',
-          sending_ips: Stubs::IpList.default(visited),
+          sending_ips: IpList.default(visited),
           first_seen_date_time: Time.now,
           last_seen_date_time: Time.now,
           inbox_count: 1,
@@ -1464,7 +1464,7 @@ module AWS::SDK::SESv2
           delete_rate: 1.0,
           read_delete_rate: 1.0,
           projected_volume: 1,
-          esps: Stubs::Esps.default(visited),
+          esps: Esps.default(visited),
         }
       end
 
@@ -1533,8 +1533,8 @@ module AWS::SDK::SESv2
     class GetDomainStatisticsReport
       def self.default(visited=[])
         {
-          overall_volume: Stubs::OverallVolume.default(visited),
-          daily_volumes: Stubs::DailyVolumes.default(visited),
+          overall_volume: OverallVolume.default(visited),
+          daily_volumes: DailyVolumes.default(visited),
         }
       end
 
@@ -1554,7 +1554,7 @@ module AWS::SDK::SESv2
         return nil if visited.include?('DailyVolumes')
         visited = visited + ['DailyVolumes']
         [
-          Stubs::DailyVolume.default(visited)
+          DailyVolume.default(visited)
         ]
       end
 
@@ -1575,8 +1575,8 @@ module AWS::SDK::SESv2
         visited = visited + ['DailyVolume']
         {
           start_date: Time.now,
-          volume_statistics: Stubs::VolumeStatistics.default(visited),
-          domain_isp_placements: Stubs::DomainIspPlacements.default(visited),
+          volume_statistics: VolumeStatistics.default(visited),
+          domain_isp_placements: DomainIspPlacements.default(visited),
         }
       end
 
@@ -1596,7 +1596,7 @@ module AWS::SDK::SESv2
         return nil if visited.include?('DomainIspPlacements')
         visited = visited + ['DomainIspPlacements']
         [
-          Stubs::DomainIspPlacement.default(visited)
+          DomainIspPlacement.default(visited)
         ]
       end
 
@@ -1666,9 +1666,9 @@ module AWS::SDK::SESv2
         return nil if visited.include?('OverallVolume')
         visited = visited + ['OverallVolume']
         {
-          volume_statistics: Stubs::VolumeStatistics.default(visited),
+          volume_statistics: VolumeStatistics.default(visited),
           read_rate_percent: 1.0,
-          domain_isp_placements: Stubs::DomainIspPlacements.default(visited),
+          domain_isp_placements: DomainIspPlacements.default(visited),
         }
       end
 
@@ -1689,10 +1689,10 @@ module AWS::SDK::SESv2
           identity_type: 'identity_type',
           feedback_forwarding_status: false,
           verified_for_sending_status: false,
-          dkim_attributes: Stubs::DkimAttributes.default(visited),
-          mail_from_attributes: Stubs::MailFromAttributes.default(visited),
-          policies: Stubs::PolicyMap.default(visited),
-          tags: Stubs::TagList.default(visited),
+          dkim_attributes: DkimAttributes.default(visited),
+          mail_from_attributes: MailFromAttributes.default(visited),
+          policies: PolicyMap.default(visited),
+          tags: TagList.default(visited),
           configuration_set_name: 'configuration_set_name',
         }
       end
@@ -1759,7 +1759,7 @@ module AWS::SDK::SESv2
     class GetEmailIdentityPolicies
       def self.default(visited=[])
         {
-          policies: Stubs::PolicyMap.default(visited),
+          policies: PolicyMap.default(visited),
         }
       end
 
@@ -1777,7 +1777,7 @@ module AWS::SDK::SESv2
       def self.default(visited=[])
         {
           template_name: 'template_name',
-          template_content: Stubs::EmailTemplateContent.default(visited),
+          template_content: EmailTemplateContent.default(visited),
         }
       end
 
@@ -1818,9 +1818,9 @@ module AWS::SDK::SESv2
       def self.default(visited=[])
         {
           job_id: 'job_id',
-          import_destination: Stubs::ImportDestination.default(visited),
-          import_data_source: Stubs::ImportDataSource.default(visited),
-          failure_info: Stubs::FailureInfo.default(visited),
+          import_destination: ImportDestination.default(visited),
+          import_data_source: ImportDataSource.default(visited),
+          failure_info: FailureInfo.default(visited),
           job_status: 'job_status',
           created_timestamp: Time.now,
           completed_timestamp: Time.now,
@@ -1892,8 +1892,8 @@ module AWS::SDK::SESv2
         return nil if visited.include?('ImportDestination')
         visited = visited + ['ImportDestination']
         {
-          suppression_list_destination: Stubs::SuppressionListDestination.default(visited),
-          contact_list_destination: Stubs::ContactListDestination.default(visited),
+          suppression_list_destination: SuppressionListDestination.default(visited),
+          contact_list_destination: ContactListDestination.default(visited),
         }
       end
 
@@ -1948,7 +1948,7 @@ module AWS::SDK::SESv2
     class GetSuppressedDestination
       def self.default(visited=[])
         {
-          suppressed_destination: Stubs::SuppressedDestination.default(visited),
+          suppressed_destination: SuppressedDestination.default(visited),
         }
       end
 
@@ -1970,7 +1970,7 @@ module AWS::SDK::SESv2
           email_address: 'email_address',
           reason: 'reason',
           last_update_time: Time.now,
-          attributes: Stubs::SuppressedDestinationAttributes.default(visited),
+          attributes: SuppressedDestinationAttributes.default(visited),
         }
       end
 
@@ -2009,7 +2009,7 @@ module AWS::SDK::SESv2
     class ListConfigurationSets
       def self.default(visited=[])
         {
-          configuration_sets: Stubs::ConfigurationSetNameList.default(visited),
+          configuration_sets: ConfigurationSetNameList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2048,7 +2048,7 @@ module AWS::SDK::SESv2
     class ListContactLists
       def self.default(visited=[])
         {
-          contact_lists: Stubs::ListOfContactLists.default(visited),
+          contact_lists: ListOfContactLists.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2069,7 +2069,7 @@ module AWS::SDK::SESv2
         return nil if visited.include?('ListOfContactLists')
         visited = visited + ['ListOfContactLists']
         [
-          Stubs::ContactList.default(visited)
+          ContactList.default(visited)
         ]
       end
 
@@ -2107,7 +2107,7 @@ module AWS::SDK::SESv2
     class ListContacts
       def self.default(visited=[])
         {
-          contacts: Stubs::ListOfContacts.default(visited),
+          contacts: ListOfContacts.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2128,7 +2128,7 @@ module AWS::SDK::SESv2
         return nil if visited.include?('ListOfContacts')
         visited = visited + ['ListOfContacts']
         [
-          Stubs::Contact.default(visited)
+          Contact.default(visited)
         ]
       end
 
@@ -2149,8 +2149,8 @@ module AWS::SDK::SESv2
         visited = visited + ['Contact']
         {
           email_address: 'email_address',
-          topic_preferences: Stubs::TopicPreferenceList.default(visited),
-          topic_default_preferences: Stubs::TopicPreferenceList.default(visited),
+          topic_preferences: TopicPreferenceList.default(visited),
+          topic_default_preferences: TopicPreferenceList.default(visited),
           unsubscribe_all: false,
           last_updated_timestamp: Time.now,
         }
@@ -2172,7 +2172,7 @@ module AWS::SDK::SESv2
     class ListCustomVerificationEmailTemplates
       def self.default(visited=[])
         {
-          custom_verification_email_templates: Stubs::CustomVerificationEmailTemplatesList.default(visited),
+          custom_verification_email_templates: CustomVerificationEmailTemplatesList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2193,7 +2193,7 @@ module AWS::SDK::SESv2
         return nil if visited.include?('CustomVerificationEmailTemplatesList')
         visited = visited + ['CustomVerificationEmailTemplatesList']
         [
-          Stubs::CustomVerificationEmailTemplateMetadata.default(visited)
+          CustomVerificationEmailTemplateMetadata.default(visited)
         ]
       end
 
@@ -2237,7 +2237,7 @@ module AWS::SDK::SESv2
     class ListDedicatedIpPools
       def self.default(visited=[])
         {
-          dedicated_ip_pools: Stubs::ListOfDedicatedIpPools.default(visited),
+          dedicated_ip_pools: ListOfDedicatedIpPools.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2276,7 +2276,7 @@ module AWS::SDK::SESv2
     class ListDeliverabilityTestReports
       def self.default(visited=[])
         {
-          deliverability_test_reports: Stubs::DeliverabilityTestReports.default(visited),
+          deliverability_test_reports: DeliverabilityTestReports.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2297,7 +2297,7 @@ module AWS::SDK::SESv2
         return nil if visited.include?('DeliverabilityTestReports')
         visited = visited + ['DeliverabilityTestReports']
         [
-          Stubs::DeliverabilityTestReport.default(visited)
+          DeliverabilityTestReport.default(visited)
         ]
       end
 
@@ -2315,7 +2315,7 @@ module AWS::SDK::SESv2
     class ListDomainDeliverabilityCampaigns
       def self.default(visited=[])
         {
-          domain_deliverability_campaigns: Stubs::DomainDeliverabilityCampaignList.default(visited),
+          domain_deliverability_campaigns: DomainDeliverabilityCampaignList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2336,7 +2336,7 @@ module AWS::SDK::SESv2
         return nil if visited.include?('DomainDeliverabilityCampaignList')
         visited = visited + ['DomainDeliverabilityCampaignList']
         [
-          Stubs::DomainDeliverabilityCampaign.default(visited)
+          DomainDeliverabilityCampaign.default(visited)
         ]
       end
 
@@ -2354,7 +2354,7 @@ module AWS::SDK::SESv2
     class ListEmailIdentities
       def self.default(visited=[])
         {
-          email_identities: Stubs::IdentityInfoList.default(visited),
+          email_identities: IdentityInfoList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2375,7 +2375,7 @@ module AWS::SDK::SESv2
         return nil if visited.include?('IdentityInfoList')
         visited = visited + ['IdentityInfoList']
         [
-          Stubs::IdentityInfo.default(visited)
+          IdentityInfo.default(visited)
         ]
       end
 
@@ -2415,7 +2415,7 @@ module AWS::SDK::SESv2
     class ListEmailTemplates
       def self.default(visited=[])
         {
-          templates_metadata: Stubs::EmailTemplateMetadataList.default(visited),
+          templates_metadata: EmailTemplateMetadataList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2436,7 +2436,7 @@ module AWS::SDK::SESv2
         return nil if visited.include?('EmailTemplateMetadataList')
         visited = visited + ['EmailTemplateMetadataList']
         [
-          Stubs::EmailTemplateMetadata.default(visited)
+          EmailTemplateMetadata.default(visited)
         ]
       end
 
@@ -2474,7 +2474,7 @@ module AWS::SDK::SESv2
     class ListImportJobs
       def self.default(visited=[])
         {
-          import_jobs: Stubs::ImportJobSummaryList.default(visited),
+          import_jobs: ImportJobSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2495,7 +2495,7 @@ module AWS::SDK::SESv2
         return nil if visited.include?('ImportJobSummaryList')
         visited = visited + ['ImportJobSummaryList']
         [
-          Stubs::ImportJobSummary.default(visited)
+          ImportJobSummary.default(visited)
         ]
       end
 
@@ -2516,7 +2516,7 @@ module AWS::SDK::SESv2
         visited = visited + ['ImportJobSummary']
         {
           job_id: 'job_id',
-          import_destination: Stubs::ImportDestination.default(visited),
+          import_destination: ImportDestination.default(visited),
           job_status: 'job_status',
           created_timestamp: Time.now,
         }
@@ -2537,7 +2537,7 @@ module AWS::SDK::SESv2
     class ListSuppressedDestinations
       def self.default(visited=[])
         {
-          suppressed_destination_summaries: Stubs::SuppressedDestinationSummaries.default(visited),
+          suppressed_destination_summaries: SuppressedDestinationSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2558,7 +2558,7 @@ module AWS::SDK::SESv2
         return nil if visited.include?('SuppressedDestinationSummaries')
         visited = visited + ['SuppressedDestinationSummaries']
         [
-          Stubs::SuppressedDestinationSummary.default(visited)
+          SuppressedDestinationSummary.default(visited)
         ]
       end
 
@@ -2598,7 +2598,7 @@ module AWS::SDK::SESv2
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -2798,7 +2798,7 @@ module AWS::SDK::SESv2
       def self.default(visited=[])
         {
           dkim_status: 'dkim_status',
-          dkim_tokens: Stubs::DnsTokenList.default(visited),
+          dkim_tokens: DnsTokenList.default(visited),
         }
       end
 
@@ -2855,7 +2855,7 @@ module AWS::SDK::SESv2
     class SendBulkEmail
       def self.default(visited=[])
         {
-          bulk_email_entry_results: Stubs::BulkEmailEntryResultList.default(visited),
+          bulk_email_entry_results: BulkEmailEntryResultList.default(visited),
         }
       end
 
@@ -2874,7 +2874,7 @@ module AWS::SDK::SESv2
         return nil if visited.include?('BulkEmailEntryResultList')
         visited = visited + ['BulkEmailEntryResultList']
         [
-          Stubs::BulkEmailEntryResult.default(visited)
+          BulkEmailEntryResult.default(visited)
         ]
       end
 

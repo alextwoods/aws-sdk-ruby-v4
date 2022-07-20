@@ -665,11 +665,11 @@ module AWS::SDK::ConnectParticipant
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.attachment_size_in_bytes ||= 0
       end
-
     end
 
     # @!attribute attachment_id
@@ -717,11 +717,11 @@ module AWS::SDK::ConnectParticipant
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.most_recent ||= 0
       end
-
     end
 
     # <p>The request was denied due to request throttling.</p>

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::MediaConvert
@@ -57,7 +59,7 @@ module AWS::SDK::MediaConvert
     def associate_certificate(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateCertificateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateCertificateInput,
         validate_input: @config.validate_input
@@ -125,7 +127,7 @@ module AWS::SDK::MediaConvert
     def cancel_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelJobInput,
         validate_input: @config.validate_input
@@ -2465,7 +2467,7 @@ module AWS::SDK::MediaConvert
     def create_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateJobInput,
         validate_input: @config.validate_input
@@ -4742,7 +4744,7 @@ module AWS::SDK::MediaConvert
     def create_job_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateJobTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateJobTemplateInput,
         validate_input: @config.validate_input
@@ -6208,7 +6210,7 @@ module AWS::SDK::MediaConvert
     def create_preset(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreatePresetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreatePresetInput,
         validate_input: @config.validate_input
@@ -6320,7 +6322,7 @@ module AWS::SDK::MediaConvert
     def create_queue(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateQueueInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateQueueInput,
         validate_input: @config.validate_input
@@ -6388,7 +6390,7 @@ module AWS::SDK::MediaConvert
     def delete_job_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteJobTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteJobTemplateInput,
         validate_input: @config.validate_input
@@ -6450,7 +6452,7 @@ module AWS::SDK::MediaConvert
     def delete_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeletePolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeletePolicyInput,
         validate_input: @config.validate_input
@@ -6517,7 +6519,7 @@ module AWS::SDK::MediaConvert
     def delete_preset(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeletePresetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeletePresetInput,
         validate_input: @config.validate_input
@@ -6584,7 +6586,7 @@ module AWS::SDK::MediaConvert
     def delete_queue(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteQueueInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteQueueInput,
         validate_input: @config.validate_input
@@ -6663,7 +6665,7 @@ module AWS::SDK::MediaConvert
     def describe_endpoints(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeEndpointsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeEndpointsInput,
         validate_input: @config.validate_input
@@ -6731,7 +6733,7 @@ module AWS::SDK::MediaConvert
     def disassociate_certificate(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateCertificateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateCertificateInput,
         validate_input: @config.validate_input
@@ -7851,7 +7853,7 @@ module AWS::SDK::MediaConvert
     def get_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetJobInput,
         validate_input: @config.validate_input
@@ -8931,7 +8933,7 @@ module AWS::SDK::MediaConvert
     def get_job_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetJobTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetJobTemplateInput,
         validate_input: @config.validate_input
@@ -8997,7 +8999,7 @@ module AWS::SDK::MediaConvert
     def get_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetPolicyInput,
         validate_input: @config.validate_input
@@ -9715,7 +9717,7 @@ module AWS::SDK::MediaConvert
     def get_preset(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetPresetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetPresetInput,
         validate_input: @config.validate_input
@@ -9800,7 +9802,7 @@ module AWS::SDK::MediaConvert
     def get_queue(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetQueueInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetQueueInput,
         validate_input: @config.validate_input
@@ -10898,7 +10900,7 @@ module AWS::SDK::MediaConvert
     def list_job_templates(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListJobTemplatesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListJobTemplatesInput,
         validate_input: @config.validate_input
@@ -12036,7 +12038,7 @@ module AWS::SDK::MediaConvert
     def list_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListJobsInput,
         validate_input: @config.validate_input
@@ -12772,7 +12774,7 @@ module AWS::SDK::MediaConvert
     def list_presets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPresetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPresetsInput,
         validate_input: @config.validate_input
@@ -12871,7 +12873,7 @@ module AWS::SDK::MediaConvert
     def list_queues(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListQueuesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListQueuesInput,
         validate_input: @config.validate_input
@@ -12942,7 +12944,7 @@ module AWS::SDK::MediaConvert
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -13017,7 +13019,7 @@ module AWS::SDK::MediaConvert
     def put_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutPolicyInput,
         validate_input: @config.validate_input
@@ -13091,7 +13093,7 @@ module AWS::SDK::MediaConvert
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -13165,7 +13167,7 @@ module AWS::SDK::MediaConvert
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -15436,7 +15438,7 @@ module AWS::SDK::MediaConvert
     def update_job_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateJobTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateJobTemplateInput,
         validate_input: @config.validate_input
@@ -16896,7 +16898,7 @@ module AWS::SDK::MediaConvert
     def update_preset(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdatePresetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdatePresetInput,
         validate_input: @config.validate_input
@@ -16998,7 +17000,7 @@ module AWS::SDK::MediaConvert
     def update_queue(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateQueueInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateQueueInput,
         validate_input: @config.validate_input

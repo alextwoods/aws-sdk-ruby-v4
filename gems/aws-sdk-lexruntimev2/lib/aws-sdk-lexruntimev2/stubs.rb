@@ -38,9 +38,9 @@ module AWS::SDK::LexRuntimeV2
       def self.default(visited=[])
         {
           session_id: 'session_id',
-          messages: Stubs::Messages.default(visited),
-          interpretations: Stubs::Interpretations.default(visited),
-          session_state: Stubs::SessionState.default(visited),
+          messages: Messages.default(visited),
+          interpretations: Interpretations.default(visited),
+          session_state: SessionState.default(visited),
         }
       end
 
@@ -62,12 +62,12 @@ module AWS::SDK::LexRuntimeV2
         return nil if visited.include?('SessionState')
         visited = visited + ['SessionState']
         {
-          dialog_action: Stubs::DialogAction.default(visited),
-          intent: Stubs::Intent.default(visited),
-          active_contexts: Stubs::ActiveContextsList.default(visited),
-          session_attributes: Stubs::StringMap.default(visited),
+          dialog_action: DialogAction.default(visited),
+          intent: Intent.default(visited),
+          active_contexts: ActiveContextsList.default(visited),
+          session_attributes: StringMap.default(visited),
           originating_request_id: 'originating_request_id',
-          runtime_hints: Stubs::RuntimeHints.default(visited),
+          runtime_hints: RuntimeHints.default(visited),
         }
       end
 
@@ -90,7 +90,7 @@ module AWS::SDK::LexRuntimeV2
         return nil if visited.include?('RuntimeHints')
         visited = visited + ['RuntimeHints']
         {
-          slot_hints: Stubs::SlotHintsIntentMap.default(visited),
+          slot_hints: SlotHintsIntentMap.default(visited),
         }
       end
 
@@ -108,7 +108,7 @@ module AWS::SDK::LexRuntimeV2
         return nil if visited.include?('SlotHintsIntentMap')
         visited = visited + ['SlotHintsIntentMap']
         {
-          test_key: Stubs::SlotHintsSlotMap.default(visited)
+          test_key: SlotHintsSlotMap.default(visited)
         }
       end
 
@@ -128,7 +128,7 @@ module AWS::SDK::LexRuntimeV2
         return nil if visited.include?('SlotHintsSlotMap')
         visited = visited + ['SlotHintsSlotMap']
         {
-          test_key: Stubs::RuntimeHintDetails.default(visited)
+          test_key: RuntimeHintDetails.default(visited)
         }
       end
 
@@ -148,7 +148,7 @@ module AWS::SDK::LexRuntimeV2
         return nil if visited.include?('RuntimeHintDetails')
         visited = visited + ['RuntimeHintDetails']
         {
-          runtime_hint_values: Stubs::RuntimeHintValuesList.default(visited),
+          runtime_hint_values: RuntimeHintValuesList.default(visited),
         }
       end
 
@@ -166,7 +166,7 @@ module AWS::SDK::LexRuntimeV2
         return nil if visited.include?('RuntimeHintValuesList')
         visited = visited + ['RuntimeHintValuesList']
         [
-          Stubs::RuntimeHintValue.default(visited)
+          RuntimeHintValue.default(visited)
         ]
       end
 
@@ -224,7 +224,7 @@ module AWS::SDK::LexRuntimeV2
         return nil if visited.include?('ActiveContextsList')
         visited = visited + ['ActiveContextsList']
         [
-          Stubs::ActiveContext.default(visited)
+          ActiveContext.default(visited)
         ]
       end
 
@@ -245,8 +245,8 @@ module AWS::SDK::LexRuntimeV2
         visited = visited + ['ActiveContext']
         {
           name: 'name',
-          time_to_live: Stubs::ActiveContextTimeToLive.default(visited),
-          context_attributes: Stubs::ActiveContextParametersMap.default(visited),
+          time_to_live: ActiveContextTimeToLive.default(visited),
+          context_attributes: ActiveContextParametersMap.default(visited),
         }
       end
 
@@ -307,7 +307,7 @@ module AWS::SDK::LexRuntimeV2
         visited = visited + ['Intent']
         {
           name: 'name',
-          slots: Stubs::Slots.default(visited),
+          slots: Slots.default(visited),
           state: 'state',
           confirmation_state: 'confirmation_state',
         }
@@ -330,7 +330,7 @@ module AWS::SDK::LexRuntimeV2
         return nil if visited.include?('Slots')
         visited = visited + ['Slots']
         {
-          test_key: Stubs::Slot.default(visited)
+          test_key: Slot.default(visited)
         }
       end
 
@@ -350,9 +350,9 @@ module AWS::SDK::LexRuntimeV2
         return nil if visited.include?('Slot')
         visited = visited + ['Slot']
         {
-          value: Stubs::Value.default(visited),
+          value: Value.default(visited),
           shape: 'shape',
-          values: Stubs::Values.default(visited),
+          values: Values.default(visited),
         }
       end
 
@@ -372,7 +372,7 @@ module AWS::SDK::LexRuntimeV2
         return nil if visited.include?('Values')
         visited = visited + ['Values']
         [
-          Stubs::Slot.default(visited)
+          Slot.default(visited)
         ]
       end
 
@@ -394,7 +394,7 @@ module AWS::SDK::LexRuntimeV2
         {
           original_value: 'original_value',
           interpreted_value: 'interpreted_value',
-          resolved_values: Stubs::StringList.default(visited),
+          resolved_values: StringList.default(visited),
         }
       end
 
@@ -456,7 +456,7 @@ module AWS::SDK::LexRuntimeV2
         return nil if visited.include?('Interpretations')
         visited = visited + ['Interpretations']
         [
-          Stubs::Interpretation.default(visited)
+          Interpretation.default(visited)
         ]
       end
 
@@ -476,9 +476,9 @@ module AWS::SDK::LexRuntimeV2
         return nil if visited.include?('Interpretation')
         visited = visited + ['Interpretation']
         {
-          nlu_confidence: Stubs::ConfidenceScore.default(visited),
-          sentiment_response: Stubs::SentimentResponse.default(visited),
-          intent: Stubs::Intent.default(visited),
+          nlu_confidence: ConfidenceScore.default(visited),
+          sentiment_response: SentimentResponse.default(visited),
+          intent: Intent.default(visited),
         }
       end
 
@@ -499,7 +499,7 @@ module AWS::SDK::LexRuntimeV2
         visited = visited + ['SentimentResponse']
         {
           sentiment: 'sentiment',
-          sentiment_score: Stubs::SentimentScore.default(visited),
+          sentiment_score: SentimentScore.default(visited),
         }
       end
 
@@ -560,7 +560,7 @@ module AWS::SDK::LexRuntimeV2
         return nil if visited.include?('Messages')
         visited = visited + ['Messages']
         [
-          Stubs::Message.default(visited)
+          Message.default(visited)
         ]
       end
 
@@ -582,7 +582,7 @@ module AWS::SDK::LexRuntimeV2
         {
           content: 'content',
           content_type: 'content_type',
-          image_response_card: Stubs::ImageResponseCard.default(visited),
+          image_response_card: ImageResponseCard.default(visited),
         }
       end
 
@@ -605,7 +605,7 @@ module AWS::SDK::LexRuntimeV2
           title: 'title',
           subtitle: 'subtitle',
           image_url: 'image_url',
-          buttons: Stubs::ButtonsList.default(visited),
+          buttons: ButtonsList.default(visited),
         }
       end
 
@@ -626,7 +626,7 @@ module AWS::SDK::LexRuntimeV2
         return nil if visited.include?('ButtonsList')
         visited = visited + ['ButtonsList']
         [
-          Stubs::Button.default(visited)
+          Button.default(visited)
         ]
       end
 
@@ -689,10 +689,10 @@ module AWS::SDK::LexRuntimeV2
     class RecognizeText
       def self.default(visited=[])
         {
-          messages: Stubs::Messages.default(visited),
-          session_state: Stubs::SessionState.default(visited),
-          interpretations: Stubs::Interpretations.default(visited),
-          request_attributes: Stubs::StringMap.default(visited),
+          messages: Messages.default(visited),
+          session_state: SessionState.default(visited),
+          interpretations: Interpretations.default(visited),
+          request_attributes: StringMap.default(visited),
           session_id: 'session_id',
         }
       end
@@ -745,7 +745,7 @@ module AWS::SDK::LexRuntimeV2
     class StartConversation
       def self.default(visited=[])
         {
-          response_event_stream: Stubs::StartConversationResponseEventStream.default(visited),
+          response_event_stream: StartConversationResponseEventStream.default(visited),
         }
       end
 
@@ -762,7 +762,7 @@ module AWS::SDK::LexRuntimeV2
         return nil if visited.include?('StartConversationResponseEventStream')
         visited = visited + ['StartConversationResponseEventStream']
         {
-          playback_interruption_event: Stubs::PlaybackInterruptionEvent.default(visited),
+          playback_interruption_event: PlaybackInterruptionEvent.default(visited),
         }
       end
 
@@ -996,7 +996,7 @@ module AWS::SDK::LexRuntimeV2
         return nil if visited.include?('TextResponseEvent')
         visited = visited + ['TextResponseEvent']
         {
-          messages: Stubs::Messages.default(visited),
+          messages: Messages.default(visited),
           event_id: 'event_id',
         }
       end
@@ -1017,9 +1017,9 @@ module AWS::SDK::LexRuntimeV2
         visited = visited + ['IntentResultEvent']
         {
           input_mode: 'input_mode',
-          interpretations: Stubs::Interpretations.default(visited),
-          session_state: Stubs::SessionState.default(visited),
-          request_attributes: Stubs::StringMap.default(visited),
+          interpretations: Interpretations.default(visited),
+          session_state: SessionState.default(visited),
+          request_attributes: StringMap.default(visited),
           session_id: 'session_id',
           event_id: 'event_id',
         }

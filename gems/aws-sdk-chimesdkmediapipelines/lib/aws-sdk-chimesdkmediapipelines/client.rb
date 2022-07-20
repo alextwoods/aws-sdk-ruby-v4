@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::ChimeSDKMediaPipelines
@@ -140,7 +142,7 @@ module AWS::SDK::ChimeSDKMediaPipelines
     def create_media_capture_pipeline(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateMediaCapturePipelineInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateMediaCapturePipelineInput,
         validate_input: @config.validate_input
@@ -208,7 +210,7 @@ module AWS::SDK::ChimeSDKMediaPipelines
     def delete_media_capture_pipeline(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteMediaCapturePipelineInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteMediaCapturePipelineInput,
         validate_input: @config.validate_input
@@ -301,7 +303,7 @@ module AWS::SDK::ChimeSDKMediaPipelines
     def get_media_capture_pipeline(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetMediaCapturePipelineInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetMediaCapturePipelineInput,
         validate_input: @config.validate_input
@@ -377,7 +379,7 @@ module AWS::SDK::ChimeSDKMediaPipelines
     def list_media_capture_pipelines(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListMediaCapturePipelinesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListMediaCapturePipelinesInput,
         validate_input: @config.validate_input
@@ -448,7 +450,7 @@ module AWS::SDK::ChimeSDKMediaPipelines
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -524,7 +526,7 @@ module AWS::SDK::ChimeSDKMediaPipelines
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -598,7 +600,7 @@ module AWS::SDK::ChimeSDKMediaPipelines
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input

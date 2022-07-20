@@ -410,7 +410,7 @@ module AWS::SDK::GreengrassV2
         type.inline_recipe = params[:inline_recipe]
         type.lambda_function = LambdaFunctionRecipeSource.build(params[:lambda_function], context: "#{context}[:lambda_function]") unless params[:lambda_function].nil?
         type.tags = TagMap.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -438,7 +438,7 @@ module AWS::SDK::GreengrassV2
         type.iot_job_configuration = DeploymentIoTJobConfiguration.build(params[:iot_job_configuration], context: "#{context}[:iot_job_configuration]") unless params[:iot_job_configuration].nil?
         type.deployment_policies = DeploymentPolicies.build(params[:deployment_policies], context: "#{context}[:deployment_policies]") unless params[:deployment_policies].nil?
         type.tags = TagMap.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end

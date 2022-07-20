@@ -58,7 +58,7 @@ module AWS::SDK::HealthLake
     class DescribeFHIRDatastore
       def self.default(visited=[])
         {
-          datastore_properties: Stubs::DatastoreProperties.default(visited),
+          datastore_properties: DatastoreProperties.default(visited),
         }
       end
 
@@ -83,8 +83,8 @@ module AWS::SDK::HealthLake
           created_at: Time.now,
           datastore_type_version: 'datastore_type_version',
           datastore_endpoint: 'datastore_endpoint',
-          sse_configuration: Stubs::SseConfiguration.default(visited),
-          preload_data_config: Stubs::PreloadDataConfig.default(visited),
+          sse_configuration: SseConfiguration.default(visited),
+          preload_data_config: PreloadDataConfig.default(visited),
         }
       end
 
@@ -128,7 +128,7 @@ module AWS::SDK::HealthLake
         return nil if visited.include?('SseConfiguration')
         visited = visited + ['SseConfiguration']
         {
-          kms_encryption_config: Stubs::KmsEncryptionConfig.default(visited),
+          kms_encryption_config: KmsEncryptionConfig.default(visited),
         }
       end
 
@@ -164,7 +164,7 @@ module AWS::SDK::HealthLake
     class DescribeFHIRExportJob
       def self.default(visited=[])
         {
-          export_job_properties: Stubs::ExportJobProperties.default(visited),
+          export_job_properties: ExportJobProperties.default(visited),
         }
       end
 
@@ -188,7 +188,7 @@ module AWS::SDK::HealthLake
           submit_time: Time.now,
           end_time: Time.now,
           datastore_id: 'datastore_id',
-          output_data_config: Stubs::OutputDataConfig.default(visited),
+          output_data_config: OutputDataConfig.default(visited),
           data_access_role_arn: 'data_access_role_arn',
           message: 'message',
         }
@@ -216,7 +216,7 @@ module AWS::SDK::HealthLake
         return nil if visited.include?('OutputDataConfig')
         visited = visited + ['OutputDataConfig']
         {
-          s3_configuration: Stubs::S3Configuration.default(visited),
+          s3_configuration: S3Configuration.default(visited),
         }
       end
 
@@ -258,7 +258,7 @@ module AWS::SDK::HealthLake
     class DescribeFHIRImportJob
       def self.default(visited=[])
         {
-          import_job_properties: Stubs::ImportJobProperties.default(visited),
+          import_job_properties: ImportJobProperties.default(visited),
         }
       end
 
@@ -282,8 +282,8 @@ module AWS::SDK::HealthLake
           submit_time: Time.now,
           end_time: Time.now,
           datastore_id: 'datastore_id',
-          input_data_config: Stubs::InputDataConfig.default(visited),
-          job_output_data_config: Stubs::OutputDataConfig.default(visited),
+          input_data_config: InputDataConfig.default(visited),
+          job_output_data_config: OutputDataConfig.default(visited),
           data_access_role_arn: 'data_access_role_arn',
           message: 'message',
         }
@@ -334,7 +334,7 @@ module AWS::SDK::HealthLake
     class ListFHIRDatastores
       def self.default(visited=[])
         {
-          datastore_properties_list: Stubs::DatastorePropertiesList.default(visited),
+          datastore_properties_list: DatastorePropertiesList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -354,7 +354,7 @@ module AWS::SDK::HealthLake
         return nil if visited.include?('DatastorePropertiesList')
         visited = visited + ['DatastorePropertiesList']
         [
-          Stubs::DatastoreProperties.default(visited)
+          DatastoreProperties.default(visited)
         ]
       end
 
@@ -372,7 +372,7 @@ module AWS::SDK::HealthLake
     class ListFHIRExportJobs
       def self.default(visited=[])
         {
-          export_job_properties_list: Stubs::ExportJobPropertiesList.default(visited),
+          export_job_properties_list: ExportJobPropertiesList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -392,7 +392,7 @@ module AWS::SDK::HealthLake
         return nil if visited.include?('ExportJobPropertiesList')
         visited = visited + ['ExportJobPropertiesList']
         [
-          Stubs::ExportJobProperties.default(visited)
+          ExportJobProperties.default(visited)
         ]
       end
 
@@ -410,7 +410,7 @@ module AWS::SDK::HealthLake
     class ListFHIRImportJobs
       def self.default(visited=[])
         {
-          import_job_properties_list: Stubs::ImportJobPropertiesList.default(visited),
+          import_job_properties_list: ImportJobPropertiesList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -430,7 +430,7 @@ module AWS::SDK::HealthLake
         return nil if visited.include?('ImportJobPropertiesList')
         visited = visited + ['ImportJobPropertiesList']
         [
-          Stubs::ImportJobProperties.default(visited)
+          ImportJobProperties.default(visited)
         ]
       end
 
@@ -448,7 +448,7 @@ module AWS::SDK::HealthLake
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -466,7 +466,7 @@ module AWS::SDK::HealthLake
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 

@@ -75,11 +75,11 @@ module AWS::SDK::FraudDetector
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.code ||= 0
       end
-
     end
 
     # @!attribute variable_entries
@@ -136,11 +136,11 @@ module AWS::SDK::FraudDetector
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.code ||= 0
       end
-
     end
 
     # @!attribute names

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::Account
@@ -80,7 +82,7 @@ module AWS::SDK::Account
     def delete_alternate_contact(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAlternateContactInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAlternateContactInput,
         validate_input: @config.validate_input
@@ -177,7 +179,7 @@ module AWS::SDK::Account
     def get_alternate_contact(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAlternateContactInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAlternateContactInput,
         validate_input: @config.validate_input
@@ -284,7 +286,7 @@ module AWS::SDK::Account
     def put_alternate_contact(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutAlternateContactInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutAlternateContactInput,
         validate_input: @config.validate_input

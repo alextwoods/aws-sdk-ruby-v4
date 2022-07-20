@@ -14,8 +14,8 @@ module AWS::SDK::CodeGuruReviewer
     class AssociateRepository
       def self.default(visited=[])
         {
-          repository_association: Stubs::RepositoryAssociation.default(visited),
-          tags: Stubs::TagMap.default(visited),
+          repository_association: RepositoryAssociation.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -65,8 +65,8 @@ module AWS::SDK::CodeGuruReviewer
           state_reason: 'state_reason',
           last_updated_time_stamp: Time.now,
           created_time_stamp: Time.now,
-          kms_key_details: Stubs::KMSKeyDetails.default(visited),
-          s3_repository_details: Stubs::S3RepositoryDetails.default(visited),
+          kms_key_details: KMSKeyDetails.default(visited),
+          s3_repository_details: S3RepositoryDetails.default(visited),
         }
       end
 
@@ -96,7 +96,7 @@ module AWS::SDK::CodeGuruReviewer
         visited = visited + ['S3RepositoryDetails']
         {
           bucket_name: 'bucket_name',
-          code_artifacts: Stubs::CodeArtifacts.default(visited),
+          code_artifacts: CodeArtifacts.default(visited),
         }
       end
 
@@ -153,7 +153,7 @@ module AWS::SDK::CodeGuruReviewer
     class CreateCodeReview
       def self.default(visited=[])
         {
-          code_review: Stubs::CodeReview.default(visited),
+          code_review: CodeReview.default(visited),
         }
       end
 
@@ -183,10 +183,10 @@ module AWS::SDK::CodeGuruReviewer
           last_updated_time_stamp: Time.now,
           type: 'type',
           pull_request_id: 'pull_request_id',
-          source_code_type: Stubs::SourceCodeType.default(visited),
+          source_code_type: SourceCodeType.default(visited),
           association_arn: 'association_arn',
-          metrics: Stubs::Metrics.default(visited),
-          analysis_types: Stubs::AnalysisTypes.default(visited),
+          metrics: Metrics.default(visited),
+          analysis_types: AnalysisTypes.default(visited),
           config_file_state: 'config_file_state',
         }
       end
@@ -262,11 +262,11 @@ module AWS::SDK::CodeGuruReviewer
         return nil if visited.include?('SourceCodeType')
         visited = visited + ['SourceCodeType']
         {
-          commit_diff: Stubs::CommitDiffSourceCodeType.default(visited),
-          repository_head: Stubs::RepositoryHeadSourceCodeType.default(visited),
-          branch_diff: Stubs::BranchDiffSourceCodeType.default(visited),
-          s3_bucket_repository: Stubs::S3BucketRepository.default(visited),
-          request_metadata: Stubs::RequestMetadata.default(visited),
+          commit_diff: CommitDiffSourceCodeType.default(visited),
+          repository_head: RepositoryHeadSourceCodeType.default(visited),
+          branch_diff: BranchDiffSourceCodeType.default(visited),
+          s3_bucket_repository: S3BucketRepository.default(visited),
+          request_metadata: RequestMetadata.default(visited),
         }
       end
 
@@ -290,7 +290,7 @@ module AWS::SDK::CodeGuruReviewer
         {
           request_id: 'request_id',
           requester: 'requester',
-          event_info: Stubs::EventInfo.default(visited),
+          event_info: EventInfo.default(visited),
           vendor_name: 'vendor_name',
         }
       end
@@ -333,7 +333,7 @@ module AWS::SDK::CodeGuruReviewer
         visited = visited + ['S3BucketRepository']
         {
           name: 'name',
-          details: Stubs::S3RepositoryDetails.default(visited),
+          details: S3RepositoryDetails.default(visited),
         }
       end
 
@@ -410,7 +410,7 @@ module AWS::SDK::CodeGuruReviewer
     class DescribeCodeReview
       def self.default(visited=[])
         {
-          code_review: Stubs::CodeReview.default(visited),
+          code_review: CodeReview.default(visited),
         }
       end
 
@@ -427,7 +427,7 @@ module AWS::SDK::CodeGuruReviewer
     class DescribeRecommendationFeedback
       def self.default(visited=[])
         {
-          recommendation_feedback: Stubs::RecommendationFeedback.default(visited),
+          recommendation_feedback: RecommendationFeedback.default(visited),
         }
       end
 
@@ -448,7 +448,7 @@ module AWS::SDK::CodeGuruReviewer
         {
           code_review_arn: 'code_review_arn',
           recommendation_id: 'recommendation_id',
-          reactions: Stubs::Reactions.default(visited),
+          reactions: Reactions.default(visited),
           user_id: 'user_id',
           created_time_stamp: Time.now,
           last_updated_time_stamp: Time.now,
@@ -492,8 +492,8 @@ module AWS::SDK::CodeGuruReviewer
     class DescribeRepositoryAssociation
       def self.default(visited=[])
         {
-          repository_association: Stubs::RepositoryAssociation.default(visited),
-          tags: Stubs::TagMap.default(visited),
+          repository_association: RepositoryAssociation.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -511,8 +511,8 @@ module AWS::SDK::CodeGuruReviewer
     class DisassociateRepository
       def self.default(visited=[])
         {
-          repository_association: Stubs::RepositoryAssociation.default(visited),
-          tags: Stubs::TagMap.default(visited),
+          repository_association: RepositoryAssociation.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -530,7 +530,7 @@ module AWS::SDK::CodeGuruReviewer
     class ListCodeReviews
       def self.default(visited=[])
         {
-          code_review_summaries: Stubs::CodeReviewSummaries.default(visited),
+          code_review_summaries: CodeReviewSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -551,7 +551,7 @@ module AWS::SDK::CodeGuruReviewer
         return nil if visited.include?('CodeReviewSummaries')
         visited = visited + ['CodeReviewSummaries']
         [
-          Stubs::CodeReviewSummary.default(visited)
+          CodeReviewSummary.default(visited)
         ]
       end
 
@@ -581,8 +581,8 @@ module AWS::SDK::CodeGuruReviewer
           last_updated_time_stamp: Time.now,
           type: 'type',
           pull_request_id: 'pull_request_id',
-          metrics_summary: Stubs::MetricsSummary.default(visited),
-          source_code_type: Stubs::SourceCodeType.default(visited),
+          metrics_summary: MetricsSummary.default(visited),
+          source_code_type: SourceCodeType.default(visited),
         }
       end
 
@@ -631,7 +631,7 @@ module AWS::SDK::CodeGuruReviewer
     class ListRecommendationFeedback
       def self.default(visited=[])
         {
-          recommendation_feedback_summaries: Stubs::RecommendationFeedbackSummaries.default(visited),
+          recommendation_feedback_summaries: RecommendationFeedbackSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -652,7 +652,7 @@ module AWS::SDK::CodeGuruReviewer
         return nil if visited.include?('RecommendationFeedbackSummaries')
         visited = visited + ['RecommendationFeedbackSummaries']
         [
-          Stubs::RecommendationFeedbackSummary.default(visited)
+          RecommendationFeedbackSummary.default(visited)
         ]
       end
 
@@ -673,7 +673,7 @@ module AWS::SDK::CodeGuruReviewer
         visited = visited + ['RecommendationFeedbackSummary']
         {
           recommendation_id: 'recommendation_id',
-          reactions: Stubs::Reactions.default(visited),
+          reactions: Reactions.default(visited),
           user_id: 'user_id',
         }
       end
@@ -692,7 +692,7 @@ module AWS::SDK::CodeGuruReviewer
     class ListRecommendations
       def self.default(visited=[])
         {
-          recommendation_summaries: Stubs::RecommendationSummaries.default(visited),
+          recommendation_summaries: RecommendationSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -713,7 +713,7 @@ module AWS::SDK::CodeGuruReviewer
         return nil if visited.include?('RecommendationSummaries')
         visited = visited + ['RecommendationSummaries']
         [
-          Stubs::RecommendationSummary.default(visited)
+          RecommendationSummary.default(visited)
         ]
       end
 
@@ -739,7 +739,7 @@ module AWS::SDK::CodeGuruReviewer
           end_line: 1,
           description: 'description',
           recommendation_category: 'recommendation_category',
-          rule_metadata: Stubs::RuleMetadata.default(visited),
+          rule_metadata: RuleMetadata.default(visited),
           severity: 'severity',
         }
       end
@@ -769,7 +769,7 @@ module AWS::SDK::CodeGuruReviewer
           rule_name: 'rule_name',
           short_description: 'short_description',
           long_description: 'long_description',
-          rule_tags: Stubs::RuleTags.default(visited),
+          rule_tags: RuleTags.default(visited),
         }
       end
 
@@ -809,7 +809,7 @@ module AWS::SDK::CodeGuruReviewer
     class ListRepositoryAssociations
       def self.default(visited=[])
         {
-          repository_association_summaries: Stubs::RepositoryAssociationSummaries.default(visited),
+          repository_association_summaries: RepositoryAssociationSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -830,7 +830,7 @@ module AWS::SDK::CodeGuruReviewer
         return nil if visited.include?('RepositoryAssociationSummaries')
         visited = visited + ['RepositoryAssociationSummaries']
         [
-          Stubs::RepositoryAssociationSummary.default(visited)
+          RepositoryAssociationSummary.default(visited)
         ]
       end
 
@@ -880,7 +880,7 @@ module AWS::SDK::CodeGuruReviewer
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 

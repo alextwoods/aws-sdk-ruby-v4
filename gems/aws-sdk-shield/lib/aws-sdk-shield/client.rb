@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::Shield
@@ -61,7 +63,7 @@ module AWS::SDK::Shield
     def associate_drt_log_bucket(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateDRTLogBucketInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateDRTLogBucketInput,
         validate_input: @config.validate_input
@@ -137,7 +139,7 @@ module AWS::SDK::Shield
     def associate_drt_role(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateDRTRoleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateDRTRoleInput,
         validate_input: @config.validate_input
@@ -210,7 +212,7 @@ module AWS::SDK::Shield
     def associate_health_check(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateHealthCheckInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateHealthCheckInput,
         validate_input: @config.validate_input
@@ -293,7 +295,7 @@ module AWS::SDK::Shield
     def associate_proactive_engagement_details(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateProactiveEngagementDetailsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateProactiveEngagementDetailsInput,
         validate_input: @config.validate_input
@@ -413,7 +415,7 @@ module AWS::SDK::Shield
     def create_protection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateProtectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateProtectionInput,
         validate_input: @config.validate_input
@@ -520,7 +522,7 @@ module AWS::SDK::Shield
     def create_protection_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateProtectionGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateProtectionGroupInput,
         validate_input: @config.validate_input
@@ -585,7 +587,7 @@ module AWS::SDK::Shield
     def create_subscription(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateSubscriptionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateSubscriptionInput,
         validate_input: @config.validate_input
@@ -654,7 +656,7 @@ module AWS::SDK::Shield
     def delete_protection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteProtectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteProtectionInput,
         validate_input: @config.validate_input
@@ -722,7 +724,7 @@ module AWS::SDK::Shield
     def delete_protection_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteProtectionGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteProtectionGroupInput,
         validate_input: @config.validate_input
@@ -787,7 +789,7 @@ module AWS::SDK::Shield
     def delete_subscription(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteSubscriptionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteSubscriptionInput,
         validate_input: @config.validate_input
@@ -890,7 +892,7 @@ module AWS::SDK::Shield
     def describe_attack(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAttackInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAttackInput,
         validate_input: @config.validate_input
@@ -966,7 +968,7 @@ module AWS::SDK::Shield
     def describe_attack_statistics(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAttackStatisticsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAttackStatisticsInput,
         validate_input: @config.validate_input
@@ -1032,7 +1034,7 @@ module AWS::SDK::Shield
     def describe_drt_access(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDRTAccessInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDRTAccessInput,
         validate_input: @config.validate_input
@@ -1100,7 +1102,7 @@ module AWS::SDK::Shield
     def describe_emergency_contact_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeEmergencyContactSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeEmergencyContactSettingsInput,
         validate_input: @config.validate_input
@@ -1186,7 +1188,7 @@ module AWS::SDK::Shield
     def describe_protection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeProtectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeProtectionInput,
         validate_input: @config.validate_input
@@ -1262,7 +1264,7 @@ module AWS::SDK::Shield
     def describe_protection_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeProtectionGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeProtectionGroupInput,
         validate_input: @config.validate_input
@@ -1344,7 +1346,7 @@ module AWS::SDK::Shield
     def describe_subscription(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeSubscriptionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeSubscriptionInput,
         validate_input: @config.validate_input
@@ -1413,7 +1415,7 @@ module AWS::SDK::Shield
     def disable_application_layer_automatic_response(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisableApplicationLayerAutomaticResponseInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisableApplicationLayerAutomaticResponseInput,
         validate_input: @config.validate_input
@@ -1476,7 +1478,7 @@ module AWS::SDK::Shield
     def disable_proactive_engagement(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisableProactiveEngagementInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisableProactiveEngagementInput,
         validate_input: @config.validate_input
@@ -1544,7 +1546,7 @@ module AWS::SDK::Shield
     def disassociate_drt_log_bucket(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateDRTLogBucketInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateDRTLogBucketInput,
         validate_input: @config.validate_input
@@ -1607,7 +1609,7 @@ module AWS::SDK::Shield
     def disassociate_drt_role(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateDRTRoleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateDRTRoleInput,
         validate_input: @config.validate_input
@@ -1680,7 +1682,7 @@ module AWS::SDK::Shield
     def disassociate_health_check(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateHealthCheckInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateHealthCheckInput,
         validate_input: @config.validate_input
@@ -1770,7 +1772,7 @@ module AWS::SDK::Shield
     def enable_application_layer_automatic_response(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::EnableApplicationLayerAutomaticResponseInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::EnableApplicationLayerAutomaticResponseInput,
         validate_input: @config.validate_input
@@ -1833,7 +1835,7 @@ module AWS::SDK::Shield
     def enable_proactive_engagement(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::EnableProactiveEngagementInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::EnableProactiveEngagementInput,
         validate_input: @config.validate_input
@@ -1897,7 +1899,7 @@ module AWS::SDK::Shield
     def get_subscription_state(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSubscriptionStateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSubscriptionStateInput,
         validate_input: @config.validate_input
@@ -2008,7 +2010,7 @@ module AWS::SDK::Shield
     def list_attacks(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAttacksInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAttacksInput,
         validate_input: @config.validate_input
@@ -2099,7 +2101,7 @@ module AWS::SDK::Shield
     def list_protection_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListProtectionGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListProtectionGroupsInput,
         validate_input: @config.validate_input
@@ -2194,7 +2196,7 @@ module AWS::SDK::Shield
     def list_protections(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListProtectionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListProtectionsInput,
         validate_input: @config.validate_input
@@ -2282,7 +2284,7 @@ module AWS::SDK::Shield
     def list_resources_in_protection_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListResourcesInProtectionGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListResourcesInProtectionGroupInput,
         validate_input: @config.validate_input
@@ -2354,7 +2356,7 @@ module AWS::SDK::Shield
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -2431,7 +2433,7 @@ module AWS::SDK::Shield
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -2505,7 +2507,7 @@ module AWS::SDK::Shield
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -2582,7 +2584,7 @@ module AWS::SDK::Shield
     def update_application_layer_automatic_response(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateApplicationLayerAutomaticResponseInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateApplicationLayerAutomaticResponseInput,
         validate_input: @config.validate_input
@@ -2657,7 +2659,7 @@ module AWS::SDK::Shield
     def update_emergency_contact_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateEmergencyContactSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateEmergencyContactSettingsInput,
         validate_input: @config.validate_input
@@ -2755,7 +2757,7 @@ module AWS::SDK::Shield
     def update_protection_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateProtectionGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateProtectionGroupInput,
         validate_input: @config.validate_input
@@ -2823,7 +2825,7 @@ module AWS::SDK::Shield
     def update_subscription(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateSubscriptionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateSubscriptionInput,
         validate_input: @config.validate_input

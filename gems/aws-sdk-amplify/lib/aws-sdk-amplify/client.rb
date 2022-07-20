@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::Amplify
@@ -229,7 +231,7 @@ module AWS::SDK::Amplify
     def create_app(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateAppInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateAppInput,
         validate_input: @config.validate_input
@@ -316,7 +318,7 @@ module AWS::SDK::Amplify
     def create_backend_environment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateBackendEnvironmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateBackendEnvironmentInput,
         validate_input: @config.validate_input
@@ -494,7 +496,7 @@ module AWS::SDK::Amplify
     def create_branch(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateBranchInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateBranchInput,
         validate_input: @config.validate_input
@@ -580,7 +582,7 @@ module AWS::SDK::Amplify
     def create_deployment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDeploymentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDeploymentInput,
         validate_input: @config.validate_input
@@ -694,7 +696,7 @@ module AWS::SDK::Amplify
     def create_domain_association(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDomainAssociationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDomainAssociationInput,
         validate_input: @config.validate_input
@@ -778,7 +780,7 @@ module AWS::SDK::Amplify
     def create_webhook(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateWebhookInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateWebhookInput,
         validate_input: @config.validate_input
@@ -893,7 +895,7 @@ module AWS::SDK::Amplify
     def delete_app(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAppInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAppInput,
         validate_input: @config.validate_input
@@ -971,7 +973,7 @@ module AWS::SDK::Amplify
     def delete_backend_environment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteBackendEnvironmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteBackendEnvironmentInput,
         validate_input: @config.validate_input
@@ -1074,7 +1076,7 @@ module AWS::SDK::Amplify
     def delete_branch(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteBranchInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteBranchInput,
         validate_input: @config.validate_input
@@ -1162,7 +1164,7 @@ module AWS::SDK::Amplify
     def delete_domain_association(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDomainAssociationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDomainAssociationInput,
         validate_input: @config.validate_input
@@ -1247,7 +1249,7 @@ module AWS::SDK::Amplify
     def delete_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteJobInput,
         validate_input: @config.validate_input
@@ -1322,7 +1324,7 @@ module AWS::SDK::Amplify
     def delete_webhook(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteWebhookInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteWebhookInput,
         validate_input: @config.validate_input
@@ -1405,7 +1407,7 @@ module AWS::SDK::Amplify
     def generate_access_logs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GenerateAccessLogsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GenerateAccessLogsInput,
         validate_input: @config.validate_input
@@ -1520,7 +1522,7 @@ module AWS::SDK::Amplify
     def get_app(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAppInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAppInput,
         validate_input: @config.validate_input
@@ -1589,7 +1591,7 @@ module AWS::SDK::Amplify
     def get_artifact_url(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetArtifactUrlInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetArtifactUrlInput,
         validate_input: @config.validate_input
@@ -1667,7 +1669,7 @@ module AWS::SDK::Amplify
     def get_backend_environment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetBackendEnvironmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetBackendEnvironmentInput,
         validate_input: @config.validate_input
@@ -1770,7 +1772,7 @@ module AWS::SDK::Amplify
     def get_branch(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetBranchInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetBranchInput,
         validate_input: @config.validate_input
@@ -1858,7 +1860,7 @@ module AWS::SDK::Amplify
     def get_domain_association(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDomainAssociationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDomainAssociationInput,
         validate_input: @config.validate_input
@@ -1958,7 +1960,7 @@ module AWS::SDK::Amplify
     def get_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetJobInput,
         validate_input: @config.validate_input
@@ -2033,7 +2035,7 @@ module AWS::SDK::Amplify
     def get_webhook(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetWebhookInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetWebhookInput,
         validate_input: @config.validate_input
@@ -2154,7 +2156,7 @@ module AWS::SDK::Amplify
     def list_apps(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAppsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAppsInput,
         validate_input: @config.validate_input
@@ -2244,7 +2246,7 @@ module AWS::SDK::Amplify
     def list_artifacts(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListArtifactsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListArtifactsInput,
         validate_input: @config.validate_input
@@ -2334,7 +2336,7 @@ module AWS::SDK::Amplify
     def list_backend_environments(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListBackendEnvironmentsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListBackendEnvironmentsInput,
         validate_input: @config.validate_input
@@ -2445,7 +2447,7 @@ module AWS::SDK::Amplify
     def list_branches(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListBranchesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListBranchesInput,
         validate_input: @config.validate_input
@@ -2541,7 +2543,7 @@ module AWS::SDK::Amplify
     def list_domain_associations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDomainAssociationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDomainAssociationsInput,
         validate_input: @config.validate_input
@@ -2634,7 +2636,7 @@ module AWS::SDK::Amplify
     def list_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListJobsInput,
         validate_input: @config.validate_input
@@ -2703,7 +2705,7 @@ module AWS::SDK::Amplify
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -2790,7 +2792,7 @@ module AWS::SDK::Amplify
     def list_webhooks(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListWebhooksInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListWebhooksInput,
         validate_input: @config.validate_input
@@ -2882,7 +2884,7 @@ module AWS::SDK::Amplify
     def start_deployment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartDeploymentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartDeploymentInput,
         validate_input: @config.validate_input
@@ -2993,7 +2995,7 @@ module AWS::SDK::Amplify
     def start_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartJobInput,
         validate_input: @config.validate_input
@@ -3079,7 +3081,7 @@ module AWS::SDK::Amplify
     def stop_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopJobInput,
         validate_input: @config.validate_input
@@ -3152,7 +3154,7 @@ module AWS::SDK::Amplify
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -3226,7 +3228,7 @@ module AWS::SDK::Amplify
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -3458,7 +3460,7 @@ module AWS::SDK::Amplify
     def update_app(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateAppInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateAppInput,
         validate_input: @config.validate_input
@@ -3630,7 +3632,7 @@ module AWS::SDK::Amplify
     def update_branch(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateBranchInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateBranchInput,
         validate_input: @config.validate_input
@@ -3743,7 +3745,7 @@ module AWS::SDK::Amplify
     def update_domain_association(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDomainAssociationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDomainAssociationInput,
         validate_input: @config.validate_input
@@ -3827,7 +3829,7 @@ module AWS::SDK::Amplify
     def update_webhook(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateWebhookInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateWebhookInput,
         validate_input: @config.validate_input

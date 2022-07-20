@@ -7,8 +7,6 @@
 #
 # WARNING ABOUT GENERATED CODE
 
-require 'base64'
-
 module AWS::SDK::KafkaConnect
   module Builders
 
@@ -23,7 +21,7 @@ module AWS::SDK::KafkaConnect
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['capacity'] = Builders::Capacity.build(input[:capacity]) unless input[:capacity].nil?
-        data['connectorConfiguration'] = Builders::Map____mapOf__string.build(input[:connector_configuration]) unless input[:connector_configuration].nil?
+        data['connectorConfiguration'] = Builders::Map____sensitive__mapOf__string.build(input[:connector_configuration]) unless input[:connector_configuration].nil?
         data['connectorDescription'] = input[:connector_description] unless input[:connector_description].nil?
         data['connectorName'] = input[:connector_name] unless input[:connector_name].nil?
         data['kafkaCluster'] = Builders::KafkaCluster.build(input[:kafka_cluster]) unless input[:kafka_cluster].nil?
@@ -187,8 +185,8 @@ module AWS::SDK::KafkaConnect
       end
     end
 
-    # Map Builder for __mapOf__string
-    class Map____mapOf__string
+    # Map Builder for __sensitive__mapOf__string
+    class Map____sensitive__mapOf__string
       def self.build(input)
         data = {}
         input.each do |key, value|

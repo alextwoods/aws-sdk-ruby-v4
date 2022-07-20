@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::CodeStar
@@ -167,7 +169,7 @@ module AWS::SDK::CodeStar
     def associate_team_member(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateTeamMemberInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateTeamMemberInput,
         validate_input: @config.validate_input
@@ -300,7 +302,7 @@ module AWS::SDK::CodeStar
     def create_project(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateProjectInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateProjectInput,
         validate_input: @config.validate_input
@@ -392,7 +394,7 @@ module AWS::SDK::CodeStar
     def create_user_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateUserProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateUserProfileInput,
         validate_input: @config.validate_input
@@ -475,7 +477,7 @@ module AWS::SDK::CodeStar
     def delete_project(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteProjectInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteProjectInput,
         validate_input: @config.validate_input
@@ -546,7 +548,7 @@ module AWS::SDK::CodeStar
     def delete_user_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteUserProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteUserProfileInput,
         validate_input: @config.validate_input
@@ -625,7 +627,7 @@ module AWS::SDK::CodeStar
     def describe_project(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeProjectInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeProjectInput,
         validate_input: @config.validate_input
@@ -699,7 +701,7 @@ module AWS::SDK::CodeStar
     def describe_user_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeUserProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeUserProfileInput,
         validate_input: @config.validate_input
@@ -775,7 +777,7 @@ module AWS::SDK::CodeStar
     def disassociate_team_member(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateTeamMemberInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateTeamMemberInput,
         validate_input: @config.validate_input
@@ -853,7 +855,7 @@ module AWS::SDK::CodeStar
     def list_projects(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListProjectsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListProjectsInput,
         validate_input: @config.validate_input
@@ -934,7 +936,7 @@ module AWS::SDK::CodeStar
     def list_resources(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListResourcesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListResourcesInput,
         validate_input: @config.validate_input
@@ -1013,7 +1015,7 @@ module AWS::SDK::CodeStar
     def list_tags_for_project(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForProjectInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForProjectInput,
         validate_input: @config.validate_input
@@ -1096,7 +1098,7 @@ module AWS::SDK::CodeStar
     def list_team_members(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTeamMembersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTeamMembersInput,
         validate_input: @config.validate_input
@@ -1176,7 +1178,7 @@ module AWS::SDK::CodeStar
     def list_user_profiles(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListUserProfilesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListUserProfilesInput,
         validate_input: @config.validate_input
@@ -1252,7 +1254,7 @@ module AWS::SDK::CodeStar
     def tag_project(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagProjectInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagProjectInput,
         validate_input: @config.validate_input
@@ -1326,7 +1328,7 @@ module AWS::SDK::CodeStar
     def untag_project(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagProjectInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagProjectInput,
         validate_input: @config.validate_input
@@ -1402,7 +1404,7 @@ module AWS::SDK::CodeStar
     def update_project(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateProjectInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateProjectInput,
         validate_input: @config.validate_input
@@ -1492,7 +1494,7 @@ module AWS::SDK::CodeStar
     def update_team_member(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateTeamMemberInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateTeamMemberInput,
         validate_input: @config.validate_input
@@ -1584,7 +1586,7 @@ module AWS::SDK::CodeStar
     def update_user_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateUserProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateUserProfileInput,
         validate_input: @config.validate_input

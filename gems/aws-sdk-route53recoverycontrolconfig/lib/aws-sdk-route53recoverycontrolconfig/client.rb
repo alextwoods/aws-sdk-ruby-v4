@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::Route53RecoveryControlConfig
@@ -75,7 +77,7 @@ module AWS::SDK::Route53RecoveryControlConfig
     def create_cluster(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateClusterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateClusterInput,
         validate_input: @config.validate_input
@@ -164,7 +166,7 @@ module AWS::SDK::Route53RecoveryControlConfig
     def create_control_panel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateControlPanelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateControlPanelInput,
         validate_input: @config.validate_input
@@ -249,7 +251,7 @@ module AWS::SDK::Route53RecoveryControlConfig
     def create_routing_control(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateRoutingControlInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateRoutingControlInput,
         validate_input: @config.validate_input
@@ -368,7 +370,7 @@ module AWS::SDK::Route53RecoveryControlConfig
     def create_safety_rule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateSafetyRuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateSafetyRuleInput,
         validate_input: @config.validate_input
@@ -436,7 +438,7 @@ module AWS::SDK::Route53RecoveryControlConfig
     def delete_cluster(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteClusterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteClusterInput,
         validate_input: @config.validate_input
@@ -503,7 +505,7 @@ module AWS::SDK::Route53RecoveryControlConfig
     def delete_control_panel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteControlPanelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteControlPanelInput,
         validate_input: @config.validate_input
@@ -570,7 +572,7 @@ module AWS::SDK::Route53RecoveryControlConfig
     def delete_routing_control(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteRoutingControlInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteRoutingControlInput,
         validate_input: @config.validate_input
@@ -637,7 +639,7 @@ module AWS::SDK::Route53RecoveryControlConfig
     def delete_safety_rule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteSafetyRuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteSafetyRuleInput,
         validate_input: @config.validate_input
@@ -712,7 +714,7 @@ module AWS::SDK::Route53RecoveryControlConfig
     def describe_cluster(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeClusterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeClusterInput,
         validate_input: @config.validate_input
@@ -786,7 +788,7 @@ module AWS::SDK::Route53RecoveryControlConfig
     def describe_control_panel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeControlPanelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeControlPanelInput,
         validate_input: @config.validate_input
@@ -858,7 +860,7 @@ module AWS::SDK::Route53RecoveryControlConfig
     def describe_routing_control(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeRoutingControlInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeRoutingControlInput,
         validate_input: @config.validate_input
@@ -946,7 +948,7 @@ module AWS::SDK::Route53RecoveryControlConfig
     def describe_safety_rule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeSafetyRuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeSafetyRuleInput,
         validate_input: @config.validate_input
@@ -1024,7 +1026,7 @@ module AWS::SDK::Route53RecoveryControlConfig
     def list_associated_route53_health_checks(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAssociatedRoute53HealthChecksInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAssociatedRoute53HealthChecksInput,
         validate_input: @config.validate_input
@@ -1105,7 +1107,7 @@ module AWS::SDK::Route53RecoveryControlConfig
     def list_clusters(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListClustersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListClustersInput,
         validate_input: @config.validate_input
@@ -1189,7 +1191,7 @@ module AWS::SDK::Route53RecoveryControlConfig
     def list_control_panels(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListControlPanelsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListControlPanelsInput,
         validate_input: @config.validate_input
@@ -1271,7 +1273,7 @@ module AWS::SDK::Route53RecoveryControlConfig
     def list_routing_controls(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListRoutingControlsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListRoutingControlsInput,
         validate_input: @config.validate_input
@@ -1370,7 +1372,7 @@ module AWS::SDK::Route53RecoveryControlConfig
     def list_safety_rules(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListSafetyRulesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListSafetyRulesInput,
         validate_input: @config.validate_input
@@ -1439,7 +1441,7 @@ module AWS::SDK::Route53RecoveryControlConfig
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -1512,7 +1514,7 @@ module AWS::SDK::Route53RecoveryControlConfig
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -1586,7 +1588,7 @@ module AWS::SDK::Route53RecoveryControlConfig
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -1664,7 +1666,7 @@ module AWS::SDK::Route53RecoveryControlConfig
     def update_control_panel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateControlPanelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateControlPanelInput,
         validate_input: @config.validate_input
@@ -1741,7 +1743,7 @@ module AWS::SDK::Route53RecoveryControlConfig
     def update_routing_control(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateRoutingControlInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateRoutingControlInput,
         validate_input: @config.validate_input
@@ -1842,7 +1844,7 @@ module AWS::SDK::Route53RecoveryControlConfig
     def update_safety_rule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateSafetyRuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateSafetyRuleInput,
         validate_input: @config.validate_input

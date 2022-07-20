@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::Ivs
   module Validators
 
@@ -40,7 +42,7 @@ module AWS::SDK::Ivs
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BatchError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BatchError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -48,30 +50,30 @@ module AWS::SDK::Ivs
     class BatchGetChannelInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchGetChannelInput, context: context)
-        Validators::ChannelArnList.validate!(input[:arns], context: "#{context}[:arns]") unless input[:arns].nil?
+        ChannelArnList.validate!(input[:arns], context: "#{context}[:arns]") unless input[:arns].nil?
       end
     end
 
     class BatchGetChannelOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchGetChannelOutput, context: context)
-        Validators::Channels.validate!(input[:channels], context: "#{context}[:channels]") unless input[:channels].nil?
-        Validators::BatchErrors.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
+        Channels.validate!(input[:channels], context: "#{context}[:channels]") unless input[:channels].nil?
+        BatchErrors.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
       end
     end
 
     class BatchGetStreamKeyInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchGetStreamKeyInput, context: context)
-        Validators::StreamKeyArnList.validate!(input[:arns], context: "#{context}[:arns]") unless input[:arns].nil?
+        StreamKeyArnList.validate!(input[:arns], context: "#{context}[:arns]") unless input[:arns].nil?
       end
     end
 
     class BatchGetStreamKeyOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchGetStreamKeyOutput, context: context)
-        Validators::StreamKeys.validate!(input[:stream_keys], context: "#{context}[:stream_keys]") unless input[:stream_keys].nil?
-        Validators::BatchErrors.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
+        StreamKeys.validate!(input[:stream_keys], context: "#{context}[:stream_keys]") unless input[:stream_keys].nil?
+        BatchErrors.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
       end
     end
 
@@ -86,7 +88,7 @@ module AWS::SDK::Ivs
         Hearth::Validator.validate!(input[:ingest_endpoint], ::String, context: "#{context}[:ingest_endpoint]")
         Hearth::Validator.validate!(input[:playback_url], ::String, context: "#{context}[:playback_url]")
         Hearth::Validator.validate!(input[:authorized], ::TrueClass, ::FalseClass, context: "#{context}[:authorized]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -103,7 +105,7 @@ module AWS::SDK::Ivs
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ChannelSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ChannelSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -123,7 +125,7 @@ module AWS::SDK::Ivs
         Hearth::Validator.validate!(input[:latency_mode], ::String, context: "#{context}[:latency_mode]")
         Hearth::Validator.validate!(input[:authorized], ::TrueClass, ::FalseClass, context: "#{context}[:authorized]")
         Hearth::Validator.validate!(input[:recording_configuration_arn], ::String, context: "#{context}[:recording_configuration_arn]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -131,7 +133,7 @@ module AWS::SDK::Ivs
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Channel.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Channel.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -151,15 +153,15 @@ module AWS::SDK::Ivs
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
         Hearth::Validator.validate!(input[:authorized], ::TrueClass, ::FalseClass, context: "#{context}[:authorized]")
         Hearth::Validator.validate!(input[:recording_configuration_arn], ::String, context: "#{context}[:recording_configuration_arn]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateChannelOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateChannelOutput, context: context)
-        Validators::Channel.validate!(input[:channel], context: "#{context}[:channel]") unless input[:channel].nil?
-        Validators::StreamKey.validate!(input[:stream_key], context: "#{context}[:stream_key]") unless input[:stream_key].nil?
+        Channel.validate!(input[:channel], context: "#{context}[:channel]") unless input[:channel].nil?
+        StreamKey.validate!(input[:stream_key], context: "#{context}[:stream_key]") unless input[:stream_key].nil?
       end
     end
 
@@ -167,16 +169,16 @@ module AWS::SDK::Ivs
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateRecordingConfigurationInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::DestinationConfiguration.validate!(input[:destination_configuration], context: "#{context}[:destination_configuration]") unless input[:destination_configuration].nil?
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::ThumbnailConfiguration.validate!(input[:thumbnail_configuration], context: "#{context}[:thumbnail_configuration]") unless input[:thumbnail_configuration].nil?
+        DestinationConfiguration.validate!(input[:destination_configuration], context: "#{context}[:destination_configuration]") unless input[:destination_configuration].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ThumbnailConfiguration.validate!(input[:thumbnail_configuration], context: "#{context}[:thumbnail_configuration]") unless input[:thumbnail_configuration].nil?
       end
     end
 
     class CreateRecordingConfigurationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateRecordingConfigurationOutput, context: context)
-        Validators::RecordingConfiguration.validate!(input[:recording_configuration], context: "#{context}[:recording_configuration]") unless input[:recording_configuration].nil?
+        RecordingConfiguration.validate!(input[:recording_configuration], context: "#{context}[:recording_configuration]") unless input[:recording_configuration].nil?
       end
     end
 
@@ -184,14 +186,14 @@ module AWS::SDK::Ivs
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateStreamKeyInput, context: context)
         Hearth::Validator.validate!(input[:channel_arn], ::String, context: "#{context}[:channel_arn]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateStreamKeyOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateStreamKeyOutput, context: context)
-        Validators::StreamKey.validate!(input[:stream_key], context: "#{context}[:stream_key]") unless input[:stream_key].nil?
+        StreamKey.validate!(input[:stream_key], context: "#{context}[:stream_key]") unless input[:stream_key].nil?
       end
     end
 
@@ -250,7 +252,7 @@ module AWS::SDK::Ivs
     class DestinationConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DestinationConfiguration, context: context)
-        Validators::S3DestinationConfiguration.validate!(input[:s3], context: "#{context}[:s3]") unless input[:s3].nil?
+        S3DestinationConfiguration.validate!(input[:s3], context: "#{context}[:s3]") unless input[:s3].nil?
       end
     end
 
@@ -264,7 +266,7 @@ module AWS::SDK::Ivs
     class GetChannelOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetChannelOutput, context: context)
-        Validators::Channel.validate!(input[:channel], context: "#{context}[:channel]") unless input[:channel].nil?
+        Channel.validate!(input[:channel], context: "#{context}[:channel]") unless input[:channel].nil?
       end
     end
 
@@ -278,7 +280,7 @@ module AWS::SDK::Ivs
     class GetPlaybackKeyPairOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetPlaybackKeyPairOutput, context: context)
-        Validators::PlaybackKeyPair.validate!(input[:key_pair], context: "#{context}[:key_pair]") unless input[:key_pair].nil?
+        PlaybackKeyPair.validate!(input[:key_pair], context: "#{context}[:key_pair]") unless input[:key_pair].nil?
       end
     end
 
@@ -292,7 +294,7 @@ module AWS::SDK::Ivs
     class GetRecordingConfigurationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetRecordingConfigurationOutput, context: context)
-        Validators::RecordingConfiguration.validate!(input[:recording_configuration], context: "#{context}[:recording_configuration]") unless input[:recording_configuration].nil?
+        RecordingConfiguration.validate!(input[:recording_configuration], context: "#{context}[:recording_configuration]") unless input[:recording_configuration].nil?
       end
     end
 
@@ -313,14 +315,14 @@ module AWS::SDK::Ivs
     class GetStreamKeyOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetStreamKeyOutput, context: context)
-        Validators::StreamKey.validate!(input[:stream_key], context: "#{context}[:stream_key]") unless input[:stream_key].nil?
+        StreamKey.validate!(input[:stream_key], context: "#{context}[:stream_key]") unless input[:stream_key].nil?
       end
     end
 
     class GetStreamOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetStreamOutput, context: context)
-        Validators::Stream.validate!(input[:stream], context: "#{context}[:stream]") unless input[:stream].nil?
+        Stream.validate!(input[:stream], context: "#{context}[:stream]") unless input[:stream].nil?
       end
     end
 
@@ -335,7 +337,7 @@ module AWS::SDK::Ivs
     class GetStreamSessionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetStreamSessionOutput, context: context)
-        Validators::StreamSession.validate!(input[:stream_session], context: "#{context}[:stream_session]") unless input[:stream_session].nil?
+        StreamSession.validate!(input[:stream_session], context: "#{context}[:stream_session]") unless input[:stream_session].nil?
       end
     end
 
@@ -344,22 +346,22 @@ module AWS::SDK::Ivs
         Hearth::Validator.validate!(input, Types::ImportPlaybackKeyPairInput, context: context)
         Hearth::Validator.validate!(input[:public_key_material], ::String, context: "#{context}[:public_key_material]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class ImportPlaybackKeyPairOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ImportPlaybackKeyPairOutput, context: context)
-        Validators::PlaybackKeyPair.validate!(input[:key_pair], context: "#{context}[:key_pair]") unless input[:key_pair].nil?
+        PlaybackKeyPair.validate!(input[:key_pair], context: "#{context}[:key_pair]") unless input[:key_pair].nil?
       end
     end
 
     class IngestConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::IngestConfiguration, context: context)
-        Validators::VideoConfiguration.validate!(input[:video], context: "#{context}[:video]") unless input[:video].nil?
-        Validators::AudioConfiguration.validate!(input[:audio], context: "#{context}[:audio]") unless input[:audio].nil?
+        VideoConfiguration.validate!(input[:video], context: "#{context}[:video]") unless input[:video].nil?
+        AudioConfiguration.validate!(input[:audio], context: "#{context}[:audio]") unless input[:audio].nil?
       end
     end
 
@@ -383,7 +385,7 @@ module AWS::SDK::Ivs
     class ListChannelsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListChannelsOutput, context: context)
-        Validators::ChannelList.validate!(input[:channels], context: "#{context}[:channels]") unless input[:channels].nil?
+        ChannelList.validate!(input[:channels], context: "#{context}[:channels]") unless input[:channels].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -399,7 +401,7 @@ module AWS::SDK::Ivs
     class ListPlaybackKeyPairsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListPlaybackKeyPairsOutput, context: context)
-        Validators::PlaybackKeyPairList.validate!(input[:key_pairs], context: "#{context}[:key_pairs]") unless input[:key_pairs].nil?
+        PlaybackKeyPairList.validate!(input[:key_pairs], context: "#{context}[:key_pairs]") unless input[:key_pairs].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -415,7 +417,7 @@ module AWS::SDK::Ivs
     class ListRecordingConfigurationsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListRecordingConfigurationsOutput, context: context)
-        Validators::RecordingConfigurationList.validate!(input[:recording_configurations], context: "#{context}[:recording_configurations]") unless input[:recording_configurations].nil?
+        RecordingConfigurationList.validate!(input[:recording_configurations], context: "#{context}[:recording_configurations]") unless input[:recording_configurations].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -432,7 +434,7 @@ module AWS::SDK::Ivs
     class ListStreamKeysOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListStreamKeysOutput, context: context)
-        Validators::StreamKeyList.validate!(input[:stream_keys], context: "#{context}[:stream_keys]") unless input[:stream_keys].nil?
+        StreamKeyList.validate!(input[:stream_keys], context: "#{context}[:stream_keys]") unless input[:stream_keys].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -449,7 +451,7 @@ module AWS::SDK::Ivs
     class ListStreamSessionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListStreamSessionsOutput, context: context)
-        Validators::StreamSessionList.validate!(input[:stream_sessions], context: "#{context}[:stream_sessions]") unless input[:stream_sessions].nil?
+        StreamSessionList.validate!(input[:stream_sessions], context: "#{context}[:stream_sessions]") unless input[:stream_sessions].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -457,7 +459,7 @@ module AWS::SDK::Ivs
     class ListStreamsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListStreamsInput, context: context)
-        Validators::StreamFilters.validate!(input[:filter_by], context: "#{context}[:filter_by]") unless input[:filter_by].nil?
+        StreamFilters.validate!(input[:filter_by], context: "#{context}[:filter_by]") unless input[:filter_by].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
       end
@@ -466,7 +468,7 @@ module AWS::SDK::Ivs
     class ListStreamsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListStreamsOutput, context: context)
-        Validators::StreamList.validate!(input[:streams], context: "#{context}[:streams]") unless input[:streams].nil?
+        StreamList.validate!(input[:streams], context: "#{context}[:streams]") unless input[:streams].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -481,7 +483,7 @@ module AWS::SDK::Ivs
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -498,7 +500,7 @@ module AWS::SDK::Ivs
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:fingerprint], ::String, context: "#{context}[:fingerprint]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -506,7 +508,7 @@ module AWS::SDK::Ivs
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PlaybackKeyPairSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PlaybackKeyPairSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -516,7 +518,7 @@ module AWS::SDK::Ivs
         Hearth::Validator.validate!(input, Types::PlaybackKeyPairSummary, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -539,10 +541,10 @@ module AWS::SDK::Ivs
         Hearth::Validator.validate!(input, Types::RecordingConfiguration, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::DestinationConfiguration.validate!(input[:destination_configuration], context: "#{context}[:destination_configuration]") unless input[:destination_configuration].nil?
+        DestinationConfiguration.validate!(input[:destination_configuration], context: "#{context}[:destination_configuration]") unless input[:destination_configuration].nil?
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::ThumbnailConfiguration.validate!(input[:thumbnail_configuration], context: "#{context}[:thumbnail_configuration]") unless input[:thumbnail_configuration].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ThumbnailConfiguration.validate!(input[:thumbnail_configuration], context: "#{context}[:thumbnail_configuration]") unless input[:thumbnail_configuration].nil?
       end
     end
 
@@ -550,7 +552,7 @@ module AWS::SDK::Ivs
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RecordingConfigurationSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RecordingConfigurationSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -560,9 +562,9 @@ module AWS::SDK::Ivs
         Hearth::Validator.validate!(input, Types::RecordingConfigurationSummary, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::DestinationConfiguration.validate!(input[:destination_configuration], context: "#{context}[:destination_configuration]") unless input[:destination_configuration].nil?
+        DestinationConfiguration.validate!(input[:destination_configuration], context: "#{context}[:destination_configuration]") unless input[:destination_configuration].nil?
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -626,7 +628,7 @@ module AWS::SDK::Ivs
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::StreamEvent.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          StreamEvent.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -644,7 +646,7 @@ module AWS::SDK::Ivs
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:value], ::String, context: "#{context}[:value]")
         Hearth::Validator.validate!(input[:channel_arn], ::String, context: "#{context}[:channel_arn]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -661,7 +663,7 @@ module AWS::SDK::Ivs
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::StreamKeySummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          StreamKeySummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -671,7 +673,7 @@ module AWS::SDK::Ivs
         Hearth::Validator.validate!(input, Types::StreamKeySummary, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:channel_arn], ::String, context: "#{context}[:channel_arn]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -679,7 +681,7 @@ module AWS::SDK::Ivs
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::StreamKey.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          StreamKey.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -688,7 +690,7 @@ module AWS::SDK::Ivs
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::StreamSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          StreamSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -699,10 +701,10 @@ module AWS::SDK::Ivs
         Hearth::Validator.validate!(input[:stream_id], ::String, context: "#{context}[:stream_id]")
         Hearth::Validator.validate!(input[:start_time], ::Time, context: "#{context}[:start_time]")
         Hearth::Validator.validate!(input[:end_time], ::Time, context: "#{context}[:end_time]")
-        Validators::Channel.validate!(input[:channel], context: "#{context}[:channel]") unless input[:channel].nil?
-        Validators::IngestConfiguration.validate!(input[:ingest_configuration], context: "#{context}[:ingest_configuration]") unless input[:ingest_configuration].nil?
-        Validators::RecordingConfiguration.validate!(input[:recording_configuration], context: "#{context}[:recording_configuration]") unless input[:recording_configuration].nil?
-        Validators::StreamEvents.validate!(input[:truncated_events], context: "#{context}[:truncated_events]") unless input[:truncated_events].nil?
+        Channel.validate!(input[:channel], context: "#{context}[:channel]") unless input[:channel].nil?
+        IngestConfiguration.validate!(input[:ingest_configuration], context: "#{context}[:ingest_configuration]") unless input[:ingest_configuration].nil?
+        RecordingConfiguration.validate!(input[:recording_configuration], context: "#{context}[:recording_configuration]") unless input[:recording_configuration].nil?
+        StreamEvents.validate!(input[:truncated_events], context: "#{context}[:truncated_events]") unless input[:truncated_events].nil?
       end
     end
 
@@ -710,7 +712,7 @@ module AWS::SDK::Ivs
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::StreamSessionSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          StreamSessionSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -757,7 +759,7 @@ module AWS::SDK::Ivs
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -796,7 +798,7 @@ module AWS::SDK::Ivs
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -821,7 +823,7 @@ module AWS::SDK::Ivs
     class UpdateChannelOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateChannelOutput, context: context)
-        Validators::Channel.validate!(input[:channel], context: "#{context}[:channel]") unless input[:channel].nil?
+        Channel.validate!(input[:channel], context: "#{context}[:channel]") unless input[:channel].nil?
       end
     end
 

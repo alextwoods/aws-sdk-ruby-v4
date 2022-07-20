@@ -14,10 +14,10 @@ module AWS::SDK::CloudSearchDomain
     class Search
       def self.default(visited=[])
         {
-          status: Stubs::SearchStatus.default(visited),
-          hits: Stubs::Hits.default(visited),
-          facets: Stubs::Facets.default(visited),
-          stats: Stubs::Stats.default(visited),
+          status: SearchStatus.default(visited),
+          hits: Hits.default(visited),
+          facets: Facets.default(visited),
+          stats: Stats.default(visited),
         }
       end
 
@@ -39,7 +39,7 @@ module AWS::SDK::CloudSearchDomain
         return nil if visited.include?('Stats')
         visited = visited + ['Stats']
         {
-          test_key: Stubs::FieldStats.default(visited)
+          test_key: FieldStats.default(visited)
         }
       end
 
@@ -91,7 +91,7 @@ module AWS::SDK::CloudSearchDomain
         return nil if visited.include?('Facets')
         visited = visited + ['Facets']
         {
-          test_key: Stubs::BucketInfo.default(visited)
+          test_key: BucketInfo.default(visited)
         }
       end
 
@@ -111,7 +111,7 @@ module AWS::SDK::CloudSearchDomain
         return nil if visited.include?('BucketInfo')
         visited = visited + ['BucketInfo']
         {
-          buckets: Stubs::BucketList.default(visited),
+          buckets: BucketList.default(visited),
         }
       end
 
@@ -129,7 +129,7 @@ module AWS::SDK::CloudSearchDomain
         return nil if visited.include?('BucketList')
         visited = visited + ['BucketList']
         [
-          Stubs::Bucket.default(visited)
+          Bucket.default(visited)
         ]
       end
 
@@ -172,7 +172,7 @@ module AWS::SDK::CloudSearchDomain
           found: 1,
           start: 1,
           cursor: 'cursor',
-          hit: Stubs::HitList.default(visited),
+          hit: HitList.default(visited),
         }
       end
 
@@ -193,7 +193,7 @@ module AWS::SDK::CloudSearchDomain
         return nil if visited.include?('HitList')
         visited = visited + ['HitList']
         [
-          Stubs::Hit.default(visited)
+          Hit.default(visited)
         ]
       end
 
@@ -214,9 +214,9 @@ module AWS::SDK::CloudSearchDomain
         visited = visited + ['Hit']
         {
           id: 'id',
-          fields: Stubs::Fields.default(visited),
-          exprs: Stubs::Exprs.default(visited),
-          highlights: Stubs::Highlights.default(visited),
+          fields: Fields.default(visited),
+          exprs: Exprs.default(visited),
+          highlights: Highlights.default(visited),
         }
       end
 
@@ -277,7 +277,7 @@ module AWS::SDK::CloudSearchDomain
         return nil if visited.include?('Fields')
         visited = visited + ['Fields']
         {
-          test_key: Stubs::FieldValue.default(visited)
+          test_key: FieldValue.default(visited)
         }
       end
 
@@ -335,8 +335,8 @@ module AWS::SDK::CloudSearchDomain
     class Suggest
       def self.default(visited=[])
         {
-          status: Stubs::SuggestStatus.default(visited),
-          suggest: Stubs::SuggestModel.default(visited),
+          status: SuggestStatus.default(visited),
+          suggest: SuggestModel.default(visited),
         }
       end
 
@@ -358,7 +358,7 @@ module AWS::SDK::CloudSearchDomain
         {
           query: 'query',
           found: 1,
-          suggestions: Stubs::Suggestions.default(visited),
+          suggestions: Suggestions.default(visited),
         }
       end
 
@@ -378,7 +378,7 @@ module AWS::SDK::CloudSearchDomain
         return nil if visited.include?('Suggestions')
         visited = visited + ['Suggestions']
         [
-          Stubs::SuggestionMatch.default(visited)
+          SuggestionMatch.default(visited)
         ]
       end
 
@@ -441,7 +441,7 @@ module AWS::SDK::CloudSearchDomain
           status: 'status',
           adds: 1,
           deletes: 1,
-          warnings: Stubs::DocumentServiceWarnings.default(visited),
+          warnings: DocumentServiceWarnings.default(visited),
         }
       end
 
@@ -463,7 +463,7 @@ module AWS::SDK::CloudSearchDomain
         return nil if visited.include?('DocumentServiceWarnings')
         visited = visited + ['DocumentServiceWarnings']
         [
-          Stubs::DocumentServiceWarning.default(visited)
+          DocumentServiceWarning.default(visited)
         ]
       end
 

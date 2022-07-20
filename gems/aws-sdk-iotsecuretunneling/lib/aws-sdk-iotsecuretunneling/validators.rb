@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::IoTSecureTunneling
   module Validators
 
@@ -42,7 +44,7 @@ module AWS::SDK::IoTSecureTunneling
     class DescribeTunnelOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeTunnelOutput, context: context)
-        Validators::Tunnel.validate!(input[:tunnel], context: "#{context}[:tunnel]") unless input[:tunnel].nil?
+        Tunnel.validate!(input[:tunnel], context: "#{context}[:tunnel]") unless input[:tunnel].nil?
       end
     end
 
@@ -50,7 +52,7 @@ module AWS::SDK::IoTSecureTunneling
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DestinationConfig, context: context)
         Hearth::Validator.validate!(input[:thing_name], ::String, context: "#{context}[:thing_name]")
-        Validators::ServiceList.validate!(input[:services], context: "#{context}[:services]") unless input[:services].nil?
+        ServiceList.validate!(input[:services], context: "#{context}[:services]") unless input[:services].nil?
       end
     end
 
@@ -71,7 +73,7 @@ module AWS::SDK::IoTSecureTunneling
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -87,7 +89,7 @@ module AWS::SDK::IoTSecureTunneling
     class ListTunnelsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTunnelsOutput, context: context)
-        Validators::TunnelSummaryList.validate!(input[:tunnel_summaries], context: "#{context}[:tunnel_summaries]") unless input[:tunnel_summaries].nil?
+        TunnelSummaryList.validate!(input[:tunnel_summaries], context: "#{context}[:tunnel_summaries]") unless input[:tunnel_summaries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -96,9 +98,9 @@ module AWS::SDK::IoTSecureTunneling
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::OpenTunnelInput, context: context)
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::DestinationConfig.validate!(input[:destination_config], context: "#{context}[:destination_config]") unless input[:destination_config].nil?
-        Validators::TimeoutConfig.validate!(input[:timeout_config], context: "#{context}[:timeout_config]") unless input[:timeout_config].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        DestinationConfig.validate!(input[:destination_config], context: "#{context}[:destination_config]") unless input[:destination_config].nil?
+        TimeoutConfig.validate!(input[:timeout_config], context: "#{context}[:timeout_config]") unless input[:timeout_config].nil?
       end
     end
 
@@ -124,7 +126,7 @@ module AWS::SDK::IoTSecureTunneling
         Hearth::Validator.validate!(input, Types::RotateTunnelAccessTokenInput, context: context)
         Hearth::Validator.validate!(input[:tunnel_id], ::String, context: "#{context}[:tunnel_id]")
         Hearth::Validator.validate!(input[:client_mode], ::String, context: "#{context}[:client_mode]")
-        Validators::DestinationConfig.validate!(input[:destination_config], context: "#{context}[:destination_config]") unless input[:destination_config].nil?
+        DestinationConfig.validate!(input[:destination_config], context: "#{context}[:destination_config]") unless input[:destination_config].nil?
       end
     end
 
@@ -167,7 +169,7 @@ module AWS::SDK::IoTSecureTunneling
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -176,7 +178,7 @@ module AWS::SDK::IoTSecureTunneling
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -199,12 +201,12 @@ module AWS::SDK::IoTSecureTunneling
         Hearth::Validator.validate!(input[:tunnel_id], ::String, context: "#{context}[:tunnel_id]")
         Hearth::Validator.validate!(input[:tunnel_arn], ::String, context: "#{context}[:tunnel_arn]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::ConnectionState.validate!(input[:source_connection_state], context: "#{context}[:source_connection_state]") unless input[:source_connection_state].nil?
-        Validators::ConnectionState.validate!(input[:destination_connection_state], context: "#{context}[:destination_connection_state]") unless input[:destination_connection_state].nil?
+        ConnectionState.validate!(input[:source_connection_state], context: "#{context}[:source_connection_state]") unless input[:source_connection_state].nil?
+        ConnectionState.validate!(input[:destination_connection_state], context: "#{context}[:destination_connection_state]") unless input[:destination_connection_state].nil?
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::DestinationConfig.validate!(input[:destination_config], context: "#{context}[:destination_config]") unless input[:destination_config].nil?
-        Validators::TimeoutConfig.validate!(input[:timeout_config], context: "#{context}[:timeout_config]") unless input[:timeout_config].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        DestinationConfig.validate!(input[:destination_config], context: "#{context}[:destination_config]") unless input[:destination_config].nil?
+        TimeoutConfig.validate!(input[:timeout_config], context: "#{context}[:timeout_config]") unless input[:timeout_config].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:last_updated_at], ::Time, context: "#{context}[:last_updated_at]")
       end
@@ -226,7 +228,7 @@ module AWS::SDK::IoTSecureTunneling
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TunnelSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TunnelSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -235,7 +237,7 @@ module AWS::SDK::IoTSecureTunneling
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 

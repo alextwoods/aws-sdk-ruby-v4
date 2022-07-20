@@ -248,7 +248,7 @@ module AWS::SDK::Wisdom
         type.assistant_id = params[:assistant_id]
         type.association_type = params[:association_type]
         type.association = AssistantAssociationInputData.build(params[:association], context: "#{context}[:association]") unless params[:association].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.tags = Tags.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type
       end
@@ -267,7 +267,7 @@ module AWS::SDK::Wisdom
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::CreateAssistantInput, context: context)
         type = Types::CreateAssistantInput.new
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.name = params[:name]
         type.type = params[:type]
         type.description = params[:description]
@@ -296,7 +296,7 @@ module AWS::SDK::Wisdom
         type.override_link_out_uri = params[:override_link_out_uri]
         type.metadata = ContentMetadata.build(params[:metadata], context: "#{context}[:metadata]") unless params[:metadata].nil?
         type.upload_id = params[:upload_id]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.tags = Tags.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type
       end
@@ -315,7 +315,7 @@ module AWS::SDK::Wisdom
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::CreateKnowledgeBaseInput, context: context)
         type = Types::CreateKnowledgeBaseInput.new
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.name = params[:name]
         type.knowledge_base_type = params[:knowledge_base_type]
         type.source_configuration = SourceConfiguration.build(params[:source_configuration], context: "#{context}[:source_configuration]") unless params[:source_configuration].nil?
@@ -340,7 +340,7 @@ module AWS::SDK::Wisdom
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::CreateSessionInput, context: context)
         type = Types::CreateSessionInput.new
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.assistant_id = params[:assistant_id]
         type.name = params[:name]
         type.description = params[:description]

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::GuardDuty
@@ -81,7 +83,7 @@ module AWS::SDK::GuardDuty
     def accept_invitation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AcceptInvitationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AcceptInvitationInput,
         validate_input: @config.validate_input
@@ -160,7 +162,7 @@ module AWS::SDK::GuardDuty
     def archive_findings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ArchiveFindingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ArchiveFindingsInput,
         validate_input: @config.validate_input
@@ -259,7 +261,7 @@ module AWS::SDK::GuardDuty
     def create_detector(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDetectorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDetectorInput,
         validate_input: @config.validate_input
@@ -564,7 +566,7 @@ module AWS::SDK::GuardDuty
     def create_filter(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateFilterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateFilterInput,
         validate_input: @config.validate_input
@@ -665,7 +667,7 @@ module AWS::SDK::GuardDuty
     def create_ip_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateIPSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateIPSetInput,
         validate_input: @config.validate_input
@@ -759,7 +761,7 @@ module AWS::SDK::GuardDuty
     def create_members(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateMembersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateMembersInput,
         validate_input: @config.validate_input
@@ -846,7 +848,7 @@ module AWS::SDK::GuardDuty
     def create_publishing_destination(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreatePublishingDestinationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreatePublishingDestinationInput,
         validate_input: @config.validate_input
@@ -922,7 +924,7 @@ module AWS::SDK::GuardDuty
     def create_sample_findings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateSampleFindingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateSampleFindingsInput,
         validate_input: @config.validate_input
@@ -1022,7 +1024,7 @@ module AWS::SDK::GuardDuty
     def create_threat_intel_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateThreatIntelSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateThreatIntelSetInput,
         validate_input: @config.validate_input
@@ -1098,7 +1100,7 @@ module AWS::SDK::GuardDuty
     def decline_invitations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeclineInvitationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeclineInvitationsInput,
         validate_input: @config.validate_input
@@ -1166,7 +1168,7 @@ module AWS::SDK::GuardDuty
     def delete_detector(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDetectorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDetectorInput,
         validate_input: @config.validate_input
@@ -1237,7 +1239,7 @@ module AWS::SDK::GuardDuty
     def delete_filter(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteFilterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteFilterInput,
         validate_input: @config.validate_input
@@ -1309,7 +1311,7 @@ module AWS::SDK::GuardDuty
     def delete_ip_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteIPSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteIPSetInput,
         validate_input: @config.validate_input
@@ -1384,7 +1386,7 @@ module AWS::SDK::GuardDuty
     def delete_invitations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteInvitationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteInvitationsInput,
         validate_input: @config.validate_input
@@ -1464,7 +1466,7 @@ module AWS::SDK::GuardDuty
     def delete_members(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteMembersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteMembersInput,
         validate_input: @config.validate_input
@@ -1536,7 +1538,7 @@ module AWS::SDK::GuardDuty
     def delete_publishing_destination(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeletePublishingDestinationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeletePublishingDestinationInput,
         validate_input: @config.validate_input
@@ -1607,7 +1609,7 @@ module AWS::SDK::GuardDuty
     def delete_threat_intel_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteThreatIntelSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteThreatIntelSetInput,
         validate_input: @config.validate_input
@@ -1684,7 +1686,7 @@ module AWS::SDK::GuardDuty
     def describe_organization_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeOrganizationConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeOrganizationConfigurationInput,
         validate_input: @config.validate_input
@@ -1764,7 +1766,7 @@ module AWS::SDK::GuardDuty
     def describe_publishing_destination(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribePublishingDestinationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribePublishingDestinationInput,
         validate_input: @config.validate_input
@@ -1833,7 +1835,7 @@ module AWS::SDK::GuardDuty
     def disable_organization_admin_account(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisableOrganizationAdminAccountInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisableOrganizationAdminAccountInput,
         validate_input: @config.validate_input
@@ -1901,7 +1903,7 @@ module AWS::SDK::GuardDuty
     def disassociate_from_master_account(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateFromMasterAccountInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateFromMasterAccountInput,
         validate_input: @config.validate_input
@@ -1982,7 +1984,7 @@ module AWS::SDK::GuardDuty
     def disassociate_members(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateMembersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateMembersInput,
         validate_input: @config.validate_input
@@ -2052,7 +2054,7 @@ module AWS::SDK::GuardDuty
     def enable_organization_admin_account(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::EnableOrganizationAdminAccountInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::EnableOrganizationAdminAccountInput,
         validate_input: @config.validate_input
@@ -2139,7 +2141,7 @@ module AWS::SDK::GuardDuty
     def get_detector(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDetectorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDetectorInput,
         validate_input: @config.validate_input
@@ -2235,7 +2237,7 @@ module AWS::SDK::GuardDuty
     def get_filter(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetFilterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetFilterInput,
         validate_input: @config.validate_input
@@ -2518,7 +2520,7 @@ module AWS::SDK::GuardDuty
     def get_findings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetFindingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetFindingsInput,
         validate_input: @config.validate_input
@@ -2625,7 +2627,7 @@ module AWS::SDK::GuardDuty
     def get_findings_statistics(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetFindingsStatisticsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetFindingsStatisticsInput,
         validate_input: @config.validate_input
@@ -2703,7 +2705,7 @@ module AWS::SDK::GuardDuty
     def get_ip_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetIPSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetIPSetInput,
         validate_input: @config.validate_input
@@ -2767,7 +2769,7 @@ module AWS::SDK::GuardDuty
     def get_invitations_count(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetInvitationsCountInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetInvitationsCountInput,
         validate_input: @config.validate_input
@@ -2840,7 +2842,7 @@ module AWS::SDK::GuardDuty
     def get_master_account(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetMasterAccountInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetMasterAccountInput,
         validate_input: @config.validate_input
@@ -2932,7 +2934,7 @@ module AWS::SDK::GuardDuty
     def get_member_detectors(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetMemberDetectorsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetMemberDetectorsInput,
         validate_input: @config.validate_input
@@ -3021,7 +3023,7 @@ module AWS::SDK::GuardDuty
     def get_members(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetMembersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetMembersInput,
         validate_input: @config.validate_input
@@ -3099,7 +3101,7 @@ module AWS::SDK::GuardDuty
     def get_threat_intel_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetThreatIntelSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetThreatIntelSetInput,
         validate_input: @config.validate_input
@@ -3221,7 +3223,7 @@ module AWS::SDK::GuardDuty
     def get_usage_statistics(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetUsageStatisticsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetUsageStatisticsInput,
         validate_input: @config.validate_input
@@ -3312,7 +3314,7 @@ module AWS::SDK::GuardDuty
     def invite_members(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::InviteMembersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::InviteMembersInput,
         validate_input: @config.validate_input
@@ -3391,7 +3393,7 @@ module AWS::SDK::GuardDuty
     def list_detectors(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDetectorsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDetectorsInput,
         validate_input: @config.validate_input
@@ -3473,7 +3475,7 @@ module AWS::SDK::GuardDuty
     def list_filters(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListFiltersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListFiltersInput,
         validate_input: @config.validate_input
@@ -3742,7 +3744,7 @@ module AWS::SDK::GuardDuty
     def list_findings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListFindingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListFindingsInput,
         validate_input: @config.validate_input
@@ -3827,7 +3829,7 @@ module AWS::SDK::GuardDuty
     def list_ip_sets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListIPSetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListIPSetsInput,
         validate_input: @config.validate_input
@@ -3910,7 +3912,7 @@ module AWS::SDK::GuardDuty
     def list_invitations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListInvitationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListInvitationsInput,
         validate_input: @config.validate_input
@@ -4004,7 +4006,7 @@ module AWS::SDK::GuardDuty
     def list_members(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListMembersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListMembersInput,
         validate_input: @config.validate_input
@@ -4083,7 +4085,7 @@ module AWS::SDK::GuardDuty
     def list_organization_admin_accounts(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListOrganizationAdminAccountsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListOrganizationAdminAccountsInput,
         validate_input: @config.validate_input
@@ -4168,7 +4170,7 @@ module AWS::SDK::GuardDuty
     def list_publishing_destinations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPublishingDestinationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPublishingDestinationsInput,
         validate_input: @config.validate_input
@@ -4239,7 +4241,7 @@ module AWS::SDK::GuardDuty
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -4323,7 +4325,7 @@ module AWS::SDK::GuardDuty
     def list_threat_intel_sets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListThreatIntelSetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListThreatIntelSetsInput,
         validate_input: @config.validate_input
@@ -4403,7 +4405,7 @@ module AWS::SDK::GuardDuty
     def start_monitoring_members(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartMonitoringMembersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartMonitoringMembersInput,
         validate_input: @config.validate_input
@@ -4484,7 +4486,7 @@ module AWS::SDK::GuardDuty
     def stop_monitoring_members(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopMonitoringMembersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopMonitoringMembersInput,
         validate_input: @config.validate_input
@@ -4558,7 +4560,7 @@ module AWS::SDK::GuardDuty
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -4632,7 +4634,7 @@ module AWS::SDK::GuardDuty
     def unarchive_findings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UnarchiveFindingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UnarchiveFindingsInput,
         validate_input: @config.validate_input
@@ -4706,7 +4708,7 @@ module AWS::SDK::GuardDuty
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -4795,7 +4797,7 @@ module AWS::SDK::GuardDuty
     def update_detector(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDetectorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDetectorInput,
         validate_input: @config.validate_input
@@ -4911,7 +4913,7 @@ module AWS::SDK::GuardDuty
     def update_filter(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateFilterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateFilterInput,
         validate_input: @config.validate_input
@@ -4993,7 +4995,7 @@ module AWS::SDK::GuardDuty
     def update_findings_feedback(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateFindingsFeedbackInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateFindingsFeedbackInput,
         validate_input: @config.validate_input
@@ -5077,7 +5079,7 @@ module AWS::SDK::GuardDuty
     def update_ip_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateIPSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateIPSetInput,
         validate_input: @config.validate_input
@@ -5168,7 +5170,7 @@ module AWS::SDK::GuardDuty
     def update_member_detectors(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateMemberDetectorsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateMemberDetectorsInput,
         validate_input: @config.validate_input
@@ -5253,7 +5255,7 @@ module AWS::SDK::GuardDuty
     def update_organization_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateOrganizationConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateOrganizationConfigurationInput,
         validate_input: @config.validate_input
@@ -5334,7 +5336,7 @@ module AWS::SDK::GuardDuty
     def update_publishing_destination(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdatePublishingDestinationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdatePublishingDestinationInput,
         validate_input: @config.validate_input
@@ -5420,7 +5422,7 @@ module AWS::SDK::GuardDuty
     def update_threat_intel_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateThreatIntelSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateThreatIntelSetInput,
         validate_input: @config.validate_input

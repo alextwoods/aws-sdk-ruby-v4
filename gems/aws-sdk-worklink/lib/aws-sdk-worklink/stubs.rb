@@ -109,8 +109,8 @@ module AWS::SDK::WorkLink
       def self.default(visited=[])
         {
           vpc_id: 'vpc_id',
-          subnet_ids: Stubs::SubnetIds.default(visited),
-          security_group_ids: Stubs::SecurityGroupIds.default(visited),
+          subnet_ids: SubnetIds.default(visited),
+          security_group_ids: SecurityGroupIds.default(visited),
         }
       end
 
@@ -251,7 +251,7 @@ module AWS::SDK::WorkLink
           optimize_for_end_user_location: false,
           company_code: 'company_code',
           fleet_status: 'fleet_status',
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -376,7 +376,7 @@ module AWS::SDK::WorkLink
     class ListDevices
       def self.default(visited=[])
         {
-          devices: Stubs::DeviceSummaryList.default(visited),
+          devices: DeviceSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -397,7 +397,7 @@ module AWS::SDK::WorkLink
         return nil if visited.include?('DeviceSummaryList')
         visited = visited + ['DeviceSummaryList']
         [
-          Stubs::DeviceSummary.default(visited)
+          DeviceSummary.default(visited)
         ]
       end
 
@@ -435,7 +435,7 @@ module AWS::SDK::WorkLink
     class ListDomains
       def self.default(visited=[])
         {
-          domains: Stubs::DomainSummaryList.default(visited),
+          domains: DomainSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -456,7 +456,7 @@ module AWS::SDK::WorkLink
         return nil if visited.include?('DomainSummaryList')
         visited = visited + ['DomainSummaryList']
         [
-          Stubs::DomainSummary.default(visited)
+          DomainSummary.default(visited)
         ]
       end
 
@@ -498,7 +498,7 @@ module AWS::SDK::WorkLink
     class ListFleets
       def self.default(visited=[])
         {
-          fleet_summary_list: Stubs::FleetSummaryList.default(visited),
+          fleet_summary_list: FleetSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -519,7 +519,7 @@ module AWS::SDK::WorkLink
         return nil if visited.include?('FleetSummaryList')
         visited = visited + ['FleetSummaryList']
         [
-          Stubs::FleetSummary.default(visited)
+          FleetSummary.default(visited)
         ]
       end
 
@@ -546,7 +546,7 @@ module AWS::SDK::WorkLink
           display_name: 'display_name',
           company_code: 'company_code',
           fleet_status: 'fleet_status',
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -569,7 +569,7 @@ module AWS::SDK::WorkLink
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -586,7 +586,7 @@ module AWS::SDK::WorkLink
     class ListWebsiteAuthorizationProviders
       def self.default(visited=[])
         {
-          website_authorization_providers: Stubs::WebsiteAuthorizationProvidersSummaryList.default(visited),
+          website_authorization_providers: WebsiteAuthorizationProvidersSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -607,7 +607,7 @@ module AWS::SDK::WorkLink
         return nil if visited.include?('WebsiteAuthorizationProvidersSummaryList')
         visited = visited + ['WebsiteAuthorizationProvidersSummaryList']
         [
-          Stubs::WebsiteAuthorizationProviderSummary.default(visited)
+          WebsiteAuthorizationProviderSummary.default(visited)
         ]
       end
 
@@ -649,7 +649,7 @@ module AWS::SDK::WorkLink
     class ListWebsiteCertificateAuthorities
       def self.default(visited=[])
         {
-          website_certificate_authorities: Stubs::WebsiteCaSummaryList.default(visited),
+          website_certificate_authorities: WebsiteCaSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -670,7 +670,7 @@ module AWS::SDK::WorkLink
         return nil if visited.include?('WebsiteCaSummaryList')
         visited = visited + ['WebsiteCaSummaryList']
         [
-          Stubs::WebsiteCaSummary.default(visited)
+          WebsiteCaSummary.default(visited)
         ]
       end
 

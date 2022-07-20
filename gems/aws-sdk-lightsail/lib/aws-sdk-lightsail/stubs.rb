@@ -14,7 +14,7 @@ module AWS::SDK::Lightsail
     class AllocateStaticIp
       def self.default(visited=[])
         {
-          operations: Stubs::OperationList.default(visited),
+          operations: OperationList.default(visited),
         }
       end
 
@@ -32,7 +32,7 @@ module AWS::SDK::Lightsail
         return nil if visited.include?('OperationList')
         visited = visited + ['OperationList']
         [
-          Stubs::Operation.default(visited)
+          Operation.default(visited)
         ]
       end
 
@@ -56,7 +56,7 @@ module AWS::SDK::Lightsail
           resource_name: 'resource_name',
           resource_type: 'resource_type',
           created_at: Time.now,
-          location: Stubs::ResourceLocation.default(visited),
+          location: ResourceLocation.default(visited),
           is_terminal: false,
           operation_details: 'operation_details',
           operation_type: 'operation_type',
@@ -110,7 +110,7 @@ module AWS::SDK::Lightsail
     class AttachCertificateToDistribution
       def self.default(visited=[])
         {
-          operation: Stubs::Operation.default(visited),
+          operation: Operation.default(visited),
         }
       end
 
@@ -126,7 +126,7 @@ module AWS::SDK::Lightsail
     class AttachDisk
       def self.default(visited=[])
         {
-          operations: Stubs::OperationList.default(visited),
+          operations: OperationList.default(visited),
         }
       end
 
@@ -142,7 +142,7 @@ module AWS::SDK::Lightsail
     class AttachInstancesToLoadBalancer
       def self.default(visited=[])
         {
-          operations: Stubs::OperationList.default(visited),
+          operations: OperationList.default(visited),
         }
       end
 
@@ -158,7 +158,7 @@ module AWS::SDK::Lightsail
     class AttachLoadBalancerTlsCertificate
       def self.default(visited=[])
         {
-          operations: Stubs::OperationList.default(visited),
+          operations: OperationList.default(visited),
         }
       end
 
@@ -174,7 +174,7 @@ module AWS::SDK::Lightsail
     class AttachStaticIp
       def self.default(visited=[])
         {
-          operations: Stubs::OperationList.default(visited),
+          operations: OperationList.default(visited),
         }
       end
 
@@ -190,7 +190,7 @@ module AWS::SDK::Lightsail
     class CloseInstancePublicPorts
       def self.default(visited=[])
         {
-          operation: Stubs::Operation.default(visited),
+          operation: Operation.default(visited),
         }
       end
 
@@ -206,7 +206,7 @@ module AWS::SDK::Lightsail
     class CopySnapshot
       def self.default(visited=[])
         {
-          operations: Stubs::OperationList.default(visited),
+          operations: OperationList.default(visited),
         }
       end
 
@@ -222,8 +222,8 @@ module AWS::SDK::Lightsail
     class CreateBucket
       def self.default(visited=[])
         {
-          bucket: Stubs::Bucket.default(visited),
-          operations: Stubs::OperationList.default(visited),
+          bucket: Bucket.default(visited),
+          operations: OperationList.default(visited),
         }
       end
 
@@ -243,21 +243,21 @@ module AWS::SDK::Lightsail
         visited = visited + ['Bucket']
         {
           resource_type: 'resource_type',
-          access_rules: Stubs::AccessRules.default(visited),
+          access_rules: AccessRules.default(visited),
           arn: 'arn',
           bundle_id: 'bundle_id',
           created_at: Time.now,
           url: 'url',
-          location: Stubs::ResourceLocation.default(visited),
+          location: ResourceLocation.default(visited),
           name: 'name',
           support_code: 'support_code',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           object_versioning: 'object_versioning',
           able_to_update_bundle: false,
-          readonly_access_accounts: Stubs::PartnerIdList.default(visited),
-          resources_receiving_access: Stubs::AccessReceiverList.default(visited),
-          state: Stubs::BucketState.default(visited),
-          access_log_config: Stubs::BucketAccessLogConfig.default(visited),
+          readonly_access_accounts: PartnerIdList.default(visited),
+          resources_receiving_access: AccessReceiverList.default(visited),
+          state: BucketState.default(visited),
+          access_log_config: BucketAccessLogConfig.default(visited),
         }
       end
 
@@ -332,7 +332,7 @@ module AWS::SDK::Lightsail
         return nil if visited.include?('AccessReceiverList')
         visited = visited + ['AccessReceiverList']
         [
-          Stubs::ResourceReceivingAccess.default(visited)
+          ResourceReceivingAccess.default(visited)
         ]
       end
 
@@ -392,7 +392,7 @@ module AWS::SDK::Lightsail
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -450,8 +450,8 @@ module AWS::SDK::Lightsail
     class CreateBucketAccessKey
       def self.default(visited=[])
         {
-          access_key: Stubs::AccessKey.default(visited),
-          operations: Stubs::OperationList.default(visited),
+          access_key: AccessKey.default(visited),
+          operations: OperationList.default(visited),
         }
       end
 
@@ -474,7 +474,7 @@ module AWS::SDK::Lightsail
           secret_access_key: 'secret_access_key',
           status: 'status',
           created_at: Time.now,
-          last_used: Stubs::AccessKeyLastUsed.default(visited),
+          last_used: AccessKeyLastUsed.default(visited),
         }
       end
 
@@ -516,8 +516,8 @@ module AWS::SDK::Lightsail
     class CreateCertificate
       def self.default(visited=[])
         {
-          certificate: Stubs::CertificateSummary.default(visited),
-          operations: Stubs::OperationList.default(visited),
+          certificate: CertificateSummary.default(visited),
+          operations: OperationList.default(visited),
         }
       end
 
@@ -539,8 +539,8 @@ module AWS::SDK::Lightsail
           certificate_arn: 'certificate_arn',
           certificate_name: 'certificate_name',
           domain_name: 'domain_name',
-          certificate_detail: Stubs::Certificate.default(visited),
-          tags: Stubs::TagList.default(visited),
+          certificate_detail: Certificate.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -567,8 +567,8 @@ module AWS::SDK::Lightsail
           domain_name: 'domain_name',
           status: 'status',
           serial_number: 'serial_number',
-          subject_alternative_names: Stubs::SubjectAlternativeNameList.default(visited),
-          domain_validation_records: Stubs::DomainValidationRecordList.default(visited),
+          subject_alternative_names: SubjectAlternativeNameList.default(visited),
+          domain_validation_records: DomainValidationRecordList.default(visited),
           request_failure_reason: 'request_failure_reason',
           in_use_resource_count: 1,
           key_algorithm: 'key_algorithm',
@@ -578,10 +578,10 @@ module AWS::SDK::Lightsail
           not_before: Time.now,
           not_after: Time.now,
           eligible_to_renew: 'eligible_to_renew',
-          renewal_summary: Stubs::RenewalSummary.default(visited),
+          renewal_summary: RenewalSummary.default(visited),
           revoked_at: Time.now,
           revocation_reason: 'revocation_reason',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           support_code: 'support_code',
         }
       end
@@ -620,7 +620,7 @@ module AWS::SDK::Lightsail
         return nil if visited.include?('RenewalSummary')
         visited = visited + ['RenewalSummary']
         {
-          domain_validation_records: Stubs::DomainValidationRecordList.default(visited),
+          domain_validation_records: DomainValidationRecordList.default(visited),
           renewal_status: 'renewal_status',
           renewal_status_reason: 'renewal_status_reason',
           updated_at: Time.now,
@@ -644,7 +644,7 @@ module AWS::SDK::Lightsail
         return nil if visited.include?('DomainValidationRecordList')
         visited = visited + ['DomainValidationRecordList']
         [
-          Stubs::DomainValidationRecord.default(visited)
+          DomainValidationRecord.default(visited)
         ]
       end
 
@@ -665,7 +665,7 @@ module AWS::SDK::Lightsail
         visited = visited + ['DomainValidationRecord']
         {
           domain_name: 'domain_name',
-          resource_record: Stubs::ResourceRecord.default(visited),
+          resource_record: ResourceRecord.default(visited),
         }
       end
 
@@ -724,7 +724,7 @@ module AWS::SDK::Lightsail
     class CreateCloudFormationStack
       def self.default(visited=[])
         {
-          operations: Stubs::OperationList.default(visited),
+          operations: OperationList.default(visited),
         }
       end
 
@@ -740,7 +740,7 @@ module AWS::SDK::Lightsail
     class CreateContactMethod
       def self.default(visited=[])
         {
-          operations: Stubs::OperationList.default(visited),
+          operations: OperationList.default(visited),
         }
       end
 
@@ -756,7 +756,7 @@ module AWS::SDK::Lightsail
     class CreateContainerService
       def self.default(visited=[])
         {
-          container_service: Stubs::ContainerService.default(visited),
+          container_service: ContainerService.default(visited),
         }
       end
 
@@ -777,22 +777,22 @@ module AWS::SDK::Lightsail
           container_service_name: 'container_service_name',
           arn: 'arn',
           created_at: Time.now,
-          location: Stubs::ResourceLocation.default(visited),
+          location: ResourceLocation.default(visited),
           resource_type: 'resource_type',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           power: 'power',
           power_id: 'power_id',
           state: 'state',
-          state_detail: Stubs::ContainerServiceStateDetail.default(visited),
+          state_detail: ContainerServiceStateDetail.default(visited),
           scale: 1,
-          current_deployment: Stubs::ContainerServiceDeployment.default(visited),
-          next_deployment: Stubs::ContainerServiceDeployment.default(visited),
+          current_deployment: ContainerServiceDeployment.default(visited),
+          next_deployment: ContainerServiceDeployment.default(visited),
           is_disabled: false,
           principal_arn: 'principal_arn',
           private_domain_name: 'private_domain_name',
-          public_domain_names: Stubs::ContainerServicePublicDomains.default(visited),
+          public_domain_names: ContainerServicePublicDomains.default(visited),
           url: 'url',
-          private_registry_access: Stubs::PrivateRegistryAccess.default(visited),
+          private_registry_access: PrivateRegistryAccess.default(visited),
         }
       end
 
@@ -828,7 +828,7 @@ module AWS::SDK::Lightsail
         return nil if visited.include?('PrivateRegistryAccess')
         visited = visited + ['PrivateRegistryAccess']
         {
-          ecr_image_puller_role: Stubs::ContainerServiceECRImagePullerRole.default(visited),
+          ecr_image_puller_role: ContainerServiceECRImagePullerRole.default(visited),
         }
       end
 
@@ -866,7 +866,7 @@ module AWS::SDK::Lightsail
         return nil if visited.include?('ContainerServicePublicDomains')
         visited = visited + ['ContainerServicePublicDomains']
         {
-          test_key: Stubs::ContainerServicePublicDomainsList.default(visited)
+          test_key: ContainerServicePublicDomainsList.default(visited)
         }
       end
 
@@ -908,8 +908,8 @@ module AWS::SDK::Lightsail
         {
           version: 1,
           state: 'state',
-          containers: Stubs::ContainerMap.default(visited),
-          public_endpoint: Stubs::ContainerServiceEndpoint.default(visited),
+          containers: ContainerMap.default(visited),
+          public_endpoint: ContainerServiceEndpoint.default(visited),
           created_at: Time.now,
         }
       end
@@ -934,7 +934,7 @@ module AWS::SDK::Lightsail
         {
           container_name: 'container_name',
           container_port: 1,
-          health_check: Stubs::ContainerServiceHealthCheckConfig.default(visited),
+          health_check: ContainerServiceHealthCheckConfig.default(visited),
         }
       end
 
@@ -982,7 +982,7 @@ module AWS::SDK::Lightsail
         return nil if visited.include?('ContainerMap')
         visited = visited + ['ContainerMap']
         {
-          test_key: Stubs::Container.default(visited)
+          test_key: Container.default(visited)
         }
       end
 
@@ -1003,9 +1003,9 @@ module AWS::SDK::Lightsail
         visited = visited + ['Container']
         {
           image: 'image',
-          command: Stubs::StringList.default(visited),
-          environment: Stubs::Environment.default(visited),
-          ports: Stubs::PortMap.default(visited),
+          command: StringList.default(visited),
+          environment: Environment.default(visited),
+          ports: PortMap.default(visited),
         }
       end
 
@@ -1104,7 +1104,7 @@ module AWS::SDK::Lightsail
     class CreateContainerServiceDeployment
       def self.default(visited=[])
         {
-          container_service: Stubs::ContainerService.default(visited),
+          container_service: ContainerService.default(visited),
         }
       end
 
@@ -1120,7 +1120,7 @@ module AWS::SDK::Lightsail
     class CreateContainerServiceRegistryLogin
       def self.default(visited=[])
         {
-          registry_login: Stubs::ContainerServiceRegistryLogin.default(visited),
+          registry_login: ContainerServiceRegistryLogin.default(visited),
         }
       end
 
@@ -1160,7 +1160,7 @@ module AWS::SDK::Lightsail
     class CreateDisk
       def self.default(visited=[])
         {
-          operations: Stubs::OperationList.default(visited),
+          operations: OperationList.default(visited),
         }
       end
 
@@ -1176,7 +1176,7 @@ module AWS::SDK::Lightsail
     class CreateDiskFromSnapshot
       def self.default(visited=[])
         {
-          operations: Stubs::OperationList.default(visited),
+          operations: OperationList.default(visited),
         }
       end
 
@@ -1192,7 +1192,7 @@ module AWS::SDK::Lightsail
     class CreateDiskSnapshot
       def self.default(visited=[])
         {
-          operations: Stubs::OperationList.default(visited),
+          operations: OperationList.default(visited),
         }
       end
 
@@ -1208,8 +1208,8 @@ module AWS::SDK::Lightsail
     class CreateDistribution
       def self.default(visited=[])
         {
-          distribution: Stubs::LightsailDistribution.default(visited),
-          operation: Stubs::Operation.default(visited),
+          distribution: LightsailDistribution.default(visited),
+          operation: Operation.default(visited),
         }
       end
 
@@ -1232,22 +1232,22 @@ module AWS::SDK::Lightsail
           arn: 'arn',
           support_code: 'support_code',
           created_at: Time.now,
-          location: Stubs::ResourceLocation.default(visited),
+          location: ResourceLocation.default(visited),
           resource_type: 'resource_type',
-          alternative_domain_names: Stubs::StringList.default(visited),
+          alternative_domain_names: StringList.default(visited),
           status: 'status',
           is_enabled: false,
           domain_name: 'domain_name',
           bundle_id: 'bundle_id',
           certificate_name: 'certificate_name',
-          origin: Stubs::Origin.default(visited),
+          origin: Origin.default(visited),
           origin_public_dns: 'origin_public_dns',
-          default_cache_behavior: Stubs::CacheBehavior.default(visited),
-          cache_behavior_settings: Stubs::CacheSettings.default(visited),
-          cache_behaviors: Stubs::CacheBehaviorList.default(visited),
+          default_cache_behavior: CacheBehavior.default(visited),
+          cache_behavior_settings: CacheSettings.default(visited),
+          cache_behaviors: CacheBehaviorList.default(visited),
           able_to_update_bundle: false,
           ip_address_type: 'ip_address_type',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -1284,7 +1284,7 @@ module AWS::SDK::Lightsail
         return nil if visited.include?('CacheBehaviorList')
         visited = visited + ['CacheBehaviorList']
         [
-          Stubs::CacheBehaviorPerPath.default(visited)
+          CacheBehaviorPerPath.default(visited)
         ]
       end
 
@@ -1329,9 +1329,9 @@ module AWS::SDK::Lightsail
           maximum_ttl: 1,
           allowed_http_methods: 'allowed_http_methods',
           cached_http_methods: 'cached_http_methods',
-          forwarded_cookies: Stubs::CookieObject.default(visited),
-          forwarded_headers: Stubs::HeaderObject.default(visited),
-          forwarded_query_strings: Stubs::QueryStringObject.default(visited),
+          forwarded_cookies: CookieObject.default(visited),
+          forwarded_headers: HeaderObject.default(visited),
+          forwarded_query_strings: QueryStringObject.default(visited),
         }
       end
 
@@ -1357,7 +1357,7 @@ module AWS::SDK::Lightsail
         visited = visited + ['QueryStringObject']
         {
           option: false,
-          query_strings_allow_list: Stubs::StringList.default(visited),
+          query_strings_allow_list: StringList.default(visited),
         }
       end
 
@@ -1377,7 +1377,7 @@ module AWS::SDK::Lightsail
         visited = visited + ['HeaderObject']
         {
           option: 'option',
-          headers_allow_list: Stubs::HeaderForwardList.default(visited),
+          headers_allow_list: HeaderForwardList.default(visited),
         }
       end
 
@@ -1417,7 +1417,7 @@ module AWS::SDK::Lightsail
         visited = visited + ['CookieObject']
         {
           option: 'option',
-          cookies_allow_list: Stubs::StringList.default(visited),
+          cookies_allow_list: StringList.default(visited),
         }
       end
 
@@ -1476,7 +1476,7 @@ module AWS::SDK::Lightsail
     class CreateDomain
       def self.default(visited=[])
         {
-          operation: Stubs::Operation.default(visited),
+          operation: Operation.default(visited),
         }
       end
 
@@ -1492,7 +1492,7 @@ module AWS::SDK::Lightsail
     class CreateDomainEntry
       def self.default(visited=[])
         {
-          operation: Stubs::Operation.default(visited),
+          operation: Operation.default(visited),
         }
       end
 
@@ -1508,7 +1508,7 @@ module AWS::SDK::Lightsail
     class CreateInstanceSnapshot
       def self.default(visited=[])
         {
-          operations: Stubs::OperationList.default(visited),
+          operations: OperationList.default(visited),
         }
       end
 
@@ -1524,7 +1524,7 @@ module AWS::SDK::Lightsail
     class CreateInstances
       def self.default(visited=[])
         {
-          operations: Stubs::OperationList.default(visited),
+          operations: OperationList.default(visited),
         }
       end
 
@@ -1540,7 +1540,7 @@ module AWS::SDK::Lightsail
     class CreateInstancesFromSnapshot
       def self.default(visited=[])
         {
-          operations: Stubs::OperationList.default(visited),
+          operations: OperationList.default(visited),
         }
       end
 
@@ -1556,10 +1556,10 @@ module AWS::SDK::Lightsail
     class CreateKeyPair
       def self.default(visited=[])
         {
-          key_pair: Stubs::KeyPair.default(visited),
+          key_pair: KeyPair.default(visited),
           public_key_base64: 'public_key_base64',
           private_key_base64: 'private_key_base64',
-          operation: Stubs::Operation.default(visited),
+          operation: Operation.default(visited),
         }
       end
 
@@ -1584,9 +1584,9 @@ module AWS::SDK::Lightsail
           arn: 'arn',
           support_code: 'support_code',
           created_at: Time.now,
-          location: Stubs::ResourceLocation.default(visited),
+          location: ResourceLocation.default(visited),
           resource_type: 'resource_type',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           fingerprint: 'fingerprint',
         }
       end
@@ -1610,7 +1610,7 @@ module AWS::SDK::Lightsail
     class CreateLoadBalancer
       def self.default(visited=[])
         {
-          operations: Stubs::OperationList.default(visited),
+          operations: OperationList.default(visited),
         }
       end
 
@@ -1626,7 +1626,7 @@ module AWS::SDK::Lightsail
     class CreateLoadBalancerTlsCertificate
       def self.default(visited=[])
         {
-          operations: Stubs::OperationList.default(visited),
+          operations: OperationList.default(visited),
         }
       end
 
@@ -1642,7 +1642,7 @@ module AWS::SDK::Lightsail
     class CreateRelationalDatabase
       def self.default(visited=[])
         {
-          operations: Stubs::OperationList.default(visited),
+          operations: OperationList.default(visited),
         }
       end
 
@@ -1658,7 +1658,7 @@ module AWS::SDK::Lightsail
     class CreateRelationalDatabaseFromSnapshot
       def self.default(visited=[])
         {
-          operations: Stubs::OperationList.default(visited),
+          operations: OperationList.default(visited),
         }
       end
 
@@ -1674,7 +1674,7 @@ module AWS::SDK::Lightsail
     class CreateRelationalDatabaseSnapshot
       def self.default(visited=[])
         {
-          operations: Stubs::OperationList.default(visited),
+          operations: OperationList.default(visited),
         }
       end
 
@@ -1690,7 +1690,7 @@ module AWS::SDK::Lightsail
     class DeleteAlarm
       def self.default(visited=[])
         {
-          operations: Stubs::OperationList.default(visited),
+          operations: OperationList.default(visited),
         }
       end
 
@@ -1706,7 +1706,7 @@ module AWS::SDK::Lightsail
     class DeleteAutoSnapshot
       def self.default(visited=[])
         {
-          operations: Stubs::OperationList.default(visited),
+          operations: OperationList.default(visited),
         }
       end
 
@@ -1722,7 +1722,7 @@ module AWS::SDK::Lightsail
     class DeleteBucket
       def self.default(visited=[])
         {
-          operations: Stubs::OperationList.default(visited),
+          operations: OperationList.default(visited),
         }
       end
 
@@ -1738,7 +1738,7 @@ module AWS::SDK::Lightsail
     class DeleteBucketAccessKey
       def self.default(visited=[])
         {
-          operations: Stubs::OperationList.default(visited),
+          operations: OperationList.default(visited),
         }
       end
 
@@ -1754,7 +1754,7 @@ module AWS::SDK::Lightsail
     class DeleteCertificate
       def self.default(visited=[])
         {
-          operations: Stubs::OperationList.default(visited),
+          operations: OperationList.default(visited),
         }
       end
 
@@ -1770,7 +1770,7 @@ module AWS::SDK::Lightsail
     class DeleteContactMethod
       def self.default(visited=[])
         {
-          operations: Stubs::OperationList.default(visited),
+          operations: OperationList.default(visited),
         }
       end
 
@@ -1814,7 +1814,7 @@ module AWS::SDK::Lightsail
     class DeleteDisk
       def self.default(visited=[])
         {
-          operations: Stubs::OperationList.default(visited),
+          operations: OperationList.default(visited),
         }
       end
 
@@ -1830,7 +1830,7 @@ module AWS::SDK::Lightsail
     class DeleteDiskSnapshot
       def self.default(visited=[])
         {
-          operations: Stubs::OperationList.default(visited),
+          operations: OperationList.default(visited),
         }
       end
 
@@ -1846,7 +1846,7 @@ module AWS::SDK::Lightsail
     class DeleteDistribution
       def self.default(visited=[])
         {
-          operation: Stubs::Operation.default(visited),
+          operation: Operation.default(visited),
         }
       end
 
@@ -1862,7 +1862,7 @@ module AWS::SDK::Lightsail
     class DeleteDomain
       def self.default(visited=[])
         {
-          operation: Stubs::Operation.default(visited),
+          operation: Operation.default(visited),
         }
       end
 
@@ -1878,7 +1878,7 @@ module AWS::SDK::Lightsail
     class DeleteDomainEntry
       def self.default(visited=[])
         {
-          operation: Stubs::Operation.default(visited),
+          operation: Operation.default(visited),
         }
       end
 
@@ -1894,7 +1894,7 @@ module AWS::SDK::Lightsail
     class DeleteInstance
       def self.default(visited=[])
         {
-          operations: Stubs::OperationList.default(visited),
+          operations: OperationList.default(visited),
         }
       end
 
@@ -1910,7 +1910,7 @@ module AWS::SDK::Lightsail
     class DeleteInstanceSnapshot
       def self.default(visited=[])
         {
-          operations: Stubs::OperationList.default(visited),
+          operations: OperationList.default(visited),
         }
       end
 
@@ -1926,7 +1926,7 @@ module AWS::SDK::Lightsail
     class DeleteKeyPair
       def self.default(visited=[])
         {
-          operation: Stubs::Operation.default(visited),
+          operation: Operation.default(visited),
         }
       end
 
@@ -1942,7 +1942,7 @@ module AWS::SDK::Lightsail
     class DeleteKnownHostKeys
       def self.default(visited=[])
         {
-          operations: Stubs::OperationList.default(visited),
+          operations: OperationList.default(visited),
         }
       end
 
@@ -1958,7 +1958,7 @@ module AWS::SDK::Lightsail
     class DeleteLoadBalancer
       def self.default(visited=[])
         {
-          operations: Stubs::OperationList.default(visited),
+          operations: OperationList.default(visited),
         }
       end
 
@@ -1974,7 +1974,7 @@ module AWS::SDK::Lightsail
     class DeleteLoadBalancerTlsCertificate
       def self.default(visited=[])
         {
-          operations: Stubs::OperationList.default(visited),
+          operations: OperationList.default(visited),
         }
       end
 
@@ -1990,7 +1990,7 @@ module AWS::SDK::Lightsail
     class DeleteRelationalDatabase
       def self.default(visited=[])
         {
-          operations: Stubs::OperationList.default(visited),
+          operations: OperationList.default(visited),
         }
       end
 
@@ -2006,7 +2006,7 @@ module AWS::SDK::Lightsail
     class DeleteRelationalDatabaseSnapshot
       def self.default(visited=[])
         {
-          operations: Stubs::OperationList.default(visited),
+          operations: OperationList.default(visited),
         }
       end
 
@@ -2022,7 +2022,7 @@ module AWS::SDK::Lightsail
     class DetachCertificateFromDistribution
       def self.default(visited=[])
         {
-          operation: Stubs::Operation.default(visited),
+          operation: Operation.default(visited),
         }
       end
 
@@ -2038,7 +2038,7 @@ module AWS::SDK::Lightsail
     class DetachDisk
       def self.default(visited=[])
         {
-          operations: Stubs::OperationList.default(visited),
+          operations: OperationList.default(visited),
         }
       end
 
@@ -2054,7 +2054,7 @@ module AWS::SDK::Lightsail
     class DetachInstancesFromLoadBalancer
       def self.default(visited=[])
         {
-          operations: Stubs::OperationList.default(visited),
+          operations: OperationList.default(visited),
         }
       end
 
@@ -2070,7 +2070,7 @@ module AWS::SDK::Lightsail
     class DetachStaticIp
       def self.default(visited=[])
         {
-          operations: Stubs::OperationList.default(visited),
+          operations: OperationList.default(visited),
         }
       end
 
@@ -2086,7 +2086,7 @@ module AWS::SDK::Lightsail
     class DisableAddOn
       def self.default(visited=[])
         {
-          operations: Stubs::OperationList.default(visited),
+          operations: OperationList.default(visited),
         }
       end
 
@@ -2122,7 +2122,7 @@ module AWS::SDK::Lightsail
     class EnableAddOn
       def self.default(visited=[])
         {
-          operations: Stubs::OperationList.default(visited),
+          operations: OperationList.default(visited),
         }
       end
 
@@ -2138,7 +2138,7 @@ module AWS::SDK::Lightsail
     class ExportSnapshot
       def self.default(visited=[])
         {
-          operations: Stubs::OperationList.default(visited),
+          operations: OperationList.default(visited),
         }
       end
 
@@ -2154,7 +2154,7 @@ module AWS::SDK::Lightsail
     class GetActiveNames
       def self.default(visited=[])
         {
-          active_names: Stubs::StringList.default(visited),
+          active_names: StringList.default(visited),
           next_page_token: 'next_page_token',
         }
       end
@@ -2172,7 +2172,7 @@ module AWS::SDK::Lightsail
     class GetAlarms
       def self.default(visited=[])
         {
-          alarms: Stubs::AlarmsList.default(visited),
+          alarms: AlarmsList.default(visited),
           next_page_token: 'next_page_token',
         }
       end
@@ -2192,7 +2192,7 @@ module AWS::SDK::Lightsail
         return nil if visited.include?('AlarmsList')
         visited = visited + ['AlarmsList']
         [
-          Stubs::Alarm.default(visited)
+          Alarm.default(visited)
         ]
       end
 
@@ -2215,10 +2215,10 @@ module AWS::SDK::Lightsail
           name: 'name',
           arn: 'arn',
           created_at: Time.now,
-          location: Stubs::ResourceLocation.default(visited),
+          location: ResourceLocation.default(visited),
           resource_type: 'resource_type',
           support_code: 'support_code',
-          monitored_resource_info: Stubs::MonitoredResourceInfo.default(visited),
+          monitored_resource_info: MonitoredResourceInfo.default(visited),
           comparison_operator: 'comparison_operator',
           evaluation_periods: 1,
           period: 1,
@@ -2229,8 +2229,8 @@ module AWS::SDK::Lightsail
           metric_name: 'metric_name',
           state: 'state',
           unit: 'unit',
-          contact_protocols: Stubs::ContactProtocolsList.default(visited),
-          notification_triggers: Stubs::NotificationTriggerList.default(visited),
+          contact_protocols: ContactProtocolsList.default(visited),
+          notification_triggers: NotificationTriggerList.default(visited),
           notification_enabled: false,
         }
       end
@@ -2330,7 +2330,7 @@ module AWS::SDK::Lightsail
         {
           resource_name: 'resource_name',
           resource_type: 'resource_type',
-          auto_snapshots: Stubs::AutoSnapshotDetailsList.default(visited),
+          auto_snapshots: AutoSnapshotDetailsList.default(visited),
         }
       end
 
@@ -2350,7 +2350,7 @@ module AWS::SDK::Lightsail
         return nil if visited.include?('AutoSnapshotDetailsList')
         visited = visited + ['AutoSnapshotDetailsList']
         [
-          Stubs::AutoSnapshotDetails.default(visited)
+          AutoSnapshotDetails.default(visited)
         ]
       end
 
@@ -2373,7 +2373,7 @@ module AWS::SDK::Lightsail
           date: 'date',
           created_at: Time.now,
           status: 'status',
-          from_attached_disks: Stubs::AttachedDiskList.default(visited),
+          from_attached_disks: AttachedDiskList.default(visited),
         }
       end
 
@@ -2394,7 +2394,7 @@ module AWS::SDK::Lightsail
         return nil if visited.include?('AttachedDiskList')
         visited = visited + ['AttachedDiskList']
         [
-          Stubs::AttachedDisk.default(visited)
+          AttachedDisk.default(visited)
         ]
       end
 
@@ -2432,7 +2432,7 @@ module AWS::SDK::Lightsail
     class GetBlueprints
       def self.default(visited=[])
         {
-          blueprints: Stubs::BlueprintList.default(visited),
+          blueprints: BlueprintList.default(visited),
           next_page_token: 'next_page_token',
         }
       end
@@ -2452,7 +2452,7 @@ module AWS::SDK::Lightsail
         return nil if visited.include?('BlueprintList')
         visited = visited + ['BlueprintList']
         [
-          Stubs::Blueprint.default(visited)
+          Blueprint.default(visited)
         ]
       end
 
@@ -2510,7 +2510,7 @@ module AWS::SDK::Lightsail
     class GetBucketAccessKeys
       def self.default(visited=[])
         {
-          access_keys: Stubs::AccessKeyList.default(visited),
+          access_keys: AccessKeyList.default(visited),
         }
       end
 
@@ -2528,7 +2528,7 @@ module AWS::SDK::Lightsail
         return nil if visited.include?('AccessKeyList')
         visited = visited + ['AccessKeyList']
         [
-          Stubs::AccessKey.default(visited)
+          AccessKey.default(visited)
         ]
       end
 
@@ -2546,7 +2546,7 @@ module AWS::SDK::Lightsail
     class GetBucketBundles
       def self.default(visited=[])
         {
-          bundles: Stubs::BucketBundleList.default(visited),
+          bundles: BucketBundleList.default(visited),
         }
       end
 
@@ -2564,7 +2564,7 @@ module AWS::SDK::Lightsail
         return nil if visited.include?('BucketBundleList')
         visited = visited + ['BucketBundleList']
         [
-          Stubs::BucketBundle.default(visited)
+          BucketBundle.default(visited)
         ]
       end
 
@@ -2611,7 +2611,7 @@ module AWS::SDK::Lightsail
       def self.default(visited=[])
         {
           metric_name: 'metric_name',
-          metric_data: Stubs::MetricDatapointList.default(visited),
+          metric_data: MetricDatapointList.default(visited),
         }
       end
 
@@ -2630,7 +2630,7 @@ module AWS::SDK::Lightsail
         return nil if visited.include?('MetricDatapointList')
         visited = visited + ['MetricDatapointList']
         [
-          Stubs::MetricDatapoint.default(visited)
+          MetricDatapoint.default(visited)
         ]
       end
 
@@ -2678,9 +2678,9 @@ module AWS::SDK::Lightsail
     class GetBuckets
       def self.default(visited=[])
         {
-          buckets: Stubs::BucketList.default(visited),
+          buckets: BucketList.default(visited),
           next_page_token: 'next_page_token',
-          account_level_bpa_sync: Stubs::AccountLevelBpaSync.default(visited),
+          account_level_bpa_sync: AccountLevelBpaSync.default(visited),
         }
       end
 
@@ -2724,7 +2724,7 @@ module AWS::SDK::Lightsail
         return nil if visited.include?('BucketList')
         visited = visited + ['BucketList']
         [
-          Stubs::Bucket.default(visited)
+          Bucket.default(visited)
         ]
       end
 
@@ -2742,7 +2742,7 @@ module AWS::SDK::Lightsail
     class GetBundles
       def self.default(visited=[])
         {
-          bundles: Stubs::BundleList.default(visited),
+          bundles: BundleList.default(visited),
           next_page_token: 'next_page_token',
         }
       end
@@ -2762,7 +2762,7 @@ module AWS::SDK::Lightsail
         return nil if visited.include?('BundleList')
         visited = visited + ['BundleList']
         [
-          Stubs::Bundle.default(visited)
+          Bundle.default(visited)
         ]
       end
 
@@ -2792,7 +2792,7 @@ module AWS::SDK::Lightsail
           power: 1,
           ram_size_in_gb: 1.0,
           transfer_per_month_in_gb: 1,
-          supported_platforms: Stubs::InstancePlatformList.default(visited),
+          supported_platforms: InstancePlatformList.default(visited),
         }
       end
 
@@ -2838,7 +2838,7 @@ module AWS::SDK::Lightsail
     class GetCertificates
       def self.default(visited=[])
         {
-          certificates: Stubs::CertificateSummaryList.default(visited),
+          certificates: CertificateSummaryList.default(visited),
         }
       end
 
@@ -2856,7 +2856,7 @@ module AWS::SDK::Lightsail
         return nil if visited.include?('CertificateSummaryList')
         visited = visited + ['CertificateSummaryList']
         [
-          Stubs::CertificateSummary.default(visited)
+          CertificateSummary.default(visited)
         ]
       end
 
@@ -2874,7 +2874,7 @@ module AWS::SDK::Lightsail
     class GetCloudFormationStackRecords
       def self.default(visited=[])
         {
-          cloud_formation_stack_records: Stubs::CloudFormationStackRecordList.default(visited),
+          cloud_formation_stack_records: CloudFormationStackRecordList.default(visited),
           next_page_token: 'next_page_token',
         }
       end
@@ -2894,7 +2894,7 @@ module AWS::SDK::Lightsail
         return nil if visited.include?('CloudFormationStackRecordList')
         visited = visited + ['CloudFormationStackRecordList']
         [
-          Stubs::CloudFormationStackRecord.default(visited)
+          CloudFormationStackRecord.default(visited)
         ]
       end
 
@@ -2917,11 +2917,11 @@ module AWS::SDK::Lightsail
           name: 'name',
           arn: 'arn',
           created_at: Time.now,
-          location: Stubs::ResourceLocation.default(visited),
+          location: ResourceLocation.default(visited),
           resource_type: 'resource_type',
           state: 'state',
-          source_info: Stubs::CloudFormationStackRecordSourceInfoList.default(visited),
-          destination_info: Stubs::DestinationInfo.default(visited),
+          source_info: CloudFormationStackRecordSourceInfoList.default(visited),
+          destination_info: DestinationInfo.default(visited),
         }
       end
 
@@ -2966,7 +2966,7 @@ module AWS::SDK::Lightsail
         return nil if visited.include?('CloudFormationStackRecordSourceInfoList')
         visited = visited + ['CloudFormationStackRecordSourceInfoList']
         [
-          Stubs::CloudFormationStackRecordSourceInfo.default(visited)
+          CloudFormationStackRecordSourceInfo.default(visited)
         ]
       end
 
@@ -3006,7 +3006,7 @@ module AWS::SDK::Lightsail
     class GetContactMethods
       def self.default(visited=[])
         {
-          contact_methods: Stubs::ContactMethodsList.default(visited),
+          contact_methods: ContactMethodsList.default(visited),
         }
       end
 
@@ -3024,7 +3024,7 @@ module AWS::SDK::Lightsail
         return nil if visited.include?('ContactMethodsList')
         visited = visited + ['ContactMethodsList']
         [
-          Stubs::ContactMethod.default(visited)
+          ContactMethod.default(visited)
         ]
       end
 
@@ -3050,7 +3050,7 @@ module AWS::SDK::Lightsail
           name: 'name',
           arn: 'arn',
           created_at: Time.now,
-          location: Stubs::ResourceLocation.default(visited),
+          location: ResourceLocation.default(visited),
           resource_type: 'resource_type',
           support_code: 'support_code',
         }
@@ -3076,7 +3076,7 @@ module AWS::SDK::Lightsail
     class GetContainerAPIMetadata
       def self.default(visited=[])
         {
-          metadata: Stubs::ContainerServiceMetadataEntryList.default(visited),
+          metadata: ContainerServiceMetadataEntryList.default(visited),
         }
       end
 
@@ -3094,7 +3094,7 @@ module AWS::SDK::Lightsail
         return nil if visited.include?('ContainerServiceMetadataEntryList')
         visited = visited + ['ContainerServiceMetadataEntryList']
         [
-          Stubs::ContainerServiceMetadataEntry.default(visited)
+          ContainerServiceMetadataEntry.default(visited)
         ]
       end
 
@@ -3132,7 +3132,7 @@ module AWS::SDK::Lightsail
     class GetContainerImages
       def self.default(visited=[])
         {
-          container_images: Stubs::ContainerImageList.default(visited),
+          container_images: ContainerImageList.default(visited),
         }
       end
 
@@ -3150,7 +3150,7 @@ module AWS::SDK::Lightsail
         return nil if visited.include?('ContainerImageList')
         visited = visited + ['ContainerImageList']
         [
-          Stubs::ContainerImage.default(visited)
+          ContainerImage.default(visited)
         ]
       end
 
@@ -3190,7 +3190,7 @@ module AWS::SDK::Lightsail
     class GetContainerLog
       def self.default(visited=[])
         {
-          log_events: Stubs::ContainerServiceLogEventList.default(visited),
+          log_events: ContainerServiceLogEventList.default(visited),
           next_page_token: 'next_page_token',
         }
       end
@@ -3210,7 +3210,7 @@ module AWS::SDK::Lightsail
         return nil if visited.include?('ContainerServiceLogEventList')
         visited = visited + ['ContainerServiceLogEventList']
         [
-          Stubs::ContainerServiceLogEvent.default(visited)
+          ContainerServiceLogEvent.default(visited)
         ]
       end
 
@@ -3248,7 +3248,7 @@ module AWS::SDK::Lightsail
     class GetContainerServiceDeployments
       def self.default(visited=[])
         {
-          deployments: Stubs::ContainerServiceDeploymentList.default(visited),
+          deployments: ContainerServiceDeploymentList.default(visited),
         }
       end
 
@@ -3266,7 +3266,7 @@ module AWS::SDK::Lightsail
         return nil if visited.include?('ContainerServiceDeploymentList')
         visited = visited + ['ContainerServiceDeploymentList']
         [
-          Stubs::ContainerServiceDeployment.default(visited)
+          ContainerServiceDeployment.default(visited)
         ]
       end
 
@@ -3285,7 +3285,7 @@ module AWS::SDK::Lightsail
       def self.default(visited=[])
         {
           metric_name: 'metric_name',
-          metric_data: Stubs::MetricDatapointList.default(visited),
+          metric_data: MetricDatapointList.default(visited),
         }
       end
 
@@ -3302,7 +3302,7 @@ module AWS::SDK::Lightsail
     class GetContainerServicePowers
       def self.default(visited=[])
         {
-          powers: Stubs::ContainerServicePowerList.default(visited),
+          powers: ContainerServicePowerList.default(visited),
         }
       end
 
@@ -3320,7 +3320,7 @@ module AWS::SDK::Lightsail
         return nil if visited.include?('ContainerServicePowerList')
         visited = visited + ['ContainerServicePowerList']
         [
-          Stubs::ContainerServicePower.default(visited)
+          ContainerServicePower.default(visited)
         ]
       end
 
@@ -3366,7 +3366,7 @@ module AWS::SDK::Lightsail
     class GetContainerServices
       def self.default(visited=[])
         {
-          container_services: Stubs::ContainerServiceList.default(visited),
+          container_services: ContainerServiceList.default(visited),
         }
       end
 
@@ -3384,7 +3384,7 @@ module AWS::SDK::Lightsail
         return nil if visited.include?('ContainerServiceList')
         visited = visited + ['ContainerServiceList']
         [
-          Stubs::ContainerService.default(visited)
+          ContainerService.default(visited)
         ]
       end
 
@@ -3402,7 +3402,7 @@ module AWS::SDK::Lightsail
     class GetDisk
       def self.default(visited=[])
         {
-          disk: Stubs::Disk.default(visited),
+          disk: Disk.default(visited),
         }
       end
 
@@ -3424,10 +3424,10 @@ module AWS::SDK::Lightsail
           arn: 'arn',
           support_code: 'support_code',
           created_at: Time.now,
-          location: Stubs::ResourceLocation.default(visited),
+          location: ResourceLocation.default(visited),
           resource_type: 'resource_type',
-          tags: Stubs::TagList.default(visited),
-          add_ons: Stubs::AddOnList.default(visited),
+          tags: TagList.default(visited),
+          add_ons: AddOnList.default(visited),
           size_in_gb: 1,
           is_system_disk: false,
           iops: 1,
@@ -3470,7 +3470,7 @@ module AWS::SDK::Lightsail
         return nil if visited.include?('AddOnList')
         visited = visited + ['AddOnList']
         [
-          Stubs::AddOn.default(visited)
+          AddOn.default(visited)
         ]
       end
 
@@ -3512,7 +3512,7 @@ module AWS::SDK::Lightsail
     class GetDiskSnapshot
       def self.default(visited=[])
         {
-          disk_snapshot: Stubs::DiskSnapshot.default(visited),
+          disk_snapshot: DiskSnapshot.default(visited),
         }
       end
 
@@ -3534,9 +3534,9 @@ module AWS::SDK::Lightsail
           arn: 'arn',
           support_code: 'support_code',
           created_at: Time.now,
-          location: Stubs::ResourceLocation.default(visited),
+          location: ResourceLocation.default(visited),
           resource_type: 'resource_type',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           size_in_gb: 1,
           state: 'state',
           progress: 'progress',
@@ -3574,7 +3574,7 @@ module AWS::SDK::Lightsail
     class GetDiskSnapshots
       def self.default(visited=[])
         {
-          disk_snapshots: Stubs::DiskSnapshotList.default(visited),
+          disk_snapshots: DiskSnapshotList.default(visited),
           next_page_token: 'next_page_token',
         }
       end
@@ -3594,7 +3594,7 @@ module AWS::SDK::Lightsail
         return nil if visited.include?('DiskSnapshotList')
         visited = visited + ['DiskSnapshotList']
         [
-          Stubs::DiskSnapshot.default(visited)
+          DiskSnapshot.default(visited)
         ]
       end
 
@@ -3612,7 +3612,7 @@ module AWS::SDK::Lightsail
     class GetDisks
       def self.default(visited=[])
         {
-          disks: Stubs::DiskList.default(visited),
+          disks: DiskList.default(visited),
           next_page_token: 'next_page_token',
         }
       end
@@ -3632,7 +3632,7 @@ module AWS::SDK::Lightsail
         return nil if visited.include?('DiskList')
         visited = visited + ['DiskList']
         [
-          Stubs::Disk.default(visited)
+          Disk.default(visited)
         ]
       end
 
@@ -3650,7 +3650,7 @@ module AWS::SDK::Lightsail
     class GetDistributionBundles
       def self.default(visited=[])
         {
-          bundles: Stubs::DistributionBundleList.default(visited),
+          bundles: DistributionBundleList.default(visited),
         }
       end
 
@@ -3668,7 +3668,7 @@ module AWS::SDK::Lightsail
         return nil if visited.include?('DistributionBundleList')
         visited = visited + ['DistributionBundleList']
         [
-          Stubs::DistributionBundle.default(visited)
+          DistributionBundle.default(visited)
         ]
       end
 
@@ -3731,7 +3731,7 @@ module AWS::SDK::Lightsail
       def self.default(visited=[])
         {
           metric_name: 'metric_name',
-          metric_data: Stubs::MetricDatapointList.default(visited),
+          metric_data: MetricDatapointList.default(visited),
         }
       end
 
@@ -3748,7 +3748,7 @@ module AWS::SDK::Lightsail
     class GetDistributions
       def self.default(visited=[])
         {
-          distributions: Stubs::DistributionList.default(visited),
+          distributions: DistributionList.default(visited),
           next_page_token: 'next_page_token',
         }
       end
@@ -3768,7 +3768,7 @@ module AWS::SDK::Lightsail
         return nil if visited.include?('DistributionList')
         visited = visited + ['DistributionList']
         [
-          Stubs::LightsailDistribution.default(visited)
+          LightsailDistribution.default(visited)
         ]
       end
 
@@ -3786,7 +3786,7 @@ module AWS::SDK::Lightsail
     class GetDomain
       def self.default(visited=[])
         {
-          domain: Stubs::Domain.default(visited),
+          domain: Domain.default(visited),
         }
       end
 
@@ -3808,10 +3808,10 @@ module AWS::SDK::Lightsail
           arn: 'arn',
           support_code: 'support_code',
           created_at: Time.now,
-          location: Stubs::ResourceLocation.default(visited),
+          location: ResourceLocation.default(visited),
           resource_type: 'resource_type',
-          tags: Stubs::TagList.default(visited),
-          domain_entries: Stubs::DomainEntryList.default(visited),
+          tags: TagList.default(visited),
+          domain_entries: DomainEntryList.default(visited),
         }
       end
 
@@ -3836,7 +3836,7 @@ module AWS::SDK::Lightsail
         return nil if visited.include?('DomainEntryList')
         visited = visited + ['DomainEntryList']
         [
-          Stubs::DomainEntry.default(visited)
+          DomainEntry.default(visited)
         ]
       end
 
@@ -3861,7 +3861,7 @@ module AWS::SDK::Lightsail
           target: 'target',
           is_alias: false,
           type: 'type',
-          options: Stubs::DomainEntryOptions.default(visited),
+          options: DomainEntryOptions.default(visited),
         }
       end
 
@@ -3902,7 +3902,7 @@ module AWS::SDK::Lightsail
     class GetDomains
       def self.default(visited=[])
         {
-          domains: Stubs::DomainList.default(visited),
+          domains: DomainList.default(visited),
           next_page_token: 'next_page_token',
         }
       end
@@ -3922,7 +3922,7 @@ module AWS::SDK::Lightsail
         return nil if visited.include?('DomainList')
         visited = visited + ['DomainList']
         [
-          Stubs::Domain.default(visited)
+          Domain.default(visited)
         ]
       end
 
@@ -3940,7 +3940,7 @@ module AWS::SDK::Lightsail
     class GetExportSnapshotRecords
       def self.default(visited=[])
         {
-          export_snapshot_records: Stubs::ExportSnapshotRecordList.default(visited),
+          export_snapshot_records: ExportSnapshotRecordList.default(visited),
           next_page_token: 'next_page_token',
         }
       end
@@ -3960,7 +3960,7 @@ module AWS::SDK::Lightsail
         return nil if visited.include?('ExportSnapshotRecordList')
         visited = visited + ['ExportSnapshotRecordList']
         [
-          Stubs::ExportSnapshotRecord.default(visited)
+          ExportSnapshotRecord.default(visited)
         ]
       end
 
@@ -3983,11 +3983,11 @@ module AWS::SDK::Lightsail
           name: 'name',
           arn: 'arn',
           created_at: Time.now,
-          location: Stubs::ResourceLocation.default(visited),
+          location: ResourceLocation.default(visited),
           resource_type: 'resource_type',
           state: 'state',
-          source_info: Stubs::ExportSnapshotRecordSourceInfo.default(visited),
-          destination_info: Stubs::DestinationInfo.default(visited),
+          source_info: ExportSnapshotRecordSourceInfo.default(visited),
+          destination_info: DestinationInfo.default(visited),
         }
       end
 
@@ -4018,8 +4018,8 @@ module AWS::SDK::Lightsail
           arn: 'arn',
           from_resource_name: 'from_resource_name',
           from_resource_arn: 'from_resource_arn',
-          instance_snapshot_info: Stubs::InstanceSnapshotInfo.default(visited),
-          disk_snapshot_info: Stubs::DiskSnapshotInfo.default(visited),
+          instance_snapshot_info: InstanceSnapshotInfo.default(visited),
+          disk_snapshot_info: DiskSnapshotInfo.default(visited),
         }
       end
 
@@ -4064,7 +4064,7 @@ module AWS::SDK::Lightsail
         {
           from_bundle_id: 'from_bundle_id',
           from_blueprint_id: 'from_blueprint_id',
-          from_disk_info: Stubs::DiskInfoList.default(visited),
+          from_disk_info: DiskInfoList.default(visited),
         }
       end
 
@@ -4084,7 +4084,7 @@ module AWS::SDK::Lightsail
         return nil if visited.include?('DiskInfoList')
         visited = visited + ['DiskInfoList']
         [
-          Stubs::DiskInfo.default(visited)
+          DiskInfo.default(visited)
         ]
       end
 
@@ -4126,7 +4126,7 @@ module AWS::SDK::Lightsail
     class GetInstance
       def self.default(visited=[])
         {
-          instance: Stubs::Instance.default(visited),
+          instance: Instance.default(visited),
         }
       end
 
@@ -4148,21 +4148,21 @@ module AWS::SDK::Lightsail
           arn: 'arn',
           support_code: 'support_code',
           created_at: Time.now,
-          location: Stubs::ResourceLocation.default(visited),
+          location: ResourceLocation.default(visited),
           resource_type: 'resource_type',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           blueprint_id: 'blueprint_id',
           blueprint_name: 'blueprint_name',
           bundle_id: 'bundle_id',
-          add_ons: Stubs::AddOnList.default(visited),
+          add_ons: AddOnList.default(visited),
           is_static_ip: false,
           private_ip_address: 'private_ip_address',
           public_ip_address: 'public_ip_address',
-          ipv6_addresses: Stubs::Ipv6AddressList.default(visited),
+          ipv6_addresses: Ipv6AddressList.default(visited),
           ip_address_type: 'ip_address_type',
-          hardware: Stubs::InstanceHardware.default(visited),
-          networking: Stubs::InstanceNetworking.default(visited),
-          state: Stubs::InstanceState.default(visited),
+          hardware: InstanceHardware.default(visited),
+          networking: InstanceNetworking.default(visited),
+          state: InstanceState.default(visited),
           username: 'username',
           ssh_key_name: 'ssh_key_name',
         }
@@ -4222,8 +4222,8 @@ module AWS::SDK::Lightsail
         return nil if visited.include?('InstanceNetworking')
         visited = visited + ['InstanceNetworking']
         {
-          monthly_transfer: Stubs::MonthlyTransfer.default(visited),
-          ports: Stubs::InstancePortInfoList.default(visited),
+          monthly_transfer: MonthlyTransfer.default(visited),
+          ports: InstancePortInfoList.default(visited),
         }
       end
 
@@ -4242,7 +4242,7 @@ module AWS::SDK::Lightsail
         return nil if visited.include?('InstancePortInfoList')
         visited = visited + ['InstancePortInfoList']
         [
-          Stubs::InstancePortInfo.default(visited)
+          InstancePortInfo.default(visited)
         ]
       end
 
@@ -4269,9 +4269,9 @@ module AWS::SDK::Lightsail
           access_type: 'access_type',
           common_name: 'common_name',
           access_direction: 'access_direction',
-          cidrs: Stubs::StringList.default(visited),
-          ipv6_cidrs: Stubs::StringList.default(visited),
-          cidr_list_aliases: Stubs::StringList.default(visited),
+          cidrs: StringList.default(visited),
+          ipv6_cidrs: StringList.default(visited),
+          cidr_list_aliases: StringList.default(visited),
         }
       end
 
@@ -4317,7 +4317,7 @@ module AWS::SDK::Lightsail
         visited = visited + ['InstanceHardware']
         {
           cpu_count: 1,
-          disks: Stubs::DiskList.default(visited),
+          disks: DiskList.default(visited),
           ram_size_in_gb: 1.0,
         }
       end
@@ -4356,7 +4356,7 @@ module AWS::SDK::Lightsail
     class GetInstanceAccessDetails
       def self.default(visited=[])
         {
-          access_details: Stubs::InstanceAccessDetails.default(visited),
+          access_details: InstanceAccessDetails.default(visited),
         }
       end
 
@@ -4378,12 +4378,12 @@ module AWS::SDK::Lightsail
           expires_at: Time.now,
           ip_address: 'ip_address',
           password: 'password',
-          password_data: Stubs::PasswordData.default(visited),
+          password_data: PasswordData.default(visited),
           private_key: 'private_key',
           protocol: 'protocol',
           instance_name: 'instance_name',
           username: 'username',
-          host_keys: Stubs::HostKeysList.default(visited),
+          host_keys: HostKeysList.default(visited),
         }
       end
 
@@ -4410,7 +4410,7 @@ module AWS::SDK::Lightsail
         return nil if visited.include?('HostKeysList')
         visited = visited + ['HostKeysList']
         [
-          Stubs::HostKeyAttributes.default(visited)
+          HostKeyAttributes.default(visited)
         ]
       end
 
@@ -4479,7 +4479,7 @@ module AWS::SDK::Lightsail
       def self.default(visited=[])
         {
           metric_name: 'metric_name',
-          metric_data: Stubs::MetricDatapointList.default(visited),
+          metric_data: MetricDatapointList.default(visited),
         }
       end
 
@@ -4496,7 +4496,7 @@ module AWS::SDK::Lightsail
     class GetInstancePortStates
       def self.default(visited=[])
         {
-          port_states: Stubs::InstancePortStateList.default(visited),
+          port_states: InstancePortStateList.default(visited),
         }
       end
 
@@ -4514,7 +4514,7 @@ module AWS::SDK::Lightsail
         return nil if visited.include?('InstancePortStateList')
         visited = visited + ['InstancePortStateList']
         [
-          Stubs::InstancePortState.default(visited)
+          InstancePortState.default(visited)
         ]
       end
 
@@ -4538,9 +4538,9 @@ module AWS::SDK::Lightsail
           to_port: 1,
           protocol: 'protocol',
           state: 'state',
-          cidrs: Stubs::StringList.default(visited),
-          ipv6_cidrs: Stubs::StringList.default(visited),
-          cidr_list_aliases: Stubs::StringList.default(visited),
+          cidrs: StringList.default(visited),
+          ipv6_cidrs: StringList.default(visited),
+          cidr_list_aliases: StringList.default(visited),
         }
       end
 
@@ -4562,7 +4562,7 @@ module AWS::SDK::Lightsail
     class GetInstanceSnapshot
       def self.default(visited=[])
         {
-          instance_snapshot: Stubs::InstanceSnapshot.default(visited),
+          instance_snapshot: InstanceSnapshot.default(visited),
         }
       end
 
@@ -4584,12 +4584,12 @@ module AWS::SDK::Lightsail
           arn: 'arn',
           support_code: 'support_code',
           created_at: Time.now,
-          location: Stubs::ResourceLocation.default(visited),
+          location: ResourceLocation.default(visited),
           resource_type: 'resource_type',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           state: 'state',
           progress: 'progress',
-          from_attached_disks: Stubs::DiskList.default(visited),
+          from_attached_disks: DiskList.default(visited),
           from_instance_name: 'from_instance_name',
           from_instance_arn: 'from_instance_arn',
           from_blueprint_id: 'from_blueprint_id',
@@ -4626,7 +4626,7 @@ module AWS::SDK::Lightsail
     class GetInstanceSnapshots
       def self.default(visited=[])
         {
-          instance_snapshots: Stubs::InstanceSnapshotList.default(visited),
+          instance_snapshots: InstanceSnapshotList.default(visited),
           next_page_token: 'next_page_token',
         }
       end
@@ -4646,7 +4646,7 @@ module AWS::SDK::Lightsail
         return nil if visited.include?('InstanceSnapshotList')
         visited = visited + ['InstanceSnapshotList']
         [
-          Stubs::InstanceSnapshot.default(visited)
+          InstanceSnapshot.default(visited)
         ]
       end
 
@@ -4664,7 +4664,7 @@ module AWS::SDK::Lightsail
     class GetInstanceState
       def self.default(visited=[])
         {
-          state: Stubs::InstanceState.default(visited),
+          state: InstanceState.default(visited),
         }
       end
 
@@ -4680,7 +4680,7 @@ module AWS::SDK::Lightsail
     class GetInstances
       def self.default(visited=[])
         {
-          instances: Stubs::InstanceList.default(visited),
+          instances: InstanceList.default(visited),
           next_page_token: 'next_page_token',
         }
       end
@@ -4700,7 +4700,7 @@ module AWS::SDK::Lightsail
         return nil if visited.include?('InstanceList')
         visited = visited + ['InstanceList']
         [
-          Stubs::Instance.default(visited)
+          Instance.default(visited)
         ]
       end
 
@@ -4718,7 +4718,7 @@ module AWS::SDK::Lightsail
     class GetKeyPair
       def self.default(visited=[])
         {
-          key_pair: Stubs::KeyPair.default(visited),
+          key_pair: KeyPair.default(visited),
         }
       end
 
@@ -4734,7 +4734,7 @@ module AWS::SDK::Lightsail
     class GetKeyPairs
       def self.default(visited=[])
         {
-          key_pairs: Stubs::KeyPairList.default(visited),
+          key_pairs: KeyPairList.default(visited),
           next_page_token: 'next_page_token',
         }
       end
@@ -4754,7 +4754,7 @@ module AWS::SDK::Lightsail
         return nil if visited.include?('KeyPairList')
         visited = visited + ['KeyPairList']
         [
-          Stubs::KeyPair.default(visited)
+          KeyPair.default(visited)
         ]
       end
 
@@ -4772,7 +4772,7 @@ module AWS::SDK::Lightsail
     class GetLoadBalancer
       def self.default(visited=[])
         {
-          load_balancer: Stubs::LoadBalancer.default(visited),
+          load_balancer: LoadBalancer.default(visited),
         }
       end
 
@@ -4794,18 +4794,18 @@ module AWS::SDK::Lightsail
           arn: 'arn',
           support_code: 'support_code',
           created_at: Time.now,
-          location: Stubs::ResourceLocation.default(visited),
+          location: ResourceLocation.default(visited),
           resource_type: 'resource_type',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           dns_name: 'dns_name',
           state: 'state',
           protocol: 'protocol',
-          public_ports: Stubs::PortList.default(visited),
+          public_ports: PortList.default(visited),
           health_check_path: 'health_check_path',
           instance_port: 1,
-          instance_health_summary: Stubs::InstanceHealthSummaryList.default(visited),
-          tls_certificate_summaries: Stubs::LoadBalancerTlsCertificateSummaryList.default(visited),
-          configuration_options: Stubs::LoadBalancerConfigurationOptions.default(visited),
+          instance_health_summary: InstanceHealthSummaryList.default(visited),
+          tls_certificate_summaries: LoadBalancerTlsCertificateSummaryList.default(visited),
+          configuration_options: LoadBalancerConfigurationOptions.default(visited),
           ip_address_type: 'ip_address_type',
           https_redirection_enabled: false,
           tls_policy_name: 'tls_policy_name',
@@ -4864,7 +4864,7 @@ module AWS::SDK::Lightsail
         return nil if visited.include?('LoadBalancerTlsCertificateSummaryList')
         visited = visited + ['LoadBalancerTlsCertificateSummaryList']
         [
-          Stubs::LoadBalancerTlsCertificateSummary.default(visited)
+          LoadBalancerTlsCertificateSummary.default(visited)
         ]
       end
 
@@ -4904,7 +4904,7 @@ module AWS::SDK::Lightsail
         return nil if visited.include?('InstanceHealthSummaryList')
         visited = visited + ['InstanceHealthSummaryList']
         [
-          Stubs::InstanceHealthSummary.default(visited)
+          InstanceHealthSummary.default(visited)
         ]
       end
 
@@ -4965,7 +4965,7 @@ module AWS::SDK::Lightsail
       def self.default(visited=[])
         {
           metric_name: 'metric_name',
-          metric_data: Stubs::MetricDatapointList.default(visited),
+          metric_data: MetricDatapointList.default(visited),
         }
       end
 
@@ -4982,7 +4982,7 @@ module AWS::SDK::Lightsail
     class GetLoadBalancerTlsCertificates
       def self.default(visited=[])
         {
-          tls_certificates: Stubs::LoadBalancerTlsCertificateList.default(visited),
+          tls_certificates: LoadBalancerTlsCertificateList.default(visited),
         }
       end
 
@@ -5000,7 +5000,7 @@ module AWS::SDK::Lightsail
         return nil if visited.include?('LoadBalancerTlsCertificateList')
         visited = visited + ['LoadBalancerTlsCertificateList']
         [
-          Stubs::LoadBalancerTlsCertificate.default(visited)
+          LoadBalancerTlsCertificate.default(visited)
         ]
       end
 
@@ -5024,27 +5024,27 @@ module AWS::SDK::Lightsail
           arn: 'arn',
           support_code: 'support_code',
           created_at: Time.now,
-          location: Stubs::ResourceLocation.default(visited),
+          location: ResourceLocation.default(visited),
           resource_type: 'resource_type',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           load_balancer_name: 'load_balancer_name',
           is_attached: false,
           status: 'status',
           domain_name: 'domain_name',
-          domain_validation_records: Stubs::LoadBalancerTlsCertificateDomainValidationRecordList.default(visited),
+          domain_validation_records: LoadBalancerTlsCertificateDomainValidationRecordList.default(visited),
           failure_reason: 'failure_reason',
           issued_at: Time.now,
           issuer: 'issuer',
           key_algorithm: 'key_algorithm',
           not_after: Time.now,
           not_before: Time.now,
-          renewal_summary: Stubs::LoadBalancerTlsCertificateRenewalSummary.default(visited),
+          renewal_summary: LoadBalancerTlsCertificateRenewalSummary.default(visited),
           revocation_reason: 'revocation_reason',
           revoked_at: Time.now,
           serial: 'serial',
           signature_algorithm: 'signature_algorithm',
           subject: 'subject',
-          subject_alternative_names: Stubs::StringList.default(visited),
+          subject_alternative_names: StringList.default(visited),
         }
       end
 
@@ -5087,7 +5087,7 @@ module AWS::SDK::Lightsail
         visited = visited + ['LoadBalancerTlsCertificateRenewalSummary']
         {
           renewal_status: 'renewal_status',
-          domain_validation_options: Stubs::LoadBalancerTlsCertificateDomainValidationOptionList.default(visited),
+          domain_validation_options: LoadBalancerTlsCertificateDomainValidationOptionList.default(visited),
         }
       end
 
@@ -5106,7 +5106,7 @@ module AWS::SDK::Lightsail
         return nil if visited.include?('LoadBalancerTlsCertificateDomainValidationOptionList')
         visited = visited + ['LoadBalancerTlsCertificateDomainValidationOptionList']
         [
-          Stubs::LoadBalancerTlsCertificateDomainValidationOption.default(visited)
+          LoadBalancerTlsCertificateDomainValidationOption.default(visited)
         ]
       end
 
@@ -5146,7 +5146,7 @@ module AWS::SDK::Lightsail
         return nil if visited.include?('LoadBalancerTlsCertificateDomainValidationRecordList')
         visited = visited + ['LoadBalancerTlsCertificateDomainValidationRecordList']
         [
-          Stubs::LoadBalancerTlsCertificateDomainValidationRecord.default(visited)
+          LoadBalancerTlsCertificateDomainValidationRecord.default(visited)
         ]
       end
 
@@ -5190,7 +5190,7 @@ module AWS::SDK::Lightsail
     class GetLoadBalancerTlsPolicies
       def self.default(visited=[])
         {
-          tls_policies: Stubs::LoadBalancerTlsPolicyList.default(visited),
+          tls_policies: LoadBalancerTlsPolicyList.default(visited),
           next_page_token: 'next_page_token',
         }
       end
@@ -5210,7 +5210,7 @@ module AWS::SDK::Lightsail
         return nil if visited.include?('LoadBalancerTlsPolicyList')
         visited = visited + ['LoadBalancerTlsPolicyList']
         [
-          Stubs::LoadBalancerTlsPolicy.default(visited)
+          LoadBalancerTlsPolicy.default(visited)
         ]
       end
 
@@ -5233,8 +5233,8 @@ module AWS::SDK::Lightsail
           name: 'name',
           is_default: false,
           description: 'description',
-          protocols: Stubs::StringList.default(visited),
-          ciphers: Stubs::StringList.default(visited),
+          protocols: StringList.default(visited),
+          ciphers: StringList.default(visited),
         }
       end
 
@@ -5254,7 +5254,7 @@ module AWS::SDK::Lightsail
     class GetLoadBalancers
       def self.default(visited=[])
         {
-          load_balancers: Stubs::LoadBalancerList.default(visited),
+          load_balancers: LoadBalancerList.default(visited),
           next_page_token: 'next_page_token',
         }
       end
@@ -5274,7 +5274,7 @@ module AWS::SDK::Lightsail
         return nil if visited.include?('LoadBalancerList')
         visited = visited + ['LoadBalancerList']
         [
-          Stubs::LoadBalancer.default(visited)
+          LoadBalancer.default(visited)
         ]
       end
 
@@ -5292,7 +5292,7 @@ module AWS::SDK::Lightsail
     class GetOperation
       def self.default(visited=[])
         {
-          operation: Stubs::Operation.default(visited),
+          operation: Operation.default(visited),
         }
       end
 
@@ -5308,7 +5308,7 @@ module AWS::SDK::Lightsail
     class GetOperations
       def self.default(visited=[])
         {
-          operations: Stubs::OperationList.default(visited),
+          operations: OperationList.default(visited),
           next_page_token: 'next_page_token',
         }
       end
@@ -5326,7 +5326,7 @@ module AWS::SDK::Lightsail
     class GetOperationsForResource
       def self.default(visited=[])
         {
-          operations: Stubs::OperationList.default(visited),
+          operations: OperationList.default(visited),
           next_page_count: 'next_page_count',
           next_page_token: 'next_page_token',
         }
@@ -5346,7 +5346,7 @@ module AWS::SDK::Lightsail
     class GetRegions
       def self.default(visited=[])
         {
-          regions: Stubs::RegionList.default(visited),
+          regions: RegionList.default(visited),
         }
       end
 
@@ -5364,7 +5364,7 @@ module AWS::SDK::Lightsail
         return nil if visited.include?('RegionList')
         visited = visited + ['RegionList']
         [
-          Stubs::Region.default(visited)
+          Region.default(visited)
         ]
       end
 
@@ -5388,8 +5388,8 @@ module AWS::SDK::Lightsail
           description: 'description',
           display_name: 'display_name',
           name: 'name',
-          availability_zones: Stubs::AvailabilityZoneList.default(visited),
-          relational_database_availability_zones: Stubs::AvailabilityZoneList.default(visited),
+          availability_zones: AvailabilityZoneList.default(visited),
+          relational_database_availability_zones: AvailabilityZoneList.default(visited),
         }
       end
 
@@ -5412,7 +5412,7 @@ module AWS::SDK::Lightsail
         return nil if visited.include?('AvailabilityZoneList')
         visited = visited + ['AvailabilityZoneList']
         [
-          Stubs::AvailabilityZone.default(visited)
+          AvailabilityZone.default(visited)
         ]
       end
 
@@ -5450,7 +5450,7 @@ module AWS::SDK::Lightsail
     class GetRelationalDatabase
       def self.default(visited=[])
         {
-          relational_database: Stubs::RelationalDatabase.default(visited),
+          relational_database: RelationalDatabase.default(visited),
         }
       end
 
@@ -5472,17 +5472,17 @@ module AWS::SDK::Lightsail
           arn: 'arn',
           support_code: 'support_code',
           created_at: Time.now,
-          location: Stubs::ResourceLocation.default(visited),
+          location: ResourceLocation.default(visited),
           resource_type: 'resource_type',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           relational_database_blueprint_id: 'relational_database_blueprint_id',
           relational_database_bundle_id: 'relational_database_bundle_id',
           master_database_name: 'master_database_name',
-          hardware: Stubs::RelationalDatabaseHardware.default(visited),
+          hardware: RelationalDatabaseHardware.default(visited),
           state: 'state',
           secondary_availability_zone: 'secondary_availability_zone',
           backup_retention_enabled: false,
-          pending_modified_values: Stubs::PendingModifiedRelationalDatabaseValues.default(visited),
+          pending_modified_values: PendingModifiedRelationalDatabaseValues.default(visited),
           engine: 'engine',
           engine_version: 'engine_version',
           latest_restorable_time: Time.now,
@@ -5491,8 +5491,8 @@ module AWS::SDK::Lightsail
           preferred_backup_window: 'preferred_backup_window',
           preferred_maintenance_window: 'preferred_maintenance_window',
           publicly_accessible: false,
-          master_endpoint: Stubs::RelationalDatabaseEndpoint.default(visited),
-          pending_maintenance_actions: Stubs::PendingMaintenanceActionList.default(visited),
+          master_endpoint: RelationalDatabaseEndpoint.default(visited),
+          pending_maintenance_actions: PendingMaintenanceActionList.default(visited),
           ca_certificate_identifier: 'ca_certificate_identifier',
         }
       end
@@ -5536,7 +5536,7 @@ module AWS::SDK::Lightsail
         return nil if visited.include?('PendingMaintenanceActionList')
         visited = visited + ['PendingMaintenanceActionList']
         [
-          Stubs::PendingMaintenanceAction.default(visited)
+          PendingMaintenanceAction.default(visited)
         ]
       end
 
@@ -5640,7 +5640,7 @@ module AWS::SDK::Lightsail
     class GetRelationalDatabaseBlueprints
       def self.default(visited=[])
         {
-          blueprints: Stubs::RelationalDatabaseBlueprintList.default(visited),
+          blueprints: RelationalDatabaseBlueprintList.default(visited),
           next_page_token: 'next_page_token',
         }
       end
@@ -5660,7 +5660,7 @@ module AWS::SDK::Lightsail
         return nil if visited.include?('RelationalDatabaseBlueprintList')
         visited = visited + ['RelationalDatabaseBlueprintList']
         [
-          Stubs::RelationalDatabaseBlueprint.default(visited)
+          RelationalDatabaseBlueprint.default(visited)
         ]
       end
 
@@ -5706,7 +5706,7 @@ module AWS::SDK::Lightsail
     class GetRelationalDatabaseBundles
       def self.default(visited=[])
         {
-          bundles: Stubs::RelationalDatabaseBundleList.default(visited),
+          bundles: RelationalDatabaseBundleList.default(visited),
           next_page_token: 'next_page_token',
         }
       end
@@ -5726,7 +5726,7 @@ module AWS::SDK::Lightsail
         return nil if visited.include?('RelationalDatabaseBundleList')
         visited = visited + ['RelationalDatabaseBundleList']
         [
-          Stubs::RelationalDatabaseBundle.default(visited)
+          RelationalDatabaseBundle.default(visited)
         ]
       end
 
@@ -5778,7 +5778,7 @@ module AWS::SDK::Lightsail
     class GetRelationalDatabaseEvents
       def self.default(visited=[])
         {
-          relational_database_events: Stubs::RelationalDatabaseEventList.default(visited),
+          relational_database_events: RelationalDatabaseEventList.default(visited),
           next_page_token: 'next_page_token',
         }
       end
@@ -5798,7 +5798,7 @@ module AWS::SDK::Lightsail
         return nil if visited.include?('RelationalDatabaseEventList')
         visited = visited + ['RelationalDatabaseEventList']
         [
-          Stubs::RelationalDatabaseEvent.default(visited)
+          RelationalDatabaseEvent.default(visited)
         ]
       end
 
@@ -5821,7 +5821,7 @@ module AWS::SDK::Lightsail
           resource: 'resource',
           created_at: Time.now,
           message: 'message',
-          event_categories: Stubs::StringList.default(visited),
+          event_categories: StringList.default(visited),
         }
       end
 
@@ -5840,7 +5840,7 @@ module AWS::SDK::Lightsail
     class GetRelationalDatabaseLogEvents
       def self.default(visited=[])
         {
-          resource_log_events: Stubs::LogEventList.default(visited),
+          resource_log_events: LogEventList.default(visited),
           next_backward_token: 'next_backward_token',
           next_forward_token: 'next_forward_token',
         }
@@ -5862,7 +5862,7 @@ module AWS::SDK::Lightsail
         return nil if visited.include?('LogEventList')
         visited = visited + ['LogEventList']
         [
-          Stubs::LogEvent.default(visited)
+          LogEvent.default(visited)
         ]
       end
 
@@ -5900,7 +5900,7 @@ module AWS::SDK::Lightsail
     class GetRelationalDatabaseLogStreams
       def self.default(visited=[])
         {
-          log_streams: Stubs::StringList.default(visited),
+          log_streams: StringList.default(visited),
         }
       end
 
@@ -5935,7 +5935,7 @@ module AWS::SDK::Lightsail
       def self.default(visited=[])
         {
           metric_name: 'metric_name',
-          metric_data: Stubs::MetricDatapointList.default(visited),
+          metric_data: MetricDatapointList.default(visited),
         }
       end
 
@@ -5952,7 +5952,7 @@ module AWS::SDK::Lightsail
     class GetRelationalDatabaseParameters
       def self.default(visited=[])
         {
-          parameters: Stubs::RelationalDatabaseParameterList.default(visited),
+          parameters: RelationalDatabaseParameterList.default(visited),
           next_page_token: 'next_page_token',
         }
       end
@@ -5972,7 +5972,7 @@ module AWS::SDK::Lightsail
         return nil if visited.include?('RelationalDatabaseParameterList')
         visited = visited + ['RelationalDatabaseParameterList']
         [
-          Stubs::RelationalDatabaseParameter.default(visited)
+          RelationalDatabaseParameter.default(visited)
         ]
       end
 
@@ -6022,7 +6022,7 @@ module AWS::SDK::Lightsail
     class GetRelationalDatabaseSnapshot
       def self.default(visited=[])
         {
-          relational_database_snapshot: Stubs::RelationalDatabaseSnapshot.default(visited),
+          relational_database_snapshot: RelationalDatabaseSnapshot.default(visited),
         }
       end
 
@@ -6044,9 +6044,9 @@ module AWS::SDK::Lightsail
           arn: 'arn',
           support_code: 'support_code',
           created_at: Time.now,
-          location: Stubs::ResourceLocation.default(visited),
+          location: ResourceLocation.default(visited),
           resource_type: 'resource_type',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           engine: 'engine',
           engine_version: 'engine_version',
           size_in_gb: 1,
@@ -6084,7 +6084,7 @@ module AWS::SDK::Lightsail
     class GetRelationalDatabaseSnapshots
       def self.default(visited=[])
         {
-          relational_database_snapshots: Stubs::RelationalDatabaseSnapshotList.default(visited),
+          relational_database_snapshots: RelationalDatabaseSnapshotList.default(visited),
           next_page_token: 'next_page_token',
         }
       end
@@ -6104,7 +6104,7 @@ module AWS::SDK::Lightsail
         return nil if visited.include?('RelationalDatabaseSnapshotList')
         visited = visited + ['RelationalDatabaseSnapshotList']
         [
-          Stubs::RelationalDatabaseSnapshot.default(visited)
+          RelationalDatabaseSnapshot.default(visited)
         ]
       end
 
@@ -6122,7 +6122,7 @@ module AWS::SDK::Lightsail
     class GetRelationalDatabases
       def self.default(visited=[])
         {
-          relational_databases: Stubs::RelationalDatabaseList.default(visited),
+          relational_databases: RelationalDatabaseList.default(visited),
           next_page_token: 'next_page_token',
         }
       end
@@ -6142,7 +6142,7 @@ module AWS::SDK::Lightsail
         return nil if visited.include?('RelationalDatabaseList')
         visited = visited + ['RelationalDatabaseList']
         [
-          Stubs::RelationalDatabase.default(visited)
+          RelationalDatabase.default(visited)
         ]
       end
 
@@ -6160,7 +6160,7 @@ module AWS::SDK::Lightsail
     class GetStaticIp
       def self.default(visited=[])
         {
-          static_ip: Stubs::StaticIp.default(visited),
+          static_ip: StaticIp.default(visited),
         }
       end
 
@@ -6182,7 +6182,7 @@ module AWS::SDK::Lightsail
           arn: 'arn',
           support_code: 'support_code',
           created_at: Time.now,
-          location: Stubs::ResourceLocation.default(visited),
+          location: ResourceLocation.default(visited),
           resource_type: 'resource_type',
           ip_address: 'ip_address',
           attached_to: 'attached_to',
@@ -6210,7 +6210,7 @@ module AWS::SDK::Lightsail
     class GetStaticIps
       def self.default(visited=[])
         {
-          static_ips: Stubs::StaticIpList.default(visited),
+          static_ips: StaticIpList.default(visited),
           next_page_token: 'next_page_token',
         }
       end
@@ -6230,7 +6230,7 @@ module AWS::SDK::Lightsail
         return nil if visited.include?('StaticIpList')
         visited = visited + ['StaticIpList']
         [
-          Stubs::StaticIp.default(visited)
+          StaticIp.default(visited)
         ]
       end
 
@@ -6248,7 +6248,7 @@ module AWS::SDK::Lightsail
     class ImportKeyPair
       def self.default(visited=[])
         {
-          operation: Stubs::Operation.default(visited),
+          operation: Operation.default(visited),
         }
       end
 
@@ -6280,7 +6280,7 @@ module AWS::SDK::Lightsail
     class OpenInstancePublicPorts
       def self.default(visited=[])
         {
-          operation: Stubs::Operation.default(visited),
+          operation: Operation.default(visited),
         }
       end
 
@@ -6296,7 +6296,7 @@ module AWS::SDK::Lightsail
     class PeerVpc
       def self.default(visited=[])
         {
-          operation: Stubs::Operation.default(visited),
+          operation: Operation.default(visited),
         }
       end
 
@@ -6312,7 +6312,7 @@ module AWS::SDK::Lightsail
     class PutAlarm
       def self.default(visited=[])
         {
-          operations: Stubs::OperationList.default(visited),
+          operations: OperationList.default(visited),
         }
       end
 
@@ -6328,7 +6328,7 @@ module AWS::SDK::Lightsail
     class PutInstancePublicPorts
       def self.default(visited=[])
         {
-          operation: Stubs::Operation.default(visited),
+          operation: Operation.default(visited),
         }
       end
 
@@ -6344,7 +6344,7 @@ module AWS::SDK::Lightsail
     class RebootInstance
       def self.default(visited=[])
         {
-          operations: Stubs::OperationList.default(visited),
+          operations: OperationList.default(visited),
         }
       end
 
@@ -6360,7 +6360,7 @@ module AWS::SDK::Lightsail
     class RebootRelationalDatabase
       def self.default(visited=[])
         {
-          operations: Stubs::OperationList.default(visited),
+          operations: OperationList.default(visited),
         }
       end
 
@@ -6376,7 +6376,7 @@ module AWS::SDK::Lightsail
     class RegisterContainerImage
       def self.default(visited=[])
         {
-          container_image: Stubs::ContainerImage.default(visited),
+          container_image: ContainerImage.default(visited),
         }
       end
 
@@ -6392,7 +6392,7 @@ module AWS::SDK::Lightsail
     class ReleaseStaticIp
       def self.default(visited=[])
         {
-          operations: Stubs::OperationList.default(visited),
+          operations: OperationList.default(visited),
         }
       end
 
@@ -6410,7 +6410,7 @@ module AWS::SDK::Lightsail
         {
           status: 'status',
           create_time: Time.now,
-          operation: Stubs::Operation.default(visited),
+          operation: Operation.default(visited),
         }
       end
 
@@ -6428,7 +6428,7 @@ module AWS::SDK::Lightsail
     class SendContactMethodVerification
       def self.default(visited=[])
         {
-          operations: Stubs::OperationList.default(visited),
+          operations: OperationList.default(visited),
         }
       end
 
@@ -6444,7 +6444,7 @@ module AWS::SDK::Lightsail
     class SetIpAddressType
       def self.default(visited=[])
         {
-          operations: Stubs::OperationList.default(visited),
+          operations: OperationList.default(visited),
         }
       end
 
@@ -6460,7 +6460,7 @@ module AWS::SDK::Lightsail
     class SetResourceAccessForBucket
       def self.default(visited=[])
         {
-          operations: Stubs::OperationList.default(visited),
+          operations: OperationList.default(visited),
         }
       end
 
@@ -6476,7 +6476,7 @@ module AWS::SDK::Lightsail
     class StartInstance
       def self.default(visited=[])
         {
-          operations: Stubs::OperationList.default(visited),
+          operations: OperationList.default(visited),
         }
       end
 
@@ -6492,7 +6492,7 @@ module AWS::SDK::Lightsail
     class StartRelationalDatabase
       def self.default(visited=[])
         {
-          operations: Stubs::OperationList.default(visited),
+          operations: OperationList.default(visited),
         }
       end
 
@@ -6508,7 +6508,7 @@ module AWS::SDK::Lightsail
     class StopInstance
       def self.default(visited=[])
         {
-          operations: Stubs::OperationList.default(visited),
+          operations: OperationList.default(visited),
         }
       end
 
@@ -6524,7 +6524,7 @@ module AWS::SDK::Lightsail
     class StopRelationalDatabase
       def self.default(visited=[])
         {
-          operations: Stubs::OperationList.default(visited),
+          operations: OperationList.default(visited),
         }
       end
 
@@ -6540,7 +6540,7 @@ module AWS::SDK::Lightsail
     class TagResource
       def self.default(visited=[])
         {
-          operations: Stubs::OperationList.default(visited),
+          operations: OperationList.default(visited),
         }
       end
 
@@ -6556,7 +6556,7 @@ module AWS::SDK::Lightsail
     class TestAlarm
       def self.default(visited=[])
         {
-          operations: Stubs::OperationList.default(visited),
+          operations: OperationList.default(visited),
         }
       end
 
@@ -6572,7 +6572,7 @@ module AWS::SDK::Lightsail
     class UnpeerVpc
       def self.default(visited=[])
         {
-          operation: Stubs::Operation.default(visited),
+          operation: Operation.default(visited),
         }
       end
 
@@ -6588,7 +6588,7 @@ module AWS::SDK::Lightsail
     class UntagResource
       def self.default(visited=[])
         {
-          operations: Stubs::OperationList.default(visited),
+          operations: OperationList.default(visited),
         }
       end
 
@@ -6604,8 +6604,8 @@ module AWS::SDK::Lightsail
     class UpdateBucket
       def self.default(visited=[])
         {
-          bucket: Stubs::Bucket.default(visited),
-          operations: Stubs::OperationList.default(visited),
+          bucket: Bucket.default(visited),
+          operations: OperationList.default(visited),
         }
       end
 
@@ -6622,7 +6622,7 @@ module AWS::SDK::Lightsail
     class UpdateBucketBundle
       def self.default(visited=[])
         {
-          operations: Stubs::OperationList.default(visited),
+          operations: OperationList.default(visited),
         }
       end
 
@@ -6638,7 +6638,7 @@ module AWS::SDK::Lightsail
     class UpdateContainerService
       def self.default(visited=[])
         {
-          container_service: Stubs::ContainerService.default(visited),
+          container_service: ContainerService.default(visited),
         }
       end
 
@@ -6654,7 +6654,7 @@ module AWS::SDK::Lightsail
     class UpdateDistribution
       def self.default(visited=[])
         {
-          operation: Stubs::Operation.default(visited),
+          operation: Operation.default(visited),
         }
       end
 
@@ -6670,7 +6670,7 @@ module AWS::SDK::Lightsail
     class UpdateDistributionBundle
       def self.default(visited=[])
         {
-          operation: Stubs::Operation.default(visited),
+          operation: Operation.default(visited),
         }
       end
 
@@ -6686,7 +6686,7 @@ module AWS::SDK::Lightsail
     class UpdateDomainEntry
       def self.default(visited=[])
         {
-          operations: Stubs::OperationList.default(visited),
+          operations: OperationList.default(visited),
         }
       end
 
@@ -6702,7 +6702,7 @@ module AWS::SDK::Lightsail
     class UpdateLoadBalancerAttribute
       def self.default(visited=[])
         {
-          operations: Stubs::OperationList.default(visited),
+          operations: OperationList.default(visited),
         }
       end
 
@@ -6718,7 +6718,7 @@ module AWS::SDK::Lightsail
     class UpdateRelationalDatabase
       def self.default(visited=[])
         {
-          operations: Stubs::OperationList.default(visited),
+          operations: OperationList.default(visited),
         }
       end
 
@@ -6734,7 +6734,7 @@ module AWS::SDK::Lightsail
     class UpdateRelationalDatabaseParameters
       def self.default(visited=[])
         {
-          operations: Stubs::OperationList.default(visited),
+          operations: OperationList.default(visited),
         }
       end
 

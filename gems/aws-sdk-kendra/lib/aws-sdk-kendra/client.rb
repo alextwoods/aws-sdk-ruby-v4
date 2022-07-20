@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::Kendra
@@ -78,7 +80,7 @@ module AWS::SDK::Kendra
     def associate_entities_to_experience(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateEntitiesToExperienceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateEntitiesToExperienceInput,
         validate_input: @config.validate_input
@@ -171,7 +173,7 @@ module AWS::SDK::Kendra
     def associate_personas_to_entities(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociatePersonasToEntitiesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociatePersonasToEntitiesInput,
         validate_input: @config.validate_input
@@ -263,7 +265,7 @@ module AWS::SDK::Kendra
     def batch_delete_document(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchDeleteDocumentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchDeleteDocumentInput,
         validate_input: @config.validate_input
@@ -379,7 +381,7 @@ module AWS::SDK::Kendra
     def batch_get_document_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchGetDocumentStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchGetDocumentStatusInput,
         validate_input: @config.validate_input
@@ -552,7 +554,7 @@ module AWS::SDK::Kendra
     def batch_put_document(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchPutDocumentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchPutDocumentInput,
         validate_input: @config.validate_input
@@ -629,7 +631,7 @@ module AWS::SDK::Kendra
     def clear_query_suggestions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ClearQuerySuggestionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ClearQuerySuggestionsInput,
         validate_input: @config.validate_input
@@ -1129,7 +1131,7 @@ module AWS::SDK::Kendra
     def create_data_source(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDataSourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDataSourceInput,
         validate_input: @config.validate_input
@@ -1241,7 +1243,7 @@ module AWS::SDK::Kendra
     def create_experience(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateExperienceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateExperienceInput,
         validate_input: @config.validate_input
@@ -1365,7 +1367,7 @@ module AWS::SDK::Kendra
     def create_faq(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateFaqInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateFaqInput,
         validate_input: @config.validate_input
@@ -1541,7 +1543,7 @@ module AWS::SDK::Kendra
     def create_index(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateIndexInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateIndexInput,
         validate_input: @config.validate_input
@@ -1669,7 +1671,7 @@ module AWS::SDK::Kendra
     def create_query_suggestions_block_list(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateQuerySuggestionsBlockListInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateQuerySuggestionsBlockListInput,
         validate_input: @config.validate_input
@@ -1781,7 +1783,7 @@ module AWS::SDK::Kendra
     def create_thesaurus(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateThesaurusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateThesaurusInput,
         validate_input: @config.validate_input
@@ -1858,7 +1860,7 @@ module AWS::SDK::Kendra
     def delete_data_source(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDataSourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDataSourceInput,
         validate_input: @config.validate_input
@@ -1932,7 +1934,7 @@ module AWS::SDK::Kendra
     def delete_experience(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteExperienceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteExperienceInput,
         validate_input: @config.validate_input
@@ -2004,7 +2006,7 @@ module AWS::SDK::Kendra
     def delete_faq(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteFaqInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteFaqInput,
         validate_input: @config.validate_input
@@ -2076,7 +2078,7 @@ module AWS::SDK::Kendra
     def delete_index(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteIndexInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteIndexInput,
         validate_input: @config.validate_input
@@ -2191,7 +2193,7 @@ module AWS::SDK::Kendra
     def delete_principal_mapping(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeletePrincipalMappingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeletePrincipalMappingInput,
         validate_input: @config.validate_input
@@ -2269,7 +2271,7 @@ module AWS::SDK::Kendra
     def delete_query_suggestions_block_list(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteQuerySuggestionsBlockListInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteQuerySuggestionsBlockListInput,
         validate_input: @config.validate_input
@@ -2342,7 +2344,7 @@ module AWS::SDK::Kendra
     def delete_thesaurus(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteThesaurusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteThesaurusInput,
         validate_input: @config.validate_input
@@ -2760,7 +2762,7 @@ module AWS::SDK::Kendra
     def describe_data_source(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDataSourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDataSourceInput,
         validate_input: @config.validate_input
@@ -2858,7 +2860,7 @@ module AWS::SDK::Kendra
     def describe_experience(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeExperienceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeExperienceInput,
         validate_input: @config.validate_input
@@ -2944,7 +2946,7 @@ module AWS::SDK::Kendra
     def describe_faq(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeFaqInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeFaqInput,
         validate_input: @config.validate_input
@@ -3064,7 +3066,7 @@ module AWS::SDK::Kendra
     def describe_index(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeIndexInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeIndexInput,
         validate_input: @config.validate_input
@@ -3164,7 +3166,7 @@ module AWS::SDK::Kendra
     def describe_principal_mapping(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribePrincipalMappingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribePrincipalMappingInput,
         validate_input: @config.validate_input
@@ -3255,7 +3257,7 @@ module AWS::SDK::Kendra
     def describe_query_suggestions_block_list(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeQuerySuggestionsBlockListInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeQuerySuggestionsBlockListInput,
         validate_input: @config.validate_input
@@ -3338,7 +3340,7 @@ module AWS::SDK::Kendra
     def describe_query_suggestions_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeQuerySuggestionsConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeQuerySuggestionsConfigInput,
         validate_input: @config.validate_input
@@ -3425,7 +3427,7 @@ module AWS::SDK::Kendra
     def describe_thesaurus(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeThesaurusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeThesaurusInput,
         validate_input: @config.validate_input
@@ -3514,7 +3516,7 @@ module AWS::SDK::Kendra
     def disassociate_entities_from_experience(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateEntitiesFromExperienceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateEntitiesFromExperienceInput,
         validate_input: @config.validate_input
@@ -3601,7 +3603,7 @@ module AWS::SDK::Kendra
     def disassociate_personas_from_entities(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociatePersonasFromEntitiesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociatePersonasFromEntitiesInput,
         validate_input: @config.validate_input
@@ -3698,7 +3700,7 @@ module AWS::SDK::Kendra
     def get_query_suggestions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetQuerySuggestionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetQuerySuggestionsInput,
         validate_input: @config.validate_input
@@ -3834,7 +3836,7 @@ module AWS::SDK::Kendra
     def get_snapshots(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSnapshotsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSnapshotsInput,
         validate_input: @config.validate_input
@@ -3948,7 +3950,7 @@ module AWS::SDK::Kendra
     def list_data_source_sync_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDataSourceSyncJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDataSourceSyncJobsInput,
         validate_input: @config.validate_input
@@ -4037,7 +4039,7 @@ module AWS::SDK::Kendra
     def list_data_sources(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDataSourcesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDataSourcesInput,
         validate_input: @config.validate_input
@@ -4127,7 +4129,7 @@ module AWS::SDK::Kendra
     def list_entity_personas(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListEntityPersonasInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListEntityPersonasInput,
         validate_input: @config.validate_input
@@ -4220,7 +4222,7 @@ module AWS::SDK::Kendra
     def list_experience_entities(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListExperienceEntitiesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListExperienceEntitiesInput,
         validate_input: @config.validate_input
@@ -4312,7 +4314,7 @@ module AWS::SDK::Kendra
     def list_experiences(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListExperiencesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListExperiencesInput,
         validate_input: @config.validate_input
@@ -4401,7 +4403,7 @@ module AWS::SDK::Kendra
     def list_faqs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListFaqsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListFaqsInput,
         validate_input: @config.validate_input
@@ -4505,7 +4507,7 @@ module AWS::SDK::Kendra
     def list_groups_older_than_ordering_id(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListGroupsOlderThanOrderingIdInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListGroupsOlderThanOrderingIdInput,
         validate_input: @config.validate_input
@@ -4589,7 +4591,7 @@ module AWS::SDK::Kendra
     def list_indices(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListIndicesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListIndicesInput,
         validate_input: @config.validate_input
@@ -4686,7 +4688,7 @@ module AWS::SDK::Kendra
     def list_query_suggestions_block_lists(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListQuerySuggestionsBlockListsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListQuerySuggestionsBlockListsInput,
         validate_input: @config.validate_input
@@ -4760,7 +4762,7 @@ module AWS::SDK::Kendra
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -4847,7 +4849,7 @@ module AWS::SDK::Kendra
     def list_thesauri(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListThesauriInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListThesauriInput,
         validate_input: @config.validate_input
@@ -4997,7 +4999,7 @@ module AWS::SDK::Kendra
     def put_principal_mapping(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutPrincipalMappingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutPrincipalMappingInput,
         validate_input: @config.validate_input
@@ -5274,7 +5276,7 @@ module AWS::SDK::Kendra
     def query(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::QueryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::QueryInput,
         validate_input: @config.validate_input
@@ -5349,7 +5351,7 @@ module AWS::SDK::Kendra
     def start_data_source_sync_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartDataSourceSyncJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartDataSourceSyncJobInput,
         validate_input: @config.validate_input
@@ -5423,7 +5425,7 @@ module AWS::SDK::Kendra
     def stop_data_source_sync_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopDataSourceSyncJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopDataSourceSyncJobInput,
         validate_input: @config.validate_input
@@ -5521,7 +5523,7 @@ module AWS::SDK::Kendra
     def submit_feedback(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SubmitFeedbackInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SubmitFeedbackInput,
         validate_input: @config.validate_input
@@ -5602,7 +5604,7 @@ module AWS::SDK::Kendra
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -5678,7 +5680,7 @@ module AWS::SDK::Kendra
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -6133,7 +6135,7 @@ module AWS::SDK::Kendra
     def update_data_source(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDataSourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDataSourceInput,
         validate_input: @config.validate_input
@@ -6239,7 +6241,7 @@ module AWS::SDK::Kendra
     def update_experience(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateExperienceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateExperienceInput,
         validate_input: @config.validate_input
@@ -6388,7 +6390,7 @@ module AWS::SDK::Kendra
     def update_index(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateIndexInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateIndexInput,
         validate_input: @config.validate_input
@@ -6498,7 +6500,7 @@ module AWS::SDK::Kendra
     def update_query_suggestions_block_list(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateQuerySuggestionsBlockListInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateQuerySuggestionsBlockListInput,
         validate_input: @config.validate_input
@@ -6625,7 +6627,7 @@ module AWS::SDK::Kendra
     def update_query_suggestions_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateQuerySuggestionsConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateQuerySuggestionsConfigInput,
         validate_input: @config.validate_input
@@ -6717,7 +6719,7 @@ module AWS::SDK::Kendra
     def update_thesaurus(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateThesaurusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateThesaurusInput,
         validate_input: @config.validate_input

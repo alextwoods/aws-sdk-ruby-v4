@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::ServiceCatalogAppRegistry
@@ -65,7 +67,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
     def associate_attribute_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateAttributeGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateAttributeGroupInput,
         validate_input: @config.validate_input
@@ -142,7 +144,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
     def associate_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateResourceInput,
         validate_input: @config.validate_input
@@ -235,7 +237,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
     def create_application(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateApplicationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateApplicationInput,
         validate_input: @config.validate_input
@@ -336,7 +338,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
     def create_attribute_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateAttributeGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateAttributeGroupInput,
         validate_input: @config.validate_input
@@ -411,7 +413,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
     def delete_application(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteApplicationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteApplicationInput,
         validate_input: @config.validate_input
@@ -485,7 +487,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
     def delete_attribute_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAttributeGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAttributeGroupInput,
         validate_input: @config.validate_input
@@ -558,7 +560,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
     def disassociate_attribute_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateAttributeGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateAttributeGroupInput,
         validate_input: @config.validate_input
@@ -635,7 +637,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
     def disassociate_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateResourceInput,
         validate_input: @config.validate_input
@@ -716,7 +718,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
     def get_application(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetApplicationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetApplicationInput,
         validate_input: @config.validate_input
@@ -800,7 +802,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
     def get_associated_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAssociatedResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAssociatedResourceInput,
         validate_input: @config.validate_input
@@ -876,7 +878,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
     def get_attribute_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAttributeGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAttributeGroupInput,
         validate_input: @config.validate_input
@@ -956,7 +958,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
     def list_applications(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListApplicationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListApplicationsInput,
         validate_input: @config.validate_input
@@ -1034,7 +1036,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
     def list_associated_attribute_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAssociatedAttributeGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAssociatedAttributeGroupsInput,
         validate_input: @config.validate_input
@@ -1114,7 +1116,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
     def list_associated_resources(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAssociatedResourcesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAssociatedResourcesInput,
         validate_input: @config.validate_input
@@ -1194,7 +1196,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
     def list_attribute_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAttributeGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAttributeGroupsInput,
         validate_input: @config.validate_input
@@ -1263,7 +1265,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -1338,7 +1340,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
     def sync_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SyncResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SyncResourceInput,
         validate_input: @config.validate_input
@@ -1413,7 +1415,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -1488,7 +1490,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -1572,7 +1574,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
     def update_application(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateApplicationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateApplicationInput,
         validate_input: @config.validate_input
@@ -1662,7 +1664,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
     def update_attribute_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateAttributeGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateAttributeGroupInput,
         validate_input: @config.validate_input

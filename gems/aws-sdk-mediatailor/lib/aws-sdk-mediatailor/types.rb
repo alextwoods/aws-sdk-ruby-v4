@@ -76,11 +76,11 @@ module AWS::SDK::MediaTailor
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.offset_millis ||= 0
       end
-
     end
 
     # <p>For HLS, when set to true, MediaTailor passes through EXT-X-CUE-IN, EXT-X-CUE-OUT, and EXT-X-SPLICEPOINT-SCTE35 ad markers from the origin manifest to the MediaTailor personalized manifest.</p> <p>No logic is applied to these ad markers. For example, if EXT-X-CUE-OUT has a value of 60, but no ads are filled for that ad break, MediaTailor will not set the value to 0.</p>
@@ -95,11 +95,11 @@ module AWS::SDK::MediaTailor
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # <p>Alert configuration parameters.</p>
@@ -335,11 +335,11 @@ module AWS::SDK::MediaTailor
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.percent_enabled ||= 0
       end
-
     end
 
     # @!attribute percent_enabled
@@ -358,11 +358,11 @@ module AWS::SDK::MediaTailor
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.percent_enabled ||= 0
       end
-
     end
 
     # @!attribute channel_name
@@ -1003,6 +1003,7 @@ module AWS::SDK::MediaTailor
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.manifest_window_seconds ||= 0
@@ -1010,7 +1011,6 @@ module AWS::SDK::MediaTailor
         self.min_update_period_seconds ||= 0
         self.suggested_presentation_delay_seconds ||= 0
       end
-
     end
 
     # <p>The optional configuration for a server that serves segments. Use this if you want the segment delivery server to be different from the source location server. For example, you can configure your source location server to be an origination server, such as MediaPackage, and the segment delivery server to be a content delivery network (CDN), such as CloudFront. If you don't specify a segment delivery server, then the source location server is used.</p>
@@ -1617,11 +1617,11 @@ module AWS::SDK::MediaTailor
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute items
@@ -1772,11 +1772,11 @@ module AWS::SDK::MediaTailor
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.personalization_threshold_seconds ||= 0
       end
-
     end
 
     # @!attribute name
@@ -1865,11 +1865,11 @@ module AWS::SDK::MediaTailor
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.manifest_window_seconds ||= 0
       end
-
     end
 
     # <p>The HTTP configuration for the source location.</p>
@@ -1936,11 +1936,11 @@ module AWS::SDK::MediaTailor
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute items
@@ -1977,11 +1977,11 @@ module AWS::SDK::MediaTailor
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute items
@@ -2024,11 +2024,11 @@ module AWS::SDK::MediaTailor
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute items
@@ -2065,11 +2065,11 @@ module AWS::SDK::MediaTailor
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute items
@@ -2118,11 +2118,11 @@ module AWS::SDK::MediaTailor
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute items
@@ -2159,11 +2159,11 @@ module AWS::SDK::MediaTailor
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute items
@@ -2230,11 +2230,11 @@ module AWS::SDK::MediaTailor
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute items
@@ -2273,11 +2273,11 @@ module AWS::SDK::MediaTailor
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_duration_seconds ||= 0
       end
-
     end
 
     # <p>Live source configuration parameters.</p>
@@ -2342,11 +2342,11 @@ module AWS::SDK::MediaTailor
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.percent_enabled ||= 0
       end
-
     end
 
     # <p>The configuration for manifest processing rules. Manifest processing rules enable customization of the personalized manifests created by MediaTailor.</p>
@@ -2523,11 +2523,11 @@ module AWS::SDK::MediaTailor
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.personalization_threshold_seconds ||= 0
       end
-
     end
 
     # Includes enum constants for PlaybackMode
@@ -2751,11 +2751,11 @@ module AWS::SDK::MediaTailor
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.personalization_threshold_seconds ||= 0
       end
-
     end
 
     # @!attribute ad_decision_server_url
@@ -2876,11 +2876,11 @@ module AWS::SDK::MediaTailor
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.personalization_threshold_seconds ||= 0
       end
-
     end
 
     # Includes enum constants for RelativePosition
@@ -2995,11 +2995,11 @@ module AWS::SDK::MediaTailor
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.approximate_duration_seconds ||= 0
       end
-
     end
 
     # <p>Schedule configuration parameters. A channel must be stopped before changes can be made to the schedule.</p>
@@ -3084,11 +3084,11 @@ module AWS::SDK::MediaTailor
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.approximate_duration_seconds ||= 0
       end
-
     end
 
     # Includes enum constants for ScheduleEntryType
@@ -3261,6 +3261,7 @@ module AWS::SDK::MediaTailor
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.avail_num ||= 0
@@ -3268,7 +3269,6 @@ module AWS::SDK::MediaTailor
         self.splice_event_id ||= 0
         self.unique_program_id ||= 0
       end
-
     end
 
     # @!attribute channel_name
@@ -3384,12 +3384,12 @@ module AWS::SDK::MediaTailor
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.duration_millis ||= 0
         self.scheduled_start_time_millis ||= 0
       end
-
     end
 
     # Includes enum constants for Type

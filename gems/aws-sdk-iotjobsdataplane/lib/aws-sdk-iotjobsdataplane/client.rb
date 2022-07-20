@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::IoTJobsDataPlane
@@ -93,7 +95,7 @@ module AWS::SDK::IoTJobsDataPlane
     def describe_job_execution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeJobExecutionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeJobExecutionInput,
         validate_input: @config.validate_input
@@ -169,7 +171,7 @@ module AWS::SDK::IoTJobsDataPlane
     def get_pending_job_executions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetPendingJobExecutionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetPendingJobExecutionsInput,
         validate_input: @config.validate_input
@@ -266,7 +268,7 @@ module AWS::SDK::IoTJobsDataPlane
     def start_next_pending_job_execution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartNextPendingJobExecutionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartNextPendingJobExecutionInput,
         validate_input: @config.validate_input
@@ -387,7 +389,7 @@ module AWS::SDK::IoTJobsDataPlane
     def update_job_execution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateJobExecutionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateJobExecutionInput,
         validate_input: @config.validate_input

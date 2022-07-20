@@ -2187,11 +2187,11 @@ module AWS::SDK::Imagebuilder
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # <p>Identifies the launch template that the associated Windows AMI uses for
@@ -4069,11 +4069,11 @@ module AWS::SDK::Imagebuilder
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.set_default_version ||= false
       end
-
     end
 
     # @!attribute component_version_arn
@@ -4199,11 +4199,11 @@ module AWS::SDK::Imagebuilder
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.by_name ||= false
       end
-
     end
 
     # @!attribute request_id
@@ -4801,11 +4801,11 @@ module AWS::SDK::Imagebuilder
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.by_name ||= false
       end
-
     end
 
     # @!attribute request_id

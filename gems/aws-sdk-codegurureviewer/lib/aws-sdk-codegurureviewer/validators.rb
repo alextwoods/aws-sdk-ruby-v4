@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::CodeGuruReviewer
   module Validators
 
@@ -29,18 +31,18 @@ module AWS::SDK::CodeGuruReviewer
     class AssociateRepositoryInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AssociateRepositoryInput, context: context)
-        Validators::Repository.validate!(input[:repository], context: "#{context}[:repository]") unless input[:repository].nil?
+        Repository.validate!(input[:repository], context: "#{context}[:repository]") unless input[:repository].nil?
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::KMSKeyDetails.validate!(input[:kms_key_details], context: "#{context}[:kms_key_details]") unless input[:kms_key_details].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        KMSKeyDetails.validate!(input[:kms_key_details], context: "#{context}[:kms_key_details]") unless input[:kms_key_details].nil?
       end
     end
 
     class AssociateRepositoryOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AssociateRepositoryOutput, context: context)
-        Validators::RepositoryAssociation.validate!(input[:repository_association], context: "#{context}[:repository_association]") unless input[:repository_association].nil?
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        RepositoryAssociation.validate!(input[:repository_association], context: "#{context}[:repository_association]") unless input[:repository_association].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -81,10 +83,10 @@ module AWS::SDK::CodeGuruReviewer
         Hearth::Validator.validate!(input[:last_updated_time_stamp], ::Time, context: "#{context}[:last_updated_time_stamp]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
         Hearth::Validator.validate!(input[:pull_request_id], ::String, context: "#{context}[:pull_request_id]")
-        Validators::SourceCodeType.validate!(input[:source_code_type], context: "#{context}[:source_code_type]") unless input[:source_code_type].nil?
+        SourceCodeType.validate!(input[:source_code_type], context: "#{context}[:source_code_type]") unless input[:source_code_type].nil?
         Hearth::Validator.validate!(input[:association_arn], ::String, context: "#{context}[:association_arn]")
-        Validators::Metrics.validate!(input[:metrics], context: "#{context}[:metrics]") unless input[:metrics].nil?
-        Validators::AnalysisTypes.validate!(input[:analysis_types], context: "#{context}[:analysis_types]") unless input[:analysis_types].nil?
+        Metrics.validate!(input[:metrics], context: "#{context}[:metrics]") unless input[:metrics].nil?
+        AnalysisTypes.validate!(input[:analysis_types], context: "#{context}[:analysis_types]") unless input[:analysis_types].nil?
         Hearth::Validator.validate!(input[:config_file_state], ::String, context: "#{context}[:config_file_state]")
       end
     end
@@ -93,7 +95,7 @@ module AWS::SDK::CodeGuruReviewer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CodeReviewSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CodeReviewSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -111,16 +113,16 @@ module AWS::SDK::CodeGuruReviewer
         Hearth::Validator.validate!(input[:last_updated_time_stamp], ::Time, context: "#{context}[:last_updated_time_stamp]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
         Hearth::Validator.validate!(input[:pull_request_id], ::String, context: "#{context}[:pull_request_id]")
-        Validators::MetricsSummary.validate!(input[:metrics_summary], context: "#{context}[:metrics_summary]") unless input[:metrics_summary].nil?
-        Validators::SourceCodeType.validate!(input[:source_code_type], context: "#{context}[:source_code_type]") unless input[:source_code_type].nil?
+        MetricsSummary.validate!(input[:metrics_summary], context: "#{context}[:metrics_summary]") unless input[:metrics_summary].nil?
+        SourceCodeType.validate!(input[:source_code_type], context: "#{context}[:source_code_type]") unless input[:source_code_type].nil?
       end
     end
 
     class CodeReviewType
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CodeReviewType, context: context)
-        Validators::RepositoryAnalysis.validate!(input[:repository_analysis], context: "#{context}[:repository_analysis]") unless input[:repository_analysis].nil?
-        Validators::AnalysisTypes.validate!(input[:analysis_types], context: "#{context}[:analysis_types]") unless input[:analysis_types].nil?
+        RepositoryAnalysis.validate!(input[:repository_analysis], context: "#{context}[:repository_analysis]") unless input[:repository_analysis].nil?
+        AnalysisTypes.validate!(input[:analysis_types], context: "#{context}[:analysis_types]") unless input[:analysis_types].nil?
       end
     end
 
@@ -145,7 +147,7 @@ module AWS::SDK::CodeGuruReviewer
         Hearth::Validator.validate!(input, Types::CreateCodeReviewInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:repository_association_arn], ::String, context: "#{context}[:repository_association_arn]")
-        Validators::CodeReviewType.validate!(input[:type], context: "#{context}[:type]") unless input[:type].nil?
+        CodeReviewType.validate!(input[:type], context: "#{context}[:type]") unless input[:type].nil?
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
       end
     end
@@ -153,7 +155,7 @@ module AWS::SDK::CodeGuruReviewer
     class CreateCodeReviewOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateCodeReviewOutput, context: context)
-        Validators::CodeReview.validate!(input[:code_review], context: "#{context}[:code_review]") unless input[:code_review].nil?
+        CodeReview.validate!(input[:code_review], context: "#{context}[:code_review]") unless input[:code_review].nil?
       end
     end
 
@@ -167,7 +169,7 @@ module AWS::SDK::CodeGuruReviewer
     class DescribeCodeReviewOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeCodeReviewOutput, context: context)
-        Validators::CodeReview.validate!(input[:code_review], context: "#{context}[:code_review]") unless input[:code_review].nil?
+        CodeReview.validate!(input[:code_review], context: "#{context}[:code_review]") unless input[:code_review].nil?
       end
     end
 
@@ -183,7 +185,7 @@ module AWS::SDK::CodeGuruReviewer
     class DescribeRecommendationFeedbackOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeRecommendationFeedbackOutput, context: context)
-        Validators::RecommendationFeedback.validate!(input[:recommendation_feedback], context: "#{context}[:recommendation_feedback]") unless input[:recommendation_feedback].nil?
+        RecommendationFeedback.validate!(input[:recommendation_feedback], context: "#{context}[:recommendation_feedback]") unless input[:recommendation_feedback].nil?
       end
     end
 
@@ -197,8 +199,8 @@ module AWS::SDK::CodeGuruReviewer
     class DescribeRepositoryAssociationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeRepositoryAssociationOutput, context: context)
-        Validators::RepositoryAssociation.validate!(input[:repository_association], context: "#{context}[:repository_association]") unless input[:repository_association].nil?
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        RepositoryAssociation.validate!(input[:repository_association], context: "#{context}[:repository_association]") unless input[:repository_association].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -212,8 +214,8 @@ module AWS::SDK::CodeGuruReviewer
     class DisassociateRepositoryOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DisassociateRepositoryOutput, context: context)
-        Validators::RepositoryAssociation.validate!(input[:repository_association], context: "#{context}[:repository_association]") unless input[:repository_association].nil?
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        RepositoryAssociation.validate!(input[:repository_association], context: "#{context}[:repository_association]") unless input[:repository_association].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -252,9 +254,9 @@ module AWS::SDK::CodeGuruReviewer
     class ListCodeReviewsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListCodeReviewsInput, context: context)
-        Validators::ProviderTypes.validate!(input[:provider_types], context: "#{context}[:provider_types]") unless input[:provider_types].nil?
-        Validators::JobStates.validate!(input[:states], context: "#{context}[:states]") unless input[:states].nil?
-        Validators::RepositoryNames.validate!(input[:repository_names], context: "#{context}[:repository_names]") unless input[:repository_names].nil?
+        ProviderTypes.validate!(input[:provider_types], context: "#{context}[:provider_types]") unless input[:provider_types].nil?
+        JobStates.validate!(input[:states], context: "#{context}[:states]") unless input[:states].nil?
+        RepositoryNames.validate!(input[:repository_names], context: "#{context}[:repository_names]") unless input[:repository_names].nil?
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
@@ -264,7 +266,7 @@ module AWS::SDK::CodeGuruReviewer
     class ListCodeReviewsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListCodeReviewsOutput, context: context)
-        Validators::CodeReviewSummaries.validate!(input[:code_review_summaries], context: "#{context}[:code_review_summaries]") unless input[:code_review_summaries].nil?
+        CodeReviewSummaries.validate!(input[:code_review_summaries], context: "#{context}[:code_review_summaries]") unless input[:code_review_summaries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -275,15 +277,15 @@ module AWS::SDK::CodeGuruReviewer
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:code_review_arn], ::String, context: "#{context}[:code_review_arn]")
-        Validators::UserIds.validate!(input[:user_ids], context: "#{context}[:user_ids]") unless input[:user_ids].nil?
-        Validators::RecommendationIds.validate!(input[:recommendation_ids], context: "#{context}[:recommendation_ids]") unless input[:recommendation_ids].nil?
+        UserIds.validate!(input[:user_ids], context: "#{context}[:user_ids]") unless input[:user_ids].nil?
+        RecommendationIds.validate!(input[:recommendation_ids], context: "#{context}[:recommendation_ids]") unless input[:recommendation_ids].nil?
       end
     end
 
     class ListRecommendationFeedbackOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListRecommendationFeedbackOutput, context: context)
-        Validators::RecommendationFeedbackSummaries.validate!(input[:recommendation_feedback_summaries], context: "#{context}[:recommendation_feedback_summaries]") unless input[:recommendation_feedback_summaries].nil?
+        RecommendationFeedbackSummaries.validate!(input[:recommendation_feedback_summaries], context: "#{context}[:recommendation_feedback_summaries]") unless input[:recommendation_feedback_summaries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -300,7 +302,7 @@ module AWS::SDK::CodeGuruReviewer
     class ListRecommendationsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListRecommendationsOutput, context: context)
-        Validators::RecommendationSummaries.validate!(input[:recommendation_summaries], context: "#{context}[:recommendation_summaries]") unless input[:recommendation_summaries].nil?
+        RecommendationSummaries.validate!(input[:recommendation_summaries], context: "#{context}[:recommendation_summaries]") unless input[:recommendation_summaries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -308,10 +310,10 @@ module AWS::SDK::CodeGuruReviewer
     class ListRepositoryAssociationsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListRepositoryAssociationsInput, context: context)
-        Validators::ProviderTypes.validate!(input[:provider_types], context: "#{context}[:provider_types]") unless input[:provider_types].nil?
-        Validators::RepositoryAssociationStates.validate!(input[:states], context: "#{context}[:states]") unless input[:states].nil?
-        Validators::Names.validate!(input[:names], context: "#{context}[:names]") unless input[:names].nil?
-        Validators::Owners.validate!(input[:owners], context: "#{context}[:owners]") unless input[:owners].nil?
+        ProviderTypes.validate!(input[:provider_types], context: "#{context}[:provider_types]") unless input[:provider_types].nil?
+        RepositoryAssociationStates.validate!(input[:states], context: "#{context}[:states]") unless input[:states].nil?
+        Names.validate!(input[:names], context: "#{context}[:names]") unless input[:names].nil?
+        Owners.validate!(input[:owners], context: "#{context}[:owners]") unless input[:owners].nil?
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -320,7 +322,7 @@ module AWS::SDK::CodeGuruReviewer
     class ListRepositoryAssociationsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListRepositoryAssociationsOutput, context: context)
-        Validators::RepositoryAssociationSummaries.validate!(input[:repository_association_summaries], context: "#{context}[:repository_association_summaries]") unless input[:repository_association_summaries].nil?
+        RepositoryAssociationSummaries.validate!(input[:repository_association_summaries], context: "#{context}[:repository_association_summaries]") unless input[:repository_association_summaries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -335,7 +337,7 @@ module AWS::SDK::CodeGuruReviewer
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -396,7 +398,7 @@ module AWS::SDK::CodeGuruReviewer
         Hearth::Validator.validate!(input, Types::PutRecommendationFeedbackInput, context: context)
         Hearth::Validator.validate!(input[:code_review_arn], ::String, context: "#{context}[:code_review_arn]")
         Hearth::Validator.validate!(input[:recommendation_id], ::String, context: "#{context}[:recommendation_id]")
-        Validators::Reactions.validate!(input[:reactions], context: "#{context}[:reactions]") unless input[:reactions].nil?
+        Reactions.validate!(input[:reactions], context: "#{context}[:reactions]") unless input[:reactions].nil?
       end
     end
 
@@ -420,7 +422,7 @@ module AWS::SDK::CodeGuruReviewer
         Hearth::Validator.validate!(input, Types::RecommendationFeedback, context: context)
         Hearth::Validator.validate!(input[:code_review_arn], ::String, context: "#{context}[:code_review_arn]")
         Hearth::Validator.validate!(input[:recommendation_id], ::String, context: "#{context}[:recommendation_id]")
-        Validators::Reactions.validate!(input[:reactions], context: "#{context}[:reactions]") unless input[:reactions].nil?
+        Reactions.validate!(input[:reactions], context: "#{context}[:reactions]") unless input[:reactions].nil?
         Hearth::Validator.validate!(input[:user_id], ::String, context: "#{context}[:user_id]")
         Hearth::Validator.validate!(input[:created_time_stamp], ::Time, context: "#{context}[:created_time_stamp]")
         Hearth::Validator.validate!(input[:last_updated_time_stamp], ::Time, context: "#{context}[:last_updated_time_stamp]")
@@ -431,7 +433,7 @@ module AWS::SDK::CodeGuruReviewer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RecommendationFeedbackSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RecommendationFeedbackSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -440,7 +442,7 @@ module AWS::SDK::CodeGuruReviewer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RecommendationFeedbackSummary, context: context)
         Hearth::Validator.validate!(input[:recommendation_id], ::String, context: "#{context}[:recommendation_id]")
-        Validators::Reactions.validate!(input[:reactions], context: "#{context}[:reactions]") unless input[:reactions].nil?
+        Reactions.validate!(input[:reactions], context: "#{context}[:reactions]") unless input[:reactions].nil?
         Hearth::Validator.validate!(input[:user_id], ::String, context: "#{context}[:user_id]")
       end
     end
@@ -458,7 +460,7 @@ module AWS::SDK::CodeGuruReviewer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RecommendationSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RecommendationSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -472,7 +474,7 @@ module AWS::SDK::CodeGuruReviewer
         Hearth::Validator.validate!(input[:end_line], ::Integer, context: "#{context}[:end_line]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:recommendation_category], ::String, context: "#{context}[:recommendation_category]")
-        Validators::RuleMetadata.validate!(input[:rule_metadata], context: "#{context}[:rule_metadata]") unless input[:rule_metadata].nil?
+        RuleMetadata.validate!(input[:rule_metadata], context: "#{context}[:rule_metadata]") unless input[:rule_metadata].nil?
         Hearth::Validator.validate!(input[:severity], ::String, context: "#{context}[:severity]")
       end
     end
@@ -480,18 +482,18 @@ module AWS::SDK::CodeGuruReviewer
     class Repository
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Repository, context: context)
-        Validators::CodeCommitRepository.validate!(input[:code_commit], context: "#{context}[:code_commit]") unless input[:code_commit].nil?
-        Validators::ThirdPartySourceRepository.validate!(input[:bitbucket], context: "#{context}[:bitbucket]") unless input[:bitbucket].nil?
-        Validators::ThirdPartySourceRepository.validate!(input[:git_hub_enterprise_server], context: "#{context}[:git_hub_enterprise_server]") unless input[:git_hub_enterprise_server].nil?
-        Validators::S3Repository.validate!(input[:s3_bucket], context: "#{context}[:s3_bucket]") unless input[:s3_bucket].nil?
+        CodeCommitRepository.validate!(input[:code_commit], context: "#{context}[:code_commit]") unless input[:code_commit].nil?
+        ThirdPartySourceRepository.validate!(input[:bitbucket], context: "#{context}[:bitbucket]") unless input[:bitbucket].nil?
+        ThirdPartySourceRepository.validate!(input[:git_hub_enterprise_server], context: "#{context}[:git_hub_enterprise_server]") unless input[:git_hub_enterprise_server].nil?
+        S3Repository.validate!(input[:s3_bucket], context: "#{context}[:s3_bucket]") unless input[:s3_bucket].nil?
       end
     end
 
     class RepositoryAnalysis
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RepositoryAnalysis, context: context)
-        Validators::RepositoryHeadSourceCodeType.validate!(input[:repository_head], context: "#{context}[:repository_head]") unless input[:repository_head].nil?
-        Validators::SourceCodeType.validate!(input[:source_code_type], context: "#{context}[:source_code_type]") unless input[:source_code_type].nil?
+        RepositoryHeadSourceCodeType.validate!(input[:repository_head], context: "#{context}[:repository_head]") unless input[:repository_head].nil?
+        SourceCodeType.validate!(input[:source_code_type], context: "#{context}[:source_code_type]") unless input[:source_code_type].nil?
       end
     end
 
@@ -508,8 +510,8 @@ module AWS::SDK::CodeGuruReviewer
         Hearth::Validator.validate!(input[:state_reason], ::String, context: "#{context}[:state_reason]")
         Hearth::Validator.validate!(input[:last_updated_time_stamp], ::Time, context: "#{context}[:last_updated_time_stamp]")
         Hearth::Validator.validate!(input[:created_time_stamp], ::Time, context: "#{context}[:created_time_stamp]")
-        Validators::KMSKeyDetails.validate!(input[:kms_key_details], context: "#{context}[:kms_key_details]") unless input[:kms_key_details].nil?
-        Validators::S3RepositoryDetails.validate!(input[:s3_repository_details], context: "#{context}[:s3_repository_details]") unless input[:s3_repository_details].nil?
+        KMSKeyDetails.validate!(input[:kms_key_details], context: "#{context}[:kms_key_details]") unless input[:kms_key_details].nil?
+        S3RepositoryDetails.validate!(input[:s3_repository_details], context: "#{context}[:s3_repository_details]") unless input[:s3_repository_details].nil?
       end
     end
 
@@ -526,7 +528,7 @@ module AWS::SDK::CodeGuruReviewer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RepositoryAssociationSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RepositoryAssociationSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -566,7 +568,7 @@ module AWS::SDK::CodeGuruReviewer
         Hearth::Validator.validate!(input, Types::RequestMetadata, context: context)
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
         Hearth::Validator.validate!(input[:requester], ::String, context: "#{context}[:requester]")
-        Validators::EventInfo.validate!(input[:event_info], context: "#{context}[:event_info]") unless input[:event_info].nil?
+        EventInfo.validate!(input[:event_info], context: "#{context}[:event_info]") unless input[:event_info].nil?
         Hearth::Validator.validate!(input[:vendor_name], ::String, context: "#{context}[:vendor_name]")
       end
     end
@@ -585,7 +587,7 @@ module AWS::SDK::CodeGuruReviewer
         Hearth::Validator.validate!(input[:rule_name], ::String, context: "#{context}[:rule_name]")
         Hearth::Validator.validate!(input[:short_description], ::String, context: "#{context}[:short_description]")
         Hearth::Validator.validate!(input[:long_description], ::String, context: "#{context}[:long_description]")
-        Validators::RuleTags.validate!(input[:rule_tags], context: "#{context}[:rule_tags]") unless input[:rule_tags].nil?
+        RuleTags.validate!(input[:rule_tags], context: "#{context}[:rule_tags]") unless input[:rule_tags].nil?
       end
     end
 
@@ -602,7 +604,7 @@ module AWS::SDK::CodeGuruReviewer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::S3BucketRepository, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::S3RepositoryDetails.validate!(input[:details], context: "#{context}[:details]") unless input[:details].nil?
+        S3RepositoryDetails.validate!(input[:details], context: "#{context}[:details]") unless input[:details].nil?
       end
     end
 
@@ -618,18 +620,18 @@ module AWS::SDK::CodeGuruReviewer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::S3RepositoryDetails, context: context)
         Hearth::Validator.validate!(input[:bucket_name], ::String, context: "#{context}[:bucket_name]")
-        Validators::CodeArtifacts.validate!(input[:code_artifacts], context: "#{context}[:code_artifacts]") unless input[:code_artifacts].nil?
+        CodeArtifacts.validate!(input[:code_artifacts], context: "#{context}[:code_artifacts]") unless input[:code_artifacts].nil?
       end
     end
 
     class SourceCodeType
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SourceCodeType, context: context)
-        Validators::CommitDiffSourceCodeType.validate!(input[:commit_diff], context: "#{context}[:commit_diff]") unless input[:commit_diff].nil?
-        Validators::RepositoryHeadSourceCodeType.validate!(input[:repository_head], context: "#{context}[:repository_head]") unless input[:repository_head].nil?
-        Validators::BranchDiffSourceCodeType.validate!(input[:branch_diff], context: "#{context}[:branch_diff]") unless input[:branch_diff].nil?
-        Validators::S3BucketRepository.validate!(input[:s3_bucket_repository], context: "#{context}[:s3_bucket_repository]") unless input[:s3_bucket_repository].nil?
-        Validators::RequestMetadata.validate!(input[:request_metadata], context: "#{context}[:request_metadata]") unless input[:request_metadata].nil?
+        CommitDiffSourceCodeType.validate!(input[:commit_diff], context: "#{context}[:commit_diff]") unless input[:commit_diff].nil?
+        RepositoryHeadSourceCodeType.validate!(input[:repository_head], context: "#{context}[:repository_head]") unless input[:repository_head].nil?
+        BranchDiffSourceCodeType.validate!(input[:branch_diff], context: "#{context}[:branch_diff]") unless input[:branch_diff].nil?
+        S3BucketRepository.validate!(input[:s3_bucket_repository], context: "#{context}[:s3_bucket_repository]") unless input[:s3_bucket_repository].nil?
+        RequestMetadata.validate!(input[:request_metadata], context: "#{context}[:request_metadata]") unless input[:request_metadata].nil?
       end
     end
 
@@ -656,7 +658,7 @@ module AWS::SDK::CodeGuruReviewer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -686,7 +688,7 @@ module AWS::SDK::CodeGuruReviewer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 

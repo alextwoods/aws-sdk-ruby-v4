@@ -265,7 +265,7 @@ module AWS::SDK::S3Control
         type.confirmation_required = params[:confirmation_required]
         type.operation = JobOperation.build(params[:operation], context: "#{context}[:operation]") unless params[:operation].nil?
         type.report = JobReport.build(params[:report], context: "#{context}[:report]") unless params[:report].nil?
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.manifest = JobManifest.build(params[:manifest], context: "#{context}[:manifest]") unless params[:manifest].nil?
         type.description = params[:description]
         type.priority = params[:priority]
@@ -301,7 +301,7 @@ module AWS::SDK::S3Control
         Hearth::Validator.validate!(params, ::Hash, Types::CreateMultiRegionAccessPointOperationInput, context: context)
         type = Types::CreateMultiRegionAccessPointOperationInput.new
         type.account_id = params[:account_id]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.details = CreateMultiRegionAccessPointInput.build(params[:details], context: "#{context}[:details]") unless params[:details].nil?
         type
       end
@@ -492,7 +492,7 @@ module AWS::SDK::S3Control
         Hearth::Validator.validate!(params, ::Hash, Types::DeleteMultiRegionAccessPointOperationInput, context: context)
         type = Types::DeleteMultiRegionAccessPointOperationInput.new
         type.account_id = params[:account_id]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.details = DeleteMultiRegionAccessPointInput.build(params[:details], context: "#{context}[:details]") unless params[:details].nil?
         type
       end
@@ -1883,7 +1883,7 @@ module AWS::SDK::S3Control
         Hearth::Validator.validate!(params, ::Hash, Types::PutMultiRegionAccessPointPolicyOperationInput, context: context)
         type = Types::PutMultiRegionAccessPointPolicyOperationInput.new
         type.account_id = params[:account_id]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.details = PutMultiRegionAccessPointPolicyInput.build(params[:details], context: "#{context}[:details]") unless params[:details].nil?
         type
       end

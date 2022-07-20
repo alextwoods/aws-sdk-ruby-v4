@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::WorkLink
@@ -78,7 +80,7 @@ module AWS::SDK::WorkLink
     def associate_domain(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateDomainInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateDomainInput,
         validate_input: @config.validate_input
@@ -159,7 +161,7 @@ module AWS::SDK::WorkLink
     def associate_website_authorization_provider(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateWebsiteAuthorizationProviderInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateWebsiteAuthorizationProviderInput,
         validate_input: @config.validate_input
@@ -240,7 +242,7 @@ module AWS::SDK::WorkLink
     def associate_website_certificate_authority(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateWebsiteCertificateAuthorityInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateWebsiteCertificateAuthorityInput,
         validate_input: @config.validate_input
@@ -328,7 +330,7 @@ module AWS::SDK::WorkLink
     def create_fleet(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateFleetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateFleetInput,
         validate_input: @config.validate_input
@@ -399,7 +401,7 @@ module AWS::SDK::WorkLink
     def delete_fleet(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteFleetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteFleetInput,
         validate_input: @config.validate_input
@@ -471,7 +473,7 @@ module AWS::SDK::WorkLink
     def describe_audit_stream_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAuditStreamConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAuditStreamConfigurationInput,
         validate_input: @config.validate_input
@@ -548,7 +550,7 @@ module AWS::SDK::WorkLink
     def describe_company_network_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeCompanyNetworkConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeCompanyNetworkConfigurationInput,
         validate_input: @config.validate_input
@@ -632,7 +634,7 @@ module AWS::SDK::WorkLink
     def describe_device(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDeviceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDeviceInput,
         validate_input: @config.validate_input
@@ -704,7 +706,7 @@ module AWS::SDK::WorkLink
     def describe_device_policy_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDevicePolicyConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDevicePolicyConfigurationInput,
         validate_input: @config.validate_input
@@ -784,7 +786,7 @@ module AWS::SDK::WorkLink
     def describe_domain(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDomainInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDomainInput,
         validate_input: @config.validate_input
@@ -865,7 +867,7 @@ module AWS::SDK::WorkLink
     def describe_fleet_metadata(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeFleetMetadataInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeFleetMetadataInput,
         validate_input: @config.validate_input
@@ -939,7 +941,7 @@ module AWS::SDK::WorkLink
     def describe_identity_provider_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeIdentityProviderConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeIdentityProviderConfigurationInput,
         validate_input: @config.validate_input
@@ -1017,7 +1019,7 @@ module AWS::SDK::WorkLink
     def describe_website_certificate_authority(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeWebsiteCertificateAuthorityInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeWebsiteCertificateAuthorityInput,
         validate_input: @config.validate_input
@@ -1092,7 +1094,7 @@ module AWS::SDK::WorkLink
     def disassociate_domain(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateDomainInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateDomainInput,
         validate_input: @config.validate_input
@@ -1169,7 +1171,7 @@ module AWS::SDK::WorkLink
     def disassociate_website_authorization_provider(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateWebsiteAuthorizationProviderInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateWebsiteAuthorizationProviderInput,
         validate_input: @config.validate_input
@@ -1244,7 +1246,7 @@ module AWS::SDK::WorkLink
     def disassociate_website_certificate_authority(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateWebsiteCertificateAuthorityInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateWebsiteCertificateAuthorityInput,
         validate_input: @config.validate_input
@@ -1329,7 +1331,7 @@ module AWS::SDK::WorkLink
     def list_devices(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDevicesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDevicesInput,
         validate_input: @config.validate_input
@@ -1416,7 +1418,7 @@ module AWS::SDK::WorkLink
     def list_domains(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDomainsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDomainsInput,
         validate_input: @config.validate_input
@@ -1504,7 +1506,7 @@ module AWS::SDK::WorkLink
     def list_fleets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListFleetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListFleetsInput,
         validate_input: @config.validate_input
@@ -1577,7 +1579,7 @@ module AWS::SDK::WorkLink
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -1662,7 +1664,7 @@ module AWS::SDK::WorkLink
     def list_website_authorization_providers(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListWebsiteAuthorizationProvidersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListWebsiteAuthorizationProvidersInput,
         validate_input: @config.validate_input
@@ -1749,7 +1751,7 @@ module AWS::SDK::WorkLink
     def list_website_certificate_authorities(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListWebsiteCertificateAuthoritiesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListWebsiteCertificateAuthoritiesInput,
         validate_input: @config.validate_input
@@ -1824,7 +1826,7 @@ module AWS::SDK::WorkLink
     def restore_domain_access(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RestoreDomainAccessInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RestoreDomainAccessInput,
         validate_input: @config.validate_input
@@ -1899,7 +1901,7 @@ module AWS::SDK::WorkLink
     def revoke_domain_access(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RevokeDomainAccessInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RevokeDomainAccessInput,
         validate_input: @config.validate_input
@@ -1975,7 +1977,7 @@ module AWS::SDK::WorkLink
     def sign_out_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SignOutUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SignOutUserInput,
         validate_input: @config.validate_input
@@ -2052,7 +2054,7 @@ module AWS::SDK::WorkLink
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -2129,7 +2131,7 @@ module AWS::SDK::WorkLink
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -2203,7 +2205,7 @@ module AWS::SDK::WorkLink
     def update_audit_stream_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateAuditStreamConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateAuditStreamConfigurationInput,
         validate_input: @config.validate_input
@@ -2290,7 +2292,7 @@ module AWS::SDK::WorkLink
     def update_company_network_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateCompanyNetworkConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateCompanyNetworkConfigurationInput,
         validate_input: @config.validate_input
@@ -2365,7 +2367,7 @@ module AWS::SDK::WorkLink
     def update_device_policy_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDevicePolicyConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDevicePolicyConfigurationInput,
         validate_input: @config.validate_input
@@ -2444,7 +2446,7 @@ module AWS::SDK::WorkLink
     def update_domain_metadata(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDomainMetadataInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDomainMetadataInput,
         validate_input: @config.validate_input
@@ -2524,7 +2526,7 @@ module AWS::SDK::WorkLink
     def update_fleet_metadata(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateFleetMetadataInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateFleetMetadataInput,
         validate_input: @config.validate_input
@@ -2604,7 +2606,7 @@ module AWS::SDK::WorkLink
     def update_identity_provider_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateIdentityProviderConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateIdentityProviderConfigurationInput,
         validate_input: @config.validate_input

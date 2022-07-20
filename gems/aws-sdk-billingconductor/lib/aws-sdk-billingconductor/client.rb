@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::Billingconductor
@@ -82,7 +84,7 @@ module AWS::SDK::Billingconductor
     def associate_accounts(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateAccountsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateAccountsInput,
         validate_input: @config.validate_input
@@ -162,7 +164,7 @@ module AWS::SDK::Billingconductor
     def associate_pricing_rules(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociatePricingRulesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociatePricingRulesInput,
         validate_input: @config.validate_input
@@ -258,7 +260,7 @@ module AWS::SDK::Billingconductor
     def batch_associate_resources_to_custom_line_item(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchAssociateResourcesToCustomLineItemInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchAssociateResourcesToCustomLineItemInput,
         validate_input: @config.validate_input
@@ -354,7 +356,7 @@ module AWS::SDK::Billingconductor
     def batch_disassociate_resources_from_custom_line_item(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchDisassociateResourcesFromCustomLineItemInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchDisassociateResourcesFromCustomLineItemInput,
         validate_input: @config.validate_input
@@ -467,7 +469,7 @@ module AWS::SDK::Billingconductor
     def create_billing_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateBillingGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateBillingGroupInput,
         validate_input: @config.validate_input
@@ -587,7 +589,7 @@ module AWS::SDK::Billingconductor
     def create_custom_line_item(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateCustomLineItemInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateCustomLineItemInput,
         validate_input: @config.validate_input
@@ -683,7 +685,7 @@ module AWS::SDK::Billingconductor
     def create_pricing_plan(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreatePricingPlanInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreatePricingPlanInput,
         validate_input: @config.validate_input
@@ -800,7 +802,7 @@ module AWS::SDK::Billingconductor
     def create_pricing_rule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreatePricingRuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreatePricingRuleInput,
         validate_input: @config.validate_input
@@ -871,7 +873,7 @@ module AWS::SDK::Billingconductor
     def delete_billing_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteBillingGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteBillingGroupInput,
         validate_input: @config.validate_input
@@ -953,7 +955,7 @@ module AWS::SDK::Billingconductor
     def delete_custom_line_item(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteCustomLineItemInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteCustomLineItemInput,
         validate_input: @config.validate_input
@@ -1023,7 +1025,7 @@ module AWS::SDK::Billingconductor
     def delete_pricing_plan(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeletePricingPlanInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeletePricingPlanInput,
         validate_input: @config.validate_input
@@ -1092,7 +1094,7 @@ module AWS::SDK::Billingconductor
     def delete_pricing_rule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeletePricingRuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeletePricingRuleInput,
         validate_input: @config.validate_input
@@ -1169,7 +1171,7 @@ module AWS::SDK::Billingconductor
     def disassociate_accounts(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateAccountsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateAccountsInput,
         validate_input: @config.validate_input
@@ -1247,7 +1249,7 @@ module AWS::SDK::Billingconductor
     def disassociate_pricing_rules(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociatePricingRulesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociatePricingRulesInput,
         validate_input: @config.validate_input
@@ -1353,7 +1355,7 @@ module AWS::SDK::Billingconductor
     def list_account_associations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAccountAssociationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAccountAssociationsInput,
         validate_input: @config.validate_input
@@ -1451,7 +1453,7 @@ module AWS::SDK::Billingconductor
     def list_billing_group_cost_reports(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListBillingGroupCostReportsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListBillingGroupCostReportsInput,
         validate_input: @config.validate_input
@@ -1554,7 +1556,7 @@ module AWS::SDK::Billingconductor
     def list_billing_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListBillingGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListBillingGroupsInput,
         validate_input: @config.validate_input
@@ -1671,7 +1673,7 @@ module AWS::SDK::Billingconductor
     def list_custom_line_items(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListCustomLineItemsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListCustomLineItemsInput,
         validate_input: @config.validate_input
@@ -1769,7 +1771,7 @@ module AWS::SDK::Billingconductor
     def list_pricing_plans(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPricingPlansInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPricingPlansInput,
         validate_input: @config.validate_input
@@ -1862,7 +1864,7 @@ module AWS::SDK::Billingconductor
     def list_pricing_plans_associated_with_pricing_rule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPricingPlansAssociatedWithPricingRuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPricingPlansAssociatedWithPricingRuleInput,
         validate_input: @config.validate_input
@@ -1969,7 +1971,7 @@ module AWS::SDK::Billingconductor
     def list_pricing_rules(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPricingRulesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPricingRulesInput,
         validate_input: @config.validate_input
@@ -2061,7 +2063,7 @@ module AWS::SDK::Billingconductor
     def list_pricing_rules_associated_to_pricing_plan(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPricingRulesAssociatedToPricingPlanInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPricingRulesAssociatedToPricingPlanInput,
         validate_input: @config.validate_input
@@ -2165,7 +2167,7 @@ module AWS::SDK::Billingconductor
     def list_resources_associated_to_custom_line_item(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListResourcesAssociatedToCustomLineItemInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListResourcesAssociatedToCustomLineItemInput,
         validate_input: @config.validate_input
@@ -2239,7 +2241,7 @@ module AWS::SDK::Billingconductor
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -2318,7 +2320,7 @@ module AWS::SDK::Billingconductor
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -2398,7 +2400,7 @@ module AWS::SDK::Billingconductor
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -2498,7 +2500,7 @@ module AWS::SDK::Billingconductor
     def update_billing_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateBillingGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateBillingGroupInput,
         validate_input: @config.validate_input
@@ -2616,7 +2618,7 @@ module AWS::SDK::Billingconductor
     def update_custom_line_item(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateCustomLineItemInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateCustomLineItemInput,
         validate_input: @config.validate_input
@@ -2700,7 +2702,7 @@ module AWS::SDK::Billingconductor
     def update_pricing_plan(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdatePricingPlanInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdatePricingPlanInput,
         validate_input: @config.validate_input
@@ -2803,7 +2805,7 @@ module AWS::SDK::Billingconductor
     def update_pricing_rule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdatePricingRuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdatePricingRuleInput,
         validate_input: @config.validate_input

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::LicenseManager
@@ -61,7 +63,7 @@ module AWS::SDK::LicenseManager
     def accept_grant(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AcceptGrantInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AcceptGrantInput,
         validate_input: @config.validate_input
@@ -133,7 +135,7 @@ module AWS::SDK::LicenseManager
     def check_in_license(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CheckInLicenseInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CheckInLicenseInput,
         validate_input: @config.validate_input
@@ -248,7 +250,7 @@ module AWS::SDK::LicenseManager
     def checkout_borrow_license(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CheckoutBorrowLicenseInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CheckoutBorrowLicenseInput,
         validate_input: @config.validate_input
@@ -358,7 +360,7 @@ module AWS::SDK::LicenseManager
     def checkout_license(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CheckoutLicenseInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CheckoutLicenseInput,
         validate_input: @config.validate_input
@@ -453,7 +455,7 @@ module AWS::SDK::LicenseManager
     def create_grant(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateGrantInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateGrantInput,
         validate_input: @config.validate_input
@@ -550,7 +552,7 @@ module AWS::SDK::LicenseManager
     def create_grant_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateGrantVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateGrantVersionInput,
         validate_input: @config.validate_input
@@ -692,7 +694,7 @@ module AWS::SDK::LicenseManager
     def create_license(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateLicenseInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateLicenseInput,
         validate_input: @config.validate_input
@@ -852,7 +854,7 @@ module AWS::SDK::LicenseManager
     def create_license_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateLicenseConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateLicenseConfigurationInput,
         validate_input: @config.validate_input
@@ -931,7 +933,7 @@ module AWS::SDK::LicenseManager
     def create_license_conversion_task_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateLicenseConversionTaskForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateLicenseConversionTaskForResourceInput,
         validate_input: @config.validate_input
@@ -1046,7 +1048,7 @@ module AWS::SDK::LicenseManager
     def create_license_manager_report_generator(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateLicenseManagerReportGeneratorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateLicenseManagerReportGeneratorInput,
         validate_input: @config.validate_input
@@ -1192,7 +1194,7 @@ module AWS::SDK::LicenseManager
     def create_license_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateLicenseVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateLicenseVersionInput,
         validate_input: @config.validate_input
@@ -1289,7 +1291,7 @@ module AWS::SDK::LicenseManager
     def create_token(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateTokenInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateTokenInput,
         validate_input: @config.validate_input
@@ -1368,7 +1370,7 @@ module AWS::SDK::LicenseManager
     def delete_grant(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteGrantInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteGrantInput,
         validate_input: @config.validate_input
@@ -1442,7 +1444,7 @@ module AWS::SDK::LicenseManager
     def delete_license(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteLicenseInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteLicenseInput,
         validate_input: @config.validate_input
@@ -1511,7 +1513,7 @@ module AWS::SDK::LicenseManager
     def delete_license_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteLicenseConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteLicenseConfigurationInput,
         validate_input: @config.validate_input
@@ -1581,7 +1583,7 @@ module AWS::SDK::LicenseManager
     def delete_license_manager_report_generator(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteLicenseManagerReportGeneratorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteLicenseManagerReportGeneratorInput,
         validate_input: @config.validate_input
@@ -1649,7 +1651,7 @@ module AWS::SDK::LicenseManager
     def delete_token(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteTokenInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteTokenInput,
         validate_input: @config.validate_input
@@ -1723,7 +1725,7 @@ module AWS::SDK::LicenseManager
     def extend_license_consumption(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ExtendLicenseConsumptionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ExtendLicenseConsumptionInput,
         validate_input: @config.validate_input
@@ -1799,7 +1801,7 @@ module AWS::SDK::LicenseManager
     def get_access_token(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAccessTokenInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAccessTokenInput,
         validate_input: @config.validate_input
@@ -1883,7 +1885,7 @@ module AWS::SDK::LicenseManager
     def get_grant(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetGrantInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetGrantInput,
         validate_input: @config.validate_input
@@ -1991,7 +1993,7 @@ module AWS::SDK::LicenseManager
     def get_license(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetLicenseInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetLicenseInput,
         validate_input: @config.validate_input
@@ -2094,7 +2096,7 @@ module AWS::SDK::LicenseManager
     def get_license_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetLicenseConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetLicenseConfigurationInput,
         validate_input: @config.validate_input
@@ -2172,7 +2174,7 @@ module AWS::SDK::LicenseManager
     def get_license_conversion_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetLicenseConversionTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetLicenseConversionTaskInput,
         validate_input: @config.validate_input
@@ -2264,7 +2266,7 @@ module AWS::SDK::LicenseManager
     def get_license_manager_report_generator(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetLicenseManagerReportGeneratorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetLicenseManagerReportGeneratorInput,
         validate_input: @config.validate_input
@@ -2339,7 +2341,7 @@ module AWS::SDK::LicenseManager
     def get_license_usage(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetLicenseUsageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetLicenseUsageInput,
         validate_input: @config.validate_input
@@ -2408,7 +2410,7 @@ module AWS::SDK::LicenseManager
     def get_service_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetServiceSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetServiceSettingsInput,
         validate_input: @config.validate_input
@@ -2495,7 +2497,7 @@ module AWS::SDK::LicenseManager
     def list_associations_for_license_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAssociationsForLicenseConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAssociationsForLicenseConfigurationInput,
         validate_input: @config.validate_input
@@ -2625,7 +2627,7 @@ module AWS::SDK::LicenseManager
     def list_distributed_grants(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDistributedGrantsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDistributedGrantsInput,
         validate_input: @config.validate_input
@@ -2715,7 +2717,7 @@ module AWS::SDK::LicenseManager
     def list_failures_for_license_configuration_operations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListFailuresForLicenseConfigurationOperationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListFailuresForLicenseConfigurationOperationsInput,
         validate_input: @config.validate_input
@@ -2857,7 +2859,7 @@ module AWS::SDK::LicenseManager
     def list_license_configurations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListLicenseConfigurationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListLicenseConfigurationsInput,
         validate_input: @config.validate_input
@@ -2955,7 +2957,7 @@ module AWS::SDK::LicenseManager
     def list_license_conversion_tasks(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListLicenseConversionTasksInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListLicenseConversionTasksInput,
         validate_input: @config.validate_input
@@ -3071,7 +3073,7 @@ module AWS::SDK::LicenseManager
     def list_license_manager_report_generators(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListLicenseManagerReportGeneratorsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListLicenseManagerReportGeneratorsInput,
         validate_input: @config.validate_input
@@ -3152,7 +3154,7 @@ module AWS::SDK::LicenseManager
     def list_license_specifications_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListLicenseSpecificationsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListLicenseSpecificationsForResourceInput,
         validate_input: @config.validate_input
@@ -3266,7 +3268,7 @@ module AWS::SDK::LicenseManager
     def list_license_versions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListLicenseVersionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListLicenseVersionsInput,
         validate_input: @config.validate_input
@@ -3415,7 +3417,7 @@ module AWS::SDK::LicenseManager
     def list_licenses(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListLicensesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListLicensesInput,
         validate_input: @config.validate_input
@@ -3545,7 +3547,7 @@ module AWS::SDK::LicenseManager
     def list_received_grants(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListReceivedGrantsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListReceivedGrantsInput,
         validate_input: @config.validate_input
@@ -3704,7 +3706,7 @@ module AWS::SDK::LicenseManager
     def list_received_licenses(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListReceivedLicensesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListReceivedLicensesInput,
         validate_input: @config.validate_input
@@ -3833,7 +3835,7 @@ module AWS::SDK::LicenseManager
     def list_resource_inventory(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListResourceInventoryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListResourceInventoryInput,
         validate_input: @config.validate_input
@@ -3905,7 +3907,7 @@ module AWS::SDK::LicenseManager
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -4013,7 +4015,7 @@ module AWS::SDK::LicenseManager
     def list_tokens(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTokensInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTokensInput,
         validate_input: @config.validate_input
@@ -4129,7 +4131,7 @@ module AWS::SDK::LicenseManager
     def list_usage_for_license_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListUsageForLicenseConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListUsageForLicenseConfigurationInput,
         validate_input: @config.validate_input
@@ -4200,7 +4202,7 @@ module AWS::SDK::LicenseManager
     def reject_grant(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RejectGrantInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RejectGrantInput,
         validate_input: @config.validate_input
@@ -4277,7 +4279,7 @@ module AWS::SDK::LicenseManager
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -4351,7 +4353,7 @@ module AWS::SDK::LicenseManager
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -4464,7 +4466,7 @@ module AWS::SDK::LicenseManager
     def update_license_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateLicenseConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateLicenseConfigurationInput,
         validate_input: @config.validate_input
@@ -4574,7 +4576,7 @@ module AWS::SDK::LicenseManager
     def update_license_manager_report_generator(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateLicenseManagerReportGeneratorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateLicenseManagerReportGeneratorInput,
         validate_input: @config.validate_input
@@ -4657,7 +4659,7 @@ module AWS::SDK::LicenseManager
     def update_license_specifications_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateLicenseSpecificationsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateLicenseSpecificationsForResourceInput,
         validate_input: @config.validate_input
@@ -4739,7 +4741,7 @@ module AWS::SDK::LicenseManager
     def update_service_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateServiceSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateServiceSettingsInput,
         validate_input: @config.validate_input

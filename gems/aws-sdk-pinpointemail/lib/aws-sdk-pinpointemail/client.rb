@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::PinpointEmail
@@ -129,7 +131,7 @@ module AWS::SDK::PinpointEmail
     def create_configuration_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateConfigurationSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateConfigurationSetInput,
         validate_input: @config.validate_input
@@ -235,7 +237,7 @@ module AWS::SDK::PinpointEmail
     def create_configuration_set_event_destination(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateConfigurationSetEventDestinationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateConfigurationSetEventDestinationInput,
         validate_input: @config.validate_input
@@ -316,7 +318,7 @@ module AWS::SDK::PinpointEmail
     def create_dedicated_ip_pool(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDedicatedIpPoolInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDedicatedIpPoolInput,
         validate_input: @config.validate_input
@@ -427,7 +429,7 @@ module AWS::SDK::PinpointEmail
     def create_deliverability_test_report(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDeliverabilityTestReportInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDeliverabilityTestReportInput,
         validate_input: @config.validate_input
@@ -525,7 +527,7 @@ module AWS::SDK::PinpointEmail
     def create_email_identity(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateEmailIdentityInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateEmailIdentityInput,
         validate_input: @config.validate_input
@@ -598,7 +600,7 @@ module AWS::SDK::PinpointEmail
     def delete_configuration_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteConfigurationSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteConfigurationSetInput,
         validate_input: @config.validate_input
@@ -675,7 +677,7 @@ module AWS::SDK::PinpointEmail
     def delete_configuration_set_event_destination(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteConfigurationSetEventDestinationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteConfigurationSetEventDestinationInput,
         validate_input: @config.validate_input
@@ -742,7 +744,7 @@ module AWS::SDK::PinpointEmail
     def delete_dedicated_ip_pool(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDedicatedIpPoolInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDedicatedIpPoolInput,
         validate_input: @config.validate_input
@@ -811,7 +813,7 @@ module AWS::SDK::PinpointEmail
     def delete_email_identity(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteEmailIdentityInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteEmailIdentityInput,
         validate_input: @config.validate_input
@@ -882,7 +884,7 @@ module AWS::SDK::PinpointEmail
     def get_account(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAccountInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAccountInput,
         validate_input: @config.validate_input
@@ -959,7 +961,7 @@ module AWS::SDK::PinpointEmail
     def get_blacklist_reports(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetBlacklistReportsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetBlacklistReportsInput,
         validate_input: @config.validate_input
@@ -1049,7 +1051,7 @@ module AWS::SDK::PinpointEmail
     def get_configuration_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetConfigurationSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetConfigurationSetInput,
         validate_input: @config.validate_input
@@ -1141,7 +1143,7 @@ module AWS::SDK::PinpointEmail
     def get_configuration_set_event_destinations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetConfigurationSetEventDestinationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetConfigurationSetEventDestinationsInput,
         validate_input: @config.validate_input
@@ -1216,7 +1218,7 @@ module AWS::SDK::PinpointEmail
     def get_dedicated_ip(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDedicatedIpInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDedicatedIpInput,
         validate_input: @config.validate_input
@@ -1303,7 +1305,7 @@ module AWS::SDK::PinpointEmail
     def get_dedicated_ips(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDedicatedIpsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDedicatedIpsInput,
         validate_input: @config.validate_input
@@ -1383,7 +1385,7 @@ module AWS::SDK::PinpointEmail
     def get_deliverability_dashboard_options(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDeliverabilityDashboardOptionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDeliverabilityDashboardOptionsInput,
         validate_input: @config.validate_input
@@ -1472,7 +1474,7 @@ module AWS::SDK::PinpointEmail
     def get_deliverability_test_report(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDeliverabilityTestReportInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDeliverabilityTestReportInput,
         validate_input: @config.validate_input
@@ -1562,7 +1564,7 @@ module AWS::SDK::PinpointEmail
     def get_domain_deliverability_campaign(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDomainDeliverabilityCampaignInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDomainDeliverabilityCampaignInput,
         validate_input: @config.validate_input
@@ -1660,7 +1662,7 @@ module AWS::SDK::PinpointEmail
     def get_domain_statistics_report(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDomainStatisticsReportInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDomainStatisticsReportInput,
         validate_input: @config.validate_input
@@ -1745,7 +1747,7 @@ module AWS::SDK::PinpointEmail
     def get_email_identity(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetEmailIdentityInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetEmailIdentityInput,
         validate_input: @config.validate_input
@@ -1829,7 +1831,7 @@ module AWS::SDK::PinpointEmail
     def list_configuration_sets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListConfigurationSetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListConfigurationSetsInput,
         validate_input: @config.validate_input
@@ -1908,7 +1910,7 @@ module AWS::SDK::PinpointEmail
     def list_dedicated_ip_pools(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDedicatedIpPoolsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDedicatedIpPoolsInput,
         validate_input: @config.validate_input
@@ -1996,7 +1998,7 @@ module AWS::SDK::PinpointEmail
     def list_deliverability_test_reports(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDeliverabilityTestReportsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDeliverabilityTestReportsInput,
         validate_input: @config.validate_input
@@ -2110,7 +2112,7 @@ module AWS::SDK::PinpointEmail
     def list_domain_deliverability_campaigns(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDomainDeliverabilityCampaignsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDomainDeliverabilityCampaignsInput,
         validate_input: @config.validate_input
@@ -2194,7 +2196,7 @@ module AWS::SDK::PinpointEmail
     def list_email_identities(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListEmailIdentitiesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListEmailIdentitiesInput,
         validate_input: @config.validate_input
@@ -2271,7 +2273,7 @@ module AWS::SDK::PinpointEmail
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -2341,7 +2343,7 @@ module AWS::SDK::PinpointEmail
     def put_account_dedicated_ip_warmup_attributes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutAccountDedicatedIpWarmupAttributesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutAccountDedicatedIpWarmupAttributesInput,
         validate_input: @config.validate_input
@@ -2414,7 +2416,7 @@ module AWS::SDK::PinpointEmail
     def put_account_sending_attributes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutAccountSendingAttributesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutAccountSendingAttributesInput,
         validate_input: @config.validate_input
@@ -2496,7 +2498,7 @@ module AWS::SDK::PinpointEmail
     def put_configuration_set_delivery_options(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutConfigurationSetDeliveryOptionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutConfigurationSetDeliveryOptionsInput,
         validate_input: @config.validate_input
@@ -2572,7 +2574,7 @@ module AWS::SDK::PinpointEmail
     def put_configuration_set_reputation_options(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutConfigurationSetReputationOptionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutConfigurationSetReputationOptionsInput,
         validate_input: @config.validate_input
@@ -2647,7 +2649,7 @@ module AWS::SDK::PinpointEmail
     def put_configuration_set_sending_options(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutConfigurationSetSendingOptionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutConfigurationSetSendingOptionsInput,
         validate_input: @config.validate_input
@@ -2721,7 +2723,7 @@ module AWS::SDK::PinpointEmail
     def put_configuration_set_tracking_options(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutConfigurationSetTrackingOptionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutConfigurationSetTrackingOptionsInput,
         validate_input: @config.validate_input
@@ -2804,7 +2806,7 @@ module AWS::SDK::PinpointEmail
     def put_dedicated_ip_in_pool(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutDedicatedIpInPoolInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutDedicatedIpInPoolInput,
         validate_input: @config.validate_input
@@ -2877,7 +2879,7 @@ module AWS::SDK::PinpointEmail
     def put_dedicated_ip_warmup_attributes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutDedicatedIpWarmupAttributesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutDedicatedIpWarmupAttributesInput,
         validate_input: @config.validate_input
@@ -2968,7 +2970,7 @@ module AWS::SDK::PinpointEmail
     def put_deliverability_dashboard_option(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutDeliverabilityDashboardOptionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutDeliverabilityDashboardOptionInput,
         validate_input: @config.validate_input
@@ -3043,7 +3045,7 @@ module AWS::SDK::PinpointEmail
     def put_email_identity_dkim_attributes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutEmailIdentityDkimAttributesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutEmailIdentityDkimAttributesInput,
         validate_input: @config.validate_input
@@ -3134,7 +3136,7 @@ module AWS::SDK::PinpointEmail
     def put_email_identity_feedback_attributes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutEmailIdentityFeedbackAttributesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutEmailIdentityFeedbackAttributesInput,
         validate_input: @config.validate_input
@@ -3232,7 +3234,7 @@ module AWS::SDK::PinpointEmail
     def put_email_identity_mail_from_attributes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutEmailIdentityMailFromAttributesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutEmailIdentityMailFromAttributesInput,
         validate_input: @config.validate_input
@@ -3372,7 +3374,7 @@ module AWS::SDK::PinpointEmail
     def send_email(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SendEmailInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SendEmailInput,
         validate_input: @config.validate_input
@@ -3461,7 +3463,7 @@ module AWS::SDK::PinpointEmail
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -3542,7 +3544,7 @@ module AWS::SDK::PinpointEmail
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -3647,7 +3649,7 @@ module AWS::SDK::PinpointEmail
     def update_configuration_set_event_destination(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateConfigurationSetEventDestinationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateConfigurationSetEventDestinationInput,
         validate_input: @config.validate_input

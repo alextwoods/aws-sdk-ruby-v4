@@ -27,7 +27,7 @@ module AWS::SDK::Polly
     class DescribeVoices
       def self.default(visited=[])
         {
-          voices: Stubs::VoiceList.default(visited),
+          voices: VoiceList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -48,7 +48,7 @@ module AWS::SDK::Polly
         return nil if visited.include?('VoiceList')
         visited = visited + ['VoiceList']
         [
-          Stubs::Voice.default(visited)
+          Voice.default(visited)
         ]
       end
 
@@ -73,8 +73,8 @@ module AWS::SDK::Polly
           language_code: 'language_code',
           language_name: 'language_name',
           name: 'name',
-          additional_language_codes: Stubs::LanguageCodeList.default(visited),
-          supported_engines: Stubs::EngineList.default(visited),
+          additional_language_codes: LanguageCodeList.default(visited),
+          supported_engines: EngineList.default(visited),
         }
       end
 
@@ -136,8 +136,8 @@ module AWS::SDK::Polly
     class GetLexicon
       def self.default(visited=[])
         {
-          lexicon: Stubs::Lexicon.default(visited),
-          lexicon_attributes: Stubs::LexiconAttributes.default(visited),
+          lexicon: Lexicon.default(visited),
+          lexicon_attributes: LexiconAttributes.default(visited),
         }
       end
 
@@ -203,7 +203,7 @@ module AWS::SDK::Polly
     class GetSpeechSynthesisTask
       def self.default(visited=[])
         {
-          synthesis_task: Stubs::SynthesisTask.default(visited),
+          synthesis_task: SynthesisTask.default(visited),
         }
       end
 
@@ -230,10 +230,10 @@ module AWS::SDK::Polly
           creation_time: Time.now,
           request_characters: 1,
           sns_topic_arn: 'sns_topic_arn',
-          lexicon_names: Stubs::LexiconNameList.default(visited),
+          lexicon_names: LexiconNameList.default(visited),
           output_format: 'output_format',
           sample_rate: 'sample_rate',
-          speech_mark_types: Stubs::SpeechMarkTypeList.default(visited),
+          speech_mark_types: SpeechMarkTypeList.default(visited),
           text_type: 'text_type',
           voice_id: 'voice_id',
           language_code: 'language_code',
@@ -306,7 +306,7 @@ module AWS::SDK::Polly
     class ListLexicons
       def self.default(visited=[])
         {
-          lexicons: Stubs::LexiconDescriptionList.default(visited),
+          lexicons: LexiconDescriptionList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -327,7 +327,7 @@ module AWS::SDK::Polly
         return nil if visited.include?('LexiconDescriptionList')
         visited = visited + ['LexiconDescriptionList']
         [
-          Stubs::LexiconDescription.default(visited)
+          LexiconDescription.default(visited)
         ]
       end
 
@@ -348,7 +348,7 @@ module AWS::SDK::Polly
         visited = visited + ['LexiconDescription']
         {
           name: 'name',
-          attributes: Stubs::LexiconAttributes.default(visited),
+          attributes: LexiconAttributes.default(visited),
         }
       end
 
@@ -366,7 +366,7 @@ module AWS::SDK::Polly
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          synthesis_tasks: Stubs::SynthesisTasks.default(visited),
+          synthesis_tasks: SynthesisTasks.default(visited),
         }
       end
 
@@ -386,7 +386,7 @@ module AWS::SDK::Polly
         return nil if visited.include?('SynthesisTasks')
         visited = visited + ['SynthesisTasks']
         [
-          Stubs::SynthesisTask.default(visited)
+          SynthesisTask.default(visited)
         ]
       end
 
@@ -417,7 +417,7 @@ module AWS::SDK::Polly
     class StartSpeechSynthesisTask
       def self.default(visited=[])
         {
-          synthesis_task: Stubs::SynthesisTask.default(visited),
+          synthesis_task: SynthesisTask.default(visited),
         }
       end
 

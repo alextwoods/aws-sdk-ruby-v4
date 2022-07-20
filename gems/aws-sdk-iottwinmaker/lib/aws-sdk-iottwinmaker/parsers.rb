@@ -7,8 +7,6 @@
 #
 # WARNING ABOUT GENERATED CODE
 
-require 'base64'
-
 module AWS::SDK::IoTTwinMaker
   module Parsers
 
@@ -363,7 +361,7 @@ module AWS::SDK::IoTTwinMaker
     class FunctionResponse
       def self.parse(map)
         data = Types::FunctionResponse.new
-        data.required_properties = map['requiredProperties']
+        data.required_properties = (Parsers::RequiredProperties.parse(map['requiredProperties']) unless map['requiredProperties'].nil?)
         data.scope = map['scope']
         data.implemented_by = (Parsers::DataConnector.parse(map['implementedBy']) unless map['implementedBy'].nil?)
         data.is_inherited = map['isInherited']
@@ -390,10 +388,11 @@ module AWS::SDK::IoTTwinMaker
 
     class RequiredProperties
       def self.parse(list)
-        data = list.map do |value|
-          value unless value.nil?
+        data = []
+        list.map do |value|
+          data << value unless value.nil?
         end
-        Set.new(data)
+        data
       end
     end
 

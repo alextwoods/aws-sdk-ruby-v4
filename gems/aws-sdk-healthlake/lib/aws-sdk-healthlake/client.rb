@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::HealthLake
@@ -99,7 +101,7 @@ module AWS::SDK::HealthLake
     def create_fhir_datastore(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateFHIRDatastoreInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateFHIRDatastoreInput,
         validate_input: @config.validate_input
@@ -171,7 +173,7 @@ module AWS::SDK::HealthLake
     def delete_fhir_datastore(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteFHIRDatastoreInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteFHIRDatastoreInput,
         validate_input: @config.validate_input
@@ -255,7 +257,7 @@ module AWS::SDK::HealthLake
     def describe_fhir_datastore(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeFHIRDatastoreInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeFHIRDatastoreInput,
         validate_input: @config.validate_input
@@ -330,14 +332,17 @@ module AWS::SDK::HealthLake
     #   resp.data.export_job_properties.submit_time #=> Time
     #   resp.data.export_job_properties.end_time #=> Time
     #   resp.data.export_job_properties.datastore_id #=> String
-    #   resp.data.export_job_properties.output_data_config #=> OutputDataConfig
+    #   resp.data.export_job_properties.output_data_config #=> Types::OutputDataConfig, one of [S3Configuration]
+    #   resp.data.export_job_properties.output_data_config.s3_configuration #=> Types::S3Configuration
+    #   resp.data.export_job_properties.output_data_config.s3_configuration.s3_uri #=> String
+    #   resp.data.export_job_properties.output_data_config.s3_configuration.kms_key_id #=> String
     #   resp.data.export_job_properties.data_access_role_arn #=> String
     #   resp.data.export_job_properties.message #=> String
     #
     def describe_fhir_export_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeFHIRExportJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeFHIRExportJobInput,
         validate_input: @config.validate_input
@@ -412,15 +417,19 @@ module AWS::SDK::HealthLake
     #   resp.data.import_job_properties.submit_time #=> Time
     #   resp.data.import_job_properties.end_time #=> Time
     #   resp.data.import_job_properties.datastore_id #=> String
-    #   resp.data.import_job_properties.input_data_config #=> InputDataConfig
-    #   resp.data.import_job_properties.job_output_data_config #=> OutputDataConfig
+    #   resp.data.import_job_properties.input_data_config #=> Types::InputDataConfig, one of [S3Uri]
+    #   resp.data.import_job_properties.input_data_config.s3_uri #=> String
+    #   resp.data.import_job_properties.job_output_data_config #=> Types::OutputDataConfig, one of [S3Configuration]
+    #   resp.data.import_job_properties.job_output_data_config.s3_configuration #=> Types::S3Configuration
+    #   resp.data.import_job_properties.job_output_data_config.s3_configuration.s3_uri #=> String
+    #   resp.data.import_job_properties.job_output_data_config.s3_configuration.kms_key_id #=> String
     #   resp.data.import_job_properties.data_access_role_arn #=> String
     #   resp.data.import_job_properties.message #=> String
     #
     def describe_fhir_import_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeFHIRImportJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeFHIRImportJobInput,
         validate_input: @config.validate_input
@@ -519,7 +528,7 @@ module AWS::SDK::HealthLake
     def list_fhir_datastores(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListFHIRDatastoresInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListFHIRDatastoresInput,
         validate_input: @config.validate_input
@@ -631,7 +640,10 @@ module AWS::SDK::HealthLake
     #   resp.data.export_job_properties_list[0].submit_time #=> Time
     #   resp.data.export_job_properties_list[0].end_time #=> Time
     #   resp.data.export_job_properties_list[0].datastore_id #=> String
-    #   resp.data.export_job_properties_list[0].output_data_config #=> OutputDataConfig
+    #   resp.data.export_job_properties_list[0].output_data_config #=> Types::OutputDataConfig, one of [S3Configuration]
+    #   resp.data.export_job_properties_list[0].output_data_config.s3_configuration #=> Types::S3Configuration
+    #   resp.data.export_job_properties_list[0].output_data_config.s3_configuration.s3_uri #=> String
+    #   resp.data.export_job_properties_list[0].output_data_config.s3_configuration.kms_key_id #=> String
     #   resp.data.export_job_properties_list[0].data_access_role_arn #=> String
     #   resp.data.export_job_properties_list[0].message #=> String
     #   resp.data.next_token #=> String
@@ -639,7 +651,7 @@ module AWS::SDK::HealthLake
     def list_fhir_export_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListFHIRExportJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListFHIRExportJobsInput,
         validate_input: @config.validate_input
@@ -751,8 +763,12 @@ module AWS::SDK::HealthLake
     #   resp.data.import_job_properties_list[0].submit_time #=> Time
     #   resp.data.import_job_properties_list[0].end_time #=> Time
     #   resp.data.import_job_properties_list[0].datastore_id #=> String
-    #   resp.data.import_job_properties_list[0].input_data_config #=> InputDataConfig
-    #   resp.data.import_job_properties_list[0].job_output_data_config #=> OutputDataConfig
+    #   resp.data.import_job_properties_list[0].input_data_config #=> Types::InputDataConfig, one of [S3Uri]
+    #   resp.data.import_job_properties_list[0].input_data_config.s3_uri #=> String
+    #   resp.data.import_job_properties_list[0].job_output_data_config #=> Types::OutputDataConfig, one of [S3Configuration]
+    #   resp.data.import_job_properties_list[0].job_output_data_config.s3_configuration #=> Types::S3Configuration
+    #   resp.data.import_job_properties_list[0].job_output_data_config.s3_configuration.s3_uri #=> String
+    #   resp.data.import_job_properties_list[0].job_output_data_config.s3_configuration.kms_key_id #=> String
     #   resp.data.import_job_properties_list[0].data_access_role_arn #=> String
     #   resp.data.import_job_properties_list[0].message #=> String
     #   resp.data.next_token #=> String
@@ -760,7 +776,7 @@ module AWS::SDK::HealthLake
     def list_fhir_import_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListFHIRImportJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListFHIRImportJobsInput,
         validate_input: @config.validate_input
@@ -836,7 +852,7 @@ module AWS::SDK::HealthLake
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -929,7 +945,7 @@ module AWS::SDK::HealthLake
     def start_fhir_export_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartFHIRExportJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartFHIRExportJobInput,
         validate_input: @config.validate_input
@@ -1029,7 +1045,7 @@ module AWS::SDK::HealthLake
     def start_fhir_import_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartFHIRImportJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartFHIRImportJobInput,
         validate_input: @config.validate_input
@@ -1112,7 +1128,7 @@ module AWS::SDK::HealthLake
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -1192,7 +1208,7 @@ module AWS::SDK::HealthLake
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input

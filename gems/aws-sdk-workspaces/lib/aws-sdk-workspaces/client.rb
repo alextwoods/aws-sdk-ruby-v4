@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::WorkSpaces
@@ -85,7 +87,7 @@ module AWS::SDK::WorkSpaces
     def associate_connection_alias(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateConnectionAliasInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateConnectionAliasInput,
         validate_input: @config.validate_input
@@ -159,7 +161,7 @@ module AWS::SDK::WorkSpaces
     def associate_ip_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateIpGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateIpGroupsInput,
         validate_input: @config.validate_input
@@ -238,7 +240,7 @@ module AWS::SDK::WorkSpaces
     def authorize_ip_rules(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AuthorizeIpRulesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AuthorizeIpRulesInput,
         validate_input: @config.validate_input
@@ -337,7 +339,7 @@ module AWS::SDK::WorkSpaces
     def copy_workspace_image(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CopyWorkspaceImageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CopyWorkspaceImageInput,
         validate_input: @config.validate_input
@@ -416,7 +418,7 @@ module AWS::SDK::WorkSpaces
     def create_connect_client_add_in(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateConnectClientAddInInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateConnectClientAddInInput,
         validate_input: @config.validate_input
@@ -502,7 +504,7 @@ module AWS::SDK::WorkSpaces
     def create_connection_alias(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateConnectionAliasInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateConnectionAliasInput,
         validate_input: @config.validate_input
@@ -601,7 +603,7 @@ module AWS::SDK::WorkSpaces
     def create_ip_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateIpGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateIpGroupInput,
         validate_input: @config.validate_input
@@ -680,7 +682,7 @@ module AWS::SDK::WorkSpaces
     def create_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateTagsInput,
         validate_input: @config.validate_input
@@ -792,7 +794,7 @@ module AWS::SDK::WorkSpaces
     def create_updated_workspace_image(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateUpdatedWorkspaceImageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateUpdatedWorkspaceImageInput,
         validate_input: @config.validate_input
@@ -916,7 +918,7 @@ module AWS::SDK::WorkSpaces
     def create_workspace_bundle(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateWorkspaceBundleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateWorkspaceBundleInput,
         validate_input: @config.validate_input
@@ -1048,7 +1050,7 @@ module AWS::SDK::WorkSpaces
     def create_workspaces(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateWorkspacesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateWorkspacesInput,
         validate_input: @config.validate_input
@@ -1128,7 +1130,7 @@ module AWS::SDK::WorkSpaces
     def delete_client_branding(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteClientBrandingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteClientBrandingInput,
         validate_input: @config.validate_input
@@ -1201,7 +1203,7 @@ module AWS::SDK::WorkSpaces
     def delete_connect_client_add_in(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteConnectClientAddInInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteConnectClientAddInInput,
         validate_input: @config.validate_input
@@ -1284,7 +1286,7 @@ module AWS::SDK::WorkSpaces
     def delete_connection_alias(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteConnectionAliasInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteConnectionAliasInput,
         validate_input: @config.validate_input
@@ -1353,7 +1355,7 @@ module AWS::SDK::WorkSpaces
     def delete_ip_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteIpGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteIpGroupInput,
         validate_input: @config.validate_input
@@ -1429,7 +1431,7 @@ module AWS::SDK::WorkSpaces
     def delete_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteTagsInput,
         validate_input: @config.validate_input
@@ -1499,7 +1501,7 @@ module AWS::SDK::WorkSpaces
     def delete_workspace_bundle(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteWorkspaceBundleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteWorkspaceBundleInput,
         validate_input: @config.validate_input
@@ -1569,7 +1571,7 @@ module AWS::SDK::WorkSpaces
     def delete_workspace_image(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteWorkspaceImageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteWorkspaceImageInput,
         validate_input: @config.validate_input
@@ -1652,7 +1654,7 @@ module AWS::SDK::WorkSpaces
     def deregister_workspace_directory(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeregisterWorkspaceDirectoryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeregisterWorkspaceDirectoryInput,
         validate_input: @config.validate_input
@@ -1718,7 +1720,7 @@ module AWS::SDK::WorkSpaces
     def describe_account(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAccountInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAccountInput,
         validate_input: @config.validate_input
@@ -1797,7 +1799,7 @@ module AWS::SDK::WorkSpaces
     def describe_account_modifications(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAccountModificationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAccountModificationsInput,
         validate_input: @config.validate_input
@@ -1892,7 +1894,7 @@ module AWS::SDK::WorkSpaces
     def describe_client_branding(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeClientBrandingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeClientBrandingInput,
         validate_input: @config.validate_input
@@ -1967,7 +1969,7 @@ module AWS::SDK::WorkSpaces
     def describe_client_properties(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeClientPropertiesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeClientPropertiesInput,
         validate_input: @config.validate_input
@@ -2051,7 +2053,7 @@ module AWS::SDK::WorkSpaces
     def describe_connect_client_add_ins(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeConnectClientAddInsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeConnectClientAddInsInput,
         validate_input: @config.validate_input
@@ -2137,7 +2139,7 @@ module AWS::SDK::WorkSpaces
     def describe_connection_alias_permissions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeConnectionAliasPermissionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeConnectionAliasPermissionsInput,
         validate_input: @config.validate_input
@@ -2235,7 +2237,7 @@ module AWS::SDK::WorkSpaces
     def describe_connection_aliases(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeConnectionAliasesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeConnectionAliasesInput,
         validate_input: @config.validate_input
@@ -2324,7 +2326,7 @@ module AWS::SDK::WorkSpaces
     def describe_ip_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeIpGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeIpGroupsInput,
         validate_input: @config.validate_input
@@ -2398,7 +2400,7 @@ module AWS::SDK::WorkSpaces
     def describe_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTagsInput,
         validate_input: @config.validate_input
@@ -2495,7 +2497,7 @@ module AWS::SDK::WorkSpaces
     def describe_workspace_bundles(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeWorkspaceBundlesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeWorkspaceBundlesInput,
         validate_input: @config.validate_input
@@ -2616,7 +2618,7 @@ module AWS::SDK::WorkSpaces
     def describe_workspace_directories(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeWorkspaceDirectoriesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeWorkspaceDirectoriesInput,
         validate_input: @config.validate_input
@@ -2698,7 +2700,7 @@ module AWS::SDK::WorkSpaces
     def describe_workspace_image_permissions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeWorkspaceImagePermissionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeWorkspaceImagePermissionsInput,
         validate_input: @config.validate_input
@@ -2799,7 +2801,7 @@ module AWS::SDK::WorkSpaces
     def describe_workspace_images(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeWorkspaceImagesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeWorkspaceImagesInput,
         validate_input: @config.validate_input
@@ -2871,7 +2873,7 @@ module AWS::SDK::WorkSpaces
     def describe_workspace_snapshots(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeWorkspaceSnapshotsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeWorkspaceSnapshotsInput,
         validate_input: @config.validate_input
@@ -2997,7 +2999,7 @@ module AWS::SDK::WorkSpaces
     def describe_workspaces(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeWorkspacesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeWorkspacesInput,
         validate_input: @config.validate_input
@@ -3079,7 +3081,7 @@ module AWS::SDK::WorkSpaces
     def describe_workspaces_connection_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeWorkspacesConnectionStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeWorkspacesConnectionStatusInput,
         validate_input: @config.validate_input
@@ -3155,7 +3157,7 @@ module AWS::SDK::WorkSpaces
     def disassociate_connection_alias(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateConnectionAliasInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateConnectionAliasInput,
         validate_input: @config.validate_input
@@ -3229,7 +3231,7 @@ module AWS::SDK::WorkSpaces
     def disassociate_ip_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateIpGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateIpGroupsInput,
         validate_input: @config.validate_input
@@ -3379,7 +3381,7 @@ module AWS::SDK::WorkSpaces
     def import_client_branding(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ImportClientBrandingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ImportClientBrandingInput,
         validate_input: @config.validate_input
@@ -3502,7 +3504,7 @@ module AWS::SDK::WorkSpaces
     def import_workspace_image(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ImportWorkspaceImageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ImportWorkspaceImageInput,
         validate_input: @config.validate_input
@@ -3590,7 +3592,7 @@ module AWS::SDK::WorkSpaces
     def list_available_management_cidr_ranges(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAvailableManagementCidrRangesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAvailableManagementCidrRangesInput,
         validate_input: @config.validate_input
@@ -3674,7 +3676,7 @@ module AWS::SDK::WorkSpaces
     def migrate_workspace(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::MigrateWorkspaceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::MigrateWorkspaceInput,
         validate_input: @config.validate_input
@@ -3751,7 +3753,7 @@ module AWS::SDK::WorkSpaces
     def modify_account(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyAccountInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyAccountInput,
         validate_input: @config.validate_input
@@ -3825,7 +3827,7 @@ module AWS::SDK::WorkSpaces
     def modify_client_properties(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyClientPropertiesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyClientPropertiesInput,
         validate_input: @config.validate_input
@@ -3904,7 +3906,7 @@ module AWS::SDK::WorkSpaces
     def modify_selfservice_permissions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifySelfservicePermissionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifySelfservicePermissionsInput,
         validate_input: @config.validate_input
@@ -3987,7 +3989,7 @@ module AWS::SDK::WorkSpaces
     def modify_workspace_access_properties(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyWorkspaceAccessPropertiesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyWorkspaceAccessPropertiesInput,
         validate_input: @config.validate_input
@@ -4066,7 +4068,7 @@ module AWS::SDK::WorkSpaces
     def modify_workspace_creation_properties(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyWorkspaceCreationPropertiesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyWorkspaceCreationPropertiesInput,
         validate_input: @config.validate_input
@@ -4146,7 +4148,7 @@ module AWS::SDK::WorkSpaces
     def modify_workspace_properties(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyWorkspacePropertiesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyWorkspacePropertiesInput,
         validate_input: @config.validate_input
@@ -4223,7 +4225,7 @@ module AWS::SDK::WorkSpaces
     def modify_workspace_state(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyWorkspaceStateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyWorkspaceStateInput,
         validate_input: @config.validate_input
@@ -4303,7 +4305,7 @@ module AWS::SDK::WorkSpaces
     def reboot_workspaces(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RebootWorkspacesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RebootWorkspacesInput,
         validate_input: @config.validate_input
@@ -4388,7 +4390,7 @@ module AWS::SDK::WorkSpaces
     def rebuild_workspaces(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RebuildWorkspacesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RebuildWorkspacesInput,
         validate_input: @config.validate_input
@@ -4502,7 +4504,7 @@ module AWS::SDK::WorkSpaces
     def register_workspace_directory(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RegisterWorkspaceDirectoryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RegisterWorkspaceDirectoryInput,
         validate_input: @config.validate_input
@@ -4577,7 +4579,7 @@ module AWS::SDK::WorkSpaces
     def restore_workspace(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RestoreWorkspaceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RestoreWorkspaceInput,
         validate_input: @config.validate_input
@@ -4651,7 +4653,7 @@ module AWS::SDK::WorkSpaces
     def revoke_ip_rules(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RevokeIpRulesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RevokeIpRulesInput,
         validate_input: @config.validate_input
@@ -4730,7 +4732,7 @@ module AWS::SDK::WorkSpaces
     def start_workspaces(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartWorkspacesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartWorkspacesInput,
         validate_input: @config.validate_input
@@ -4810,7 +4812,7 @@ module AWS::SDK::WorkSpaces
     def stop_workspaces(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopWorkspacesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopWorkspacesInput,
         validate_input: @config.validate_input
@@ -4911,7 +4913,7 @@ module AWS::SDK::WorkSpaces
     def terminate_workspaces(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TerminateWorkspacesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TerminateWorkspacesInput,
         validate_input: @config.validate_input
@@ -4992,7 +4994,7 @@ module AWS::SDK::WorkSpaces
     def update_connect_client_add_in(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateConnectClientAddInInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateConnectClientAddInInput,
         validate_input: @config.validate_input
@@ -5088,7 +5090,7 @@ module AWS::SDK::WorkSpaces
     def update_connection_alias_permission(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateConnectionAliasPermissionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateConnectionAliasPermissionInput,
         validate_input: @config.validate_input
@@ -5166,7 +5168,7 @@ module AWS::SDK::WorkSpaces
     def update_rules_of_ip_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateRulesOfIpGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateRulesOfIpGroupInput,
         validate_input: @config.validate_input
@@ -5246,7 +5248,7 @@ module AWS::SDK::WorkSpaces
     def update_workspace_bundle(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateWorkspaceBundleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateWorkspaceBundleInput,
         validate_input: @config.validate_input
@@ -5349,7 +5351,7 @@ module AWS::SDK::WorkSpaces
     def update_workspace_image_permission(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateWorkspaceImagePermissionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateWorkspaceImagePermissionInput,
         validate_input: @config.validate_input

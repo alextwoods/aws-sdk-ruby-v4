@@ -14,7 +14,7 @@ module AWS::SDK::MediaStore
     class CreateContainer
       def self.default(visited=[])
         {
-          container: Stubs::Container.default(visited),
+          container: Container.default(visited),
         }
       end
 
@@ -128,7 +128,7 @@ module AWS::SDK::MediaStore
     class DescribeContainer
       def self.default(visited=[])
         {
-          container: Stubs::Container.default(visited),
+          container: Container.default(visited),
         }
       end
 
@@ -160,7 +160,7 @@ module AWS::SDK::MediaStore
     class GetCorsPolicy
       def self.default(visited=[])
         {
-          cors_policy: Stubs::CorsPolicy.default(visited),
+          cors_policy: CorsPolicy.default(visited),
         }
       end
 
@@ -178,7 +178,7 @@ module AWS::SDK::MediaStore
         return nil if visited.include?('CorsPolicy')
         visited = visited + ['CorsPolicy']
         [
-          Stubs::CorsRule.default(visited)
+          CorsRule.default(visited)
         ]
       end
 
@@ -198,11 +198,11 @@ module AWS::SDK::MediaStore
         return nil if visited.include?('CorsRule')
         visited = visited + ['CorsRule']
         {
-          allowed_origins: Stubs::AllowedOrigins.default(visited),
-          allowed_methods: Stubs::AllowedMethods.default(visited),
-          allowed_headers: Stubs::AllowedHeaders.default(visited),
+          allowed_origins: AllowedOrigins.default(visited),
+          allowed_methods: AllowedMethods.default(visited),
+          allowed_headers: AllowedHeaders.default(visited),
           max_age_seconds: 1,
-          expose_headers: Stubs::ExposeHeaders.default(visited),
+          expose_headers: ExposeHeaders.default(visited),
         }
       end
 
@@ -318,7 +318,7 @@ module AWS::SDK::MediaStore
     class GetMetricPolicy
       def self.default(visited=[])
         {
-          metric_policy: Stubs::MetricPolicy.default(visited),
+          metric_policy: MetricPolicy.default(visited),
         }
       end
 
@@ -337,7 +337,7 @@ module AWS::SDK::MediaStore
         visited = visited + ['MetricPolicy']
         {
           container_level_metrics: 'container_level_metrics',
-          metric_policy_rules: Stubs::MetricPolicyRules.default(visited),
+          metric_policy_rules: MetricPolicyRules.default(visited),
         }
       end
 
@@ -356,7 +356,7 @@ module AWS::SDK::MediaStore
         return nil if visited.include?('MetricPolicyRules')
         visited = visited + ['MetricPolicyRules']
         [
-          Stubs::MetricPolicyRule.default(visited)
+          MetricPolicyRule.default(visited)
         ]
       end
 
@@ -394,7 +394,7 @@ module AWS::SDK::MediaStore
     class ListContainers
       def self.default(visited=[])
         {
-          containers: Stubs::ContainerList.default(visited),
+          containers: ContainerList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -414,7 +414,7 @@ module AWS::SDK::MediaStore
         return nil if visited.include?('ContainerList')
         visited = visited + ['ContainerList']
         [
-          Stubs::Container.default(visited)
+          Container.default(visited)
         ]
       end
 
@@ -432,7 +432,7 @@ module AWS::SDK::MediaStore
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -450,7 +450,7 @@ module AWS::SDK::MediaStore
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 

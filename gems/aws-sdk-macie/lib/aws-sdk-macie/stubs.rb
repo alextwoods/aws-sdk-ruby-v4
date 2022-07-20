@@ -28,7 +28,7 @@ module AWS::SDK::Macie
     class AssociateS3Resources
       def self.default(visited=[])
         {
-          failed_s3_resources: Stubs::FailedS3Resources.default(visited),
+          failed_s3_resources: FailedS3Resources.default(visited),
         }
       end
 
@@ -46,7 +46,7 @@ module AWS::SDK::Macie
         return nil if visited.include?('FailedS3Resources')
         visited = visited + ['FailedS3Resources']
         [
-          Stubs::FailedS3Resource.default(visited)
+          FailedS3Resource.default(visited)
         ]
       end
 
@@ -66,7 +66,7 @@ module AWS::SDK::Macie
         return nil if visited.include?('FailedS3Resource')
         visited = visited + ['FailedS3Resource']
         {
-          failed_item: Stubs::S3Resource.default(visited),
+          failed_item: S3Resource.default(visited),
           error_code: 'error_code',
           error_message: 'error_message',
         }
@@ -120,7 +120,7 @@ module AWS::SDK::Macie
     class DisassociateS3Resources
       def self.default(visited=[])
         {
-          failed_s3_resources: Stubs::FailedS3Resources.default(visited),
+          failed_s3_resources: FailedS3Resources.default(visited),
         }
       end
 
@@ -136,7 +136,7 @@ module AWS::SDK::Macie
     class ListMemberAccounts
       def self.default(visited=[])
         {
-          member_accounts: Stubs::MemberAccounts.default(visited),
+          member_accounts: MemberAccounts.default(visited),
           next_token: 'next_token',
         }
       end
@@ -156,7 +156,7 @@ module AWS::SDK::Macie
         return nil if visited.include?('MemberAccounts')
         visited = visited + ['MemberAccounts']
         [
-          Stubs::MemberAccount.default(visited)
+          MemberAccount.default(visited)
         ]
       end
 
@@ -192,7 +192,7 @@ module AWS::SDK::Macie
     class ListS3Resources
       def self.default(visited=[])
         {
-          s3_resources: Stubs::S3ResourcesClassification.default(visited),
+          s3_resources: S3ResourcesClassification.default(visited),
           next_token: 'next_token',
         }
       end
@@ -212,7 +212,7 @@ module AWS::SDK::Macie
         return nil if visited.include?('S3ResourcesClassification')
         visited = visited + ['S3ResourcesClassification']
         [
-          Stubs::S3ResourceClassification.default(visited)
+          S3ResourceClassification.default(visited)
         ]
       end
 
@@ -234,7 +234,7 @@ module AWS::SDK::Macie
         {
           bucket_name: 'bucket_name',
           prefix: 'prefix',
-          classification_type: Stubs::ClassificationType.default(visited),
+          classification_type: ClassificationType.default(visited),
         }
       end
 
@@ -272,7 +272,7 @@ module AWS::SDK::Macie
     class UpdateS3Resources
       def self.default(visited=[])
         {
-          failed_s3_resources: Stubs::FailedS3Resources.default(visited),
+          failed_s3_resources: FailedS3Resources.default(visited),
         }
       end
 

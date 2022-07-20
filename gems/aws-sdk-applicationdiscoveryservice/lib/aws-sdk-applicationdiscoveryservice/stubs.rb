@@ -28,7 +28,7 @@ module AWS::SDK::ApplicationDiscoveryService
     class BatchDeleteImportData
       def self.default(visited=[])
         {
-          errors: Stubs::BatchDeleteImportDataErrorList.default(visited),
+          errors: BatchDeleteImportDataErrorList.default(visited),
         }
       end
 
@@ -46,7 +46,7 @@ module AWS::SDK::ApplicationDiscoveryService
         return nil if visited.include?('BatchDeleteImportDataErrorList')
         visited = visited + ['BatchDeleteImportDataErrorList']
         [
-          Stubs::BatchDeleteImportDataError.default(visited)
+          BatchDeleteImportDataError.default(visited)
         ]
       end
 
@@ -144,7 +144,7 @@ module AWS::SDK::ApplicationDiscoveryService
     class DescribeAgents
       def self.default(visited=[])
         {
-          agents_info: Stubs::AgentsInfo.default(visited),
+          agents_info: AgentsInfo.default(visited),
           next_token: 'next_token',
         }
       end
@@ -164,7 +164,7 @@ module AWS::SDK::ApplicationDiscoveryService
         return nil if visited.include?('AgentsInfo')
         visited = visited + ['AgentsInfo']
         [
-          Stubs::AgentInfo.default(visited)
+          AgentInfo.default(visited)
         ]
       end
 
@@ -186,7 +186,7 @@ module AWS::SDK::ApplicationDiscoveryService
         {
           agent_id: 'agent_id',
           host_name: 'host_name',
-          agent_network_info_list: Stubs::AgentNetworkInfoList.default(visited),
+          agent_network_info_list: AgentNetworkInfoList.default(visited),
           connector_id: 'connector_id',
           version: 'version',
           health: 'health',
@@ -220,7 +220,7 @@ module AWS::SDK::ApplicationDiscoveryService
         return nil if visited.include?('AgentNetworkInfoList')
         visited = visited + ['AgentNetworkInfoList']
         [
-          Stubs::AgentNetworkInfo.default(visited)
+          AgentNetworkInfo.default(visited)
         ]
       end
 
@@ -258,7 +258,7 @@ module AWS::SDK::ApplicationDiscoveryService
     class DescribeConfigurations
       def self.default(visited=[])
         {
-          configurations: Stubs::DescribeConfigurationsAttributes.default(visited),
+          configurations: DescribeConfigurationsAttributes.default(visited),
         }
       end
 
@@ -276,7 +276,7 @@ module AWS::SDK::ApplicationDiscoveryService
         return nil if visited.include?('DescribeConfigurationsAttributes')
         visited = visited + ['DescribeConfigurationsAttributes']
         [
-          Stubs::DescribeConfigurationsAttribute.default(visited)
+          DescribeConfigurationsAttribute.default(visited)
         ]
       end
 
@@ -314,7 +314,7 @@ module AWS::SDK::ApplicationDiscoveryService
     class DescribeContinuousExports
       def self.default(visited=[])
         {
-          descriptions: Stubs::ContinuousExportDescriptions.default(visited),
+          descriptions: ContinuousExportDescriptions.default(visited),
           next_token: 'next_token',
         }
       end
@@ -334,7 +334,7 @@ module AWS::SDK::ApplicationDiscoveryService
         return nil if visited.include?('ContinuousExportDescriptions')
         visited = visited + ['ContinuousExportDescriptions']
         [
-          Stubs::ContinuousExportDescription.default(visited)
+          ContinuousExportDescription.default(visited)
         ]
       end
 
@@ -361,7 +361,7 @@ module AWS::SDK::ApplicationDiscoveryService
           start_time: Time.now,
           stop_time: Time.now,
           data_source: 'data_source',
-          schema_storage_config: Stubs::SchemaStorageConfig.default(visited),
+          schema_storage_config: SchemaStorageConfig.default(visited),
         }
       end
 
@@ -404,7 +404,7 @@ module AWS::SDK::ApplicationDiscoveryService
     class DescribeExportConfigurations
       def self.default(visited=[])
         {
-          exports_info: Stubs::ExportsInfo.default(visited),
+          exports_info: ExportsInfo.default(visited),
           next_token: 'next_token',
         }
       end
@@ -424,7 +424,7 @@ module AWS::SDK::ApplicationDiscoveryService
         return nil if visited.include?('ExportsInfo')
         visited = visited + ['ExportsInfo']
         [
-          Stubs::ExportInfo.default(visited)
+          ExportInfo.default(visited)
         ]
       end
 
@@ -474,7 +474,7 @@ module AWS::SDK::ApplicationDiscoveryService
     class DescribeExportTasks
       def self.default(visited=[])
         {
-          exports_info: Stubs::ExportsInfo.default(visited),
+          exports_info: ExportsInfo.default(visited),
           next_token: 'next_token',
         }
       end
@@ -493,7 +493,7 @@ module AWS::SDK::ApplicationDiscoveryService
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          tasks: Stubs::ImportTaskList.default(visited),
+          tasks: ImportTaskList.default(visited),
         }
       end
 
@@ -512,7 +512,7 @@ module AWS::SDK::ApplicationDiscoveryService
         return nil if visited.include?('ImportTaskList')
         visited = visited + ['ImportTaskList']
         [
-          Stubs::ImportTask.default(visited)
+          ImportTask.default(visited)
         ]
       end
 
@@ -572,7 +572,7 @@ module AWS::SDK::ApplicationDiscoveryService
     class DescribeTags
       def self.default(visited=[])
         {
-          tags: Stubs::ConfigurationTagSet.default(visited),
+          tags: ConfigurationTagSet.default(visited),
           next_token: 'next_token',
         }
       end
@@ -592,7 +592,7 @@ module AWS::SDK::ApplicationDiscoveryService
         return nil if visited.include?('ConfigurationTagSet')
         visited = visited + ['ConfigurationTagSet']
         [
-          Stubs::ConfigurationTag.default(visited)
+          ConfigurationTag.default(visited)
         ]
       end
 
@@ -670,9 +670,9 @@ module AWS::SDK::ApplicationDiscoveryService
           applications: 1,
           servers_mapped_to_applications: 1,
           servers_mappedto_tags: 1,
-          agent_summary: Stubs::CustomerAgentInfo.default(visited),
-          connector_summary: Stubs::CustomerConnectorInfo.default(visited),
-          me_collector_summary: Stubs::CustomerMeCollectorInfo.default(visited),
+          agent_summary: CustomerAgentInfo.default(visited),
+          connector_summary: CustomerConnectorInfo.default(visited),
+          me_collector_summary: CustomerMeCollectorInfo.default(visited),
         }
       end
 
@@ -784,7 +784,7 @@ module AWS::SDK::ApplicationDiscoveryService
     class ListConfigurations
       def self.default(visited=[])
         {
-          configurations: Stubs::Configurations.default(visited),
+          configurations: Configurations.default(visited),
           next_token: 'next_token',
         }
       end
@@ -804,7 +804,7 @@ module AWS::SDK::ApplicationDiscoveryService
         return nil if visited.include?('Configurations')
         visited = visited + ['Configurations']
         [
-          Stubs::Configuration.default(visited)
+          Configuration.default(visited)
         ]
       end
 
@@ -842,7 +842,7 @@ module AWS::SDK::ApplicationDiscoveryService
     class ListServerNeighbors
       def self.default(visited=[])
         {
-          neighbors: Stubs::NeighborDetailsList.default(visited),
+          neighbors: NeighborDetailsList.default(visited),
           next_token: 'next_token',
           known_dependency_count: 1,
         }
@@ -864,7 +864,7 @@ module AWS::SDK::ApplicationDiscoveryService
         return nil if visited.include?('NeighborDetailsList')
         visited = visited + ['NeighborDetailsList']
         [
-          Stubs::NeighborConnectionDetail.default(visited)
+          NeighborConnectionDetail.default(visited)
         ]
       end
 
@@ -912,7 +912,7 @@ module AWS::SDK::ApplicationDiscoveryService
           s3_bucket: 's3_bucket',
           start_time: Time.now,
           data_source: 'data_source',
-          schema_storage_config: Stubs::SchemaStorageConfig.default(visited),
+          schema_storage_config: SchemaStorageConfig.default(visited),
         }
       end
 
@@ -932,7 +932,7 @@ module AWS::SDK::ApplicationDiscoveryService
     class StartDataCollectionByAgentIds
       def self.default(visited=[])
         {
-          agents_configuration_status: Stubs::AgentConfigurationStatusList.default(visited),
+          agents_configuration_status: AgentConfigurationStatusList.default(visited),
         }
       end
 
@@ -950,7 +950,7 @@ module AWS::SDK::ApplicationDiscoveryService
         return nil if visited.include?('AgentConfigurationStatusList')
         visited = visited + ['AgentConfigurationStatusList']
         [
-          Stubs::AgentConfigurationStatus.default(visited)
+          AgentConfigurationStatus.default(visited)
         ]
       end
 
@@ -1006,7 +1006,7 @@ module AWS::SDK::ApplicationDiscoveryService
     class StartImportTask
       def self.default(visited=[])
         {
-          task: Stubs::ImportTask.default(visited),
+          task: ImportTask.default(visited),
         }
       end
 
@@ -1040,7 +1040,7 @@ module AWS::SDK::ApplicationDiscoveryService
     class StopDataCollectionByAgentIds
       def self.default(visited=[])
         {
-          agents_configuration_status: Stubs::AgentConfigurationStatusList.default(visited),
+          agents_configuration_status: AgentConfigurationStatusList.default(visited),
         }
       end
 

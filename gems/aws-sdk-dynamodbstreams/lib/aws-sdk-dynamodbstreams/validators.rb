@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::DynamoDBStreams
   module Validators
 
@@ -15,7 +17,7 @@ module AWS::SDK::DynamoDBStreams
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::AttributeValue.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          AttributeValue.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -30,15 +32,15 @@ module AWS::SDK::DynamoDBStreams
         when Types::AttributeValue::B
           Hearth::Validator.validate!(input.__getobj__, ::String, context: context)
         when Types::AttributeValue::Ss
-          Validators::StringSetAttributeValue.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          StringSetAttributeValue.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::AttributeValue::Ns
-          Validators::NumberSetAttributeValue.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          NumberSetAttributeValue.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::AttributeValue::Bs
-          Validators::BinarySetAttributeValue.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          BinarySetAttributeValue.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::AttributeValue::M
-          Validators::MapAttributeValue.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          MapAttributeValue.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::AttributeValue::L
-          Validators::ListAttributeValue.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          ListAttributeValue.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::AttributeValue::Null
           Hearth::Validator.validate!(input.__getobj__, ::TrueClass, ::FalseClass, context: context)
         when Types::AttributeValue::Bool
@@ -132,7 +134,7 @@ module AWS::SDK::DynamoDBStreams
     class DescribeStreamOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeStreamOutput, context: context)
-        Validators::StreamDescription.validate!(input[:stream_description], context: "#{context}[:stream_description]") unless input[:stream_description].nil?
+        StreamDescription.validate!(input[:stream_description], context: "#{context}[:stream_description]") unless input[:stream_description].nil?
       end
     end
 
@@ -154,7 +156,7 @@ module AWS::SDK::DynamoDBStreams
     class GetRecordsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetRecordsOutput, context: context)
-        Validators::RecordList.validate!(input[:records], context: "#{context}[:records]") unless input[:records].nil?
+        RecordList.validate!(input[:records], context: "#{context}[:records]") unless input[:records].nil?
         Hearth::Validator.validate!(input[:next_shard_iterator], ::String, context: "#{context}[:next_shard_iterator]")
       end
     end
@@ -195,7 +197,7 @@ module AWS::SDK::DynamoDBStreams
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::KeySchemaElement.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          KeySchemaElement.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -219,7 +221,7 @@ module AWS::SDK::DynamoDBStreams
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AttributeValue.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AttributeValue.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -236,7 +238,7 @@ module AWS::SDK::DynamoDBStreams
     class ListStreamsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListStreamsOutput, context: context)
-        Validators::StreamList.validate!(input[:streams], context: "#{context}[:streams]") unless input[:streams].nil?
+        StreamList.validate!(input[:streams], context: "#{context}[:streams]") unless input[:streams].nil?
         Hearth::Validator.validate!(input[:last_evaluated_stream_arn], ::String, context: "#{context}[:last_evaluated_stream_arn]")
       end
     end
@@ -246,7 +248,7 @@ module AWS::SDK::DynamoDBStreams
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::AttributeValue.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          AttributeValue.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -268,8 +270,8 @@ module AWS::SDK::DynamoDBStreams
         Hearth::Validator.validate!(input[:event_version], ::String, context: "#{context}[:event_version]")
         Hearth::Validator.validate!(input[:event_source], ::String, context: "#{context}[:event_source]")
         Hearth::Validator.validate!(input[:aws_region], ::String, context: "#{context}[:aws_region]")
-        Validators::StreamRecord.validate!(input[:dynamodb], context: "#{context}[:dynamodb]") unless input[:dynamodb].nil?
-        Validators::Identity.validate!(input[:user_identity], context: "#{context}[:user_identity]") unless input[:user_identity].nil?
+        StreamRecord.validate!(input[:dynamodb], context: "#{context}[:dynamodb]") unless input[:dynamodb].nil?
+        Identity.validate!(input[:user_identity], context: "#{context}[:user_identity]") unless input[:user_identity].nil?
       end
     end
 
@@ -277,7 +279,7 @@ module AWS::SDK::DynamoDBStreams
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Record.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Record.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -301,7 +303,7 @@ module AWS::SDK::DynamoDBStreams
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Shard, context: context)
         Hearth::Validator.validate!(input[:shard_id], ::String, context: "#{context}[:shard_id]")
-        Validators::SequenceNumberRange.validate!(input[:sequence_number_range], context: "#{context}[:sequence_number_range]") unless input[:sequence_number_range].nil?
+        SequenceNumberRange.validate!(input[:sequence_number_range], context: "#{context}[:sequence_number_range]") unless input[:sequence_number_range].nil?
         Hearth::Validator.validate!(input[:parent_shard_id], ::String, context: "#{context}[:parent_shard_id]")
       end
     end
@@ -310,7 +312,7 @@ module AWS::SDK::DynamoDBStreams
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Shard.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Shard.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -333,8 +335,8 @@ module AWS::SDK::DynamoDBStreams
         Hearth::Validator.validate!(input[:stream_view_type], ::String, context: "#{context}[:stream_view_type]")
         Hearth::Validator.validate!(input[:creation_request_date_time], ::Time, context: "#{context}[:creation_request_date_time]")
         Hearth::Validator.validate!(input[:table_name], ::String, context: "#{context}[:table_name]")
-        Validators::KeySchema.validate!(input[:key_schema], context: "#{context}[:key_schema]") unless input[:key_schema].nil?
-        Validators::ShardDescriptionList.validate!(input[:shards], context: "#{context}[:shards]") unless input[:shards].nil?
+        KeySchema.validate!(input[:key_schema], context: "#{context}[:key_schema]") unless input[:key_schema].nil?
+        ShardDescriptionList.validate!(input[:shards], context: "#{context}[:shards]") unless input[:shards].nil?
         Hearth::Validator.validate!(input[:last_evaluated_shard_id], ::String, context: "#{context}[:last_evaluated_shard_id]")
       end
     end
@@ -343,7 +345,7 @@ module AWS::SDK::DynamoDBStreams
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Stream.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Stream.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -352,9 +354,9 @@ module AWS::SDK::DynamoDBStreams
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StreamRecord, context: context)
         Hearth::Validator.validate!(input[:approximate_creation_date_time], ::Time, context: "#{context}[:approximate_creation_date_time]")
-        Validators::AttributeMap.validate!(input[:keys], context: "#{context}[:keys]") unless input[:keys].nil?
-        Validators::AttributeMap.validate!(input[:new_image], context: "#{context}[:new_image]") unless input[:new_image].nil?
-        Validators::AttributeMap.validate!(input[:old_image], context: "#{context}[:old_image]") unless input[:old_image].nil?
+        AttributeMap.validate!(input[:keys], context: "#{context}[:keys]") unless input[:keys].nil?
+        AttributeMap.validate!(input[:new_image], context: "#{context}[:new_image]") unless input[:new_image].nil?
+        AttributeMap.validate!(input[:old_image], context: "#{context}[:old_image]") unless input[:old_image].nil?
         Hearth::Validator.validate!(input[:sequence_number], ::String, context: "#{context}[:sequence_number]")
         Hearth::Validator.validate!(input[:size_bytes], ::Integer, context: "#{context}[:size_bytes]")
         Hearth::Validator.validate!(input[:stream_view_type], ::String, context: "#{context}[:stream_view_type]")

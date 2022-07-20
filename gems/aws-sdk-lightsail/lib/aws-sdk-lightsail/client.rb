@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::Lightsail
@@ -88,7 +90,7 @@ module AWS::SDK::Lightsail
     def allocate_static_ip(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AllocateStaticIpInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AllocateStaticIpInput,
         validate_input: @config.validate_input
@@ -200,7 +202,7 @@ module AWS::SDK::Lightsail
     def attach_certificate_to_distribution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AttachCertificateToDistributionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AttachCertificateToDistributionInput,
         validate_input: @config.validate_input
@@ -296,7 +298,7 @@ module AWS::SDK::Lightsail
     def attach_disk(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AttachDiskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AttachDiskInput,
         validate_input: @config.validate_input
@@ -397,7 +399,7 @@ module AWS::SDK::Lightsail
     def attach_instances_to_load_balancer(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AttachInstancesToLoadBalancerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AttachInstancesToLoadBalancerInput,
         validate_input: @config.validate_input
@@ -494,7 +496,7 @@ module AWS::SDK::Lightsail
     def attach_load_balancer_tls_certificate(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AttachLoadBalancerTlsCertificateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AttachLoadBalancerTlsCertificateInput,
         validate_input: @config.validate_input
@@ -582,7 +584,7 @@ module AWS::SDK::Lightsail
     def attach_static_ip(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AttachStaticIpInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AttachStaticIpInput,
         validate_input: @config.validate_input
@@ -679,7 +681,7 @@ module AWS::SDK::Lightsail
     def close_instance_public_ports(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CloseInstancePublicPortsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CloseInstancePublicPortsInput,
         validate_input: @config.validate_input
@@ -837,7 +839,7 @@ module AWS::SDK::Lightsail
     def copy_snapshot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CopySnapshotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CopySnapshotInput,
         validate_input: @config.validate_input
@@ -993,7 +995,7 @@ module AWS::SDK::Lightsail
     def create_bucket(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateBucketInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateBucketInput,
         validate_input: @config.validate_input
@@ -1099,7 +1101,7 @@ module AWS::SDK::Lightsail
     def create_bucket_access_key(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateBucketAccessKeyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateBucketAccessKeyInput,
         validate_input: @config.validate_input
@@ -1260,7 +1262,7 @@ module AWS::SDK::Lightsail
     def create_certificate(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateCertificateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateCertificateInput,
         validate_input: @config.validate_input
@@ -1361,7 +1363,7 @@ module AWS::SDK::Lightsail
     def create_cloud_formation_stack(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateCloudFormationStackInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateCloudFormationStackInput,
         validate_input: @config.validate_input
@@ -1486,7 +1488,7 @@ module AWS::SDK::Lightsail
     def create_contact_method(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateContactMethodInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateContactMethodInput,
         validate_input: @config.validate_input
@@ -1747,7 +1749,7 @@ module AWS::SDK::Lightsail
     def create_container_service(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateContainerServiceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateContainerServiceInput,
         validate_input: @config.validate_input
@@ -1914,7 +1916,7 @@ module AWS::SDK::Lightsail
     def create_container_service_deployment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateContainerServiceDeploymentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateContainerServiceDeploymentInput,
         validate_input: @config.validate_input
@@ -2004,7 +2006,7 @@ module AWS::SDK::Lightsail
     def create_container_service_registry_login(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateContainerServiceRegistryLoginInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateContainerServiceRegistryLoginInput,
         validate_input: @config.validate_input
@@ -2124,7 +2126,7 @@ module AWS::SDK::Lightsail
     def create_disk(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDiskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDiskInput,
         validate_input: @config.validate_input
@@ -2312,7 +2314,7 @@ module AWS::SDK::Lightsail
     def create_disk_from_snapshot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDiskFromSnapshotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDiskFromSnapshotInput,
         validate_input: @config.validate_input
@@ -2445,7 +2447,7 @@ module AWS::SDK::Lightsail
     def create_disk_snapshot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDiskSnapshotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDiskSnapshotInput,
         validate_input: @config.validate_input
@@ -2656,7 +2658,7 @@ module AWS::SDK::Lightsail
     def create_distribution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDistributionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDistributionInput,
         validate_input: @config.validate_input
@@ -2757,7 +2759,7 @@ module AWS::SDK::Lightsail
     def create_domain(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDomainInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDomainInput,
         validate_input: @config.validate_input
@@ -2862,7 +2864,7 @@ module AWS::SDK::Lightsail
     def create_domain_entry(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDomainEntryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDomainEntryInput,
         validate_input: @config.validate_input
@@ -2963,7 +2965,7 @@ module AWS::SDK::Lightsail
     def create_instance_snapshot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateInstanceSnapshotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateInstanceSnapshotInput,
         validate_input: @config.validate_input
@@ -3133,7 +3135,7 @@ module AWS::SDK::Lightsail
     def create_instances(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateInstancesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateInstancesInput,
         validate_input: @config.validate_input
@@ -3360,7 +3362,7 @@ module AWS::SDK::Lightsail
     def create_instances_from_snapshot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateInstancesFromSnapshotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateInstancesFromSnapshotInput,
         validate_input: @config.validate_input
@@ -3475,7 +3477,7 @@ module AWS::SDK::Lightsail
     def create_key_pair(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateKeyPairInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateKeyPairInput,
         validate_input: @config.validate_input
@@ -3628,7 +3630,7 @@ module AWS::SDK::Lightsail
     def create_load_balancer(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateLoadBalancerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateLoadBalancerInput,
         validate_input: @config.validate_input
@@ -3747,7 +3749,7 @@ module AWS::SDK::Lightsail
     def create_load_balancer_tls_certificate(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateLoadBalancerTlsCertificateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateLoadBalancerTlsCertificateInput,
         validate_input: @config.validate_input
@@ -4039,7 +4041,7 @@ module AWS::SDK::Lightsail
     def create_relational_database(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateRelationalDatabaseInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateRelationalDatabaseInput,
         validate_input: @config.validate_input
@@ -4211,7 +4213,7 @@ module AWS::SDK::Lightsail
     def create_relational_database_from_snapshot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateRelationalDatabaseFromSnapshotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateRelationalDatabaseFromSnapshotInput,
         validate_input: @config.validate_input
@@ -4321,7 +4323,7 @@ module AWS::SDK::Lightsail
     def create_relational_database_snapshot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateRelationalDatabaseSnapshotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateRelationalDatabaseSnapshotInput,
         validate_input: @config.validate_input
@@ -4409,7 +4411,7 @@ module AWS::SDK::Lightsail
     def delete_alarm(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAlarmInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAlarmInput,
         validate_input: @config.validate_input
@@ -4500,7 +4502,7 @@ module AWS::SDK::Lightsail
     def delete_auto_snapshot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAutoSnapshotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAutoSnapshotInput,
         validate_input: @config.validate_input
@@ -4617,7 +4619,7 @@ module AWS::SDK::Lightsail
     def delete_bucket(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteBucketInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteBucketInput,
         validate_input: @config.validate_input
@@ -4713,7 +4715,7 @@ module AWS::SDK::Lightsail
     def delete_bucket_access_key(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteBucketAccessKeyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteBucketAccessKeyInput,
         validate_input: @config.validate_input
@@ -4803,7 +4805,7 @@ module AWS::SDK::Lightsail
     def delete_certificate(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteCertificateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteCertificateInput,
         validate_input: @config.validate_input
@@ -4897,7 +4899,7 @@ module AWS::SDK::Lightsail
     def delete_contact_method(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteContactMethodInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteContactMethodInput,
         validate_input: @config.validate_input
@@ -4981,7 +4983,7 @@ module AWS::SDK::Lightsail
     def delete_container_image(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteContainerImageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteContainerImageInput,
         validate_input: @config.validate_input
@@ -5049,7 +5051,7 @@ module AWS::SDK::Lightsail
     def delete_container_service(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteContainerServiceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteContainerServiceInput,
         validate_input: @config.validate_input
@@ -5144,7 +5146,7 @@ module AWS::SDK::Lightsail
     def delete_disk(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDiskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDiskInput,
         validate_input: @config.validate_input
@@ -5237,7 +5239,7 @@ module AWS::SDK::Lightsail
     def delete_disk_snapshot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDiskSnapshotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDiskSnapshotInput,
         validate_input: @config.validate_input
@@ -5322,7 +5324,7 @@ module AWS::SDK::Lightsail
     def delete_distribution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDistributionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDistributionInput,
         validate_input: @config.validate_input
@@ -5408,7 +5410,7 @@ module AWS::SDK::Lightsail
     def delete_domain(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDomainInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDomainInput,
         validate_input: @config.validate_input
@@ -5507,7 +5509,7 @@ module AWS::SDK::Lightsail
     def delete_domain_entry(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDomainEntryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDomainEntryInput,
         validate_input: @config.validate_input
@@ -5598,7 +5600,7 @@ module AWS::SDK::Lightsail
     def delete_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteInstanceInput,
         validate_input: @config.validate_input
@@ -5686,7 +5688,7 @@ module AWS::SDK::Lightsail
     def delete_instance_snapshot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteInstanceSnapshotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteInstanceSnapshotInput,
         validate_input: @config.validate_input
@@ -5785,7 +5787,7 @@ module AWS::SDK::Lightsail
     def delete_key_pair(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteKeyPairInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteKeyPairInput,
         validate_input: @config.validate_input
@@ -5877,7 +5879,7 @@ module AWS::SDK::Lightsail
     def delete_known_host_keys(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteKnownHostKeysInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteKnownHostKeysInput,
         validate_input: @config.validate_input
@@ -5966,7 +5968,7 @@ module AWS::SDK::Lightsail
     def delete_load_balancer(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteLoadBalancerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteLoadBalancerInput,
         validate_input: @config.validate_input
@@ -6064,7 +6066,7 @@ module AWS::SDK::Lightsail
     def delete_load_balancer_tls_certificate(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteLoadBalancerTlsCertificateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteLoadBalancerTlsCertificateInput,
         validate_input: @config.validate_input
@@ -6179,7 +6181,7 @@ module AWS::SDK::Lightsail
     def delete_relational_database(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteRelationalDatabaseInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteRelationalDatabaseInput,
         validate_input: @config.validate_input
@@ -6266,7 +6268,7 @@ module AWS::SDK::Lightsail
     def delete_relational_database_snapshot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteRelationalDatabaseSnapshotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteRelationalDatabaseSnapshotInput,
         validate_input: @config.validate_input
@@ -6354,7 +6356,7 @@ module AWS::SDK::Lightsail
     def detach_certificate_from_distribution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DetachCertificateFromDistributionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DetachCertificateFromDistributionInput,
         validate_input: @config.validate_input
@@ -6444,7 +6446,7 @@ module AWS::SDK::Lightsail
     def detach_disk(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DetachDiskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DetachDiskInput,
         validate_input: @config.validate_input
@@ -6540,7 +6542,7 @@ module AWS::SDK::Lightsail
     def detach_instances_from_load_balancer(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DetachInstancesFromLoadBalancerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DetachInstancesFromLoadBalancerInput,
         validate_input: @config.validate_input
@@ -6624,7 +6626,7 @@ module AWS::SDK::Lightsail
     def detach_static_ip(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DetachStaticIpInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DetachStaticIpInput,
         validate_input: @config.validate_input
@@ -6712,7 +6714,7 @@ module AWS::SDK::Lightsail
     def disable_add_on(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisableAddOnInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisableAddOnInput,
         validate_input: @config.validate_input
@@ -6780,7 +6782,7 @@ module AWS::SDK::Lightsail
     def download_default_key_pair(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DownloadDefaultKeyPairInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DownloadDefaultKeyPairInput,
         validate_input: @config.validate_input
@@ -6874,7 +6876,7 @@ module AWS::SDK::Lightsail
     def enable_add_on(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::EnableAddOnInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::EnableAddOnInput,
         validate_input: @config.validate_input
@@ -6972,7 +6974,7 @@ module AWS::SDK::Lightsail
     def export_snapshot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ExportSnapshotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ExportSnapshotInput,
         validate_input: @config.validate_input
@@ -7046,7 +7048,7 @@ module AWS::SDK::Lightsail
     def get_active_names(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetActiveNamesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetActiveNamesInput,
         validate_input: @config.validate_input
@@ -7164,7 +7166,7 @@ module AWS::SDK::Lightsail
     def get_alarms(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAlarmsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAlarmsInput,
         validate_input: @config.validate_input
@@ -7245,7 +7247,7 @@ module AWS::SDK::Lightsail
     def get_auto_snapshots(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAutoSnapshotsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAutoSnapshotsInput,
         validate_input: @config.validate_input
@@ -7345,7 +7347,7 @@ module AWS::SDK::Lightsail
     def get_blueprints(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetBlueprintsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetBlueprintsInput,
         validate_input: @config.validate_input
@@ -7429,7 +7431,7 @@ module AWS::SDK::Lightsail
     def get_bucket_access_keys(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetBucketAccessKeysInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetBucketAccessKeysInput,
         validate_input: @config.validate_input
@@ -7512,7 +7514,7 @@ module AWS::SDK::Lightsail
     def get_bucket_bundles(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetBucketBundlesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetBucketBundlesInput,
         validate_input: @config.validate_input
@@ -7691,7 +7693,7 @@ module AWS::SDK::Lightsail
     def get_bucket_metric_data(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetBucketMetricDataInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetBucketMetricDataInput,
         validate_input: @config.validate_input
@@ -7821,7 +7823,7 @@ module AWS::SDK::Lightsail
     def get_buckets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetBucketsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetBucketsInput,
         validate_input: @config.validate_input
@@ -7922,7 +7924,7 @@ module AWS::SDK::Lightsail
     def get_bundles(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetBundlesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetBundlesInput,
         validate_input: @config.validate_input
@@ -8056,7 +8058,7 @@ module AWS::SDK::Lightsail
     def get_certificates(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCertificatesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCertificatesInput,
         validate_input: @config.validate_input
@@ -8149,7 +8151,7 @@ module AWS::SDK::Lightsail
     def get_cloud_formation_stack_records(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCloudFormationStackRecordsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCloudFormationStackRecordsInput,
         validate_input: @config.validate_input
@@ -8240,7 +8242,7 @@ module AWS::SDK::Lightsail
     def get_contact_methods(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetContactMethodsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetContactMethodsInput,
         validate_input: @config.validate_input
@@ -8307,7 +8309,7 @@ module AWS::SDK::Lightsail
     def get_container_api_metadata(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetContainerAPIMetadataInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetContainerAPIMetadataInput,
         validate_input: @config.validate_input
@@ -8387,7 +8389,7 @@ module AWS::SDK::Lightsail
     def get_container_images(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetContainerImagesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetContainerImagesInput,
         validate_input: @config.validate_input
@@ -8552,7 +8554,7 @@ module AWS::SDK::Lightsail
     def get_container_log(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetContainerLogInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetContainerLogInput,
         validate_input: @config.validate_input
@@ -8656,7 +8658,7 @@ module AWS::SDK::Lightsail
     def get_container_service_deployments(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetContainerServiceDeploymentsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetContainerServiceDeploymentsInput,
         validate_input: @config.validate_input
@@ -8820,7 +8822,7 @@ module AWS::SDK::Lightsail
     def get_container_service_metric_data(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetContainerServiceMetricDataInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetContainerServiceMetricDataInput,
         validate_input: @config.validate_input
@@ -8895,7 +8897,7 @@ module AWS::SDK::Lightsail
     def get_container_service_powers(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetContainerServicePowersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetContainerServicePowersInput,
         validate_input: @config.validate_input
@@ -9020,7 +9022,7 @@ module AWS::SDK::Lightsail
     def get_container_services(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetContainerServicesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetContainerServicesInput,
         validate_input: @config.validate_input
@@ -9116,7 +9118,7 @@ module AWS::SDK::Lightsail
     def get_disk(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDiskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDiskInput,
         validate_input: @config.validate_input
@@ -9205,7 +9207,7 @@ module AWS::SDK::Lightsail
     def get_disk_snapshot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDiskSnapshotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDiskSnapshotInput,
         validate_input: @config.validate_input
@@ -9300,7 +9302,7 @@ module AWS::SDK::Lightsail
     def get_disk_snapshots(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDiskSnapshotsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDiskSnapshotsInput,
         validate_input: @config.validate_input
@@ -9401,7 +9403,7 @@ module AWS::SDK::Lightsail
     def get_disks(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDisksInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDisksInput,
         validate_input: @config.validate_input
@@ -9474,7 +9476,7 @@ module AWS::SDK::Lightsail
     def get_distribution_bundles(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDistributionBundlesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDistributionBundlesInput,
         validate_input: @config.validate_input
@@ -9550,7 +9552,7 @@ module AWS::SDK::Lightsail
     def get_distribution_latest_cache_reset(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDistributionLatestCacheResetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDistributionLatestCacheResetInput,
         validate_input: @config.validate_input
@@ -9793,7 +9795,7 @@ module AWS::SDK::Lightsail
     def get_distribution_metric_data(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDistributionMetricDataInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDistributionMetricDataInput,
         validate_input: @config.validate_input
@@ -9924,7 +9926,7 @@ module AWS::SDK::Lightsail
     def get_distributions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDistributionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDistributionsInput,
         validate_input: @config.validate_input
@@ -10014,7 +10016,7 @@ module AWS::SDK::Lightsail
     def get_domain(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDomainInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDomainInput,
         validate_input: @config.validate_input
@@ -10109,7 +10111,7 @@ module AWS::SDK::Lightsail
     def get_domains(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDomainsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDomainsInput,
         validate_input: @config.validate_input
@@ -10216,7 +10218,7 @@ module AWS::SDK::Lightsail
     def get_export_snapshot_records(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetExportSnapshotRecordsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetExportSnapshotRecordsInput,
         validate_input: @config.validate_input
@@ -10356,7 +10358,7 @@ module AWS::SDK::Lightsail
     def get_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetInstanceInput,
         validate_input: @config.validate_input
@@ -10453,7 +10455,7 @@ module AWS::SDK::Lightsail
     def get_instance_access_details(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetInstanceAccessDetailsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetInstanceAccessDetailsInput,
         validate_input: @config.validate_input
@@ -10718,7 +10720,7 @@ module AWS::SDK::Lightsail
     def get_instance_metric_data(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetInstanceMetricDataInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetInstanceMetricDataInput,
         validate_input: @config.validate_input
@@ -10797,7 +10799,7 @@ module AWS::SDK::Lightsail
     def get_instance_port_states(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetInstancePortStatesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetInstancePortStatesInput,
         validate_input: @config.validate_input
@@ -10910,7 +10912,7 @@ module AWS::SDK::Lightsail
     def get_instance_snapshot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetInstanceSnapshotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetInstanceSnapshotInput,
         validate_input: @config.validate_input
@@ -11028,7 +11030,7 @@ module AWS::SDK::Lightsail
     def get_instance_snapshots(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetInstanceSnapshotsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetInstanceSnapshotsInput,
         validate_input: @config.validate_input
@@ -11099,7 +11101,7 @@ module AWS::SDK::Lightsail
     def get_instance_state(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetInstanceStateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetInstanceStateInput,
         validate_input: @config.validate_input
@@ -11244,7 +11246,7 @@ module AWS::SDK::Lightsail
     def get_instances(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetInstancesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetInstancesInput,
         validate_input: @config.validate_input
@@ -11326,7 +11328,7 @@ module AWS::SDK::Lightsail
     def get_key_pair(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetKeyPairInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetKeyPairInput,
         validate_input: @config.validate_input
@@ -11418,7 +11420,7 @@ module AWS::SDK::Lightsail
     def get_key_pairs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetKeyPairsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetKeyPairsInput,
         validate_input: @config.validate_input
@@ -11520,7 +11522,7 @@ module AWS::SDK::Lightsail
     def get_load_balancer(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetLoadBalancerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetLoadBalancerInput,
         validate_input: @config.validate_input
@@ -11827,7 +11829,7 @@ module AWS::SDK::Lightsail
     def get_load_balancer_metric_data(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetLoadBalancerMetricDataInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetLoadBalancerMetricDataInput,
         validate_input: @config.validate_input
@@ -11943,7 +11945,7 @@ module AWS::SDK::Lightsail
     def get_load_balancer_tls_certificates(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetLoadBalancerTlsCertificatesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetLoadBalancerTlsCertificatesInput,
         validate_input: @config.validate_input
@@ -12028,7 +12030,7 @@ module AWS::SDK::Lightsail
     def get_load_balancer_tls_policies(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetLoadBalancerTlsPoliciesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetLoadBalancerTlsPoliciesInput,
         validate_input: @config.validate_input
@@ -12135,7 +12137,7 @@ module AWS::SDK::Lightsail
     def get_load_balancers(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetLoadBalancersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetLoadBalancersInput,
         validate_input: @config.validate_input
@@ -12219,7 +12221,7 @@ module AWS::SDK::Lightsail
     def get_operation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetOperationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetOperationInput,
         validate_input: @config.validate_input
@@ -12310,7 +12312,7 @@ module AWS::SDK::Lightsail
     def get_operations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetOperationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetOperationsInput,
         validate_input: @config.validate_input
@@ -12403,7 +12405,7 @@ module AWS::SDK::Lightsail
     def get_operations_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetOperationsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetOperationsForResourceInput,
         validate_input: @config.validate_input
@@ -12491,7 +12493,7 @@ module AWS::SDK::Lightsail
     def get_regions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetRegionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetRegionsInput,
         validate_input: @config.validate_input
@@ -12603,7 +12605,7 @@ module AWS::SDK::Lightsail
     def get_relational_database(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetRelationalDatabaseInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetRelationalDatabaseInput,
         validate_input: @config.validate_input
@@ -12686,7 +12688,7 @@ module AWS::SDK::Lightsail
     def get_relational_database_blueprints(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetRelationalDatabaseBlueprintsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetRelationalDatabaseBlueprintsInput,
         validate_input: @config.validate_input
@@ -12777,7 +12779,7 @@ module AWS::SDK::Lightsail
     def get_relational_database_bundles(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetRelationalDatabaseBundlesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetRelationalDatabaseBundlesInput,
         validate_input: @config.validate_input
@@ -12868,7 +12870,7 @@ module AWS::SDK::Lightsail
     def get_relational_database_events(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetRelationalDatabaseEventsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetRelationalDatabaseEventsInput,
         validate_input: @config.validate_input
@@ -12996,7 +12998,7 @@ module AWS::SDK::Lightsail
     def get_relational_database_log_events(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetRelationalDatabaseLogEventsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetRelationalDatabaseLogEventsInput,
         validate_input: @config.validate_input
@@ -13066,7 +13068,7 @@ module AWS::SDK::Lightsail
     def get_relational_database_log_streams(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetRelationalDatabaseLogStreamsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetRelationalDatabaseLogStreamsInput,
         validate_input: @config.validate_input
@@ -13151,7 +13153,7 @@ module AWS::SDK::Lightsail
     def get_relational_database_master_user_password(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetRelationalDatabaseMasterUserPasswordInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetRelationalDatabaseMasterUserPasswordInput,
         validate_input: @config.validate_input
@@ -13392,7 +13394,7 @@ module AWS::SDK::Lightsail
     def get_relational_database_metric_data(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetRelationalDatabaseMetricDataInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetRelationalDatabaseMetricDataInput,
         validate_input: @config.validate_input
@@ -13482,7 +13484,7 @@ module AWS::SDK::Lightsail
     def get_relational_database_parameters(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetRelationalDatabaseParametersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetRelationalDatabaseParametersInput,
         validate_input: @config.validate_input
@@ -13571,7 +13573,7 @@ module AWS::SDK::Lightsail
     def get_relational_database_snapshot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetRelationalDatabaseSnapshotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetRelationalDatabaseSnapshotInput,
         validate_input: @config.validate_input
@@ -13665,7 +13667,7 @@ module AWS::SDK::Lightsail
     def get_relational_database_snapshots(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetRelationalDatabaseSnapshotsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetRelationalDatabaseSnapshotsInput,
         validate_input: @config.validate_input
@@ -13782,7 +13784,7 @@ module AWS::SDK::Lightsail
     def get_relational_databases(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetRelationalDatabasesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetRelationalDatabasesInput,
         validate_input: @config.validate_input
@@ -13862,7 +13864,7 @@ module AWS::SDK::Lightsail
     def get_static_ip(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetStaticIpInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetStaticIpInput,
         validate_input: @config.validate_input
@@ -13947,7 +13949,7 @@ module AWS::SDK::Lightsail
     def get_static_ips(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetStaticIpsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetStaticIpsInput,
         validate_input: @config.validate_input
@@ -14034,7 +14036,7 @@ module AWS::SDK::Lightsail
     def import_key_pair(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ImportKeyPairInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ImportKeyPairInput,
         validate_input: @config.validate_input
@@ -14098,7 +14100,7 @@ module AWS::SDK::Lightsail
     def is_vpc_peered(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::IsVpcPeeredInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::IsVpcPeeredInput,
         validate_input: @config.validate_input
@@ -14196,7 +14198,7 @@ module AWS::SDK::Lightsail
     def open_instance_public_ports(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::OpenInstancePublicPortsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::OpenInstancePublicPortsInput,
         validate_input: @config.validate_input
@@ -14274,7 +14276,7 @@ module AWS::SDK::Lightsail
     def peer_vpc(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PeerVpcInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PeerVpcInput,
         validate_input: @config.validate_input
@@ -14526,7 +14528,7 @@ module AWS::SDK::Lightsail
     def put_alarm(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutAlarmInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutAlarmInput,
         validate_input: @config.validate_input
@@ -14630,7 +14632,7 @@ module AWS::SDK::Lightsail
     def put_instance_public_ports(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutInstancePublicPortsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutInstancePublicPortsInput,
         validate_input: @config.validate_input
@@ -14717,7 +14719,7 @@ module AWS::SDK::Lightsail
     def reboot_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RebootInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RebootInstanceInput,
         validate_input: @config.validate_input
@@ -14804,7 +14806,7 @@ module AWS::SDK::Lightsail
     def reboot_relational_database(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RebootRelationalDatabaseInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RebootRelationalDatabaseInput,
         validate_input: @config.validate_input
@@ -14915,7 +14917,7 @@ module AWS::SDK::Lightsail
     def register_container_image(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RegisterContainerImageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RegisterContainerImageInput,
         validate_input: @config.validate_input
@@ -14999,7 +15001,7 @@ module AWS::SDK::Lightsail
     def release_static_ip(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ReleaseStaticIpInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ReleaseStaticIpInput,
         validate_input: @config.validate_input
@@ -15089,7 +15091,7 @@ module AWS::SDK::Lightsail
     def reset_distribution_cache(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ResetDistributionCacheInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ResetDistributionCacheInput,
         validate_input: @config.validate_input
@@ -15186,7 +15188,7 @@ module AWS::SDK::Lightsail
     def send_contact_method_verification(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SendContactMethodVerificationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SendContactMethodVerificationInput,
         validate_input: @config.validate_input
@@ -15292,7 +15294,7 @@ module AWS::SDK::Lightsail
     def set_ip_address_type(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SetIpAddressTypeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SetIpAddressTypeInput,
         validate_input: @config.validate_input
@@ -15403,7 +15405,7 @@ module AWS::SDK::Lightsail
     def set_resource_access_for_bucket(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SetResourceAccessForBucketInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SetResourceAccessForBucketInput,
         validate_input: @config.validate_input
@@ -15496,7 +15498,7 @@ module AWS::SDK::Lightsail
     def start_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartInstanceInput,
         validate_input: @config.validate_input
@@ -15584,7 +15586,7 @@ module AWS::SDK::Lightsail
     def start_relational_database(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartRelationalDatabaseInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartRelationalDatabaseInput,
         validate_input: @config.validate_input
@@ -15686,7 +15688,7 @@ module AWS::SDK::Lightsail
     def stop_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopInstanceInput,
         validate_input: @config.validate_input
@@ -15777,7 +15779,7 @@ module AWS::SDK::Lightsail
     def stop_relational_database(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopRelationalDatabaseInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopRelationalDatabaseInput,
         validate_input: @config.validate_input
@@ -15879,7 +15881,7 @@ module AWS::SDK::Lightsail
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -15991,7 +15993,7 @@ module AWS::SDK::Lightsail
     def test_alarm(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TestAlarmInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TestAlarmInput,
         validate_input: @config.validate_input
@@ -16069,7 +16071,7 @@ module AWS::SDK::Lightsail
     def unpeer_vpc(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UnpeerVpcInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UnpeerVpcInput,
         validate_input: @config.validate_input
@@ -16167,7 +16169,7 @@ module AWS::SDK::Lightsail
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -16326,7 +16328,7 @@ module AWS::SDK::Lightsail
     def update_bucket(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateBucketInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateBucketInput,
         validate_input: @config.validate_input
@@ -16431,7 +16433,7 @@ module AWS::SDK::Lightsail
     def update_bucket_bundle(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateBucketBundleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateBucketBundleInput,
         validate_input: @config.validate_input
@@ -16618,7 +16620,7 @@ module AWS::SDK::Lightsail
     def update_container_service(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateContainerServiceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateContainerServiceInput,
         validate_input: @config.validate_input
@@ -16763,7 +16765,7 @@ module AWS::SDK::Lightsail
     def update_distribution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDistributionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDistributionInput,
         validate_input: @config.validate_input
@@ -16863,7 +16865,7 @@ module AWS::SDK::Lightsail
     def update_distribution_bundle(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDistributionBundleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDistributionBundleInput,
         validate_input: @config.validate_input
@@ -16963,7 +16965,7 @@ module AWS::SDK::Lightsail
     def update_domain_entry(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDomainEntryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDomainEntryInput,
         validate_input: @config.validate_input
@@ -17094,7 +17096,7 @@ module AWS::SDK::Lightsail
     def update_load_balancer_attribute(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateLoadBalancerAttributeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateLoadBalancerAttributeInput,
         validate_input: @config.validate_input
@@ -17282,7 +17284,7 @@ module AWS::SDK::Lightsail
     def update_relational_database(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateRelationalDatabaseInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateRelationalDatabaseInput,
         validate_input: @config.validate_input
@@ -17390,7 +17392,7 @@ module AWS::SDK::Lightsail
     def update_relational_database_parameters(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateRelationalDatabaseParametersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateRelationalDatabaseParametersInput,
         validate_input: @config.validate_input

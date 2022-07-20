@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::DataSync
@@ -70,7 +72,7 @@ module AWS::SDK::DataSync
     def cancel_task_execution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelTaskExecutionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelTaskExecutionInput,
         validate_input: @config.validate_input
@@ -208,7 +210,7 @@ module AWS::SDK::DataSync
     def create_agent(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateAgentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateAgentInput,
         validate_input: @config.validate_input
@@ -322,7 +324,7 @@ module AWS::SDK::DataSync
     def create_location_efs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateLocationEfsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateLocationEfsInput,
         validate_input: @config.validate_input
@@ -410,7 +412,7 @@ module AWS::SDK::DataSync
     def create_location_fsx_lustre(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateLocationFsxLustreInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateLocationFsxLustreInput,
         validate_input: @config.validate_input
@@ -512,7 +514,7 @@ module AWS::SDK::DataSync
     def create_location_fsx_open_zfs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateLocationFsxOpenZfsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateLocationFsxOpenZfsInput,
         validate_input: @config.validate_input
@@ -621,7 +623,7 @@ module AWS::SDK::DataSync
     def create_location_fsx_windows(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateLocationFsxWindowsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateLocationFsxWindowsInput,
         validate_input: @config.validate_input
@@ -788,7 +790,7 @@ module AWS::SDK::DataSync
     def create_location_hdfs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateLocationHdfsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateLocationHdfsInput,
         validate_input: @config.validate_input
@@ -912,7 +914,7 @@ module AWS::SDK::DataSync
     def create_location_nfs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateLocationNfsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateLocationNfsInput,
         validate_input: @config.validate_input
@@ -1036,7 +1038,7 @@ module AWS::SDK::DataSync
     def create_location_object_storage(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateLocationObjectStorageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateLocationObjectStorageInput,
         validate_input: @config.validate_input
@@ -1155,7 +1157,7 @@ module AWS::SDK::DataSync
     def create_location_s3(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateLocationS3Input.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateLocationS3Input,
         validate_input: @config.validate_input
@@ -1290,7 +1292,7 @@ module AWS::SDK::DataSync
     def create_location_smb(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateLocationSmbInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateLocationSmbInput,
         validate_input: @config.validate_input
@@ -1452,7 +1454,7 @@ module AWS::SDK::DataSync
     def create_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateTaskInput,
         validate_input: @config.validate_input
@@ -1524,7 +1526,7 @@ module AWS::SDK::DataSync
     def delete_agent(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAgentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAgentInput,
         validate_input: @config.validate_input
@@ -1592,7 +1594,7 @@ module AWS::SDK::DataSync
     def delete_location(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteLocationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteLocationInput,
         validate_input: @config.validate_input
@@ -1660,7 +1662,7 @@ module AWS::SDK::DataSync
     def delete_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteTaskInput,
         validate_input: @config.validate_input
@@ -1743,7 +1745,7 @@ module AWS::SDK::DataSync
     def describe_agent(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAgentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAgentInput,
         validate_input: @config.validate_input
@@ -1821,7 +1823,7 @@ module AWS::SDK::DataSync
     def describe_location_efs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeLocationEfsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeLocationEfsInput,
         validate_input: @config.validate_input
@@ -1895,7 +1897,7 @@ module AWS::SDK::DataSync
     def describe_location_fsx_lustre(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeLocationFsxLustreInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeLocationFsxLustreInput,
         validate_input: @config.validate_input
@@ -1973,7 +1975,7 @@ module AWS::SDK::DataSync
     def describe_location_fsx_open_zfs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeLocationFsxOpenZfsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeLocationFsxOpenZfsInput,
         validate_input: @config.validate_input
@@ -2050,7 +2052,7 @@ module AWS::SDK::DataSync
     def describe_location_fsx_windows(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeLocationFsxWindowsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeLocationFsxWindowsInput,
         validate_input: @config.validate_input
@@ -2137,7 +2139,7 @@ module AWS::SDK::DataSync
     def describe_location_hdfs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeLocationHdfsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeLocationHdfsInput,
         validate_input: @config.validate_input
@@ -2213,7 +2215,7 @@ module AWS::SDK::DataSync
     def describe_location_nfs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeLocationNfsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeLocationNfsInput,
         validate_input: @config.validate_input
@@ -2290,7 +2292,7 @@ module AWS::SDK::DataSync
     def describe_location_object_storage(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeLocationObjectStorageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeLocationObjectStorageInput,
         validate_input: @config.validate_input
@@ -2366,7 +2368,7 @@ module AWS::SDK::DataSync
     def describe_location_s3(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeLocationS3Input.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeLocationS3Input,
         validate_input: @config.validate_input
@@ -2443,7 +2445,7 @@ module AWS::SDK::DataSync
     def describe_location_smb(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeLocationSmbInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeLocationSmbInput,
         validate_input: @config.validate_input
@@ -2548,7 +2550,7 @@ module AWS::SDK::DataSync
     def describe_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTaskInput,
         validate_input: @config.validate_input
@@ -2655,7 +2657,7 @@ module AWS::SDK::DataSync
     def describe_task_execution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTaskExecutionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTaskExecutionInput,
         validate_input: @config.validate_input
@@ -2741,7 +2743,7 @@ module AWS::SDK::DataSync
     def list_agents(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAgentsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAgentsInput,
         validate_input: @config.validate_input
@@ -2836,7 +2838,7 @@ module AWS::SDK::DataSync
     def list_locations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListLocationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListLocationsInput,
         validate_input: @config.validate_input
@@ -2918,7 +2920,7 @@ module AWS::SDK::DataSync
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -3000,7 +3002,7 @@ module AWS::SDK::DataSync
     def list_task_executions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTaskExecutionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTaskExecutionsInput,
         validate_input: @config.validate_input
@@ -3094,7 +3096,7 @@ module AWS::SDK::DataSync
     def list_tasks(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTasksInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTasksInput,
         validate_input: @config.validate_input
@@ -3220,7 +3222,7 @@ module AWS::SDK::DataSync
     def start_task_execution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartTaskExecutionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartTaskExecutionInput,
         validate_input: @config.validate_input
@@ -3297,7 +3299,7 @@ module AWS::SDK::DataSync
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -3371,7 +3373,7 @@ module AWS::SDK::DataSync
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -3443,7 +3445,7 @@ module AWS::SDK::DataSync
     def update_agent(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateAgentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateAgentInput,
         validate_input: @config.validate_input
@@ -3581,7 +3583,7 @@ module AWS::SDK::DataSync
     def update_location_hdfs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateLocationHdfsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateLocationHdfsInput,
         validate_input: @config.validate_input
@@ -3688,7 +3690,7 @@ module AWS::SDK::DataSync
     def update_location_nfs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateLocationNfsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateLocationNfsInput,
         validate_input: @config.validate_input
@@ -3795,7 +3797,7 @@ module AWS::SDK::DataSync
     def update_location_object_storage(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateLocationObjectStorageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateLocationObjectStorageInput,
         validate_input: @config.validate_input
@@ -3921,7 +3923,7 @@ module AWS::SDK::DataSync
     def update_location_smb(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateLocationSmbInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateLocationSmbInput,
         validate_input: @config.validate_input
@@ -4054,7 +4056,7 @@ module AWS::SDK::DataSync
     def update_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateTaskInput,
         validate_input: @config.validate_input
@@ -4160,7 +4162,7 @@ module AWS::SDK::DataSync
     def update_task_execution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateTaskExecutionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateTaskExecutionInput,
         validate_input: @config.validate_input

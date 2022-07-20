@@ -37,11 +37,11 @@ module AWS::SDK::MediaTailor
           channel_name: 'channel_name',
           channel_state: 'channel_state',
           creation_time: Time.now,
-          filler_slate: Stubs::SlateSource.default(visited),
+          filler_slate: SlateSource.default(visited),
           last_modified_time: Time.now,
-          outputs: Stubs::ResponseOutputs.default(visited),
+          outputs: ResponseOutputs.default(visited),
           playback_mode: 'playback_mode',
-          tags: Stubs::Map____mapOf__string.default(visited),
+          tags: Map____mapOf__string.default(visited),
           tier: 'tier',
         }
       end
@@ -90,7 +90,7 @@ module AWS::SDK::MediaTailor
         return nil if visited.include?('ResponseOutputs')
         visited = visited + ['ResponseOutputs']
         [
-          Stubs::ResponseOutputItem.default(visited)
+          ResponseOutputItem.default(visited)
         ]
       end
 
@@ -110,8 +110,8 @@ module AWS::SDK::MediaTailor
         return nil if visited.include?('ResponseOutputItem')
         visited = visited + ['ResponseOutputItem']
         {
-          dash_playlist_settings: Stubs::DashPlaylistSettings.default(visited),
-          hls_playlist_settings: Stubs::HlsPlaylistSettings.default(visited),
+          dash_playlist_settings: DashPlaylistSettings.default(visited),
+          hls_playlist_settings: HlsPlaylistSettings.default(visited),
           manifest_name: 'manifest_name',
           playback_url: 'playback_url',
           source_group: 'source_group',
@@ -198,11 +198,11 @@ module AWS::SDK::MediaTailor
         {
           arn: 'arn',
           creation_time: Time.now,
-          http_package_configurations: Stubs::HttpPackageConfigurations.default(visited),
+          http_package_configurations: HttpPackageConfigurations.default(visited),
           last_modified_time: Time.now,
           live_source_name: 'live_source_name',
           source_location_name: 'source_location_name',
-          tags: Stubs::Map____mapOf__string.default(visited),
+          tags: Map____mapOf__string.default(visited),
         }
       end
 
@@ -227,7 +227,7 @@ module AWS::SDK::MediaTailor
         return nil if visited.include?('HttpPackageConfigurations')
         visited = visited + ['HttpPackageConfigurations']
         [
-          Stubs::HttpPackageConfiguration.default(visited)
+          HttpPackageConfiguration.default(visited)
         ]
       end
 
@@ -268,10 +268,10 @@ module AWS::SDK::MediaTailor
       def self.default(visited=[])
         {
           arn: 'arn',
-          consumption: Stubs::PrefetchConsumption.default(visited),
+          consumption: PrefetchConsumption.default(visited),
           name: 'name',
           playback_configuration_name: 'playback_configuration_name',
-          retrieval: Stubs::PrefetchRetrieval.default(visited),
+          retrieval: PrefetchRetrieval.default(visited),
           stream_id: 'stream_id',
         }
       end
@@ -296,7 +296,7 @@ module AWS::SDK::MediaTailor
         return nil if visited.include?('PrefetchRetrieval')
         visited = visited + ['PrefetchRetrieval']
         {
-          dynamic_variables: Stubs::Map____mapOf__string.default(visited),
+          dynamic_variables: Map____mapOf__string.default(visited),
           end_time: Time.now,
           start_time: Time.now,
         }
@@ -318,7 +318,7 @@ module AWS::SDK::MediaTailor
         return nil if visited.include?('PrefetchConsumption')
         visited = visited + ['PrefetchConsumption']
         {
-          avail_matching_criteria: Stubs::List____listOfAvailMatchingCriteria.default(visited),
+          avail_matching_criteria: List____listOfAvailMatchingCriteria.default(visited),
           end_time: Time.now,
           start_time: Time.now,
         }
@@ -340,7 +340,7 @@ module AWS::SDK::MediaTailor
         return nil if visited.include?('List____listOfAvailMatchingCriteria')
         visited = visited + ['List____listOfAvailMatchingCriteria']
         [
-          Stubs::AvailMatchingCriteria.default(visited)
+          AvailMatchingCriteria.default(visited)
         ]
       end
 
@@ -378,7 +378,7 @@ module AWS::SDK::MediaTailor
     class CreateProgram
       def self.default(visited=[])
         {
-          ad_breaks: Stubs::List____listOfAdBreak.default(visited),
+          ad_breaks: List____listOfAdBreak.default(visited),
           arn: 'arn',
           channel_name: 'channel_name',
           creation_time: Time.now,
@@ -413,7 +413,7 @@ module AWS::SDK::MediaTailor
         return nil if visited.include?('List____listOfAdBreak')
         visited = visited + ['List____listOfAdBreak']
         [
-          Stubs::AdBreak.default(visited)
+          AdBreak.default(visited)
         ]
       end
 
@@ -435,8 +435,8 @@ module AWS::SDK::MediaTailor
         {
           message_type: 'message_type',
           offset_millis: 1,
-          slate: Stubs::SlateSource.default(visited),
-          splice_insert_message: Stubs::SpliceInsertMessage.default(visited),
+          slate: SlateSource.default(visited),
+          splice_insert_message: SpliceInsertMessage.default(visited),
         }
       end
 
@@ -479,15 +479,15 @@ module AWS::SDK::MediaTailor
     class CreateSourceLocation
       def self.default(visited=[])
         {
-          access_configuration: Stubs::AccessConfiguration.default(visited),
+          access_configuration: AccessConfiguration.default(visited),
           arn: 'arn',
           creation_time: Time.now,
-          default_segment_delivery_configuration: Stubs::DefaultSegmentDeliveryConfiguration.default(visited),
-          http_configuration: Stubs::HttpConfiguration.default(visited),
+          default_segment_delivery_configuration: DefaultSegmentDeliveryConfiguration.default(visited),
+          http_configuration: HttpConfiguration.default(visited),
           last_modified_time: Time.now,
-          segment_delivery_configurations: Stubs::List____listOfSegmentDeliveryConfiguration.default(visited),
+          segment_delivery_configurations: List____listOfSegmentDeliveryConfiguration.default(visited),
           source_location_name: 'source_location_name',
-          tags: Stubs::Map____mapOf__string.default(visited),
+          tags: Map____mapOf__string.default(visited),
         }
       end
 
@@ -514,7 +514,7 @@ module AWS::SDK::MediaTailor
         return nil if visited.include?('List____listOfSegmentDeliveryConfiguration')
         visited = visited + ['List____listOfSegmentDeliveryConfiguration']
         [
-          Stubs::SegmentDeliveryConfiguration.default(visited)
+          SegmentDeliveryConfiguration.default(visited)
         ]
       end
 
@@ -591,7 +591,7 @@ module AWS::SDK::MediaTailor
         visited = visited + ['AccessConfiguration']
         {
           access_type: 'access_type',
-          secrets_manager_access_token_configuration: Stubs::SecretsManagerAccessTokenConfiguration.default(visited),
+          secrets_manager_access_token_configuration: SecretsManagerAccessTokenConfiguration.default(visited),
         }
       end
 
@@ -632,10 +632,10 @@ module AWS::SDK::MediaTailor
         {
           arn: 'arn',
           creation_time: Time.now,
-          http_package_configurations: Stubs::HttpPackageConfigurations.default(visited),
+          http_package_configurations: HttpPackageConfigurations.default(visited),
           last_modified_time: Time.now,
           source_location_name: 'source_location_name',
-          tags: Stubs::Map____mapOf__string.default(visited),
+          tags: Map____mapOf__string.default(visited),
           vod_source_name: 'vod_source_name',
         }
       end
@@ -767,11 +767,11 @@ module AWS::SDK::MediaTailor
           channel_name: 'channel_name',
           channel_state: 'channel_state',
           creation_time: Time.now,
-          filler_slate: Stubs::SlateSource.default(visited),
+          filler_slate: SlateSource.default(visited),
           last_modified_time: Time.now,
-          outputs: Stubs::ResponseOutputs.default(visited),
+          outputs: ResponseOutputs.default(visited),
           playback_mode: 'playback_mode',
-          tags: Stubs::Map____mapOf__string.default(visited),
+          tags: Map____mapOf__string.default(visited),
           tier: 'tier',
         }
       end
@@ -800,11 +800,11 @@ module AWS::SDK::MediaTailor
         {
           arn: 'arn',
           creation_time: Time.now,
-          http_package_configurations: Stubs::HttpPackageConfigurations.default(visited),
+          http_package_configurations: HttpPackageConfigurations.default(visited),
           last_modified_time: Time.now,
           live_source_name: 'live_source_name',
           source_location_name: 'source_location_name',
-          tags: Stubs::Map____mapOf__string.default(visited),
+          tags: Map____mapOf__string.default(visited),
         }
       end
 
@@ -827,7 +827,7 @@ module AWS::SDK::MediaTailor
     class DescribeProgram
       def self.default(visited=[])
         {
-          ad_breaks: Stubs::List____listOfAdBreak.default(visited),
+          ad_breaks: List____listOfAdBreak.default(visited),
           arn: 'arn',
           channel_name: 'channel_name',
           creation_time: Time.now,
@@ -860,15 +860,15 @@ module AWS::SDK::MediaTailor
     class DescribeSourceLocation
       def self.default(visited=[])
         {
-          access_configuration: Stubs::AccessConfiguration.default(visited),
+          access_configuration: AccessConfiguration.default(visited),
           arn: 'arn',
           creation_time: Time.now,
-          default_segment_delivery_configuration: Stubs::DefaultSegmentDeliveryConfiguration.default(visited),
-          http_configuration: Stubs::HttpConfiguration.default(visited),
+          default_segment_delivery_configuration: DefaultSegmentDeliveryConfiguration.default(visited),
+          http_configuration: HttpConfiguration.default(visited),
           last_modified_time: Time.now,
-          segment_delivery_configurations: Stubs::List____listOfSegmentDeliveryConfiguration.default(visited),
+          segment_delivery_configurations: List____listOfSegmentDeliveryConfiguration.default(visited),
           source_location_name: 'source_location_name',
-          tags: Stubs::Map____mapOf__string.default(visited),
+          tags: Map____mapOf__string.default(visited),
         }
       end
 
@@ -895,10 +895,10 @@ module AWS::SDK::MediaTailor
         {
           arn: 'arn',
           creation_time: Time.now,
-          http_package_configurations: Stubs::HttpPackageConfigurations.default(visited),
+          http_package_configurations: HttpPackageConfigurations.default(visited),
           last_modified_time: Time.now,
           source_location_name: 'source_location_name',
-          tags: Stubs::Map____mapOf__string.default(visited),
+          tags: Map____mapOf__string.default(visited),
           vod_source_name: 'vod_source_name',
         }
       end
@@ -939,7 +939,7 @@ module AWS::SDK::MediaTailor
     class GetChannelSchedule
       def self.default(visited=[])
         {
-          items: Stubs::List____listOfScheduleEntry.default(visited),
+          items: List____listOfScheduleEntry.default(visited),
           next_token: 'next_token',
         }
       end
@@ -960,7 +960,7 @@ module AWS::SDK::MediaTailor
         return nil if visited.include?('List____listOfScheduleEntry')
         visited = visited + ['List____listOfScheduleEntry']
         [
-          Stubs::ScheduleEntry.default(visited)
+          ScheduleEntry.default(visited)
         ]
       end
 
@@ -986,7 +986,7 @@ module AWS::SDK::MediaTailor
           channel_name: 'channel_name',
           live_source_name: 'live_source_name',
           program_name: 'program_name',
-          schedule_ad_breaks: Stubs::List____listOfScheduleAdBreak.default(visited),
+          schedule_ad_breaks: List____listOfScheduleAdBreak.default(visited),
           schedule_entry_type: 'schedule_entry_type',
           source_location_name: 'source_location_name',
           vod_source_name: 'vod_source_name',
@@ -1016,7 +1016,7 @@ module AWS::SDK::MediaTailor
         return nil if visited.include?('List____listOfScheduleAdBreak')
         visited = visited + ['List____listOfScheduleAdBreak']
         [
-          Stubs::ScheduleAdBreak.default(visited)
+          ScheduleAdBreak.default(visited)
         ]
       end
 
@@ -1059,22 +1059,22 @@ module AWS::SDK::MediaTailor
       def self.default(visited=[])
         {
           ad_decision_server_url: 'ad_decision_server_url',
-          avail_suppression: Stubs::AvailSuppression.default(visited),
-          bumper: Stubs::Bumper.default(visited),
-          cdn_configuration: Stubs::CdnConfiguration.default(visited),
-          configuration_aliases: Stubs::ConfigurationAliasesResponse.default(visited),
-          dash_configuration: Stubs::DashConfiguration.default(visited),
-          hls_configuration: Stubs::HlsConfiguration.default(visited),
-          live_pre_roll_configuration: Stubs::LivePreRollConfiguration.default(visited),
-          log_configuration: Stubs::LogConfiguration.default(visited),
-          manifest_processing_rules: Stubs::ManifestProcessingRules.default(visited),
+          avail_suppression: AvailSuppression.default(visited),
+          bumper: Bumper.default(visited),
+          cdn_configuration: CdnConfiguration.default(visited),
+          configuration_aliases: ConfigurationAliasesResponse.default(visited),
+          dash_configuration: DashConfiguration.default(visited),
+          hls_configuration: HlsConfiguration.default(visited),
+          live_pre_roll_configuration: LivePreRollConfiguration.default(visited),
+          log_configuration: LogConfiguration.default(visited),
+          manifest_processing_rules: ManifestProcessingRules.default(visited),
           name: 'name',
           personalization_threshold_seconds: 1,
           playback_configuration_arn: 'playback_configuration_arn',
           playback_endpoint_prefix: 'playback_endpoint_prefix',
           session_initialization_endpoint_prefix: 'session_initialization_endpoint_prefix',
           slate_ad_url: 'slate_ad_url',
-          tags: Stubs::Map____mapOf__string.default(visited),
+          tags: Map____mapOf__string.default(visited),
           transcode_profile_name: 'transcode_profile_name',
           video_content_source_url: 'video_content_source_url',
         }
@@ -1113,7 +1113,7 @@ module AWS::SDK::MediaTailor
         return nil if visited.include?('ManifestProcessingRules')
         visited = visited + ['ManifestProcessingRules']
         {
-          ad_marker_passthrough: Stubs::AdMarkerPassthrough.default(visited),
+          ad_marker_passthrough: AdMarkerPassthrough.default(visited),
         }
       end
 
@@ -1227,7 +1227,7 @@ module AWS::SDK::MediaTailor
         return nil if visited.include?('ConfigurationAliasesResponse')
         visited = visited + ['ConfigurationAliasesResponse']
         {
-          test_key: Stubs::Map____mapOf__string.default(visited)
+          test_key: Map____mapOf__string.default(visited)
         }
       end
 
@@ -1306,10 +1306,10 @@ module AWS::SDK::MediaTailor
       def self.default(visited=[])
         {
           arn: 'arn',
-          consumption: Stubs::PrefetchConsumption.default(visited),
+          consumption: PrefetchConsumption.default(visited),
           name: 'name',
           playback_configuration_name: 'playback_configuration_name',
-          retrieval: Stubs::PrefetchRetrieval.default(visited),
+          retrieval: PrefetchRetrieval.default(visited),
           stream_id: 'stream_id',
         }
       end
@@ -1332,7 +1332,7 @@ module AWS::SDK::MediaTailor
     class ListAlerts
       def self.default(visited=[])
         {
-          items: Stubs::List____listOfAlert.default(visited),
+          items: List____listOfAlert.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1353,7 +1353,7 @@ module AWS::SDK::MediaTailor
         return nil if visited.include?('List____listOfAlert')
         visited = visited + ['List____listOfAlert']
         [
-          Stubs::Alert.default(visited)
+          Alert.default(visited)
         ]
       end
 
@@ -1376,7 +1376,7 @@ module AWS::SDK::MediaTailor
           alert_code: 'alert_code',
           alert_message: 'alert_message',
           last_modified_time: Time.now,
-          related_resource_arns: Stubs::List____listOf__string.default(visited),
+          related_resource_arns: List____listOf__string.default(visited),
           resource_arn: 'resource_arn',
         }
       end
@@ -1417,7 +1417,7 @@ module AWS::SDK::MediaTailor
     class ListChannels
       def self.default(visited=[])
         {
-          items: Stubs::List____listOfChannel.default(visited),
+          items: List____listOfChannel.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1438,7 +1438,7 @@ module AWS::SDK::MediaTailor
         return nil if visited.include?('List____listOfChannel')
         visited = visited + ['List____listOfChannel']
         [
-          Stubs::Channel.default(visited)
+          Channel.default(visited)
         ]
       end
 
@@ -1462,11 +1462,11 @@ module AWS::SDK::MediaTailor
           channel_name: 'channel_name',
           channel_state: 'channel_state',
           creation_time: Time.now,
-          filler_slate: Stubs::SlateSource.default(visited),
+          filler_slate: SlateSource.default(visited),
           last_modified_time: Time.now,
-          outputs: Stubs::ResponseOutputs.default(visited),
+          outputs: ResponseOutputs.default(visited),
           playback_mode: 'playback_mode',
-          tags: Stubs::Map____mapOf__string.default(visited),
+          tags: Map____mapOf__string.default(visited),
           tier: 'tier',
         }
       end
@@ -1492,7 +1492,7 @@ module AWS::SDK::MediaTailor
     class ListLiveSources
       def self.default(visited=[])
         {
-          items: Stubs::List____listOfLiveSource.default(visited),
+          items: List____listOfLiveSource.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1513,7 +1513,7 @@ module AWS::SDK::MediaTailor
         return nil if visited.include?('List____listOfLiveSource')
         visited = visited + ['List____listOfLiveSource']
         [
-          Stubs::LiveSource.default(visited)
+          LiveSource.default(visited)
         ]
       end
 
@@ -1535,11 +1535,11 @@ module AWS::SDK::MediaTailor
         {
           arn: 'arn',
           creation_time: Time.now,
-          http_package_configurations: Stubs::HttpPackageConfigurations.default(visited),
+          http_package_configurations: HttpPackageConfigurations.default(visited),
           last_modified_time: Time.now,
           live_source_name: 'live_source_name',
           source_location_name: 'source_location_name',
-          tags: Stubs::Map____mapOf__string.default(visited),
+          tags: Map____mapOf__string.default(visited),
         }
       end
 
@@ -1561,7 +1561,7 @@ module AWS::SDK::MediaTailor
     class ListPlaybackConfigurations
       def self.default(visited=[])
         {
-          items: Stubs::List____listOfPlaybackConfiguration.default(visited),
+          items: List____listOfPlaybackConfiguration.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1582,7 +1582,7 @@ module AWS::SDK::MediaTailor
         return nil if visited.include?('List____listOfPlaybackConfiguration')
         visited = visited + ['List____listOfPlaybackConfiguration']
         [
-          Stubs::PlaybackConfiguration.default(visited)
+          PlaybackConfiguration.default(visited)
         ]
       end
 
@@ -1603,22 +1603,22 @@ module AWS::SDK::MediaTailor
         visited = visited + ['PlaybackConfiguration']
         {
           ad_decision_server_url: 'ad_decision_server_url',
-          avail_suppression: Stubs::AvailSuppression.default(visited),
-          bumper: Stubs::Bumper.default(visited),
-          cdn_configuration: Stubs::CdnConfiguration.default(visited),
-          configuration_aliases: Stubs::ConfigurationAliasesResponse.default(visited),
-          dash_configuration: Stubs::DashConfiguration.default(visited),
-          hls_configuration: Stubs::HlsConfiguration.default(visited),
-          live_pre_roll_configuration: Stubs::LivePreRollConfiguration.default(visited),
-          log_configuration: Stubs::LogConfiguration.default(visited),
-          manifest_processing_rules: Stubs::ManifestProcessingRules.default(visited),
+          avail_suppression: AvailSuppression.default(visited),
+          bumper: Bumper.default(visited),
+          cdn_configuration: CdnConfiguration.default(visited),
+          configuration_aliases: ConfigurationAliasesResponse.default(visited),
+          dash_configuration: DashConfiguration.default(visited),
+          hls_configuration: HlsConfiguration.default(visited),
+          live_pre_roll_configuration: LivePreRollConfiguration.default(visited),
+          log_configuration: LogConfiguration.default(visited),
+          manifest_processing_rules: ManifestProcessingRules.default(visited),
           name: 'name',
           personalization_threshold_seconds: 1,
           playback_configuration_arn: 'playback_configuration_arn',
           playback_endpoint_prefix: 'playback_endpoint_prefix',
           session_initialization_endpoint_prefix: 'session_initialization_endpoint_prefix',
           slate_ad_url: 'slate_ad_url',
-          tags: Stubs::Map____mapOf__string.default(visited),
+          tags: Map____mapOf__string.default(visited),
           transcode_profile_name: 'transcode_profile_name',
           video_content_source_url: 'video_content_source_url',
         }
@@ -1654,7 +1654,7 @@ module AWS::SDK::MediaTailor
     class ListPrefetchSchedules
       def self.default(visited=[])
         {
-          items: Stubs::List____listOfPrefetchSchedule.default(visited),
+          items: List____listOfPrefetchSchedule.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1675,7 +1675,7 @@ module AWS::SDK::MediaTailor
         return nil if visited.include?('List____listOfPrefetchSchedule')
         visited = visited + ['List____listOfPrefetchSchedule']
         [
-          Stubs::PrefetchSchedule.default(visited)
+          PrefetchSchedule.default(visited)
         ]
       end
 
@@ -1696,10 +1696,10 @@ module AWS::SDK::MediaTailor
         visited = visited + ['PrefetchSchedule']
         {
           arn: 'arn',
-          consumption: Stubs::PrefetchConsumption.default(visited),
+          consumption: PrefetchConsumption.default(visited),
           name: 'name',
           playback_configuration_name: 'playback_configuration_name',
-          retrieval: Stubs::PrefetchRetrieval.default(visited),
+          retrieval: PrefetchRetrieval.default(visited),
           stream_id: 'stream_id',
         }
       end
@@ -1721,7 +1721,7 @@ module AWS::SDK::MediaTailor
     class ListSourceLocations
       def self.default(visited=[])
         {
-          items: Stubs::List____listOfSourceLocation.default(visited),
+          items: List____listOfSourceLocation.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1742,7 +1742,7 @@ module AWS::SDK::MediaTailor
         return nil if visited.include?('List____listOfSourceLocation')
         visited = visited + ['List____listOfSourceLocation']
         [
-          Stubs::SourceLocation.default(visited)
+          SourceLocation.default(visited)
         ]
       end
 
@@ -1762,15 +1762,15 @@ module AWS::SDK::MediaTailor
         return nil if visited.include?('SourceLocation')
         visited = visited + ['SourceLocation']
         {
-          access_configuration: Stubs::AccessConfiguration.default(visited),
+          access_configuration: AccessConfiguration.default(visited),
           arn: 'arn',
           creation_time: Time.now,
-          default_segment_delivery_configuration: Stubs::DefaultSegmentDeliveryConfiguration.default(visited),
-          http_configuration: Stubs::HttpConfiguration.default(visited),
+          default_segment_delivery_configuration: DefaultSegmentDeliveryConfiguration.default(visited),
+          http_configuration: HttpConfiguration.default(visited),
           last_modified_time: Time.now,
-          segment_delivery_configurations: Stubs::List____listOfSegmentDeliveryConfiguration.default(visited),
+          segment_delivery_configurations: List____listOfSegmentDeliveryConfiguration.default(visited),
           source_location_name: 'source_location_name',
-          tags: Stubs::Map____mapOf__string.default(visited),
+          tags: Map____mapOf__string.default(visited),
         }
       end
 
@@ -1794,7 +1794,7 @@ module AWS::SDK::MediaTailor
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::Map____mapOf__string.default(visited),
+          tags: Map____mapOf__string.default(visited),
         }
       end
 
@@ -1811,7 +1811,7 @@ module AWS::SDK::MediaTailor
     class ListVodSources
       def self.default(visited=[])
         {
-          items: Stubs::List____listOfVodSource.default(visited),
+          items: List____listOfVodSource.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1832,7 +1832,7 @@ module AWS::SDK::MediaTailor
         return nil if visited.include?('List____listOfVodSource')
         visited = visited + ['List____listOfVodSource']
         [
-          Stubs::VodSource.default(visited)
+          VodSource.default(visited)
         ]
       end
 
@@ -1854,10 +1854,10 @@ module AWS::SDK::MediaTailor
         {
           arn: 'arn',
           creation_time: Time.now,
-          http_package_configurations: Stubs::HttpPackageConfigurations.default(visited),
+          http_package_configurations: HttpPackageConfigurations.default(visited),
           last_modified_time: Time.now,
           source_location_name: 'source_location_name',
-          tags: Stubs::Map____mapOf__string.default(visited),
+          tags: Map____mapOf__string.default(visited),
           vod_source_name: 'vod_source_name',
         }
       end
@@ -1894,22 +1894,22 @@ module AWS::SDK::MediaTailor
       def self.default(visited=[])
         {
           ad_decision_server_url: 'ad_decision_server_url',
-          avail_suppression: Stubs::AvailSuppression.default(visited),
-          bumper: Stubs::Bumper.default(visited),
-          cdn_configuration: Stubs::CdnConfiguration.default(visited),
-          configuration_aliases: Stubs::ConfigurationAliasesResponse.default(visited),
-          dash_configuration: Stubs::DashConfiguration.default(visited),
-          hls_configuration: Stubs::HlsConfiguration.default(visited),
-          live_pre_roll_configuration: Stubs::LivePreRollConfiguration.default(visited),
-          log_configuration: Stubs::LogConfiguration.default(visited),
-          manifest_processing_rules: Stubs::ManifestProcessingRules.default(visited),
+          avail_suppression: AvailSuppression.default(visited),
+          bumper: Bumper.default(visited),
+          cdn_configuration: CdnConfiguration.default(visited),
+          configuration_aliases: ConfigurationAliasesResponse.default(visited),
+          dash_configuration: DashConfiguration.default(visited),
+          hls_configuration: HlsConfiguration.default(visited),
+          live_pre_roll_configuration: LivePreRollConfiguration.default(visited),
+          log_configuration: LogConfiguration.default(visited),
+          manifest_processing_rules: ManifestProcessingRules.default(visited),
           name: 'name',
           personalization_threshold_seconds: 1,
           playback_configuration_arn: 'playback_configuration_arn',
           playback_endpoint_prefix: 'playback_endpoint_prefix',
           session_initialization_endpoint_prefix: 'session_initialization_endpoint_prefix',
           slate_ad_url: 'slate_ad_url',
-          tags: Stubs::Map____mapOf__string.default(visited),
+          tags: Map____mapOf__string.default(visited),
           transcode_profile_name: 'transcode_profile_name',
           video_content_source_url: 'video_content_source_url',
         }
@@ -2002,11 +2002,11 @@ module AWS::SDK::MediaTailor
           channel_name: 'channel_name',
           channel_state: 'channel_state',
           creation_time: Time.now,
-          filler_slate: Stubs::SlateSource.default(visited),
+          filler_slate: SlateSource.default(visited),
           last_modified_time: Time.now,
-          outputs: Stubs::ResponseOutputs.default(visited),
+          outputs: ResponseOutputs.default(visited),
           playback_mode: 'playback_mode',
-          tags: Stubs::Map____mapOf__string.default(visited),
+          tags: Map____mapOf__string.default(visited),
           tier: 'tier',
         }
       end
@@ -2035,11 +2035,11 @@ module AWS::SDK::MediaTailor
         {
           arn: 'arn',
           creation_time: Time.now,
-          http_package_configurations: Stubs::HttpPackageConfigurations.default(visited),
+          http_package_configurations: HttpPackageConfigurations.default(visited),
           last_modified_time: Time.now,
           live_source_name: 'live_source_name',
           source_location_name: 'source_location_name',
-          tags: Stubs::Map____mapOf__string.default(visited),
+          tags: Map____mapOf__string.default(visited),
         }
       end
 
@@ -2062,15 +2062,15 @@ module AWS::SDK::MediaTailor
     class UpdateSourceLocation
       def self.default(visited=[])
         {
-          access_configuration: Stubs::AccessConfiguration.default(visited),
+          access_configuration: AccessConfiguration.default(visited),
           arn: 'arn',
           creation_time: Time.now,
-          default_segment_delivery_configuration: Stubs::DefaultSegmentDeliveryConfiguration.default(visited),
-          http_configuration: Stubs::HttpConfiguration.default(visited),
+          default_segment_delivery_configuration: DefaultSegmentDeliveryConfiguration.default(visited),
+          http_configuration: HttpConfiguration.default(visited),
           last_modified_time: Time.now,
-          segment_delivery_configurations: Stubs::List____listOfSegmentDeliveryConfiguration.default(visited),
+          segment_delivery_configurations: List____listOfSegmentDeliveryConfiguration.default(visited),
           source_location_name: 'source_location_name',
-          tags: Stubs::Map____mapOf__string.default(visited),
+          tags: Map____mapOf__string.default(visited),
         }
       end
 
@@ -2097,10 +2097,10 @@ module AWS::SDK::MediaTailor
         {
           arn: 'arn',
           creation_time: Time.now,
-          http_package_configurations: Stubs::HttpPackageConfigurations.default(visited),
+          http_package_configurations: HttpPackageConfigurations.default(visited),
           last_modified_time: Time.now,
           source_location_name: 'source_location_name',
-          tags: Stubs::Map____mapOf__string.default(visited),
+          tags: Map____mapOf__string.default(visited),
           vod_source_name: 'vod_source_name',
         }
       end

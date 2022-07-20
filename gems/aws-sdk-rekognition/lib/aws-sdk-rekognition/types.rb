@@ -138,11 +138,11 @@ module AWS::SDK::Rekognition
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.value ||= false
       end
-
     end
 
     # <p>
@@ -368,11 +368,11 @@ module AWS::SDK::Rekognition
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.timestamp ||= 0
       end
-
     end
 
     # Includes enum constants for CelebrityRecognitionSortBy
@@ -692,11 +692,11 @@ module AWS::SDK::Rekognition
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.timestamp ||= 0
       end
-
     end
 
     # Includes enum constants for ContentModerationSortBy
@@ -730,11 +730,11 @@ module AWS::SDK::Rekognition
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.value ||= false
       end
-
     end
 
     # @!attribute collection_id
@@ -2450,11 +2450,11 @@ module AWS::SDK::Rekognition
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.value ||= false
       end
-
     end
 
     # <p>Indicates whether or not the face is wearing eye glasses, and the confidence level in
@@ -2476,11 +2476,11 @@ module AWS::SDK::Rekognition
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.value ||= false
       end
-
     end
 
     # <p>Describes the face properties such as the bounding box, face ID, image ID of the input
@@ -2694,11 +2694,11 @@ module AWS::SDK::Rekognition
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.timestamp ||= 0
       end
-
     end
 
     # <p>Provides face metadata. In addition, it also provides the confidence in the match of
@@ -4211,11 +4211,11 @@ module AWS::SDK::Rekognition
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.timestamp ||= 0
       end
-
     end
 
     # Includes enum constants for LabelDetectionSortBy
@@ -4763,11 +4763,11 @@ module AWS::SDK::Rekognition
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.value ||= false
       end
-
     end
 
     # <p>Indicates whether or not the face has a mustache, and the confidence level in the
@@ -4789,11 +4789,11 @@ module AWS::SDK::Rekognition
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.value ||= false
       end
-
     end
 
     # <p>The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status of a video analysis operation. For more information, see
@@ -4896,11 +4896,11 @@ module AWS::SDK::Rekognition
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.index ||= 0
       end
-
     end
 
     # <p>Details and path tracking information for a single time a person's path is tracked in a video.
@@ -4925,11 +4925,11 @@ module AWS::SDK::Rekognition
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.timestamp ||= 0
       end
-
     end
 
     # <p>Information about a person whose face matches a face(s) in an Amazon Rekognition collection.
@@ -4959,11 +4959,11 @@ module AWS::SDK::Rekognition
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.timestamp ||= 0
       end
-
     end
 
     # Includes enum constants for PersonTrackingSortBy
@@ -5953,12 +5953,12 @@ module AWS::SDK::Rekognition
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.start_timestamp_millis ||= 0
         self.end_timestamp_millis ||= 0
       end
-
     end
 
     # Includes enum constants for SegmentType
@@ -6064,11 +6064,11 @@ module AWS::SDK::Rekognition
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.value ||= false
       end
-
     end
 
     # @!attribute video
@@ -6817,11 +6817,11 @@ module AWS::SDK::Rekognition
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.opt_in ||= false
       end
-
     end
 
     # <p>Information about the source streaming video. </p>
@@ -7009,11 +7009,11 @@ module AWS::SDK::Rekognition
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.value ||= false
       end
-
     end
 
     # @!attribute resource_arn
@@ -7119,11 +7119,11 @@ module AWS::SDK::Rekognition
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.auto_create ||= false
       end
-
     end
 
     # <p>Sagemaker Groundtruth format manifest files for the input, output and validation datasets that are used and created during testing.</p>
@@ -7232,11 +7232,11 @@ module AWS::SDK::Rekognition
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.timestamp ||= 0
       end
-
     end
 
     # Includes enum constants for TextTypes

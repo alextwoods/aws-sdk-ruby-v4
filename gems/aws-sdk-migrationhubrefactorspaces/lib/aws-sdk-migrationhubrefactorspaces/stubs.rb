@@ -22,9 +22,9 @@ module AWS::SDK::MigrationHubRefactorSpaces
           environment_id: 'environment_id',
           vpc_id: 'vpc_id',
           proxy_type: 'proxy_type',
-          api_gateway_proxy: Stubs::ApiGatewayProxyInput.default(visited),
+          api_gateway_proxy: ApiGatewayProxyInput.default(visited),
           state: 'state',
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
           last_updated_time: Time.now,
           created_time: Time.now,
         }
@@ -102,7 +102,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
           network_fabric_type: 'network_fabric_type',
           owner_account_id: 'owner_account_id',
           state: 'state',
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
           last_updated_time: Time.now,
           created_time: Time.now,
         }
@@ -137,9 +137,9 @@ module AWS::SDK::MigrationHubRefactorSpaces
           route_type: 'route_type',
           service_id: 'service_id',
           application_id: 'application_id',
-          uri_path_route: Stubs::UriPathRouteInput.default(visited),
+          uri_path_route: UriPathRouteInput.default(visited),
           state: 'state',
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
           last_updated_time: Time.now,
           created_time: Time.now,
         }
@@ -173,7 +173,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
         {
           source_path: 'source_path',
           activation_state: 'activation_state',
-          member_methods: Stubs::HttpMethods.default(visited),
+          member_methods: HttpMethods.default(visited),
           include_child_paths: false,
         }
       end
@@ -223,10 +223,10 @@ module AWS::SDK::MigrationHubRefactorSpaces
           application_id: 'application_id',
           vpc_id: 'vpc_id',
           endpoint_type: 'endpoint_type',
-          url_endpoint: Stubs::UrlEndpointInput.default(visited),
-          lambda_endpoint: Stubs::LambdaEndpointInput.default(visited),
+          url_endpoint: UrlEndpointInput.default(visited),
+          lambda_endpoint: LambdaEndpointInput.default(visited),
           state: 'state',
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
           last_updated_time: Time.now,
           created_time: Time.now,
         }
@@ -427,10 +427,10 @@ module AWS::SDK::MigrationHubRefactorSpaces
           environment_id: 'environment_id',
           vpc_id: 'vpc_id',
           proxy_type: 'proxy_type',
-          api_gateway_proxy: Stubs::ApiGatewayProxyConfig.default(visited),
+          api_gateway_proxy: ApiGatewayProxyConfig.default(visited),
           state: 'state',
-          tags: Stubs::TagMap.default(visited),
-          error: Stubs::ErrorResponse.default(visited),
+          tags: TagMap.default(visited),
+          error: ErrorResponse.default(visited),
           last_updated_time: Time.now,
           created_time: Time.now,
         }
@@ -469,7 +469,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
           account_id: 'account_id',
           resource_identifier: 'resource_identifier',
           resource_type: 'resource_type',
-          additional_details: Stubs::AdditionalDetails.default(visited),
+          additional_details: AdditionalDetails.default(visited),
         }
       end
 
@@ -548,8 +548,8 @@ module AWS::SDK::MigrationHubRefactorSpaces
           owner_account_id: 'owner_account_id',
           transit_gateway_id: 'transit_gateway_id',
           state: 'state',
-          tags: Stubs::TagMap.default(visited),
-          error: Stubs::ErrorResponse.default(visited),
+          tags: TagMap.default(visited),
+          error: ErrorResponse.default(visited),
           last_updated_time: Time.now,
           created_time: Time.now,
         }
@@ -605,12 +605,12 @@ module AWS::SDK::MigrationHubRefactorSpaces
           application_id: 'application_id',
           environment_id: 'environment_id',
           source_path: 'source_path',
-          member_methods: Stubs::HttpMethods.default(visited),
+          member_methods: HttpMethods.default(visited),
           include_child_paths: false,
-          path_resource_to_id: Stubs::PathResourceToId.default(visited),
+          path_resource_to_id: PathResourceToId.default(visited),
           state: 'state',
-          tags: Stubs::TagMap.default(visited),
-          error: Stubs::ErrorResponse.default(visited),
+          tags: TagMap.default(visited),
+          error: ErrorResponse.default(visited),
           last_updated_time: Time.now,
           created_time: Time.now,
         }
@@ -675,11 +675,11 @@ module AWS::SDK::MigrationHubRefactorSpaces
           application_id: 'application_id',
           vpc_id: 'vpc_id',
           endpoint_type: 'endpoint_type',
-          url_endpoint: Stubs::UrlEndpointConfig.default(visited),
-          lambda_endpoint: Stubs::LambdaEndpointConfig.default(visited),
+          url_endpoint: UrlEndpointConfig.default(visited),
+          lambda_endpoint: LambdaEndpointConfig.default(visited),
           state: 'state',
-          tags: Stubs::TagMap.default(visited),
-          error: Stubs::ErrorResponse.default(visited),
+          tags: TagMap.default(visited),
+          error: ErrorResponse.default(visited),
           last_updated_time: Time.now,
           created_time: Time.now,
         }
@@ -752,7 +752,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
     class ListApplications
       def self.default(visited=[])
         {
-          application_summary_list: Stubs::ApplicationSummaries.default(visited),
+          application_summary_list: ApplicationSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -773,7 +773,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
         return nil if visited.include?('ApplicationSummaries')
         visited = visited + ['ApplicationSummaries']
         [
-          Stubs::ApplicationSummary.default(visited)
+          ApplicationSummary.default(visited)
         ]
       end
 
@@ -801,10 +801,10 @@ module AWS::SDK::MigrationHubRefactorSpaces
           environment_id: 'environment_id',
           vpc_id: 'vpc_id',
           proxy_type: 'proxy_type',
-          api_gateway_proxy: Stubs::ApiGatewayProxySummary.default(visited),
+          api_gateway_proxy: ApiGatewayProxySummary.default(visited),
           state: 'state',
-          tags: Stubs::TagMap.default(visited),
-          error: Stubs::ErrorResponse.default(visited),
+          tags: TagMap.default(visited),
+          error: ErrorResponse.default(visited),
           last_updated_time: Time.now,
           created_time: Time.now,
         }
@@ -865,7 +865,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
     class ListEnvironmentVpcs
       def self.default(visited=[])
         {
-          environment_vpc_list: Stubs::EnvironmentVpcs.default(visited),
+          environment_vpc_list: EnvironmentVpcs.default(visited),
           next_token: 'next_token',
         }
       end
@@ -886,7 +886,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
         return nil if visited.include?('EnvironmentVpcs')
         visited = visited + ['EnvironmentVpcs']
         [
-          Stubs::EnvironmentVpc.default(visited)
+          EnvironmentVpc.default(visited)
         ]
       end
 
@@ -909,7 +909,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
           environment_id: 'environment_id',
           vpc_id: 'vpc_id',
           account_id: 'account_id',
-          cidr_blocks: Stubs::CidrBlocks.default(visited),
+          cidr_blocks: CidrBlocks.default(visited),
           vpc_name: 'vpc_name',
           last_updated_time: Time.now,
           created_time: Time.now,
@@ -954,7 +954,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
     class ListEnvironments
       def self.default(visited=[])
         {
-          environment_summary_list: Stubs::EnvironmentSummaries.default(visited),
+          environment_summary_list: EnvironmentSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -975,7 +975,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
         return nil if visited.include?('EnvironmentSummaries')
         visited = visited + ['EnvironmentSummaries']
         [
-          Stubs::EnvironmentSummary.default(visited)
+          EnvironmentSummary.default(visited)
         ]
       end
 
@@ -1003,8 +1003,8 @@ module AWS::SDK::MigrationHubRefactorSpaces
           owner_account_id: 'owner_account_id',
           transit_gateway_id: 'transit_gateway_id',
           state: 'state',
-          tags: Stubs::TagMap.default(visited),
-          error: Stubs::ErrorResponse.default(visited),
+          tags: TagMap.default(visited),
+          error: ErrorResponse.default(visited),
           last_updated_time: Time.now,
           created_time: Time.now,
         }
@@ -1033,7 +1033,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
     class ListRoutes
       def self.default(visited=[])
         {
-          route_summary_list: Stubs::RouteSummaries.default(visited),
+          route_summary_list: RouteSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1054,7 +1054,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
         return nil if visited.include?('RouteSummaries')
         visited = visited + ['RouteSummaries']
         [
-          Stubs::RouteSummary.default(visited)
+          RouteSummary.default(visited)
         ]
       end
 
@@ -1083,12 +1083,12 @@ module AWS::SDK::MigrationHubRefactorSpaces
           application_id: 'application_id',
           environment_id: 'environment_id',
           source_path: 'source_path',
-          member_methods: Stubs::HttpMethods.default(visited),
+          member_methods: HttpMethods.default(visited),
           include_child_paths: false,
-          path_resource_to_id: Stubs::PathResourceToId.default(visited),
+          path_resource_to_id: PathResourceToId.default(visited),
           state: 'state',
-          tags: Stubs::TagMap.default(visited),
-          error: Stubs::ErrorResponse.default(visited),
+          tags: TagMap.default(visited),
+          error: ErrorResponse.default(visited),
           last_updated_time: Time.now,
           created_time: Time.now,
         }
@@ -1122,7 +1122,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
     class ListServices
       def self.default(visited=[])
         {
-          service_summary_list: Stubs::ServiceSummaries.default(visited),
+          service_summary_list: ServiceSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1143,7 +1143,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
         return nil if visited.include?('ServiceSummaries')
         visited = visited + ['ServiceSummaries']
         [
-          Stubs::ServiceSummary.default(visited)
+          ServiceSummary.default(visited)
         ]
       end
 
@@ -1173,11 +1173,11 @@ module AWS::SDK::MigrationHubRefactorSpaces
           application_id: 'application_id',
           vpc_id: 'vpc_id',
           endpoint_type: 'endpoint_type',
-          url_endpoint: Stubs::UrlEndpointSummary.default(visited),
-          lambda_endpoint: Stubs::LambdaEndpointSummary.default(visited),
+          url_endpoint: UrlEndpointSummary.default(visited),
+          lambda_endpoint: LambdaEndpointSummary.default(visited),
           state: 'state',
-          tags: Stubs::TagMap.default(visited),
-          error: Stubs::ErrorResponse.default(visited),
+          tags: TagMap.default(visited),
+          error: ErrorResponse.default(visited),
           last_updated_time: Time.now,
           created_time: Time.now,
         }
@@ -1249,7 +1249,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 

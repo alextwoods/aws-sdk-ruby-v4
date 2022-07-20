@@ -56,8 +56,8 @@ module AWS::SDK::Inspector2
 
     module AccountIdSet
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Set, ::Array, context: context)
-        data = Set.new
+        Hearth::Validator.validate!(params, ::Array, context: context)
+        data = []
         params.each do |element|
           data << element
         end
@@ -842,7 +842,7 @@ module AWS::SDK::Inspector2
         Hearth::Validator.validate!(params, ::Hash, Types::EnableDelegatedAdminAccountInput, context: context)
         type = Types::EnableDelegatedAdminAccountInput.new
         type.delegated_admin_account_id = params[:delegated_admin_account_id]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -862,7 +862,7 @@ module AWS::SDK::Inspector2
         type = Types::EnableInput.new
         type.account_ids = AccountIdSet.build(params[:account_ids], context: "#{context}[:account_ids]") unless params[:account_ids].nil?
         type.resource_types = EnableResourceTypeList.build(params[:resource_types], context: "#{context}[:resource_types]") unless params[:resource_types].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::QLDB
@@ -67,7 +69,7 @@ module AWS::SDK::QLDB
     def cancel_journal_kinesis_stream(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelJournalKinesisStreamInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelJournalKinesisStreamInput,
         validate_input: @config.validate_input
@@ -244,7 +246,7 @@ module AWS::SDK::QLDB
     def create_ledger(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateLedgerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateLedgerInput,
         validate_input: @config.validate_input
@@ -314,7 +316,7 @@ module AWS::SDK::QLDB
     def delete_ledger(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteLedgerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteLedgerInput,
         validate_input: @config.validate_input
@@ -405,7 +407,7 @@ module AWS::SDK::QLDB
     def describe_journal_kinesis_stream(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeJournalKinesisStreamInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeJournalKinesisStreamInput,
         validate_input: @config.validate_input
@@ -500,7 +502,7 @@ module AWS::SDK::QLDB
     def describe_journal_s3_export(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeJournalS3ExportInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeJournalS3ExportInput,
         validate_input: @config.validate_input
@@ -578,7 +580,7 @@ module AWS::SDK::QLDB
     def describe_ledger(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeLedgerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeLedgerInput,
         validate_input: @config.validate_input
@@ -714,7 +716,7 @@ module AWS::SDK::QLDB
     def export_journal_to_s3(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ExportJournalToS3Input.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ExportJournalToS3Input,
         validate_input: @config.validate_input
@@ -808,7 +810,7 @@ module AWS::SDK::QLDB
     def get_block(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetBlockInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetBlockInput,
         validate_input: @config.validate_input
@@ -880,7 +882,7 @@ module AWS::SDK::QLDB
     def get_digest(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDigestInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDigestInput,
         validate_input: @config.validate_input
@@ -970,7 +972,7 @@ module AWS::SDK::QLDB
     def get_revision(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetRevisionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetRevisionInput,
         validate_input: @config.validate_input
@@ -1075,7 +1077,7 @@ module AWS::SDK::QLDB
     def list_journal_kinesis_streams_for_ledger(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListJournalKinesisStreamsForLedgerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListJournalKinesisStreamsForLedgerInput,
         validate_input: @config.validate_input
@@ -1173,7 +1175,7 @@ module AWS::SDK::QLDB
     def list_journal_s3_exports(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListJournalS3ExportsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListJournalS3ExportsInput,
         validate_input: @config.validate_input
@@ -1275,7 +1277,7 @@ module AWS::SDK::QLDB
     def list_journal_s3_exports_for_ledger(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListJournalS3ExportsForLedgerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListJournalS3ExportsForLedgerInput,
         validate_input: @config.validate_input
@@ -1358,7 +1360,7 @@ module AWS::SDK::QLDB
     def list_ledgers(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListLedgersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListLedgersInput,
         validate_input: @config.validate_input
@@ -1430,7 +1432,7 @@ module AWS::SDK::QLDB
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -1550,7 +1552,7 @@ module AWS::SDK::QLDB
     def stream_journal_to_kinesis(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StreamJournalToKinesisInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StreamJournalToKinesisInput,
         validate_input: @config.validate_input
@@ -1631,7 +1633,7 @@ module AWS::SDK::QLDB
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -1709,7 +1711,7 @@ module AWS::SDK::QLDB
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -1845,7 +1847,7 @@ module AWS::SDK::QLDB
     def update_ledger(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateLedgerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateLedgerInput,
         validate_input: @config.validate_input
@@ -1955,7 +1957,7 @@ module AWS::SDK::QLDB
     def update_ledger_permissions_mode(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateLedgerPermissionsModeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateLedgerPermissionsModeInput,
         validate_input: @config.validate_input

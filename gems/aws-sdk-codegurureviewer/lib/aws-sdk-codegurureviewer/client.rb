@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::CodeGuruReviewer
@@ -173,7 +175,7 @@ module AWS::SDK::CodeGuruReviewer
     def associate_repository(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateRepositoryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateRepositoryInput,
         validate_input: @config.validate_input
@@ -366,7 +368,7 @@ module AWS::SDK::CodeGuruReviewer
     def create_code_review(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateCodeReviewInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateCodeReviewInput,
         validate_input: @config.validate_input
@@ -481,7 +483,7 @@ module AWS::SDK::CodeGuruReviewer
     def describe_code_review(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeCodeReviewInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeCodeReviewInput,
         validate_input: @config.validate_input
@@ -578,7 +580,7 @@ module AWS::SDK::CodeGuruReviewer
     def describe_recommendation_feedback(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeRecommendationFeedbackInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeRecommendationFeedbackInput,
         validate_input: @config.validate_input
@@ -680,7 +682,7 @@ module AWS::SDK::CodeGuruReviewer
     def describe_repository_association(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeRepositoryAssociationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeRepositoryAssociationInput,
         validate_input: @config.validate_input
@@ -777,7 +779,7 @@ module AWS::SDK::CodeGuruReviewer
     def disassociate_repository(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateRepositoryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateRepositoryInput,
         validate_input: @config.validate_input
@@ -949,7 +951,7 @@ module AWS::SDK::CodeGuruReviewer
     def list_code_reviews(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListCodeReviewsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListCodeReviewsInput,
         validate_input: @config.validate_input
@@ -1066,7 +1068,7 @@ module AWS::SDK::CodeGuruReviewer
     def list_recommendation_feedback(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListRecommendationFeedbackInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListRecommendationFeedbackInput,
         validate_input: @config.validate_input
@@ -1167,7 +1169,7 @@ module AWS::SDK::CodeGuruReviewer
     def list_recommendations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListRecommendationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListRecommendationsInput,
         validate_input: @config.validate_input
@@ -1362,7 +1364,7 @@ module AWS::SDK::CodeGuruReviewer
     def list_repository_associations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListRepositoryAssociationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListRepositoryAssociationsInput,
         validate_input: @config.validate_input
@@ -1440,7 +1442,7 @@ module AWS::SDK::CodeGuruReviewer
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -1526,7 +1528,7 @@ module AWS::SDK::CodeGuruReviewer
     def put_recommendation_feedback(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutRecommendationFeedbackInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutRecommendationFeedbackInput,
         validate_input: @config.validate_input
@@ -1624,7 +1626,7 @@ module AWS::SDK::CodeGuruReviewer
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -1707,7 +1709,7 @@ module AWS::SDK::CodeGuruReviewer
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input

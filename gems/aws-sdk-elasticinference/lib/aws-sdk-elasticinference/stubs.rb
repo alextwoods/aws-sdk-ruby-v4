@@ -14,7 +14,7 @@ module AWS::SDK::ElasticInference
     class DescribeAcceleratorOfferings
       def self.default(visited=[])
         {
-          accelerator_type_offerings: Stubs::AcceleratorTypeOfferingList.default(visited),
+          accelerator_type_offerings: AcceleratorTypeOfferingList.default(visited),
         }
       end
 
@@ -33,7 +33,7 @@ module AWS::SDK::ElasticInference
         return nil if visited.include?('AcceleratorTypeOfferingList')
         visited = visited + ['AcceleratorTypeOfferingList']
         [
-          Stubs::AcceleratorTypeOffering.default(visited)
+          AcceleratorTypeOffering.default(visited)
         ]
       end
 
@@ -73,7 +73,7 @@ module AWS::SDK::ElasticInference
     class DescribeAcceleratorTypes
       def self.default(visited=[])
         {
-          accelerator_types: Stubs::AcceleratorTypeList.default(visited),
+          accelerator_types: AcceleratorTypeList.default(visited),
         }
       end
 
@@ -92,7 +92,7 @@ module AWS::SDK::ElasticInference
         return nil if visited.include?('AcceleratorTypeList')
         visited = visited + ['AcceleratorTypeList']
         [
-          Stubs::AcceleratorType.default(visited)
+          AcceleratorType.default(visited)
         ]
       end
 
@@ -113,8 +113,8 @@ module AWS::SDK::ElasticInference
         visited = visited + ['AcceleratorType']
         {
           accelerator_type_name: 'accelerator_type_name',
-          memory_info: Stubs::MemoryInfo.default(visited),
-          throughput_info: Stubs::ThroughputInfoList.default(visited),
+          memory_info: MemoryInfo.default(visited),
+          throughput_info: ThroughputInfoList.default(visited),
         }
       end
 
@@ -134,7 +134,7 @@ module AWS::SDK::ElasticInference
         return nil if visited.include?('ThroughputInfoList')
         visited = visited + ['ThroughputInfoList']
         [
-          Stubs::KeyValuePair.default(visited)
+          KeyValuePair.default(visited)
         ]
       end
 
@@ -190,7 +190,7 @@ module AWS::SDK::ElasticInference
     class DescribeAccelerators
       def self.default(visited=[])
         {
-          accelerator_set: Stubs::ElasticInferenceAcceleratorSet.default(visited),
+          accelerator_set: ElasticInferenceAcceleratorSet.default(visited),
           next_token: 'next_token',
         }
       end
@@ -211,7 +211,7 @@ module AWS::SDK::ElasticInference
         return nil if visited.include?('ElasticInferenceAcceleratorSet')
         visited = visited + ['ElasticInferenceAcceleratorSet']
         [
-          Stubs::ElasticInferenceAccelerator.default(visited)
+          ElasticInferenceAccelerator.default(visited)
         ]
       end
 
@@ -231,7 +231,7 @@ module AWS::SDK::ElasticInference
         return nil if visited.include?('ElasticInferenceAccelerator')
         visited = visited + ['ElasticInferenceAccelerator']
         {
-          accelerator_health: Stubs::ElasticInferenceAcceleratorHealth.default(visited),
+          accelerator_health: ElasticInferenceAcceleratorHealth.default(visited),
           accelerator_type: 'accelerator_type',
           accelerator_id: 'accelerator_id',
           availability_zone: 'availability_zone',
@@ -273,7 +273,7 @@ module AWS::SDK::ElasticInference
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 

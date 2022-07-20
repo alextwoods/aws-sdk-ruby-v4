@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::WAFRegional
   module Validators
 
@@ -15,10 +17,10 @@ module AWS::SDK::WAFRegional
         Hearth::Validator.validate!(input, Types::ActivatedRule, context: context)
         Hearth::Validator.validate!(input[:priority], ::Integer, context: "#{context}[:priority]")
         Hearth::Validator.validate!(input[:rule_id], ::String, context: "#{context}[:rule_id]")
-        Validators::WafAction.validate!(input[:action], context: "#{context}[:action]") unless input[:action].nil?
-        Validators::WafOverrideAction.validate!(input[:override_action], context: "#{context}[:override_action]") unless input[:override_action].nil?
+        WafAction.validate!(input[:action], context: "#{context}[:action]") unless input[:action].nil?
+        WafOverrideAction.validate!(input[:override_action], context: "#{context}[:override_action]") unless input[:override_action].nil?
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::ExcludedRules.validate!(input[:excluded_rules], context: "#{context}[:excluded_rules]") unless input[:excluded_rules].nil?
+        ExcludedRules.validate!(input[:excluded_rules], context: "#{context}[:excluded_rules]") unless input[:excluded_rules].nil?
       end
     end
 
@@ -26,7 +28,7 @@ module AWS::SDK::WAFRegional
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ActivatedRule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ActivatedRule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -50,7 +52,7 @@ module AWS::SDK::WAFRegional
         Hearth::Validator.validate!(input, Types::ByteMatchSet, context: context)
         Hearth::Validator.validate!(input[:byte_match_set_id], ::String, context: "#{context}[:byte_match_set_id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::ByteMatchTuples.validate!(input[:byte_match_tuples], context: "#{context}[:byte_match_tuples]") unless input[:byte_match_tuples].nil?
+        ByteMatchTuples.validate!(input[:byte_match_tuples], context: "#{context}[:byte_match_tuples]") unless input[:byte_match_tuples].nil?
       end
     end
 
@@ -58,7 +60,7 @@ module AWS::SDK::WAFRegional
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ByteMatchSetSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ByteMatchSetSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -75,7 +77,7 @@ module AWS::SDK::WAFRegional
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ByteMatchSetUpdate, context: context)
         Hearth::Validator.validate!(input[:action], ::String, context: "#{context}[:action]")
-        Validators::ByteMatchTuple.validate!(input[:byte_match_tuple], context: "#{context}[:byte_match_tuple]") unless input[:byte_match_tuple].nil?
+        ByteMatchTuple.validate!(input[:byte_match_tuple], context: "#{context}[:byte_match_tuple]") unless input[:byte_match_tuple].nil?
       end
     end
 
@@ -83,7 +85,7 @@ module AWS::SDK::WAFRegional
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ByteMatchSetUpdate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ByteMatchSetUpdate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -91,7 +93,7 @@ module AWS::SDK::WAFRegional
     class ByteMatchTuple
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ByteMatchTuple, context: context)
-        Validators::FieldToMatch.validate!(input[:field_to_match], context: "#{context}[:field_to_match]") unless input[:field_to_match].nil?
+        FieldToMatch.validate!(input[:field_to_match], context: "#{context}[:field_to_match]") unless input[:field_to_match].nil?
         Hearth::Validator.validate!(input[:target_string], ::String, context: "#{context}[:target_string]")
         Hearth::Validator.validate!(input[:text_transformation], ::String, context: "#{context}[:text_transformation]")
         Hearth::Validator.validate!(input[:positional_constraint], ::String, context: "#{context}[:positional_constraint]")
@@ -102,7 +104,7 @@ module AWS::SDK::WAFRegional
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ByteMatchTuple.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ByteMatchTuple.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -118,7 +120,7 @@ module AWS::SDK::WAFRegional
     class CreateByteMatchSetOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateByteMatchSetOutput, context: context)
-        Validators::ByteMatchSet.validate!(input[:byte_match_set], context: "#{context}[:byte_match_set]") unless input[:byte_match_set].nil?
+        ByteMatchSet.validate!(input[:byte_match_set], context: "#{context}[:byte_match_set]") unless input[:byte_match_set].nil?
         Hearth::Validator.validate!(input[:change_token], ::String, context: "#{context}[:change_token]")
       end
     end
@@ -134,7 +136,7 @@ module AWS::SDK::WAFRegional
     class CreateGeoMatchSetOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateGeoMatchSetOutput, context: context)
-        Validators::GeoMatchSet.validate!(input[:geo_match_set], context: "#{context}[:geo_match_set]") unless input[:geo_match_set].nil?
+        GeoMatchSet.validate!(input[:geo_match_set], context: "#{context}[:geo_match_set]") unless input[:geo_match_set].nil?
         Hearth::Validator.validate!(input[:change_token], ::String, context: "#{context}[:change_token]")
       end
     end
@@ -150,7 +152,7 @@ module AWS::SDK::WAFRegional
     class CreateIPSetOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateIPSetOutput, context: context)
-        Validators::IPSet.validate!(input[:ip_set], context: "#{context}[:ip_set]") unless input[:ip_set].nil?
+        IPSet.validate!(input[:ip_set], context: "#{context}[:ip_set]") unless input[:ip_set].nil?
         Hearth::Validator.validate!(input[:change_token], ::String, context: "#{context}[:change_token]")
       end
     end
@@ -163,14 +165,14 @@ module AWS::SDK::WAFRegional
         Hearth::Validator.validate!(input[:rate_key], ::String, context: "#{context}[:rate_key]")
         Hearth::Validator.validate!(input[:rate_limit], ::Integer, context: "#{context}[:rate_limit]")
         Hearth::Validator.validate!(input[:change_token], ::String, context: "#{context}[:change_token]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateRateBasedRuleOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateRateBasedRuleOutput, context: context)
-        Validators::RateBasedRule.validate!(input[:rule], context: "#{context}[:rule]") unless input[:rule].nil?
+        RateBasedRule.validate!(input[:rule], context: "#{context}[:rule]") unless input[:rule].nil?
         Hearth::Validator.validate!(input[:change_token], ::String, context: "#{context}[:change_token]")
       end
     end
@@ -186,7 +188,7 @@ module AWS::SDK::WAFRegional
     class CreateRegexMatchSetOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateRegexMatchSetOutput, context: context)
-        Validators::RegexMatchSet.validate!(input[:regex_match_set], context: "#{context}[:regex_match_set]") unless input[:regex_match_set].nil?
+        RegexMatchSet.validate!(input[:regex_match_set], context: "#{context}[:regex_match_set]") unless input[:regex_match_set].nil?
         Hearth::Validator.validate!(input[:change_token], ::String, context: "#{context}[:change_token]")
       end
     end
@@ -202,7 +204,7 @@ module AWS::SDK::WAFRegional
     class CreateRegexPatternSetOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateRegexPatternSetOutput, context: context)
-        Validators::RegexPatternSet.validate!(input[:regex_pattern_set], context: "#{context}[:regex_pattern_set]") unless input[:regex_pattern_set].nil?
+        RegexPatternSet.validate!(input[:regex_pattern_set], context: "#{context}[:regex_pattern_set]") unless input[:regex_pattern_set].nil?
         Hearth::Validator.validate!(input[:change_token], ::String, context: "#{context}[:change_token]")
       end
     end
@@ -213,14 +215,14 @@ module AWS::SDK::WAFRegional
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:metric_name], ::String, context: "#{context}[:metric_name]")
         Hearth::Validator.validate!(input[:change_token], ::String, context: "#{context}[:change_token]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateRuleGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateRuleGroupOutput, context: context)
-        Validators::RuleGroup.validate!(input[:rule_group], context: "#{context}[:rule_group]") unless input[:rule_group].nil?
+        RuleGroup.validate!(input[:rule_group], context: "#{context}[:rule_group]") unless input[:rule_group].nil?
         Hearth::Validator.validate!(input[:change_token], ::String, context: "#{context}[:change_token]")
       end
     end
@@ -231,14 +233,14 @@ module AWS::SDK::WAFRegional
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:metric_name], ::String, context: "#{context}[:metric_name]")
         Hearth::Validator.validate!(input[:change_token], ::String, context: "#{context}[:change_token]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateRuleOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateRuleOutput, context: context)
-        Validators::Rule.validate!(input[:rule], context: "#{context}[:rule]") unless input[:rule].nil?
+        Rule.validate!(input[:rule], context: "#{context}[:rule]") unless input[:rule].nil?
         Hearth::Validator.validate!(input[:change_token], ::String, context: "#{context}[:change_token]")
       end
     end
@@ -254,7 +256,7 @@ module AWS::SDK::WAFRegional
     class CreateSizeConstraintSetOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateSizeConstraintSetOutput, context: context)
-        Validators::SizeConstraintSet.validate!(input[:size_constraint_set], context: "#{context}[:size_constraint_set]") unless input[:size_constraint_set].nil?
+        SizeConstraintSet.validate!(input[:size_constraint_set], context: "#{context}[:size_constraint_set]") unless input[:size_constraint_set].nil?
         Hearth::Validator.validate!(input[:change_token], ::String, context: "#{context}[:change_token]")
       end
     end
@@ -270,7 +272,7 @@ module AWS::SDK::WAFRegional
     class CreateSqlInjectionMatchSetOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateSqlInjectionMatchSetOutput, context: context)
-        Validators::SqlInjectionMatchSet.validate!(input[:sql_injection_match_set], context: "#{context}[:sql_injection_match_set]") unless input[:sql_injection_match_set].nil?
+        SqlInjectionMatchSet.validate!(input[:sql_injection_match_set], context: "#{context}[:sql_injection_match_set]") unless input[:sql_injection_match_set].nil?
         Hearth::Validator.validate!(input[:change_token], ::String, context: "#{context}[:change_token]")
       end
     end
@@ -280,9 +282,9 @@ module AWS::SDK::WAFRegional
         Hearth::Validator.validate!(input, Types::CreateWebACLInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:metric_name], ::String, context: "#{context}[:metric_name]")
-        Validators::WafAction.validate!(input[:default_action], context: "#{context}[:default_action]") unless input[:default_action].nil?
+        WafAction.validate!(input[:default_action], context: "#{context}[:default_action]") unless input[:default_action].nil?
         Hearth::Validator.validate!(input[:change_token], ::String, context: "#{context}[:change_token]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -305,7 +307,7 @@ module AWS::SDK::WAFRegional
     class CreateWebACLOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateWebACLOutput, context: context)
-        Validators::WebACL.validate!(input[:web_acl], context: "#{context}[:web_acl]") unless input[:web_acl].nil?
+        WebACL.validate!(input[:web_acl], context: "#{context}[:web_acl]") unless input[:web_acl].nil?
         Hearth::Validator.validate!(input[:change_token], ::String, context: "#{context}[:change_token]")
       end
     end
@@ -321,7 +323,7 @@ module AWS::SDK::WAFRegional
     class CreateXssMatchSetOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateXssMatchSetOutput, context: context)
-        Validators::XssMatchSet.validate!(input[:xss_match_set], context: "#{context}[:xss_match_set]") unless input[:xss_match_set].nil?
+        XssMatchSet.validate!(input[:xss_match_set], context: "#{context}[:xss_match_set]") unless input[:xss_match_set].nil?
         Hearth::Validator.validate!(input[:change_token], ::String, context: "#{context}[:change_token]")
       end
     end
@@ -556,7 +558,7 @@ module AWS::SDK::WAFRegional
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ExcludedRule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ExcludedRule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -581,7 +583,7 @@ module AWS::SDK::WAFRegional
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::GeoMatchConstraint.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          GeoMatchConstraint.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -591,7 +593,7 @@ module AWS::SDK::WAFRegional
         Hearth::Validator.validate!(input, Types::GeoMatchSet, context: context)
         Hearth::Validator.validate!(input[:geo_match_set_id], ::String, context: "#{context}[:geo_match_set_id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::GeoMatchConstraints.validate!(input[:geo_match_constraints], context: "#{context}[:geo_match_constraints]") unless input[:geo_match_constraints].nil?
+        GeoMatchConstraints.validate!(input[:geo_match_constraints], context: "#{context}[:geo_match_constraints]") unless input[:geo_match_constraints].nil?
       end
     end
 
@@ -599,7 +601,7 @@ module AWS::SDK::WAFRegional
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::GeoMatchSetSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          GeoMatchSetSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -616,7 +618,7 @@ module AWS::SDK::WAFRegional
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GeoMatchSetUpdate, context: context)
         Hearth::Validator.validate!(input[:action], ::String, context: "#{context}[:action]")
-        Validators::GeoMatchConstraint.validate!(input[:geo_match_constraint], context: "#{context}[:geo_match_constraint]") unless input[:geo_match_constraint].nil?
+        GeoMatchConstraint.validate!(input[:geo_match_constraint], context: "#{context}[:geo_match_constraint]") unless input[:geo_match_constraint].nil?
       end
     end
 
@@ -624,7 +626,7 @@ module AWS::SDK::WAFRegional
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::GeoMatchSetUpdate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          GeoMatchSetUpdate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -639,7 +641,7 @@ module AWS::SDK::WAFRegional
     class GetByteMatchSetOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetByteMatchSetOutput, context: context)
-        Validators::ByteMatchSet.validate!(input[:byte_match_set], context: "#{context}[:byte_match_set]") unless input[:byte_match_set].nil?
+        ByteMatchSet.validate!(input[:byte_match_set], context: "#{context}[:byte_match_set]") unless input[:byte_match_set].nil?
       end
     end
 
@@ -680,7 +682,7 @@ module AWS::SDK::WAFRegional
     class GetGeoMatchSetOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetGeoMatchSetOutput, context: context)
-        Validators::GeoMatchSet.validate!(input[:geo_match_set], context: "#{context}[:geo_match_set]") unless input[:geo_match_set].nil?
+        GeoMatchSet.validate!(input[:geo_match_set], context: "#{context}[:geo_match_set]") unless input[:geo_match_set].nil?
       end
     end
 
@@ -694,7 +696,7 @@ module AWS::SDK::WAFRegional
     class GetIPSetOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetIPSetOutput, context: context)
-        Validators::IPSet.validate!(input[:ip_set], context: "#{context}[:ip_set]") unless input[:ip_set].nil?
+        IPSet.validate!(input[:ip_set], context: "#{context}[:ip_set]") unless input[:ip_set].nil?
       end
     end
 
@@ -708,7 +710,7 @@ module AWS::SDK::WAFRegional
     class GetLoggingConfigurationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetLoggingConfigurationOutput, context: context)
-        Validators::LoggingConfiguration.validate!(input[:logging_configuration], context: "#{context}[:logging_configuration]") unless input[:logging_configuration].nil?
+        LoggingConfiguration.validate!(input[:logging_configuration], context: "#{context}[:logging_configuration]") unless input[:logging_configuration].nil?
       end
     end
 
@@ -744,7 +746,7 @@ module AWS::SDK::WAFRegional
     class GetRateBasedRuleManagedKeysOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetRateBasedRuleManagedKeysOutput, context: context)
-        Validators::ManagedKeys.validate!(input[:managed_keys], context: "#{context}[:managed_keys]") unless input[:managed_keys].nil?
+        ManagedKeys.validate!(input[:managed_keys], context: "#{context}[:managed_keys]") unless input[:managed_keys].nil?
         Hearth::Validator.validate!(input[:next_marker], ::String, context: "#{context}[:next_marker]")
       end
     end
@@ -752,7 +754,7 @@ module AWS::SDK::WAFRegional
     class GetRateBasedRuleOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetRateBasedRuleOutput, context: context)
-        Validators::RateBasedRule.validate!(input[:rule], context: "#{context}[:rule]") unless input[:rule].nil?
+        RateBasedRule.validate!(input[:rule], context: "#{context}[:rule]") unless input[:rule].nil?
       end
     end
 
@@ -766,7 +768,7 @@ module AWS::SDK::WAFRegional
     class GetRegexMatchSetOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetRegexMatchSetOutput, context: context)
-        Validators::RegexMatchSet.validate!(input[:regex_match_set], context: "#{context}[:regex_match_set]") unless input[:regex_match_set].nil?
+        RegexMatchSet.validate!(input[:regex_match_set], context: "#{context}[:regex_match_set]") unless input[:regex_match_set].nil?
       end
     end
 
@@ -780,7 +782,7 @@ module AWS::SDK::WAFRegional
     class GetRegexPatternSetOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetRegexPatternSetOutput, context: context)
-        Validators::RegexPatternSet.validate!(input[:regex_pattern_set], context: "#{context}[:regex_pattern_set]") unless input[:regex_pattern_set].nil?
+        RegexPatternSet.validate!(input[:regex_pattern_set], context: "#{context}[:regex_pattern_set]") unless input[:regex_pattern_set].nil?
       end
     end
 
@@ -794,7 +796,7 @@ module AWS::SDK::WAFRegional
     class GetRuleGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetRuleGroupOutput, context: context)
-        Validators::RuleGroup.validate!(input[:rule_group], context: "#{context}[:rule_group]") unless input[:rule_group].nil?
+        RuleGroup.validate!(input[:rule_group], context: "#{context}[:rule_group]") unless input[:rule_group].nil?
       end
     end
 
@@ -808,7 +810,7 @@ module AWS::SDK::WAFRegional
     class GetRuleOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetRuleOutput, context: context)
-        Validators::Rule.validate!(input[:rule], context: "#{context}[:rule]") unless input[:rule].nil?
+        Rule.validate!(input[:rule], context: "#{context}[:rule]") unless input[:rule].nil?
       end
     end
 
@@ -817,7 +819,7 @@ module AWS::SDK::WAFRegional
         Hearth::Validator.validate!(input, Types::GetSampledRequestsInput, context: context)
         Hearth::Validator.validate!(input[:web_acl_id], ::String, context: "#{context}[:web_acl_id]")
         Hearth::Validator.validate!(input[:rule_id], ::String, context: "#{context}[:rule_id]")
-        Validators::TimeWindow.validate!(input[:time_window], context: "#{context}[:time_window]") unless input[:time_window].nil?
+        TimeWindow.validate!(input[:time_window], context: "#{context}[:time_window]") unless input[:time_window].nil?
         Hearth::Validator.validate!(input[:max_items], ::Integer, context: "#{context}[:max_items]")
       end
     end
@@ -825,9 +827,9 @@ module AWS::SDK::WAFRegional
     class GetSampledRequestsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetSampledRequestsOutput, context: context)
-        Validators::SampledHTTPRequests.validate!(input[:sampled_requests], context: "#{context}[:sampled_requests]") unless input[:sampled_requests].nil?
+        SampledHTTPRequests.validate!(input[:sampled_requests], context: "#{context}[:sampled_requests]") unless input[:sampled_requests].nil?
         Hearth::Validator.validate!(input[:population_size], ::Integer, context: "#{context}[:population_size]")
-        Validators::TimeWindow.validate!(input[:time_window], context: "#{context}[:time_window]") unless input[:time_window].nil?
+        TimeWindow.validate!(input[:time_window], context: "#{context}[:time_window]") unless input[:time_window].nil?
       end
     end
 
@@ -841,7 +843,7 @@ module AWS::SDK::WAFRegional
     class GetSizeConstraintSetOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetSizeConstraintSetOutput, context: context)
-        Validators::SizeConstraintSet.validate!(input[:size_constraint_set], context: "#{context}[:size_constraint_set]") unless input[:size_constraint_set].nil?
+        SizeConstraintSet.validate!(input[:size_constraint_set], context: "#{context}[:size_constraint_set]") unless input[:size_constraint_set].nil?
       end
     end
 
@@ -855,7 +857,7 @@ module AWS::SDK::WAFRegional
     class GetSqlInjectionMatchSetOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetSqlInjectionMatchSetOutput, context: context)
-        Validators::SqlInjectionMatchSet.validate!(input[:sql_injection_match_set], context: "#{context}[:sql_injection_match_set]") unless input[:sql_injection_match_set].nil?
+        SqlInjectionMatchSet.validate!(input[:sql_injection_match_set], context: "#{context}[:sql_injection_match_set]") unless input[:sql_injection_match_set].nil?
       end
     end
 
@@ -869,7 +871,7 @@ module AWS::SDK::WAFRegional
     class GetWebACLForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetWebACLForResourceOutput, context: context)
-        Validators::WebACLSummary.validate!(input[:web_acl_summary], context: "#{context}[:web_acl_summary]") unless input[:web_acl_summary].nil?
+        WebACLSummary.validate!(input[:web_acl_summary], context: "#{context}[:web_acl_summary]") unless input[:web_acl_summary].nil?
       end
     end
 
@@ -883,7 +885,7 @@ module AWS::SDK::WAFRegional
     class GetWebACLOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetWebACLOutput, context: context)
-        Validators::WebACL.validate!(input[:web_acl], context: "#{context}[:web_acl]") unless input[:web_acl].nil?
+        WebACL.validate!(input[:web_acl], context: "#{context}[:web_acl]") unless input[:web_acl].nil?
       end
     end
 
@@ -897,7 +899,7 @@ module AWS::SDK::WAFRegional
     class GetXssMatchSetOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetXssMatchSetOutput, context: context)
-        Validators::XssMatchSet.validate!(input[:xss_match_set], context: "#{context}[:xss_match_set]") unless input[:xss_match_set].nil?
+        XssMatchSet.validate!(input[:xss_match_set], context: "#{context}[:xss_match_set]") unless input[:xss_match_set].nil?
       end
     end
 
@@ -913,7 +915,7 @@ module AWS::SDK::WAFRegional
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::HTTPHeader.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          HTTPHeader.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -926,7 +928,7 @@ module AWS::SDK::WAFRegional
         Hearth::Validator.validate!(input[:uri], ::String, context: "#{context}[:uri]")
         Hearth::Validator.validate!(input[:member_method], ::String, context: "#{context}[:member_method]")
         Hearth::Validator.validate!(input[:http_version], ::String, context: "#{context}[:http_version]")
-        Validators::HTTPHeaders.validate!(input[:headers], context: "#{context}[:headers]") unless input[:headers].nil?
+        HTTPHeaders.validate!(input[:headers], context: "#{context}[:headers]") unless input[:headers].nil?
       end
     end
 
@@ -935,7 +937,7 @@ module AWS::SDK::WAFRegional
         Hearth::Validator.validate!(input, Types::IPSet, context: context)
         Hearth::Validator.validate!(input[:ip_set_id], ::String, context: "#{context}[:ip_set_id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::IPSetDescriptors.validate!(input[:ip_set_descriptors], context: "#{context}[:ip_set_descriptors]") unless input[:ip_set_descriptors].nil?
+        IPSetDescriptors.validate!(input[:ip_set_descriptors], context: "#{context}[:ip_set_descriptors]") unless input[:ip_set_descriptors].nil?
       end
     end
 
@@ -951,7 +953,7 @@ module AWS::SDK::WAFRegional
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::IPSetDescriptor.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          IPSetDescriptor.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -960,7 +962,7 @@ module AWS::SDK::WAFRegional
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::IPSetSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          IPSetSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -977,7 +979,7 @@ module AWS::SDK::WAFRegional
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::IPSetUpdate, context: context)
         Hearth::Validator.validate!(input[:action], ::String, context: "#{context}[:action]")
-        Validators::IPSetDescriptor.validate!(input[:ip_set_descriptor], context: "#{context}[:ip_set_descriptor]") unless input[:ip_set_descriptor].nil?
+        IPSetDescriptor.validate!(input[:ip_set_descriptor], context: "#{context}[:ip_set_descriptor]") unless input[:ip_set_descriptor].nil?
       end
     end
 
@@ -985,7 +987,7 @@ module AWS::SDK::WAFRegional
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::IPSetUpdate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          IPSetUpdate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1003,7 +1005,7 @@ module AWS::SDK::WAFRegional
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListActivatedRulesInRuleGroupOutput, context: context)
         Hearth::Validator.validate!(input[:next_marker], ::String, context: "#{context}[:next_marker]")
-        Validators::ActivatedRules.validate!(input[:activated_rules], context: "#{context}[:activated_rules]") unless input[:activated_rules].nil?
+        ActivatedRules.validate!(input[:activated_rules], context: "#{context}[:activated_rules]") unless input[:activated_rules].nil?
       end
     end
 
@@ -1019,7 +1021,7 @@ module AWS::SDK::WAFRegional
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListByteMatchSetsOutput, context: context)
         Hearth::Validator.validate!(input[:next_marker], ::String, context: "#{context}[:next_marker]")
-        Validators::ByteMatchSetSummaries.validate!(input[:byte_match_sets], context: "#{context}[:byte_match_sets]") unless input[:byte_match_sets].nil?
+        ByteMatchSetSummaries.validate!(input[:byte_match_sets], context: "#{context}[:byte_match_sets]") unless input[:byte_match_sets].nil?
       end
     end
 
@@ -1035,7 +1037,7 @@ module AWS::SDK::WAFRegional
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListGeoMatchSetsOutput, context: context)
         Hearth::Validator.validate!(input[:next_marker], ::String, context: "#{context}[:next_marker]")
-        Validators::GeoMatchSetSummaries.validate!(input[:geo_match_sets], context: "#{context}[:geo_match_sets]") unless input[:geo_match_sets].nil?
+        GeoMatchSetSummaries.validate!(input[:geo_match_sets], context: "#{context}[:geo_match_sets]") unless input[:geo_match_sets].nil?
       end
     end
 
@@ -1051,7 +1053,7 @@ module AWS::SDK::WAFRegional
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListIPSetsOutput, context: context)
         Hearth::Validator.validate!(input[:next_marker], ::String, context: "#{context}[:next_marker]")
-        Validators::IPSetSummaries.validate!(input[:ip_sets], context: "#{context}[:ip_sets]") unless input[:ip_sets].nil?
+        IPSetSummaries.validate!(input[:ip_sets], context: "#{context}[:ip_sets]") unless input[:ip_sets].nil?
       end
     end
 
@@ -1066,7 +1068,7 @@ module AWS::SDK::WAFRegional
     class ListLoggingConfigurationsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListLoggingConfigurationsOutput, context: context)
-        Validators::LoggingConfigurations.validate!(input[:logging_configurations], context: "#{context}[:logging_configurations]") unless input[:logging_configurations].nil?
+        LoggingConfigurations.validate!(input[:logging_configurations], context: "#{context}[:logging_configurations]") unless input[:logging_configurations].nil?
         Hearth::Validator.validate!(input[:next_marker], ::String, context: "#{context}[:next_marker]")
       end
     end
@@ -1083,7 +1085,7 @@ module AWS::SDK::WAFRegional
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListRateBasedRulesOutput, context: context)
         Hearth::Validator.validate!(input[:next_marker], ::String, context: "#{context}[:next_marker]")
-        Validators::RuleSummaries.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
+        RuleSummaries.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
       end
     end
 
@@ -1099,7 +1101,7 @@ module AWS::SDK::WAFRegional
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListRegexMatchSetsOutput, context: context)
         Hearth::Validator.validate!(input[:next_marker], ::String, context: "#{context}[:next_marker]")
-        Validators::RegexMatchSetSummaries.validate!(input[:regex_match_sets], context: "#{context}[:regex_match_sets]") unless input[:regex_match_sets].nil?
+        RegexMatchSetSummaries.validate!(input[:regex_match_sets], context: "#{context}[:regex_match_sets]") unless input[:regex_match_sets].nil?
       end
     end
 
@@ -1115,7 +1117,7 @@ module AWS::SDK::WAFRegional
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListRegexPatternSetsOutput, context: context)
         Hearth::Validator.validate!(input[:next_marker], ::String, context: "#{context}[:next_marker]")
-        Validators::RegexPatternSetSummaries.validate!(input[:regex_pattern_sets], context: "#{context}[:regex_pattern_sets]") unless input[:regex_pattern_sets].nil?
+        RegexPatternSetSummaries.validate!(input[:regex_pattern_sets], context: "#{context}[:regex_pattern_sets]") unless input[:regex_pattern_sets].nil?
       end
     end
 
@@ -1130,7 +1132,7 @@ module AWS::SDK::WAFRegional
     class ListResourcesForWebACLOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListResourcesForWebACLOutput, context: context)
-        Validators::ResourceArns.validate!(input[:resource_arns], context: "#{context}[:resource_arns]") unless input[:resource_arns].nil?
+        ResourceArns.validate!(input[:resource_arns], context: "#{context}[:resource_arns]") unless input[:resource_arns].nil?
       end
     end
 
@@ -1146,7 +1148,7 @@ module AWS::SDK::WAFRegional
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListRuleGroupsOutput, context: context)
         Hearth::Validator.validate!(input[:next_marker], ::String, context: "#{context}[:next_marker]")
-        Validators::RuleGroupSummaries.validate!(input[:rule_groups], context: "#{context}[:rule_groups]") unless input[:rule_groups].nil?
+        RuleGroupSummaries.validate!(input[:rule_groups], context: "#{context}[:rule_groups]") unless input[:rule_groups].nil?
       end
     end
 
@@ -1162,7 +1164,7 @@ module AWS::SDK::WAFRegional
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListRulesOutput, context: context)
         Hearth::Validator.validate!(input[:next_marker], ::String, context: "#{context}[:next_marker]")
-        Validators::RuleSummaries.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
+        RuleSummaries.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
       end
     end
 
@@ -1178,7 +1180,7 @@ module AWS::SDK::WAFRegional
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListSizeConstraintSetsOutput, context: context)
         Hearth::Validator.validate!(input[:next_marker], ::String, context: "#{context}[:next_marker]")
-        Validators::SizeConstraintSetSummaries.validate!(input[:size_constraint_sets], context: "#{context}[:size_constraint_sets]") unless input[:size_constraint_sets].nil?
+        SizeConstraintSetSummaries.validate!(input[:size_constraint_sets], context: "#{context}[:size_constraint_sets]") unless input[:size_constraint_sets].nil?
       end
     end
 
@@ -1194,7 +1196,7 @@ module AWS::SDK::WAFRegional
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListSqlInjectionMatchSetsOutput, context: context)
         Hearth::Validator.validate!(input[:next_marker], ::String, context: "#{context}[:next_marker]")
-        Validators::SqlInjectionMatchSetSummaries.validate!(input[:sql_injection_match_sets], context: "#{context}[:sql_injection_match_sets]") unless input[:sql_injection_match_sets].nil?
+        SqlInjectionMatchSetSummaries.validate!(input[:sql_injection_match_sets], context: "#{context}[:sql_injection_match_sets]") unless input[:sql_injection_match_sets].nil?
       end
     end
 
@@ -1210,7 +1212,7 @@ module AWS::SDK::WAFRegional
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListSubscribedRuleGroupsOutput, context: context)
         Hearth::Validator.validate!(input[:next_marker], ::String, context: "#{context}[:next_marker]")
-        Validators::SubscribedRuleGroupSummaries.validate!(input[:rule_groups], context: "#{context}[:rule_groups]") unless input[:rule_groups].nil?
+        SubscribedRuleGroupSummaries.validate!(input[:rule_groups], context: "#{context}[:rule_groups]") unless input[:rule_groups].nil?
       end
     end
 
@@ -1227,7 +1229,7 @@ module AWS::SDK::WAFRegional
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
         Hearth::Validator.validate!(input[:next_marker], ::String, context: "#{context}[:next_marker]")
-        Validators::TagInfoForResource.validate!(input[:tag_info_for_resource], context: "#{context}[:tag_info_for_resource]") unless input[:tag_info_for_resource].nil?
+        TagInfoForResource.validate!(input[:tag_info_for_resource], context: "#{context}[:tag_info_for_resource]") unless input[:tag_info_for_resource].nil?
       end
     end
 
@@ -1243,7 +1245,7 @@ module AWS::SDK::WAFRegional
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListWebACLsOutput, context: context)
         Hearth::Validator.validate!(input[:next_marker], ::String, context: "#{context}[:next_marker]")
-        Validators::WebACLSummaries.validate!(input[:web_ac_ls], context: "#{context}[:web_ac_ls]") unless input[:web_ac_ls].nil?
+        WebACLSummaries.validate!(input[:web_ac_ls], context: "#{context}[:web_ac_ls]") unless input[:web_ac_ls].nil?
       end
     end
 
@@ -1259,7 +1261,7 @@ module AWS::SDK::WAFRegional
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListXssMatchSetsOutput, context: context)
         Hearth::Validator.validate!(input[:next_marker], ::String, context: "#{context}[:next_marker]")
-        Validators::XssMatchSetSummaries.validate!(input[:xss_match_sets], context: "#{context}[:xss_match_sets]") unless input[:xss_match_sets].nil?
+        XssMatchSetSummaries.validate!(input[:xss_match_sets], context: "#{context}[:xss_match_sets]") unless input[:xss_match_sets].nil?
       end
     end
 
@@ -1276,8 +1278,8 @@ module AWS::SDK::WAFRegional
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::LoggingConfiguration, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::LogDestinationConfigs.validate!(input[:log_destination_configs], context: "#{context}[:log_destination_configs]") unless input[:log_destination_configs].nil?
-        Validators::RedactedFields.validate!(input[:redacted_fields], context: "#{context}[:redacted_fields]") unless input[:redacted_fields].nil?
+        LogDestinationConfigs.validate!(input[:log_destination_configs], context: "#{context}[:log_destination_configs]") unless input[:log_destination_configs].nil?
+        RedactedFields.validate!(input[:redacted_fields], context: "#{context}[:redacted_fields]") unless input[:redacted_fields].nil?
       end
     end
 
@@ -1285,7 +1287,7 @@ module AWS::SDK::WAFRegional
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LoggingConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LoggingConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1312,7 +1314,7 @@ module AWS::SDK::WAFRegional
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Predicate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Predicate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1320,14 +1322,14 @@ module AWS::SDK::WAFRegional
     class PutLoggingConfigurationInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutLoggingConfigurationInput, context: context)
-        Validators::LoggingConfiguration.validate!(input[:logging_configuration], context: "#{context}[:logging_configuration]") unless input[:logging_configuration].nil?
+        LoggingConfiguration.validate!(input[:logging_configuration], context: "#{context}[:logging_configuration]") unless input[:logging_configuration].nil?
       end
     end
 
     class PutLoggingConfigurationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutLoggingConfigurationOutput, context: context)
-        Validators::LoggingConfiguration.validate!(input[:logging_configuration], context: "#{context}[:logging_configuration]") unless input[:logging_configuration].nil?
+        LoggingConfiguration.validate!(input[:logging_configuration], context: "#{context}[:logging_configuration]") unless input[:logging_configuration].nil?
       end
     end
 
@@ -1351,7 +1353,7 @@ module AWS::SDK::WAFRegional
         Hearth::Validator.validate!(input[:rule_id], ::String, context: "#{context}[:rule_id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:metric_name], ::String, context: "#{context}[:metric_name]")
-        Validators::Predicates.validate!(input[:match_predicates], context: "#{context}[:match_predicates]") unless input[:match_predicates].nil?
+        Predicates.validate!(input[:match_predicates], context: "#{context}[:match_predicates]") unless input[:match_predicates].nil?
         Hearth::Validator.validate!(input[:rate_key], ::String, context: "#{context}[:rate_key]")
         Hearth::Validator.validate!(input[:rate_limit], ::Integer, context: "#{context}[:rate_limit]")
       end
@@ -1361,7 +1363,7 @@ module AWS::SDK::WAFRegional
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::FieldToMatch.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          FieldToMatch.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1371,7 +1373,7 @@ module AWS::SDK::WAFRegional
         Hearth::Validator.validate!(input, Types::RegexMatchSet, context: context)
         Hearth::Validator.validate!(input[:regex_match_set_id], ::String, context: "#{context}[:regex_match_set_id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::RegexMatchTuples.validate!(input[:regex_match_tuples], context: "#{context}[:regex_match_tuples]") unless input[:regex_match_tuples].nil?
+        RegexMatchTuples.validate!(input[:regex_match_tuples], context: "#{context}[:regex_match_tuples]") unless input[:regex_match_tuples].nil?
       end
     end
 
@@ -1379,7 +1381,7 @@ module AWS::SDK::WAFRegional
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RegexMatchSetSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RegexMatchSetSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1396,7 +1398,7 @@ module AWS::SDK::WAFRegional
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RegexMatchSetUpdate, context: context)
         Hearth::Validator.validate!(input[:action], ::String, context: "#{context}[:action]")
-        Validators::RegexMatchTuple.validate!(input[:regex_match_tuple], context: "#{context}[:regex_match_tuple]") unless input[:regex_match_tuple].nil?
+        RegexMatchTuple.validate!(input[:regex_match_tuple], context: "#{context}[:regex_match_tuple]") unless input[:regex_match_tuple].nil?
       end
     end
 
@@ -1404,7 +1406,7 @@ module AWS::SDK::WAFRegional
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RegexMatchSetUpdate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RegexMatchSetUpdate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1412,7 +1414,7 @@ module AWS::SDK::WAFRegional
     class RegexMatchTuple
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RegexMatchTuple, context: context)
-        Validators::FieldToMatch.validate!(input[:field_to_match], context: "#{context}[:field_to_match]") unless input[:field_to_match].nil?
+        FieldToMatch.validate!(input[:field_to_match], context: "#{context}[:field_to_match]") unless input[:field_to_match].nil?
         Hearth::Validator.validate!(input[:text_transformation], ::String, context: "#{context}[:text_transformation]")
         Hearth::Validator.validate!(input[:regex_pattern_set_id], ::String, context: "#{context}[:regex_pattern_set_id]")
       end
@@ -1422,7 +1424,7 @@ module AWS::SDK::WAFRegional
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RegexMatchTuple.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RegexMatchTuple.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1432,7 +1434,7 @@ module AWS::SDK::WAFRegional
         Hearth::Validator.validate!(input, Types::RegexPatternSet, context: context)
         Hearth::Validator.validate!(input[:regex_pattern_set_id], ::String, context: "#{context}[:regex_pattern_set_id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::RegexPatternStrings.validate!(input[:regex_pattern_strings], context: "#{context}[:regex_pattern_strings]") unless input[:regex_pattern_strings].nil?
+        RegexPatternStrings.validate!(input[:regex_pattern_strings], context: "#{context}[:regex_pattern_strings]") unless input[:regex_pattern_strings].nil?
       end
     end
 
@@ -1440,7 +1442,7 @@ module AWS::SDK::WAFRegional
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RegexPatternSetSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RegexPatternSetSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1465,7 +1467,7 @@ module AWS::SDK::WAFRegional
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RegexPatternSetUpdate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RegexPatternSetUpdate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1494,7 +1496,7 @@ module AWS::SDK::WAFRegional
         Hearth::Validator.validate!(input[:rule_id], ::String, context: "#{context}[:rule_id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:metric_name], ::String, context: "#{context}[:metric_name]")
-        Validators::Predicates.validate!(input[:predicates], context: "#{context}[:predicates]") unless input[:predicates].nil?
+        Predicates.validate!(input[:predicates], context: "#{context}[:predicates]") unless input[:predicates].nil?
       end
     end
 
@@ -1511,7 +1513,7 @@ module AWS::SDK::WAFRegional
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RuleGroupSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RuleGroupSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1528,7 +1530,7 @@ module AWS::SDK::WAFRegional
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RuleGroupUpdate, context: context)
         Hearth::Validator.validate!(input[:action], ::String, context: "#{context}[:action]")
-        Validators::ActivatedRule.validate!(input[:activated_rule], context: "#{context}[:activated_rule]") unless input[:activated_rule].nil?
+        ActivatedRule.validate!(input[:activated_rule], context: "#{context}[:activated_rule]") unless input[:activated_rule].nil?
       end
     end
 
@@ -1536,7 +1538,7 @@ module AWS::SDK::WAFRegional
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RuleGroupUpdate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RuleGroupUpdate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1545,7 +1547,7 @@ module AWS::SDK::WAFRegional
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RuleSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RuleSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1562,7 +1564,7 @@ module AWS::SDK::WAFRegional
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RuleUpdate, context: context)
         Hearth::Validator.validate!(input[:action], ::String, context: "#{context}[:action]")
-        Validators::Predicate.validate!(input[:predicate], context: "#{context}[:predicate]") unless input[:predicate].nil?
+        Predicate.validate!(input[:predicate], context: "#{context}[:predicate]") unless input[:predicate].nil?
       end
     end
 
@@ -1570,7 +1572,7 @@ module AWS::SDK::WAFRegional
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RuleUpdate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RuleUpdate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1578,7 +1580,7 @@ module AWS::SDK::WAFRegional
     class SampledHTTPRequest
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SampledHTTPRequest, context: context)
-        Validators::HTTPRequest.validate!(input[:request], context: "#{context}[:request]") unless input[:request].nil?
+        HTTPRequest.validate!(input[:request], context: "#{context}[:request]") unless input[:request].nil?
         Hearth::Validator.validate!(input[:weight], ::Integer, context: "#{context}[:weight]")
         Hearth::Validator.validate!(input[:timestamp], ::Time, context: "#{context}[:timestamp]")
         Hearth::Validator.validate!(input[:action], ::String, context: "#{context}[:action]")
@@ -1590,7 +1592,7 @@ module AWS::SDK::WAFRegional
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SampledHTTPRequest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SampledHTTPRequest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1598,7 +1600,7 @@ module AWS::SDK::WAFRegional
     class SizeConstraint
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SizeConstraint, context: context)
-        Validators::FieldToMatch.validate!(input[:field_to_match], context: "#{context}[:field_to_match]") unless input[:field_to_match].nil?
+        FieldToMatch.validate!(input[:field_to_match], context: "#{context}[:field_to_match]") unless input[:field_to_match].nil?
         Hearth::Validator.validate!(input[:text_transformation], ::String, context: "#{context}[:text_transformation]")
         Hearth::Validator.validate!(input[:comparison_operator], ::String, context: "#{context}[:comparison_operator]")
         Hearth::Validator.validate!(input[:size], ::Integer, context: "#{context}[:size]")
@@ -1610,7 +1612,7 @@ module AWS::SDK::WAFRegional
         Hearth::Validator.validate!(input, Types::SizeConstraintSet, context: context)
         Hearth::Validator.validate!(input[:size_constraint_set_id], ::String, context: "#{context}[:size_constraint_set_id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::SizeConstraints.validate!(input[:size_constraints], context: "#{context}[:size_constraints]") unless input[:size_constraints].nil?
+        SizeConstraints.validate!(input[:size_constraints], context: "#{context}[:size_constraints]") unless input[:size_constraints].nil?
       end
     end
 
@@ -1618,7 +1620,7 @@ module AWS::SDK::WAFRegional
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SizeConstraintSetSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SizeConstraintSetSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1635,7 +1637,7 @@ module AWS::SDK::WAFRegional
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SizeConstraintSetUpdate, context: context)
         Hearth::Validator.validate!(input[:action], ::String, context: "#{context}[:action]")
-        Validators::SizeConstraint.validate!(input[:size_constraint], context: "#{context}[:size_constraint]") unless input[:size_constraint].nil?
+        SizeConstraint.validate!(input[:size_constraint], context: "#{context}[:size_constraint]") unless input[:size_constraint].nil?
       end
     end
 
@@ -1643,7 +1645,7 @@ module AWS::SDK::WAFRegional
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SizeConstraintSetUpdate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SizeConstraintSetUpdate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1652,7 +1654,7 @@ module AWS::SDK::WAFRegional
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SizeConstraint.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SizeConstraint.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1662,7 +1664,7 @@ module AWS::SDK::WAFRegional
         Hearth::Validator.validate!(input, Types::SqlInjectionMatchSet, context: context)
         Hearth::Validator.validate!(input[:sql_injection_match_set_id], ::String, context: "#{context}[:sql_injection_match_set_id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::SqlInjectionMatchTuples.validate!(input[:sql_injection_match_tuples], context: "#{context}[:sql_injection_match_tuples]") unless input[:sql_injection_match_tuples].nil?
+        SqlInjectionMatchTuples.validate!(input[:sql_injection_match_tuples], context: "#{context}[:sql_injection_match_tuples]") unless input[:sql_injection_match_tuples].nil?
       end
     end
 
@@ -1670,7 +1672,7 @@ module AWS::SDK::WAFRegional
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SqlInjectionMatchSetSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SqlInjectionMatchSetSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1687,7 +1689,7 @@ module AWS::SDK::WAFRegional
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SqlInjectionMatchSetUpdate, context: context)
         Hearth::Validator.validate!(input[:action], ::String, context: "#{context}[:action]")
-        Validators::SqlInjectionMatchTuple.validate!(input[:sql_injection_match_tuple], context: "#{context}[:sql_injection_match_tuple]") unless input[:sql_injection_match_tuple].nil?
+        SqlInjectionMatchTuple.validate!(input[:sql_injection_match_tuple], context: "#{context}[:sql_injection_match_tuple]") unless input[:sql_injection_match_tuple].nil?
       end
     end
 
@@ -1695,7 +1697,7 @@ module AWS::SDK::WAFRegional
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SqlInjectionMatchSetUpdate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SqlInjectionMatchSetUpdate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1703,7 +1705,7 @@ module AWS::SDK::WAFRegional
     class SqlInjectionMatchTuple
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SqlInjectionMatchTuple, context: context)
-        Validators::FieldToMatch.validate!(input[:field_to_match], context: "#{context}[:field_to_match]") unless input[:field_to_match].nil?
+        FieldToMatch.validate!(input[:field_to_match], context: "#{context}[:field_to_match]") unless input[:field_to_match].nil?
         Hearth::Validator.validate!(input[:text_transformation], ::String, context: "#{context}[:text_transformation]")
       end
     end
@@ -1712,7 +1714,7 @@ module AWS::SDK::WAFRegional
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SqlInjectionMatchTuple.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SqlInjectionMatchTuple.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1721,7 +1723,7 @@ module AWS::SDK::WAFRegional
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SubscribedRuleGroupSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SubscribedRuleGroupSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1747,7 +1749,7 @@ module AWS::SDK::WAFRegional
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagInfoForResource, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagList.validate!(input[:tag_list], context: "#{context}[:tag_list]") unless input[:tag_list].nil?
+        TagList.validate!(input[:tag_list], context: "#{context}[:tag_list]") unless input[:tag_list].nil?
       end
     end
 
@@ -1764,7 +1766,7 @@ module AWS::SDK::WAFRegional
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1773,7 +1775,7 @@ module AWS::SDK::WAFRegional
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1795,7 +1797,7 @@ module AWS::SDK::WAFRegional
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -1810,7 +1812,7 @@ module AWS::SDK::WAFRegional
         Hearth::Validator.validate!(input, Types::UpdateByteMatchSetInput, context: context)
         Hearth::Validator.validate!(input[:byte_match_set_id], ::String, context: "#{context}[:byte_match_set_id]")
         Hearth::Validator.validate!(input[:change_token], ::String, context: "#{context}[:change_token]")
-        Validators::ByteMatchSetUpdates.validate!(input[:updates], context: "#{context}[:updates]") unless input[:updates].nil?
+        ByteMatchSetUpdates.validate!(input[:updates], context: "#{context}[:updates]") unless input[:updates].nil?
       end
     end
 
@@ -1826,7 +1828,7 @@ module AWS::SDK::WAFRegional
         Hearth::Validator.validate!(input, Types::UpdateGeoMatchSetInput, context: context)
         Hearth::Validator.validate!(input[:geo_match_set_id], ::String, context: "#{context}[:geo_match_set_id]")
         Hearth::Validator.validate!(input[:change_token], ::String, context: "#{context}[:change_token]")
-        Validators::GeoMatchSetUpdates.validate!(input[:updates], context: "#{context}[:updates]") unless input[:updates].nil?
+        GeoMatchSetUpdates.validate!(input[:updates], context: "#{context}[:updates]") unless input[:updates].nil?
       end
     end
 
@@ -1842,7 +1844,7 @@ module AWS::SDK::WAFRegional
         Hearth::Validator.validate!(input, Types::UpdateIPSetInput, context: context)
         Hearth::Validator.validate!(input[:ip_set_id], ::String, context: "#{context}[:ip_set_id]")
         Hearth::Validator.validate!(input[:change_token], ::String, context: "#{context}[:change_token]")
-        Validators::IPSetUpdates.validate!(input[:updates], context: "#{context}[:updates]") unless input[:updates].nil?
+        IPSetUpdates.validate!(input[:updates], context: "#{context}[:updates]") unless input[:updates].nil?
       end
     end
 
@@ -1858,7 +1860,7 @@ module AWS::SDK::WAFRegional
         Hearth::Validator.validate!(input, Types::UpdateRateBasedRuleInput, context: context)
         Hearth::Validator.validate!(input[:rule_id], ::String, context: "#{context}[:rule_id]")
         Hearth::Validator.validate!(input[:change_token], ::String, context: "#{context}[:change_token]")
-        Validators::RuleUpdates.validate!(input[:updates], context: "#{context}[:updates]") unless input[:updates].nil?
+        RuleUpdates.validate!(input[:updates], context: "#{context}[:updates]") unless input[:updates].nil?
         Hearth::Validator.validate!(input[:rate_limit], ::Integer, context: "#{context}[:rate_limit]")
       end
     end
@@ -1874,7 +1876,7 @@ module AWS::SDK::WAFRegional
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateRegexMatchSetInput, context: context)
         Hearth::Validator.validate!(input[:regex_match_set_id], ::String, context: "#{context}[:regex_match_set_id]")
-        Validators::RegexMatchSetUpdates.validate!(input[:updates], context: "#{context}[:updates]") unless input[:updates].nil?
+        RegexMatchSetUpdates.validate!(input[:updates], context: "#{context}[:updates]") unless input[:updates].nil?
         Hearth::Validator.validate!(input[:change_token], ::String, context: "#{context}[:change_token]")
       end
     end
@@ -1890,7 +1892,7 @@ module AWS::SDK::WAFRegional
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateRegexPatternSetInput, context: context)
         Hearth::Validator.validate!(input[:regex_pattern_set_id], ::String, context: "#{context}[:regex_pattern_set_id]")
-        Validators::RegexPatternSetUpdates.validate!(input[:updates], context: "#{context}[:updates]") unless input[:updates].nil?
+        RegexPatternSetUpdates.validate!(input[:updates], context: "#{context}[:updates]") unless input[:updates].nil?
         Hearth::Validator.validate!(input[:change_token], ::String, context: "#{context}[:change_token]")
       end
     end
@@ -1906,7 +1908,7 @@ module AWS::SDK::WAFRegional
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateRuleGroupInput, context: context)
         Hearth::Validator.validate!(input[:rule_group_id], ::String, context: "#{context}[:rule_group_id]")
-        Validators::RuleGroupUpdates.validate!(input[:updates], context: "#{context}[:updates]") unless input[:updates].nil?
+        RuleGroupUpdates.validate!(input[:updates], context: "#{context}[:updates]") unless input[:updates].nil?
         Hearth::Validator.validate!(input[:change_token], ::String, context: "#{context}[:change_token]")
       end
     end
@@ -1923,7 +1925,7 @@ module AWS::SDK::WAFRegional
         Hearth::Validator.validate!(input, Types::UpdateRuleInput, context: context)
         Hearth::Validator.validate!(input[:rule_id], ::String, context: "#{context}[:rule_id]")
         Hearth::Validator.validate!(input[:change_token], ::String, context: "#{context}[:change_token]")
-        Validators::RuleUpdates.validate!(input[:updates], context: "#{context}[:updates]") unless input[:updates].nil?
+        RuleUpdates.validate!(input[:updates], context: "#{context}[:updates]") unless input[:updates].nil?
       end
     end
 
@@ -1939,7 +1941,7 @@ module AWS::SDK::WAFRegional
         Hearth::Validator.validate!(input, Types::UpdateSizeConstraintSetInput, context: context)
         Hearth::Validator.validate!(input[:size_constraint_set_id], ::String, context: "#{context}[:size_constraint_set_id]")
         Hearth::Validator.validate!(input[:change_token], ::String, context: "#{context}[:change_token]")
-        Validators::SizeConstraintSetUpdates.validate!(input[:updates], context: "#{context}[:updates]") unless input[:updates].nil?
+        SizeConstraintSetUpdates.validate!(input[:updates], context: "#{context}[:updates]") unless input[:updates].nil?
       end
     end
 
@@ -1955,7 +1957,7 @@ module AWS::SDK::WAFRegional
         Hearth::Validator.validate!(input, Types::UpdateSqlInjectionMatchSetInput, context: context)
         Hearth::Validator.validate!(input[:sql_injection_match_set_id], ::String, context: "#{context}[:sql_injection_match_set_id]")
         Hearth::Validator.validate!(input[:change_token], ::String, context: "#{context}[:change_token]")
-        Validators::SqlInjectionMatchSetUpdates.validate!(input[:updates], context: "#{context}[:updates]") unless input[:updates].nil?
+        SqlInjectionMatchSetUpdates.validate!(input[:updates], context: "#{context}[:updates]") unless input[:updates].nil?
       end
     end
 
@@ -1971,8 +1973,8 @@ module AWS::SDK::WAFRegional
         Hearth::Validator.validate!(input, Types::UpdateWebACLInput, context: context)
         Hearth::Validator.validate!(input[:web_acl_id], ::String, context: "#{context}[:web_acl_id]")
         Hearth::Validator.validate!(input[:change_token], ::String, context: "#{context}[:change_token]")
-        Validators::WebACLUpdates.validate!(input[:updates], context: "#{context}[:updates]") unless input[:updates].nil?
-        Validators::WafAction.validate!(input[:default_action], context: "#{context}[:default_action]") unless input[:default_action].nil?
+        WebACLUpdates.validate!(input[:updates], context: "#{context}[:updates]") unless input[:updates].nil?
+        WafAction.validate!(input[:default_action], context: "#{context}[:default_action]") unless input[:default_action].nil?
       end
     end
 
@@ -1988,7 +1990,7 @@ module AWS::SDK::WAFRegional
         Hearth::Validator.validate!(input, Types::UpdateXssMatchSetInput, context: context)
         Hearth::Validator.validate!(input[:xss_match_set_id], ::String, context: "#{context}[:xss_match_set_id]")
         Hearth::Validator.validate!(input[:change_token], ::String, context: "#{context}[:change_token]")
-        Validators::XssMatchSetUpdates.validate!(input[:updates], context: "#{context}[:updates]") unless input[:updates].nil?
+        XssMatchSetUpdates.validate!(input[:updates], context: "#{context}[:updates]") unless input[:updates].nil?
       end
     end
 
@@ -2162,8 +2164,8 @@ module AWS::SDK::WAFRegional
         Hearth::Validator.validate!(input[:web_acl_id], ::String, context: "#{context}[:web_acl_id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:metric_name], ::String, context: "#{context}[:metric_name]")
-        Validators::WafAction.validate!(input[:default_action], context: "#{context}[:default_action]") unless input[:default_action].nil?
-        Validators::ActivatedRules.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
+        WafAction.validate!(input[:default_action], context: "#{context}[:default_action]") unless input[:default_action].nil?
+        ActivatedRules.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
         Hearth::Validator.validate!(input[:web_acl_arn], ::String, context: "#{context}[:web_acl_arn]")
       end
     end
@@ -2172,7 +2174,7 @@ module AWS::SDK::WAFRegional
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::WebACLSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          WebACLSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2189,7 +2191,7 @@ module AWS::SDK::WAFRegional
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::WebACLUpdate, context: context)
         Hearth::Validator.validate!(input[:action], ::String, context: "#{context}[:action]")
-        Validators::ActivatedRule.validate!(input[:activated_rule], context: "#{context}[:activated_rule]") unless input[:activated_rule].nil?
+        ActivatedRule.validate!(input[:activated_rule], context: "#{context}[:activated_rule]") unless input[:activated_rule].nil?
       end
     end
 
@@ -2197,7 +2199,7 @@ module AWS::SDK::WAFRegional
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::WebACLUpdate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          WebACLUpdate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2207,7 +2209,7 @@ module AWS::SDK::WAFRegional
         Hearth::Validator.validate!(input, Types::XssMatchSet, context: context)
         Hearth::Validator.validate!(input[:xss_match_set_id], ::String, context: "#{context}[:xss_match_set_id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::XssMatchTuples.validate!(input[:xss_match_tuples], context: "#{context}[:xss_match_tuples]") unless input[:xss_match_tuples].nil?
+        XssMatchTuples.validate!(input[:xss_match_tuples], context: "#{context}[:xss_match_tuples]") unless input[:xss_match_tuples].nil?
       end
     end
 
@@ -2215,7 +2217,7 @@ module AWS::SDK::WAFRegional
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::XssMatchSetSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          XssMatchSetSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2232,7 +2234,7 @@ module AWS::SDK::WAFRegional
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::XssMatchSetUpdate, context: context)
         Hearth::Validator.validate!(input[:action], ::String, context: "#{context}[:action]")
-        Validators::XssMatchTuple.validate!(input[:xss_match_tuple], context: "#{context}[:xss_match_tuple]") unless input[:xss_match_tuple].nil?
+        XssMatchTuple.validate!(input[:xss_match_tuple], context: "#{context}[:xss_match_tuple]") unless input[:xss_match_tuple].nil?
       end
     end
 
@@ -2240,7 +2242,7 @@ module AWS::SDK::WAFRegional
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::XssMatchSetUpdate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          XssMatchSetUpdate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2248,7 +2250,7 @@ module AWS::SDK::WAFRegional
     class XssMatchTuple
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::XssMatchTuple, context: context)
-        Validators::FieldToMatch.validate!(input[:field_to_match], context: "#{context}[:field_to_match]") unless input[:field_to_match].nil?
+        FieldToMatch.validate!(input[:field_to_match], context: "#{context}[:field_to_match]") unless input[:field_to_match].nil?
         Hearth::Validator.validate!(input[:text_transformation], ::String, context: "#{context}[:text_transformation]")
       end
     end
@@ -2257,7 +2259,7 @@ module AWS::SDK::WAFRegional
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::XssMatchTuple.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          XssMatchTuple.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

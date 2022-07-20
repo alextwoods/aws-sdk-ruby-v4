@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::ECRPUBLIC
   module Validators
 
@@ -32,15 +34,15 @@ module AWS::SDK::ECRPUBLIC
         Hearth::Validator.validate!(input, Types::BatchCheckLayerAvailabilityInput, context: context)
         Hearth::Validator.validate!(input[:registry_id], ::String, context: "#{context}[:registry_id]")
         Hearth::Validator.validate!(input[:repository_name], ::String, context: "#{context}[:repository_name]")
-        Validators::BatchedOperationLayerDigestList.validate!(input[:layer_digests], context: "#{context}[:layer_digests]") unless input[:layer_digests].nil?
+        BatchedOperationLayerDigestList.validate!(input[:layer_digests], context: "#{context}[:layer_digests]") unless input[:layer_digests].nil?
       end
     end
 
     class BatchCheckLayerAvailabilityOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchCheckLayerAvailabilityOutput, context: context)
-        Validators::LayerList.validate!(input[:layers], context: "#{context}[:layers]") unless input[:layers].nil?
-        Validators::LayerFailureList.validate!(input[:failures], context: "#{context}[:failures]") unless input[:failures].nil?
+        LayerList.validate!(input[:layers], context: "#{context}[:layers]") unless input[:layers].nil?
+        LayerFailureList.validate!(input[:failures], context: "#{context}[:failures]") unless input[:failures].nil?
       end
     end
 
@@ -49,15 +51,15 @@ module AWS::SDK::ECRPUBLIC
         Hearth::Validator.validate!(input, Types::BatchDeleteImageInput, context: context)
         Hearth::Validator.validate!(input[:registry_id], ::String, context: "#{context}[:registry_id]")
         Hearth::Validator.validate!(input[:repository_name], ::String, context: "#{context}[:repository_name]")
-        Validators::ImageIdentifierList.validate!(input[:image_ids], context: "#{context}[:image_ids]") unless input[:image_ids].nil?
+        ImageIdentifierList.validate!(input[:image_ids], context: "#{context}[:image_ids]") unless input[:image_ids].nil?
       end
     end
 
     class BatchDeleteImageOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchDeleteImageOutput, context: context)
-        Validators::ImageIdentifierList.validate!(input[:image_ids], context: "#{context}[:image_ids]") unless input[:image_ids].nil?
-        Validators::ImageFailureList.validate!(input[:failures], context: "#{context}[:failures]") unless input[:failures].nil?
+        ImageIdentifierList.validate!(input[:image_ids], context: "#{context}[:image_ids]") unless input[:image_ids].nil?
+        ImageFailureList.validate!(input[:failures], context: "#{context}[:failures]") unless input[:failures].nil?
       end
     end
 
@@ -76,7 +78,7 @@ module AWS::SDK::ECRPUBLIC
         Hearth::Validator.validate!(input[:registry_id], ::String, context: "#{context}[:registry_id]")
         Hearth::Validator.validate!(input[:repository_name], ::String, context: "#{context}[:repository_name]")
         Hearth::Validator.validate!(input[:upload_id], ::String, context: "#{context}[:upload_id]")
-        Validators::LayerDigestList.validate!(input[:layer_digests], context: "#{context}[:layer_digests]") unless input[:layer_digests].nil?
+        LayerDigestList.validate!(input[:layer_digests], context: "#{context}[:layer_digests]") unless input[:layer_digests].nil?
       end
     end
 
@@ -94,16 +96,16 @@ module AWS::SDK::ECRPUBLIC
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateRepositoryInput, context: context)
         Hearth::Validator.validate!(input[:repository_name], ::String, context: "#{context}[:repository_name]")
-        Validators::RepositoryCatalogDataInput.validate!(input[:catalog_data], context: "#{context}[:catalog_data]") unless input[:catalog_data].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        RepositoryCatalogDataInput.validate!(input[:catalog_data], context: "#{context}[:catalog_data]") unless input[:catalog_data].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateRepositoryOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateRepositoryOutput, context: context)
-        Validators::Repository.validate!(input[:repository], context: "#{context}[:repository]") unless input[:repository].nil?
-        Validators::RepositoryCatalogData.validate!(input[:catalog_data], context: "#{context}[:catalog_data]") unless input[:catalog_data].nil?
+        Repository.validate!(input[:repository], context: "#{context}[:repository]") unless input[:repository].nil?
+        RepositoryCatalogData.validate!(input[:catalog_data], context: "#{context}[:catalog_data]") unless input[:catalog_data].nil?
       end
     end
 
@@ -119,7 +121,7 @@ module AWS::SDK::ECRPUBLIC
     class DeleteRepositoryOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteRepositoryOutput, context: context)
-        Validators::Repository.validate!(input[:repository], context: "#{context}[:repository]") unless input[:repository].nil?
+        Repository.validate!(input[:repository], context: "#{context}[:repository]") unless input[:repository].nil?
       end
     end
 
@@ -153,7 +155,7 @@ module AWS::SDK::ECRPUBLIC
     class DescribeImageTagsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeImageTagsOutput, context: context)
-        Validators::ImageTagDetailList.validate!(input[:image_tag_details], context: "#{context}[:image_tag_details]") unless input[:image_tag_details].nil?
+        ImageTagDetailList.validate!(input[:image_tag_details], context: "#{context}[:image_tag_details]") unless input[:image_tag_details].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -163,7 +165,7 @@ module AWS::SDK::ECRPUBLIC
         Hearth::Validator.validate!(input, Types::DescribeImagesInput, context: context)
         Hearth::Validator.validate!(input[:registry_id], ::String, context: "#{context}[:registry_id]")
         Hearth::Validator.validate!(input[:repository_name], ::String, context: "#{context}[:repository_name]")
-        Validators::ImageIdentifierList.validate!(input[:image_ids], context: "#{context}[:image_ids]") unless input[:image_ids].nil?
+        ImageIdentifierList.validate!(input[:image_ids], context: "#{context}[:image_ids]") unless input[:image_ids].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
       end
@@ -172,7 +174,7 @@ module AWS::SDK::ECRPUBLIC
     class DescribeImagesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeImagesOutput, context: context)
-        Validators::ImageDetailList.validate!(input[:image_details], context: "#{context}[:image_details]") unless input[:image_details].nil?
+        ImageDetailList.validate!(input[:image_details], context: "#{context}[:image_details]") unless input[:image_details].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -188,7 +190,7 @@ module AWS::SDK::ECRPUBLIC
     class DescribeRegistriesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeRegistriesOutput, context: context)
-        Validators::RegistryList.validate!(input[:registries], context: "#{context}[:registries]") unless input[:registries].nil?
+        RegistryList.validate!(input[:registries], context: "#{context}[:registries]") unless input[:registries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -197,7 +199,7 @@ module AWS::SDK::ECRPUBLIC
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeRepositoriesInput, context: context)
         Hearth::Validator.validate!(input[:registry_id], ::String, context: "#{context}[:registry_id]")
-        Validators::RepositoryNameList.validate!(input[:repository_names], context: "#{context}[:repository_names]") unless input[:repository_names].nil?
+        RepositoryNameList.validate!(input[:repository_names], context: "#{context}[:repository_names]") unless input[:repository_names].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
       end
@@ -206,7 +208,7 @@ module AWS::SDK::ECRPUBLIC
     class DescribeRepositoriesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeRepositoriesOutput, context: context)
-        Validators::RepositoryList.validate!(input[:repositories], context: "#{context}[:repositories]") unless input[:repositories].nil?
+        RepositoryList.validate!(input[:repositories], context: "#{context}[:repositories]") unless input[:repositories].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -227,7 +229,7 @@ module AWS::SDK::ECRPUBLIC
     class GetAuthorizationTokenOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetAuthorizationTokenOutput, context: context)
-        Validators::AuthorizationData.validate!(input[:authorization_data], context: "#{context}[:authorization_data]") unless input[:authorization_data].nil?
+        AuthorizationData.validate!(input[:authorization_data], context: "#{context}[:authorization_data]") unless input[:authorization_data].nil?
       end
     end
 
@@ -240,7 +242,7 @@ module AWS::SDK::ECRPUBLIC
     class GetRegistryCatalogDataOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetRegistryCatalogDataOutput, context: context)
-        Validators::RegistryCatalogData.validate!(input[:registry_catalog_data], context: "#{context}[:registry_catalog_data]") unless input[:registry_catalog_data].nil?
+        RegistryCatalogData.validate!(input[:registry_catalog_data], context: "#{context}[:registry_catalog_data]") unless input[:registry_catalog_data].nil?
       end
     end
 
@@ -255,7 +257,7 @@ module AWS::SDK::ECRPUBLIC
     class GetRepositoryCatalogDataOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetRepositoryCatalogDataOutput, context: context)
-        Validators::RepositoryCatalogData.validate!(input[:catalog_data], context: "#{context}[:catalog_data]") unless input[:catalog_data].nil?
+        RepositoryCatalogData.validate!(input[:catalog_data], context: "#{context}[:catalog_data]") unless input[:catalog_data].nil?
       end
     end
 
@@ -281,7 +283,7 @@ module AWS::SDK::ECRPUBLIC
         Hearth::Validator.validate!(input, Types::Image, context: context)
         Hearth::Validator.validate!(input[:registry_id], ::String, context: "#{context}[:registry_id]")
         Hearth::Validator.validate!(input[:repository_name], ::String, context: "#{context}[:repository_name]")
-        Validators::ImageIdentifier.validate!(input[:image_id], context: "#{context}[:image_id]") unless input[:image_id].nil?
+        ImageIdentifier.validate!(input[:image_id], context: "#{context}[:image_id]") unless input[:image_id].nil?
         Hearth::Validator.validate!(input[:image_manifest], ::String, context: "#{context}[:image_manifest]")
         Hearth::Validator.validate!(input[:image_manifest_media_type], ::String, context: "#{context}[:image_manifest_media_type]")
       end
@@ -300,7 +302,7 @@ module AWS::SDK::ECRPUBLIC
         Hearth::Validator.validate!(input[:registry_id], ::String, context: "#{context}[:registry_id]")
         Hearth::Validator.validate!(input[:repository_name], ::String, context: "#{context}[:repository_name]")
         Hearth::Validator.validate!(input[:image_digest], ::String, context: "#{context}[:image_digest]")
-        Validators::ImageTagList.validate!(input[:image_tags], context: "#{context}[:image_tags]") unless input[:image_tags].nil?
+        ImageTagList.validate!(input[:image_tags], context: "#{context}[:image_tags]") unless input[:image_tags].nil?
         Hearth::Validator.validate!(input[:image_size_in_bytes], ::Integer, context: "#{context}[:image_size_in_bytes]")
         Hearth::Validator.validate!(input[:image_pushed_at], ::Time, context: "#{context}[:image_pushed_at]")
         Hearth::Validator.validate!(input[:image_manifest_media_type], ::String, context: "#{context}[:image_manifest_media_type]")
@@ -312,7 +314,7 @@ module AWS::SDK::ECRPUBLIC
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ImageDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ImageDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -327,7 +329,7 @@ module AWS::SDK::ECRPUBLIC
     class ImageFailure
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ImageFailure, context: context)
-        Validators::ImageIdentifier.validate!(input[:image_id], context: "#{context}[:image_id]") unless input[:image_id].nil?
+        ImageIdentifier.validate!(input[:image_id], context: "#{context}[:image_id]") unless input[:image_id].nil?
         Hearth::Validator.validate!(input[:failure_code], ::String, context: "#{context}[:failure_code]")
         Hearth::Validator.validate!(input[:failure_reason], ::String, context: "#{context}[:failure_reason]")
       end
@@ -337,7 +339,7 @@ module AWS::SDK::ECRPUBLIC
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ImageFailure.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ImageFailure.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -354,7 +356,7 @@ module AWS::SDK::ECRPUBLIC
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ImageIdentifier.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ImageIdentifier.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -378,7 +380,7 @@ module AWS::SDK::ECRPUBLIC
         Hearth::Validator.validate!(input, Types::ImageTagDetail, context: context)
         Hearth::Validator.validate!(input[:image_tag], ::String, context: "#{context}[:image_tag]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
-        Validators::ReferencedImageDetail.validate!(input[:image_detail], context: "#{context}[:image_detail]") unless input[:image_detail].nil?
+        ReferencedImageDetail.validate!(input[:image_detail], context: "#{context}[:image_detail]") unless input[:image_detail].nil?
       end
     end
 
@@ -386,7 +388,7 @@ module AWS::SDK::ECRPUBLIC
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ImageTagDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ImageTagDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -487,7 +489,7 @@ module AWS::SDK::ECRPUBLIC
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LayerFailure.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LayerFailure.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -496,7 +498,7 @@ module AWS::SDK::ECRPUBLIC
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Layer.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Layer.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -532,7 +534,7 @@ module AWS::SDK::ECRPUBLIC
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -560,7 +562,7 @@ module AWS::SDK::ECRPUBLIC
     class PutImageOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutImageOutput, context: context)
-        Validators::Image.validate!(input[:image], context: "#{context}[:image]") unless input[:image].nil?
+        Image.validate!(input[:image], context: "#{context}[:image]") unless input[:image].nil?
       end
     end
 
@@ -574,7 +576,7 @@ module AWS::SDK::ECRPUBLIC
     class PutRegistryCatalogDataOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutRegistryCatalogDataOutput, context: context)
-        Validators::RegistryCatalogData.validate!(input[:registry_catalog_data], context: "#{context}[:registry_catalog_data]") unless input[:registry_catalog_data].nil?
+        RegistryCatalogData.validate!(input[:registry_catalog_data], context: "#{context}[:registry_catalog_data]") unless input[:registry_catalog_data].nil?
       end
     end
 
@@ -583,14 +585,14 @@ module AWS::SDK::ECRPUBLIC
         Hearth::Validator.validate!(input, Types::PutRepositoryCatalogDataInput, context: context)
         Hearth::Validator.validate!(input[:registry_id], ::String, context: "#{context}[:registry_id]")
         Hearth::Validator.validate!(input[:repository_name], ::String, context: "#{context}[:repository_name]")
-        Validators::RepositoryCatalogDataInput.validate!(input[:catalog_data], context: "#{context}[:catalog_data]") unless input[:catalog_data].nil?
+        RepositoryCatalogDataInput.validate!(input[:catalog_data], context: "#{context}[:catalog_data]") unless input[:catalog_data].nil?
       end
     end
 
     class PutRepositoryCatalogDataOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutRepositoryCatalogDataOutput, context: context)
-        Validators::RepositoryCatalogData.validate!(input[:catalog_data], context: "#{context}[:catalog_data]") unless input[:catalog_data].nil?
+        RepositoryCatalogData.validate!(input[:catalog_data], context: "#{context}[:catalog_data]") unless input[:catalog_data].nil?
       end
     end
 
@@ -619,7 +621,7 @@ module AWS::SDK::ECRPUBLIC
         Hearth::Validator.validate!(input[:registry_arn], ::String, context: "#{context}[:registry_arn]")
         Hearth::Validator.validate!(input[:registry_uri], ::String, context: "#{context}[:registry_uri]")
         Hearth::Validator.validate!(input[:verified], ::TrueClass, ::FalseClass, context: "#{context}[:verified]")
-        Validators::RegistryAliasList.validate!(input[:aliases], context: "#{context}[:aliases]") unless input[:aliases].nil?
+        RegistryAliasList.validate!(input[:aliases], context: "#{context}[:aliases]") unless input[:aliases].nil?
       end
     end
 
@@ -637,7 +639,7 @@ module AWS::SDK::ECRPUBLIC
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RegistryAlias.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RegistryAlias.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -653,7 +655,7 @@ module AWS::SDK::ECRPUBLIC
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Registry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Registry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -687,8 +689,8 @@ module AWS::SDK::ECRPUBLIC
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RepositoryCatalogData, context: context)
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::ArchitectureList.validate!(input[:architectures], context: "#{context}[:architectures]") unless input[:architectures].nil?
-        Validators::OperatingSystemList.validate!(input[:operating_systems], context: "#{context}[:operating_systems]") unless input[:operating_systems].nil?
+        ArchitectureList.validate!(input[:architectures], context: "#{context}[:architectures]") unless input[:architectures].nil?
+        OperatingSystemList.validate!(input[:operating_systems], context: "#{context}[:operating_systems]") unless input[:operating_systems].nil?
         Hearth::Validator.validate!(input[:logo_url], ::String, context: "#{context}[:logo_url]")
         Hearth::Validator.validate!(input[:about_text], ::String, context: "#{context}[:about_text]")
         Hearth::Validator.validate!(input[:usage_text], ::String, context: "#{context}[:usage_text]")
@@ -700,8 +702,8 @@ module AWS::SDK::ECRPUBLIC
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RepositoryCatalogDataInput, context: context)
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::ArchitectureList.validate!(input[:architectures], context: "#{context}[:architectures]") unless input[:architectures].nil?
-        Validators::OperatingSystemList.validate!(input[:operating_systems], context: "#{context}[:operating_systems]") unless input[:operating_systems].nil?
+        ArchitectureList.validate!(input[:architectures], context: "#{context}[:architectures]") unless input[:architectures].nil?
+        OperatingSystemList.validate!(input[:operating_systems], context: "#{context}[:operating_systems]") unless input[:operating_systems].nil?
         Hearth::Validator.validate!(input[:logo_image_blob], ::String, context: "#{context}[:logo_image_blob]")
         Hearth::Validator.validate!(input[:about_text], ::String, context: "#{context}[:about_text]")
         Hearth::Validator.validate!(input[:usage_text], ::String, context: "#{context}[:usage_text]")
@@ -712,7 +714,7 @@ module AWS::SDK::ECRPUBLIC
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Repository.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Repository.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -794,7 +796,7 @@ module AWS::SDK::ECRPUBLIC
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -803,7 +805,7 @@ module AWS::SDK::ECRPUBLIC
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -831,7 +833,7 @@ module AWS::SDK::ECRPUBLIC
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 

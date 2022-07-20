@@ -1103,13 +1103,13 @@ module AWS::SDK::Glue
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.maximum_length ||= 0
         self.average_length ||= 0
         self.number_of_nulls ||= 0
       end
-
     end
 
     # <p>The details of a blueprint.</p>
@@ -1366,13 +1366,13 @@ module AWS::SDK::Glue
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.number_of_trues ||= 0
         self.number_of_falses ||= 0
         self.number_of_nulls ||= 0
       end
-
     end
 
     # @!attribute transform_id
@@ -1441,11 +1441,11 @@ module AWS::SDK::Glue
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.id ||= 0
       end
-
     end
 
     CancelStatementOutput = ::Struct.new(
@@ -1512,11 +1512,11 @@ module AWS::SDK::Glue
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.import_completed ||= false
       end
-
     end
 
     # <p>Specifies an Apache Kafka data store in the Data Catalog.</p>
@@ -1729,11 +1729,11 @@ module AWS::SDK::Glue
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.valid ||= false
       end
-
     end
 
     # <p>Classifiers are triggered during a crawl task. A classifier checks whether a given file is
@@ -2175,11 +2175,11 @@ module AWS::SDK::Glue
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.line_number ||= 0
       end
-
     end
 
     # <p>An argument or property of a node.</p>
@@ -2206,11 +2206,11 @@ module AWS::SDK::Glue
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.param ||= false
       end
-
     end
 
     # <p>A column in a <code>Table</code>.</p>
@@ -2959,11 +2959,11 @@ module AWS::SDK::Glue
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.return_connection_password_encrypted ||= false
       end
-
     end
 
     # Includes enum constants for ConnectionPropertyKey
@@ -3343,12 +3343,12 @@ module AWS::SDK::Glue
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.crawl_elapsed_time ||= 0
         self.version ||= 0
       end
-
     end
 
     # Includes enum constants for CrawlerLineageSettings
@@ -3417,6 +3417,7 @@ module AWS::SDK::Glue
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.time_left_seconds ||= 0
@@ -3427,7 +3428,6 @@ module AWS::SDK::Glue
         self.tables_updated ||= 0
         self.tables_deleted ||= 0
       end
-
     end
 
     # <p>The details of a Crawler node present in the workflow.</p>
@@ -4031,11 +4031,11 @@ module AWS::SDK::Glue
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.number_of_nodes ||= 0
       end
-
     end
 
     # @!attribute endpoint_name
@@ -4175,12 +4175,12 @@ module AWS::SDK::Glue
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.zeppelin_remote_spark_interpreter_port ||= 0
         self.number_of_nodes ||= 0
       end
-
     end
 
     # <p>Specifies a <code>grok</code> classifier for <code>CreateClassifier</code>
@@ -4397,6 +4397,7 @@ module AWS::SDK::Glue
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_retries ||= 0
@@ -4940,13 +4941,13 @@ module AWS::SDK::Glue
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.schema_checkpoint ||= 0
         self.latest_schema_version ||= 0
         self.next_schema_version ||= 0
       end
-
     end
 
     # @!attribute dag_nodes
@@ -5263,11 +5264,11 @@ module AWS::SDK::Glue
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.start_on_creation ||= false
       end
-
     end
 
     # @!attribute name
@@ -5463,11 +5464,11 @@ module AWS::SDK::Glue
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.version ||= 0
       end
-
     end
 
     # Includes enum constants for CsvHeaderOption
@@ -5782,12 +5783,12 @@ module AWS::SDK::Glue
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.number_of_nulls ||= 0
         self.number_of_distinct_values ||= 0
       end
-
     end
 
     # <p>Defines column statistics supported for fixed-point number data columns.</p>
@@ -5820,12 +5821,12 @@ module AWS::SDK::Glue
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.number_of_nulls ||= 0
         self.number_of_distinct_values ||= 0
       end
-
     end
 
     # <p>Contains a numeric value in decimal format.</p>
@@ -5847,11 +5848,11 @@ module AWS::SDK::Glue
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.scale ||= 0
       end
-
     end
 
     # Includes enum constants for DeleteBehavior
@@ -6828,12 +6829,12 @@ module AWS::SDK::Glue
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.zeppelin_remote_spark_interpreter_port ||= 0
         self.number_of_nodes ||= 0
       end
-
     end
 
     # <p>Custom libraries to be loaded into a development endpoint.</p>
@@ -7007,6 +7008,7 @@ module AWS::SDK::Glue
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.minimum_value ||= 0
@@ -7014,7 +7016,6 @@ module AWS::SDK::Glue
         self.number_of_nulls ||= 0
         self.number_of_distinct_values ||= 0
       end
-
     end
 
     # <p>Specifies a transform that removes rows of repeating data from a data set. </p>
@@ -7335,11 +7336,11 @@ module AWS::SDK::Glue
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.batch_size ||= 0
       end
-
     end
 
     # <p>An execution property of a job.</p>
@@ -7356,11 +7357,11 @@ module AWS::SDK::Glue
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_concurrent_runs ||= 0
       end
-
     end
 
     # Includes enum constants for ExistCondition
@@ -8022,11 +8023,11 @@ module AWS::SDK::Glue
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.hide_password ||= false
       end
-
     end
 
     # @!attribute connection
@@ -8104,11 +8105,11 @@ module AWS::SDK::Glue
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.hide_password ||= false
       end
-
     end
 
     # @!attribute connection_list
@@ -8555,11 +8556,11 @@ module AWS::SDK::Glue
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.predecessors_included ||= false
       end
-
     end
 
     # @!attribute job_run
@@ -8736,11 +8737,11 @@ module AWS::SDK::Glue
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.execution_time ||= 0
       end
-
     end
 
     # @!attribute transform_id
@@ -8951,11 +8952,11 @@ module AWS::SDK::Glue
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.label_count ||= 0
       end
-
     end
 
     # @!attribute next_token
@@ -9711,13 +9712,13 @@ module AWS::SDK::Glue
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.schema_checkpoint ||= 0
         self.latest_schema_version ||= 0
         self.next_schema_version ||= 0
       end
-
     end
 
     # @!attribute schema_id
@@ -9802,11 +9803,11 @@ module AWS::SDK::Glue
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.version_number ||= 0
       end
-
     end
 
     # @!attribute schema_id
@@ -9974,11 +9975,11 @@ module AWS::SDK::Glue
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.id ||= 0
       end
-
     end
 
     # @!attribute statement
@@ -10367,11 +10368,11 @@ module AWS::SDK::Glue
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_registered_with_lake_formation ||= false
       end
-
     end
 
     # @!attribute catalog_id
@@ -10501,11 +10502,11 @@ module AWS::SDK::Glue
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_registered_with_lake_formation ||= false
       end
-
     end
 
     # @!attribute catalog_id
@@ -11036,11 +11037,11 @@ module AWS::SDK::Glue
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.version ||= 0
       end
-
     end
 
     # <p>The same unique identifier was associated with two different records.</p>
@@ -11134,11 +11135,11 @@ module AWS::SDK::Glue
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.replace ||= false
       end
-
     end
 
     # <p>An internal service error occurred.</p>
@@ -11734,6 +11735,7 @@ module AWS::SDK::Glue
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_retries ||= 0
@@ -11814,13 +11816,13 @@ module AWS::SDK::Glue
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.version ||= 0
         self.run ||= 0
         self.attempt ||= 0
       end
-
     end
 
     # <p>Specifies how job bookmark data should be encrypted.</p>
@@ -12104,13 +12106,13 @@ module AWS::SDK::Glue
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.attempt ||= 0
         self.allocated_capacity ||= 0
         self.execution_time ||= 0
       end
-
     end
 
     # Includes enum constants for JobRunState
@@ -12314,6 +12316,7 @@ module AWS::SDK::Glue
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_retries ||= 0
@@ -12462,11 +12465,11 @@ module AWS::SDK::Glue
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.version ||= 0
       end
-
     end
 
     # <p>Additional options for streaming.</p>
@@ -13525,6 +13528,7 @@ module AWS::SDK::Glue
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.minimum_value ||= 0
@@ -13532,7 +13536,6 @@ module AWS::SDK::Glue
         self.number_of_nulls ||= 0
         self.number_of_distinct_values ||= 0
       end
-
     end
 
     # <p>A structure for a machine learning transform.</p>
@@ -13729,11 +13732,11 @@ module AWS::SDK::Glue
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.label_count ||= 0
       end
-
     end
 
     # <p>The machine learning transform is not ready to run.</p>
@@ -14365,11 +14368,11 @@ module AWS::SDK::Glue
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.sort_order ||= 0
       end
-
     end
 
     # <p>A structure containing other metadata for a schema version belonging to the same metadata key.</p>
@@ -15163,12 +15166,12 @@ module AWS::SDK::Glue
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.latest_version ||= false
         self.version_number ||= 0
       end
-
     end
 
     # @!attribute name
@@ -15242,11 +15245,11 @@ module AWS::SDK::Glue
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute metadata_info_map
@@ -15469,11 +15472,11 @@ module AWS::SDK::Glue
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.version_number ||= 0
       end
-
     end
 
     # <p>A wrapper structure that may contain the registry name and Amazon Resource Name (ARN).</p>
@@ -15662,12 +15665,12 @@ module AWS::SDK::Glue
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.latest_version ||= false
         self.version_number ||= 0
       end
-
     end
 
     # <p>Specifies a transform that renames a single data property key.</p>
@@ -15886,11 +15889,11 @@ module AWS::SDK::Glue
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.id ||= 0
       end
-
     end
 
     # <p>Specifies an Amazon S3 data store in the Glue Data Catalog.</p>
@@ -16101,11 +16104,11 @@ module AWS::SDK::Glue
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.optimize_performance ||= false
       end
-
     end
 
     # <p>Specifies additional connection options for the Amazon S3 data store.</p>
@@ -16778,11 +16781,11 @@ module AWS::SDK::Glue
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.version_number ||= 0
       end
-
     end
 
     # <p>An object containing the details about a schema version.</p>
@@ -16823,11 +16826,11 @@ module AWS::SDK::Glue
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.version_number ||= 0
       end
-
     end
 
     # <p>A structure containing the schema version information.</p>
@@ -16848,12 +16851,12 @@ module AWS::SDK::Glue
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.latest_version ||= false
         self.version_number ||= 0
       end
-
     end
 
     # Includes enum constants for SchemaVersionStatus
@@ -17004,12 +17007,12 @@ module AWS::SDK::Glue
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.segment_number ||= 0
         self.total_segments ||= 0
       end
-
     end
 
     # <p>Specifies a transform that chooses the data property keys that you want to keep.</p>
@@ -17063,11 +17066,11 @@ module AWS::SDK::Glue
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.index ||= 0
       end
-
     end
 
     # Includes enum constants for Separator
@@ -17210,11 +17213,11 @@ module AWS::SDK::Glue
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.progress ||= 0
       end
-
     end
 
     # <p>The <code>SessionCommand</code> that runs the job.</p>
@@ -17689,11 +17692,11 @@ module AWS::SDK::Glue
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.replace_all_labels ||= false
       end
-
     end
 
     # @!attribute task_run_id
@@ -17820,11 +17823,11 @@ module AWS::SDK::Glue
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.allocated_capacity ||= 0
       end
-
     end
 
     # @!attribute job_run_id
@@ -18036,6 +18039,7 @@ module AWS::SDK::Glue
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.id ||= 0
@@ -18043,7 +18047,6 @@ module AWS::SDK::Glue
         self.started_on ||= 0
         self.completed_on ||= 0
       end
-
     end
 
     # <p>The code execution output in JSON format.</p>
@@ -18090,11 +18093,11 @@ module AWS::SDK::Glue
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.execution_count ||= 0
       end
-
     end
 
     # <p>The code execution output in JSON format.</p>
@@ -18356,13 +18359,13 @@ module AWS::SDK::Glue
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.compressed ||= false
         self.number_of_buckets ||= 0
         self.stored_as_sub_directories ||= false
       end
-
     end
 
     # <p>Specifies options related to data preview for viewing a sample of your data.</p>
@@ -18415,6 +18418,7 @@ module AWS::SDK::Glue
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.maximum_length ||= 0
@@ -18422,7 +18426,6 @@ module AWS::SDK::Glue
         self.number_of_nulls ||= 0
         self.number_of_distinct_values ||= 0
       end
-
     end
 
     # <p>Represents a collection of related data organized in columns and rows.</p>
@@ -18561,12 +18564,12 @@ module AWS::SDK::Glue
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.retention ||= 0
         self.is_registered_with_lake_formation ||= false
       end
-
     end
 
     # <p>An error record for table operations.</p>
@@ -18708,11 +18711,11 @@ module AWS::SDK::Glue
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.retention ||= 0
       end
-
     end
 
     # <p>Specifies a version of a table.</p>
@@ -18879,11 +18882,11 @@ module AWS::SDK::Glue
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.execution_time ||= 0
       end
-
     end
 
     # <p>The criteria that are used to filter the task runs for the machine learning
@@ -19467,11 +19470,11 @@ module AWS::SDK::Glue
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_registered_with_lake_formation ||= false
       end
-
     end
 
     # <p>Specifies a transform that combines the rows from two or more datasets into a single result.</p>
@@ -20053,11 +20056,11 @@ module AWS::SDK::Glue
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.update_etl_libraries ||= false
       end
-
     end
 
     UpdateDevEndpointOutput = ::Struct.new(
@@ -20974,6 +20977,7 @@ module AWS::SDK::Glue
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.total_actions ||= 0
@@ -20983,7 +20987,6 @@ module AWS::SDK::Glue
         self.succeeded_actions ||= 0
         self.running_actions ||= 0
       end
-
     end
 
     # Includes enum constants for WorkflowRunStatus
@@ -21056,11 +21059,11 @@ module AWS::SDK::Glue
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.version ||= 0
       end
-
     end
 
   end

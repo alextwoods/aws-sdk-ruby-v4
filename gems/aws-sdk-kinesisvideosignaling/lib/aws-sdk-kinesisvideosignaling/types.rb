@@ -102,11 +102,11 @@ module AWS::SDK::KinesisVideoSignaling
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.ttl ||= 0
       end
-
     end
 
     # <p>The value for this input parameter is invalid.</p>

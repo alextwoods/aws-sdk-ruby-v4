@@ -14,7 +14,7 @@ module AWS::SDK::Inspector
     class AddAttributesToFindings
       def self.default(visited=[])
         {
-          failed_items: Stubs::FailedItems.default(visited),
+          failed_items: FailedItems.default(visited),
         }
       end
 
@@ -32,7 +32,7 @@ module AWS::SDK::Inspector
         return nil if visited.include?('FailedItems')
         visited = visited + ['FailedItems']
         {
-          test_key: Stubs::FailedItemDetails.default(visited)
+          test_key: FailedItemDetails.default(visited)
         }
       end
 
@@ -176,8 +176,8 @@ module AWS::SDK::Inspector
     class DescribeAssessmentRuns
       def self.default(visited=[])
         {
-          assessment_runs: Stubs::AssessmentRunList.default(visited),
-          failed_items: Stubs::FailedItems.default(visited),
+          assessment_runs: AssessmentRunList.default(visited),
+          failed_items: FailedItems.default(visited),
         }
       end
 
@@ -196,7 +196,7 @@ module AWS::SDK::Inspector
         return nil if visited.include?('AssessmentRunList')
         visited = visited + ['AssessmentRunList']
         [
-          Stubs::AssessmentRun.default(visited)
+          AssessmentRun.default(visited)
         ]
       end
 
@@ -221,16 +221,16 @@ module AWS::SDK::Inspector
           assessment_template_arn: 'assessment_template_arn',
           state: 'state',
           duration_in_seconds: 1,
-          rules_package_arns: Stubs::AssessmentRulesPackageArnList.default(visited),
-          user_attributes_for_findings: Stubs::UserAttributeList.default(visited),
+          rules_package_arns: AssessmentRulesPackageArnList.default(visited),
+          user_attributes_for_findings: UserAttributeList.default(visited),
           created_at: Time.now,
           started_at: Time.now,
           completed_at: Time.now,
           state_changed_at: Time.now,
           data_collected: false,
-          state_changes: Stubs::AssessmentRunStateChangeList.default(visited),
-          notifications: Stubs::AssessmentRunNotificationList.default(visited),
-          finding_counts: Stubs::AssessmentRunFindingCounts.default(visited),
+          state_changes: AssessmentRunStateChangeList.default(visited),
+          notifications: AssessmentRunNotificationList.default(visited),
+          finding_counts: AssessmentRunFindingCounts.default(visited),
         }
       end
 
@@ -282,7 +282,7 @@ module AWS::SDK::Inspector
         return nil if visited.include?('AssessmentRunNotificationList')
         visited = visited + ['AssessmentRunNotificationList']
         [
-          Stubs::AssessmentRunNotification.default(visited)
+          AssessmentRunNotification.default(visited)
         ]
       end
 
@@ -330,7 +330,7 @@ module AWS::SDK::Inspector
         return nil if visited.include?('AssessmentRunStateChangeList')
         visited = visited + ['AssessmentRunStateChangeList']
         [
-          Stubs::AssessmentRunStateChange.default(visited)
+          AssessmentRunStateChange.default(visited)
         ]
       end
 
@@ -370,7 +370,7 @@ module AWS::SDK::Inspector
         return nil if visited.include?('UserAttributeList')
         visited = visited + ['UserAttributeList']
         [
-          Stubs::Attribute.default(visited)
+          Attribute.default(visited)
         ]
       end
 
@@ -428,8 +428,8 @@ module AWS::SDK::Inspector
     class DescribeAssessmentTargets
       def self.default(visited=[])
         {
-          assessment_targets: Stubs::AssessmentTargetList.default(visited),
-          failed_items: Stubs::FailedItems.default(visited),
+          assessment_targets: AssessmentTargetList.default(visited),
+          failed_items: FailedItems.default(visited),
         }
       end
 
@@ -448,7 +448,7 @@ module AWS::SDK::Inspector
         return nil if visited.include?('AssessmentTargetList')
         visited = visited + ['AssessmentTargetList']
         [
-          Stubs::AssessmentTarget.default(visited)
+          AssessmentTarget.default(visited)
         ]
       end
 
@@ -492,8 +492,8 @@ module AWS::SDK::Inspector
     class DescribeAssessmentTemplates
       def self.default(visited=[])
         {
-          assessment_templates: Stubs::AssessmentTemplateList.default(visited),
-          failed_items: Stubs::FailedItems.default(visited),
+          assessment_templates: AssessmentTemplateList.default(visited),
+          failed_items: FailedItems.default(visited),
         }
       end
 
@@ -512,7 +512,7 @@ module AWS::SDK::Inspector
         return nil if visited.include?('AssessmentTemplateList')
         visited = visited + ['AssessmentTemplateList']
         [
-          Stubs::AssessmentTemplate.default(visited)
+          AssessmentTemplate.default(visited)
         ]
       end
 
@@ -536,8 +536,8 @@ module AWS::SDK::Inspector
           name: 'name',
           assessment_target_arn: 'assessment_target_arn',
           duration_in_seconds: 1,
-          rules_package_arns: Stubs::AssessmentTemplateRulesPackageArnList.default(visited),
-          user_attributes_for_findings: Stubs::UserAttributeList.default(visited),
+          rules_package_arns: AssessmentTemplateRulesPackageArnList.default(visited),
+          user_attributes_for_findings: UserAttributeList.default(visited),
           last_assessment_run_arn: 'last_assessment_run_arn',
           assessment_run_count: 1,
           created_at: Time.now,
@@ -604,8 +604,8 @@ module AWS::SDK::Inspector
     class DescribeExclusions
       def self.default(visited=[])
         {
-          exclusions: Stubs::ExclusionMap.default(visited),
-          failed_items: Stubs::FailedItems.default(visited),
+          exclusions: ExclusionMap.default(visited),
+          failed_items: FailedItems.default(visited),
         }
       end
 
@@ -624,7 +624,7 @@ module AWS::SDK::Inspector
         return nil if visited.include?('ExclusionMap')
         visited = visited + ['ExclusionMap']
         {
-          test_key: Stubs::Exclusion.default(visited)
+          test_key: Exclusion.default(visited)
         }
       end
 
@@ -648,8 +648,8 @@ module AWS::SDK::Inspector
           title: 'title',
           description: 'description',
           recommendation: 'recommendation',
-          scopes: Stubs::ScopeList.default(visited),
-          attributes: Stubs::AttributeList.default(visited),
+          scopes: ScopeList.default(visited),
+          attributes: AttributeList.default(visited),
         }
       end
 
@@ -672,7 +672,7 @@ module AWS::SDK::Inspector
         return nil if visited.include?('AttributeList')
         visited = visited + ['AttributeList']
         [
-          Stubs::Attribute.default(visited)
+          Attribute.default(visited)
         ]
       end
 
@@ -692,7 +692,7 @@ module AWS::SDK::Inspector
         return nil if visited.include?('ScopeList')
         visited = visited + ['ScopeList']
         [
-          Stubs::Scope.default(visited)
+          Scope.default(visited)
         ]
       end
 
@@ -730,8 +730,8 @@ module AWS::SDK::Inspector
     class DescribeFindings
       def self.default(visited=[])
         {
-          findings: Stubs::FindingList.default(visited),
-          failed_items: Stubs::FailedItems.default(visited),
+          findings: FindingList.default(visited),
+          failed_items: FailedItems.default(visited),
         }
       end
 
@@ -750,7 +750,7 @@ module AWS::SDK::Inspector
         return nil if visited.include?('FindingList')
         visited = visited + ['FindingList']
         [
-          Stubs::Finding.default(visited)
+          Finding.default(visited)
         ]
       end
 
@@ -773,9 +773,9 @@ module AWS::SDK::Inspector
           arn: 'arn',
           schema_version: 1,
           service: 'service',
-          service_attributes: Stubs::InspectorServiceAttributes.default(visited),
+          service_attributes: InspectorServiceAttributes.default(visited),
           asset_type: 'asset_type',
-          asset_attributes: Stubs::AssetAttributes.default(visited),
+          asset_attributes: AssetAttributes.default(visited),
           id: 'id',
           title: 'title',
           description: 'description',
@@ -784,8 +784,8 @@ module AWS::SDK::Inspector
           numeric_severity: 1.0,
           confidence: 1,
           indicator_of_compromise: false,
-          attributes: Stubs::AttributeList.default(visited),
-          user_attributes: Stubs::UserAttributeList.default(visited),
+          attributes: AttributeList.default(visited),
+          user_attributes: UserAttributeList.default(visited),
           created_at: Time.now,
           updated_at: Time.now,
         }
@@ -827,9 +827,9 @@ module AWS::SDK::Inspector
           auto_scaling_group: 'auto_scaling_group',
           ami_id: 'ami_id',
           hostname: 'hostname',
-          ipv4_addresses: Stubs::Ipv4AddressList.default(visited),
-          tags: Stubs::Tags.default(visited),
-          network_interfaces: Stubs::NetworkInterfaces.default(visited),
+          ipv4_addresses: Ipv4AddressList.default(visited),
+          tags: Tags.default(visited),
+          network_interfaces: NetworkInterfaces.default(visited),
         }
       end
 
@@ -854,7 +854,7 @@ module AWS::SDK::Inspector
         return nil if visited.include?('NetworkInterfaces')
         visited = visited + ['NetworkInterfaces']
         [
-          Stubs::NetworkInterface.default(visited)
+          NetworkInterface.default(visited)
         ]
       end
 
@@ -879,11 +879,11 @@ module AWS::SDK::Inspector
           vpc_id: 'vpc_id',
           private_dns_name: 'private_dns_name',
           private_ip_address: 'private_ip_address',
-          private_ip_addresses: Stubs::PrivateIpAddresses.default(visited),
+          private_ip_addresses: PrivateIpAddresses.default(visited),
           public_dns_name: 'public_dns_name',
           public_ip: 'public_ip',
-          ipv6_addresses: Stubs::Ipv6Addresses.default(visited),
-          security_groups: Stubs::SecurityGroups.default(visited),
+          ipv6_addresses: Ipv6Addresses.default(visited),
+          security_groups: SecurityGroups.default(visited),
         }
       end
 
@@ -910,7 +910,7 @@ module AWS::SDK::Inspector
         return nil if visited.include?('SecurityGroups')
         visited = visited + ['SecurityGroups']
         [
-          Stubs::SecurityGroup.default(visited)
+          SecurityGroup.default(visited)
         ]
       end
 
@@ -970,7 +970,7 @@ module AWS::SDK::Inspector
         return nil if visited.include?('PrivateIpAddresses')
         visited = visited + ['PrivateIpAddresses']
         [
-          Stubs::PrivateIp.default(visited)
+          PrivateIp.default(visited)
         ]
       end
 
@@ -1010,7 +1010,7 @@ module AWS::SDK::Inspector
         return nil if visited.include?('Tags')
         visited = visited + ['Tags']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -1090,8 +1090,8 @@ module AWS::SDK::Inspector
     class DescribeResourceGroups
       def self.default(visited=[])
         {
-          resource_groups: Stubs::ResourceGroupList.default(visited),
-          failed_items: Stubs::FailedItems.default(visited),
+          resource_groups: ResourceGroupList.default(visited),
+          failed_items: FailedItems.default(visited),
         }
       end
 
@@ -1110,7 +1110,7 @@ module AWS::SDK::Inspector
         return nil if visited.include?('ResourceGroupList')
         visited = visited + ['ResourceGroupList']
         [
-          Stubs::ResourceGroup.default(visited)
+          ResourceGroup.default(visited)
         ]
       end
 
@@ -1131,7 +1131,7 @@ module AWS::SDK::Inspector
         visited = visited + ['ResourceGroup']
         {
           arn: 'arn',
-          tags: Stubs::ResourceGroupTags.default(visited),
+          tags: ResourceGroupTags.default(visited),
           created_at: Time.now,
         }
       end
@@ -1152,7 +1152,7 @@ module AWS::SDK::Inspector
         return nil if visited.include?('ResourceGroupTags')
         visited = visited + ['ResourceGroupTags']
         [
-          Stubs::ResourceGroupTag.default(visited)
+          ResourceGroupTag.default(visited)
         ]
       end
 
@@ -1190,8 +1190,8 @@ module AWS::SDK::Inspector
     class DescribeRulesPackages
       def self.default(visited=[])
         {
-          rules_packages: Stubs::RulesPackageList.default(visited),
-          failed_items: Stubs::FailedItems.default(visited),
+          rules_packages: RulesPackageList.default(visited),
+          failed_items: FailedItems.default(visited),
         }
       end
 
@@ -1210,7 +1210,7 @@ module AWS::SDK::Inspector
         return nil if visited.include?('RulesPackageList')
         visited = visited + ['RulesPackageList']
         [
-          Stubs::RulesPackage.default(visited)
+          RulesPackage.default(visited)
         ]
       end
 
@@ -1273,7 +1273,7 @@ module AWS::SDK::Inspector
       def self.default(visited=[])
         {
           preview_status: 'preview_status',
-          exclusion_previews: Stubs::ExclusionPreviewList.default(visited),
+          exclusion_previews: ExclusionPreviewList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1294,7 +1294,7 @@ module AWS::SDK::Inspector
         return nil if visited.include?('ExclusionPreviewList')
         visited = visited + ['ExclusionPreviewList']
         [
-          Stubs::ExclusionPreview.default(visited)
+          ExclusionPreview.default(visited)
         ]
       end
 
@@ -1317,8 +1317,8 @@ module AWS::SDK::Inspector
           title: 'title',
           description: 'description',
           recommendation: 'recommendation',
-          scopes: Stubs::ScopeList.default(visited),
-          attributes: Stubs::AttributeList.default(visited),
+          scopes: ScopeList.default(visited),
+          attributes: AttributeList.default(visited),
         }
       end
 
@@ -1338,7 +1338,7 @@ module AWS::SDK::Inspector
     class GetTelemetryMetadata
       def self.default(visited=[])
         {
-          telemetry_metadata: Stubs::TelemetryMetadataList.default(visited),
+          telemetry_metadata: TelemetryMetadataList.default(visited),
         }
       end
 
@@ -1356,7 +1356,7 @@ module AWS::SDK::Inspector
         return nil if visited.include?('TelemetryMetadataList')
         visited = visited + ['TelemetryMetadataList']
         [
-          Stubs::TelemetryMetadata.default(visited)
+          TelemetryMetadata.default(visited)
         ]
       end
 
@@ -1396,7 +1396,7 @@ module AWS::SDK::Inspector
     class ListAssessmentRunAgents
       def self.default(visited=[])
         {
-          assessment_run_agents: Stubs::AssessmentRunAgentList.default(visited),
+          assessment_run_agents: AssessmentRunAgentList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1416,7 +1416,7 @@ module AWS::SDK::Inspector
         return nil if visited.include?('AssessmentRunAgentList')
         visited = visited + ['AssessmentRunAgentList']
         [
-          Stubs::AssessmentRunAgent.default(visited)
+          AssessmentRunAgent.default(visited)
         ]
       end
 
@@ -1442,7 +1442,7 @@ module AWS::SDK::Inspector
           agent_health_code: 'agent_health_code',
           agent_health_details: 'agent_health_details',
           auto_scaling_group: 'auto_scaling_group',
-          telemetry_metadata: Stubs::TelemetryMetadataList.default(visited),
+          telemetry_metadata: TelemetryMetadataList.default(visited),
         }
       end
 
@@ -1464,7 +1464,7 @@ module AWS::SDK::Inspector
     class ListAssessmentRuns
       def self.default(visited=[])
         {
-          assessment_run_arns: Stubs::ListReturnedArnList.default(visited),
+          assessment_run_arns: ListReturnedArnList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1502,7 +1502,7 @@ module AWS::SDK::Inspector
     class ListAssessmentTargets
       def self.default(visited=[])
         {
-          assessment_target_arns: Stubs::ListReturnedArnList.default(visited),
+          assessment_target_arns: ListReturnedArnList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1520,7 +1520,7 @@ module AWS::SDK::Inspector
     class ListAssessmentTemplates
       def self.default(visited=[])
         {
-          assessment_template_arns: Stubs::ListReturnedArnList.default(visited),
+          assessment_template_arns: ListReturnedArnList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1538,7 +1538,7 @@ module AWS::SDK::Inspector
     class ListEventSubscriptions
       def self.default(visited=[])
         {
-          subscriptions: Stubs::SubscriptionList.default(visited),
+          subscriptions: SubscriptionList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1558,7 +1558,7 @@ module AWS::SDK::Inspector
         return nil if visited.include?('SubscriptionList')
         visited = visited + ['SubscriptionList']
         [
-          Stubs::Subscription.default(visited)
+          Subscription.default(visited)
         ]
       end
 
@@ -1580,7 +1580,7 @@ module AWS::SDK::Inspector
         {
           resource_arn: 'resource_arn',
           topic_arn: 'topic_arn',
-          event_subscriptions: Stubs::EventSubscriptionList.default(visited),
+          event_subscriptions: EventSubscriptionList.default(visited),
         }
       end
 
@@ -1600,7 +1600,7 @@ module AWS::SDK::Inspector
         return nil if visited.include?('EventSubscriptionList')
         visited = visited + ['EventSubscriptionList']
         [
-          Stubs::EventSubscription.default(visited)
+          EventSubscription.default(visited)
         ]
       end
 
@@ -1638,7 +1638,7 @@ module AWS::SDK::Inspector
     class ListExclusions
       def self.default(visited=[])
         {
-          exclusion_arns: Stubs::ListReturnedArnList.default(visited),
+          exclusion_arns: ListReturnedArnList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1656,7 +1656,7 @@ module AWS::SDK::Inspector
     class ListFindings
       def self.default(visited=[])
         {
-          finding_arns: Stubs::ListReturnedArnList.default(visited),
+          finding_arns: ListReturnedArnList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1674,7 +1674,7 @@ module AWS::SDK::Inspector
     class ListRulesPackages
       def self.default(visited=[])
         {
-          rules_package_arns: Stubs::ListReturnedArnList.default(visited),
+          rules_package_arns: ListReturnedArnList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1692,7 +1692,7 @@ module AWS::SDK::Inspector
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -1710,7 +1710,7 @@ module AWS::SDK::Inspector
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -1728,7 +1728,7 @@ module AWS::SDK::Inspector
     class PreviewAgents
       def self.default(visited=[])
         {
-          agent_previews: Stubs::AgentPreviewList.default(visited),
+          agent_previews: AgentPreviewList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1748,7 +1748,7 @@ module AWS::SDK::Inspector
         return nil if visited.include?('AgentPreviewList')
         visited = visited + ['AgentPreviewList']
         [
-          Stubs::AgentPreview.default(visited)
+          AgentPreview.default(visited)
         ]
       end
 
@@ -1812,7 +1812,7 @@ module AWS::SDK::Inspector
     class RemoveAttributesFromFindings
       def self.default(visited=[])
         {
-          failed_items: Stubs::FailedItems.default(visited),
+          failed_items: FailedItems.default(visited),
         }
       end
 

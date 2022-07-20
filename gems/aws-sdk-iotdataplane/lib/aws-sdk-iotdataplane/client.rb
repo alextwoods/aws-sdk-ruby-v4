@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::IoTDataPlane
@@ -74,7 +76,7 @@ module AWS::SDK::IoTDataPlane
     def delete_thing_shadow(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteThingShadowInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteThingShadowInput,
         validate_input: @config.validate_input
@@ -151,7 +153,7 @@ module AWS::SDK::IoTDataPlane
     def get_retained_message(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetRetainedMessageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetRetainedMessageInput,
         validate_input: @config.validate_input
@@ -226,7 +228,7 @@ module AWS::SDK::IoTDataPlane
     def get_thing_shadow(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetThingShadowInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetThingShadowInput,
         validate_input: @config.validate_input
@@ -306,7 +308,7 @@ module AWS::SDK::IoTDataPlane
     def list_named_shadows_for_thing(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListNamedShadowsForThingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListNamedShadowsForThingInput,
         validate_input: @config.validate_input
@@ -395,7 +397,7 @@ module AWS::SDK::IoTDataPlane
     def list_retained_messages(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListRetainedMessagesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListRetainedMessagesInput,
         validate_input: @config.validate_input
@@ -487,7 +489,7 @@ module AWS::SDK::IoTDataPlane
     def publish(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PublishInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PublishInput,
         validate_input: @config.validate_input
@@ -567,7 +569,7 @@ module AWS::SDK::IoTDataPlane
     def update_thing_shadow(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateThingShadowInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateThingShadowInput,
         validate_input: @config.validate_input

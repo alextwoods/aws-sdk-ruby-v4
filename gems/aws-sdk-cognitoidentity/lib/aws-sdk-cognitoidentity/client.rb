@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::CognitoIdentity
@@ -170,7 +172,7 @@ module AWS::SDK::CognitoIdentity
     def create_identity_pool(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateIdentityPoolInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateIdentityPoolInput,
         validate_input: @config.validate_input
@@ -246,7 +248,7 @@ module AWS::SDK::CognitoIdentity
     def delete_identities(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteIdentitiesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteIdentitiesInput,
         validate_input: @config.validate_input
@@ -316,7 +318,7 @@ module AWS::SDK::CognitoIdentity
     def delete_identity_pool(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteIdentityPoolInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteIdentityPoolInput,
         validate_input: @config.validate_input
@@ -391,7 +393,7 @@ module AWS::SDK::CognitoIdentity
     def describe_identity(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeIdentityInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeIdentityInput,
         validate_input: @config.validate_input
@@ -479,7 +481,7 @@ module AWS::SDK::CognitoIdentity
     def describe_identity_pool(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeIdentityPoolInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeIdentityPoolInput,
         validate_input: @config.validate_input
@@ -578,7 +580,7 @@ module AWS::SDK::CognitoIdentity
     def get_credentials_for_identity(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCredentialsForIdentityInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCredentialsForIdentityInput,
         validate_input: @config.validate_input
@@ -688,7 +690,7 @@ module AWS::SDK::CognitoIdentity
     def get_id(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetIdInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetIdInput,
         validate_input: @config.validate_input
@@ -771,7 +773,7 @@ module AWS::SDK::CognitoIdentity
     def get_identity_pool_roles(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetIdentityPoolRolesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetIdentityPoolRolesInput,
         validate_input: @config.validate_input
@@ -854,7 +856,7 @@ module AWS::SDK::CognitoIdentity
     def get_open_id_token(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetOpenIdTokenInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetOpenIdTokenInput,
         validate_input: @config.validate_input
@@ -972,7 +974,7 @@ module AWS::SDK::CognitoIdentity
     def get_open_id_token_for_developer_identity(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetOpenIdTokenForDeveloperIdentityInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetOpenIdTokenForDeveloperIdentityInput,
         validate_input: @config.validate_input
@@ -1049,7 +1051,7 @@ module AWS::SDK::CognitoIdentity
     def get_principal_tag_attribute_map(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetPrincipalTagAttributeMapInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetPrincipalTagAttributeMapInput,
         validate_input: @config.validate_input
@@ -1140,7 +1142,7 @@ module AWS::SDK::CognitoIdentity
     def list_identities(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListIdentitiesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListIdentitiesInput,
         validate_input: @config.validate_input
@@ -1218,7 +1220,7 @@ module AWS::SDK::CognitoIdentity
     def list_identity_pools(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListIdentityPoolsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListIdentityPoolsInput,
         validate_input: @config.validate_input
@@ -1292,7 +1294,7 @@ module AWS::SDK::CognitoIdentity
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -1403,7 +1405,7 @@ module AWS::SDK::CognitoIdentity
     def lookup_developer_identity(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::LookupDeveloperIdentityInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::LookupDeveloperIdentityInput,
         validate_input: @config.validate_input
@@ -1502,7 +1504,7 @@ module AWS::SDK::CognitoIdentity
     def merge_developer_identities(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::MergeDeveloperIdentitiesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::MergeDeveloperIdentitiesInput,
         validate_input: @config.validate_input
@@ -1601,7 +1603,7 @@ module AWS::SDK::CognitoIdentity
     def set_identity_pool_roles(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SetIdentityPoolRolesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SetIdentityPoolRolesInput,
         validate_input: @config.validate_input
@@ -1688,7 +1690,7 @@ module AWS::SDK::CognitoIdentity
     def set_principal_tag_attribute_map(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SetPrincipalTagAttributeMapInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SetPrincipalTagAttributeMapInput,
         validate_input: @config.validate_input
@@ -1776,7 +1778,7 @@ module AWS::SDK::CognitoIdentity
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -1860,7 +1862,7 @@ module AWS::SDK::CognitoIdentity
     def unlink_developer_identity(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UnlinkDeveloperIdentityInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UnlinkDeveloperIdentityInput,
         validate_input: @config.validate_input
@@ -1944,7 +1946,7 @@ module AWS::SDK::CognitoIdentity
     def unlink_identity(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UnlinkIdentityInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UnlinkIdentityInput,
         validate_input: @config.validate_input
@@ -2019,7 +2021,7 @@ module AWS::SDK::CognitoIdentity
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -2160,7 +2162,7 @@ module AWS::SDK::CognitoIdentity
     def update_identity_pool(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateIdentityPoolInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateIdentityPoolInput,
         validate_input: @config.validate_input

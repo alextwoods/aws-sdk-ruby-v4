@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::CloudWatch
@@ -88,7 +90,7 @@ module AWS::SDK::CloudWatch
     def delete_alarms(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAlarmsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAlarmsInput,
         validate_input: @config.validate_input
@@ -266,7 +268,7 @@ module AWS::SDK::CloudWatch
     def delete_anomaly_detector(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAnomalyDetectorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAnomalyDetectorInput,
         validate_input: @config.validate_input
@@ -338,7 +340,7 @@ module AWS::SDK::CloudWatch
     def delete_dashboards(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDashboardsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDashboardsInput,
         validate_input: @config.validate_input
@@ -417,7 +419,7 @@ module AWS::SDK::CloudWatch
     def delete_insight_rules(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteInsightRulesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteInsightRulesInput,
         validate_input: @config.validate_input
@@ -485,7 +487,7 @@ module AWS::SDK::CloudWatch
     def delete_metric_stream(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteMetricStreamInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteMetricStreamInput,
         validate_input: @config.validate_input
@@ -600,7 +602,7 @@ module AWS::SDK::CloudWatch
     def describe_alarm_history(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAlarmHistoryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAlarmHistoryInput,
         validate_input: @config.validate_input
@@ -808,7 +810,7 @@ module AWS::SDK::CloudWatch
     def describe_alarms(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAlarmsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAlarmsInput,
         validate_input: @config.validate_input
@@ -960,7 +962,7 @@ module AWS::SDK::CloudWatch
     def describe_alarms_for_metric(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAlarmsForMetricInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAlarmsForMetricInput,
         validate_input: @config.validate_input
@@ -1109,7 +1111,7 @@ module AWS::SDK::CloudWatch
     def describe_anomaly_detectors(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAnomalyDetectorsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAnomalyDetectorsInput,
         validate_input: @config.validate_input
@@ -1192,7 +1194,7 @@ module AWS::SDK::CloudWatch
     def describe_insight_rules(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeInsightRulesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeInsightRulesInput,
         validate_input: @config.validate_input
@@ -1263,7 +1265,7 @@ module AWS::SDK::CloudWatch
     def disable_alarm_actions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisableAlarmActionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisableAlarmActionsInput,
         validate_input: @config.validate_input
@@ -1340,7 +1342,7 @@ module AWS::SDK::CloudWatch
     def disable_insight_rules(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisableInsightRulesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisableInsightRulesInput,
         validate_input: @config.validate_input
@@ -1410,7 +1412,7 @@ module AWS::SDK::CloudWatch
     def enable_alarm_actions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::EnableAlarmActionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::EnableAlarmActionsInput,
         validate_input: @config.validate_input
@@ -1486,7 +1488,7 @@ module AWS::SDK::CloudWatch
     def enable_insight_rules(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::EnableInsightRulesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::EnableInsightRulesInput,
         validate_input: @config.validate_input
@@ -1560,7 +1562,7 @@ module AWS::SDK::CloudWatch
     def get_dashboard(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDashboardInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDashboardInput,
         validate_input: @config.validate_input
@@ -1753,7 +1755,7 @@ module AWS::SDK::CloudWatch
     def get_insight_rule_report(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetInsightRuleReportInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetInsightRuleReportInput,
         validate_input: @config.validate_input
@@ -1983,7 +1985,7 @@ module AWS::SDK::CloudWatch
     def get_metric_data(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetMetricDataInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetMetricDataInput,
         validate_input: @config.validate_input
@@ -2211,7 +2213,7 @@ module AWS::SDK::CloudWatch
     def get_metric_statistics(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetMetricStatisticsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetMetricStatisticsInput,
         validate_input: @config.validate_input
@@ -2299,7 +2301,7 @@ module AWS::SDK::CloudWatch
     def get_metric_stream(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetMetricStreamInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetMetricStreamInput,
         validate_input: @config.validate_input
@@ -2437,7 +2439,7 @@ module AWS::SDK::CloudWatch
     def get_metric_widget_image(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetMetricWidgetImageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetMetricWidgetImageInput,
         validate_input: @config.validate_input
@@ -2528,7 +2530,7 @@ module AWS::SDK::CloudWatch
     def list_dashboards(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDashboardsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDashboardsInput,
         validate_input: @config.validate_input
@@ -2610,7 +2612,7 @@ module AWS::SDK::CloudWatch
     def list_metric_streams(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListMetricStreamsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListMetricStreamsInput,
         validate_input: @config.validate_input
@@ -2731,7 +2733,7 @@ module AWS::SDK::CloudWatch
     def list_metrics(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListMetricsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListMetricsInput,
         validate_input: @config.validate_input
@@ -2815,7 +2817,7 @@ module AWS::SDK::CloudWatch
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -3015,7 +3017,7 @@ module AWS::SDK::CloudWatch
     def put_anomaly_detector(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutAnomalyDetectorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutAnomalyDetectorInput,
         validate_input: @config.validate_input
@@ -3240,7 +3242,7 @@ module AWS::SDK::CloudWatch
     def put_composite_alarm(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutCompositeAlarmInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutCompositeAlarmInput,
         validate_input: @config.validate_input
@@ -3334,7 +3336,7 @@ module AWS::SDK::CloudWatch
     def put_dashboard(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutDashboardInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutDashboardInput,
         validate_input: @config.validate_input
@@ -3435,7 +3437,7 @@ module AWS::SDK::CloudWatch
     def put_insight_rule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutInsightRuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutInsightRuleInput,
         validate_input: @config.validate_input
@@ -3824,7 +3826,7 @@ module AWS::SDK::CloudWatch
     def put_metric_alarm(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutMetricAlarmInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutMetricAlarmInput,
         validate_input: @config.validate_input
@@ -3969,7 +3971,7 @@ module AWS::SDK::CloudWatch
     def put_metric_data(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutMetricDataInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutMetricDataInput,
         validate_input: @config.validate_input
@@ -4162,7 +4164,7 @@ module AWS::SDK::CloudWatch
     def put_metric_stream(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutMetricStreamInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutMetricStreamInput,
         validate_input: @config.validate_input
@@ -4259,7 +4261,7 @@ module AWS::SDK::CloudWatch
     def set_alarm_state(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SetAlarmStateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SetAlarmStateInput,
         validate_input: @config.validate_input
@@ -4332,7 +4334,7 @@ module AWS::SDK::CloudWatch
     def start_metric_streams(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartMetricStreamsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartMetricStreamsInput,
         validate_input: @config.validate_input
@@ -4405,7 +4407,7 @@ module AWS::SDK::CloudWatch
     def stop_metric_streams(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopMetricStreamsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopMetricStreamsInput,
         validate_input: @config.validate_input
@@ -4503,7 +4505,7 @@ module AWS::SDK::CloudWatch
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -4588,7 +4590,7 @@ module AWS::SDK::CloudWatch
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input

@@ -425,11 +425,11 @@ module AWS::SDK::ApplicationInsights
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.rank ||= 0
       end
-
     end
 
     # @!attribute log_pattern
@@ -1267,11 +1267,11 @@ module AWS::SDK::ApplicationInsights
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.rank ||= 0
       end
-
     end
 
     # <p>Describes an anomaly or error with the application.</p>
@@ -2153,11 +2153,11 @@ module AWS::SDK::ApplicationInsights
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.rank ||= 0
       end
-
     end
 
     # @!attribute resource_group_name

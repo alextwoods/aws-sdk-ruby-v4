@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::CloudFormation
@@ -154,7 +156,7 @@ module AWS::SDK::CloudFormation
     def activate_type(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ActivateTypeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ActivateTypeInput,
         validate_input: @config.validate_input
@@ -253,7 +255,7 @@ module AWS::SDK::CloudFormation
     def batch_describe_type_configurations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchDescribeTypeConfigurationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchDescribeTypeConfigurationsInput,
         validate_input: @config.validate_input
@@ -334,7 +336,7 @@ module AWS::SDK::CloudFormation
     def cancel_update_stack(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelUpdateStackInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelUpdateStackInput,
         validate_input: @config.validate_input
@@ -471,7 +473,7 @@ module AWS::SDK::CloudFormation
     def continue_update_rollback(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ContinueUpdateRollbackInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ContinueUpdateRollbackInput,
         validate_input: @config.validate_input
@@ -805,7 +807,7 @@ module AWS::SDK::CloudFormation
     def create_change_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateChangeSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateChangeSetInput,
         validate_input: @config.validate_input
@@ -1147,7 +1149,7 @@ module AWS::SDK::CloudFormation
     def create_stack(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateStackInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateStackInput,
         validate_input: @config.validate_input
@@ -1328,7 +1330,7 @@ module AWS::SDK::CloudFormation
     def create_stack_instances(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateStackInstancesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateStackInstancesInput,
         validate_input: @config.validate_input
@@ -1635,7 +1637,7 @@ module AWS::SDK::CloudFormation
     def create_stack_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateStackSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateStackSetInput,
         validate_input: @config.validate_input
@@ -1723,7 +1725,7 @@ module AWS::SDK::CloudFormation
     def deactivate_type(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeactivateTypeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeactivateTypeInput,
         validate_input: @config.validate_input
@@ -1803,7 +1805,7 @@ module AWS::SDK::CloudFormation
     def delete_change_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteChangeSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteChangeSetInput,
         validate_input: @config.validate_input
@@ -1909,7 +1911,7 @@ module AWS::SDK::CloudFormation
     def delete_stack(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteStackInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteStackInput,
         validate_input: @config.validate_input
@@ -2053,7 +2055,7 @@ module AWS::SDK::CloudFormation
     def delete_stack_instances(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteStackInstancesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteStackInstancesInput,
         validate_input: @config.validate_input
@@ -2143,7 +2145,7 @@ module AWS::SDK::CloudFormation
     def delete_stack_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteStackSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteStackSetInput,
         validate_input: @config.validate_input
@@ -2240,7 +2242,7 @@ module AWS::SDK::CloudFormation
     def deregister_type(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeregisterTypeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeregisterTypeInput,
         validate_input: @config.validate_input
@@ -2315,7 +2317,7 @@ module AWS::SDK::CloudFormation
     def describe_account_limits(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAccountLimitsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAccountLimitsInput,
         validate_input: @config.validate_input
@@ -2453,7 +2455,7 @@ module AWS::SDK::CloudFormation
     def describe_change_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeChangeSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeChangeSetInput,
         validate_input: @config.validate_input
@@ -2556,7 +2558,7 @@ module AWS::SDK::CloudFormation
     def describe_change_set_hooks(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeChangeSetHooksInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeChangeSetHooksInput,
         validate_input: @config.validate_input
@@ -2648,7 +2650,7 @@ module AWS::SDK::CloudFormation
     def describe_publisher(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribePublisherInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribePublisherInput,
         validate_input: @config.validate_input
@@ -2738,7 +2740,7 @@ module AWS::SDK::CloudFormation
     def describe_stack_drift_detection_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeStackDriftDetectionStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeStackDriftDetectionStatusInput,
         validate_input: @config.validate_input
@@ -2846,7 +2848,7 @@ module AWS::SDK::CloudFormation
     def describe_stack_events(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeStackEventsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeStackEventsInput,
         validate_input: @config.validate_input
@@ -2963,7 +2965,7 @@ module AWS::SDK::CloudFormation
     def describe_stack_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeStackInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeStackInstanceInput,
         validate_input: @config.validate_input
@@ -3066,7 +3068,7 @@ module AWS::SDK::CloudFormation
     def describe_stack_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeStackResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeStackResourceInput,
         validate_input: @config.validate_input
@@ -3206,7 +3208,7 @@ module AWS::SDK::CloudFormation
     def describe_stack_resource_drifts(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeStackResourceDriftsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeStackResourceDriftsInput,
         validate_input: @config.validate_input
@@ -3339,7 +3341,7 @@ module AWS::SDK::CloudFormation
     def describe_stack_resources(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeStackResourcesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeStackResourcesInput,
         validate_input: @config.validate_input
@@ -3465,7 +3467,7 @@ module AWS::SDK::CloudFormation
     def describe_stack_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeStackSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeStackSetInput,
         validate_input: @config.validate_input
@@ -3591,7 +3593,7 @@ module AWS::SDK::CloudFormation
     def describe_stack_set_operation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeStackSetOperationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeStackSetOperationInput,
         validate_input: @config.validate_input
@@ -3725,7 +3727,7 @@ module AWS::SDK::CloudFormation
     def describe_stacks(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeStacksInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeStacksInput,
         validate_input: @config.validate_input
@@ -3863,7 +3865,7 @@ module AWS::SDK::CloudFormation
     def describe_type(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTypeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTypeInput,
         validate_input: @config.validate_input
@@ -3949,7 +3951,7 @@ module AWS::SDK::CloudFormation
     def describe_type_registration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTypeRegistrationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTypeRegistrationInput,
         validate_input: @config.validate_input
@@ -4044,7 +4046,7 @@ module AWS::SDK::CloudFormation
     def detect_stack_drift(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DetectStackDriftInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DetectStackDriftInput,
         validate_input: @config.validate_input
@@ -4149,7 +4151,7 @@ module AWS::SDK::CloudFormation
     def detect_stack_resource_drift(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DetectStackResourceDriftInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DetectStackResourceDriftInput,
         validate_input: @config.validate_input
@@ -4303,7 +4305,7 @@ module AWS::SDK::CloudFormation
     def detect_stack_set_drift(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DetectStackSetDriftInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DetectStackSetDriftInput,
         validate_input: @config.validate_input
@@ -4397,7 +4399,7 @@ module AWS::SDK::CloudFormation
     def estimate_template_cost(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::EstimateTemplateCostInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::EstimateTemplateCostInput,
         validate_input: @config.validate_input
@@ -4495,7 +4497,7 @@ module AWS::SDK::CloudFormation
     def execute_change_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ExecuteChangeSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ExecuteChangeSetInput,
         validate_input: @config.validate_input
@@ -4566,7 +4568,7 @@ module AWS::SDK::CloudFormation
     def get_stack_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetStackPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetStackPolicyInput,
         validate_input: @config.validate_input
@@ -4669,7 +4671,7 @@ module AWS::SDK::CloudFormation
     def get_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetTemplateInput,
         validate_input: @config.validate_input
@@ -4822,7 +4824,7 @@ module AWS::SDK::CloudFormation
     def get_template_summary(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetTemplateSummaryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetTemplateSummaryInput,
         validate_input: @config.validate_input
@@ -4953,7 +4955,7 @@ module AWS::SDK::CloudFormation
     def import_stacks_to_stack_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ImportStacksToStackSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ImportStacksToStackSetInput,
         validate_input: @config.validate_input
@@ -5043,7 +5045,7 @@ module AWS::SDK::CloudFormation
     def list_change_sets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListChangeSetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListChangeSetsInput,
         validate_input: @config.validate_input
@@ -5124,7 +5126,7 @@ module AWS::SDK::CloudFormation
     def list_exports(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListExportsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListExportsInput,
         validate_input: @config.validate_input
@@ -5206,7 +5208,7 @@ module AWS::SDK::CloudFormation
     def list_imports(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListImportsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListImportsInput,
         validate_input: @config.validate_input
@@ -5342,7 +5344,7 @@ module AWS::SDK::CloudFormation
     def list_stack_instances(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListStackInstancesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListStackInstancesInput,
         validate_input: @config.validate_input
@@ -5443,7 +5445,7 @@ module AWS::SDK::CloudFormation
     def list_stack_resources(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListStackResourcesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListStackResourcesInput,
         validate_input: @config.validate_input
@@ -5563,7 +5565,7 @@ module AWS::SDK::CloudFormation
     def list_stack_set_operation_results(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListStackSetOperationResultsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListStackSetOperationResultsInput,
         validate_input: @config.validate_input
@@ -5677,7 +5679,7 @@ module AWS::SDK::CloudFormation
     def list_stack_set_operations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListStackSetOperationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListStackSetOperationsInput,
         validate_input: @config.validate_input
@@ -5813,7 +5815,7 @@ module AWS::SDK::CloudFormation
     def list_stack_sets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListStackSetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListStackSetsInput,
         validate_input: @config.validate_input
@@ -5909,7 +5911,7 @@ module AWS::SDK::CloudFormation
     def list_stacks(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListStacksInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListStacksInput,
         validate_input: @config.validate_input
@@ -6014,7 +6016,7 @@ module AWS::SDK::CloudFormation
     def list_type_registrations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTypeRegistrationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTypeRegistrationsInput,
         validate_input: @config.validate_input
@@ -6147,7 +6149,7 @@ module AWS::SDK::CloudFormation
     def list_type_versions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTypeVersionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTypeVersionsInput,
         validate_input: @config.validate_input
@@ -6330,7 +6332,7 @@ module AWS::SDK::CloudFormation
     def list_types(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTypesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTypesInput,
         validate_input: @config.validate_input
@@ -6431,7 +6433,7 @@ module AWS::SDK::CloudFormation
     def publish_type(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PublishTypeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PublishTypeInput,
         validate_input: @config.validate_input
@@ -6524,7 +6526,7 @@ module AWS::SDK::CloudFormation
     def record_handler_progress(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RecordHandlerProgressInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RecordHandlerProgressInput,
         validate_input: @config.validate_input
@@ -6610,7 +6612,7 @@ module AWS::SDK::CloudFormation
     def register_publisher(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RegisterPublisherInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RegisterPublisherInput,
         validate_input: @config.validate_input
@@ -6807,7 +6809,7 @@ module AWS::SDK::CloudFormation
     def register_type(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RegisterTypeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RegisterTypeInput,
         validate_input: @config.validate_input
@@ -6919,7 +6921,7 @@ module AWS::SDK::CloudFormation
     def rollback_stack(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RollbackStackInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RollbackStackInput,
         validate_input: @config.validate_input
@@ -7001,7 +7003,7 @@ module AWS::SDK::CloudFormation
     def set_stack_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SetStackPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SetStackPolicyInput,
         validate_input: @config.validate_input
@@ -7111,7 +7113,7 @@ module AWS::SDK::CloudFormation
     def set_type_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SetTypeConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SetTypeConfigurationInput,
         validate_input: @config.validate_input
@@ -7201,7 +7203,7 @@ module AWS::SDK::CloudFormation
     def set_type_default_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SetTypeDefaultVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SetTypeDefaultVersionInput,
         validate_input: @config.validate_input
@@ -7290,7 +7292,7 @@ module AWS::SDK::CloudFormation
     def signal_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SignalResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SignalResourceInput,
         validate_input: @config.validate_input
@@ -7382,7 +7384,7 @@ module AWS::SDK::CloudFormation
     def stop_stack_set_operation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopStackSetOperationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopStackSetOperationInput,
         validate_input: @config.validate_input
@@ -7520,7 +7522,7 @@ module AWS::SDK::CloudFormation
     def test_type(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TestTypeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TestTypeInput,
         validate_input: @config.validate_input
@@ -7859,7 +7861,7 @@ module AWS::SDK::CloudFormation
     def update_stack(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateStackInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateStackInput,
         validate_input: @config.validate_input
@@ -8056,7 +8058,7 @@ module AWS::SDK::CloudFormation
     def update_stack_instances(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateStackInstancesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateStackInstancesInput,
         validate_input: @config.validate_input
@@ -8463,7 +8465,7 @@ module AWS::SDK::CloudFormation
     def update_stack_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateStackSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateStackSetInput,
         validate_input: @config.validate_input
@@ -8543,7 +8545,7 @@ module AWS::SDK::CloudFormation
     def update_termination_protection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateTerminationProtectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateTerminationProtectionInput,
         validate_input: @config.validate_input
@@ -8638,7 +8640,7 @@ module AWS::SDK::CloudFormation
     def validate_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ValidateTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ValidateTemplateInput,
         validate_input: @config.validate_input

@@ -218,11 +218,11 @@ module AWS::SDK::PinpointSMSVoice
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # An object that defines a single event destination.
@@ -261,11 +261,11 @@ module AWS::SDK::PinpointSMSVoice
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # Includes enum constants for EventType

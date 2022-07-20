@@ -72,7 +72,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         type.pool_id = params[:pool_id]
         type.origination_identity = params[:origination_identity]
         type.iso_country_code = params[:iso_country_code]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -186,7 +186,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         type = Types::CreateConfigurationSetInput.new
         type.configuration_set_name = params[:configuration_set_name]
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -213,7 +213,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         type.cloud_watch_logs_destination = CloudWatchLogsDestination.build(params[:cloud_watch_logs_destination], context: "#{context}[:cloud_watch_logs_destination]") unless params[:cloud_watch_logs_destination].nil?
         type.kinesis_firehose_destination = KinesisFirehoseDestination.build(params[:kinesis_firehose_destination], context: "#{context}[:kinesis_firehose_destination]") unless params[:kinesis_firehose_destination].nil?
         type.sns_destination = SnsDestination.build(params[:sns_destination], context: "#{context}[:sns_destination]") unless params[:sns_destination].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -235,7 +235,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         type = Types::CreateOptOutListInput.new
         type.opt_out_list_name = params[:opt_out_list_name]
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -261,7 +261,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         type.message_type = params[:message_type]
         type.deletion_protection_enabled = params[:deletion_protection_enabled]
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -734,7 +734,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         type.pool_id = params[:pool_id]
         type.origination_identity = params[:origination_identity]
         type.iso_country_code = params[:iso_country_code]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -1301,7 +1301,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         type.registration_id = params[:registration_id]
         type.deletion_protection_enabled = params[:deletion_protection_enabled]
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end

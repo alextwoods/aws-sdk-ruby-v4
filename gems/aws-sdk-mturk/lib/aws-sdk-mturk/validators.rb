@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::MTurk
   module Validators
 
@@ -61,7 +63,7 @@ module AWS::SDK::MTurk
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Assignment.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Assignment.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -106,7 +108,7 @@ module AWS::SDK::MTurk
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BonusPayment.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BonusPayment.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -139,19 +141,19 @@ module AWS::SDK::MTurk
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:question], ::String, context: "#{context}[:question]")
         Hearth::Validator.validate!(input[:requester_annotation], ::String, context: "#{context}[:requester_annotation]")
-        Validators::QualificationRequirementList.validate!(input[:qualification_requirements], context: "#{context}[:qualification_requirements]") unless input[:qualification_requirements].nil?
+        QualificationRequirementList.validate!(input[:qualification_requirements], context: "#{context}[:qualification_requirements]") unless input[:qualification_requirements].nil?
         Hearth::Validator.validate!(input[:unique_request_token], ::String, context: "#{context}[:unique_request_token]")
-        Validators::ReviewPolicy.validate!(input[:assignment_review_policy], context: "#{context}[:assignment_review_policy]") unless input[:assignment_review_policy].nil?
-        Validators::ReviewPolicy.validate!(input[:hit_review_policy], context: "#{context}[:hit_review_policy]") unless input[:hit_review_policy].nil?
+        ReviewPolicy.validate!(input[:assignment_review_policy], context: "#{context}[:assignment_review_policy]") unless input[:assignment_review_policy].nil?
+        ReviewPolicy.validate!(input[:hit_review_policy], context: "#{context}[:hit_review_policy]") unless input[:hit_review_policy].nil?
         Hearth::Validator.validate!(input[:hit_layout_id], ::String, context: "#{context}[:hit_layout_id]")
-        Validators::HITLayoutParameterList.validate!(input[:hit_layout_parameters], context: "#{context}[:hit_layout_parameters]") unless input[:hit_layout_parameters].nil?
+        HITLayoutParameterList.validate!(input[:hit_layout_parameters], context: "#{context}[:hit_layout_parameters]") unless input[:hit_layout_parameters].nil?
       end
     end
 
     class CreateHITOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateHITOutput, context: context)
-        Validators::HIT.validate!(input[:hit], context: "#{context}[:hit]") unless input[:hit].nil?
+        HIT.validate!(input[:hit], context: "#{context}[:hit]") unless input[:hit].nil?
       end
     end
 
@@ -164,7 +166,7 @@ module AWS::SDK::MTurk
         Hearth::Validator.validate!(input[:title], ::String, context: "#{context}[:title]")
         Hearth::Validator.validate!(input[:keywords], ::String, context: "#{context}[:keywords]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::QualificationRequirementList.validate!(input[:qualification_requirements], context: "#{context}[:qualification_requirements]") unless input[:qualification_requirements].nil?
+        QualificationRequirementList.validate!(input[:qualification_requirements], context: "#{context}[:qualification_requirements]") unless input[:qualification_requirements].nil?
       end
     end
 
@@ -184,17 +186,17 @@ module AWS::SDK::MTurk
         Hearth::Validator.validate!(input[:question], ::String, context: "#{context}[:question]")
         Hearth::Validator.validate!(input[:requester_annotation], ::String, context: "#{context}[:requester_annotation]")
         Hearth::Validator.validate!(input[:unique_request_token], ::String, context: "#{context}[:unique_request_token]")
-        Validators::ReviewPolicy.validate!(input[:assignment_review_policy], context: "#{context}[:assignment_review_policy]") unless input[:assignment_review_policy].nil?
-        Validators::ReviewPolicy.validate!(input[:hit_review_policy], context: "#{context}[:hit_review_policy]") unless input[:hit_review_policy].nil?
+        ReviewPolicy.validate!(input[:assignment_review_policy], context: "#{context}[:assignment_review_policy]") unless input[:assignment_review_policy].nil?
+        ReviewPolicy.validate!(input[:hit_review_policy], context: "#{context}[:hit_review_policy]") unless input[:hit_review_policy].nil?
         Hearth::Validator.validate!(input[:hit_layout_id], ::String, context: "#{context}[:hit_layout_id]")
-        Validators::HITLayoutParameterList.validate!(input[:hit_layout_parameters], context: "#{context}[:hit_layout_parameters]") unless input[:hit_layout_parameters].nil?
+        HITLayoutParameterList.validate!(input[:hit_layout_parameters], context: "#{context}[:hit_layout_parameters]") unless input[:hit_layout_parameters].nil?
       end
     end
 
     class CreateHITWithHITTypeOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateHITWithHITTypeOutput, context: context)
-        Validators::HIT.validate!(input[:hit], context: "#{context}[:hit]") unless input[:hit].nil?
+        HIT.validate!(input[:hit], context: "#{context}[:hit]") unless input[:hit].nil?
       end
     end
 
@@ -217,7 +219,7 @@ module AWS::SDK::MTurk
     class CreateQualificationTypeOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateQualificationTypeOutput, context: context)
-        Validators::QualificationType.validate!(input[:qualification_type], context: "#{context}[:qualification_type]") unless input[:qualification_type].nil?
+        QualificationType.validate!(input[:qualification_type], context: "#{context}[:qualification_type]") unless input[:qualification_type].nil?
       end
     end
 
@@ -332,8 +334,8 @@ module AWS::SDK::MTurk
     class GetAssignmentOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetAssignmentOutput, context: context)
-        Validators::Assignment.validate!(input[:assignment], context: "#{context}[:assignment]") unless input[:assignment].nil?
-        Validators::HIT.validate!(input[:hit], context: "#{context}[:hit]") unless input[:hit].nil?
+        Assignment.validate!(input[:assignment], context: "#{context}[:assignment]") unless input[:assignment].nil?
+        HIT.validate!(input[:hit], context: "#{context}[:hit]") unless input[:hit].nil?
       end
     end
 
@@ -362,7 +364,7 @@ module AWS::SDK::MTurk
     class GetHITOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetHITOutput, context: context)
-        Validators::HIT.validate!(input[:hit], context: "#{context}[:hit]") unless input[:hit].nil?
+        HIT.validate!(input[:hit], context: "#{context}[:hit]") unless input[:hit].nil?
       end
     end
 
@@ -377,7 +379,7 @@ module AWS::SDK::MTurk
     class GetQualificationScoreOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetQualificationScoreOutput, context: context)
-        Validators::Qualification.validate!(input[:qualification], context: "#{context}[:qualification]") unless input[:qualification].nil?
+        Qualification.validate!(input[:qualification], context: "#{context}[:qualification]") unless input[:qualification].nil?
       end
     end
 
@@ -391,7 +393,7 @@ module AWS::SDK::MTurk
     class GetQualificationTypeOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetQualificationTypeOutput, context: context)
-        Validators::QualificationType.validate!(input[:qualification_type], context: "#{context}[:qualification_type]") unless input[:qualification_type].nil?
+        QualificationType.validate!(input[:qualification_type], context: "#{context}[:qualification_type]") unless input[:qualification_type].nil?
       end
     end
 
@@ -414,7 +416,7 @@ module AWS::SDK::MTurk
         Hearth::Validator.validate!(input[:expiration], ::Time, context: "#{context}[:expiration]")
         Hearth::Validator.validate!(input[:assignment_duration_in_seconds], ::Integer, context: "#{context}[:assignment_duration_in_seconds]")
         Hearth::Validator.validate!(input[:requester_annotation], ::String, context: "#{context}[:requester_annotation]")
-        Validators::QualificationRequirementList.validate!(input[:qualification_requirements], context: "#{context}[:qualification_requirements]") unless input[:qualification_requirements].nil?
+        QualificationRequirementList.validate!(input[:qualification_requirements], context: "#{context}[:qualification_requirements]") unless input[:qualification_requirements].nil?
         Hearth::Validator.validate!(input[:hit_review_status], ::String, context: "#{context}[:hit_review_status]")
         Hearth::Validator.validate!(input[:number_of_assignments_pending], ::Integer, context: "#{context}[:number_of_assignments_pending]")
         Hearth::Validator.validate!(input[:number_of_assignments_available], ::Integer, context: "#{context}[:number_of_assignments_available]")
@@ -434,7 +436,7 @@ module AWS::SDK::MTurk
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::HITLayoutParameter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          HITLayoutParameter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -443,7 +445,7 @@ module AWS::SDK::MTurk
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::HIT.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          HIT.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -463,7 +465,7 @@ module AWS::SDK::MTurk
         Hearth::Validator.validate!(input[:hit_id], ::String, context: "#{context}[:hit_id]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
-        Validators::AssignmentStatusList.validate!(input[:assignment_statuses], context: "#{context}[:assignment_statuses]") unless input[:assignment_statuses].nil?
+        AssignmentStatusList.validate!(input[:assignment_statuses], context: "#{context}[:assignment_statuses]") unless input[:assignment_statuses].nil?
       end
     end
 
@@ -472,7 +474,7 @@ module AWS::SDK::MTurk
         Hearth::Validator.validate!(input, Types::ListAssignmentsForHITOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:num_results], ::Integer, context: "#{context}[:num_results]")
-        Validators::AssignmentList.validate!(input[:assignments], context: "#{context}[:assignments]") unless input[:assignments].nil?
+        AssignmentList.validate!(input[:assignments], context: "#{context}[:assignments]") unless input[:assignments].nil?
       end
     end
 
@@ -491,7 +493,7 @@ module AWS::SDK::MTurk
         Hearth::Validator.validate!(input, Types::ListBonusPaymentsOutput, context: context)
         Hearth::Validator.validate!(input[:num_results], ::Integer, context: "#{context}[:num_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::BonusPaymentList.validate!(input[:bonus_payments], context: "#{context}[:bonus_payments]") unless input[:bonus_payments].nil?
+        BonusPaymentList.validate!(input[:bonus_payments], context: "#{context}[:bonus_payments]") unless input[:bonus_payments].nil?
       end
     end
 
@@ -509,7 +511,7 @@ module AWS::SDK::MTurk
         Hearth::Validator.validate!(input, Types::ListHITsForQualificationTypeOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:num_results], ::Integer, context: "#{context}[:num_results]")
-        Validators::HITList.validate!(input[:hi_ts], context: "#{context}[:hi_ts]") unless input[:hi_ts].nil?
+        HITList.validate!(input[:hi_ts], context: "#{context}[:hi_ts]") unless input[:hi_ts].nil?
       end
     end
 
@@ -526,7 +528,7 @@ module AWS::SDK::MTurk
         Hearth::Validator.validate!(input, Types::ListHITsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:num_results], ::Integer, context: "#{context}[:num_results]")
-        Validators::HITList.validate!(input[:hi_ts], context: "#{context}[:hi_ts]") unless input[:hi_ts].nil?
+        HITList.validate!(input[:hi_ts], context: "#{context}[:hi_ts]") unless input[:hi_ts].nil?
       end
     end
 
@@ -544,7 +546,7 @@ module AWS::SDK::MTurk
         Hearth::Validator.validate!(input, Types::ListQualificationRequestsOutput, context: context)
         Hearth::Validator.validate!(input[:num_results], ::Integer, context: "#{context}[:num_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::QualificationRequestList.validate!(input[:qualification_requests], context: "#{context}[:qualification_requests]") unless input[:qualification_requests].nil?
+        QualificationRequestList.validate!(input[:qualification_requests], context: "#{context}[:qualification_requests]") unless input[:qualification_requests].nil?
       end
     end
 
@@ -564,7 +566,7 @@ module AWS::SDK::MTurk
         Hearth::Validator.validate!(input, Types::ListQualificationTypesOutput, context: context)
         Hearth::Validator.validate!(input[:num_results], ::Integer, context: "#{context}[:num_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::QualificationTypeList.validate!(input[:qualification_types], context: "#{context}[:qualification_types]") unless input[:qualification_types].nil?
+        QualificationTypeList.validate!(input[:qualification_types], context: "#{context}[:qualification_types]") unless input[:qualification_types].nil?
       end
     end
 
@@ -572,7 +574,7 @@ module AWS::SDK::MTurk
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListReviewPolicyResultsForHITInput, context: context)
         Hearth::Validator.validate!(input[:hit_id], ::String, context: "#{context}[:hit_id]")
-        Validators::ReviewPolicyLevelList.validate!(input[:policy_levels], context: "#{context}[:policy_levels]") unless input[:policy_levels].nil?
+        ReviewPolicyLevelList.validate!(input[:policy_levels], context: "#{context}[:policy_levels]") unless input[:policy_levels].nil?
         Hearth::Validator.validate!(input[:retrieve_actions], ::TrueClass, ::FalseClass, context: "#{context}[:retrieve_actions]")
         Hearth::Validator.validate!(input[:retrieve_results], ::TrueClass, ::FalseClass, context: "#{context}[:retrieve_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
@@ -584,10 +586,10 @@ module AWS::SDK::MTurk
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListReviewPolicyResultsForHITOutput, context: context)
         Hearth::Validator.validate!(input[:hit_id], ::String, context: "#{context}[:hit_id]")
-        Validators::ReviewPolicy.validate!(input[:assignment_review_policy], context: "#{context}[:assignment_review_policy]") unless input[:assignment_review_policy].nil?
-        Validators::ReviewPolicy.validate!(input[:hit_review_policy], context: "#{context}[:hit_review_policy]") unless input[:hit_review_policy].nil?
-        Validators::ReviewReport.validate!(input[:assignment_review_report], context: "#{context}[:assignment_review_report]") unless input[:assignment_review_report].nil?
-        Validators::ReviewReport.validate!(input[:hit_review_report], context: "#{context}[:hit_review_report]") unless input[:hit_review_report].nil?
+        ReviewPolicy.validate!(input[:assignment_review_policy], context: "#{context}[:assignment_review_policy]") unless input[:assignment_review_policy].nil?
+        ReviewPolicy.validate!(input[:hit_review_policy], context: "#{context}[:hit_review_policy]") unless input[:hit_review_policy].nil?
+        ReviewReport.validate!(input[:assignment_review_report], context: "#{context}[:assignment_review_report]") unless input[:assignment_review_report].nil?
+        ReviewReport.validate!(input[:hit_review_report], context: "#{context}[:hit_review_report]") unless input[:hit_review_report].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -607,7 +609,7 @@ module AWS::SDK::MTurk
         Hearth::Validator.validate!(input, Types::ListReviewableHITsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:num_results], ::Integer, context: "#{context}[:num_results]")
-        Validators::HITList.validate!(input[:hi_ts], context: "#{context}[:hi_ts]") unless input[:hi_ts].nil?
+        HITList.validate!(input[:hi_ts], context: "#{context}[:hi_ts]") unless input[:hi_ts].nil?
       end
     end
 
@@ -624,7 +626,7 @@ module AWS::SDK::MTurk
         Hearth::Validator.validate!(input, Types::ListWorkerBlocksOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:num_results], ::Integer, context: "#{context}[:num_results]")
-        Validators::WorkerBlockList.validate!(input[:worker_blocks], context: "#{context}[:worker_blocks]") unless input[:worker_blocks].nil?
+        WorkerBlockList.validate!(input[:worker_blocks], context: "#{context}[:worker_blocks]") unless input[:worker_blocks].nil?
       end
     end
 
@@ -643,7 +645,7 @@ module AWS::SDK::MTurk
         Hearth::Validator.validate!(input, Types::ListWorkersWithQualificationTypeOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:num_results], ::Integer, context: "#{context}[:num_results]")
-        Validators::QualificationList.validate!(input[:qualifications], context: "#{context}[:qualifications]") unless input[:qualifications].nil?
+        QualificationList.validate!(input[:qualifications], context: "#{context}[:qualifications]") unless input[:qualifications].nil?
       end
     end
 
@@ -659,7 +661,7 @@ module AWS::SDK::MTurk
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Locale.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Locale.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -670,7 +672,7 @@ module AWS::SDK::MTurk
         Hearth::Validator.validate!(input[:destination], ::String, context: "#{context}[:destination]")
         Hearth::Validator.validate!(input[:transport], ::String, context: "#{context}[:transport]")
         Hearth::Validator.validate!(input[:version], ::String, context: "#{context}[:version]")
-        Validators::EventTypeList.validate!(input[:event_types], context: "#{context}[:event_types]") unless input[:event_types].nil?
+        EventTypeList.validate!(input[:event_types], context: "#{context}[:event_types]") unless input[:event_types].nil?
       end
     end
 
@@ -687,7 +689,7 @@ module AWS::SDK::MTurk
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::NotifyWorkersFailureStatus.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          NotifyWorkersFailureStatus.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -697,14 +699,14 @@ module AWS::SDK::MTurk
         Hearth::Validator.validate!(input, Types::NotifyWorkersInput, context: context)
         Hearth::Validator.validate!(input[:subject], ::String, context: "#{context}[:subject]")
         Hearth::Validator.validate!(input[:message_text], ::String, context: "#{context}[:message_text]")
-        Validators::CustomerIdList.validate!(input[:worker_ids], context: "#{context}[:worker_ids]") unless input[:worker_ids].nil?
+        CustomerIdList.validate!(input[:worker_ids], context: "#{context}[:worker_ids]") unless input[:worker_ids].nil?
       end
     end
 
     class NotifyWorkersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::NotifyWorkersOutput, context: context)
-        Validators::NotifyWorkersFailureStatusList.validate!(input[:notify_workers_failure_statuses], context: "#{context}[:notify_workers_failure_statuses]") unless input[:notify_workers_failure_statuses].nil?
+        NotifyWorkersFailureStatusList.validate!(input[:notify_workers_failure_statuses], context: "#{context}[:notify_workers_failure_statuses]") unless input[:notify_workers_failure_statuses].nil?
       end
     end
 
@@ -712,7 +714,7 @@ module AWS::SDK::MTurk
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ParameterMapEntry, context: context)
         Hearth::Validator.validate!(input[:key], ::String, context: "#{context}[:key]")
-        Validators::StringList.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        StringList.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
       end
     end
 
@@ -720,7 +722,7 @@ module AWS::SDK::MTurk
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ParameterMapEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ParameterMapEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -729,8 +731,8 @@ module AWS::SDK::MTurk
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PolicyParameter, context: context)
         Hearth::Validator.validate!(input[:key], ::String, context: "#{context}[:key]")
-        Validators::StringList.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
-        Validators::ParameterMapEntryList.validate!(input[:map_entries], context: "#{context}[:map_entries]") unless input[:map_entries].nil?
+        StringList.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        ParameterMapEntryList.validate!(input[:map_entries], context: "#{context}[:map_entries]") unless input[:map_entries].nil?
       end
     end
 
@@ -738,7 +740,7 @@ module AWS::SDK::MTurk
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PolicyParameter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PolicyParameter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -750,7 +752,7 @@ module AWS::SDK::MTurk
         Hearth::Validator.validate!(input[:worker_id], ::String, context: "#{context}[:worker_id]")
         Hearth::Validator.validate!(input[:grant_time], ::Time, context: "#{context}[:grant_time]")
         Hearth::Validator.validate!(input[:integer_value], ::Integer, context: "#{context}[:integer_value]")
-        Validators::Locale.validate!(input[:locale_value], context: "#{context}[:locale_value]") unless input[:locale_value].nil?
+        Locale.validate!(input[:locale_value], context: "#{context}[:locale_value]") unless input[:locale_value].nil?
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
       end
     end
@@ -759,7 +761,7 @@ module AWS::SDK::MTurk
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Qualification.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Qualification.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -780,7 +782,7 @@ module AWS::SDK::MTurk
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::QualificationRequest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          QualificationRequest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -790,8 +792,8 @@ module AWS::SDK::MTurk
         Hearth::Validator.validate!(input, Types::QualificationRequirement, context: context)
         Hearth::Validator.validate!(input[:qualification_type_id], ::String, context: "#{context}[:qualification_type_id]")
         Hearth::Validator.validate!(input[:comparator], ::String, context: "#{context}[:comparator]")
-        Validators::IntegerList.validate!(input[:integer_values], context: "#{context}[:integer_values]") unless input[:integer_values].nil?
-        Validators::LocaleList.validate!(input[:locale_values], context: "#{context}[:locale_values]") unless input[:locale_values].nil?
+        IntegerList.validate!(input[:integer_values], context: "#{context}[:integer_values]") unless input[:integer_values].nil?
+        LocaleList.validate!(input[:locale_values], context: "#{context}[:locale_values]") unless input[:locale_values].nil?
         Hearth::Validator.validate!(input[:required_to_preview], ::TrueClass, ::FalseClass, context: "#{context}[:required_to_preview]")
         Hearth::Validator.validate!(input[:actions_guarded], ::String, context: "#{context}[:actions_guarded]")
       end
@@ -801,7 +803,7 @@ module AWS::SDK::MTurk
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::QualificationRequirement.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          QualificationRequirement.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -829,7 +831,7 @@ module AWS::SDK::MTurk
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::QualificationType.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          QualificationType.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -888,7 +890,7 @@ module AWS::SDK::MTurk
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ReviewActionDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ReviewActionDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -897,7 +899,7 @@ module AWS::SDK::MTurk
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ReviewPolicy, context: context)
         Hearth::Validator.validate!(input[:policy_name], ::String, context: "#{context}[:policy_name]")
-        Validators::PolicyParameterList.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
+        PolicyParameterList.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
       end
     end
 
@@ -913,8 +915,8 @@ module AWS::SDK::MTurk
     class ReviewReport
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ReviewReport, context: context)
-        Validators::ReviewResultDetailList.validate!(input[:review_results], context: "#{context}[:review_results]") unless input[:review_results].nil?
-        Validators::ReviewActionDetailList.validate!(input[:review_actions], context: "#{context}[:review_actions]") unless input[:review_actions].nil?
+        ReviewResultDetailList.validate!(input[:review_results], context: "#{context}[:review_results]") unless input[:review_results].nil?
+        ReviewActionDetailList.validate!(input[:review_actions], context: "#{context}[:review_actions]") unless input[:review_actions].nil?
       end
     end
 
@@ -934,7 +936,7 @@ module AWS::SDK::MTurk
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ReviewResultDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ReviewResultDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -959,7 +961,7 @@ module AWS::SDK::MTurk
     class SendTestEventNotificationInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SendTestEventNotificationInput, context: context)
-        Validators::NotificationSpecification.validate!(input[:notification], context: "#{context}[:notification]") unless input[:notification].nil?
+        NotificationSpecification.validate!(input[:notification], context: "#{context}[:notification]") unless input[:notification].nil?
         Hearth::Validator.validate!(input[:test_event_type], ::String, context: "#{context}[:test_event_type]")
       end
     end
@@ -1033,7 +1035,7 @@ module AWS::SDK::MTurk
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateNotificationSettingsInput, context: context)
         Hearth::Validator.validate!(input[:hit_type_id], ::String, context: "#{context}[:hit_type_id]")
-        Validators::NotificationSpecification.validate!(input[:notification], context: "#{context}[:notification]") unless input[:notification].nil?
+        NotificationSpecification.validate!(input[:notification], context: "#{context}[:notification]") unless input[:notification].nil?
         Hearth::Validator.validate!(input[:active], ::TrueClass, ::FalseClass, context: "#{context}[:active]")
       end
     end
@@ -1062,7 +1064,7 @@ module AWS::SDK::MTurk
     class UpdateQualificationTypeOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateQualificationTypeOutput, context: context)
-        Validators::QualificationType.validate!(input[:qualification_type], context: "#{context}[:qualification_type]") unless input[:qualification_type].nil?
+        QualificationType.validate!(input[:qualification_type], context: "#{context}[:qualification_type]") unless input[:qualification_type].nil?
       end
     end
 
@@ -1078,7 +1080,7 @@ module AWS::SDK::MTurk
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::WorkerBlock.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          WorkerBlock.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

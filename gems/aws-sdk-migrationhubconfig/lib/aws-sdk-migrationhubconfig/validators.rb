@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::MigrationHubConfig
   module Validators
 
@@ -21,7 +23,7 @@ module AWS::SDK::MigrationHubConfig
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateHomeRegionControlInput, context: context)
         Hearth::Validator.validate!(input[:home_region], ::String, context: "#{context}[:home_region]")
-        Validators::Target.validate!(input[:target], context: "#{context}[:target]") unless input[:target].nil?
+        Target.validate!(input[:target], context: "#{context}[:target]") unless input[:target].nil?
         Hearth::Validator.validate!(input[:dry_run], ::TrueClass, ::FalseClass, context: "#{context}[:dry_run]")
       end
     end
@@ -29,7 +31,7 @@ module AWS::SDK::MigrationHubConfig
     class CreateHomeRegionControlOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateHomeRegionControlOutput, context: context)
-        Validators::HomeRegionControl.validate!(input[:home_region_control], context: "#{context}[:home_region_control]") unless input[:home_region_control].nil?
+        HomeRegionControl.validate!(input[:home_region_control], context: "#{context}[:home_region_control]") unless input[:home_region_control].nil?
       end
     end
 
@@ -38,7 +40,7 @@ module AWS::SDK::MigrationHubConfig
         Hearth::Validator.validate!(input, Types::DescribeHomeRegionControlsInput, context: context)
         Hearth::Validator.validate!(input[:control_id], ::String, context: "#{context}[:control_id]")
         Hearth::Validator.validate!(input[:home_region], ::String, context: "#{context}[:home_region]")
-        Validators::Target.validate!(input[:target], context: "#{context}[:target]") unless input[:target].nil?
+        Target.validate!(input[:target], context: "#{context}[:target]") unless input[:target].nil?
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -47,7 +49,7 @@ module AWS::SDK::MigrationHubConfig
     class DescribeHomeRegionControlsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeHomeRegionControlsOutput, context: context)
-        Validators::HomeRegionControls.validate!(input[:home_region_controls], context: "#{context}[:home_region_controls]") unless input[:home_region_controls].nil?
+        HomeRegionControls.validate!(input[:home_region_controls], context: "#{context}[:home_region_controls]") unless input[:home_region_controls].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -77,7 +79,7 @@ module AWS::SDK::MigrationHubConfig
         Hearth::Validator.validate!(input, Types::HomeRegionControl, context: context)
         Hearth::Validator.validate!(input[:control_id], ::String, context: "#{context}[:control_id]")
         Hearth::Validator.validate!(input[:home_region], ::String, context: "#{context}[:home_region]")
-        Validators::Target.validate!(input[:target], context: "#{context}[:target]") unless input[:target].nil?
+        Target.validate!(input[:target], context: "#{context}[:target]") unless input[:target].nil?
         Hearth::Validator.validate!(input[:requested_time], ::Time, context: "#{context}[:requested_time]")
       end
     end
@@ -86,7 +88,7 @@ module AWS::SDK::MigrationHubConfig
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::HomeRegionControl.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          HomeRegionControl.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

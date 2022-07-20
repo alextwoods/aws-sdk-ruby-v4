@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::KinesisVideo
@@ -81,7 +83,7 @@ module AWS::SDK::KinesisVideo
     def create_signaling_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateSignalingChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateSignalingChannelInput,
         validate_input: @config.validate_input
@@ -203,7 +205,7 @@ module AWS::SDK::KinesisVideo
     def create_stream(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateStreamInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateStreamInput,
         validate_input: @config.validate_input
@@ -280,7 +282,7 @@ module AWS::SDK::KinesisVideo
     def delete_signaling_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteSignalingChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteSignalingChannelInput,
         validate_input: @config.validate_input
@@ -365,7 +367,7 @@ module AWS::SDK::KinesisVideo
     def delete_stream(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteStreamInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteStreamInput,
         validate_input: @config.validate_input
@@ -449,7 +451,7 @@ module AWS::SDK::KinesisVideo
     def describe_image_generation_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeImageGenerationConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeImageGenerationConfigurationInput,
         validate_input: @config.validate_input
@@ -525,7 +527,7 @@ module AWS::SDK::KinesisVideo
     def describe_notification_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeNotificationConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeNotificationConfigurationInput,
         validate_input: @config.validate_input
@@ -608,7 +610,7 @@ module AWS::SDK::KinesisVideo
     def describe_signaling_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeSignalingChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeSignalingChannelInput,
         validate_input: @config.validate_input
@@ -691,7 +693,7 @@ module AWS::SDK::KinesisVideo
     def describe_stream(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeStreamInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeStreamInput,
         validate_input: @config.validate_input
@@ -782,7 +784,7 @@ module AWS::SDK::KinesisVideo
     def get_data_endpoint(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDataEndpointInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDataEndpointInput,
         validate_input: @config.validate_input
@@ -878,7 +880,7 @@ module AWS::SDK::KinesisVideo
     def get_signaling_channel_endpoint(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSignalingChannelEndpointInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSignalingChannelEndpointInput,
         validate_input: @config.validate_input
@@ -972,7 +974,7 @@ module AWS::SDK::KinesisVideo
     def list_signaling_channels(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListSignalingChannelsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListSignalingChannelsInput,
         validate_input: @config.validate_input
@@ -1069,7 +1071,7 @@ module AWS::SDK::KinesisVideo
     def list_streams(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListStreamsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListStreamsInput,
         validate_input: @config.validate_input
@@ -1147,7 +1149,7 @@ module AWS::SDK::KinesisVideo
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -1231,7 +1233,7 @@ module AWS::SDK::KinesisVideo
     def list_tags_for_stream(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForStreamInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForStreamInput,
         validate_input: @config.validate_input
@@ -1315,7 +1317,7 @@ module AWS::SDK::KinesisVideo
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -1404,7 +1406,7 @@ module AWS::SDK::KinesisVideo
     def tag_stream(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagStreamInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagStreamInput,
         validate_input: @config.validate_input
@@ -1481,7 +1483,7 @@ module AWS::SDK::KinesisVideo
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -1564,7 +1566,7 @@ module AWS::SDK::KinesisVideo
     def untag_stream(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagStreamInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagStreamInput,
         validate_input: @config.validate_input
@@ -1678,7 +1680,7 @@ module AWS::SDK::KinesisVideo
     def update_data_retention(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDataRetentionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDataRetentionInput,
         validate_input: @config.validate_input
@@ -1769,7 +1771,7 @@ module AWS::SDK::KinesisVideo
     def update_image_generation_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateImageGenerationConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateImageGenerationConfigurationInput,
         validate_input: @config.validate_input
@@ -1850,7 +1852,7 @@ module AWS::SDK::KinesisVideo
     def update_notification_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateNotificationConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateNotificationConfigurationInput,
         validate_input: @config.validate_input
@@ -1935,7 +1937,7 @@ module AWS::SDK::KinesisVideo
     def update_signaling_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateSignalingChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateSignalingChannelInput,
         validate_input: @config.validate_input
@@ -2041,7 +2043,7 @@ module AWS::SDK::KinesisVideo
     def update_stream(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateStreamInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateStreamInput,
         validate_input: @config.validate_input

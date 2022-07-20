@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::RoboMaker
@@ -61,7 +63,7 @@ module AWS::SDK::RoboMaker
     def batch_delete_worlds(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchDeleteWorldsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchDeleteWorldsInput,
         validate_input: @config.validate_input
@@ -223,7 +225,7 @@ module AWS::SDK::RoboMaker
     def batch_describe_simulation_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchDescribeSimulationJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchDescribeSimulationJobInput,
         validate_input: @config.validate_input
@@ -297,7 +299,7 @@ module AWS::SDK::RoboMaker
     def cancel_deployment_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelDeploymentJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelDeploymentJobInput,
         validate_input: @config.validate_input
@@ -365,7 +367,7 @@ module AWS::SDK::RoboMaker
     def cancel_simulation_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelSimulationJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelSimulationJobInput,
         validate_input: @config.validate_input
@@ -434,7 +436,7 @@ module AWS::SDK::RoboMaker
     def cancel_simulation_job_batch(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelSimulationJobBatchInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelSimulationJobBatchInput,
         validate_input: @config.validate_input
@@ -502,7 +504,7 @@ module AWS::SDK::RoboMaker
     def cancel_world_export_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelWorldExportJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelWorldExportJobInput,
         validate_input: @config.validate_input
@@ -570,7 +572,7 @@ module AWS::SDK::RoboMaker
     def cancel_world_generation_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelWorldGenerationJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelWorldGenerationJobInput,
         validate_input: @config.validate_input
@@ -721,7 +723,7 @@ module AWS::SDK::RoboMaker
     def create_deployment_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDeploymentJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDeploymentJobInput,
         validate_input: @config.validate_input
@@ -806,7 +808,7 @@ module AWS::SDK::RoboMaker
     def create_fleet(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateFleetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateFleetInput,
         validate_input: @config.validate_input
@@ -901,7 +903,7 @@ module AWS::SDK::RoboMaker
     def create_robot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateRobotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateRobotInput,
         validate_input: @config.validate_input
@@ -1018,7 +1020,7 @@ module AWS::SDK::RoboMaker
     def create_robot_application(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateRobotApplicationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateRobotApplicationInput,
         validate_input: @config.validate_input
@@ -1118,7 +1120,7 @@ module AWS::SDK::RoboMaker
     def create_robot_application_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateRobotApplicationVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateRobotApplicationVersionInput,
         validate_input: @config.validate_input
@@ -1255,7 +1257,7 @@ module AWS::SDK::RoboMaker
     def create_simulation_application(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateSimulationApplicationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateSimulationApplicationInput,
         validate_input: @config.validate_input
@@ -1362,7 +1364,7 @@ module AWS::SDK::RoboMaker
     def create_simulation_application_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateSimulationApplicationVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateSimulationApplicationVersionInput,
         validate_input: @config.validate_input
@@ -1668,7 +1670,7 @@ module AWS::SDK::RoboMaker
     def create_simulation_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateSimulationJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateSimulationJobInput,
         validate_input: @config.validate_input
@@ -1773,7 +1775,7 @@ module AWS::SDK::RoboMaker
     def create_world_export_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateWorldExportJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateWorldExportJobInput,
         validate_input: @config.validate_input
@@ -1877,7 +1879,7 @@ module AWS::SDK::RoboMaker
     def create_world_generation_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateWorldGenerationJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateWorldGenerationJobInput,
         validate_input: @config.validate_input
@@ -1974,7 +1976,7 @@ module AWS::SDK::RoboMaker
     def create_world_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateWorldTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateWorldTemplateInput,
         validate_input: @config.validate_input
@@ -2048,7 +2050,7 @@ module AWS::SDK::RoboMaker
     def delete_fleet(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteFleetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteFleetInput,
         validate_input: @config.validate_input
@@ -2122,7 +2124,7 @@ module AWS::SDK::RoboMaker
     def delete_robot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteRobotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteRobotInput,
         validate_input: @config.validate_input
@@ -2194,7 +2196,7 @@ module AWS::SDK::RoboMaker
     def delete_robot_application(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteRobotApplicationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteRobotApplicationInput,
         validate_input: @config.validate_input
@@ -2266,7 +2268,7 @@ module AWS::SDK::RoboMaker
     def delete_simulation_application(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteSimulationApplicationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteSimulationApplicationInput,
         validate_input: @config.validate_input
@@ -2334,7 +2336,7 @@ module AWS::SDK::RoboMaker
     def delete_world_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteWorldTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteWorldTemplateInput,
         validate_input: @config.validate_input
@@ -2414,7 +2416,7 @@ module AWS::SDK::RoboMaker
     def deregister_robot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeregisterRobotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeregisterRobotInput,
         validate_input: @config.validate_input
@@ -2528,7 +2530,7 @@ module AWS::SDK::RoboMaker
     def describe_deployment_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDeploymentJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDeploymentJobInput,
         validate_input: @config.validate_input
@@ -2621,7 +2623,7 @@ module AWS::SDK::RoboMaker
     def describe_fleet(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeFleetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeFleetInput,
         validate_input: @config.validate_input
@@ -2706,7 +2708,7 @@ module AWS::SDK::RoboMaker
     def describe_robot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeRobotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeRobotInput,
         validate_input: @config.validate_input
@@ -2797,7 +2799,7 @@ module AWS::SDK::RoboMaker
     def describe_robot_application(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeRobotApplicationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeRobotApplicationInput,
         validate_input: @config.validate_input
@@ -2894,7 +2896,7 @@ module AWS::SDK::RoboMaker
     def describe_simulation_application(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeSimulationApplicationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeSimulationApplicationInput,
         validate_input: @config.validate_input
@@ -3050,7 +3052,7 @@ module AWS::SDK::RoboMaker
     def describe_simulation_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeSimulationJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeSimulationJobInput,
         validate_input: @config.validate_input
@@ -3222,7 +3224,7 @@ module AWS::SDK::RoboMaker
     def describe_simulation_job_batch(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeSimulationJobBatchInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeSimulationJobBatchInput,
         validate_input: @config.validate_input
@@ -3297,7 +3299,7 @@ module AWS::SDK::RoboMaker
     def describe_world(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeWorldInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeWorldInput,
         validate_input: @config.validate_input
@@ -3379,7 +3381,7 @@ module AWS::SDK::RoboMaker
     def describe_world_export_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeWorldExportJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeWorldExportJobInput,
         validate_input: @config.validate_input
@@ -3471,7 +3473,7 @@ module AWS::SDK::RoboMaker
     def describe_world_generation_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeWorldGenerationJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeWorldGenerationJobInput,
         validate_input: @config.validate_input
@@ -3547,7 +3549,7 @@ module AWS::SDK::RoboMaker
     def describe_world_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeWorldTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeWorldTemplateInput,
         validate_input: @config.validate_input
@@ -3620,7 +3622,7 @@ module AWS::SDK::RoboMaker
     def get_world_template_body(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetWorldTemplateBodyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetWorldTemplateBodyInput,
         validate_input: @config.validate_input
@@ -3751,7 +3753,7 @@ module AWS::SDK::RoboMaker
     def list_deployment_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDeploymentJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDeploymentJobsInput,
         validate_input: @config.validate_input
@@ -3865,7 +3867,7 @@ module AWS::SDK::RoboMaker
     def list_fleets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListFleetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListFleetsInput,
         validate_input: @config.validate_input
@@ -3975,7 +3977,7 @@ module AWS::SDK::RoboMaker
     def list_robot_applications(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListRobotApplicationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListRobotApplicationsInput,
         validate_input: @config.validate_input
@@ -4090,7 +4092,7 @@ module AWS::SDK::RoboMaker
     def list_robots(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListRobotsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListRobotsInput,
         validate_input: @config.validate_input
@@ -4203,7 +4205,7 @@ module AWS::SDK::RoboMaker
     def list_simulation_applications(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListSimulationApplicationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListSimulationApplicationsInput,
         validate_input: @config.validate_input
@@ -4305,7 +4307,7 @@ module AWS::SDK::RoboMaker
     def list_simulation_job_batches(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListSimulationJobBatchesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListSimulationJobBatchesInput,
         validate_input: @config.validate_input
@@ -4418,7 +4420,7 @@ module AWS::SDK::RoboMaker
     def list_simulation_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListSimulationJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListSimulationJobsInput,
         validate_input: @config.validate_input
@@ -4488,7 +4490,7 @@ module AWS::SDK::RoboMaker
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -4592,7 +4594,7 @@ module AWS::SDK::RoboMaker
     def list_world_export_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListWorldExportJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListWorldExportJobsInput,
         validate_input: @config.validate_input
@@ -4698,7 +4700,7 @@ module AWS::SDK::RoboMaker
     def list_world_generation_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListWorldGenerationJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListWorldGenerationJobsInput,
         validate_input: @config.validate_input
@@ -4788,7 +4790,7 @@ module AWS::SDK::RoboMaker
     def list_world_templates(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListWorldTemplatesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListWorldTemplatesInput,
         validate_input: @config.validate_input
@@ -4888,7 +4890,7 @@ module AWS::SDK::RoboMaker
     def list_worlds(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListWorldsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListWorldsInput,
         validate_input: @config.validate_input
@@ -4968,7 +4970,7 @@ module AWS::SDK::RoboMaker
     def register_robot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RegisterRobotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RegisterRobotInput,
         validate_input: @config.validate_input
@@ -5036,7 +5038,7 @@ module AWS::SDK::RoboMaker
     def restart_simulation_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RestartSimulationJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RestartSimulationJobInput,
         validate_input: @config.validate_input
@@ -5323,7 +5325,7 @@ module AWS::SDK::RoboMaker
     def start_simulation_job_batch(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartSimulationJobBatchInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartSimulationJobBatchInput,
         validate_input: @config.validate_input
@@ -5427,7 +5429,7 @@ module AWS::SDK::RoboMaker
     def sync_deployment_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SyncDeploymentJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SyncDeploymentJobInput,
         validate_input: @config.validate_input
@@ -5505,7 +5507,7 @@ module AWS::SDK::RoboMaker
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -5585,7 +5587,7 @@ module AWS::SDK::RoboMaker
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -5695,7 +5697,7 @@ module AWS::SDK::RoboMaker
     def update_robot_application(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateRobotApplicationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateRobotApplicationInput,
         validate_input: @config.validate_input
@@ -5826,7 +5828,7 @@ module AWS::SDK::RoboMaker
     def update_simulation_application(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateSimulationApplicationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateSimulationApplicationInput,
         validate_input: @config.validate_input
@@ -5913,7 +5915,7 @@ module AWS::SDK::RoboMaker
     def update_world_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateWorldTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateWorldTemplateInput,
         validate_input: @config.validate_input

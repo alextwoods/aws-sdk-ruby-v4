@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::WorkDocs
@@ -100,7 +102,7 @@ module AWS::SDK::WorkDocs
     def abort_document_version_upload(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AbortDocumentVersionUploadInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AbortDocumentVersionUploadInput,
         validate_input: @config.validate_input
@@ -192,7 +194,7 @@ module AWS::SDK::WorkDocs
     def activate_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ActivateUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ActivateUserInput,
         validate_input: @config.validate_input
@@ -290,7 +292,7 @@ module AWS::SDK::WorkDocs
     def add_resource_permissions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AddResourcePermissionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AddResourcePermissionsInput,
         validate_input: @config.validate_input
@@ -418,7 +420,7 @@ module AWS::SDK::WorkDocs
     def create_comment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateCommentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateCommentInput,
         validate_input: @config.validate_input
@@ -502,7 +504,7 @@ module AWS::SDK::WorkDocs
     def create_custom_metadata(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateCustomMetadataInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateCustomMetadataInput,
         validate_input: @config.validate_input
@@ -591,7 +593,7 @@ module AWS::SDK::WorkDocs
     def create_folder(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateFolderInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateFolderInput,
         validate_input: @config.validate_input
@@ -670,7 +672,7 @@ module AWS::SDK::WorkDocs
     def create_labels(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateLabelsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateLabelsInput,
         validate_input: @config.validate_input
@@ -760,7 +762,7 @@ module AWS::SDK::WorkDocs
     def create_notification_subscription(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateNotificationSubscriptionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateNotificationSubscriptionInput,
         validate_input: @config.validate_input
@@ -884,7 +886,7 @@ module AWS::SDK::WorkDocs
     def create_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateUserInput,
         validate_input: @config.validate_input
@@ -957,7 +959,7 @@ module AWS::SDK::WorkDocs
     def deactivate_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeactivateUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeactivateUserInput,
         validate_input: @config.validate_input
@@ -1036,7 +1038,7 @@ module AWS::SDK::WorkDocs
     def delete_comment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteCommentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteCommentInput,
         validate_input: @config.validate_input
@@ -1123,7 +1125,7 @@ module AWS::SDK::WorkDocs
     def delete_custom_metadata(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteCustomMetadataInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteCustomMetadataInput,
         validate_input: @config.validate_input
@@ -1194,7 +1196,7 @@ module AWS::SDK::WorkDocs
     def delete_document(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDocumentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDocumentInput,
         validate_input: @config.validate_input
@@ -1265,7 +1267,7 @@ module AWS::SDK::WorkDocs
     def delete_folder(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteFolderInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteFolderInput,
         validate_input: @config.validate_input
@@ -1336,7 +1338,7 @@ module AWS::SDK::WorkDocs
     def delete_folder_contents(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteFolderContentsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteFolderContentsInput,
         validate_input: @config.validate_input
@@ -1417,7 +1419,7 @@ module AWS::SDK::WorkDocs
     def delete_labels(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteLabelsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteLabelsInput,
         validate_input: @config.validate_input
@@ -1488,7 +1490,7 @@ module AWS::SDK::WorkDocs
     def delete_notification_subscription(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteNotificationSubscriptionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteNotificationSubscriptionInput,
         validate_input: @config.validate_input
@@ -1560,7 +1562,7 @@ module AWS::SDK::WorkDocs
     def delete_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteUserInput,
         validate_input: @config.validate_input
@@ -1725,7 +1727,7 @@ module AWS::SDK::WorkDocs
     def describe_activities(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeActivitiesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeActivitiesInput,
         validate_input: @config.validate_input
@@ -1840,7 +1842,7 @@ module AWS::SDK::WorkDocs
     def describe_comments(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeCommentsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeCommentsInput,
         validate_input: @config.validate_input
@@ -1949,7 +1951,7 @@ module AWS::SDK::WorkDocs
     def describe_document_versions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDocumentVersionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDocumentVersionsInput,
         validate_input: @config.validate_input
@@ -2091,7 +2093,7 @@ module AWS::SDK::WorkDocs
     def describe_folder_contents(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeFolderContentsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeFolderContentsInput,
         validate_input: @config.validate_input
@@ -2181,7 +2183,7 @@ module AWS::SDK::WorkDocs
     def describe_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeGroupsInput,
         validate_input: @config.validate_input
@@ -2263,7 +2265,7 @@ module AWS::SDK::WorkDocs
     def describe_notification_subscriptions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeNotificationSubscriptionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeNotificationSubscriptionsInput,
         validate_input: @config.validate_input
@@ -2356,7 +2358,7 @@ module AWS::SDK::WorkDocs
     def describe_resource_permissions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeResourcePermissionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeResourcePermissionsInput,
         validate_input: @config.validate_input
@@ -2455,7 +2457,7 @@ module AWS::SDK::WorkDocs
     def describe_root_folders(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeRootFoldersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeRootFoldersInput,
         validate_input: @config.validate_input
@@ -2587,7 +2589,7 @@ module AWS::SDK::WorkDocs
     def describe_users(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeUsersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeUsersInput,
         validate_input: @config.validate_input
@@ -2680,7 +2682,7 @@ module AWS::SDK::WorkDocs
     def get_current_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCurrentUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCurrentUserInput,
         validate_input: @config.validate_input
@@ -2782,7 +2784,7 @@ module AWS::SDK::WorkDocs
     def get_document(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDocumentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDocumentInput,
         validate_input: @config.validate_input
@@ -2876,7 +2878,7 @@ module AWS::SDK::WorkDocs
     def get_document_path(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDocumentPathInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDocumentPathInput,
         validate_input: @config.validate_input
@@ -2978,7 +2980,7 @@ module AWS::SDK::WorkDocs
     def get_document_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDocumentVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDocumentVersionInput,
         validate_input: @config.validate_input
@@ -3068,7 +3070,7 @@ module AWS::SDK::WorkDocs
     def get_folder(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetFolderInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetFolderInput,
         validate_input: @config.validate_input
@@ -3162,7 +3164,7 @@ module AWS::SDK::WorkDocs
     def get_folder_path(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetFolderPathInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetFolderPathInput,
         validate_input: @config.validate_input
@@ -3287,7 +3289,7 @@ module AWS::SDK::WorkDocs
     def get_resources(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetResourcesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetResourcesInput,
         validate_input: @config.validate_input
@@ -3416,7 +3418,7 @@ module AWS::SDK::WorkDocs
     def initiate_document_version_upload(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::InitiateDocumentVersionUploadInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::InitiateDocumentVersionUploadInput,
         validate_input: @config.validate_input
@@ -3488,7 +3490,7 @@ module AWS::SDK::WorkDocs
     def remove_all_resource_permissions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RemoveAllResourcePermissionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RemoveAllResourcePermissionsInput,
         validate_input: @config.validate_input
@@ -3568,7 +3570,7 @@ module AWS::SDK::WorkDocs
     def remove_resource_permission(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RemoveResourcePermissionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RemoveResourcePermissionInput,
         validate_input: @config.validate_input
@@ -3653,7 +3655,7 @@ module AWS::SDK::WorkDocs
     def update_document(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDocumentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDocumentInput,
         validate_input: @config.validate_input
@@ -3736,7 +3738,7 @@ module AWS::SDK::WorkDocs
     def update_document_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDocumentVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDocumentVersionInput,
         validate_input: @config.validate_input
@@ -3822,7 +3824,7 @@ module AWS::SDK::WorkDocs
     def update_folder(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateFolderInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateFolderInput,
         validate_input: @config.validate_input
@@ -3946,7 +3948,7 @@ module AWS::SDK::WorkDocs
     def update_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateUserInput,
         validate_input: @config.validate_input

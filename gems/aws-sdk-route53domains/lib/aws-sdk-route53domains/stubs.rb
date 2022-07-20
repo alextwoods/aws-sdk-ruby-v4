@@ -62,7 +62,7 @@ module AWS::SDK::Route53Domains
     class CheckDomainTransferability
       def self.default(visited=[])
         {
-          transferability: Stubs::DomainTransferability.default(visited),
+          transferability: DomainTransferability.default(visited),
         }
       end
 
@@ -205,11 +205,11 @@ module AWS::SDK::Route53Domains
       def self.default(visited=[])
         {
           domain_name: 'domain_name',
-          nameservers: Stubs::NameserverList.default(visited),
+          nameservers: NameserverList.default(visited),
           auto_renew: false,
-          admin_contact: Stubs::ContactDetail.default(visited),
-          registrant_contact: Stubs::ContactDetail.default(visited),
-          tech_contact: Stubs::ContactDetail.default(visited),
+          admin_contact: ContactDetail.default(visited),
+          registrant_contact: ContactDetail.default(visited),
+          tech_contact: ContactDetail.default(visited),
           admin_privacy: false,
           registrant_privacy: false,
           tech_privacy: false,
@@ -224,7 +224,7 @@ module AWS::SDK::Route53Domains
           expiration_date: Time.now,
           reseller: 'reseller',
           dns_sec: 'dns_sec',
-          status_list: Stubs::DomainStatusList.default(visited),
+          status_list: DomainStatusList.default(visited),
         }
       end
 
@@ -295,7 +295,7 @@ module AWS::SDK::Route53Domains
           phone_number: 'phone_number',
           email: 'email',
           fax: 'fax',
-          extra_params: Stubs::ExtraParamList.default(visited),
+          extra_params: ExtraParamList.default(visited),
         }
       end
 
@@ -326,7 +326,7 @@ module AWS::SDK::Route53Domains
         return nil if visited.include?('ExtraParamList')
         visited = visited + ['ExtraParamList']
         [
-          Stubs::ExtraParam.default(visited)
+          ExtraParam.default(visited)
         ]
       end
 
@@ -366,7 +366,7 @@ module AWS::SDK::Route53Domains
         return nil if visited.include?('NameserverList')
         visited = visited + ['NameserverList']
         [
-          Stubs::Nameserver.default(visited)
+          Nameserver.default(visited)
         ]
       end
 
@@ -387,7 +387,7 @@ module AWS::SDK::Route53Domains
         visited = visited + ['Nameserver']
         {
           name: 'name',
-          glue_ips: Stubs::GlueIpList.default(visited),
+          glue_ips: GlueIpList.default(visited),
         }
       end
 
@@ -424,7 +424,7 @@ module AWS::SDK::Route53Domains
     class GetDomainSuggestions
       def self.default(visited=[])
         {
-          suggestions_list: Stubs::DomainSuggestionsList.default(visited),
+          suggestions_list: DomainSuggestionsList.default(visited),
         }
       end
 
@@ -442,7 +442,7 @@ module AWS::SDK::Route53Domains
         return nil if visited.include?('DomainSuggestionsList')
         visited = visited + ['DomainSuggestionsList']
         [
-          Stubs::DomainSuggestion.default(visited)
+          DomainSuggestion.default(visited)
         ]
       end
 
@@ -506,7 +506,7 @@ module AWS::SDK::Route53Domains
     class ListDomains
       def self.default(visited=[])
         {
-          domains: Stubs::DomainSummaryList.default(visited),
+          domains: DomainSummaryList.default(visited),
           next_page_marker: 'next_page_marker',
         }
       end
@@ -526,7 +526,7 @@ module AWS::SDK::Route53Domains
         return nil if visited.include?('DomainSummaryList')
         visited = visited + ['DomainSummaryList']
         [
-          Stubs::DomainSummary.default(visited)
+          DomainSummary.default(visited)
         ]
       end
 
@@ -568,7 +568,7 @@ module AWS::SDK::Route53Domains
     class ListOperations
       def self.default(visited=[])
         {
-          operations: Stubs::OperationSummaryList.default(visited),
+          operations: OperationSummaryList.default(visited),
           next_page_marker: 'next_page_marker',
         }
       end
@@ -588,7 +588,7 @@ module AWS::SDK::Route53Domains
         return nil if visited.include?('OperationSummaryList')
         visited = visited + ['OperationSummaryList']
         [
-          Stubs::OperationSummary.default(visited)
+          OperationSummary.default(visited)
         ]
       end
 
@@ -630,7 +630,7 @@ module AWS::SDK::Route53Domains
     class ListPrices
       def self.default(visited=[])
         {
-          prices: Stubs::DomainPriceList.default(visited),
+          prices: DomainPriceList.default(visited),
           next_page_marker: 'next_page_marker',
         }
       end
@@ -650,7 +650,7 @@ module AWS::SDK::Route53Domains
         return nil if visited.include?('DomainPriceList')
         visited = visited + ['DomainPriceList']
         [
-          Stubs::DomainPrice.default(visited)
+          DomainPrice.default(visited)
         ]
       end
 
@@ -671,11 +671,11 @@ module AWS::SDK::Route53Domains
         visited = visited + ['DomainPrice']
         {
           name: 'name',
-          registration_price: Stubs::PriceWithCurrency.default(visited),
-          transfer_price: Stubs::PriceWithCurrency.default(visited),
-          renewal_price: Stubs::PriceWithCurrency.default(visited),
-          change_ownership_price: Stubs::PriceWithCurrency.default(visited),
-          restoration_price: Stubs::PriceWithCurrency.default(visited),
+          registration_price: PriceWithCurrency.default(visited),
+          transfer_price: PriceWithCurrency.default(visited),
+          renewal_price: PriceWithCurrency.default(visited),
+          change_ownership_price: PriceWithCurrency.default(visited),
+          restoration_price: PriceWithCurrency.default(visited),
         }
       end
 
@@ -716,7 +716,7 @@ module AWS::SDK::Route53Domains
     class ListTagsForDomain
       def self.default(visited=[])
         {
-          tag_list: Stubs::TagList.default(visited),
+          tag_list: TagList.default(visited),
         }
       end
 
@@ -734,7 +734,7 @@ module AWS::SDK::Route53Domains
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -953,7 +953,7 @@ module AWS::SDK::Route53Domains
       def self.default(visited=[])
         {
           next_page_marker: 'next_page_marker',
-          billing_records: Stubs::BillingRecords.default(visited),
+          billing_records: BillingRecords.default(visited),
         }
       end
 
@@ -972,7 +972,7 @@ module AWS::SDK::Route53Domains
         return nil if visited.include?('BillingRecords')
         visited = visited + ['BillingRecords']
         [
-          Stubs::BillingRecord.default(visited)
+          BillingRecord.default(visited)
         ]
       end
 

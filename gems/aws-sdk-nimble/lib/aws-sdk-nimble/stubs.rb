@@ -14,7 +14,7 @@ module AWS::SDK::Nimble
     class AcceptEulas
       def self.default(visited=[])
         {
-          eula_acceptances: Stubs::EulaAcceptanceList.default(visited),
+          eula_acceptances: EulaAcceptanceList.default(visited),
         }
       end
 
@@ -33,7 +33,7 @@ module AWS::SDK::Nimble
         return nil if visited.include?('EulaAcceptanceList')
         visited = visited + ['EulaAcceptanceList']
         [
-          Stubs::EulaAcceptance.default(visited)
+          EulaAcceptance.default(visited)
         ]
       end
 
@@ -77,7 +77,7 @@ module AWS::SDK::Nimble
     class CreateLaunchProfile
       def self.default(visited=[])
         {
-          launch_profile: Stubs::LaunchProfile.default(visited),
+          launch_profile: LaunchProfile.default(visited),
         }
       end
 
@@ -100,19 +100,19 @@ module AWS::SDK::Nimble
           created_at: Time.now,
           created_by: 'created_by',
           description: 'description',
-          ec2_subnet_ids: Stubs::EC2SubnetIdList.default(visited),
+          ec2_subnet_ids: EC2SubnetIdList.default(visited),
           launch_profile_id: 'launch_profile_id',
-          launch_profile_protocol_versions: Stubs::LaunchProfileProtocolVersionList.default(visited),
+          launch_profile_protocol_versions: LaunchProfileProtocolVersionList.default(visited),
           name: 'name',
           state: 'state',
           status_code: 'status_code',
           status_message: 'status_message',
-          stream_configuration: Stubs::StreamConfiguration.default(visited),
-          studio_component_ids: Stubs::LaunchProfileStudioComponentIdList.default(visited),
-          tags: Stubs::Tags.default(visited),
+          stream_configuration: StreamConfiguration.default(visited),
+          studio_component_ids: LaunchProfileStudioComponentIdList.default(visited),
+          tags: Tags.default(visited),
           updated_at: Time.now,
           updated_by: 'updated_by',
-          validation_results: Stubs::ValidationResults.default(visited),
+          validation_results: ValidationResults.default(visited),
         }
       end
 
@@ -146,7 +146,7 @@ module AWS::SDK::Nimble
         return nil if visited.include?('ValidationResults')
         visited = visited + ['ValidationResults']
         [
-          Stubs::ValidationResult.default(visited)
+          ValidationResult.default(visited)
         ]
       end
 
@@ -231,11 +231,11 @@ module AWS::SDK::Nimble
         visited = visited + ['StreamConfiguration']
         {
           clipboard_mode: 'clipboard_mode',
-          ec2_instance_types: Stubs::StreamingInstanceTypeList.default(visited),
+          ec2_instance_types: StreamingInstanceTypeList.default(visited),
           max_session_length_in_minutes: 1,
-          streaming_image_ids: Stubs::StreamingImageIdList.default(visited),
+          streaming_image_ids: StreamingImageIdList.default(visited),
           max_stopped_session_length_in_minutes: 1,
-          session_storage: Stubs::StreamConfigurationSessionStorage.default(visited),
+          session_storage: StreamConfigurationSessionStorage.default(visited),
         }
       end
 
@@ -258,8 +258,8 @@ module AWS::SDK::Nimble
         return nil if visited.include?('StreamConfigurationSessionStorage')
         visited = visited + ['StreamConfigurationSessionStorage']
         {
-          root: Stubs::StreamingSessionStorageRoot.default(visited),
-          mode: Stubs::StreamingSessionStorageModeList.default(visited),
+          root: StreamingSessionStorageRoot.default(visited),
+          mode: StreamingSessionStorageModeList.default(visited),
         }
       end
 
@@ -396,7 +396,7 @@ module AWS::SDK::Nimble
     class CreateStreamingImage
       def self.default(visited=[])
         {
-          streaming_image: Stubs::StreamingImage.default(visited),
+          streaming_image: StreamingImage.default(visited),
         }
       end
 
@@ -418,8 +418,8 @@ module AWS::SDK::Nimble
           arn: 'arn',
           description: 'description',
           ec2_image_id: 'ec2_image_id',
-          encryption_configuration: Stubs::StreamingImageEncryptionConfiguration.default(visited),
-          eula_ids: Stubs::EulaIdList.default(visited),
+          encryption_configuration: StreamingImageEncryptionConfiguration.default(visited),
+          eula_ids: EulaIdList.default(visited),
           name: 'name',
           owner: 'owner',
           platform: 'platform',
@@ -427,7 +427,7 @@ module AWS::SDK::Nimble
           status_code: 'status_code',
           status_message: 'status_message',
           streaming_image_id: 'streaming_image_id',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -495,7 +495,7 @@ module AWS::SDK::Nimble
     class CreateStreamingSession
       def self.default(visited=[])
         {
-          session: Stubs::StreamingSession.default(visited),
+          session: StreamingSession.default(visited),
         }
       end
 
@@ -525,7 +525,7 @@ module AWS::SDK::Nimble
           status_code: 'status_code',
           status_message: 'status_message',
           streaming_image_id: 'streaming_image_id',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
           terminate_at: Time.now,
           updated_at: Time.now,
           updated_by: 'updated_by',
@@ -568,7 +568,7 @@ module AWS::SDK::Nimble
     class CreateStreamingSessionStream
       def self.default(visited=[])
         {
-          stream: Stubs::StreamingSessionStream.default(visited),
+          stream: StreamingSessionStream.default(visited),
         }
       end
 
@@ -617,7 +617,7 @@ module AWS::SDK::Nimble
     class CreateStudio
       def self.default(visited=[])
         {
-          studio: Stubs::Studio.default(visited),
+          studio: Studio.default(visited),
         }
       end
 
@@ -645,11 +645,11 @@ module AWS::SDK::Nimble
           state: 'state',
           status_code: 'status_code',
           status_message: 'status_message',
-          studio_encryption_configuration: Stubs::StudioEncryptionConfiguration.default(visited),
+          studio_encryption_configuration: StudioEncryptionConfiguration.default(visited),
           studio_id: 'studio_id',
           studio_name: 'studio_name',
           studio_url: 'studio_url',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
           updated_at: Time.now,
           user_role_arn: 'user_role_arn',
         }
@@ -702,7 +702,7 @@ module AWS::SDK::Nimble
     class CreateStudioComponent
       def self.default(visited=[])
         {
-          studio_component: Stubs::StudioComponent.default(visited),
+          studio_component: StudioComponent.default(visited),
         }
       end
 
@@ -722,23 +722,25 @@ module AWS::SDK::Nimble
         visited = visited + ['StudioComponent']
         {
           arn: 'arn',
-          configuration: Stubs::StudioComponentConfiguration.default(visited),
+          configuration: StudioComponentConfiguration.default(visited),
           created_at: Time.now,
           created_by: 'created_by',
           description: 'description',
-          ec2_security_group_ids: Stubs::StudioComponentSecurityGroupIdList.default(visited),
-          initialization_scripts: Stubs::StudioComponentInitializationScriptList.default(visited),
+          ec2_security_group_ids: StudioComponentSecurityGroupIdList.default(visited),
+          initialization_scripts: StudioComponentInitializationScriptList.default(visited),
           name: 'name',
-          script_parameters: Stubs::StudioComponentScriptParameterKeyValueList.default(visited),
+          script_parameters: StudioComponentScriptParameterKeyValueList.default(visited),
           state: 'state',
           status_code: 'status_code',
           status_message: 'status_message',
           studio_component_id: 'studio_component_id',
           subtype: 'subtype',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
           type: 'type',
           updated_at: Time.now,
           updated_by: 'updated_by',
+          secure_initialization_role_arn: 'secure_initialization_role_arn',
+          runtime_role_arn: 'runtime_role_arn',
         }
       end
 
@@ -763,6 +765,8 @@ module AWS::SDK::Nimble
         data['type'] = stub[:type] unless stub[:type].nil?
         data['updatedAt'] = Hearth::TimeHelper.to_date_time(stub[:updated_at]) unless stub[:updated_at].nil?
         data['updatedBy'] = stub[:updated_by] unless stub[:updated_by].nil?
+        data['secureInitializationRoleArn'] = stub[:secure_initialization_role_arn] unless stub[:secure_initialization_role_arn].nil?
+        data['runtimeRoleArn'] = stub[:runtime_role_arn] unless stub[:runtime_role_arn].nil?
         data
       end
     end
@@ -773,7 +777,7 @@ module AWS::SDK::Nimble
         return nil if visited.include?('StudioComponentScriptParameterKeyValueList')
         visited = visited + ['StudioComponentScriptParameterKeyValueList']
         [
-          Stubs::ScriptParameterKeyValue.default(visited)
+          ScriptParameterKeyValue.default(visited)
         ]
       end
 
@@ -813,7 +817,7 @@ module AWS::SDK::Nimble
         return nil if visited.include?('StudioComponentInitializationScriptList')
         visited = visited + ['StudioComponentInitializationScriptList']
         [
-          Stubs::StudioComponentInitializationScript.default(visited)
+          StudioComponentInitializationScript.default(visited)
         ]
       end
 
@@ -877,7 +881,7 @@ module AWS::SDK::Nimble
         return nil if visited.include?('StudioComponentConfiguration')
         visited = visited + ['StudioComponentConfiguration']
         {
-          active_directory_configuration: Stubs::ActiveDirectoryConfiguration.default(visited),
+          active_directory_configuration: ActiveDirectoryConfiguration.default(visited),
         }
       end
 
@@ -971,7 +975,7 @@ module AWS::SDK::Nimble
         return nil if visited.include?('ActiveDirectoryConfiguration')
         visited = visited + ['ActiveDirectoryConfiguration']
         {
-          computer_attributes: Stubs::ActiveDirectoryComputerAttributeList.default(visited),
+          computer_attributes: ActiveDirectoryComputerAttributeList.default(visited),
           directory_id: 'directory_id',
           organizational_unit_distinguished_name: 'organizational_unit_distinguished_name',
         }
@@ -993,7 +997,7 @@ module AWS::SDK::Nimble
         return nil if visited.include?('ActiveDirectoryComputerAttributeList')
         visited = visited + ['ActiveDirectoryComputerAttributeList']
         [
-          Stubs::ActiveDirectoryComputerAttribute.default(visited)
+          ActiveDirectoryComputerAttribute.default(visited)
         ]
       end
 
@@ -1031,7 +1035,7 @@ module AWS::SDK::Nimble
     class DeleteLaunchProfile
       def self.default(visited=[])
         {
-          launch_profile: Stubs::LaunchProfile.default(visited),
+          launch_profile: LaunchProfile.default(visited),
         }
       end
 
@@ -1061,7 +1065,7 @@ module AWS::SDK::Nimble
     class DeleteStreamingImage
       def self.default(visited=[])
         {
-          streaming_image: Stubs::StreamingImage.default(visited),
+          streaming_image: StreamingImage.default(visited),
         }
       end
 
@@ -1078,7 +1082,7 @@ module AWS::SDK::Nimble
     class DeleteStreamingSession
       def self.default(visited=[])
         {
-          session: Stubs::StreamingSession.default(visited),
+          session: StreamingSession.default(visited),
         }
       end
 
@@ -1095,7 +1099,7 @@ module AWS::SDK::Nimble
     class DeleteStudio
       def self.default(visited=[])
         {
-          studio: Stubs::Studio.default(visited),
+          studio: Studio.default(visited),
         }
       end
 
@@ -1112,7 +1116,7 @@ module AWS::SDK::Nimble
     class DeleteStudioComponent
       def self.default(visited=[])
         {
-          studio_component: Stubs::StudioComponent.default(visited),
+          studio_component: StudioComponent.default(visited),
         }
       end
 
@@ -1142,7 +1146,7 @@ module AWS::SDK::Nimble
     class GetEula
       def self.default(visited=[])
         {
-          eula: Stubs::Eula.default(visited),
+          eula: Eula.default(visited),
         }
       end
 
@@ -1185,7 +1189,7 @@ module AWS::SDK::Nimble
     class GetLaunchProfile
       def self.default(visited=[])
         {
-          launch_profile: Stubs::LaunchProfile.default(visited),
+          launch_profile: LaunchProfile.default(visited),
         }
       end
 
@@ -1202,9 +1206,9 @@ module AWS::SDK::Nimble
     class GetLaunchProfileDetails
       def self.default(visited=[])
         {
-          launch_profile: Stubs::LaunchProfile.default(visited),
-          streaming_images: Stubs::StreamingImageList.default(visited),
-          studio_component_summaries: Stubs::StudioComponentSummaryList.default(visited),
+          launch_profile: LaunchProfile.default(visited),
+          streaming_images: StreamingImageList.default(visited),
+          studio_component_summaries: StudioComponentSummaryList.default(visited),
         }
       end
 
@@ -1225,7 +1229,7 @@ module AWS::SDK::Nimble
         return nil if visited.include?('StudioComponentSummaryList')
         visited = visited + ['StudioComponentSummaryList']
         [
-          Stubs::StudioComponentSummary.default(visited)
+          StudioComponentSummary.default(visited)
         ]
       end
 
@@ -1279,7 +1283,7 @@ module AWS::SDK::Nimble
         return nil if visited.include?('StreamingImageList')
         visited = visited + ['StreamingImageList']
         [
-          Stubs::StreamingImage.default(visited)
+          StreamingImage.default(visited)
         ]
       end
 
@@ -1297,7 +1301,7 @@ module AWS::SDK::Nimble
     class GetLaunchProfileInitialization
       def self.default(visited=[])
         {
-          launch_profile_initialization: Stubs::LaunchProfileInitialization.default(visited),
+          launch_profile_initialization: LaunchProfileInitialization.default(visited),
         }
       end
 
@@ -1316,15 +1320,15 @@ module AWS::SDK::Nimble
         return nil if visited.include?('LaunchProfileInitialization')
         visited = visited + ['LaunchProfileInitialization']
         {
-          active_directory: Stubs::LaunchProfileInitializationActiveDirectory.default(visited),
-          ec2_security_group_ids: Stubs::LaunchProfileSecurityGroupIdList.default(visited),
+          active_directory: LaunchProfileInitializationActiveDirectory.default(visited),
+          ec2_security_group_ids: LaunchProfileSecurityGroupIdList.default(visited),
           launch_profile_id: 'launch_profile_id',
           launch_profile_protocol_version: 'launch_profile_protocol_version',
           launch_purpose: 'launch_purpose',
           name: 'name',
           platform: 'platform',
-          system_initialization_scripts: Stubs::LaunchProfileInitializationScriptList.default(visited),
-          user_initialization_scripts: Stubs::LaunchProfileInitializationScriptList.default(visited),
+          system_initialization_scripts: LaunchProfileInitializationScriptList.default(visited),
+          user_initialization_scripts: LaunchProfileInitializationScriptList.default(visited),
         }
       end
 
@@ -1350,7 +1354,7 @@ module AWS::SDK::Nimble
         return nil if visited.include?('LaunchProfileInitializationScriptList')
         visited = visited + ['LaunchProfileInitializationScriptList']
         [
-          Stubs::LaunchProfileInitializationScript.default(visited)
+          LaunchProfileInitializationScript.default(visited)
         ]
       end
 
@@ -1373,6 +1377,8 @@ module AWS::SDK::Nimble
           script: 'script',
           studio_component_id: 'studio_component_id',
           studio_component_name: 'studio_component_name',
+          secure_initialization_role_arn: 'secure_initialization_role_arn',
+          runtime_role_arn: 'runtime_role_arn',
         }
       end
 
@@ -1382,6 +1388,8 @@ module AWS::SDK::Nimble
         data['script'] = stub[:script] unless stub[:script].nil?
         data['studioComponentId'] = stub[:studio_component_id] unless stub[:studio_component_id].nil?
         data['studioComponentName'] = stub[:studio_component_name] unless stub[:studio_component_name].nil?
+        data['secureInitializationRoleArn'] = stub[:secure_initialization_role_arn] unless stub[:secure_initialization_role_arn].nil?
+        data['runtimeRoleArn'] = stub[:runtime_role_arn] unless stub[:runtime_role_arn].nil?
         data
       end
     end
@@ -1412,10 +1420,10 @@ module AWS::SDK::Nimble
         return nil if visited.include?('LaunchProfileInitializationActiveDirectory')
         visited = visited + ['LaunchProfileInitializationActiveDirectory']
         {
-          computer_attributes: Stubs::ActiveDirectoryComputerAttributeList.default(visited),
+          computer_attributes: ActiveDirectoryComputerAttributeList.default(visited),
           directory_id: 'directory_id',
           directory_name: 'directory_name',
-          dns_ip_addresses: Stubs::ActiveDirectoryDnsIpAddressList.default(visited),
+          dns_ip_addresses: ActiveDirectoryDnsIpAddressList.default(visited),
           organizational_unit_distinguished_name: 'organizational_unit_distinguished_name',
           studio_component_id: 'studio_component_id',
           studio_component_name: 'studio_component_name',
@@ -1460,7 +1468,7 @@ module AWS::SDK::Nimble
     class GetLaunchProfileMember
       def self.default(visited=[])
         {
-          member: Stubs::LaunchProfileMembership.default(visited),
+          member: LaunchProfileMembership.default(visited),
         }
       end
 
@@ -1501,7 +1509,7 @@ module AWS::SDK::Nimble
     class GetStreamingImage
       def self.default(visited=[])
         {
-          streaming_image: Stubs::StreamingImage.default(visited),
+          streaming_image: StreamingImage.default(visited),
         }
       end
 
@@ -1518,7 +1526,7 @@ module AWS::SDK::Nimble
     class GetStreamingSession
       def self.default(visited=[])
         {
-          session: Stubs::StreamingSession.default(visited),
+          session: StreamingSession.default(visited),
         }
       end
 
@@ -1535,7 +1543,7 @@ module AWS::SDK::Nimble
     class GetStreamingSessionStream
       def self.default(visited=[])
         {
-          stream: Stubs::StreamingSessionStream.default(visited),
+          stream: StreamingSessionStream.default(visited),
         }
       end
 
@@ -1552,7 +1560,7 @@ module AWS::SDK::Nimble
     class GetStudio
       def self.default(visited=[])
         {
-          studio: Stubs::Studio.default(visited),
+          studio: Studio.default(visited),
         }
       end
 
@@ -1569,7 +1577,7 @@ module AWS::SDK::Nimble
     class GetStudioComponent
       def self.default(visited=[])
         {
-          studio_component: Stubs::StudioComponent.default(visited),
+          studio_component: StudioComponent.default(visited),
         }
       end
 
@@ -1586,7 +1594,7 @@ module AWS::SDK::Nimble
     class GetStudioMember
       def self.default(visited=[])
         {
-          member: Stubs::StudioMembership.default(visited),
+          member: StudioMembership.default(visited),
         }
       end
 
@@ -1627,7 +1635,7 @@ module AWS::SDK::Nimble
     class ListEulaAcceptances
       def self.default(visited=[])
         {
-          eula_acceptances: Stubs::EulaAcceptanceList.default(visited),
+          eula_acceptances: EulaAcceptanceList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1646,7 +1654,7 @@ module AWS::SDK::Nimble
     class ListEulas
       def self.default(visited=[])
         {
-          eulas: Stubs::EulaList.default(visited),
+          eulas: EulaList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1667,7 +1675,7 @@ module AWS::SDK::Nimble
         return nil if visited.include?('EulaList')
         visited = visited + ['EulaList']
         [
-          Stubs::Eula.default(visited)
+          Eula.default(visited)
         ]
       end
 
@@ -1685,7 +1693,7 @@ module AWS::SDK::Nimble
     class ListLaunchProfileMembers
       def self.default(visited=[])
         {
-          members: Stubs::LaunchProfileMembershipList.default(visited),
+          members: LaunchProfileMembershipList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1706,7 +1714,7 @@ module AWS::SDK::Nimble
         return nil if visited.include?('LaunchProfileMembershipList')
         visited = visited + ['LaunchProfileMembershipList']
         [
-          Stubs::LaunchProfileMembership.default(visited)
+          LaunchProfileMembership.default(visited)
         ]
       end
 
@@ -1724,7 +1732,7 @@ module AWS::SDK::Nimble
     class ListLaunchProfiles
       def self.default(visited=[])
         {
-          launch_profiles: Stubs::LaunchProfileList.default(visited),
+          launch_profiles: LaunchProfileList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1745,7 +1753,7 @@ module AWS::SDK::Nimble
         return nil if visited.include?('LaunchProfileList')
         visited = visited + ['LaunchProfileList']
         [
-          Stubs::LaunchProfile.default(visited)
+          LaunchProfile.default(visited)
         ]
       end
 
@@ -1764,7 +1772,7 @@ module AWS::SDK::Nimble
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          streaming_images: Stubs::StreamingImageList.default(visited),
+          streaming_images: StreamingImageList.default(visited),
         }
       end
 
@@ -1783,7 +1791,7 @@ module AWS::SDK::Nimble
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          sessions: Stubs::StreamingSessionList.default(visited),
+          sessions: StreamingSessionList.default(visited),
         }
       end
 
@@ -1803,7 +1811,7 @@ module AWS::SDK::Nimble
         return nil if visited.include?('StreamingSessionList')
         visited = visited + ['StreamingSessionList']
         [
-          Stubs::StreamingSession.default(visited)
+          StreamingSession.default(visited)
         ]
       end
 
@@ -1822,7 +1830,7 @@ module AWS::SDK::Nimble
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          studio_components: Stubs::StudioComponentList.default(visited),
+          studio_components: StudioComponentList.default(visited),
         }
       end
 
@@ -1842,7 +1850,7 @@ module AWS::SDK::Nimble
         return nil if visited.include?('StudioComponentList')
         visited = visited + ['StudioComponentList']
         [
-          Stubs::StudioComponent.default(visited)
+          StudioComponent.default(visited)
         ]
       end
 
@@ -1860,7 +1868,7 @@ module AWS::SDK::Nimble
     class ListStudioMembers
       def self.default(visited=[])
         {
-          members: Stubs::StudioMembershipList.default(visited),
+          members: StudioMembershipList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1881,7 +1889,7 @@ module AWS::SDK::Nimble
         return nil if visited.include?('StudioMembershipList')
         visited = visited + ['StudioMembershipList']
         [
-          Stubs::StudioMembership.default(visited)
+          StudioMembership.default(visited)
         ]
       end
 
@@ -1900,7 +1908,7 @@ module AWS::SDK::Nimble
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          studios: Stubs::StudioList.default(visited),
+          studios: StudioList.default(visited),
         }
       end
 
@@ -1920,7 +1928,7 @@ module AWS::SDK::Nimble
         return nil if visited.include?('StudioList')
         visited = visited + ['StudioList']
         [
-          Stubs::Studio.default(visited)
+          Studio.default(visited)
         ]
       end
 
@@ -1938,7 +1946,7 @@ module AWS::SDK::Nimble
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -1981,7 +1989,7 @@ module AWS::SDK::Nimble
     class StartStreamingSession
       def self.default(visited=[])
         {
-          session: Stubs::StreamingSession.default(visited),
+          session: StreamingSession.default(visited),
         }
       end
 
@@ -1998,7 +2006,7 @@ module AWS::SDK::Nimble
     class StartStudioSSOConfigurationRepair
       def self.default(visited=[])
         {
-          studio: Stubs::Studio.default(visited),
+          studio: Studio.default(visited),
         }
       end
 
@@ -2015,7 +2023,7 @@ module AWS::SDK::Nimble
     class StopStreamingSession
       def self.default(visited=[])
         {
-          session: Stubs::StreamingSession.default(visited),
+          session: StreamingSession.default(visited),
         }
       end
 
@@ -2058,7 +2066,7 @@ module AWS::SDK::Nimble
     class UpdateLaunchProfile
       def self.default(visited=[])
         {
-          launch_profile: Stubs::LaunchProfile.default(visited),
+          launch_profile: LaunchProfile.default(visited),
         }
       end
 
@@ -2075,7 +2083,7 @@ module AWS::SDK::Nimble
     class UpdateLaunchProfileMember
       def self.default(visited=[])
         {
-          member: Stubs::LaunchProfileMembership.default(visited),
+          member: LaunchProfileMembership.default(visited),
         }
       end
 
@@ -2092,7 +2100,7 @@ module AWS::SDK::Nimble
     class UpdateStreamingImage
       def self.default(visited=[])
         {
-          streaming_image: Stubs::StreamingImage.default(visited),
+          streaming_image: StreamingImage.default(visited),
         }
       end
 
@@ -2109,7 +2117,7 @@ module AWS::SDK::Nimble
     class UpdateStudio
       def self.default(visited=[])
         {
-          studio: Stubs::Studio.default(visited),
+          studio: Studio.default(visited),
         }
       end
 
@@ -2126,7 +2134,7 @@ module AWS::SDK::Nimble
     class UpdateStudioComponent
       def self.default(visited=[])
         {
-          studio_component: Stubs::StudioComponent.default(visited),
+          studio_component: StudioComponent.default(visited),
         }
       end
 

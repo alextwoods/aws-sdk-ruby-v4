@@ -458,7 +458,7 @@ module AWS::SDK::IoT
           certificate_arn: 'certificate_arn',
           certificate_id: 'certificate_id',
           certificate_pem: 'certificate_pem',
-          key_pair: Stubs::KeyPair.default(visited),
+          key_pair: KeyPair.default(visited),
         }
       end
 
@@ -590,7 +590,7 @@ module AWS::SDK::IoT
         {
           certificate_id: 'certificate_id',
           certificate_pem: 'certificate_pem',
-          key_pair: Stubs::KeyPair.default(visited),
+          key_pair: KeyPair.default(visited),
           expiration: Time.now,
         }
       end
@@ -809,7 +809,7 @@ module AWS::SDK::IoT
     class CreateTopicRuleDestination
       def self.default(visited=[])
         {
-          topic_rule_destination: Stubs::TopicRuleDestination.default(visited),
+          topic_rule_destination: TopicRuleDestination.default(visited),
         }
       end
 
@@ -833,8 +833,8 @@ module AWS::SDK::IoT
           created_at: Time.now,
           last_updated_at: Time.now,
           status_reason: 'status_reason',
-          http_url_properties: Stubs::HttpUrlDestinationProperties.default(visited),
-          vpc_properties: Stubs::VpcDestinationProperties.default(visited),
+          http_url_properties: HttpUrlDestinationProperties.default(visited),
+          vpc_properties: VpcDestinationProperties.default(visited),
         }
       end
 
@@ -858,8 +858,8 @@ module AWS::SDK::IoT
         return nil if visited.include?('VpcDestinationProperties')
         visited = visited + ['VpcDestinationProperties']
         {
-          subnet_ids: Stubs::SubnetIdList.default(visited),
-          security_groups: Stubs::SecurityGroupList.default(visited),
+          subnet_ids: SubnetIdList.default(visited),
+          security_groups: SecurityGroupList.default(visited),
           vpc_id: 'vpc_id',
           role_arn: 'role_arn',
         }
@@ -1355,8 +1355,8 @@ module AWS::SDK::IoT
       def self.default(visited=[])
         {
           role_arn: 'role_arn',
-          audit_notification_target_configurations: Stubs::AuditNotificationTargetConfigurations.default(visited),
-          audit_check_configurations: Stubs::AuditCheckConfigurations.default(visited),
+          audit_notification_target_configurations: AuditNotificationTargetConfigurations.default(visited),
+          audit_check_configurations: AuditCheckConfigurations.default(visited),
         }
       end
 
@@ -1377,7 +1377,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('AuditCheckConfigurations')
         visited = visited + ['AuditCheckConfigurations']
         {
-          test_key: Stubs::AuditCheckConfiguration.default(visited)
+          test_key: AuditCheckConfiguration.default(visited)
         }
       end
 
@@ -1415,7 +1415,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('AuditNotificationTargetConfigurations')
         visited = visited + ['AuditNotificationTargetConfigurations']
         {
-          test_key: Stubs::AuditNotificationTarget.default(visited)
+          test_key: AuditNotificationTarget.default(visited)
         }
       end
 
@@ -1455,7 +1455,7 @@ module AWS::SDK::IoT
     class DescribeAuditFinding
       def self.default(visited=[])
         {
-          finding: Stubs::AuditFinding.default(visited),
+          finding: AuditFinding.default(visited),
         }
       end
 
@@ -1480,8 +1480,8 @@ module AWS::SDK::IoT
           task_start_time: Time.now,
           finding_time: Time.now,
           severity: 'severity',
-          non_compliant_resource: Stubs::NonCompliantResource.default(visited),
-          related_resources: Stubs::RelatedResources.default(visited),
+          non_compliant_resource: NonCompliantResource.default(visited),
+          related_resources: RelatedResources.default(visited),
           reason_for_non_compliance: 'reason_for_non_compliance',
           reason_for_non_compliance_code: 'reason_for_non_compliance_code',
           is_suppressed: false,
@@ -1512,7 +1512,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('RelatedResources')
         visited = visited + ['RelatedResources']
         [
-          Stubs::RelatedResource.default(visited)
+          RelatedResource.default(visited)
         ]
       end
 
@@ -1533,8 +1533,8 @@ module AWS::SDK::IoT
         visited = visited + ['RelatedResource']
         {
           resource_type: 'resource_type',
-          resource_identifier: Stubs::ResourceIdentifier.default(visited),
-          additional_info: Stubs::StringMap.default(visited),
+          resource_identifier: ResourceIdentifier.default(visited),
+          additional_info: StringMap.default(visited),
         }
       end
 
@@ -1578,7 +1578,7 @@ module AWS::SDK::IoT
           ca_certificate_id: 'ca_certificate_id',
           cognito_identity_pool_id: 'cognito_identity_pool_id',
           client_id: 'client_id',
-          policy_version_identifier: Stubs::PolicyVersionIdentifier.default(visited),
+          policy_version_identifier: PolicyVersionIdentifier.default(visited),
           account: 'account',
           iam_role_arn: 'iam_role_arn',
           role_alias_arn: 'role_alias_arn',
@@ -1627,8 +1627,8 @@ module AWS::SDK::IoT
         visited = visited + ['NonCompliantResource']
         {
           resource_type: 'resource_type',
-          resource_identifier: Stubs::ResourceIdentifier.default(visited),
-          additional_info: Stubs::StringMap.default(visited),
+          resource_identifier: ResourceIdentifier.default(visited),
+          additional_info: StringMap.default(visited),
         }
       end
 
@@ -1649,10 +1649,10 @@ module AWS::SDK::IoT
           task_status: 'task_status',
           start_time: Time.now,
           end_time: Time.now,
-          task_statistics: Stubs::AuditMitigationActionsTaskStatistics.default(visited),
-          target: Stubs::AuditMitigationActionsTaskTarget.default(visited),
-          audit_check_to_actions_mapping: Stubs::AuditCheckToActionsMapping.default(visited),
-          actions_definition: Stubs::MitigationActionList.default(visited),
+          task_statistics: AuditMitigationActionsTaskStatistics.default(visited),
+          target: AuditMitigationActionsTaskTarget.default(visited),
+          audit_check_to_actions_mapping: AuditCheckToActionsMapping.default(visited),
+          actions_definition: MitigationActionList.default(visited),
         }
       end
 
@@ -1677,7 +1677,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('MitigationActionList')
         visited = visited + ['MitigationActionList']
         [
-          Stubs::MitigationAction.default(visited)
+          MitigationAction.default(visited)
         ]
       end
 
@@ -1700,7 +1700,7 @@ module AWS::SDK::IoT
           name: 'name',
           id: 'id',
           role_arn: 'role_arn',
-          action_params: Stubs::MitigationActionParams.default(visited),
+          action_params: MitigationActionParams.default(visited),
         }
       end
 
@@ -1721,12 +1721,12 @@ module AWS::SDK::IoT
         return nil if visited.include?('MitigationActionParams')
         visited = visited + ['MitigationActionParams']
         {
-          update_device_certificate_params: Stubs::UpdateDeviceCertificateParams.default(visited),
-          update_ca_certificate_params: Stubs::UpdateCACertificateParams.default(visited),
-          add_things_to_thing_group_params: Stubs::AddThingsToThingGroupParams.default(visited),
-          replace_default_policy_version_params: Stubs::ReplaceDefaultPolicyVersionParams.default(visited),
-          enable_io_t_logging_params: Stubs::EnableIoTLoggingParams.default(visited),
-          publish_finding_to_sns_params: Stubs::PublishFindingToSnsParams.default(visited),
+          update_device_certificate_params: UpdateDeviceCertificateParams.default(visited),
+          update_ca_certificate_params: UpdateCACertificateParams.default(visited),
+          add_things_to_thing_group_params: AddThingsToThingGroupParams.default(visited),
+          replace_default_policy_version_params: ReplaceDefaultPolicyVersionParams.default(visited),
+          enable_io_t_logging_params: EnableIoTLoggingParams.default(visited),
+          publish_finding_to_sns_params: PublishFindingToSnsParams.default(visited),
         }
       end
 
@@ -1805,7 +1805,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('AddThingsToThingGroupParams')
         visited = visited + ['AddThingsToThingGroupParams']
         {
-          thing_group_names: Stubs::ThingGroupNames.default(visited),
+          thing_group_names: ThingGroupNames.default(visited),
           override_dynamic_groups: false,
         }
       end
@@ -1881,7 +1881,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('AuditCheckToActionsMapping')
         visited = visited + ['AuditCheckToActionsMapping']
         {
-          test_key: Stubs::MitigationActionNameList.default(visited)
+          test_key: MitigationActionNameList.default(visited)
         }
       end
 
@@ -1922,8 +1922,8 @@ module AWS::SDK::IoT
         visited = visited + ['AuditMitigationActionsTaskTarget']
         {
           audit_task_id: 'audit_task_id',
-          finding_ids: Stubs::FindingIds.default(visited),
-          audit_check_to_reason_code_filter: Stubs::AuditCheckToReasonCodeFilter.default(visited),
+          finding_ids: FindingIds.default(visited),
+          audit_check_to_reason_code_filter: AuditCheckToReasonCodeFilter.default(visited),
         }
       end
 
@@ -1943,7 +1943,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('AuditCheckToReasonCodeFilter')
         visited = visited + ['AuditCheckToReasonCodeFilter']
         {
-          test_key: Stubs::ReasonForNonComplianceCodes.default(visited)
+          test_key: ReasonForNonComplianceCodes.default(visited)
         }
       end
 
@@ -2003,7 +2003,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('AuditMitigationActionsTaskStatistics')
         visited = visited + ['AuditMitigationActionsTaskStatistics']
         {
-          test_key: Stubs::TaskStatisticsForAuditCheck.default(visited)
+          test_key: TaskStatisticsForAuditCheck.default(visited)
         }
       end
 
@@ -2048,7 +2048,7 @@ module AWS::SDK::IoT
       def self.default(visited=[])
         {
           check_name: 'check_name',
-          resource_identifier: Stubs::ResourceIdentifier.default(visited),
+          resource_identifier: ResourceIdentifier.default(visited),
           expiration_date: Time.now,
           suppress_indefinitely: false,
           description: 'description',
@@ -2075,9 +2075,9 @@ module AWS::SDK::IoT
           task_status: 'task_status',
           task_type: 'task_type',
           task_start_time: Time.now,
-          task_statistics: Stubs::TaskStatistics.default(visited),
+          task_statistics: TaskStatistics.default(visited),
           scheduled_audit_name: 'scheduled_audit_name',
-          audit_details: Stubs::AuditDetails.default(visited),
+          audit_details: AuditDetails.default(visited),
         }
       end
 
@@ -2101,7 +2101,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('AuditDetails')
         visited = visited + ['AuditDetails']
         {
-          test_key: Stubs::AuditCheckDetails.default(visited)
+          test_key: AuditCheckDetails.default(visited)
         }
       end
 
@@ -2179,7 +2179,7 @@ module AWS::SDK::IoT
     class DescribeAuthorizer
       def self.default(visited=[])
         {
-          authorizer_description: Stubs::AuthorizerDescription.default(visited),
+          authorizer_description: AuthorizerDescription.default(visited),
         }
       end
 
@@ -2202,7 +2202,7 @@ module AWS::SDK::IoT
           authorizer_arn: 'authorizer_arn',
           authorizer_function_arn: 'authorizer_function_arn',
           token_key_name: 'token_key_name',
-          token_signing_public_keys: Stubs::PublicKeyMap.default(visited),
+          token_signing_public_keys: PublicKeyMap.default(visited),
           status: 'status',
           creation_date: Time.now,
           last_modified_date: Time.now,
@@ -2256,8 +2256,8 @@ module AWS::SDK::IoT
           billing_group_id: 'billing_group_id',
           billing_group_arn: 'billing_group_arn',
           version: 1,
-          billing_group_properties: Stubs::BillingGroupProperties.default(visited),
-          billing_group_metadata: Stubs::BillingGroupMetadata.default(visited),
+          billing_group_properties: BillingGroupProperties.default(visited),
+          billing_group_metadata: BillingGroupMetadata.default(visited),
         }
       end
 
@@ -2315,8 +2315,8 @@ module AWS::SDK::IoT
     class DescribeCACertificate
       def self.default(visited=[])
         {
-          certificate_description: Stubs::CACertificateDescription.default(visited),
-          registration_config: Stubs::RegistrationConfig.default(visited),
+          certificate_description: CACertificateDescription.default(visited),
+          registration_config: RegistrationConfig.default(visited),
         }
       end
 
@@ -2366,7 +2366,7 @@ module AWS::SDK::IoT
           last_modified_date: Time.now,
           customer_version: 1,
           generation_id: 'generation_id',
-          validity: Stubs::CertificateValidity.default(visited),
+          validity: CertificateValidity.default(visited),
         }
       end
 
@@ -2412,7 +2412,7 @@ module AWS::SDK::IoT
     class DescribeCertificate
       def self.default(visited=[])
         {
-          certificate_description: Stubs::CertificateDescription.default(visited),
+          certificate_description: CertificateDescription.default(visited),
         }
       end
 
@@ -2441,9 +2441,9 @@ module AWS::SDK::IoT
           creation_date: Time.now,
           last_modified_date: Time.now,
           customer_version: 1,
-          transfer_data: Stubs::TransferData.default(visited),
+          transfer_data: TransferData.default(visited),
           generation_id: 'generation_id',
-          validity: Stubs::CertificateValidity.default(visited),
+          validity: CertificateValidity.default(visited),
           certificate_mode: 'certificate_mode',
         }
       end
@@ -2526,7 +2526,7 @@ module AWS::SDK::IoT
     class DescribeDefaultAuthorizer
       def self.default(visited=[])
         {
-          authorizer_description: Stubs::AuthorizerDescription.default(visited),
+          authorizer_description: AuthorizerDescription.default(visited),
         }
       end
 
@@ -2543,7 +2543,7 @@ module AWS::SDK::IoT
     class DescribeDetectMitigationActionsTask
       def self.default(visited=[])
         {
-          task_summary: Stubs::DetectMitigationActionsTaskSummary.default(visited),
+          task_summary: DetectMitigationActionsTaskSummary.default(visited),
         }
       end
 
@@ -2566,12 +2566,12 @@ module AWS::SDK::IoT
           task_status: 'task_status',
           task_start_time: Time.now,
           task_end_time: Time.now,
-          target: Stubs::DetectMitigationActionsTaskTarget.default(visited),
-          violation_event_occurrence_range: Stubs::ViolationEventOccurrenceRange.default(visited),
+          target: DetectMitigationActionsTaskTarget.default(visited),
+          violation_event_occurrence_range: ViolationEventOccurrenceRange.default(visited),
           only_active_violations_included: false,
           suppressed_alerts_included: false,
-          actions_definition: Stubs::MitigationActionList.default(visited),
-          task_statistics: Stubs::DetectMitigationActionsTaskStatistics.default(visited),
+          actions_definition: MitigationActionList.default(visited),
+          task_statistics: DetectMitigationActionsTaskStatistics.default(visited),
         }
       end
 
@@ -2640,7 +2640,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('DetectMitigationActionsTaskTarget')
         visited = visited + ['DetectMitigationActionsTaskTarget']
         {
-          violation_ids: Stubs::TargetViolationIdsForDetectMitigationActions.default(visited),
+          violation_ids: TargetViolationIdsForDetectMitigationActions.default(visited),
           security_profile_name: 'security_profile_name',
           behavior_name: 'behavior_name',
         }
@@ -2683,7 +2683,7 @@ module AWS::SDK::IoT
           name: 'name',
           arn: 'arn',
           type: 'type',
-          string_values: Stubs::DimensionStringValues.default(visited),
+          string_values: DimensionStringValues.default(visited),
           creation_date: Time.now,
           last_modified_date: Time.now,
         }
@@ -2730,8 +2730,8 @@ module AWS::SDK::IoT
           domain_configuration_name: 'domain_configuration_name',
           domain_configuration_arn: 'domain_configuration_arn',
           domain_name: 'domain_name',
-          server_certificates: Stubs::ServerCertificates.default(visited),
-          authorizer_config: Stubs::AuthorizerConfig.default(visited),
+          server_certificates: ServerCertificates.default(visited),
+          authorizer_config: AuthorizerConfig.default(visited),
           domain_configuration_status: 'domain_configuration_status',
           service_type: 'service_type',
           domain_type: 'domain_type',
@@ -2782,7 +2782,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('ServerCertificates')
         visited = visited + ['ServerCertificates']
         [
-          Stubs::ServerCertificateSummary.default(visited)
+          ServerCertificateSummary.default(visited)
         ]
       end
 
@@ -2839,7 +2839,7 @@ module AWS::SDK::IoT
     class DescribeEventConfigurations
       def self.default(visited=[])
         {
-          event_configurations: Stubs::EventConfigurations.default(visited),
+          event_configurations: EventConfigurations.default(visited),
           creation_date: Time.now,
           last_modified_date: Time.now,
         }
@@ -2862,7 +2862,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('EventConfigurations')
         visited = visited + ['EventConfigurations']
         {
-          test_key: Stubs::Configuration.default(visited)
+          test_key: Configuration.default(visited)
         }
       end
 
@@ -2900,7 +2900,7 @@ module AWS::SDK::IoT
         {
           metric_name: 'metric_name',
           query_string: 'query_string',
-          aggregation_type: Stubs::AggregationType.default(visited),
+          aggregation_type: AggregationType.default(visited),
           period: 1,
           aggregation_field: 'aggregation_field',
           description: 'description',
@@ -2942,7 +2942,7 @@ module AWS::SDK::IoT
         visited = visited + ['AggregationType']
         {
           name: 'name',
-          values: Stubs::AggregationTypeValues.default(visited),
+          values: AggregationTypeValues.default(visited),
         }
       end
 
@@ -3001,7 +3001,7 @@ module AWS::SDK::IoT
       def self.default(visited=[])
         {
           document_source: 'document_source',
-          job: Stubs::Job.default(visited),
+          job: Job.default(visited),
         }
       end
 
@@ -3028,20 +3028,20 @@ module AWS::SDK::IoT
           force_canceled: false,
           reason_code: 'reason_code',
           comment: 'comment',
-          targets: Stubs::JobTargets.default(visited),
+          targets: JobTargets.default(visited),
           description: 'description',
-          presigned_url_config: Stubs::PresignedUrlConfig.default(visited),
-          job_executions_rollout_config: Stubs::JobExecutionsRolloutConfig.default(visited),
-          abort_config: Stubs::AbortConfig.default(visited),
+          presigned_url_config: PresignedUrlConfig.default(visited),
+          job_executions_rollout_config: JobExecutionsRolloutConfig.default(visited),
+          abort_config: AbortConfig.default(visited),
           created_at: Time.now,
           last_updated_at: Time.now,
           completed_at: Time.now,
-          job_process_details: Stubs::JobProcessDetails.default(visited),
-          timeout_config: Stubs::TimeoutConfig.default(visited),
+          job_process_details: JobProcessDetails.default(visited),
+          timeout_config: TimeoutConfig.default(visited),
           namespace_id: 'namespace_id',
           job_template_arn: 'job_template_arn',
-          job_executions_retry_config: Stubs::JobExecutionsRetryConfig.default(visited),
-          document_parameters: Stubs::ParameterMap.default(visited),
+          job_executions_retry_config: JobExecutionsRetryConfig.default(visited),
+          document_parameters: ParameterMap.default(visited),
           is_concurrent: false,
         }
       end
@@ -3101,7 +3101,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('JobExecutionsRetryConfig')
         visited = visited + ['JobExecutionsRetryConfig']
         {
-          criteria_list: Stubs::RetryCriteriaList.default(visited),
+          criteria_list: RetryCriteriaList.default(visited),
         }
       end
 
@@ -3119,7 +3119,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('RetryCriteriaList')
         visited = visited + ['RetryCriteriaList']
         [
-          Stubs::RetryCriteria.default(visited)
+          RetryCriteria.default(visited)
         ]
       end
 
@@ -3177,7 +3177,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('JobProcessDetails')
         visited = visited + ['JobProcessDetails']
         {
-          processing_targets: Stubs::ProcessingTargetNameList.default(visited),
+          processing_targets: ProcessingTargetNameList.default(visited),
           number_of_canceled_things: 1,
           number_of_succeeded_things: 1,
           number_of_failed_things: 1,
@@ -3231,7 +3231,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('AbortConfig')
         visited = visited + ['AbortConfig']
         {
-          criteria_list: Stubs::AbortCriteriaList.default(visited),
+          criteria_list: AbortCriteriaList.default(visited),
         }
       end
 
@@ -3249,7 +3249,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('AbortCriteriaList')
         visited = visited + ['AbortCriteriaList']
         [
-          Stubs::AbortCriteria.default(visited)
+          AbortCriteria.default(visited)
         ]
       end
 
@@ -3294,7 +3294,7 @@ module AWS::SDK::IoT
         visited = visited + ['JobExecutionsRolloutConfig']
         {
           maximum_per_minute: 1,
-          exponential_rate: Stubs::ExponentialRolloutRate.default(visited),
+          exponential_rate: ExponentialRolloutRate.default(visited),
         }
       end
 
@@ -3315,7 +3315,7 @@ module AWS::SDK::IoT
         {
           base_rate_per_minute: 1,
           increment_factor: 1.0,
-          rate_increase_criteria: Stubs::RateIncreaseCriteria.default(visited),
+          rate_increase_criteria: RateIncreaseCriteria.default(visited),
         }
       end
 
@@ -3393,7 +3393,7 @@ module AWS::SDK::IoT
     class DescribeJobExecution
       def self.default(visited=[])
         {
-          execution: Stubs::JobExecution.default(visited),
+          execution: JobExecution.default(visited),
         }
       end
 
@@ -3415,7 +3415,7 @@ module AWS::SDK::IoT
           job_id: 'job_id',
           status: 'status',
           force_canceled: false,
-          status_details: Stubs::JobExecutionStatusDetails.default(visited),
+          status_details: JobExecutionStatusDetails.default(visited),
           thing_arn: 'thing_arn',
           queued_at: Time.now,
           started_at: Time.now,
@@ -3450,7 +3450,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('JobExecutionStatusDetails')
         visited = visited + ['JobExecutionStatusDetails']
         {
-          details_map: Stubs::DetailsMap.default(visited),
+          details_map: DetailsMap.default(visited),
         }
       end
 
@@ -3492,11 +3492,11 @@ module AWS::SDK::IoT
           document_source: 'document_source',
           document: 'document',
           created_at: Time.now,
-          presigned_url_config: Stubs::PresignedUrlConfig.default(visited),
-          job_executions_rollout_config: Stubs::JobExecutionsRolloutConfig.default(visited),
-          abort_config: Stubs::AbortConfig.default(visited),
-          timeout_config: Stubs::TimeoutConfig.default(visited),
-          job_executions_retry_config: Stubs::JobExecutionsRetryConfig.default(visited),
+          presigned_url_config: PresignedUrlConfig.default(visited),
+          job_executions_rollout_config: JobExecutionsRolloutConfig.default(visited),
+          abort_config: AbortConfig.default(visited),
+          timeout_config: TimeoutConfig.default(visited),
+          job_executions_retry_config: JobExecutionsRetryConfig.default(visited),
         }
       end
 
@@ -3527,8 +3527,8 @@ module AWS::SDK::IoT
           template_arn: 'template_arn',
           description: 'description',
           template_version: 'template_version',
-          environments: Stubs::Environments.default(visited),
-          document_parameters: Stubs::DocumentParameters.default(visited),
+          environments: Environments.default(visited),
+          document_parameters: DocumentParameters.default(visited),
           document: 'document',
         }
       end
@@ -3554,7 +3554,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('DocumentParameters')
         visited = visited + ['DocumentParameters']
         [
-          Stubs::DocumentParameter.default(visited)
+          DocumentParameter.default(visited)
         ]
       end
 
@@ -3623,7 +3623,7 @@ module AWS::SDK::IoT
           action_arn: 'action_arn',
           action_id: 'action_id',
           role_arn: 'role_arn',
-          action_params: Stubs::MitigationActionParams.default(visited),
+          action_params: MitigationActionParams.default(visited),
           creation_date: Time.now,
           last_modified_date: Time.now,
         }
@@ -3658,7 +3658,7 @@ module AWS::SDK::IoT
           template_body: 'template_body',
           enabled: false,
           provisioning_role_arn: 'provisioning_role_arn',
-          pre_provisioning_hook: Stubs::ProvisioningHook.default(visited),
+          pre_provisioning_hook: ProvisioningHook.default(visited),
         }
       end
 
@@ -3727,7 +3727,7 @@ module AWS::SDK::IoT
     class DescribeRoleAlias
       def self.default(visited=[])
         {
-          role_alias_description: Stubs::RoleAliasDescription.default(visited),
+          role_alias_description: RoleAliasDescription.default(visited),
         }
       end
 
@@ -3777,7 +3777,7 @@ module AWS::SDK::IoT
           frequency: 'frequency',
           day_of_month: 'day_of_month',
           day_of_week: 'day_of_week',
-          target_check_names: Stubs::TargetAuditCheckNames.default(visited),
+          target_check_names: TargetAuditCheckNames.default(visited),
           scheduled_audit_name: 'scheduled_audit_name',
           scheduled_audit_arn: 'scheduled_audit_arn',
         }
@@ -3824,10 +3824,10 @@ module AWS::SDK::IoT
           security_profile_name: 'security_profile_name',
           security_profile_arn: 'security_profile_arn',
           security_profile_description: 'security_profile_description',
-          behaviors: Stubs::Behaviors.default(visited),
-          alert_targets: Stubs::AlertTargets.default(visited),
-          additional_metrics_to_retain: Stubs::AdditionalMetricsToRetainList.default(visited),
-          additional_metrics_to_retain_v2: Stubs::AdditionalMetricsToRetainV2List.default(visited),
+          behaviors: Behaviors.default(visited),
+          alert_targets: AlertTargets.default(visited),
+          additional_metrics_to_retain: AdditionalMetricsToRetainList.default(visited),
+          additional_metrics_to_retain_v2: AdditionalMetricsToRetainV2List.default(visited),
           version: 1,
           creation_date: Time.now,
           last_modified_date: Time.now,
@@ -3858,7 +3858,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('AdditionalMetricsToRetainV2List')
         visited = visited + ['AdditionalMetricsToRetainV2List']
         [
-          Stubs::MetricToRetain.default(visited)
+          MetricToRetain.default(visited)
         ]
       end
 
@@ -3879,7 +3879,7 @@ module AWS::SDK::IoT
         visited = visited + ['MetricToRetain']
         {
           metric: 'metric',
-          metric_dimension: Stubs::MetricDimension.default(visited),
+          metric_dimension: MetricDimension.default(visited),
         }
       end
 
@@ -3938,7 +3938,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('AlertTargets')
         visited = visited + ['AlertTargets']
         {
-          test_key: Stubs::AlertTarget.default(visited)
+          test_key: AlertTarget.default(visited)
         }
       end
 
@@ -3978,7 +3978,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('Behaviors')
         visited = visited + ['Behaviors']
         [
-          Stubs::Behavior.default(visited)
+          Behavior.default(visited)
         ]
       end
 
@@ -4000,8 +4000,8 @@ module AWS::SDK::IoT
         {
           name: 'name',
           metric: 'metric',
-          metric_dimension: Stubs::MetricDimension.default(visited),
-          criteria: Stubs::BehaviorCriteria.default(visited),
+          metric_dimension: MetricDimension.default(visited),
+          criteria: BehaviorCriteria.default(visited),
           suppress_alerts: false,
         }
       end
@@ -4025,12 +4025,12 @@ module AWS::SDK::IoT
         visited = visited + ['BehaviorCriteria']
         {
           comparison_operator: 'comparison_operator',
-          value: Stubs::MetricValue.default(visited),
+          value: MetricValue.default(visited),
           duration_seconds: 1,
           consecutive_datapoints_to_alarm: 1,
           consecutive_datapoints_to_clear: 1,
-          statistical_threshold: Stubs::StatisticalThreshold.default(visited),
-          ml_detection_config: Stubs::MachineLearningDetectionConfig.default(visited),
+          statistical_threshold: StatisticalThreshold.default(visited),
+          ml_detection_config: MachineLearningDetectionConfig.default(visited),
         }
       end
 
@@ -4091,11 +4091,11 @@ module AWS::SDK::IoT
         visited = visited + ['MetricValue']
         {
           count: 1,
-          cidrs: Stubs::Cidrs.default(visited),
-          ports: Stubs::Ports.default(visited),
+          cidrs: Cidrs.default(visited),
+          ports: Ports.default(visited),
           number: 1.0,
-          numbers: Stubs::NumberList.default(visited),
-          strings: Stubs::StringList.default(visited),
+          numbers: NumberList.default(visited),
+          strings: StringList.default(visited),
         }
       end
 
@@ -4196,7 +4196,7 @@ module AWS::SDK::IoT
     class DescribeStream
       def self.default(visited=[])
         {
-          stream_info: Stubs::StreamInfo.default(visited),
+          stream_info: StreamInfo.default(visited),
         }
       end
 
@@ -4219,7 +4219,7 @@ module AWS::SDK::IoT
           stream_arn: 'stream_arn',
           stream_version: 1,
           description: 'description',
-          files: Stubs::StreamFiles.default(visited),
+          files: StreamFiles.default(visited),
           created_at: Time.now,
           last_updated_at: Time.now,
           role_arn: 'role_arn',
@@ -4247,7 +4247,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('StreamFiles')
         visited = visited + ['StreamFiles']
         [
-          Stubs::StreamFile.default(visited)
+          StreamFile.default(visited)
         ]
       end
 
@@ -4268,7 +4268,7 @@ module AWS::SDK::IoT
         visited = visited + ['StreamFile']
         {
           file_id: 1,
-          s3_location: Stubs::S3Location.default(visited),
+          s3_location: S3Location.default(visited),
         }
       end
 
@@ -4312,7 +4312,7 @@ module AWS::SDK::IoT
           thing_id: 'thing_id',
           thing_arn: 'thing_arn',
           thing_type_name: 'thing_type_name',
-          attributes: Stubs::Attributes.default(visited),
+          attributes: Attributes.default(visited),
           version: 1,
           billing_group_name: 'billing_group_name',
         }
@@ -4362,8 +4362,8 @@ module AWS::SDK::IoT
           thing_group_id: 'thing_group_id',
           thing_group_arn: 'thing_group_arn',
           version: 1,
-          thing_group_properties: Stubs::ThingGroupProperties.default(visited),
-          thing_group_metadata: Stubs::ThingGroupMetadata.default(visited),
+          thing_group_properties: ThingGroupProperties.default(visited),
+          thing_group_metadata: ThingGroupMetadata.default(visited),
           index_name: 'index_name',
           query_string: 'query_string',
           query_version: 'query_version',
@@ -4396,7 +4396,7 @@ module AWS::SDK::IoT
         visited = visited + ['ThingGroupMetadata']
         {
           parent_group_name: 'parent_group_name',
-          root_to_parent_thing_groups: Stubs::ThingGroupNameAndArnList.default(visited),
+          root_to_parent_thing_groups: ThingGroupNameAndArnList.default(visited),
           creation_date: Time.now,
         }
       end
@@ -4417,7 +4417,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('ThingGroupNameAndArnList')
         visited = visited + ['ThingGroupNameAndArnList']
         [
-          Stubs::GroupNameAndArn.default(visited)
+          GroupNameAndArn.default(visited)
         ]
       end
 
@@ -4458,7 +4458,7 @@ module AWS::SDK::IoT
         visited = visited + ['ThingGroupProperties']
         {
           thing_group_description: 'thing_group_description',
-          attribute_payload: Stubs::AttributePayload.default(visited),
+          attribute_payload: AttributePayload.default(visited),
         }
       end
 
@@ -4477,7 +4477,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('AttributePayload')
         visited = visited + ['AttributePayload']
         {
-          attributes: Stubs::Attributes.default(visited),
+          attributes: Attributes.default(visited),
           merge: false,
         }
       end
@@ -4537,8 +4537,8 @@ module AWS::SDK::IoT
           thing_type_name: 'thing_type_name',
           thing_type_id: 'thing_type_id',
           thing_type_arn: 'thing_type_arn',
-          thing_type_properties: Stubs::ThingTypeProperties.default(visited),
-          thing_type_metadata: Stubs::ThingTypeMetadata.default(visited),
+          thing_type_properties: ThingTypeProperties.default(visited),
+          thing_type_metadata: ThingTypeMetadata.default(visited),
         }
       end
 
@@ -4584,7 +4584,7 @@ module AWS::SDK::IoT
         visited = visited + ['ThingTypeProperties']
         {
           thing_type_description: 'thing_type_description',
-          searchable_attributes: Stubs::SearchableAttributes.default(visited),
+          searchable_attributes: SearchableAttributes.default(visited),
         }
       end
 
@@ -4699,7 +4699,7 @@ module AWS::SDK::IoT
     class GetBehaviorModelTrainingSummaries
       def self.default(visited=[])
         {
-          summaries: Stubs::BehaviorModelTrainingSummaries.default(visited),
+          summaries: BehaviorModelTrainingSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -4720,7 +4720,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('BehaviorModelTrainingSummaries')
         visited = visited + ['BehaviorModelTrainingSummaries']
         [
-          Stubs::BehaviorModelTrainingSummary.default(visited)
+          BehaviorModelTrainingSummary.default(visited)
         ]
       end
 
@@ -4767,7 +4767,7 @@ module AWS::SDK::IoT
       def self.default(visited=[])
         {
           total_count: 1,
-          buckets: Stubs::Buckets.default(visited),
+          buckets: Buckets.default(visited),
         }
       end
 
@@ -4787,7 +4787,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('Buckets')
         visited = visited + ['Buckets']
         [
-          Stubs::Bucket.default(visited)
+          Bucket.default(visited)
         ]
       end
 
@@ -4842,7 +4842,7 @@ module AWS::SDK::IoT
     class GetEffectivePolicies
       def self.default(visited=[])
         {
-          effective_policies: Stubs::EffectivePolicies.default(visited),
+          effective_policies: EffectivePolicies.default(visited),
         }
       end
 
@@ -4861,7 +4861,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('EffectivePolicies')
         visited = visited + ['EffectivePolicies']
         [
-          Stubs::EffectivePolicy.default(visited)
+          EffectivePolicy.default(visited)
         ]
       end
 
@@ -4901,8 +4901,8 @@ module AWS::SDK::IoT
     class GetIndexingConfiguration
       def self.default(visited=[])
         {
-          thing_indexing_configuration: Stubs::ThingIndexingConfiguration.default(visited),
-          thing_group_indexing_configuration: Stubs::ThingGroupIndexingConfiguration.default(visited),
+          thing_indexing_configuration: ThingIndexingConfiguration.default(visited),
+          thing_group_indexing_configuration: ThingGroupIndexingConfiguration.default(visited),
         }
       end
 
@@ -4923,8 +4923,8 @@ module AWS::SDK::IoT
         visited = visited + ['ThingGroupIndexingConfiguration']
         {
           thing_group_indexing_mode: 'thing_group_indexing_mode',
-          managed_fields: Stubs::Fields.default(visited),
-          custom_fields: Stubs::Fields.default(visited),
+          managed_fields: Fields.default(visited),
+          custom_fields: Fields.default(visited),
         }
       end
 
@@ -4944,7 +4944,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('Fields')
         visited = visited + ['Fields']
         [
-          Stubs::Field.default(visited)
+          Field.default(visited)
         ]
       end
 
@@ -4988,8 +4988,8 @@ module AWS::SDK::IoT
           thing_connectivity_indexing_mode: 'thing_connectivity_indexing_mode',
           device_defender_indexing_mode: 'device_defender_indexing_mode',
           named_shadow_indexing_mode: 'named_shadow_indexing_mode',
-          managed_fields: Stubs::Fields.default(visited),
-          custom_fields: Stubs::Fields.default(visited),
+          managed_fields: Fields.default(visited),
+          custom_fields: Fields.default(visited),
         }
       end
 
@@ -5046,7 +5046,7 @@ module AWS::SDK::IoT
     class GetOTAUpdate
       def self.default(visited=[])
         {
-          ota_update_info: Stubs::OTAUpdateInfo.default(visited),
+          ota_update_info: OTAUpdateInfo.default(visited),
         }
       end
 
@@ -5070,17 +5070,17 @@ module AWS::SDK::IoT
           creation_date: Time.now,
           last_modified_date: Time.now,
           description: 'description',
-          targets: Stubs::Targets.default(visited),
-          protocols: Stubs::Protocols.default(visited),
-          aws_job_executions_rollout_config: Stubs::AwsJobExecutionsRolloutConfig.default(visited),
-          aws_job_presigned_url_config: Stubs::AwsJobPresignedUrlConfig.default(visited),
+          targets: Targets.default(visited),
+          protocols: Protocols.default(visited),
+          aws_job_executions_rollout_config: AwsJobExecutionsRolloutConfig.default(visited),
+          aws_job_presigned_url_config: AwsJobPresignedUrlConfig.default(visited),
           target_selection: 'target_selection',
-          ota_update_files: Stubs::OTAUpdateFiles.default(visited),
+          ota_update_files: OTAUpdateFiles.default(visited),
           ota_update_status: 'ota_update_status',
           aws_iot_job_id: 'aws_iot_job_id',
           aws_iot_job_arn: 'aws_iot_job_arn',
-          error_info: Stubs::ErrorInfo.default(visited),
-          additional_parameters: Stubs::AdditionalParameterMap.default(visited),
+          error_info: ErrorInfo.default(visited),
+          additional_parameters: AdditionalParameterMap.default(visited),
         }
       end
 
@@ -5153,7 +5153,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('OTAUpdateFiles')
         visited = visited + ['OTAUpdateFiles']
         [
-          Stubs::OTAUpdateFile.default(visited)
+          OTAUpdateFile.default(visited)
         ]
       end
 
@@ -5176,9 +5176,9 @@ module AWS::SDK::IoT
           file_name: 'file_name',
           file_type: 1,
           file_version: 'file_version',
-          file_location: Stubs::FileLocation.default(visited),
-          code_signing: Stubs::CodeSigning.default(visited),
-          attributes: Stubs::AttributesMap.default(visited),
+          file_location: FileLocation.default(visited),
+          code_signing: CodeSigning.default(visited),
+          attributes: AttributesMap.default(visited),
         }
       end
 
@@ -5222,8 +5222,8 @@ module AWS::SDK::IoT
         visited = visited + ['CodeSigning']
         {
           aws_signer_job_id: 'aws_signer_job_id',
-          start_signing_job_parameter: Stubs::StartSigningJobParameter.default(visited),
-          custom_code_signing: Stubs::CustomCodeSigning.default(visited),
+          start_signing_job_parameter: StartSigningJobParameter.default(visited),
+          custom_code_signing: CustomCodeSigning.default(visited),
         }
       end
 
@@ -5243,8 +5243,8 @@ module AWS::SDK::IoT
         return nil if visited.include?('CustomCodeSigning')
         visited = visited + ['CustomCodeSigning']
         {
-          signature: Stubs::CodeSigningSignature.default(visited),
-          certificate_chain: Stubs::CodeSigningCertificateChain.default(visited),
+          signature: CodeSigningSignature.default(visited),
+          certificate_chain: CodeSigningCertificateChain.default(visited),
           hash_algorithm: 'hash_algorithm',
           signature_algorithm: 'signature_algorithm',
         }
@@ -5305,9 +5305,9 @@ module AWS::SDK::IoT
         return nil if visited.include?('StartSigningJobParameter')
         visited = visited + ['StartSigningJobParameter']
         {
-          signing_profile_parameter: Stubs::SigningProfileParameter.default(visited),
+          signing_profile_parameter: SigningProfileParameter.default(visited),
           signing_profile_name: 'signing_profile_name',
-          destination: Stubs::Destination.default(visited),
+          destination: Destination.default(visited),
         }
       end
 
@@ -5327,7 +5327,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('Destination')
         visited = visited + ['Destination']
         {
-          s3_destination: Stubs::S3Destination.default(visited),
+          s3_destination: S3Destination.default(visited),
         }
       end
 
@@ -5387,8 +5387,8 @@ module AWS::SDK::IoT
         return nil if visited.include?('FileLocation')
         visited = visited + ['FileLocation']
         {
-          stream: Stubs::Stream.default(visited),
-          s3_location: Stubs::S3Location.default(visited),
+          stream: Stream.default(visited),
+          s3_location: S3Location.default(visited),
         }
       end
 
@@ -5446,7 +5446,7 @@ module AWS::SDK::IoT
         visited = visited + ['AwsJobExecutionsRolloutConfig']
         {
           maximum_per_minute: 1,
-          exponential_rate: Stubs::AwsJobExponentialRolloutRate.default(visited),
+          exponential_rate: AwsJobExponentialRolloutRate.default(visited),
         }
       end
 
@@ -5467,7 +5467,7 @@ module AWS::SDK::IoT
         {
           base_rate_per_minute: 1,
           increment_factor: 1.0,
-          rate_increase_criteria: Stubs::AwsJobRateIncreaseCriteria.default(visited),
+          rate_increase_criteria: AwsJobRateIncreaseCriteria.default(visited),
         }
       end
 
@@ -5545,7 +5545,7 @@ module AWS::SDK::IoT
     class GetPercentiles
       def self.default(visited=[])
         {
-          percentiles: Stubs::Percentiles.default(visited),
+          percentiles: Percentiles.default(visited),
         }
       end
 
@@ -5564,7 +5564,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('Percentiles')
         visited = visited + ['Percentiles']
         [
-          Stubs::PercentPair.default(visited)
+          PercentPair.default(visited)
         ]
       end
 
@@ -5679,7 +5679,7 @@ module AWS::SDK::IoT
     class GetStatistics
       def self.default(visited=[])
         {
-          statistics: Stubs::Statistics.default(visited),
+          statistics: Statistics.default(visited),
         }
       end
 
@@ -5729,7 +5729,7 @@ module AWS::SDK::IoT
       def self.default(visited=[])
         {
           rule_arn: 'rule_arn',
-          rule: Stubs::TopicRule.default(visited),
+          rule: TopicRule.default(visited),
         }
       end
 
@@ -5753,10 +5753,10 @@ module AWS::SDK::IoT
           sql: 'sql',
           description: 'description',
           created_at: Time.now,
-          actions: Stubs::ActionList.default(visited),
+          actions: ActionList.default(visited),
           rule_disabled: false,
           aws_iot_sql_version: 'aws_iot_sql_version',
-          error_action: Stubs::Action.default(visited),
+          error_action: Action.default(visited),
         }
       end
 
@@ -5781,28 +5781,28 @@ module AWS::SDK::IoT
         return nil if visited.include?('Action')
         visited = visited + ['Action']
         {
-          dynamo_db: Stubs::DynamoDBAction.default(visited),
-          dynamo_d_bv2: Stubs::DynamoDBv2Action.default(visited),
-          lambda: Stubs::LambdaAction.default(visited),
-          sns: Stubs::SnsAction.default(visited),
-          sqs: Stubs::SqsAction.default(visited),
-          kinesis: Stubs::KinesisAction.default(visited),
-          republish: Stubs::RepublishAction.default(visited),
-          s3: Stubs::S3Action.default(visited),
-          firehose: Stubs::FirehoseAction.default(visited),
-          cloudwatch_metric: Stubs::CloudwatchMetricAction.default(visited),
-          cloudwatch_alarm: Stubs::CloudwatchAlarmAction.default(visited),
-          cloudwatch_logs: Stubs::CloudwatchLogsAction.default(visited),
-          elasticsearch: Stubs::ElasticsearchAction.default(visited),
-          salesforce: Stubs::SalesforceAction.default(visited),
-          iot_analytics: Stubs::IotAnalyticsAction.default(visited),
-          iot_events: Stubs::IotEventsAction.default(visited),
-          iot_site_wise: Stubs::IotSiteWiseAction.default(visited),
-          step_functions: Stubs::StepFunctionsAction.default(visited),
-          timestream: Stubs::TimestreamAction.default(visited),
-          http: Stubs::HttpAction.default(visited),
-          kafka: Stubs::KafkaAction.default(visited),
-          open_search: Stubs::OpenSearchAction.default(visited),
+          dynamo_db: DynamoDBAction.default(visited),
+          dynamo_d_bv2: DynamoDBv2Action.default(visited),
+          lambda: LambdaAction.default(visited),
+          sns: SnsAction.default(visited),
+          sqs: SqsAction.default(visited),
+          kinesis: KinesisAction.default(visited),
+          republish: RepublishAction.default(visited),
+          s3: S3Action.default(visited),
+          firehose: FirehoseAction.default(visited),
+          cloudwatch_metric: CloudwatchMetricAction.default(visited),
+          cloudwatch_alarm: CloudwatchAlarmAction.default(visited),
+          cloudwatch_logs: CloudwatchLogsAction.default(visited),
+          elasticsearch: ElasticsearchAction.default(visited),
+          salesforce: SalesforceAction.default(visited),
+          iot_analytics: IotAnalyticsAction.default(visited),
+          iot_events: IotEventsAction.default(visited),
+          iot_site_wise: IotSiteWiseAction.default(visited),
+          step_functions: StepFunctionsAction.default(visited),
+          timestream: TimestreamAction.default(visited),
+          http: HttpAction.default(visited),
+          kafka: KafkaAction.default(visited),
+          open_search: OpenSearchAction.default(visited),
         }
       end
 
@@ -5871,7 +5871,7 @@ module AWS::SDK::IoT
           topic: 'topic',
           key: 'key',
           partition: 'partition',
-          client_properties: Stubs::ClientProperties.default(visited),
+          client_properties: ClientProperties.default(visited),
         }
       end
 
@@ -5915,8 +5915,8 @@ module AWS::SDK::IoT
         {
           url: 'url',
           confirmation_url: 'confirmation_url',
-          headers: Stubs::HeaderList.default(visited),
-          auth: Stubs::HttpAuthorization.default(visited),
+          headers: HeaderList.default(visited),
+          auth: HttpAuthorization.default(visited),
         }
       end
 
@@ -5937,7 +5937,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('HttpAuthorization')
         visited = visited + ['HttpAuthorization']
         {
-          sigv4: Stubs::SigV4Authorization.default(visited),
+          sigv4: SigV4Authorization.default(visited),
         }
       end
 
@@ -5977,7 +5977,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('HeaderList')
         visited = visited + ['HeaderList']
         [
-          Stubs::HttpActionHeader.default(visited)
+          HttpActionHeader.default(visited)
         ]
       end
 
@@ -6020,8 +6020,8 @@ module AWS::SDK::IoT
           role_arn: 'role_arn',
           database_name: 'database_name',
           table_name: 'table_name',
-          dimensions: Stubs::TimestreamDimensionList.default(visited),
-          timestamp: Stubs::TimestreamTimestamp.default(visited),
+          dimensions: TimestreamDimensionList.default(visited),
+          timestamp: TimestreamTimestamp.default(visited),
         }
       end
 
@@ -6063,7 +6063,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('TimestreamDimensionList')
         visited = visited + ['TimestreamDimensionList']
         [
-          Stubs::TimestreamDimension.default(visited)
+          TimestreamDimension.default(visited)
         ]
       end
 
@@ -6125,7 +6125,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('IotSiteWiseAction')
         visited = visited + ['IotSiteWiseAction']
         {
-          put_asset_property_value_entries: Stubs::PutAssetPropertyValueEntryList.default(visited),
+          put_asset_property_value_entries: PutAssetPropertyValueEntryList.default(visited),
           role_arn: 'role_arn',
         }
       end
@@ -6145,7 +6145,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('PutAssetPropertyValueEntryList')
         visited = visited + ['PutAssetPropertyValueEntryList']
         [
-          Stubs::PutAssetPropertyValueEntry.default(visited)
+          PutAssetPropertyValueEntry.default(visited)
         ]
       end
 
@@ -6169,7 +6169,7 @@ module AWS::SDK::IoT
           asset_id: 'asset_id',
           property_id: 'property_id',
           property_alias: 'property_alias',
-          property_values: Stubs::AssetPropertyValueList.default(visited),
+          property_values: AssetPropertyValueList.default(visited),
         }
       end
 
@@ -6191,7 +6191,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('AssetPropertyValueList')
         visited = visited + ['AssetPropertyValueList']
         [
-          Stubs::AssetPropertyValue.default(visited)
+          AssetPropertyValue.default(visited)
         ]
       end
 
@@ -6211,8 +6211,8 @@ module AWS::SDK::IoT
         return nil if visited.include?('AssetPropertyValue')
         visited = visited + ['AssetPropertyValue']
         {
-          value: Stubs::AssetPropertyVariant.default(visited),
-          timestamp: Stubs::AssetPropertyTimestamp.default(visited),
+          value: AssetPropertyVariant.default(visited),
+          timestamp: AssetPropertyTimestamp.default(visited),
           quality: 'quality',
         }
       end
@@ -6604,7 +6604,7 @@ module AWS::SDK::IoT
         visited = visited + ['DynamoDBv2Action']
         {
           role_arn: 'role_arn',
-          put_item: Stubs::PutItemInput.default(visited),
+          put_item: PutItemInput.default(visited),
         }
       end
 
@@ -6677,7 +6677,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('ActionList')
         visited = visited + ['ActionList']
         [
-          Stubs::Action.default(visited)
+          Action.default(visited)
         ]
       end
 
@@ -6695,7 +6695,7 @@ module AWS::SDK::IoT
     class GetTopicRuleDestination
       def self.default(visited=[])
         {
-          topic_rule_destination: Stubs::TopicRuleDestination.default(visited),
+          topic_rule_destination: TopicRuleDestination.default(visited),
         }
       end
 
@@ -6733,7 +6733,7 @@ module AWS::SDK::IoT
     class ListActiveViolations
       def self.default(visited=[])
         {
-          active_violations: Stubs::ActiveViolations.default(visited),
+          active_violations: ActiveViolations.default(visited),
           next_token: 'next_token',
         }
       end
@@ -6754,7 +6754,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('ActiveViolations')
         visited = visited + ['ActiveViolations']
         [
-          Stubs::ActiveViolation.default(visited)
+          ActiveViolation.default(visited)
         ]
       end
 
@@ -6777,9 +6777,9 @@ module AWS::SDK::IoT
           violation_id: 'violation_id',
           thing_name: 'thing_name',
           security_profile_name: 'security_profile_name',
-          behavior: Stubs::Behavior.default(visited),
-          last_violation_value: Stubs::MetricValue.default(visited),
-          violation_event_additional_info: Stubs::ViolationEventAdditionalInfo.default(visited),
+          behavior: Behavior.default(visited),
+          last_violation_value: MetricValue.default(visited),
+          violation_event_additional_info: ViolationEventAdditionalInfo.default(visited),
           verification_state: 'verification_state',
           verification_state_description: 'verification_state_description',
           last_violation_time: Time.now,
@@ -6826,7 +6826,7 @@ module AWS::SDK::IoT
     class ListAttachedPolicies
       def self.default(visited=[])
         {
-          policies: Stubs::Policies.default(visited),
+          policies: Policies.default(visited),
           next_marker: 'next_marker',
         }
       end
@@ -6847,7 +6847,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('Policies')
         visited = visited + ['Policies']
         [
-          Stubs::Policy.default(visited)
+          Policy.default(visited)
         ]
       end
 
@@ -6885,7 +6885,7 @@ module AWS::SDK::IoT
     class ListAuditFindings
       def self.default(visited=[])
         {
-          findings: Stubs::AuditFindings.default(visited),
+          findings: AuditFindings.default(visited),
           next_token: 'next_token',
         }
       end
@@ -6906,7 +6906,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('AuditFindings')
         visited = visited + ['AuditFindings']
         [
-          Stubs::AuditFinding.default(visited)
+          AuditFinding.default(visited)
         ]
       end
 
@@ -6924,7 +6924,7 @@ module AWS::SDK::IoT
     class ListAuditMitigationActionsExecutions
       def self.default(visited=[])
         {
-          actions_executions: Stubs::AuditMitigationActionExecutionMetadataList.default(visited),
+          actions_executions: AuditMitigationActionExecutionMetadataList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -6945,7 +6945,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('AuditMitigationActionExecutionMetadataList')
         visited = visited + ['AuditMitigationActionExecutionMetadataList']
         [
-          Stubs::AuditMitigationActionExecutionMetadata.default(visited)
+          AuditMitigationActionExecutionMetadata.default(visited)
         ]
       end
 
@@ -6997,7 +6997,7 @@ module AWS::SDK::IoT
     class ListAuditMitigationActionsTasks
       def self.default(visited=[])
         {
-          tasks: Stubs::AuditMitigationActionsTaskMetadataList.default(visited),
+          tasks: AuditMitigationActionsTaskMetadataList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -7018,7 +7018,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('AuditMitigationActionsTaskMetadataList')
         visited = visited + ['AuditMitigationActionsTaskMetadataList']
         [
-          Stubs::AuditMitigationActionsTaskMetadata.default(visited)
+          AuditMitigationActionsTaskMetadata.default(visited)
         ]
       end
 
@@ -7058,7 +7058,7 @@ module AWS::SDK::IoT
     class ListAuditSuppressions
       def self.default(visited=[])
         {
-          suppressions: Stubs::AuditSuppressionList.default(visited),
+          suppressions: AuditSuppressionList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -7079,7 +7079,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('AuditSuppressionList')
         visited = visited + ['AuditSuppressionList']
         [
-          Stubs::AuditSuppression.default(visited)
+          AuditSuppression.default(visited)
         ]
       end
 
@@ -7100,7 +7100,7 @@ module AWS::SDK::IoT
         visited = visited + ['AuditSuppression']
         {
           check_name: 'check_name',
-          resource_identifier: Stubs::ResourceIdentifier.default(visited),
+          resource_identifier: ResourceIdentifier.default(visited),
           expiration_date: Time.now,
           suppress_indefinitely: false,
           description: 'description',
@@ -7123,7 +7123,7 @@ module AWS::SDK::IoT
     class ListAuditTasks
       def self.default(visited=[])
         {
-          tasks: Stubs::AuditTaskMetadataList.default(visited),
+          tasks: AuditTaskMetadataList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -7144,7 +7144,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('AuditTaskMetadataList')
         visited = visited + ['AuditTaskMetadataList']
         [
-          Stubs::AuditTaskMetadata.default(visited)
+          AuditTaskMetadata.default(visited)
         ]
       end
 
@@ -7184,7 +7184,7 @@ module AWS::SDK::IoT
     class ListAuthorizers
       def self.default(visited=[])
         {
-          authorizers: Stubs::Authorizers.default(visited),
+          authorizers: Authorizers.default(visited),
           next_marker: 'next_marker',
         }
       end
@@ -7205,7 +7205,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('Authorizers')
         visited = visited + ['Authorizers']
         [
-          Stubs::AuthorizerSummary.default(visited)
+          AuthorizerSummary.default(visited)
         ]
       end
 
@@ -7243,7 +7243,7 @@ module AWS::SDK::IoT
     class ListBillingGroups
       def self.default(visited=[])
         {
-          billing_groups: Stubs::BillingGroupNameAndArnList.default(visited),
+          billing_groups: BillingGroupNameAndArnList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -7264,7 +7264,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('BillingGroupNameAndArnList')
         visited = visited + ['BillingGroupNameAndArnList']
         [
-          Stubs::GroupNameAndArn.default(visited)
+          GroupNameAndArn.default(visited)
         ]
       end
 
@@ -7282,7 +7282,7 @@ module AWS::SDK::IoT
     class ListCACertificates
       def self.default(visited=[])
         {
-          certificates: Stubs::CACertificates.default(visited),
+          certificates: CACertificates.default(visited),
           next_marker: 'next_marker',
         }
       end
@@ -7303,7 +7303,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('CACertificates')
         visited = visited + ['CACertificates']
         [
-          Stubs::CACertificate.default(visited)
+          CACertificate.default(visited)
         ]
       end
 
@@ -7345,7 +7345,7 @@ module AWS::SDK::IoT
     class ListCertificates
       def self.default(visited=[])
         {
-          certificates: Stubs::Certificates.default(visited),
+          certificates: Certificates.default(visited),
           next_marker: 'next_marker',
         }
       end
@@ -7366,7 +7366,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('Certificates')
         visited = visited + ['Certificates']
         [
-          Stubs::Certificate.default(visited)
+          Certificate.default(visited)
         ]
       end
 
@@ -7410,7 +7410,7 @@ module AWS::SDK::IoT
     class ListCertificatesByCA
       def self.default(visited=[])
         {
-          certificates: Stubs::Certificates.default(visited),
+          certificates: Certificates.default(visited),
           next_marker: 'next_marker',
         }
       end
@@ -7429,7 +7429,7 @@ module AWS::SDK::IoT
     class ListCustomMetrics
       def self.default(visited=[])
         {
-          metric_names: Stubs::MetricNames.default(visited),
+          metric_names: MetricNames.default(visited),
           next_token: 'next_token',
         }
       end
@@ -7468,7 +7468,7 @@ module AWS::SDK::IoT
     class ListDetectMitigationActionsExecutions
       def self.default(visited=[])
         {
-          actions_executions: Stubs::DetectMitigationActionExecutionList.default(visited),
+          actions_executions: DetectMitigationActionExecutionList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -7489,7 +7489,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('DetectMitigationActionExecutionList')
         visited = visited + ['DetectMitigationActionExecutionList']
         [
-          Stubs::DetectMitigationActionExecution.default(visited)
+          DetectMitigationActionExecution.default(visited)
         ]
       end
 
@@ -7541,7 +7541,7 @@ module AWS::SDK::IoT
     class ListDetectMitigationActionsTasks
       def self.default(visited=[])
         {
-          tasks: Stubs::DetectMitigationActionsTaskSummaryList.default(visited),
+          tasks: DetectMitigationActionsTaskSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -7562,7 +7562,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('DetectMitigationActionsTaskSummaryList')
         visited = visited + ['DetectMitigationActionsTaskSummaryList']
         [
-          Stubs::DetectMitigationActionsTaskSummary.default(visited)
+          DetectMitigationActionsTaskSummary.default(visited)
         ]
       end
 
@@ -7580,7 +7580,7 @@ module AWS::SDK::IoT
     class ListDimensions
       def self.default(visited=[])
         {
-          dimension_names: Stubs::DimensionNames.default(visited),
+          dimension_names: DimensionNames.default(visited),
           next_token: 'next_token',
         }
       end
@@ -7619,7 +7619,7 @@ module AWS::SDK::IoT
     class ListDomainConfigurations
       def self.default(visited=[])
         {
-          domain_configurations: Stubs::DomainConfigurations.default(visited),
+          domain_configurations: DomainConfigurations.default(visited),
           next_marker: 'next_marker',
         }
       end
@@ -7640,7 +7640,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('DomainConfigurations')
         visited = visited + ['DomainConfigurations']
         [
-          Stubs::DomainConfigurationSummary.default(visited)
+          DomainConfigurationSummary.default(visited)
         ]
       end
 
@@ -7680,7 +7680,7 @@ module AWS::SDK::IoT
     class ListFleetMetrics
       def self.default(visited=[])
         {
-          fleet_metrics: Stubs::FleetMetricNameAndArnList.default(visited),
+          fleet_metrics: FleetMetricNameAndArnList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -7701,7 +7701,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('FleetMetricNameAndArnList')
         visited = visited + ['FleetMetricNameAndArnList']
         [
-          Stubs::FleetMetricNameAndArn.default(visited)
+          FleetMetricNameAndArn.default(visited)
         ]
       end
 
@@ -7739,7 +7739,7 @@ module AWS::SDK::IoT
     class ListIndices
       def self.default(visited=[])
         {
-          index_names: Stubs::IndexNamesList.default(visited),
+          index_names: IndexNamesList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -7778,7 +7778,7 @@ module AWS::SDK::IoT
     class ListJobExecutionsForJob
       def self.default(visited=[])
         {
-          execution_summaries: Stubs::JobExecutionSummaryForJobList.default(visited),
+          execution_summaries: JobExecutionSummaryForJobList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -7799,7 +7799,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('JobExecutionSummaryForJobList')
         visited = visited + ['JobExecutionSummaryForJobList']
         [
-          Stubs::JobExecutionSummaryForJob.default(visited)
+          JobExecutionSummaryForJob.default(visited)
         ]
       end
 
@@ -7820,7 +7820,7 @@ module AWS::SDK::IoT
         visited = visited + ['JobExecutionSummaryForJob']
         {
           thing_arn: 'thing_arn',
-          job_execution_summary: Stubs::JobExecutionSummary.default(visited),
+          job_execution_summary: JobExecutionSummary.default(visited),
         }
       end
 
@@ -7865,7 +7865,7 @@ module AWS::SDK::IoT
     class ListJobExecutionsForThing
       def self.default(visited=[])
         {
-          execution_summaries: Stubs::JobExecutionSummaryForThingList.default(visited),
+          execution_summaries: JobExecutionSummaryForThingList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -7886,7 +7886,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('JobExecutionSummaryForThingList')
         visited = visited + ['JobExecutionSummaryForThingList']
         [
-          Stubs::JobExecutionSummaryForThing.default(visited)
+          JobExecutionSummaryForThing.default(visited)
         ]
       end
 
@@ -7907,7 +7907,7 @@ module AWS::SDK::IoT
         visited = visited + ['JobExecutionSummaryForThing']
         {
           job_id: 'job_id',
-          job_execution_summary: Stubs::JobExecutionSummary.default(visited),
+          job_execution_summary: JobExecutionSummary.default(visited),
         }
       end
 
@@ -7924,7 +7924,7 @@ module AWS::SDK::IoT
     class ListJobTemplates
       def self.default(visited=[])
         {
-          job_templates: Stubs::JobTemplateSummaryList.default(visited),
+          job_templates: JobTemplateSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -7945,7 +7945,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('JobTemplateSummaryList')
         visited = visited + ['JobTemplateSummaryList']
         [
-          Stubs::JobTemplateSummary.default(visited)
+          JobTemplateSummary.default(visited)
         ]
       end
 
@@ -7987,7 +7987,7 @@ module AWS::SDK::IoT
     class ListJobs
       def self.default(visited=[])
         {
-          jobs: Stubs::JobSummaryList.default(visited),
+          jobs: JobSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -8008,7 +8008,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('JobSummaryList')
         visited = visited + ['JobSummaryList']
         [
-          Stubs::JobSummary.default(visited)
+          JobSummary.default(visited)
         ]
       end
 
@@ -8060,7 +8060,7 @@ module AWS::SDK::IoT
     class ListManagedJobTemplates
       def self.default(visited=[])
         {
-          managed_job_templates: Stubs::ManagedJobTemplatesSummaryList.default(visited),
+          managed_job_templates: ManagedJobTemplatesSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -8081,7 +8081,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('ManagedJobTemplatesSummaryList')
         visited = visited + ['ManagedJobTemplatesSummaryList']
         [
-          Stubs::ManagedJobTemplateSummary.default(visited)
+          ManagedJobTemplateSummary.default(visited)
         ]
       end
 
@@ -8104,7 +8104,7 @@ module AWS::SDK::IoT
           template_arn: 'template_arn',
           template_name: 'template_name',
           description: 'description',
-          environments: Stubs::Environments.default(visited),
+          environments: Environments.default(visited),
           template_version: 'template_version',
         }
       end
@@ -8125,7 +8125,7 @@ module AWS::SDK::IoT
     class ListMetricValues
       def self.default(visited=[])
         {
-          metric_datum_list: Stubs::MetricDatumList.default(visited),
+          metric_datum_list: MetricDatumList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -8146,7 +8146,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('MetricDatumList')
         visited = visited + ['MetricDatumList']
         [
-          Stubs::MetricDatum.default(visited)
+          MetricDatum.default(visited)
         ]
       end
 
@@ -8167,7 +8167,7 @@ module AWS::SDK::IoT
         visited = visited + ['MetricDatum']
         {
           timestamp: Time.now,
-          value: Stubs::MetricValue.default(visited),
+          value: MetricValue.default(visited),
         }
       end
 
@@ -8184,7 +8184,7 @@ module AWS::SDK::IoT
     class ListMitigationActions
       def self.default(visited=[])
         {
-          action_identifiers: Stubs::MitigationActionIdentifierList.default(visited),
+          action_identifiers: MitigationActionIdentifierList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -8205,7 +8205,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('MitigationActionIdentifierList')
         visited = visited + ['MitigationActionIdentifierList']
         [
-          Stubs::MitigationActionIdentifier.default(visited)
+          MitigationActionIdentifier.default(visited)
         ]
       end
 
@@ -8245,7 +8245,7 @@ module AWS::SDK::IoT
     class ListOTAUpdates
       def self.default(visited=[])
         {
-          ota_updates: Stubs::OTAUpdatesSummary.default(visited),
+          ota_updates: OTAUpdatesSummary.default(visited),
           next_token: 'next_token',
         }
       end
@@ -8266,7 +8266,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('OTAUpdatesSummary')
         visited = visited + ['OTAUpdatesSummary']
         [
-          Stubs::OTAUpdateSummary.default(visited)
+          OTAUpdateSummary.default(visited)
         ]
       end
 
@@ -8306,7 +8306,7 @@ module AWS::SDK::IoT
     class ListOutgoingCertificates
       def self.default(visited=[])
         {
-          outgoing_certificates: Stubs::OutgoingCertificates.default(visited),
+          outgoing_certificates: OutgoingCertificates.default(visited),
           next_marker: 'next_marker',
         }
       end
@@ -8327,7 +8327,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('OutgoingCertificates')
         visited = visited + ['OutgoingCertificates']
         [
-          Stubs::OutgoingCertificate.default(visited)
+          OutgoingCertificate.default(visited)
         ]
       end
 
@@ -8373,7 +8373,7 @@ module AWS::SDK::IoT
     class ListPolicies
       def self.default(visited=[])
         {
-          policies: Stubs::Policies.default(visited),
+          policies: Policies.default(visited),
           next_marker: 'next_marker',
         }
       end
@@ -8392,7 +8392,7 @@ module AWS::SDK::IoT
     class ListPolicyPrincipals
       def self.default(visited=[])
         {
-          principals: Stubs::Principals.default(visited),
+          principals: Principals.default(visited),
           next_marker: 'next_marker',
         }
       end
@@ -8431,7 +8431,7 @@ module AWS::SDK::IoT
     class ListPolicyVersions
       def self.default(visited=[])
         {
-          policy_versions: Stubs::PolicyVersions.default(visited),
+          policy_versions: PolicyVersions.default(visited),
         }
       end
 
@@ -8450,7 +8450,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('PolicyVersions')
         visited = visited + ['PolicyVersions']
         [
-          Stubs::PolicyVersion.default(visited)
+          PolicyVersion.default(visited)
         ]
       end
 
@@ -8490,7 +8490,7 @@ module AWS::SDK::IoT
     class ListPrincipalPolicies
       def self.default(visited=[])
         {
-          policies: Stubs::Policies.default(visited),
+          policies: Policies.default(visited),
           next_marker: 'next_marker',
         }
       end
@@ -8509,7 +8509,7 @@ module AWS::SDK::IoT
     class ListPrincipalThings
       def self.default(visited=[])
         {
-          things: Stubs::ThingNameList.default(visited),
+          things: ThingNameList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -8548,7 +8548,7 @@ module AWS::SDK::IoT
     class ListProvisioningTemplateVersions
       def self.default(visited=[])
         {
-          versions: Stubs::ProvisioningTemplateVersionListing.default(visited),
+          versions: ProvisioningTemplateVersionListing.default(visited),
           next_token: 'next_token',
         }
       end
@@ -8569,7 +8569,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('ProvisioningTemplateVersionListing')
         visited = visited + ['ProvisioningTemplateVersionListing']
         [
-          Stubs::ProvisioningTemplateVersionSummary.default(visited)
+          ProvisioningTemplateVersionSummary.default(visited)
         ]
       end
 
@@ -8609,7 +8609,7 @@ module AWS::SDK::IoT
     class ListProvisioningTemplates
       def self.default(visited=[])
         {
-          templates: Stubs::ProvisioningTemplateListing.default(visited),
+          templates: ProvisioningTemplateListing.default(visited),
           next_token: 'next_token',
         }
       end
@@ -8630,7 +8630,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('ProvisioningTemplateListing')
         visited = visited + ['ProvisioningTemplateListing']
         [
-          Stubs::ProvisioningTemplateSummary.default(visited)
+          ProvisioningTemplateSummary.default(visited)
         ]
       end
 
@@ -8676,7 +8676,7 @@ module AWS::SDK::IoT
     class ListRoleAliases
       def self.default(visited=[])
         {
-          role_aliases: Stubs::RoleAliases.default(visited),
+          role_aliases: RoleAliases.default(visited),
           next_marker: 'next_marker',
         }
       end
@@ -8715,7 +8715,7 @@ module AWS::SDK::IoT
     class ListScheduledAudits
       def self.default(visited=[])
         {
-          scheduled_audits: Stubs::ScheduledAuditMetadataList.default(visited),
+          scheduled_audits: ScheduledAuditMetadataList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -8736,7 +8736,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('ScheduledAuditMetadataList')
         visited = visited + ['ScheduledAuditMetadataList']
         [
-          Stubs::ScheduledAuditMetadata.default(visited)
+          ScheduledAuditMetadata.default(visited)
         ]
       end
 
@@ -8780,7 +8780,7 @@ module AWS::SDK::IoT
     class ListSecurityProfiles
       def self.default(visited=[])
         {
-          security_profile_identifiers: Stubs::SecurityProfileIdentifiers.default(visited),
+          security_profile_identifiers: SecurityProfileIdentifiers.default(visited),
           next_token: 'next_token',
         }
       end
@@ -8801,7 +8801,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('SecurityProfileIdentifiers')
         visited = visited + ['SecurityProfileIdentifiers']
         [
-          Stubs::SecurityProfileIdentifier.default(visited)
+          SecurityProfileIdentifier.default(visited)
         ]
       end
 
@@ -8839,7 +8839,7 @@ module AWS::SDK::IoT
     class ListSecurityProfilesForTarget
       def self.default(visited=[])
         {
-          security_profile_target_mappings: Stubs::SecurityProfileTargetMappings.default(visited),
+          security_profile_target_mappings: SecurityProfileTargetMappings.default(visited),
           next_token: 'next_token',
         }
       end
@@ -8860,7 +8860,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('SecurityProfileTargetMappings')
         visited = visited + ['SecurityProfileTargetMappings']
         [
-          Stubs::SecurityProfileTargetMapping.default(visited)
+          SecurityProfileTargetMapping.default(visited)
         ]
       end
 
@@ -8880,8 +8880,8 @@ module AWS::SDK::IoT
         return nil if visited.include?('SecurityProfileTargetMapping')
         visited = visited + ['SecurityProfileTargetMapping']
         {
-          security_profile_identifier: Stubs::SecurityProfileIdentifier.default(visited),
-          target: Stubs::SecurityProfileTarget.default(visited),
+          security_profile_identifier: SecurityProfileIdentifier.default(visited),
+          target: SecurityProfileTarget.default(visited),
         }
       end
 
@@ -8916,7 +8916,7 @@ module AWS::SDK::IoT
     class ListStreams
       def self.default(visited=[])
         {
-          streams: Stubs::StreamsSummary.default(visited),
+          streams: StreamsSummary.default(visited),
           next_token: 'next_token',
         }
       end
@@ -8937,7 +8937,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('StreamsSummary')
         visited = visited + ['StreamsSummary']
         [
-          Stubs::StreamSummary.default(visited)
+          StreamSummary.default(visited)
         ]
       end
 
@@ -8979,7 +8979,7 @@ module AWS::SDK::IoT
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -9000,7 +9000,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -9038,7 +9038,7 @@ module AWS::SDK::IoT
     class ListTargetsForPolicy
       def self.default(visited=[])
         {
-          targets: Stubs::PolicyTargets.default(visited),
+          targets: PolicyTargets.default(visited),
           next_marker: 'next_marker',
         }
       end
@@ -9077,7 +9077,7 @@ module AWS::SDK::IoT
     class ListTargetsForSecurityProfile
       def self.default(visited=[])
         {
-          security_profile_targets: Stubs::SecurityProfileTargets.default(visited),
+          security_profile_targets: SecurityProfileTargets.default(visited),
           next_token: 'next_token',
         }
       end
@@ -9098,7 +9098,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('SecurityProfileTargets')
         visited = visited + ['SecurityProfileTargets']
         [
-          Stubs::SecurityProfileTarget.default(visited)
+          SecurityProfileTarget.default(visited)
         ]
       end
 
@@ -9116,7 +9116,7 @@ module AWS::SDK::IoT
     class ListThingGroups
       def self.default(visited=[])
         {
-          thing_groups: Stubs::ThingGroupNameAndArnList.default(visited),
+          thing_groups: ThingGroupNameAndArnList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -9135,7 +9135,7 @@ module AWS::SDK::IoT
     class ListThingGroupsForThing
       def self.default(visited=[])
         {
-          thing_groups: Stubs::ThingGroupNameAndArnList.default(visited),
+          thing_groups: ThingGroupNameAndArnList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -9154,7 +9154,7 @@ module AWS::SDK::IoT
     class ListThingPrincipals
       def self.default(visited=[])
         {
-          principals: Stubs::Principals.default(visited),
+          principals: Principals.default(visited),
           next_token: 'next_token',
         }
       end
@@ -9173,7 +9173,7 @@ module AWS::SDK::IoT
     class ListThingRegistrationTaskReports
       def self.default(visited=[])
         {
-          resource_links: Stubs::S3FileUrlList.default(visited),
+          resource_links: S3FileUrlList.default(visited),
           report_type: 'report_type',
           next_token: 'next_token',
         }
@@ -9214,7 +9214,7 @@ module AWS::SDK::IoT
     class ListThingRegistrationTasks
       def self.default(visited=[])
         {
-          task_ids: Stubs::TaskIdList.default(visited),
+          task_ids: TaskIdList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -9253,7 +9253,7 @@ module AWS::SDK::IoT
     class ListThingTypes
       def self.default(visited=[])
         {
-          thing_types: Stubs::ThingTypeList.default(visited),
+          thing_types: ThingTypeList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -9274,7 +9274,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('ThingTypeList')
         visited = visited + ['ThingTypeList']
         [
-          Stubs::ThingTypeDefinition.default(visited)
+          ThingTypeDefinition.default(visited)
         ]
       end
 
@@ -9296,8 +9296,8 @@ module AWS::SDK::IoT
         {
           thing_type_name: 'thing_type_name',
           thing_type_arn: 'thing_type_arn',
-          thing_type_properties: Stubs::ThingTypeProperties.default(visited),
-          thing_type_metadata: Stubs::ThingTypeMetadata.default(visited),
+          thing_type_properties: ThingTypeProperties.default(visited),
+          thing_type_metadata: ThingTypeMetadata.default(visited),
         }
       end
 
@@ -9316,7 +9316,7 @@ module AWS::SDK::IoT
     class ListThings
       def self.default(visited=[])
         {
-          things: Stubs::ThingAttributeList.default(visited),
+          things: ThingAttributeList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -9337,7 +9337,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('ThingAttributeList')
         visited = visited + ['ThingAttributeList']
         [
-          Stubs::ThingAttribute.default(visited)
+          ThingAttribute.default(visited)
         ]
       end
 
@@ -9360,7 +9360,7 @@ module AWS::SDK::IoT
           thing_name: 'thing_name',
           thing_type_name: 'thing_type_name',
           thing_arn: 'thing_arn',
-          attributes: Stubs::Attributes.default(visited),
+          attributes: Attributes.default(visited),
           version: 1,
         }
       end
@@ -9381,7 +9381,7 @@ module AWS::SDK::IoT
     class ListThingsInBillingGroup
       def self.default(visited=[])
         {
-          things: Stubs::ThingNameList.default(visited),
+          things: ThingNameList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -9400,7 +9400,7 @@ module AWS::SDK::IoT
     class ListThingsInThingGroup
       def self.default(visited=[])
         {
-          things: Stubs::ThingNameList.default(visited),
+          things: ThingNameList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -9419,7 +9419,7 @@ module AWS::SDK::IoT
     class ListTopicRuleDestinations
       def self.default(visited=[])
         {
-          destination_summaries: Stubs::TopicRuleDestinationSummaries.default(visited),
+          destination_summaries: TopicRuleDestinationSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -9440,7 +9440,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('TopicRuleDestinationSummaries')
         visited = visited + ['TopicRuleDestinationSummaries']
         [
-          Stubs::TopicRuleDestinationSummary.default(visited)
+          TopicRuleDestinationSummary.default(visited)
         ]
       end
 
@@ -9465,8 +9465,8 @@ module AWS::SDK::IoT
           created_at: Time.now,
           last_updated_at: Time.now,
           status_reason: 'status_reason',
-          http_url_summary: Stubs::HttpUrlDestinationSummary.default(visited),
-          vpc_destination_summary: Stubs::VpcDestinationSummary.default(visited),
+          http_url_summary: HttpUrlDestinationSummary.default(visited),
+          vpc_destination_summary: VpcDestinationSummary.default(visited),
         }
       end
 
@@ -9490,8 +9490,8 @@ module AWS::SDK::IoT
         return nil if visited.include?('VpcDestinationSummary')
         visited = visited + ['VpcDestinationSummary']
         {
-          subnet_ids: Stubs::SubnetIdList.default(visited),
-          security_groups: Stubs::SecurityGroupList.default(visited),
+          subnet_ids: SubnetIdList.default(visited),
+          security_groups: SecurityGroupList.default(visited),
           vpc_id: 'vpc_id',
           role_arn: 'role_arn',
         }
@@ -9530,7 +9530,7 @@ module AWS::SDK::IoT
     class ListTopicRules
       def self.default(visited=[])
         {
-          rules: Stubs::TopicRuleList.default(visited),
+          rules: TopicRuleList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -9551,7 +9551,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('TopicRuleList')
         visited = visited + ['TopicRuleList']
         [
-          Stubs::TopicRuleListItem.default(visited)
+          TopicRuleListItem.default(visited)
         ]
       end
 
@@ -9595,7 +9595,7 @@ module AWS::SDK::IoT
     class ListV2LoggingLevels
       def self.default(visited=[])
         {
-          log_target_configurations: Stubs::LogTargetConfigurations.default(visited),
+          log_target_configurations: LogTargetConfigurations.default(visited),
           next_token: 'next_token',
         }
       end
@@ -9616,7 +9616,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('LogTargetConfigurations')
         visited = visited + ['LogTargetConfigurations']
         [
-          Stubs::LogTargetConfiguration.default(visited)
+          LogTargetConfiguration.default(visited)
         ]
       end
 
@@ -9636,7 +9636,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('LogTargetConfiguration')
         visited = visited + ['LogTargetConfiguration']
         {
-          log_target: Stubs::LogTarget.default(visited),
+          log_target: LogTarget.default(visited),
           log_level: 'log_level',
         }
       end
@@ -9674,7 +9674,7 @@ module AWS::SDK::IoT
     class ListViolationEvents
       def self.default(visited=[])
         {
-          violation_events: Stubs::ViolationEvents.default(visited),
+          violation_events: ViolationEvents.default(visited),
           next_token: 'next_token',
         }
       end
@@ -9695,7 +9695,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('ViolationEvents')
         visited = visited + ['ViolationEvents']
         [
-          Stubs::ViolationEvent.default(visited)
+          ViolationEvent.default(visited)
         ]
       end
 
@@ -9718,9 +9718,9 @@ module AWS::SDK::IoT
           violation_id: 'violation_id',
           thing_name: 'thing_name',
           security_profile_name: 'security_profile_name',
-          behavior: Stubs::Behavior.default(visited),
-          metric_value: Stubs::MetricValue.default(visited),
-          violation_event_additional_info: Stubs::ViolationEventAdditionalInfo.default(visited),
+          behavior: Behavior.default(visited),
+          metric_value: MetricValue.default(visited),
+          violation_event_additional_info: ViolationEventAdditionalInfo.default(visited),
           violation_event_type: 'violation_event_type',
           verification_state: 'verification_state',
           verification_state_description: 'verification_state_description',
@@ -9820,7 +9820,7 @@ module AWS::SDK::IoT
       def self.default(visited=[])
         {
           certificate_pem: 'certificate_pem',
-          resource_arns: Stubs::ResourceArns.default(visited),
+          resource_arns: ResourceArns.default(visited),
         }
       end
 
@@ -9911,8 +9911,8 @@ module AWS::SDK::IoT
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          things: Stubs::ThingDocumentList.default(visited),
-          thing_groups: Stubs::ThingGroupDocumentList.default(visited),
+          things: ThingDocumentList.default(visited),
+          thing_groups: ThingGroupDocumentList.default(visited),
         }
       end
 
@@ -9933,7 +9933,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('ThingGroupDocumentList')
         visited = visited + ['ThingGroupDocumentList']
         [
-          Stubs::ThingGroupDocument.default(visited)
+          ThingGroupDocument.default(visited)
         ]
       end
 
@@ -9956,8 +9956,8 @@ module AWS::SDK::IoT
           thing_group_name: 'thing_group_name',
           thing_group_id: 'thing_group_id',
           thing_group_description: 'thing_group_description',
-          attributes: Stubs::Attributes.default(visited),
-          parent_group_names: Stubs::ThingGroupNameList.default(visited),
+          attributes: Attributes.default(visited),
+          parent_group_names: ThingGroupNameList.default(visited),
         }
       end
 
@@ -9999,7 +9999,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('ThingDocumentList')
         visited = visited + ['ThingDocumentList']
         [
-          Stubs::ThingDocument.default(visited)
+          ThingDocument.default(visited)
         ]
       end
 
@@ -10022,11 +10022,11 @@ module AWS::SDK::IoT
           thing_name: 'thing_name',
           thing_id: 'thing_id',
           thing_type_name: 'thing_type_name',
-          thing_group_names: Stubs::ThingGroupNameList.default(visited),
-          attributes: Stubs::Attributes.default(visited),
+          thing_group_names: ThingGroupNameList.default(visited),
+          attributes: Attributes.default(visited),
           shadow: 'shadow',
           device_defender: 'device_defender',
-          connectivity: Stubs::ThingConnectivity.default(visited),
+          connectivity: ThingConnectivity.default(visited),
         }
       end
 
@@ -10236,7 +10236,7 @@ module AWS::SDK::IoT
     class TestAuthorization
       def self.default(visited=[])
         {
-          auth_results: Stubs::AuthResults.default(visited),
+          auth_results: AuthResults.default(visited),
         }
       end
 
@@ -10255,7 +10255,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('AuthResults')
         visited = visited + ['AuthResults']
         [
-          Stubs::AuthResult.default(visited)
+          AuthResult.default(visited)
         ]
       end
 
@@ -10275,11 +10275,11 @@ module AWS::SDK::IoT
         return nil if visited.include?('AuthResult')
         visited = visited + ['AuthResult']
         {
-          auth_info: Stubs::AuthInfo.default(visited),
-          allowed: Stubs::Allowed.default(visited),
-          denied: Stubs::Denied.default(visited),
+          auth_info: AuthInfo.default(visited),
+          allowed: Allowed.default(visited),
+          denied: Denied.default(visited),
           auth_decision: 'auth_decision',
-          missing_context_values: Stubs::MissingContextValues.default(visited),
+          missing_context_values: MissingContextValues.default(visited),
         }
       end
 
@@ -10321,8 +10321,8 @@ module AWS::SDK::IoT
         return nil if visited.include?('Denied')
         visited = visited + ['Denied']
         {
-          implicit_deny: Stubs::ImplicitDeny.default(visited),
-          explicit_deny: Stubs::ExplicitDeny.default(visited),
+          implicit_deny: ImplicitDeny.default(visited),
+          explicit_deny: ExplicitDeny.default(visited),
         }
       end
 
@@ -10341,7 +10341,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('ExplicitDeny')
         visited = visited + ['ExplicitDeny']
         {
-          policies: Stubs::Policies.default(visited),
+          policies: Policies.default(visited),
         }
       end
 
@@ -10359,7 +10359,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('ImplicitDeny')
         visited = visited + ['ImplicitDeny']
         {
-          policies: Stubs::Policies.default(visited),
+          policies: Policies.default(visited),
         }
       end
 
@@ -10377,7 +10377,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('Allowed')
         visited = visited + ['Allowed']
         {
-          policies: Stubs::Policies.default(visited),
+          policies: Policies.default(visited),
         }
       end
 
@@ -10396,7 +10396,7 @@ module AWS::SDK::IoT
         visited = visited + ['AuthInfo']
         {
           action_type: 'action_type',
-          resources: Stubs::Resources.default(visited),
+          resources: Resources.default(visited),
         }
       end
 
@@ -10435,7 +10435,7 @@ module AWS::SDK::IoT
         {
           is_authenticated: false,
           principal_id: 'principal_id',
-          policy_documents: Stubs::PolicyDocuments.default(visited),
+          policy_documents: PolicyDocuments.default(visited),
           refresh_after_in_seconds: 1,
           disconnect_after_in_seconds: 1,
         }
@@ -10626,7 +10626,7 @@ module AWS::SDK::IoT
           name: 'name',
           arn: 'arn',
           type: 'type',
-          string_values: Stubs::DimensionStringValues.default(visited),
+          string_values: DimensionStringValues.default(visited),
           creation_date: Time.now,
           last_modified_date: Time.now,
         }
@@ -10809,10 +10809,10 @@ module AWS::SDK::IoT
           security_profile_name: 'security_profile_name',
           security_profile_arn: 'security_profile_arn',
           security_profile_description: 'security_profile_description',
-          behaviors: Stubs::Behaviors.default(visited),
-          alert_targets: Stubs::AlertTargets.default(visited),
-          additional_metrics_to_retain: Stubs::AdditionalMetricsToRetainList.default(visited),
-          additional_metrics_to_retain_v2: Stubs::AdditionalMetricsToRetainV2List.default(visited),
+          behaviors: Behaviors.default(visited),
+          alert_targets: AlertTargets.default(visited),
+          additional_metrics_to_retain: AdditionalMetricsToRetainList.default(visited),
+          additional_metrics_to_retain_v2: AdditionalMetricsToRetainV2List.default(visited),
           version: 1,
           creation_date: Time.now,
           last_modified_date: Time.now,
@@ -10921,7 +10921,7 @@ module AWS::SDK::IoT
       def self.default(visited=[])
         {
           valid: false,
-          validation_errors: Stubs::ValidationErrors.default(visited),
+          validation_errors: ValidationErrors.default(visited),
         }
       end
 
@@ -10941,7 +10941,7 @@ module AWS::SDK::IoT
         return nil if visited.include?('ValidationErrors')
         visited = visited + ['ValidationErrors']
         [
-          Stubs::ValidationError.default(visited)
+          ValidationError.default(visited)
         ]
       end
 

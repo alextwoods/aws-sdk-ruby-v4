@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::Kinesis
   module Validators
 
@@ -14,7 +16,7 @@ module AWS::SDK::Kinesis
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AddTagsToStreamInput, context: context)
         Hearth::Validator.validate!(input[:stream_name], ::String, context: "#{context}[:stream_name]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -28,8 +30,8 @@ module AWS::SDK::Kinesis
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ChildShard, context: context)
         Hearth::Validator.validate!(input[:shard_id], ::String, context: "#{context}[:shard_id]")
-        Validators::ShardIdList.validate!(input[:parent_shards], context: "#{context}[:parent_shards]") unless input[:parent_shards].nil?
-        Validators::HashKeyRange.validate!(input[:hash_key_range], context: "#{context}[:hash_key_range]") unless input[:hash_key_range].nil?
+        ShardIdList.validate!(input[:parent_shards], context: "#{context}[:parent_shards]") unless input[:parent_shards].nil?
+        HashKeyRange.validate!(input[:hash_key_range], context: "#{context}[:hash_key_range]") unless input[:hash_key_range].nil?
       end
     end
 
@@ -37,7 +39,7 @@ module AWS::SDK::Kinesis
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ChildShard.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ChildShard.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -67,7 +69,7 @@ module AWS::SDK::Kinesis
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Consumer.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Consumer.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -77,7 +79,7 @@ module AWS::SDK::Kinesis
         Hearth::Validator.validate!(input, Types::CreateStreamInput, context: context)
         Hearth::Validator.validate!(input[:stream_name], ::String, context: "#{context}[:stream_name]")
         Hearth::Validator.validate!(input[:shard_count], ::Integer, context: "#{context}[:shard_count]")
-        Validators::StreamModeDetails.validate!(input[:stream_mode_details], context: "#{context}[:stream_mode_details]") unless input[:stream_mode_details].nil?
+        StreamModeDetails.validate!(input[:stream_mode_details], context: "#{context}[:stream_mode_details]") unless input[:stream_mode_details].nil?
       end
     end
 
@@ -158,7 +160,7 @@ module AWS::SDK::Kinesis
     class DescribeStreamConsumerOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeStreamConsumerOutput, context: context)
-        Validators::ConsumerDescription.validate!(input[:consumer_description], context: "#{context}[:consumer_description]") unless input[:consumer_description].nil?
+        ConsumerDescription.validate!(input[:consumer_description], context: "#{context}[:consumer_description]") unless input[:consumer_description].nil?
       end
     end
 
@@ -174,7 +176,7 @@ module AWS::SDK::Kinesis
     class DescribeStreamOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeStreamOutput, context: context)
-        Validators::StreamDescription.validate!(input[:stream_description], context: "#{context}[:stream_description]") unless input[:stream_description].nil?
+        StreamDescription.validate!(input[:stream_description], context: "#{context}[:stream_description]") unless input[:stream_description].nil?
       end
     end
 
@@ -188,7 +190,7 @@ module AWS::SDK::Kinesis
     class DescribeStreamSummaryOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeStreamSummaryOutput, context: context)
-        Validators::StreamDescriptionSummary.validate!(input[:stream_description_summary], context: "#{context}[:stream_description_summary]") unless input[:stream_description_summary].nil?
+        StreamDescriptionSummary.validate!(input[:stream_description_summary], context: "#{context}[:stream_description_summary]") unless input[:stream_description_summary].nil?
       end
     end
 
@@ -196,7 +198,7 @@ module AWS::SDK::Kinesis
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DisableEnhancedMonitoringInput, context: context)
         Hearth::Validator.validate!(input[:stream_name], ::String, context: "#{context}[:stream_name]")
-        Validators::MetricsNameList.validate!(input[:shard_level_metrics], context: "#{context}[:shard_level_metrics]") unless input[:shard_level_metrics].nil?
+        MetricsNameList.validate!(input[:shard_level_metrics], context: "#{context}[:shard_level_metrics]") unless input[:shard_level_metrics].nil?
       end
     end
 
@@ -204,8 +206,8 @@ module AWS::SDK::Kinesis
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DisableEnhancedMonitoringOutput, context: context)
         Hearth::Validator.validate!(input[:stream_name], ::String, context: "#{context}[:stream_name]")
-        Validators::MetricsNameList.validate!(input[:current_shard_level_metrics], context: "#{context}[:current_shard_level_metrics]") unless input[:current_shard_level_metrics].nil?
-        Validators::MetricsNameList.validate!(input[:desired_shard_level_metrics], context: "#{context}[:desired_shard_level_metrics]") unless input[:desired_shard_level_metrics].nil?
+        MetricsNameList.validate!(input[:current_shard_level_metrics], context: "#{context}[:current_shard_level_metrics]") unless input[:current_shard_level_metrics].nil?
+        MetricsNameList.validate!(input[:desired_shard_level_metrics], context: "#{context}[:desired_shard_level_metrics]") unless input[:desired_shard_level_metrics].nil?
       end
     end
 
@@ -213,7 +215,7 @@ module AWS::SDK::Kinesis
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::EnableEnhancedMonitoringInput, context: context)
         Hearth::Validator.validate!(input[:stream_name], ::String, context: "#{context}[:stream_name]")
-        Validators::MetricsNameList.validate!(input[:shard_level_metrics], context: "#{context}[:shard_level_metrics]") unless input[:shard_level_metrics].nil?
+        MetricsNameList.validate!(input[:shard_level_metrics], context: "#{context}[:shard_level_metrics]") unless input[:shard_level_metrics].nil?
       end
     end
 
@@ -221,15 +223,15 @@ module AWS::SDK::Kinesis
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::EnableEnhancedMonitoringOutput, context: context)
         Hearth::Validator.validate!(input[:stream_name], ::String, context: "#{context}[:stream_name]")
-        Validators::MetricsNameList.validate!(input[:current_shard_level_metrics], context: "#{context}[:current_shard_level_metrics]") unless input[:current_shard_level_metrics].nil?
-        Validators::MetricsNameList.validate!(input[:desired_shard_level_metrics], context: "#{context}[:desired_shard_level_metrics]") unless input[:desired_shard_level_metrics].nil?
+        MetricsNameList.validate!(input[:current_shard_level_metrics], context: "#{context}[:current_shard_level_metrics]") unless input[:current_shard_level_metrics].nil?
+        MetricsNameList.validate!(input[:desired_shard_level_metrics], context: "#{context}[:desired_shard_level_metrics]") unless input[:desired_shard_level_metrics].nil?
       end
     end
 
     class EnhancedMetrics
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::EnhancedMetrics, context: context)
-        Validators::MetricsNameList.validate!(input[:shard_level_metrics], context: "#{context}[:shard_level_metrics]") unless input[:shard_level_metrics].nil?
+        MetricsNameList.validate!(input[:shard_level_metrics], context: "#{context}[:shard_level_metrics]") unless input[:shard_level_metrics].nil?
       end
     end
 
@@ -237,7 +239,7 @@ module AWS::SDK::Kinesis
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EnhancedMetrics.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EnhancedMetrics.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -267,10 +269,10 @@ module AWS::SDK::Kinesis
     class GetRecordsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetRecordsOutput, context: context)
-        Validators::RecordList.validate!(input[:records], context: "#{context}[:records]") unless input[:records].nil?
+        RecordList.validate!(input[:records], context: "#{context}[:records]") unless input[:records].nil?
         Hearth::Validator.validate!(input[:next_shard_iterator], ::String, context: "#{context}[:next_shard_iterator]")
         Hearth::Validator.validate!(input[:millis_behind_latest], ::Integer, context: "#{context}[:millis_behind_latest]")
-        Validators::ChildShardList.validate!(input[:child_shards], context: "#{context}[:child_shards]") unless input[:child_shards].nil?
+        ChildShardList.validate!(input[:child_shards], context: "#{context}[:child_shards]") unless input[:child_shards].nil?
       end
     end
 
@@ -385,14 +387,14 @@ module AWS::SDK::Kinesis
         Hearth::Validator.validate!(input[:exclusive_start_shard_id], ::String, context: "#{context}[:exclusive_start_shard_id]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:stream_creation_timestamp], ::Time, context: "#{context}[:stream_creation_timestamp]")
-        Validators::ShardFilter.validate!(input[:shard_filter], context: "#{context}[:shard_filter]") unless input[:shard_filter].nil?
+        ShardFilter.validate!(input[:shard_filter], context: "#{context}[:shard_filter]") unless input[:shard_filter].nil?
       end
     end
 
     class ListShardsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListShardsOutput, context: context)
-        Validators::ShardList.validate!(input[:shards], context: "#{context}[:shards]") unless input[:shards].nil?
+        ShardList.validate!(input[:shards], context: "#{context}[:shards]") unless input[:shards].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -410,7 +412,7 @@ module AWS::SDK::Kinesis
     class ListStreamConsumersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListStreamConsumersOutput, context: context)
-        Validators::ConsumerList.validate!(input[:consumers], context: "#{context}[:consumers]") unless input[:consumers].nil?
+        ConsumerList.validate!(input[:consumers], context: "#{context}[:consumers]") unless input[:consumers].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -426,7 +428,7 @@ module AWS::SDK::Kinesis
     class ListStreamsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListStreamsOutput, context: context)
-        Validators::StreamNameList.validate!(input[:stream_names], context: "#{context}[:stream_names]") unless input[:stream_names].nil?
+        StreamNameList.validate!(input[:stream_names], context: "#{context}[:stream_names]") unless input[:stream_names].nil?
         Hearth::Validator.validate!(input[:has_more_streams], ::TrueClass, ::FalseClass, context: "#{context}[:has_more_streams]")
       end
     end
@@ -443,7 +445,7 @@ module AWS::SDK::Kinesis
     class ListTagsForStreamOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForStreamOutput, context: context)
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:has_more_tags], ::TrueClass, ::FalseClass, context: "#{context}[:has_more_tags]")
       end
     end
@@ -502,7 +504,7 @@ module AWS::SDK::Kinesis
     class PutRecordsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutRecordsInput, context: context)
-        Validators::PutRecordsRequestEntryList.validate!(input[:records], context: "#{context}[:records]") unless input[:records].nil?
+        PutRecordsRequestEntryList.validate!(input[:records], context: "#{context}[:records]") unless input[:records].nil?
         Hearth::Validator.validate!(input[:stream_name], ::String, context: "#{context}[:stream_name]")
       end
     end
@@ -511,7 +513,7 @@ module AWS::SDK::Kinesis
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutRecordsOutput, context: context)
         Hearth::Validator.validate!(input[:failed_record_count], ::Integer, context: "#{context}[:failed_record_count]")
-        Validators::PutRecordsResultEntryList.validate!(input[:records], context: "#{context}[:records]") unless input[:records].nil?
+        PutRecordsResultEntryList.validate!(input[:records], context: "#{context}[:records]") unless input[:records].nil?
         Hearth::Validator.validate!(input[:encryption_type], ::String, context: "#{context}[:encryption_type]")
       end
     end
@@ -529,7 +531,7 @@ module AWS::SDK::Kinesis
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PutRecordsRequestEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PutRecordsRequestEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -548,7 +550,7 @@ module AWS::SDK::Kinesis
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PutRecordsResultEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PutRecordsResultEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -568,7 +570,7 @@ module AWS::SDK::Kinesis
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Record.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Record.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -584,7 +586,7 @@ module AWS::SDK::Kinesis
     class RegisterStreamConsumerOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RegisterStreamConsumerOutput, context: context)
-        Validators::Consumer.validate!(input[:consumer], context: "#{context}[:consumer]") unless input[:consumer].nil?
+        Consumer.validate!(input[:consumer], context: "#{context}[:consumer]") unless input[:consumer].nil?
       end
     end
 
@@ -592,7 +594,7 @@ module AWS::SDK::Kinesis
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RemoveTagsFromStreamInput, context: context)
         Hearth::Validator.validate!(input[:stream_name], ::String, context: "#{context}[:stream_name]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -630,8 +632,8 @@ module AWS::SDK::Kinesis
         Hearth::Validator.validate!(input[:shard_id], ::String, context: "#{context}[:shard_id]")
         Hearth::Validator.validate!(input[:parent_shard_id], ::String, context: "#{context}[:parent_shard_id]")
         Hearth::Validator.validate!(input[:adjacent_parent_shard_id], ::String, context: "#{context}[:adjacent_parent_shard_id]")
-        Validators::HashKeyRange.validate!(input[:hash_key_range], context: "#{context}[:hash_key_range]") unless input[:hash_key_range].nil?
-        Validators::SequenceNumberRange.validate!(input[:sequence_number_range], context: "#{context}[:sequence_number_range]") unless input[:sequence_number_range].nil?
+        HashKeyRange.validate!(input[:hash_key_range], context: "#{context}[:hash_key_range]") unless input[:hash_key_range].nil?
+        SequenceNumberRange.validate!(input[:sequence_number_range], context: "#{context}[:sequence_number_range]") unless input[:sequence_number_range].nil?
       end
     end
 
@@ -657,7 +659,7 @@ module AWS::SDK::Kinesis
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Shard.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Shard.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -722,12 +724,12 @@ module AWS::SDK::Kinesis
         Hearth::Validator.validate!(input[:stream_name], ::String, context: "#{context}[:stream_name]")
         Hearth::Validator.validate!(input[:stream_arn], ::String, context: "#{context}[:stream_arn]")
         Hearth::Validator.validate!(input[:stream_status], ::String, context: "#{context}[:stream_status]")
-        Validators::StreamModeDetails.validate!(input[:stream_mode_details], context: "#{context}[:stream_mode_details]") unless input[:stream_mode_details].nil?
-        Validators::ShardList.validate!(input[:shards], context: "#{context}[:shards]") unless input[:shards].nil?
+        StreamModeDetails.validate!(input[:stream_mode_details], context: "#{context}[:stream_mode_details]") unless input[:stream_mode_details].nil?
+        ShardList.validate!(input[:shards], context: "#{context}[:shards]") unless input[:shards].nil?
         Hearth::Validator.validate!(input[:has_more_shards], ::TrueClass, ::FalseClass, context: "#{context}[:has_more_shards]")
         Hearth::Validator.validate!(input[:retention_period_hours], ::Integer, context: "#{context}[:retention_period_hours]")
         Hearth::Validator.validate!(input[:stream_creation_timestamp], ::Time, context: "#{context}[:stream_creation_timestamp]")
-        Validators::EnhancedMonitoringList.validate!(input[:enhanced_monitoring], context: "#{context}[:enhanced_monitoring]") unless input[:enhanced_monitoring].nil?
+        EnhancedMonitoringList.validate!(input[:enhanced_monitoring], context: "#{context}[:enhanced_monitoring]") unless input[:enhanced_monitoring].nil?
         Hearth::Validator.validate!(input[:encryption_type], ::String, context: "#{context}[:encryption_type]")
         Hearth::Validator.validate!(input[:key_id], ::String, context: "#{context}[:key_id]")
       end
@@ -739,10 +741,10 @@ module AWS::SDK::Kinesis
         Hearth::Validator.validate!(input[:stream_name], ::String, context: "#{context}[:stream_name]")
         Hearth::Validator.validate!(input[:stream_arn], ::String, context: "#{context}[:stream_arn]")
         Hearth::Validator.validate!(input[:stream_status], ::String, context: "#{context}[:stream_status]")
-        Validators::StreamModeDetails.validate!(input[:stream_mode_details], context: "#{context}[:stream_mode_details]") unless input[:stream_mode_details].nil?
+        StreamModeDetails.validate!(input[:stream_mode_details], context: "#{context}[:stream_mode_details]") unless input[:stream_mode_details].nil?
         Hearth::Validator.validate!(input[:retention_period_hours], ::Integer, context: "#{context}[:retention_period_hours]")
         Hearth::Validator.validate!(input[:stream_creation_timestamp], ::Time, context: "#{context}[:stream_creation_timestamp]")
-        Validators::EnhancedMonitoringList.validate!(input[:enhanced_monitoring], context: "#{context}[:enhanced_monitoring]") unless input[:enhanced_monitoring].nil?
+        EnhancedMonitoringList.validate!(input[:enhanced_monitoring], context: "#{context}[:enhanced_monitoring]") unless input[:enhanced_monitoring].nil?
         Hearth::Validator.validate!(input[:encryption_type], ::String, context: "#{context}[:encryption_type]")
         Hearth::Validator.validate!(input[:key_id], ::String, context: "#{context}[:key_id]")
         Hearth::Validator.validate!(input[:open_shard_count], ::Integer, context: "#{context}[:open_shard_count]")
@@ -769,10 +771,10 @@ module AWS::SDK::Kinesis
     class SubscribeToShardEvent
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SubscribeToShardEvent, context: context)
-        Validators::RecordList.validate!(input[:records], context: "#{context}[:records]") unless input[:records].nil?
+        RecordList.validate!(input[:records], context: "#{context}[:records]") unless input[:records].nil?
         Hearth::Validator.validate!(input[:continuation_sequence_number], ::String, context: "#{context}[:continuation_sequence_number]")
         Hearth::Validator.validate!(input[:millis_behind_latest], ::Integer, context: "#{context}[:millis_behind_latest]")
-        Validators::ChildShardList.validate!(input[:child_shards], context: "#{context}[:child_shards]") unless input[:child_shards].nil?
+        ChildShardList.validate!(input[:child_shards], context: "#{context}[:child_shards]") unless input[:child_shards].nil?
       end
     end
 
@@ -780,25 +782,25 @@ module AWS::SDK::Kinesis
       def self.validate!(input, context:)
         case input
         when Types::SubscribeToShardEventStream::SubscribeToShardEvent
-          Validators::SubscribeToShardEvent.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          SubscribeToShardEvent.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::SubscribeToShardEventStream::ResourceNotFoundException
-          Validators::ResourceNotFoundException.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          ResourceNotFoundException.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::SubscribeToShardEventStream::ResourceInUseException
-          Validators::ResourceInUseException.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          ResourceInUseException.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::SubscribeToShardEventStream::KmsDisabledException
-          Validators::KMSDisabledException.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          KMSDisabledException.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::SubscribeToShardEventStream::KmsInvalidStateException
-          Validators::KMSInvalidStateException.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          KMSInvalidStateException.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::SubscribeToShardEventStream::KmsAccessDeniedException
-          Validators::KMSAccessDeniedException.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          KMSAccessDeniedException.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::SubscribeToShardEventStream::KmsNotFoundException
-          Validators::KMSNotFoundException.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          KMSNotFoundException.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::SubscribeToShardEventStream::KmsOptInRequired
-          Validators::KMSOptInRequired.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          KMSOptInRequired.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::SubscribeToShardEventStream::KmsThrottlingException
-          Validators::KMSThrottlingException.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          KMSThrottlingException.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::SubscribeToShardEventStream::InternalFailureException
-          Validators::InternalFailureException.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          InternalFailureException.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         else
           raise ArgumentError,
                 "Expected #{context} to be a union member of "\
@@ -872,14 +874,14 @@ module AWS::SDK::Kinesis
         Hearth::Validator.validate!(input, Types::SubscribeToShardInput, context: context)
         Hearth::Validator.validate!(input[:consumer_arn], ::String, context: "#{context}[:consumer_arn]")
         Hearth::Validator.validate!(input[:shard_id], ::String, context: "#{context}[:shard_id]")
-        Validators::StartingPosition.validate!(input[:starting_position], context: "#{context}[:starting_position]") unless input[:starting_position].nil?
+        StartingPosition.validate!(input[:starting_position], context: "#{context}[:starting_position]") unless input[:starting_position].nil?
       end
     end
 
     class SubscribeToShardOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SubscribeToShardOutput, context: context)
-        Validators::SubscribeToShardEventStream.validate!(input[:event_stream], context: "#{context}[:event_stream]") unless input[:event_stream].nil?
+        SubscribeToShardEventStream.validate!(input[:event_stream], context: "#{context}[:event_stream]") unless input[:event_stream].nil?
       end
     end
 
@@ -904,7 +906,7 @@ module AWS::SDK::Kinesis
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -941,7 +943,7 @@ module AWS::SDK::Kinesis
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateStreamModeInput, context: context)
         Hearth::Validator.validate!(input[:stream_arn], ::String, context: "#{context}[:stream_arn]")
-        Validators::StreamModeDetails.validate!(input[:stream_mode_details], context: "#{context}[:stream_mode_details]") unless input[:stream_mode_details].nil?
+        StreamModeDetails.validate!(input[:stream_mode_details], context: "#{context}[:stream_mode_details]") unless input[:stream_mode_details].nil?
       end
     end
 

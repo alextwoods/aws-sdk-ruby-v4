@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::Pinpoint
@@ -69,7 +71,7 @@ module AWS::SDK::Pinpoint
     def create_app(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateAppInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateAppInput,
         validate_input: @config.validate_input
@@ -424,7 +426,7 @@ module AWS::SDK::Pinpoint
     def create_campaign(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateCampaignInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateCampaignInput,
         validate_input: @config.validate_input
@@ -510,7 +512,7 @@ module AWS::SDK::Pinpoint
     def create_email_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateEmailTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateEmailTemplateInput,
         validate_input: @config.validate_input
@@ -606,7 +608,7 @@ module AWS::SDK::Pinpoint
     def create_export_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateExportJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateExportJobInput,
         validate_input: @config.validate_input
@@ -710,7 +712,7 @@ module AWS::SDK::Pinpoint
     def create_import_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateImportJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateImportJobInput,
         validate_input: @config.validate_input
@@ -822,7 +824,7 @@ module AWS::SDK::Pinpoint
     def create_in_app_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateInAppTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateInAppTemplateInput,
         validate_input: @config.validate_input
@@ -1202,7 +1204,7 @@ module AWS::SDK::Pinpoint
     def create_journey(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateJourneyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateJourneyInput,
         validate_input: @config.validate_input
@@ -1312,7 +1314,7 @@ module AWS::SDK::Pinpoint
     def create_push_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreatePushTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreatePushTemplateInput,
         validate_input: @config.validate_input
@@ -1406,7 +1408,7 @@ module AWS::SDK::Pinpoint
     def create_recommender_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateRecommenderConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateRecommenderConfigurationInput,
         validate_input: @config.validate_input
@@ -1595,7 +1597,7 @@ module AWS::SDK::Pinpoint
     def create_segment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateSegmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateSegmentInput,
         validate_input: @config.validate_input
@@ -1679,7 +1681,7 @@ module AWS::SDK::Pinpoint
     def create_sms_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateSmsTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateSmsTemplateInput,
         validate_input: @config.validate_input
@@ -1764,7 +1766,7 @@ module AWS::SDK::Pinpoint
     def create_voice_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateVoiceTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateVoiceTemplateInput,
         validate_input: @config.validate_input
@@ -1843,7 +1845,7 @@ module AWS::SDK::Pinpoint
     def delete_adm_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAdmChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAdmChannelInput,
         validate_input: @config.validate_input
@@ -1923,7 +1925,7 @@ module AWS::SDK::Pinpoint
     def delete_apns_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteApnsChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteApnsChannelInput,
         validate_input: @config.validate_input
@@ -2003,7 +2005,7 @@ module AWS::SDK::Pinpoint
     def delete_apns_sandbox_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteApnsSandboxChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteApnsSandboxChannelInput,
         validate_input: @config.validate_input
@@ -2083,7 +2085,7 @@ module AWS::SDK::Pinpoint
     def delete_apns_voip_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteApnsVoipChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteApnsVoipChannelInput,
         validate_input: @config.validate_input
@@ -2163,7 +2165,7 @@ module AWS::SDK::Pinpoint
     def delete_apns_voip_sandbox_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteApnsVoipSandboxChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteApnsVoipSandboxChannelInput,
         validate_input: @config.validate_input
@@ -2237,7 +2239,7 @@ module AWS::SDK::Pinpoint
     def delete_app(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAppInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAppInput,
         validate_input: @config.validate_input
@@ -2316,7 +2318,7 @@ module AWS::SDK::Pinpoint
     def delete_baidu_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteBaiduChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteBaiduChannelInput,
         validate_input: @config.validate_input
@@ -2526,7 +2528,7 @@ module AWS::SDK::Pinpoint
     def delete_campaign(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteCampaignInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteCampaignInput,
         validate_input: @config.validate_input
@@ -2609,7 +2611,7 @@ module AWS::SDK::Pinpoint
     def delete_email_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteEmailChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteEmailChannelInput,
         validate_input: @config.validate_input
@@ -2683,7 +2685,7 @@ module AWS::SDK::Pinpoint
     def delete_email_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteEmailTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteEmailTemplateInput,
         validate_input: @config.validate_input
@@ -2789,7 +2791,7 @@ module AWS::SDK::Pinpoint
     def delete_endpoint(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteEndpointInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteEndpointInput,
         validate_input: @config.validate_input
@@ -2863,7 +2865,7 @@ module AWS::SDK::Pinpoint
     def delete_event_stream(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteEventStreamInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteEventStreamInput,
         validate_input: @config.validate_input
@@ -2942,7 +2944,7 @@ module AWS::SDK::Pinpoint
     def delete_gcm_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteGcmChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteGcmChannelInput,
         validate_input: @config.validate_input
@@ -3016,7 +3018,7 @@ module AWS::SDK::Pinpoint
     def delete_in_app_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteInAppTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteInAppTemplateInput,
         validate_input: @config.validate_input
@@ -3227,7 +3229,7 @@ module AWS::SDK::Pinpoint
     def delete_journey(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteJourneyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteJourneyInput,
         validate_input: @config.validate_input
@@ -3301,7 +3303,7 @@ module AWS::SDK::Pinpoint
     def delete_push_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeletePushTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeletePushTemplateInput,
         validate_input: @config.validate_input
@@ -3382,7 +3384,7 @@ module AWS::SDK::Pinpoint
     def delete_recommender_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteRecommenderConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteRecommenderConfigurationInput,
         validate_input: @config.validate_input
@@ -3514,7 +3516,7 @@ module AWS::SDK::Pinpoint
     def delete_segment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteSegmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteSegmentInput,
         validate_input: @config.validate_input
@@ -3596,7 +3598,7 @@ module AWS::SDK::Pinpoint
     def delete_sms_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteSmsChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteSmsChannelInput,
         validate_input: @config.validate_input
@@ -3670,7 +3672,7 @@ module AWS::SDK::Pinpoint
     def delete_sms_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteSmsTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteSmsTemplateInput,
         validate_input: @config.validate_input
@@ -3778,7 +3780,7 @@ module AWS::SDK::Pinpoint
     def delete_user_endpoints(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteUserEndpointsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteUserEndpointsInput,
         validate_input: @config.validate_input
@@ -3856,7 +3858,7 @@ module AWS::SDK::Pinpoint
     def delete_voice_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteVoiceChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteVoiceChannelInput,
         validate_input: @config.validate_input
@@ -3930,7 +3932,7 @@ module AWS::SDK::Pinpoint
     def delete_voice_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteVoiceTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteVoiceTemplateInput,
         validate_input: @config.validate_input
@@ -4008,7 +4010,7 @@ module AWS::SDK::Pinpoint
     def get_adm_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAdmChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAdmChannelInput,
         validate_input: @config.validate_input
@@ -4088,7 +4090,7 @@ module AWS::SDK::Pinpoint
     def get_apns_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetApnsChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetApnsChannelInput,
         validate_input: @config.validate_input
@@ -4168,7 +4170,7 @@ module AWS::SDK::Pinpoint
     def get_apns_sandbox_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetApnsSandboxChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetApnsSandboxChannelInput,
         validate_input: @config.validate_input
@@ -4248,7 +4250,7 @@ module AWS::SDK::Pinpoint
     def get_apns_voip_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetApnsVoipChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetApnsVoipChannelInput,
         validate_input: @config.validate_input
@@ -4328,7 +4330,7 @@ module AWS::SDK::Pinpoint
     def get_apns_voip_sandbox_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetApnsVoipSandboxChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetApnsVoipSandboxChannelInput,
         validate_input: @config.validate_input
@@ -4402,7 +4404,7 @@ module AWS::SDK::Pinpoint
     def get_app(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAppInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAppInput,
         validate_input: @config.validate_input
@@ -4504,7 +4506,7 @@ module AWS::SDK::Pinpoint
     def get_application_date_range_kpi(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetApplicationDateRangeKpiInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetApplicationDateRangeKpiInput,
         validate_input: @config.validate_input
@@ -4587,7 +4589,7 @@ module AWS::SDK::Pinpoint
     def get_application_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetApplicationSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetApplicationSettingsInput,
         validate_input: @config.validate_input
@@ -4668,7 +4670,7 @@ module AWS::SDK::Pinpoint
     def get_apps(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAppsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAppsInput,
         validate_input: @config.validate_input
@@ -4747,7 +4749,7 @@ module AWS::SDK::Pinpoint
     def get_baidu_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetBaiduChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetBaiduChannelInput,
         validate_input: @config.validate_input
@@ -4957,7 +4959,7 @@ module AWS::SDK::Pinpoint
     def get_campaign(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCampaignInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCampaignInput,
         validate_input: @config.validate_input
@@ -5053,7 +5055,7 @@ module AWS::SDK::Pinpoint
     def get_campaign_activities(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCampaignActivitiesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCampaignActivitiesInput,
         validate_input: @config.validate_input
@@ -5160,7 +5162,7 @@ module AWS::SDK::Pinpoint
     def get_campaign_date_range_kpi(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCampaignDateRangeKpiInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCampaignDateRangeKpiInput,
         validate_input: @config.validate_input
@@ -5374,7 +5376,7 @@ module AWS::SDK::Pinpoint
     def get_campaign_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCampaignVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCampaignVersionInput,
         validate_input: @config.validate_input
@@ -5595,7 +5597,7 @@ module AWS::SDK::Pinpoint
     def get_campaign_versions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCampaignVersionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCampaignVersionsInput,
         validate_input: @config.validate_input
@@ -5812,7 +5814,7 @@ module AWS::SDK::Pinpoint
     def get_campaigns(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCampaignsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCampaignsInput,
         validate_input: @config.validate_input
@@ -5891,7 +5893,7 @@ module AWS::SDK::Pinpoint
     def get_channels(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetChannelsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetChannelsInput,
         validate_input: @config.validate_input
@@ -5974,7 +5976,7 @@ module AWS::SDK::Pinpoint
     def get_email_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetEmailChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetEmailChannelInput,
         validate_input: @config.validate_input
@@ -6060,7 +6062,7 @@ module AWS::SDK::Pinpoint
     def get_email_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetEmailTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetEmailTemplateInput,
         validate_input: @config.validate_input
@@ -6166,7 +6168,7 @@ module AWS::SDK::Pinpoint
     def get_endpoint(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetEndpointInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetEndpointInput,
         validate_input: @config.validate_input
@@ -6240,7 +6242,7 @@ module AWS::SDK::Pinpoint
     def get_event_stream(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetEventStreamInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetEventStreamInput,
         validate_input: @config.validate_input
@@ -6330,7 +6332,7 @@ module AWS::SDK::Pinpoint
     def get_export_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetExportJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetExportJobInput,
         validate_input: @config.validate_input
@@ -6427,7 +6429,7 @@ module AWS::SDK::Pinpoint
     def get_export_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetExportJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetExportJobsInput,
         validate_input: @config.validate_input
@@ -6506,7 +6508,7 @@ module AWS::SDK::Pinpoint
     def get_gcm_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetGcmChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetGcmChannelInput,
         validate_input: @config.validate_input
@@ -6600,7 +6602,7 @@ module AWS::SDK::Pinpoint
     def get_import_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetImportJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetImportJobInput,
         validate_input: @config.validate_input
@@ -6701,7 +6703,7 @@ module AWS::SDK::Pinpoint
     def get_import_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetImportJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetImportJobsInput,
         validate_input: @config.validate_input
@@ -6831,7 +6833,7 @@ module AWS::SDK::Pinpoint
     def get_in_app_messages(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetInAppMessagesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetInAppMessagesInput,
         validate_input: @config.validate_input
@@ -6940,7 +6942,7 @@ module AWS::SDK::Pinpoint
     def get_in_app_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetInAppTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetInAppTemplateInput,
         validate_input: @config.validate_input
@@ -7151,7 +7153,7 @@ module AWS::SDK::Pinpoint
     def get_journey(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetJourneyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetJourneyInput,
         validate_input: @config.validate_input
@@ -7258,7 +7260,7 @@ module AWS::SDK::Pinpoint
     def get_journey_date_range_kpi(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetJourneyDateRangeKpiInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetJourneyDateRangeKpiInput,
         validate_input: @config.validate_input
@@ -7349,7 +7351,7 @@ module AWS::SDK::Pinpoint
     def get_journey_execution_activity_metrics(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetJourneyExecutionActivityMetricsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetJourneyExecutionActivityMetricsInput,
         validate_input: @config.validate_input
@@ -7434,7 +7436,7 @@ module AWS::SDK::Pinpoint
     def get_journey_execution_metrics(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetJourneyExecutionMetricsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetJourneyExecutionMetricsInput,
         validate_input: @config.validate_input
@@ -7543,7 +7545,7 @@ module AWS::SDK::Pinpoint
     def get_push_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetPushTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetPushTemplateInput,
         validate_input: @config.validate_input
@@ -7624,7 +7626,7 @@ module AWS::SDK::Pinpoint
     def get_recommender_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetRecommenderConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetRecommenderConfigurationInput,
         validate_input: @config.validate_input
@@ -7712,7 +7714,7 @@ module AWS::SDK::Pinpoint
     def get_recommender_configurations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetRecommenderConfigurationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetRecommenderConfigurationsInput,
         validate_input: @config.validate_input
@@ -7844,7 +7846,7 @@ module AWS::SDK::Pinpoint
     def get_segment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSegmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSegmentInput,
         validate_input: @config.validate_input
@@ -7945,7 +7947,7 @@ module AWS::SDK::Pinpoint
     def get_segment_export_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSegmentExportJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSegmentExportJobsInput,
         validate_input: @config.validate_input
@@ -8050,7 +8052,7 @@ module AWS::SDK::Pinpoint
     def get_segment_import_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSegmentImportJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSegmentImportJobsInput,
         validate_input: @config.validate_input
@@ -8186,7 +8188,7 @@ module AWS::SDK::Pinpoint
     def get_segment_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSegmentVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSegmentVersionInput,
         validate_input: @config.validate_input
@@ -8329,7 +8331,7 @@ module AWS::SDK::Pinpoint
     def get_segment_versions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSegmentVersionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSegmentVersionsInput,
         validate_input: @config.validate_input
@@ -8468,7 +8470,7 @@ module AWS::SDK::Pinpoint
     def get_segments(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSegmentsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSegmentsInput,
         validate_input: @config.validate_input
@@ -8550,7 +8552,7 @@ module AWS::SDK::Pinpoint
     def get_sms_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSmsChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSmsChannelInput,
         validate_input: @config.validate_input
@@ -8634,7 +8636,7 @@ module AWS::SDK::Pinpoint
     def get_sms_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSmsTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSmsTemplateInput,
         validate_input: @config.validate_input
@@ -8742,7 +8744,7 @@ module AWS::SDK::Pinpoint
     def get_user_endpoints(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetUserEndpointsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetUserEndpointsInput,
         validate_input: @config.validate_input
@@ -8820,7 +8822,7 @@ module AWS::SDK::Pinpoint
     def get_voice_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetVoiceChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetVoiceChannelInput,
         validate_input: @config.validate_input
@@ -8905,7 +8907,7 @@ module AWS::SDK::Pinpoint
     def get_voice_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetVoiceTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetVoiceTemplateInput,
         validate_input: @config.validate_input
@@ -9123,7 +9125,7 @@ module AWS::SDK::Pinpoint
     def list_journeys(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListJourneysInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListJourneysInput,
         validate_input: @config.validate_input
@@ -9193,7 +9195,7 @@ module AWS::SDK::Pinpoint
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -9285,7 +9287,7 @@ module AWS::SDK::Pinpoint
     def list_template_versions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTemplateVersionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTemplateVersionsInput,
         validate_input: @config.validate_input
@@ -9378,7 +9380,7 @@ module AWS::SDK::Pinpoint
     def list_templates(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTemplatesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTemplatesInput,
         validate_input: @config.validate_input
@@ -9463,7 +9465,7 @@ module AWS::SDK::Pinpoint
     def phone_number_validate(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PhoneNumberValidateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PhoneNumberValidateInput,
         validate_input: @config.validate_input
@@ -9545,7 +9547,7 @@ module AWS::SDK::Pinpoint
     def put_event_stream(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutEventStreamInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutEventStreamInput,
         validate_input: @config.validate_input
@@ -9689,7 +9691,7 @@ module AWS::SDK::Pinpoint
     def put_events(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutEventsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutEventsInput,
         validate_input: @config.validate_input
@@ -9774,7 +9776,7 @@ module AWS::SDK::Pinpoint
     def remove_attributes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RemoveAttributesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RemoveAttributesInput,
         validate_input: @config.validate_input
@@ -10002,7 +10004,7 @@ module AWS::SDK::Pinpoint
     def send_messages(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SendMessagesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SendMessagesInput,
         validate_input: @config.validate_input
@@ -10104,7 +10106,7 @@ module AWS::SDK::Pinpoint
     def send_otp_message(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SendOTPMessageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SendOTPMessageInput,
         validate_input: @config.validate_input
@@ -10318,7 +10320,7 @@ module AWS::SDK::Pinpoint
     def send_users_messages(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SendUsersMessagesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SendUsersMessagesInput,
         validate_input: @config.validate_input
@@ -10394,7 +10396,7 @@ module AWS::SDK::Pinpoint
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -10468,7 +10470,7 @@ module AWS::SDK::Pinpoint
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -10554,7 +10556,7 @@ module AWS::SDK::Pinpoint
     def update_adm_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateAdmChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateAdmChannelInput,
         validate_input: @config.validate_input
@@ -10648,7 +10650,7 @@ module AWS::SDK::Pinpoint
     def update_apns_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateApnsChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateApnsChannelInput,
         validate_input: @config.validate_input
@@ -10742,7 +10744,7 @@ module AWS::SDK::Pinpoint
     def update_apns_sandbox_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateApnsSandboxChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateApnsSandboxChannelInput,
         validate_input: @config.validate_input
@@ -10836,7 +10838,7 @@ module AWS::SDK::Pinpoint
     def update_apns_voip_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateApnsVoipChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateApnsVoipChannelInput,
         validate_input: @config.validate_input
@@ -10930,7 +10932,7 @@ module AWS::SDK::Pinpoint
     def update_apns_voip_sandbox_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateApnsVoipSandboxChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateApnsVoipSandboxChannelInput,
         validate_input: @config.validate_input
@@ -11037,7 +11039,7 @@ module AWS::SDK::Pinpoint
     def update_application_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateApplicationSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateApplicationSettingsInput,
         validate_input: @config.validate_input
@@ -11125,7 +11127,7 @@ module AWS::SDK::Pinpoint
     def update_baidu_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateBaiduChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateBaiduChannelInput,
         validate_input: @config.validate_input
@@ -11484,7 +11486,7 @@ module AWS::SDK::Pinpoint
     def update_campaign(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateCampaignInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateCampaignInput,
         validate_input: @config.validate_input
@@ -11578,7 +11580,7 @@ module AWS::SDK::Pinpoint
     def update_email_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateEmailChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateEmailChannelInput,
         validate_input: @config.validate_input
@@ -11671,7 +11673,7 @@ module AWS::SDK::Pinpoint
     def update_email_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateEmailTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateEmailTemplateInput,
         validate_input: @config.validate_input
@@ -11786,7 +11788,7 @@ module AWS::SDK::Pinpoint
     def update_endpoint(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateEndpointInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateEndpointInput,
         validate_input: @config.validate_input
@@ -11902,7 +11904,7 @@ module AWS::SDK::Pinpoint
     def update_endpoints_batch(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateEndpointsBatchInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateEndpointsBatchInput,
         validate_input: @config.validate_input
@@ -11989,7 +11991,7 @@ module AWS::SDK::Pinpoint
     def update_gcm_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateGcmChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateGcmChannelInput,
         validate_input: @config.validate_input
@@ -12108,7 +12110,7 @@ module AWS::SDK::Pinpoint
     def update_in_app_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateInAppTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateInAppTemplateInput,
         validate_input: @config.validate_input
@@ -12492,7 +12494,7 @@ module AWS::SDK::Pinpoint
     def update_journey(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateJourneyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateJourneyInput,
         validate_input: @config.validate_input
@@ -12710,7 +12712,7 @@ module AWS::SDK::Pinpoint
     def update_journey_state(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateJourneyStateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateJourneyStateInput,
         validate_input: @config.validate_input
@@ -12827,7 +12829,7 @@ module AWS::SDK::Pinpoint
     def update_push_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdatePushTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdatePushTemplateInput,
         validate_input: @config.validate_input
@@ -12925,7 +12927,7 @@ module AWS::SDK::Pinpoint
     def update_recommender_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateRecommenderConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateRecommenderConfigurationInput,
         validate_input: @config.validate_input
@@ -13118,7 +13120,7 @@ module AWS::SDK::Pinpoint
     def update_segment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateSegmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateSegmentInput,
         validate_input: @config.validate_input
@@ -13209,7 +13211,7 @@ module AWS::SDK::Pinpoint
     def update_sms_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateSmsChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateSmsChannelInput,
         validate_input: @config.validate_input
@@ -13300,7 +13302,7 @@ module AWS::SDK::Pinpoint
     def update_sms_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateSmsTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateSmsTemplateInput,
         validate_input: @config.validate_input
@@ -13381,7 +13383,7 @@ module AWS::SDK::Pinpoint
     def update_template_active_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateTemplateActiveVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateTemplateActiveVersionInput,
         validate_input: @config.validate_input
@@ -13466,7 +13468,7 @@ module AWS::SDK::Pinpoint
     def update_voice_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateVoiceChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateVoiceChannelInput,
         validate_input: @config.validate_input
@@ -13558,7 +13560,7 @@ module AWS::SDK::Pinpoint
     def update_voice_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateVoiceTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateVoiceTemplateInput,
         validate_input: @config.validate_input
@@ -13636,7 +13638,7 @@ module AWS::SDK::Pinpoint
     def verify_otp_message(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::VerifyOTPMessageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::VerifyOTPMessageInput,
         validate_input: @config.validate_input

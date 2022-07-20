@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::CodestarNotifications
   module Validators
 
@@ -35,12 +37,12 @@ module AWS::SDK::CodestarNotifications
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateNotificationRuleInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::EventTypeIds.validate!(input[:event_type_ids], context: "#{context}[:event_type_ids]") unless input[:event_type_ids].nil?
+        EventTypeIds.validate!(input[:event_type_ids], context: "#{context}[:event_type_ids]") unless input[:event_type_ids].nil?
         Hearth::Validator.validate!(input[:resource], ::String, context: "#{context}[:resource]")
-        Validators::Targets.validate!(input[:targets], context: "#{context}[:targets]") unless input[:targets].nil?
+        Targets.validate!(input[:targets], context: "#{context}[:targets]") unless input[:targets].nil?
         Hearth::Validator.validate!(input[:detail_type], ::String, context: "#{context}[:detail_type]")
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
       end
     end
@@ -92,15 +94,15 @@ module AWS::SDK::CodestarNotifications
         Hearth::Validator.validate!(input, Types::DescribeNotificationRuleOutput, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::EventTypeBatch.validate!(input[:event_types], context: "#{context}[:event_types]") unless input[:event_types].nil?
+        EventTypeBatch.validate!(input[:event_types], context: "#{context}[:event_types]") unless input[:event_types].nil?
         Hearth::Validator.validate!(input[:resource], ::String, context: "#{context}[:resource]")
-        Validators::TargetsBatch.validate!(input[:targets], context: "#{context}[:targets]") unless input[:targets].nil?
+        TargetsBatch.validate!(input[:targets], context: "#{context}[:targets]") unless input[:targets].nil?
         Hearth::Validator.validate!(input[:detail_type], ::String, context: "#{context}[:detail_type]")
         Hearth::Validator.validate!(input[:created_by], ::String, context: "#{context}[:created_by]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:created_timestamp], ::Time, context: "#{context}[:created_timestamp]")
         Hearth::Validator.validate!(input[:last_modified_timestamp], ::Time, context: "#{context}[:last_modified_timestamp]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -108,7 +110,7 @@ module AWS::SDK::CodestarNotifications
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EventTypeSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EventTypeSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -158,7 +160,7 @@ module AWS::SDK::CodestarNotifications
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ListEventTypesFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ListEventTypesFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -166,7 +168,7 @@ module AWS::SDK::CodestarNotifications
     class ListEventTypesInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListEventTypesInput, context: context)
-        Validators::ListEventTypesFilters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        ListEventTypesFilters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
       end
@@ -175,7 +177,7 @@ module AWS::SDK::CodestarNotifications
     class ListEventTypesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListEventTypesOutput, context: context)
-        Validators::EventTypeBatch.validate!(input[:event_types], context: "#{context}[:event_types]") unless input[:event_types].nil?
+        EventTypeBatch.validate!(input[:event_types], context: "#{context}[:event_types]") unless input[:event_types].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -192,7 +194,7 @@ module AWS::SDK::CodestarNotifications
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ListNotificationRulesFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ListNotificationRulesFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -200,7 +202,7 @@ module AWS::SDK::CodestarNotifications
     class ListNotificationRulesInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListNotificationRulesInput, context: context)
-        Validators::ListNotificationRulesFilters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        ListNotificationRulesFilters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
       end
@@ -210,7 +212,7 @@ module AWS::SDK::CodestarNotifications
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListNotificationRulesOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::NotificationRuleBatch.validate!(input[:notification_rules], context: "#{context}[:notification_rules]") unless input[:notification_rules].nil?
+        NotificationRuleBatch.validate!(input[:notification_rules], context: "#{context}[:notification_rules]") unless input[:notification_rules].nil?
       end
     end
 
@@ -224,7 +226,7 @@ module AWS::SDK::CodestarNotifications
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -240,7 +242,7 @@ module AWS::SDK::CodestarNotifications
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ListTargetsFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ListTargetsFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -248,7 +250,7 @@ module AWS::SDK::CodestarNotifications
     class ListTargetsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTargetsInput, context: context)
-        Validators::ListTargetsFilters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        ListTargetsFilters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
       end
@@ -257,7 +259,7 @@ module AWS::SDK::CodestarNotifications
     class ListTargetsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTargetsOutput, context: context)
-        Validators::TargetsBatch.validate!(input[:targets], context: "#{context}[:targets]") unless input[:targets].nil?
+        TargetsBatch.validate!(input[:targets], context: "#{context}[:targets]") unless input[:targets].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -266,7 +268,7 @@ module AWS::SDK::CodestarNotifications
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::NotificationRuleSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          NotificationRuleSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -297,7 +299,7 @@ module AWS::SDK::CodestarNotifications
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SubscribeInput, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Validators::Target.validate!(input[:target], context: "#{context}[:target]") unless input[:target].nil?
+        Target.validate!(input[:target], context: "#{context}[:target]") unless input[:target].nil?
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
       end
     end
@@ -322,14 +324,14 @@ module AWS::SDK::CodestarNotifications
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class TagResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceOutput, context: context)
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -364,7 +366,7 @@ module AWS::SDK::CodestarNotifications
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Target.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Target.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -373,7 +375,7 @@ module AWS::SDK::CodestarNotifications
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TargetSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TargetSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -397,7 +399,7 @@ module AWS::SDK::CodestarNotifications
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Validators::TagKeys.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeys.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -413,8 +415,8 @@ module AWS::SDK::CodestarNotifications
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::EventTypeIds.validate!(input[:event_type_ids], context: "#{context}[:event_type_ids]") unless input[:event_type_ids].nil?
-        Validators::Targets.validate!(input[:targets], context: "#{context}[:targets]") unless input[:targets].nil?
+        EventTypeIds.validate!(input[:event_type_ids], context: "#{context}[:event_type_ids]") unless input[:event_type_ids].nil?
+        Targets.validate!(input[:targets], context: "#{context}[:targets]") unless input[:targets].nil?
         Hearth::Validator.validate!(input[:detail_type], ::String, context: "#{context}[:detail_type]")
       end
     end

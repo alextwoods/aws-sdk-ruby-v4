@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::Forecast
   module Validators
 
@@ -14,7 +16,7 @@ module AWS::SDK::Forecast
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AdditionalDataset, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::Configuration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
+        Configuration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
       end
     end
 
@@ -22,7 +24,7 @@ module AWS::SDK::Forecast
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AdditionalDataset.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AdditionalDataset.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -40,7 +42,7 @@ module AWS::SDK::Forecast
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AttributeConfig, context: context)
         Hearth::Validator.validate!(input[:attribute_name], ::String, context: "#{context}[:attribute_name]")
-        Validators::Transformations.validate!(input[:transformations], context: "#{context}[:transformations]") unless input[:transformations].nil?
+        Transformations.validate!(input[:transformations], context: "#{context}[:transformations]") unless input[:transformations].nil?
       end
     end
 
@@ -48,7 +50,7 @@ module AWS::SDK::Forecast
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AttributeConfig.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AttributeConfig.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -56,7 +58,7 @@ module AWS::SDK::Forecast
     class Baseline
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Baseline, context: context)
-        Validators::PredictorBaseline.validate!(input[:predictor_baseline], context: "#{context}[:predictor_baseline]") unless input[:predictor_baseline].nil?
+        PredictorBaseline.validate!(input[:predictor_baseline], context: "#{context}[:predictor_baseline]") unless input[:predictor_baseline].nil?
       end
     end
 
@@ -72,7 +74,7 @@ module AWS::SDK::Forecast
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BaselineMetric.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BaselineMetric.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -81,7 +83,7 @@ module AWS::SDK::Forecast
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CategoricalParameterRange, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::Values.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        Values.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
       end
     end
 
@@ -89,7 +91,7 @@ module AWS::SDK::Forecast
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CategoricalParameterRange.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CategoricalParameterRange.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -99,7 +101,7 @@ module AWS::SDK::Forecast
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::Values.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          Values.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -118,7 +120,7 @@ module AWS::SDK::Forecast
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ContinuousParameterRange.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ContinuousParameterRange.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -128,17 +130,17 @@ module AWS::SDK::Forecast
         Hearth::Validator.validate!(input, Types::CreateAutoPredictorInput, context: context)
         Hearth::Validator.validate!(input[:predictor_name], ::String, context: "#{context}[:predictor_name]")
         Hearth::Validator.validate!(input[:forecast_horizon], ::Integer, context: "#{context}[:forecast_horizon]")
-        Validators::ForecastTypes.validate!(input[:forecast_types], context: "#{context}[:forecast_types]") unless input[:forecast_types].nil?
-        Validators::ForecastDimensions.validate!(input[:forecast_dimensions], context: "#{context}[:forecast_dimensions]") unless input[:forecast_dimensions].nil?
+        ForecastTypes.validate!(input[:forecast_types], context: "#{context}[:forecast_types]") unless input[:forecast_types].nil?
+        ForecastDimensions.validate!(input[:forecast_dimensions], context: "#{context}[:forecast_dimensions]") unless input[:forecast_dimensions].nil?
         Hearth::Validator.validate!(input[:forecast_frequency], ::String, context: "#{context}[:forecast_frequency]")
-        Validators::DataConfig.validate!(input[:data_config], context: "#{context}[:data_config]") unless input[:data_config].nil?
-        Validators::EncryptionConfig.validate!(input[:encryption_config], context: "#{context}[:encryption_config]") unless input[:encryption_config].nil?
+        DataConfig.validate!(input[:data_config], context: "#{context}[:data_config]") unless input[:data_config].nil?
+        EncryptionConfig.validate!(input[:encryption_config], context: "#{context}[:encryption_config]") unless input[:encryption_config].nil?
         Hearth::Validator.validate!(input[:reference_predictor_arn], ::String, context: "#{context}[:reference_predictor_arn]")
         Hearth::Validator.validate!(input[:optimization_metric], ::String, context: "#{context}[:optimization_metric]")
         Hearth::Validator.validate!(input[:explain_predictor], ::TrueClass, ::FalseClass, context: "#{context}[:explain_predictor]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::MonitorConfig.validate!(input[:monitor_config], context: "#{context}[:monitor_config]") unless input[:monitor_config].nil?
-        Validators::TimeAlignmentBoundary.validate!(input[:time_alignment_boundary], context: "#{context}[:time_alignment_boundary]") unless input[:time_alignment_boundary].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        MonitorConfig.validate!(input[:monitor_config], context: "#{context}[:monitor_config]") unless input[:monitor_config].nil?
+        TimeAlignmentBoundary.validate!(input[:time_alignment_boundary], context: "#{context}[:time_alignment_boundary]") unless input[:time_alignment_boundary].nil?
       end
     end
 
@@ -154,8 +156,8 @@ module AWS::SDK::Forecast
         Hearth::Validator.validate!(input, Types::CreateDatasetGroupInput, context: context)
         Hearth::Validator.validate!(input[:dataset_group_name], ::String, context: "#{context}[:dataset_group_name]")
         Hearth::Validator.validate!(input[:domain], ::String, context: "#{context}[:domain]")
-        Validators::ArnList.validate!(input[:dataset_arns], context: "#{context}[:dataset_arns]") unless input[:dataset_arns].nil?
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ArnList.validate!(input[:dataset_arns], context: "#{context}[:dataset_arns]") unless input[:dataset_arns].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -171,12 +173,12 @@ module AWS::SDK::Forecast
         Hearth::Validator.validate!(input, Types::CreateDatasetImportJobInput, context: context)
         Hearth::Validator.validate!(input[:dataset_import_job_name], ::String, context: "#{context}[:dataset_import_job_name]")
         Hearth::Validator.validate!(input[:dataset_arn], ::String, context: "#{context}[:dataset_arn]")
-        Validators::DataSource.validate!(input[:data_source], context: "#{context}[:data_source]") unless input[:data_source].nil?
+        DataSource.validate!(input[:data_source], context: "#{context}[:data_source]") unless input[:data_source].nil?
         Hearth::Validator.validate!(input[:timestamp_format], ::String, context: "#{context}[:timestamp_format]")
         Hearth::Validator.validate!(input[:time_zone], ::String, context: "#{context}[:time_zone]")
         Hearth::Validator.validate!(input[:use_geolocation_for_time_zone], ::TrueClass, ::FalseClass, context: "#{context}[:use_geolocation_for_time_zone]")
         Hearth::Validator.validate!(input[:geolocation_format], ::String, context: "#{context}[:geolocation_format]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:format], ::String, context: "#{context}[:format]")
       end
     end
@@ -195,9 +197,9 @@ module AWS::SDK::Forecast
         Hearth::Validator.validate!(input[:domain], ::String, context: "#{context}[:domain]")
         Hearth::Validator.validate!(input[:dataset_type], ::String, context: "#{context}[:dataset_type]")
         Hearth::Validator.validate!(input[:data_frequency], ::String, context: "#{context}[:data_frequency]")
-        Validators::Schema.validate!(input[:schema], context: "#{context}[:schema]") unless input[:schema].nil?
-        Validators::EncryptionConfig.validate!(input[:encryption_config], context: "#{context}[:encryption_config]") unless input[:encryption_config].nil?
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Schema.validate!(input[:schema], context: "#{context}[:schema]") unless input[:schema].nil?
+        EncryptionConfig.validate!(input[:encryption_config], context: "#{context}[:encryption_config]") unless input[:encryption_config].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -213,8 +215,8 @@ module AWS::SDK::Forecast
         Hearth::Validator.validate!(input, Types::CreateExplainabilityExportInput, context: context)
         Hearth::Validator.validate!(input[:explainability_export_name], ::String, context: "#{context}[:explainability_export_name]")
         Hearth::Validator.validate!(input[:explainability_arn], ::String, context: "#{context}[:explainability_arn]")
-        Validators::DataDestination.validate!(input[:destination], context: "#{context}[:destination]") unless input[:destination].nil?
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        DataDestination.validate!(input[:destination], context: "#{context}[:destination]") unless input[:destination].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:format], ::String, context: "#{context}[:format]")
       end
     end
@@ -231,13 +233,13 @@ module AWS::SDK::Forecast
         Hearth::Validator.validate!(input, Types::CreateExplainabilityInput, context: context)
         Hearth::Validator.validate!(input[:explainability_name], ::String, context: "#{context}[:explainability_name]")
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::ExplainabilityConfig.validate!(input[:explainability_config], context: "#{context}[:explainability_config]") unless input[:explainability_config].nil?
-        Validators::DataSource.validate!(input[:data_source], context: "#{context}[:data_source]") unless input[:data_source].nil?
-        Validators::Schema.validate!(input[:schema], context: "#{context}[:schema]") unless input[:schema].nil?
+        ExplainabilityConfig.validate!(input[:explainability_config], context: "#{context}[:explainability_config]") unless input[:explainability_config].nil?
+        DataSource.validate!(input[:data_source], context: "#{context}[:data_source]") unless input[:data_source].nil?
+        Schema.validate!(input[:schema], context: "#{context}[:schema]") unless input[:schema].nil?
         Hearth::Validator.validate!(input[:enable_visualization], ::TrueClass, ::FalseClass, context: "#{context}[:enable_visualization]")
         Hearth::Validator.validate!(input[:start_date_time], ::String, context: "#{context}[:start_date_time]")
         Hearth::Validator.validate!(input[:end_date_time], ::String, context: "#{context}[:end_date_time]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -253,8 +255,8 @@ module AWS::SDK::Forecast
         Hearth::Validator.validate!(input, Types::CreateForecastExportJobInput, context: context)
         Hearth::Validator.validate!(input[:forecast_export_job_name], ::String, context: "#{context}[:forecast_export_job_name]")
         Hearth::Validator.validate!(input[:forecast_arn], ::String, context: "#{context}[:forecast_arn]")
-        Validators::DataDestination.validate!(input[:destination], context: "#{context}[:destination]") unless input[:destination].nil?
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        DataDestination.validate!(input[:destination], context: "#{context}[:destination]") unless input[:destination].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:format], ::String, context: "#{context}[:format]")
       end
     end
@@ -271,9 +273,9 @@ module AWS::SDK::Forecast
         Hearth::Validator.validate!(input, Types::CreateForecastInput, context: context)
         Hearth::Validator.validate!(input[:forecast_name], ::String, context: "#{context}[:forecast_name]")
         Hearth::Validator.validate!(input[:predictor_arn], ::String, context: "#{context}[:predictor_arn]")
-        Validators::ForecastTypes.validate!(input[:forecast_types], context: "#{context}[:forecast_types]") unless input[:forecast_types].nil?
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::TimeSeriesSelector.validate!(input[:time_series_selector], context: "#{context}[:time_series_selector]") unless input[:time_series_selector].nil?
+        ForecastTypes.validate!(input[:forecast_types], context: "#{context}[:forecast_types]") unless input[:forecast_types].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TimeSeriesSelector.validate!(input[:time_series_selector], context: "#{context}[:time_series_selector]") unless input[:time_series_selector].nil?
       end
     end
 
@@ -289,7 +291,7 @@ module AWS::SDK::Forecast
         Hearth::Validator.validate!(input, Types::CreateMonitorInput, context: context)
         Hearth::Validator.validate!(input[:monitor_name], ::String, context: "#{context}[:monitor_name]")
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -305,8 +307,8 @@ module AWS::SDK::Forecast
         Hearth::Validator.validate!(input, Types::CreatePredictorBacktestExportJobInput, context: context)
         Hearth::Validator.validate!(input[:predictor_backtest_export_job_name], ::String, context: "#{context}[:predictor_backtest_export_job_name]")
         Hearth::Validator.validate!(input[:predictor_arn], ::String, context: "#{context}[:predictor_arn]")
-        Validators::DataDestination.validate!(input[:destination], context: "#{context}[:destination]") unless input[:destination].nil?
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        DataDestination.validate!(input[:destination], context: "#{context}[:destination]") unless input[:destination].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:format], ::String, context: "#{context}[:format]")
       end
     end
@@ -324,17 +326,17 @@ module AWS::SDK::Forecast
         Hearth::Validator.validate!(input[:predictor_name], ::String, context: "#{context}[:predictor_name]")
         Hearth::Validator.validate!(input[:algorithm_arn], ::String, context: "#{context}[:algorithm_arn]")
         Hearth::Validator.validate!(input[:forecast_horizon], ::Integer, context: "#{context}[:forecast_horizon]")
-        Validators::ForecastTypes.validate!(input[:forecast_types], context: "#{context}[:forecast_types]") unless input[:forecast_types].nil?
+        ForecastTypes.validate!(input[:forecast_types], context: "#{context}[:forecast_types]") unless input[:forecast_types].nil?
         Hearth::Validator.validate!(input[:perform_auto_ml], ::TrueClass, ::FalseClass, context: "#{context}[:perform_auto_ml]")
         Hearth::Validator.validate!(input[:auto_ml_override_strategy], ::String, context: "#{context}[:auto_ml_override_strategy]")
         Hearth::Validator.validate!(input[:perform_hpo], ::TrueClass, ::FalseClass, context: "#{context}[:perform_hpo]")
-        Validators::TrainingParameters.validate!(input[:training_parameters], context: "#{context}[:training_parameters]") unless input[:training_parameters].nil?
-        Validators::EvaluationParameters.validate!(input[:evaluation_parameters], context: "#{context}[:evaluation_parameters]") unless input[:evaluation_parameters].nil?
-        Validators::HyperParameterTuningJobConfig.validate!(input[:hpo_config], context: "#{context}[:hpo_config]") unless input[:hpo_config].nil?
-        Validators::InputDataConfig.validate!(input[:input_data_config], context: "#{context}[:input_data_config]") unless input[:input_data_config].nil?
-        Validators::FeaturizationConfig.validate!(input[:featurization_config], context: "#{context}[:featurization_config]") unless input[:featurization_config].nil?
-        Validators::EncryptionConfig.validate!(input[:encryption_config], context: "#{context}[:encryption_config]") unless input[:encryption_config].nil?
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TrainingParameters.validate!(input[:training_parameters], context: "#{context}[:training_parameters]") unless input[:training_parameters].nil?
+        EvaluationParameters.validate!(input[:evaluation_parameters], context: "#{context}[:evaluation_parameters]") unless input[:evaluation_parameters].nil?
+        HyperParameterTuningJobConfig.validate!(input[:hpo_config], context: "#{context}[:hpo_config]") unless input[:hpo_config].nil?
+        InputDataConfig.validate!(input[:input_data_config], context: "#{context}[:input_data_config]") unless input[:input_data_config].nil?
+        FeaturizationConfig.validate!(input[:featurization_config], context: "#{context}[:featurization_config]") unless input[:featurization_config].nil?
+        EncryptionConfig.validate!(input[:encryption_config], context: "#{context}[:encryption_config]") unless input[:encryption_config].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:optimization_metric], ::String, context: "#{context}[:optimization_metric]")
       end
     end
@@ -350,22 +352,22 @@ module AWS::SDK::Forecast
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DataConfig, context: context)
         Hearth::Validator.validate!(input[:dataset_group_arn], ::String, context: "#{context}[:dataset_group_arn]")
-        Validators::AttributeConfigs.validate!(input[:attribute_configs], context: "#{context}[:attribute_configs]") unless input[:attribute_configs].nil?
-        Validators::AdditionalDatasets.validate!(input[:additional_datasets], context: "#{context}[:additional_datasets]") unless input[:additional_datasets].nil?
+        AttributeConfigs.validate!(input[:attribute_configs], context: "#{context}[:attribute_configs]") unless input[:attribute_configs].nil?
+        AdditionalDatasets.validate!(input[:additional_datasets], context: "#{context}[:additional_datasets]") unless input[:additional_datasets].nil?
       end
     end
 
     class DataDestination
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DataDestination, context: context)
-        Validators::S3Config.validate!(input[:s3_config], context: "#{context}[:s3_config]") unless input[:s3_config].nil?
+        S3Config.validate!(input[:s3_config], context: "#{context}[:s3_config]") unless input[:s3_config].nil?
       end
     end
 
     class DataSource
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DataSource, context: context)
-        Validators::S3Config.validate!(input[:s3_config], context: "#{context}[:s3_config]") unless input[:s3_config].nil?
+        S3Config.validate!(input[:s3_config], context: "#{context}[:s3_config]") unless input[:s3_config].nil?
       end
     end
 
@@ -383,7 +385,7 @@ module AWS::SDK::Forecast
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DatasetGroupSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DatasetGroupSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -393,7 +395,7 @@ module AWS::SDK::Forecast
         Hearth::Validator.validate!(input, Types::DatasetImportJobSummary, context: context)
         Hearth::Validator.validate!(input[:dataset_import_job_arn], ::String, context: "#{context}[:dataset_import_job_arn]")
         Hearth::Validator.validate!(input[:dataset_import_job_name], ::String, context: "#{context}[:dataset_import_job_name]")
-        Validators::DataSource.validate!(input[:data_source], context: "#{context}[:data_source]") unless input[:data_source].nil?
+        DataSource.validate!(input[:data_source], context: "#{context}[:data_source]") unless input[:data_source].nil?
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
         Hearth::Validator.validate!(input[:creation_time], ::Time, context: "#{context}[:creation_time]")
@@ -405,7 +407,7 @@ module AWS::SDK::Forecast
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DatasetImportJobSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DatasetImportJobSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -426,7 +428,7 @@ module AWS::SDK::Forecast
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DatasetSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DatasetSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -587,22 +589,22 @@ module AWS::SDK::Forecast
         Hearth::Validator.validate!(input[:predictor_arn], ::String, context: "#{context}[:predictor_arn]")
         Hearth::Validator.validate!(input[:predictor_name], ::String, context: "#{context}[:predictor_name]")
         Hearth::Validator.validate!(input[:forecast_horizon], ::Integer, context: "#{context}[:forecast_horizon]")
-        Validators::ForecastTypes.validate!(input[:forecast_types], context: "#{context}[:forecast_types]") unless input[:forecast_types].nil?
+        ForecastTypes.validate!(input[:forecast_types], context: "#{context}[:forecast_types]") unless input[:forecast_types].nil?
         Hearth::Validator.validate!(input[:forecast_frequency], ::String, context: "#{context}[:forecast_frequency]")
-        Validators::ForecastDimensions.validate!(input[:forecast_dimensions], context: "#{context}[:forecast_dimensions]") unless input[:forecast_dimensions].nil?
-        Validators::ArnList.validate!(input[:dataset_import_job_arns], context: "#{context}[:dataset_import_job_arns]") unless input[:dataset_import_job_arns].nil?
-        Validators::DataConfig.validate!(input[:data_config], context: "#{context}[:data_config]") unless input[:data_config].nil?
-        Validators::EncryptionConfig.validate!(input[:encryption_config], context: "#{context}[:encryption_config]") unless input[:encryption_config].nil?
-        Validators::ReferencePredictorSummary.validate!(input[:reference_predictor_summary], context: "#{context}[:reference_predictor_summary]") unless input[:reference_predictor_summary].nil?
+        ForecastDimensions.validate!(input[:forecast_dimensions], context: "#{context}[:forecast_dimensions]") unless input[:forecast_dimensions].nil?
+        ArnList.validate!(input[:dataset_import_job_arns], context: "#{context}[:dataset_import_job_arns]") unless input[:dataset_import_job_arns].nil?
+        DataConfig.validate!(input[:data_config], context: "#{context}[:data_config]") unless input[:data_config].nil?
+        EncryptionConfig.validate!(input[:encryption_config], context: "#{context}[:encryption_config]") unless input[:encryption_config].nil?
+        ReferencePredictorSummary.validate!(input[:reference_predictor_summary], context: "#{context}[:reference_predictor_summary]") unless input[:reference_predictor_summary].nil?
         Hearth::Validator.validate!(input[:estimated_time_remaining_in_minutes], ::Integer, context: "#{context}[:estimated_time_remaining_in_minutes]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
         Hearth::Validator.validate!(input[:creation_time], ::Time, context: "#{context}[:creation_time]")
         Hearth::Validator.validate!(input[:last_modification_time], ::Time, context: "#{context}[:last_modification_time]")
         Hearth::Validator.validate!(input[:optimization_metric], ::String, context: "#{context}[:optimization_metric]")
-        Validators::ExplainabilityInfo.validate!(input[:explainability_info], context: "#{context}[:explainability_info]") unless input[:explainability_info].nil?
-        Validators::MonitorInfo.validate!(input[:monitor_info], context: "#{context}[:monitor_info]") unless input[:monitor_info].nil?
-        Validators::TimeAlignmentBoundary.validate!(input[:time_alignment_boundary], context: "#{context}[:time_alignment_boundary]") unless input[:time_alignment_boundary].nil?
+        ExplainabilityInfo.validate!(input[:explainability_info], context: "#{context}[:explainability_info]") unless input[:explainability_info].nil?
+        MonitorInfo.validate!(input[:monitor_info], context: "#{context}[:monitor_info]") unless input[:monitor_info].nil?
+        TimeAlignmentBoundary.validate!(input[:time_alignment_boundary], context: "#{context}[:time_alignment_boundary]") unless input[:time_alignment_boundary].nil?
       end
     end
 
@@ -618,7 +620,7 @@ module AWS::SDK::Forecast
         Hearth::Validator.validate!(input, Types::DescribeDatasetGroupOutput, context: context)
         Hearth::Validator.validate!(input[:dataset_group_name], ::String, context: "#{context}[:dataset_group_name]")
         Hearth::Validator.validate!(input[:dataset_group_arn], ::String, context: "#{context}[:dataset_group_arn]")
-        Validators::ArnList.validate!(input[:dataset_arns], context: "#{context}[:dataset_arns]") unless input[:dataset_arns].nil?
+        ArnList.validate!(input[:dataset_arns], context: "#{context}[:dataset_arns]") unless input[:dataset_arns].nil?
         Hearth::Validator.validate!(input[:domain], ::String, context: "#{context}[:domain]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:creation_time], ::Time, context: "#{context}[:creation_time]")
@@ -643,9 +645,9 @@ module AWS::SDK::Forecast
         Hearth::Validator.validate!(input[:time_zone], ::String, context: "#{context}[:time_zone]")
         Hearth::Validator.validate!(input[:use_geolocation_for_time_zone], ::TrueClass, ::FalseClass, context: "#{context}[:use_geolocation_for_time_zone]")
         Hearth::Validator.validate!(input[:geolocation_format], ::String, context: "#{context}[:geolocation_format]")
-        Validators::DataSource.validate!(input[:data_source], context: "#{context}[:data_source]") unless input[:data_source].nil?
+        DataSource.validate!(input[:data_source], context: "#{context}[:data_source]") unless input[:data_source].nil?
         Hearth::Validator.validate!(input[:estimated_time_remaining_in_minutes], ::Integer, context: "#{context}[:estimated_time_remaining_in_minutes]")
-        Validators::FieldStatistics.validate!(input[:field_statistics], context: "#{context}[:field_statistics]") unless input[:field_statistics].nil?
+        FieldStatistics.validate!(input[:field_statistics], context: "#{context}[:field_statistics]") unless input[:field_statistics].nil?
         Hearth::Validator.validate!(input[:data_size], ::Float, context: "#{context}[:data_size]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
@@ -670,8 +672,8 @@ module AWS::SDK::Forecast
         Hearth::Validator.validate!(input[:domain], ::String, context: "#{context}[:domain]")
         Hearth::Validator.validate!(input[:dataset_type], ::String, context: "#{context}[:dataset_type]")
         Hearth::Validator.validate!(input[:data_frequency], ::String, context: "#{context}[:data_frequency]")
-        Validators::Schema.validate!(input[:schema], context: "#{context}[:schema]") unless input[:schema].nil?
-        Validators::EncryptionConfig.validate!(input[:encryption_config], context: "#{context}[:encryption_config]") unless input[:encryption_config].nil?
+        Schema.validate!(input[:schema], context: "#{context}[:schema]") unless input[:schema].nil?
+        EncryptionConfig.validate!(input[:encryption_config], context: "#{context}[:encryption_config]") unless input[:encryption_config].nil?
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:creation_time], ::Time, context: "#{context}[:creation_time]")
         Hearth::Validator.validate!(input[:last_modification_time], ::Time, context: "#{context}[:last_modification_time]")
@@ -691,7 +693,7 @@ module AWS::SDK::Forecast
         Hearth::Validator.validate!(input[:explainability_export_arn], ::String, context: "#{context}[:explainability_export_arn]")
         Hearth::Validator.validate!(input[:explainability_export_name], ::String, context: "#{context}[:explainability_export_name]")
         Hearth::Validator.validate!(input[:explainability_arn], ::String, context: "#{context}[:explainability_arn]")
-        Validators::DataDestination.validate!(input[:destination], context: "#{context}[:destination]") unless input[:destination].nil?
+        DataDestination.validate!(input[:destination], context: "#{context}[:destination]") unless input[:destination].nil?
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:creation_time], ::Time, context: "#{context}[:creation_time]")
@@ -713,10 +715,10 @@ module AWS::SDK::Forecast
         Hearth::Validator.validate!(input[:explainability_arn], ::String, context: "#{context}[:explainability_arn]")
         Hearth::Validator.validate!(input[:explainability_name], ::String, context: "#{context}[:explainability_name]")
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::ExplainabilityConfig.validate!(input[:explainability_config], context: "#{context}[:explainability_config]") unless input[:explainability_config].nil?
+        ExplainabilityConfig.validate!(input[:explainability_config], context: "#{context}[:explainability_config]") unless input[:explainability_config].nil?
         Hearth::Validator.validate!(input[:enable_visualization], ::TrueClass, ::FalseClass, context: "#{context}[:enable_visualization]")
-        Validators::DataSource.validate!(input[:data_source], context: "#{context}[:data_source]") unless input[:data_source].nil?
-        Validators::Schema.validate!(input[:schema], context: "#{context}[:schema]") unless input[:schema].nil?
+        DataSource.validate!(input[:data_source], context: "#{context}[:data_source]") unless input[:data_source].nil?
+        Schema.validate!(input[:schema], context: "#{context}[:schema]") unless input[:schema].nil?
         Hearth::Validator.validate!(input[:start_date_time], ::String, context: "#{context}[:start_date_time]")
         Hearth::Validator.validate!(input[:end_date_time], ::String, context: "#{context}[:end_date_time]")
         Hearth::Validator.validate!(input[:estimated_time_remaining_in_minutes], ::Integer, context: "#{context}[:estimated_time_remaining_in_minutes]")
@@ -740,7 +742,7 @@ module AWS::SDK::Forecast
         Hearth::Validator.validate!(input[:forecast_export_job_arn], ::String, context: "#{context}[:forecast_export_job_arn]")
         Hearth::Validator.validate!(input[:forecast_export_job_name], ::String, context: "#{context}[:forecast_export_job_name]")
         Hearth::Validator.validate!(input[:forecast_arn], ::String, context: "#{context}[:forecast_arn]")
-        Validators::DataDestination.validate!(input[:destination], context: "#{context}[:destination]") unless input[:destination].nil?
+        DataDestination.validate!(input[:destination], context: "#{context}[:destination]") unless input[:destination].nil?
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:creation_time], ::Time, context: "#{context}[:creation_time]")
@@ -761,7 +763,7 @@ module AWS::SDK::Forecast
         Hearth::Validator.validate!(input, Types::DescribeForecastOutput, context: context)
         Hearth::Validator.validate!(input[:forecast_arn], ::String, context: "#{context}[:forecast_arn]")
         Hearth::Validator.validate!(input[:forecast_name], ::String, context: "#{context}[:forecast_name]")
-        Validators::ForecastTypes.validate!(input[:forecast_types], context: "#{context}[:forecast_types]") unless input[:forecast_types].nil?
+        ForecastTypes.validate!(input[:forecast_types], context: "#{context}[:forecast_types]") unless input[:forecast_types].nil?
         Hearth::Validator.validate!(input[:predictor_arn], ::String, context: "#{context}[:predictor_arn]")
         Hearth::Validator.validate!(input[:dataset_group_arn], ::String, context: "#{context}[:dataset_group_arn]")
         Hearth::Validator.validate!(input[:estimated_time_remaining_in_minutes], ::Integer, context: "#{context}[:estimated_time_remaining_in_minutes]")
@@ -769,7 +771,7 @@ module AWS::SDK::Forecast
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
         Hearth::Validator.validate!(input[:creation_time], ::Time, context: "#{context}[:creation_time]")
         Hearth::Validator.validate!(input[:last_modification_time], ::Time, context: "#{context}[:last_modification_time]")
-        Validators::TimeSeriesSelector.validate!(input[:time_series_selector], context: "#{context}[:time_series_selector]") unless input[:time_series_selector].nil?
+        TimeSeriesSelector.validate!(input[:time_series_selector], context: "#{context}[:time_series_selector]") unless input[:time_series_selector].nil?
       end
     end
 
@@ -789,7 +791,7 @@ module AWS::SDK::Forecast
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:last_evaluation_time], ::Time, context: "#{context}[:last_evaluation_time]")
         Hearth::Validator.validate!(input[:last_evaluation_state], ::String, context: "#{context}[:last_evaluation_state]")
-        Validators::Baseline.validate!(input[:baseline], context: "#{context}[:baseline]") unless input[:baseline].nil?
+        Baseline.validate!(input[:baseline], context: "#{context}[:baseline]") unless input[:baseline].nil?
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
         Hearth::Validator.validate!(input[:creation_time], ::Time, context: "#{context}[:creation_time]")
         Hearth::Validator.validate!(input[:last_modification_time], ::Time, context: "#{context}[:last_modification_time]")
@@ -810,7 +812,7 @@ module AWS::SDK::Forecast
         Hearth::Validator.validate!(input[:predictor_backtest_export_job_arn], ::String, context: "#{context}[:predictor_backtest_export_job_arn]")
         Hearth::Validator.validate!(input[:predictor_backtest_export_job_name], ::String, context: "#{context}[:predictor_backtest_export_job_name]")
         Hearth::Validator.validate!(input[:predictor_arn], ::String, context: "#{context}[:predictor_arn]")
-        Validators::DataDestination.validate!(input[:destination], context: "#{context}[:destination]") unless input[:destination].nil?
+        DataDestination.validate!(input[:destination], context: "#{context}[:destination]") unless input[:destination].nil?
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:creation_time], ::Time, context: "#{context}[:creation_time]")
@@ -832,22 +834,22 @@ module AWS::SDK::Forecast
         Hearth::Validator.validate!(input[:predictor_arn], ::String, context: "#{context}[:predictor_arn]")
         Hearth::Validator.validate!(input[:predictor_name], ::String, context: "#{context}[:predictor_name]")
         Hearth::Validator.validate!(input[:algorithm_arn], ::String, context: "#{context}[:algorithm_arn]")
-        Validators::ArnList.validate!(input[:auto_ml_algorithm_arns], context: "#{context}[:auto_ml_algorithm_arns]") unless input[:auto_ml_algorithm_arns].nil?
+        ArnList.validate!(input[:auto_ml_algorithm_arns], context: "#{context}[:auto_ml_algorithm_arns]") unless input[:auto_ml_algorithm_arns].nil?
         Hearth::Validator.validate!(input[:forecast_horizon], ::Integer, context: "#{context}[:forecast_horizon]")
-        Validators::ForecastTypes.validate!(input[:forecast_types], context: "#{context}[:forecast_types]") unless input[:forecast_types].nil?
+        ForecastTypes.validate!(input[:forecast_types], context: "#{context}[:forecast_types]") unless input[:forecast_types].nil?
         Hearth::Validator.validate!(input[:perform_auto_ml], ::TrueClass, ::FalseClass, context: "#{context}[:perform_auto_ml]")
         Hearth::Validator.validate!(input[:auto_ml_override_strategy], ::String, context: "#{context}[:auto_ml_override_strategy]")
         Hearth::Validator.validate!(input[:perform_hpo], ::TrueClass, ::FalseClass, context: "#{context}[:perform_hpo]")
-        Validators::TrainingParameters.validate!(input[:training_parameters], context: "#{context}[:training_parameters]") unless input[:training_parameters].nil?
-        Validators::EvaluationParameters.validate!(input[:evaluation_parameters], context: "#{context}[:evaluation_parameters]") unless input[:evaluation_parameters].nil?
-        Validators::HyperParameterTuningJobConfig.validate!(input[:hpo_config], context: "#{context}[:hpo_config]") unless input[:hpo_config].nil?
-        Validators::InputDataConfig.validate!(input[:input_data_config], context: "#{context}[:input_data_config]") unless input[:input_data_config].nil?
-        Validators::FeaturizationConfig.validate!(input[:featurization_config], context: "#{context}[:featurization_config]") unless input[:featurization_config].nil?
-        Validators::EncryptionConfig.validate!(input[:encryption_config], context: "#{context}[:encryption_config]") unless input[:encryption_config].nil?
-        Validators::PredictorExecutionDetails.validate!(input[:predictor_execution_details], context: "#{context}[:predictor_execution_details]") unless input[:predictor_execution_details].nil?
+        TrainingParameters.validate!(input[:training_parameters], context: "#{context}[:training_parameters]") unless input[:training_parameters].nil?
+        EvaluationParameters.validate!(input[:evaluation_parameters], context: "#{context}[:evaluation_parameters]") unless input[:evaluation_parameters].nil?
+        HyperParameterTuningJobConfig.validate!(input[:hpo_config], context: "#{context}[:hpo_config]") unless input[:hpo_config].nil?
+        InputDataConfig.validate!(input[:input_data_config], context: "#{context}[:input_data_config]") unless input[:input_data_config].nil?
+        FeaturizationConfig.validate!(input[:featurization_config], context: "#{context}[:featurization_config]") unless input[:featurization_config].nil?
+        EncryptionConfig.validate!(input[:encryption_config], context: "#{context}[:encryption_config]") unless input[:encryption_config].nil?
+        PredictorExecutionDetails.validate!(input[:predictor_execution_details], context: "#{context}[:predictor_execution_details]") unless input[:predictor_execution_details].nil?
         Hearth::Validator.validate!(input[:estimated_time_remaining_in_minutes], ::Integer, context: "#{context}[:estimated_time_remaining_in_minutes]")
         Hearth::Validator.validate!(input[:is_auto_predictor], ::TrueClass, ::FalseClass, context: "#{context}[:is_auto_predictor]")
-        Validators::ArnList.validate!(input[:dataset_import_job_arns], context: "#{context}[:dataset_import_job_arns]") unless input[:dataset_import_job_arns].nil?
+        ArnList.validate!(input[:dataset_import_job_arns], context: "#{context}[:dataset_import_job_arns]") unless input[:dataset_import_job_arns].nil?
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
         Hearth::Validator.validate!(input[:creation_time], ::Time, context: "#{context}[:creation_time]")
@@ -879,7 +881,7 @@ module AWS::SDK::Forecast
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ErrorMetric.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ErrorMetric.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -896,7 +898,7 @@ module AWS::SDK::Forecast
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::EvaluationResult, context: context)
         Hearth::Validator.validate!(input[:algorithm_arn], ::String, context: "#{context}[:algorithm_arn]")
-        Validators::TestWindows.validate!(input[:test_windows], context: "#{context}[:test_windows]") unless input[:test_windows].nil?
+        TestWindows.validate!(input[:test_windows], context: "#{context}[:test_windows]") unless input[:test_windows].nil?
       end
     end
 
@@ -904,7 +906,7 @@ module AWS::SDK::Forecast
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ExplainabilitySummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ExplainabilitySummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -922,7 +924,7 @@ module AWS::SDK::Forecast
         Hearth::Validator.validate!(input, Types::ExplainabilityExportSummary, context: context)
         Hearth::Validator.validate!(input[:explainability_export_arn], ::String, context: "#{context}[:explainability_export_arn]")
         Hearth::Validator.validate!(input[:explainability_export_name], ::String, context: "#{context}[:explainability_export_name]")
-        Validators::DataDestination.validate!(input[:destination], context: "#{context}[:destination]") unless input[:destination].nil?
+        DataDestination.validate!(input[:destination], context: "#{context}[:destination]") unless input[:destination].nil?
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
         Hearth::Validator.validate!(input[:creation_time], ::Time, context: "#{context}[:creation_time]")
@@ -934,7 +936,7 @@ module AWS::SDK::Forecast
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ExplainabilityExportSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ExplainabilityExportSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -953,7 +955,7 @@ module AWS::SDK::Forecast
         Hearth::Validator.validate!(input[:explainability_arn], ::String, context: "#{context}[:explainability_arn]")
         Hearth::Validator.validate!(input[:explainability_name], ::String, context: "#{context}[:explainability_name]")
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::ExplainabilityConfig.validate!(input[:explainability_config], context: "#{context}[:explainability_config]") unless input[:explainability_config].nil?
+        ExplainabilityConfig.validate!(input[:explainability_config], context: "#{context}[:explainability_config]") unless input[:explainability_config].nil?
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
         Hearth::Validator.validate!(input[:creation_time], ::Time, context: "#{context}[:creation_time]")
@@ -965,7 +967,7 @@ module AWS::SDK::Forecast
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Featurization, context: context)
         Hearth::Validator.validate!(input[:attribute_name], ::String, context: "#{context}[:attribute_name]")
-        Validators::FeaturizationPipeline.validate!(input[:featurization_pipeline], context: "#{context}[:featurization_pipeline]") unless input[:featurization_pipeline].nil?
+        FeaturizationPipeline.validate!(input[:featurization_pipeline], context: "#{context}[:featurization_pipeline]") unless input[:featurization_pipeline].nil?
       end
     end
 
@@ -973,8 +975,8 @@ module AWS::SDK::Forecast
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::FeaturizationConfig, context: context)
         Hearth::Validator.validate!(input[:forecast_frequency], ::String, context: "#{context}[:forecast_frequency]")
-        Validators::ForecastDimensions.validate!(input[:forecast_dimensions], context: "#{context}[:forecast_dimensions]") unless input[:forecast_dimensions].nil?
-        Validators::Featurizations.validate!(input[:featurizations], context: "#{context}[:featurizations]") unless input[:featurizations].nil?
+        ForecastDimensions.validate!(input[:forecast_dimensions], context: "#{context}[:forecast_dimensions]") unless input[:forecast_dimensions].nil?
+        Featurizations.validate!(input[:featurizations], context: "#{context}[:featurizations]") unless input[:featurizations].nil?
       end
     end
 
@@ -982,7 +984,7 @@ module AWS::SDK::Forecast
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::FeaturizationMethod, context: context)
         Hearth::Validator.validate!(input[:featurization_method_name], ::String, context: "#{context}[:featurization_method_name]")
-        Validators::FeaturizationMethodParameters.validate!(input[:featurization_method_parameters], context: "#{context}[:featurization_method_parameters]") unless input[:featurization_method_parameters].nil?
+        FeaturizationMethodParameters.validate!(input[:featurization_method_parameters], context: "#{context}[:featurization_method_parameters]") unless input[:featurization_method_parameters].nil?
       end
     end
 
@@ -1000,7 +1002,7 @@ module AWS::SDK::Forecast
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::FeaturizationMethod.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          FeaturizationMethod.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1009,7 +1011,7 @@ module AWS::SDK::Forecast
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Featurization.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Featurization.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1019,7 +1021,7 @@ module AWS::SDK::Forecast
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::Statistics.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          Statistics.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -1037,7 +1039,7 @@ module AWS::SDK::Forecast
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Filter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Filter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1056,7 +1058,7 @@ module AWS::SDK::Forecast
         Hearth::Validator.validate!(input, Types::ForecastExportJobSummary, context: context)
         Hearth::Validator.validate!(input[:forecast_export_job_arn], ::String, context: "#{context}[:forecast_export_job_arn]")
         Hearth::Validator.validate!(input[:forecast_export_job_name], ::String, context: "#{context}[:forecast_export_job_name]")
-        Validators::DataDestination.validate!(input[:destination], context: "#{context}[:destination]") unless input[:destination].nil?
+        DataDestination.validate!(input[:destination], context: "#{context}[:destination]") unless input[:destination].nil?
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
         Hearth::Validator.validate!(input[:creation_time], ::Time, context: "#{context}[:creation_time]")
@@ -1068,7 +1070,7 @@ module AWS::SDK::Forecast
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ForecastExportJobSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ForecastExportJobSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1101,7 +1103,7 @@ module AWS::SDK::Forecast
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ForecastSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ForecastSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1116,7 +1118,7 @@ module AWS::SDK::Forecast
     class GetAccuracyMetricsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetAccuracyMetricsOutput, context: context)
-        Validators::PredictorEvaluationResults.validate!(input[:predictor_evaluation_results], context: "#{context}[:predictor_evaluation_results]") unless input[:predictor_evaluation_results].nil?
+        PredictorEvaluationResults.validate!(input[:predictor_evaluation_results], context: "#{context}[:predictor_evaluation_results]") unless input[:predictor_evaluation_results].nil?
         Hearth::Validator.validate!(input[:is_auto_predictor], ::TrueClass, ::FalseClass, context: "#{context}[:is_auto_predictor]")
         Hearth::Validator.validate!(input[:auto_ml_override_strategy], ::String, context: "#{context}[:auto_ml_override_strategy]")
         Hearth::Validator.validate!(input[:optimization_metric], ::String, context: "#{context}[:optimization_metric]")
@@ -1126,7 +1128,7 @@ module AWS::SDK::Forecast
     class HyperParameterTuningJobConfig
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::HyperParameterTuningJobConfig, context: context)
-        Validators::ParameterRanges.validate!(input[:parameter_ranges], context: "#{context}[:parameter_ranges]") unless input[:parameter_ranges].nil?
+        ParameterRanges.validate!(input[:parameter_ranges], context: "#{context}[:parameter_ranges]") unless input[:parameter_ranges].nil?
       end
     end
 
@@ -1134,7 +1136,7 @@ module AWS::SDK::Forecast
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::InputDataConfig, context: context)
         Hearth::Validator.validate!(input[:dataset_group_arn], ::String, context: "#{context}[:dataset_group_arn]")
-        Validators::SupplementaryFeatures.validate!(input[:supplementary_features], context: "#{context}[:supplementary_features]") unless input[:supplementary_features].nil?
+        SupplementaryFeatures.validate!(input[:supplementary_features], context: "#{context}[:supplementary_features]") unless input[:supplementary_features].nil?
       end
     end
 
@@ -1152,7 +1154,7 @@ module AWS::SDK::Forecast
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::IntegerParameterRange.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          IntegerParameterRange.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1189,7 +1191,7 @@ module AWS::SDK::Forecast
     class ListDatasetGroupsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDatasetGroupsOutput, context: context)
-        Validators::DatasetGroups.validate!(input[:dataset_groups], context: "#{context}[:dataset_groups]") unless input[:dataset_groups].nil?
+        DatasetGroups.validate!(input[:dataset_groups], context: "#{context}[:dataset_groups]") unless input[:dataset_groups].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1199,14 +1201,14 @@ module AWS::SDK::Forecast
         Hearth::Validator.validate!(input, Types::ListDatasetImportJobsInput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
-        Validators::Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
       end
     end
 
     class ListDatasetImportJobsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDatasetImportJobsOutput, context: context)
-        Validators::DatasetImportJobs.validate!(input[:dataset_import_jobs], context: "#{context}[:dataset_import_jobs]") unless input[:dataset_import_jobs].nil?
+        DatasetImportJobs.validate!(input[:dataset_import_jobs], context: "#{context}[:dataset_import_jobs]") unless input[:dataset_import_jobs].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1222,7 +1224,7 @@ module AWS::SDK::Forecast
     class ListDatasetsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDatasetsOutput, context: context)
-        Validators::Datasets.validate!(input[:datasets], context: "#{context}[:datasets]") unless input[:datasets].nil?
+        Datasets.validate!(input[:datasets], context: "#{context}[:datasets]") unless input[:datasets].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1232,14 +1234,14 @@ module AWS::SDK::Forecast
         Hearth::Validator.validate!(input, Types::ListExplainabilitiesInput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
-        Validators::Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
       end
     end
 
     class ListExplainabilitiesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListExplainabilitiesOutput, context: context)
-        Validators::Explainabilities.validate!(input[:explainabilities], context: "#{context}[:explainabilities]") unless input[:explainabilities].nil?
+        Explainabilities.validate!(input[:explainabilities], context: "#{context}[:explainabilities]") unless input[:explainabilities].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1249,14 +1251,14 @@ module AWS::SDK::Forecast
         Hearth::Validator.validate!(input, Types::ListExplainabilityExportsInput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
-        Validators::Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
       end
     end
 
     class ListExplainabilityExportsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListExplainabilityExportsOutput, context: context)
-        Validators::ExplainabilityExports.validate!(input[:explainability_exports], context: "#{context}[:explainability_exports]") unless input[:explainability_exports].nil?
+        ExplainabilityExports.validate!(input[:explainability_exports], context: "#{context}[:explainability_exports]") unless input[:explainability_exports].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1266,14 +1268,14 @@ module AWS::SDK::Forecast
         Hearth::Validator.validate!(input, Types::ListForecastExportJobsInput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
-        Validators::Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
       end
     end
 
     class ListForecastExportJobsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListForecastExportJobsOutput, context: context)
-        Validators::ForecastExportJobs.validate!(input[:forecast_export_jobs], context: "#{context}[:forecast_export_jobs]") unless input[:forecast_export_jobs].nil?
+        ForecastExportJobs.validate!(input[:forecast_export_jobs], context: "#{context}[:forecast_export_jobs]") unless input[:forecast_export_jobs].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1283,14 +1285,14 @@ module AWS::SDK::Forecast
         Hearth::Validator.validate!(input, Types::ListForecastsInput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
-        Validators::Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
       end
     end
 
     class ListForecastsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListForecastsOutput, context: context)
-        Validators::Forecasts.validate!(input[:forecasts], context: "#{context}[:forecasts]") unless input[:forecasts].nil?
+        Forecasts.validate!(input[:forecasts], context: "#{context}[:forecasts]") unless input[:forecasts].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1301,7 +1303,7 @@ module AWS::SDK::Forecast
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:monitor_arn], ::String, context: "#{context}[:monitor_arn]")
-        Validators::Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
       end
     end
 
@@ -1309,7 +1311,7 @@ module AWS::SDK::Forecast
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListMonitorEvaluationsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::PredictorMonitorEvaluations.validate!(input[:predictor_monitor_evaluations], context: "#{context}[:predictor_monitor_evaluations]") unless input[:predictor_monitor_evaluations].nil?
+        PredictorMonitorEvaluations.validate!(input[:predictor_monitor_evaluations], context: "#{context}[:predictor_monitor_evaluations]") unless input[:predictor_monitor_evaluations].nil?
       end
     end
 
@@ -1318,14 +1320,14 @@ module AWS::SDK::Forecast
         Hearth::Validator.validate!(input, Types::ListMonitorsInput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
-        Validators::Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
       end
     end
 
     class ListMonitorsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListMonitorsOutput, context: context)
-        Validators::Monitors.validate!(input[:monitors], context: "#{context}[:monitors]") unless input[:monitors].nil?
+        Monitors.validate!(input[:monitors], context: "#{context}[:monitors]") unless input[:monitors].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1335,14 +1337,14 @@ module AWS::SDK::Forecast
         Hearth::Validator.validate!(input, Types::ListPredictorBacktestExportJobsInput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
-        Validators::Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
       end
     end
 
     class ListPredictorBacktestExportJobsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListPredictorBacktestExportJobsOutput, context: context)
-        Validators::PredictorBacktestExportJobs.validate!(input[:predictor_backtest_export_jobs], context: "#{context}[:predictor_backtest_export_jobs]") unless input[:predictor_backtest_export_jobs].nil?
+        PredictorBacktestExportJobs.validate!(input[:predictor_backtest_export_jobs], context: "#{context}[:predictor_backtest_export_jobs]") unless input[:predictor_backtest_export_jobs].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1352,14 +1354,14 @@ module AWS::SDK::Forecast
         Hearth::Validator.validate!(input, Types::ListPredictorsInput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
-        Validators::Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
       end
     end
 
     class ListPredictorsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListPredictorsOutput, context: context)
-        Validators::Predictors.validate!(input[:predictors], context: "#{context}[:predictors]") unless input[:predictors].nil?
+        Predictors.validate!(input[:predictors], context: "#{context}[:predictors]") unless input[:predictors].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1374,7 +1376,7 @@ module AWS::SDK::Forecast
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1390,7 +1392,7 @@ module AWS::SDK::Forecast
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MetricResult.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MetricResult.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1399,8 +1401,8 @@ module AWS::SDK::Forecast
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Metrics, context: context)
         Hearth::Validator.validate!(input[:rmse], ::Float, context: "#{context}[:rmse]")
-        Validators::WeightedQuantileLosses.validate!(input[:weighted_quantile_losses], context: "#{context}[:weighted_quantile_losses]") unless input[:weighted_quantile_losses].nil?
-        Validators::ErrorMetrics.validate!(input[:error_metrics], context: "#{context}[:error_metrics]") unless input[:error_metrics].nil?
+        WeightedQuantileLosses.validate!(input[:weighted_quantile_losses], context: "#{context}[:weighted_quantile_losses]") unless input[:weighted_quantile_losses].nil?
+        ErrorMetrics.validate!(input[:error_metrics], context: "#{context}[:error_metrics]") unless input[:error_metrics].nil?
         Hearth::Validator.validate!(input[:average_weighted_quantile_loss], ::Float, context: "#{context}[:average_weighted_quantile_loss]")
       end
     end
@@ -1445,7 +1447,7 @@ module AWS::SDK::Forecast
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MonitorSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MonitorSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1453,9 +1455,9 @@ module AWS::SDK::Forecast
     class ParameterRanges
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ParameterRanges, context: context)
-        Validators::CategoricalParameterRanges.validate!(input[:categorical_parameter_ranges], context: "#{context}[:categorical_parameter_ranges]") unless input[:categorical_parameter_ranges].nil?
-        Validators::ContinuousParameterRanges.validate!(input[:continuous_parameter_ranges], context: "#{context}[:continuous_parameter_ranges]") unless input[:continuous_parameter_ranges].nil?
-        Validators::IntegerParameterRanges.validate!(input[:integer_parameter_ranges], context: "#{context}[:integer_parameter_ranges]") unless input[:integer_parameter_ranges].nil?
+        CategoricalParameterRanges.validate!(input[:categorical_parameter_ranges], context: "#{context}[:categorical_parameter_ranges]") unless input[:categorical_parameter_ranges].nil?
+        ContinuousParameterRanges.validate!(input[:continuous_parameter_ranges], context: "#{context}[:continuous_parameter_ranges]") unless input[:continuous_parameter_ranges].nil?
+        IntegerParameterRanges.validate!(input[:integer_parameter_ranges], context: "#{context}[:integer_parameter_ranges]") unless input[:integer_parameter_ranges].nil?
       end
     end
 
@@ -1464,7 +1466,7 @@ module AWS::SDK::Forecast
         Hearth::Validator.validate!(input, Types::PredictorBacktestExportJobSummary, context: context)
         Hearth::Validator.validate!(input[:predictor_backtest_export_job_arn], ::String, context: "#{context}[:predictor_backtest_export_job_arn]")
         Hearth::Validator.validate!(input[:predictor_backtest_export_job_name], ::String, context: "#{context}[:predictor_backtest_export_job_name]")
-        Validators::DataDestination.validate!(input[:destination], context: "#{context}[:destination]") unless input[:destination].nil?
+        DataDestination.validate!(input[:destination], context: "#{context}[:destination]") unless input[:destination].nil?
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
         Hearth::Validator.validate!(input[:creation_time], ::Time, context: "#{context}[:creation_time]")
@@ -1476,7 +1478,7 @@ module AWS::SDK::Forecast
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PredictorBacktestExportJobSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PredictorBacktestExportJobSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1484,7 +1486,7 @@ module AWS::SDK::Forecast
     class PredictorBaseline
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PredictorBaseline, context: context)
-        Validators::BaselineMetrics.validate!(input[:baseline_metrics], context: "#{context}[:baseline_metrics]") unless input[:baseline_metrics].nil?
+        BaselineMetrics.validate!(input[:baseline_metrics], context: "#{context}[:baseline_metrics]") unless input[:baseline_metrics].nil?
       end
     end
 
@@ -1492,7 +1494,7 @@ module AWS::SDK::Forecast
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EvaluationResult.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EvaluationResult.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1509,14 +1511,14 @@ module AWS::SDK::Forecast
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PredictorExecution, context: context)
         Hearth::Validator.validate!(input[:algorithm_arn], ::String, context: "#{context}[:algorithm_arn]")
-        Validators::TestWindowDetails.validate!(input[:test_windows], context: "#{context}[:test_windows]") unless input[:test_windows].nil?
+        TestWindowDetails.validate!(input[:test_windows], context: "#{context}[:test_windows]") unless input[:test_windows].nil?
       end
     end
 
     class PredictorExecutionDetails
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PredictorExecutionDetails, context: context)
-        Validators::PredictorExecutions.validate!(input[:predictor_executions], context: "#{context}[:predictor_executions]") unless input[:predictor_executions].nil?
+        PredictorExecutions.validate!(input[:predictor_executions], context: "#{context}[:predictor_executions]") unless input[:predictor_executions].nil?
       end
     end
 
@@ -1524,7 +1526,7 @@ module AWS::SDK::Forecast
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PredictorExecution.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PredictorExecution.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1538,9 +1540,9 @@ module AWS::SDK::Forecast
         Hearth::Validator.validate!(input[:evaluation_state], ::String, context: "#{context}[:evaluation_state]")
         Hearth::Validator.validate!(input[:window_start_datetime], ::Time, context: "#{context}[:window_start_datetime]")
         Hearth::Validator.validate!(input[:window_end_datetime], ::Time, context: "#{context}[:window_end_datetime]")
-        Validators::PredictorEvent.validate!(input[:predictor_event], context: "#{context}[:predictor_event]") unless input[:predictor_event].nil?
-        Validators::MonitorDataSource.validate!(input[:monitor_data_source], context: "#{context}[:monitor_data_source]") unless input[:monitor_data_source].nil?
-        Validators::MetricResults.validate!(input[:metric_results], context: "#{context}[:metric_results]") unless input[:metric_results].nil?
+        PredictorEvent.validate!(input[:predictor_event], context: "#{context}[:predictor_event]") unless input[:predictor_event].nil?
+        MonitorDataSource.validate!(input[:monitor_data_source], context: "#{context}[:monitor_data_source]") unless input[:monitor_data_source].nil?
+        MetricResults.validate!(input[:metric_results], context: "#{context}[:metric_results]") unless input[:metric_results].nil?
         Hearth::Validator.validate!(input[:num_items_evaluated], ::Integer, context: "#{context}[:num_items_evaluated]")
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
       end
@@ -1550,7 +1552,7 @@ module AWS::SDK::Forecast
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PredictorMonitorEvaluation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PredictorMonitorEvaluation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1562,7 +1564,7 @@ module AWS::SDK::Forecast
         Hearth::Validator.validate!(input[:predictor_name], ::String, context: "#{context}[:predictor_name]")
         Hearth::Validator.validate!(input[:dataset_group_arn], ::String, context: "#{context}[:dataset_group_arn]")
         Hearth::Validator.validate!(input[:is_auto_predictor], ::TrueClass, ::FalseClass, context: "#{context}[:is_auto_predictor]")
-        Validators::ReferencePredictorSummary.validate!(input[:reference_predictor_summary], context: "#{context}[:reference_predictor_summary]") unless input[:reference_predictor_summary].nil?
+        ReferencePredictorSummary.validate!(input[:reference_predictor_summary], context: "#{context}[:reference_predictor_summary]") unless input[:reference_predictor_summary].nil?
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
         Hearth::Validator.validate!(input[:creation_time], ::Time, context: "#{context}[:creation_time]")
@@ -1574,7 +1576,7 @@ module AWS::SDK::Forecast
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PredictorSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PredictorSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1633,7 +1635,7 @@ module AWS::SDK::Forecast
     class Schema
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Schema, context: context)
-        Validators::SchemaAttributes.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        SchemaAttributes.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
       end
     end
 
@@ -1649,7 +1651,7 @@ module AWS::SDK::Forecast
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SchemaAttribute.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SchemaAttribute.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1697,7 +1699,7 @@ module AWS::SDK::Forecast
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SupplementaryFeature.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SupplementaryFeature.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1723,7 +1725,7 @@ module AWS::SDK::Forecast
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1737,7 +1739,7 @@ module AWS::SDK::Forecast
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1746,7 +1748,7 @@ module AWS::SDK::Forecast
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TestWindowSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TestWindowSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1765,7 +1767,7 @@ module AWS::SDK::Forecast
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::WindowSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          WindowSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1783,8 +1785,8 @@ module AWS::SDK::Forecast
     class TimeSeriesIdentifiers
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TimeSeriesIdentifiers, context: context)
-        Validators::DataSource.validate!(input[:data_source], context: "#{context}[:data_source]") unless input[:data_source].nil?
-        Validators::Schema.validate!(input[:schema], context: "#{context}[:schema]") unless input[:schema].nil?
+        DataSource.validate!(input[:data_source], context: "#{context}[:data_source]") unless input[:data_source].nil?
+        Schema.validate!(input[:schema], context: "#{context}[:schema]") unless input[:schema].nil?
         Hearth::Validator.validate!(input[:format], ::String, context: "#{context}[:format]")
       end
     end
@@ -1792,7 +1794,7 @@ module AWS::SDK::Forecast
     class TimeSeriesSelector
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TimeSeriesSelector, context: context)
-        Validators::TimeSeriesIdentifiers.validate!(input[:time_series_identifiers], context: "#{context}[:time_series_identifiers]") unless input[:time_series_identifiers].nil?
+        TimeSeriesIdentifiers.validate!(input[:time_series_identifiers], context: "#{context}[:time_series_identifiers]") unless input[:time_series_identifiers].nil?
       end
     end
 
@@ -1820,7 +1822,7 @@ module AWS::SDK::Forecast
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeys.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeys.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -1834,7 +1836,7 @@ module AWS::SDK::Forecast
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateDatasetGroupInput, context: context)
         Hearth::Validator.validate!(input[:dataset_group_arn], ::String, context: "#{context}[:dataset_group_arn]")
-        Validators::ArnList.validate!(input[:dataset_arns], context: "#{context}[:dataset_arns]") unless input[:dataset_arns].nil?
+        ArnList.validate!(input[:dataset_arns], context: "#{context}[:dataset_arns]") unless input[:dataset_arns].nil?
       end
     end
 
@@ -1865,7 +1867,7 @@ module AWS::SDK::Forecast
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::WeightedQuantileLoss.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          WeightedQuantileLoss.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1877,7 +1879,7 @@ module AWS::SDK::Forecast
         Hearth::Validator.validate!(input[:test_window_end], ::Time, context: "#{context}[:test_window_end]")
         Hearth::Validator.validate!(input[:item_count], ::Integer, context: "#{context}[:item_count]")
         Hearth::Validator.validate!(input[:evaluation_type], ::String, context: "#{context}[:evaluation_type]")
-        Validators::Metrics.validate!(input[:metrics], context: "#{context}[:metrics]") unless input[:metrics].nil?
+        Metrics.validate!(input[:metrics], context: "#{context}[:metrics]") unless input[:metrics].nil?
       end
     end
 

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::GlobalAccelerator
   module Validators
 
@@ -17,7 +19,7 @@ module AWS::SDK::GlobalAccelerator
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:ip_address_type], ::String, context: "#{context}[:ip_address_type]")
         Hearth::Validator.validate!(input[:enabled], ::TrueClass, ::FalseClass, context: "#{context}[:enabled]")
-        Validators::IpSets.validate!(input[:ip_sets], context: "#{context}[:ip_sets]") unless input[:ip_sets].nil?
+        IpSets.validate!(input[:ip_sets], context: "#{context}[:ip_sets]") unless input[:ip_sets].nil?
         Hearth::Validator.validate!(input[:dns_name], ::String, context: "#{context}[:dns_name]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:created_time], ::Time, context: "#{context}[:created_time]")
@@ -52,7 +54,7 @@ module AWS::SDK::GlobalAccelerator
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Accelerator.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Accelerator.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -67,7 +69,7 @@ module AWS::SDK::GlobalAccelerator
     class AddCustomRoutingEndpointsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AddCustomRoutingEndpointsInput, context: context)
-        Validators::CustomRoutingEndpointConfigurations.validate!(input[:endpoint_configurations], context: "#{context}[:endpoint_configurations]") unless input[:endpoint_configurations].nil?
+        CustomRoutingEndpointConfigurations.validate!(input[:endpoint_configurations], context: "#{context}[:endpoint_configurations]") unless input[:endpoint_configurations].nil?
         Hearth::Validator.validate!(input[:endpoint_group_arn], ::String, context: "#{context}[:endpoint_group_arn]")
       end
     end
@@ -75,7 +77,7 @@ module AWS::SDK::GlobalAccelerator
     class AddCustomRoutingEndpointsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AddCustomRoutingEndpointsOutput, context: context)
-        Validators::CustomRoutingEndpointDescriptions.validate!(input[:endpoint_descriptions], context: "#{context}[:endpoint_descriptions]") unless input[:endpoint_descriptions].nil?
+        CustomRoutingEndpointDescriptions.validate!(input[:endpoint_descriptions], context: "#{context}[:endpoint_descriptions]") unless input[:endpoint_descriptions].nil?
         Hearth::Validator.validate!(input[:endpoint_group_arn], ::String, context: "#{context}[:endpoint_group_arn]")
       end
     end
@@ -90,7 +92,7 @@ module AWS::SDK::GlobalAccelerator
     class AdvertiseByoipCidrOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AdvertiseByoipCidrOutput, context: context)
-        Validators::ByoipCidr.validate!(input[:byoip_cidr], context: "#{context}[:byoip_cidr]") unless input[:byoip_cidr].nil?
+        ByoipCidr.validate!(input[:byoip_cidr], context: "#{context}[:byoip_cidr]") unless input[:byoip_cidr].nil?
       end
     end
 
@@ -99,8 +101,8 @@ module AWS::SDK::GlobalAccelerator
         Hearth::Validator.validate!(input, Types::AllowCustomRoutingTrafficInput, context: context)
         Hearth::Validator.validate!(input[:endpoint_group_arn], ::String, context: "#{context}[:endpoint_group_arn]")
         Hearth::Validator.validate!(input[:endpoint_id], ::String, context: "#{context}[:endpoint_id]")
-        Validators::DestinationAddresses.validate!(input[:destination_addresses], context: "#{context}[:destination_addresses]") unless input[:destination_addresses].nil?
-        Validators::DestinationPorts.validate!(input[:destination_ports], context: "#{context}[:destination_ports]") unless input[:destination_ports].nil?
+        DestinationAddresses.validate!(input[:destination_addresses], context: "#{context}[:destination_addresses]") unless input[:destination_addresses].nil?
+        DestinationPorts.validate!(input[:destination_ports], context: "#{context}[:destination_ports]") unless input[:destination_ports].nil?
         Hearth::Validator.validate!(input[:allow_all_traffic_to_endpoint], ::TrueClass, ::FalseClass, context: "#{context}[:allow_all_traffic_to_endpoint]")
       end
     end
@@ -130,7 +132,7 @@ module AWS::SDK::GlobalAccelerator
         Hearth::Validator.validate!(input, Types::ByoipCidr, context: context)
         Hearth::Validator.validate!(input[:cidr], ::String, context: "#{context}[:cidr]")
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
-        Validators::ByoipCidrEvents.validate!(input[:events], context: "#{context}[:events]") unless input[:events].nil?
+        ByoipCidrEvents.validate!(input[:events], context: "#{context}[:events]") unless input[:events].nil?
       end
     end
 
@@ -146,7 +148,7 @@ module AWS::SDK::GlobalAccelerator
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ByoipCidrEvent.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ByoipCidrEvent.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -162,7 +164,7 @@ module AWS::SDK::GlobalAccelerator
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ByoipCidr.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ByoipCidr.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -187,17 +189,17 @@ module AWS::SDK::GlobalAccelerator
         Hearth::Validator.validate!(input, Types::CreateAcceleratorInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:ip_address_type], ::String, context: "#{context}[:ip_address_type]")
-        Validators::IpAddresses.validate!(input[:ip_addresses], context: "#{context}[:ip_addresses]") unless input[:ip_addresses].nil?
+        IpAddresses.validate!(input[:ip_addresses], context: "#{context}[:ip_addresses]") unless input[:ip_addresses].nil?
         Hearth::Validator.validate!(input[:enabled], ::TrueClass, ::FalseClass, context: "#{context}[:enabled]")
         Hearth::Validator.validate!(input[:idempotency_token], ::String, context: "#{context}[:idempotency_token]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateAcceleratorOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateAcceleratorOutput, context: context)
-        Validators::Accelerator.validate!(input[:accelerator], context: "#{context}[:accelerator]") unless input[:accelerator].nil?
+        Accelerator.validate!(input[:accelerator], context: "#{context}[:accelerator]") unless input[:accelerator].nil?
       end
     end
 
@@ -206,17 +208,17 @@ module AWS::SDK::GlobalAccelerator
         Hearth::Validator.validate!(input, Types::CreateCustomRoutingAcceleratorInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:ip_address_type], ::String, context: "#{context}[:ip_address_type]")
-        Validators::IpAddresses.validate!(input[:ip_addresses], context: "#{context}[:ip_addresses]") unless input[:ip_addresses].nil?
+        IpAddresses.validate!(input[:ip_addresses], context: "#{context}[:ip_addresses]") unless input[:ip_addresses].nil?
         Hearth::Validator.validate!(input[:enabled], ::TrueClass, ::FalseClass, context: "#{context}[:enabled]")
         Hearth::Validator.validate!(input[:idempotency_token], ::String, context: "#{context}[:idempotency_token]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateCustomRoutingAcceleratorOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateCustomRoutingAcceleratorOutput, context: context)
-        Validators::CustomRoutingAccelerator.validate!(input[:accelerator], context: "#{context}[:accelerator]") unless input[:accelerator].nil?
+        CustomRoutingAccelerator.validate!(input[:accelerator], context: "#{context}[:accelerator]") unless input[:accelerator].nil?
       end
     end
 
@@ -225,7 +227,7 @@ module AWS::SDK::GlobalAccelerator
         Hearth::Validator.validate!(input, Types::CreateCustomRoutingEndpointGroupInput, context: context)
         Hearth::Validator.validate!(input[:listener_arn], ::String, context: "#{context}[:listener_arn]")
         Hearth::Validator.validate!(input[:endpoint_group_region], ::String, context: "#{context}[:endpoint_group_region]")
-        Validators::CustomRoutingDestinationConfigurations.validate!(input[:destination_configurations], context: "#{context}[:destination_configurations]") unless input[:destination_configurations].nil?
+        CustomRoutingDestinationConfigurations.validate!(input[:destination_configurations], context: "#{context}[:destination_configurations]") unless input[:destination_configurations].nil?
         Hearth::Validator.validate!(input[:idempotency_token], ::String, context: "#{context}[:idempotency_token]")
       end
     end
@@ -233,7 +235,7 @@ module AWS::SDK::GlobalAccelerator
     class CreateCustomRoutingEndpointGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateCustomRoutingEndpointGroupOutput, context: context)
-        Validators::CustomRoutingEndpointGroup.validate!(input[:endpoint_group], context: "#{context}[:endpoint_group]") unless input[:endpoint_group].nil?
+        CustomRoutingEndpointGroup.validate!(input[:endpoint_group], context: "#{context}[:endpoint_group]") unless input[:endpoint_group].nil?
       end
     end
 
@@ -241,7 +243,7 @@ module AWS::SDK::GlobalAccelerator
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateCustomRoutingListenerInput, context: context)
         Hearth::Validator.validate!(input[:accelerator_arn], ::String, context: "#{context}[:accelerator_arn]")
-        Validators::PortRanges.validate!(input[:port_ranges], context: "#{context}[:port_ranges]") unless input[:port_ranges].nil?
+        PortRanges.validate!(input[:port_ranges], context: "#{context}[:port_ranges]") unless input[:port_ranges].nil?
         Hearth::Validator.validate!(input[:idempotency_token], ::String, context: "#{context}[:idempotency_token]")
       end
     end
@@ -249,7 +251,7 @@ module AWS::SDK::GlobalAccelerator
     class CreateCustomRoutingListenerOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateCustomRoutingListenerOutput, context: context)
-        Validators::CustomRoutingListener.validate!(input[:listener], context: "#{context}[:listener]") unless input[:listener].nil?
+        CustomRoutingListener.validate!(input[:listener], context: "#{context}[:listener]") unless input[:listener].nil?
       end
     end
 
@@ -258,7 +260,7 @@ module AWS::SDK::GlobalAccelerator
         Hearth::Validator.validate!(input, Types::CreateEndpointGroupInput, context: context)
         Hearth::Validator.validate!(input[:listener_arn], ::String, context: "#{context}[:listener_arn]")
         Hearth::Validator.validate!(input[:endpoint_group_region], ::String, context: "#{context}[:endpoint_group_region]")
-        Validators::EndpointConfigurations.validate!(input[:endpoint_configurations], context: "#{context}[:endpoint_configurations]") unless input[:endpoint_configurations].nil?
+        EndpointConfigurations.validate!(input[:endpoint_configurations], context: "#{context}[:endpoint_configurations]") unless input[:endpoint_configurations].nil?
         Hearth::Validator.validate!(input[:traffic_dial_percentage], ::Float, context: "#{context}[:traffic_dial_percentage]")
         Hearth::Validator.validate!(input[:health_check_port], ::Integer, context: "#{context}[:health_check_port]")
         Hearth::Validator.validate!(input[:health_check_protocol], ::String, context: "#{context}[:health_check_protocol]")
@@ -266,14 +268,14 @@ module AWS::SDK::GlobalAccelerator
         Hearth::Validator.validate!(input[:health_check_interval_seconds], ::Integer, context: "#{context}[:health_check_interval_seconds]")
         Hearth::Validator.validate!(input[:threshold_count], ::Integer, context: "#{context}[:threshold_count]")
         Hearth::Validator.validate!(input[:idempotency_token], ::String, context: "#{context}[:idempotency_token]")
-        Validators::PortOverrides.validate!(input[:port_overrides], context: "#{context}[:port_overrides]") unless input[:port_overrides].nil?
+        PortOverrides.validate!(input[:port_overrides], context: "#{context}[:port_overrides]") unless input[:port_overrides].nil?
       end
     end
 
     class CreateEndpointGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateEndpointGroupOutput, context: context)
-        Validators::EndpointGroup.validate!(input[:endpoint_group], context: "#{context}[:endpoint_group]") unless input[:endpoint_group].nil?
+        EndpointGroup.validate!(input[:endpoint_group], context: "#{context}[:endpoint_group]") unless input[:endpoint_group].nil?
       end
     end
 
@@ -281,7 +283,7 @@ module AWS::SDK::GlobalAccelerator
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateListenerInput, context: context)
         Hearth::Validator.validate!(input[:accelerator_arn], ::String, context: "#{context}[:accelerator_arn]")
-        Validators::PortRanges.validate!(input[:port_ranges], context: "#{context}[:port_ranges]") unless input[:port_ranges].nil?
+        PortRanges.validate!(input[:port_ranges], context: "#{context}[:port_ranges]") unless input[:port_ranges].nil?
         Hearth::Validator.validate!(input[:protocol], ::String, context: "#{context}[:protocol]")
         Hearth::Validator.validate!(input[:client_affinity], ::String, context: "#{context}[:client_affinity]")
         Hearth::Validator.validate!(input[:idempotency_token], ::String, context: "#{context}[:idempotency_token]")
@@ -291,7 +293,7 @@ module AWS::SDK::GlobalAccelerator
     class CreateListenerOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateListenerOutput, context: context)
-        Validators::Listener.validate!(input[:listener], context: "#{context}[:listener]") unless input[:listener].nil?
+        Listener.validate!(input[:listener], context: "#{context}[:listener]") unless input[:listener].nil?
       end
     end
 
@@ -302,7 +304,7 @@ module AWS::SDK::GlobalAccelerator
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:ip_address_type], ::String, context: "#{context}[:ip_address_type]")
         Hearth::Validator.validate!(input[:enabled], ::TrueClass, ::FalseClass, context: "#{context}[:enabled]")
-        Validators::IpSets.validate!(input[:ip_sets], context: "#{context}[:ip_sets]") unless input[:ip_sets].nil?
+        IpSets.validate!(input[:ip_sets], context: "#{context}[:ip_sets]") unless input[:ip_sets].nil?
         Hearth::Validator.validate!(input[:dns_name], ::String, context: "#{context}[:dns_name]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:created_time], ::Time, context: "#{context}[:created_time]")
@@ -323,7 +325,7 @@ module AWS::SDK::GlobalAccelerator
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CustomRoutingAccelerator.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CustomRoutingAccelerator.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -333,7 +335,7 @@ module AWS::SDK::GlobalAccelerator
         Hearth::Validator.validate!(input, Types::CustomRoutingDestinationConfiguration, context: context)
         Hearth::Validator.validate!(input[:from_port], ::Integer, context: "#{context}[:from_port]")
         Hearth::Validator.validate!(input[:to_port], ::Integer, context: "#{context}[:to_port]")
-        Validators::CustomRoutingProtocols.validate!(input[:protocols], context: "#{context}[:protocols]") unless input[:protocols].nil?
+        CustomRoutingProtocols.validate!(input[:protocols], context: "#{context}[:protocols]") unless input[:protocols].nil?
       end
     end
 
@@ -341,7 +343,7 @@ module AWS::SDK::GlobalAccelerator
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CustomRoutingDestinationConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CustomRoutingDestinationConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -351,7 +353,7 @@ module AWS::SDK::GlobalAccelerator
         Hearth::Validator.validate!(input, Types::CustomRoutingDestinationDescription, context: context)
         Hearth::Validator.validate!(input[:from_port], ::Integer, context: "#{context}[:from_port]")
         Hearth::Validator.validate!(input[:to_port], ::Integer, context: "#{context}[:to_port]")
-        Validators::Protocols.validate!(input[:protocols], context: "#{context}[:protocols]") unless input[:protocols].nil?
+        Protocols.validate!(input[:protocols], context: "#{context}[:protocols]") unless input[:protocols].nil?
       end
     end
 
@@ -359,7 +361,7 @@ module AWS::SDK::GlobalAccelerator
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CustomRoutingDestinationDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CustomRoutingDestinationDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -375,7 +377,7 @@ module AWS::SDK::GlobalAccelerator
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CustomRoutingEndpointConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CustomRoutingEndpointConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -391,7 +393,7 @@ module AWS::SDK::GlobalAccelerator
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CustomRoutingEndpointDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CustomRoutingEndpointDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -401,8 +403,8 @@ module AWS::SDK::GlobalAccelerator
         Hearth::Validator.validate!(input, Types::CustomRoutingEndpointGroup, context: context)
         Hearth::Validator.validate!(input[:endpoint_group_arn], ::String, context: "#{context}[:endpoint_group_arn]")
         Hearth::Validator.validate!(input[:endpoint_group_region], ::String, context: "#{context}[:endpoint_group_region]")
-        Validators::CustomRoutingDestinationDescriptions.validate!(input[:destination_descriptions], context: "#{context}[:destination_descriptions]") unless input[:destination_descriptions].nil?
-        Validators::CustomRoutingEndpointDescriptions.validate!(input[:endpoint_descriptions], context: "#{context}[:endpoint_descriptions]") unless input[:endpoint_descriptions].nil?
+        CustomRoutingDestinationDescriptions.validate!(input[:destination_descriptions], context: "#{context}[:destination_descriptions]") unless input[:destination_descriptions].nil?
+        CustomRoutingEndpointDescriptions.validate!(input[:endpoint_descriptions], context: "#{context}[:endpoint_descriptions]") unless input[:endpoint_descriptions].nil?
       end
     end
 
@@ -410,7 +412,7 @@ module AWS::SDK::GlobalAccelerator
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CustomRoutingEndpointGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CustomRoutingEndpointGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -419,7 +421,7 @@ module AWS::SDK::GlobalAccelerator
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CustomRoutingListener, context: context)
         Hearth::Validator.validate!(input[:listener_arn], ::String, context: "#{context}[:listener_arn]")
-        Validators::PortRanges.validate!(input[:port_ranges], context: "#{context}[:port_ranges]") unless input[:port_ranges].nil?
+        PortRanges.validate!(input[:port_ranges], context: "#{context}[:port_ranges]") unless input[:port_ranges].nil?
       end
     end
 
@@ -427,7 +429,7 @@ module AWS::SDK::GlobalAccelerator
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CustomRoutingListener.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CustomRoutingListener.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -524,8 +526,8 @@ module AWS::SDK::GlobalAccelerator
         Hearth::Validator.validate!(input, Types::DenyCustomRoutingTrafficInput, context: context)
         Hearth::Validator.validate!(input[:endpoint_group_arn], ::String, context: "#{context}[:endpoint_group_arn]")
         Hearth::Validator.validate!(input[:endpoint_id], ::String, context: "#{context}[:endpoint_id]")
-        Validators::DestinationAddresses.validate!(input[:destination_addresses], context: "#{context}[:destination_addresses]") unless input[:destination_addresses].nil?
-        Validators::DestinationPorts.validate!(input[:destination_ports], context: "#{context}[:destination_ports]") unless input[:destination_ports].nil?
+        DestinationAddresses.validate!(input[:destination_addresses], context: "#{context}[:destination_addresses]") unless input[:destination_addresses].nil?
+        DestinationPorts.validate!(input[:destination_ports], context: "#{context}[:destination_ports]") unless input[:destination_ports].nil?
         Hearth::Validator.validate!(input[:deny_all_traffic_to_endpoint], ::TrueClass, ::FalseClass, context: "#{context}[:deny_all_traffic_to_endpoint]")
       end
     end
@@ -546,7 +548,7 @@ module AWS::SDK::GlobalAccelerator
     class DeprovisionByoipCidrOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeprovisionByoipCidrOutput, context: context)
-        Validators::ByoipCidr.validate!(input[:byoip_cidr], context: "#{context}[:byoip_cidr]") unless input[:byoip_cidr].nil?
+        ByoipCidr.validate!(input[:byoip_cidr], context: "#{context}[:byoip_cidr]") unless input[:byoip_cidr].nil?
       end
     end
 
@@ -560,7 +562,7 @@ module AWS::SDK::GlobalAccelerator
     class DescribeAcceleratorAttributesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeAcceleratorAttributesOutput, context: context)
-        Validators::AcceleratorAttributes.validate!(input[:accelerator_attributes], context: "#{context}[:accelerator_attributes]") unless input[:accelerator_attributes].nil?
+        AcceleratorAttributes.validate!(input[:accelerator_attributes], context: "#{context}[:accelerator_attributes]") unless input[:accelerator_attributes].nil?
       end
     end
 
@@ -574,7 +576,7 @@ module AWS::SDK::GlobalAccelerator
     class DescribeAcceleratorOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeAcceleratorOutput, context: context)
-        Validators::Accelerator.validate!(input[:accelerator], context: "#{context}[:accelerator]") unless input[:accelerator].nil?
+        Accelerator.validate!(input[:accelerator], context: "#{context}[:accelerator]") unless input[:accelerator].nil?
       end
     end
 
@@ -588,7 +590,7 @@ module AWS::SDK::GlobalAccelerator
     class DescribeCustomRoutingAcceleratorAttributesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeCustomRoutingAcceleratorAttributesOutput, context: context)
-        Validators::CustomRoutingAcceleratorAttributes.validate!(input[:accelerator_attributes], context: "#{context}[:accelerator_attributes]") unless input[:accelerator_attributes].nil?
+        CustomRoutingAcceleratorAttributes.validate!(input[:accelerator_attributes], context: "#{context}[:accelerator_attributes]") unless input[:accelerator_attributes].nil?
       end
     end
 
@@ -602,7 +604,7 @@ module AWS::SDK::GlobalAccelerator
     class DescribeCustomRoutingAcceleratorOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeCustomRoutingAcceleratorOutput, context: context)
-        Validators::CustomRoutingAccelerator.validate!(input[:accelerator], context: "#{context}[:accelerator]") unless input[:accelerator].nil?
+        CustomRoutingAccelerator.validate!(input[:accelerator], context: "#{context}[:accelerator]") unless input[:accelerator].nil?
       end
     end
 
@@ -616,7 +618,7 @@ module AWS::SDK::GlobalAccelerator
     class DescribeCustomRoutingEndpointGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeCustomRoutingEndpointGroupOutput, context: context)
-        Validators::CustomRoutingEndpointGroup.validate!(input[:endpoint_group], context: "#{context}[:endpoint_group]") unless input[:endpoint_group].nil?
+        CustomRoutingEndpointGroup.validate!(input[:endpoint_group], context: "#{context}[:endpoint_group]") unless input[:endpoint_group].nil?
       end
     end
 
@@ -630,7 +632,7 @@ module AWS::SDK::GlobalAccelerator
     class DescribeCustomRoutingListenerOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeCustomRoutingListenerOutput, context: context)
-        Validators::CustomRoutingListener.validate!(input[:listener], context: "#{context}[:listener]") unless input[:listener].nil?
+        CustomRoutingListener.validate!(input[:listener], context: "#{context}[:listener]") unless input[:listener].nil?
       end
     end
 
@@ -644,7 +646,7 @@ module AWS::SDK::GlobalAccelerator
     class DescribeEndpointGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeEndpointGroupOutput, context: context)
-        Validators::EndpointGroup.validate!(input[:endpoint_group], context: "#{context}[:endpoint_group]") unless input[:endpoint_group].nil?
+        EndpointGroup.validate!(input[:endpoint_group], context: "#{context}[:endpoint_group]") unless input[:endpoint_group].nil?
       end
     end
 
@@ -658,7 +660,7 @@ module AWS::SDK::GlobalAccelerator
     class DescribeListenerOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeListenerOutput, context: context)
-        Validators::Listener.validate!(input[:listener], context: "#{context}[:listener]") unless input[:listener].nil?
+        Listener.validate!(input[:listener], context: "#{context}[:listener]") unless input[:listener].nil?
       end
     end
 
@@ -675,11 +677,11 @@ module AWS::SDK::GlobalAccelerator
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DestinationPortMapping, context: context)
         Hearth::Validator.validate!(input[:accelerator_arn], ::String, context: "#{context}[:accelerator_arn]")
-        Validators::SocketAddresses.validate!(input[:accelerator_socket_addresses], context: "#{context}[:accelerator_socket_addresses]") unless input[:accelerator_socket_addresses].nil?
+        SocketAddresses.validate!(input[:accelerator_socket_addresses], context: "#{context}[:accelerator_socket_addresses]") unless input[:accelerator_socket_addresses].nil?
         Hearth::Validator.validate!(input[:endpoint_group_arn], ::String, context: "#{context}[:endpoint_group_arn]")
         Hearth::Validator.validate!(input[:endpoint_id], ::String, context: "#{context}[:endpoint_id]")
         Hearth::Validator.validate!(input[:endpoint_group_region], ::String, context: "#{context}[:endpoint_group_region]")
-        Validators::SocketAddress.validate!(input[:destination_socket_address], context: "#{context}[:destination_socket_address]") unless input[:destination_socket_address].nil?
+        SocketAddress.validate!(input[:destination_socket_address], context: "#{context}[:destination_socket_address]") unless input[:destination_socket_address].nil?
         Hearth::Validator.validate!(input[:ip_address_type], ::String, context: "#{context}[:ip_address_type]")
         Hearth::Validator.validate!(input[:destination_traffic_state], ::String, context: "#{context}[:destination_traffic_state]")
       end
@@ -689,7 +691,7 @@ module AWS::SDK::GlobalAccelerator
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DestinationPortMapping.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DestinationPortMapping.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -723,7 +725,7 @@ module AWS::SDK::GlobalAccelerator
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EndpointConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EndpointConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -743,7 +745,7 @@ module AWS::SDK::GlobalAccelerator
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EndpointDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EndpointDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -753,14 +755,14 @@ module AWS::SDK::GlobalAccelerator
         Hearth::Validator.validate!(input, Types::EndpointGroup, context: context)
         Hearth::Validator.validate!(input[:endpoint_group_arn], ::String, context: "#{context}[:endpoint_group_arn]")
         Hearth::Validator.validate!(input[:endpoint_group_region], ::String, context: "#{context}[:endpoint_group_region]")
-        Validators::EndpointDescriptions.validate!(input[:endpoint_descriptions], context: "#{context}[:endpoint_descriptions]") unless input[:endpoint_descriptions].nil?
+        EndpointDescriptions.validate!(input[:endpoint_descriptions], context: "#{context}[:endpoint_descriptions]") unless input[:endpoint_descriptions].nil?
         Hearth::Validator.validate!(input[:traffic_dial_percentage], ::Float, context: "#{context}[:traffic_dial_percentage]")
         Hearth::Validator.validate!(input[:health_check_port], ::Integer, context: "#{context}[:health_check_port]")
         Hearth::Validator.validate!(input[:health_check_protocol], ::String, context: "#{context}[:health_check_protocol]")
         Hearth::Validator.validate!(input[:health_check_path], ::String, context: "#{context}[:health_check_path]")
         Hearth::Validator.validate!(input[:health_check_interval_seconds], ::Integer, context: "#{context}[:health_check_interval_seconds]")
         Hearth::Validator.validate!(input[:threshold_count], ::Integer, context: "#{context}[:threshold_count]")
-        Validators::PortOverrides.validate!(input[:port_overrides], context: "#{context}[:port_overrides]") unless input[:port_overrides].nil?
+        PortOverrides.validate!(input[:port_overrides], context: "#{context}[:port_overrides]") unless input[:port_overrides].nil?
       end
     end
 
@@ -782,7 +784,7 @@ module AWS::SDK::GlobalAccelerator
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EndpointGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EndpointGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -851,7 +853,7 @@ module AWS::SDK::GlobalAccelerator
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::IpSet, context: context)
         Hearth::Validator.validate!(input[:ip_family], ::String, context: "#{context}[:ip_family]")
-        Validators::IpAddresses.validate!(input[:ip_addresses], context: "#{context}[:ip_addresses]") unless input[:ip_addresses].nil?
+        IpAddresses.validate!(input[:ip_addresses], context: "#{context}[:ip_addresses]") unless input[:ip_addresses].nil?
       end
     end
 
@@ -859,7 +861,7 @@ module AWS::SDK::GlobalAccelerator
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::IpSet.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          IpSet.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -882,7 +884,7 @@ module AWS::SDK::GlobalAccelerator
     class ListAcceleratorsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAcceleratorsOutput, context: context)
-        Validators::Accelerators.validate!(input[:accelerators], context: "#{context}[:accelerators]") unless input[:accelerators].nil?
+        Accelerators.validate!(input[:accelerators], context: "#{context}[:accelerators]") unless input[:accelerators].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -898,7 +900,7 @@ module AWS::SDK::GlobalAccelerator
     class ListByoipCidrsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListByoipCidrsOutput, context: context)
-        Validators::ByoipCidrs.validate!(input[:byoip_cidrs], context: "#{context}[:byoip_cidrs]") unless input[:byoip_cidrs].nil?
+        ByoipCidrs.validate!(input[:byoip_cidrs], context: "#{context}[:byoip_cidrs]") unless input[:byoip_cidrs].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -914,7 +916,7 @@ module AWS::SDK::GlobalAccelerator
     class ListCustomRoutingAcceleratorsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListCustomRoutingAcceleratorsOutput, context: context)
-        Validators::CustomRoutingAccelerators.validate!(input[:accelerators], context: "#{context}[:accelerators]") unless input[:accelerators].nil?
+        CustomRoutingAccelerators.validate!(input[:accelerators], context: "#{context}[:accelerators]") unless input[:accelerators].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -931,7 +933,7 @@ module AWS::SDK::GlobalAccelerator
     class ListCustomRoutingEndpointGroupsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListCustomRoutingEndpointGroupsOutput, context: context)
-        Validators::CustomRoutingEndpointGroups.validate!(input[:endpoint_groups], context: "#{context}[:endpoint_groups]") unless input[:endpoint_groups].nil?
+        CustomRoutingEndpointGroups.validate!(input[:endpoint_groups], context: "#{context}[:endpoint_groups]") unless input[:endpoint_groups].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -948,7 +950,7 @@ module AWS::SDK::GlobalAccelerator
     class ListCustomRoutingListenersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListCustomRoutingListenersOutput, context: context)
-        Validators::CustomRoutingListeners.validate!(input[:listeners], context: "#{context}[:listeners]") unless input[:listeners].nil?
+        CustomRoutingListeners.validate!(input[:listeners], context: "#{context}[:listeners]") unless input[:listeners].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -966,7 +968,7 @@ module AWS::SDK::GlobalAccelerator
     class ListCustomRoutingPortMappingsByDestinationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListCustomRoutingPortMappingsByDestinationOutput, context: context)
-        Validators::DestinationPortMappings.validate!(input[:destination_port_mappings], context: "#{context}[:destination_port_mappings]") unless input[:destination_port_mappings].nil?
+        DestinationPortMappings.validate!(input[:destination_port_mappings], context: "#{context}[:destination_port_mappings]") unless input[:destination_port_mappings].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -984,7 +986,7 @@ module AWS::SDK::GlobalAccelerator
     class ListCustomRoutingPortMappingsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListCustomRoutingPortMappingsOutput, context: context)
-        Validators::PortMappings.validate!(input[:port_mappings], context: "#{context}[:port_mappings]") unless input[:port_mappings].nil?
+        PortMappings.validate!(input[:port_mappings], context: "#{context}[:port_mappings]") unless input[:port_mappings].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1001,7 +1003,7 @@ module AWS::SDK::GlobalAccelerator
     class ListEndpointGroupsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListEndpointGroupsOutput, context: context)
-        Validators::EndpointGroups.validate!(input[:endpoint_groups], context: "#{context}[:endpoint_groups]") unless input[:endpoint_groups].nil?
+        EndpointGroups.validate!(input[:endpoint_groups], context: "#{context}[:endpoint_groups]") unless input[:endpoint_groups].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1018,7 +1020,7 @@ module AWS::SDK::GlobalAccelerator
     class ListListenersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListListenersOutput, context: context)
-        Validators::Listeners.validate!(input[:listeners], context: "#{context}[:listeners]") unless input[:listeners].nil?
+        Listeners.validate!(input[:listeners], context: "#{context}[:listeners]") unless input[:listeners].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1033,7 +1035,7 @@ module AWS::SDK::GlobalAccelerator
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1041,7 +1043,7 @@ module AWS::SDK::GlobalAccelerator
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Listener, context: context)
         Hearth::Validator.validate!(input[:listener_arn], ::String, context: "#{context}[:listener_arn]")
-        Validators::PortRanges.validate!(input[:port_ranges], context: "#{context}[:port_ranges]") unless input[:port_ranges].nil?
+        PortRanges.validate!(input[:port_ranges], context: "#{context}[:port_ranges]") unless input[:port_ranges].nil?
         Hearth::Validator.validate!(input[:protocol], ::String, context: "#{context}[:protocol]")
         Hearth::Validator.validate!(input[:client_affinity], ::String, context: "#{context}[:client_affinity]")
       end
@@ -1058,7 +1060,7 @@ module AWS::SDK::GlobalAccelerator
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Listener.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Listener.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1069,8 +1071,8 @@ module AWS::SDK::GlobalAccelerator
         Hearth::Validator.validate!(input[:accelerator_port], ::Integer, context: "#{context}[:accelerator_port]")
         Hearth::Validator.validate!(input[:endpoint_group_arn], ::String, context: "#{context}[:endpoint_group_arn]")
         Hearth::Validator.validate!(input[:endpoint_id], ::String, context: "#{context}[:endpoint_id]")
-        Validators::SocketAddress.validate!(input[:destination_socket_address], context: "#{context}[:destination_socket_address]") unless input[:destination_socket_address].nil?
-        Validators::CustomRoutingProtocols.validate!(input[:protocols], context: "#{context}[:protocols]") unless input[:protocols].nil?
+        SocketAddress.validate!(input[:destination_socket_address], context: "#{context}[:destination_socket_address]") unless input[:destination_socket_address].nil?
+        CustomRoutingProtocols.validate!(input[:protocols], context: "#{context}[:protocols]") unless input[:protocols].nil?
         Hearth::Validator.validate!(input[:destination_traffic_state], ::String, context: "#{context}[:destination_traffic_state]")
       end
     end
@@ -1079,7 +1081,7 @@ module AWS::SDK::GlobalAccelerator
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PortMapping.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PortMapping.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1096,7 +1098,7 @@ module AWS::SDK::GlobalAccelerator
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PortOverride.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PortOverride.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1113,7 +1115,7 @@ module AWS::SDK::GlobalAccelerator
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PortRange.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PortRange.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1131,21 +1133,21 @@ module AWS::SDK::GlobalAccelerator
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ProvisionByoipCidrInput, context: context)
         Hearth::Validator.validate!(input[:cidr], ::String, context: "#{context}[:cidr]")
-        Validators::CidrAuthorizationContext.validate!(input[:cidr_authorization_context], context: "#{context}[:cidr_authorization_context]") unless input[:cidr_authorization_context].nil?
+        CidrAuthorizationContext.validate!(input[:cidr_authorization_context], context: "#{context}[:cidr_authorization_context]") unless input[:cidr_authorization_context].nil?
       end
     end
 
     class ProvisionByoipCidrOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ProvisionByoipCidrOutput, context: context)
-        Validators::ByoipCidr.validate!(input[:byoip_cidr], context: "#{context}[:byoip_cidr]") unless input[:byoip_cidr].nil?
+        ByoipCidr.validate!(input[:byoip_cidr], context: "#{context}[:byoip_cidr]") unless input[:byoip_cidr].nil?
       end
     end
 
     class RemoveCustomRoutingEndpointsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RemoveCustomRoutingEndpointsInput, context: context)
-        Validators::EndpointIds.validate!(input[:endpoint_ids], context: "#{context}[:endpoint_ids]") unless input[:endpoint_ids].nil?
+        EndpointIds.validate!(input[:endpoint_ids], context: "#{context}[:endpoint_ids]") unless input[:endpoint_ids].nil?
         Hearth::Validator.validate!(input[:endpoint_group_arn], ::String, context: "#{context}[:endpoint_group_arn]")
       end
     end
@@ -1168,7 +1170,7 @@ module AWS::SDK::GlobalAccelerator
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SocketAddress.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SocketAddress.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1194,7 +1196,7 @@ module AWS::SDK::GlobalAccelerator
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1208,7 +1210,7 @@ module AWS::SDK::GlobalAccelerator
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1217,7 +1219,7 @@ module AWS::SDK::GlobalAccelerator
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeys.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeys.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -1240,7 +1242,7 @@ module AWS::SDK::GlobalAccelerator
     class UpdateAcceleratorAttributesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateAcceleratorAttributesOutput, context: context)
-        Validators::AcceleratorAttributes.validate!(input[:accelerator_attributes], context: "#{context}[:accelerator_attributes]") unless input[:accelerator_attributes].nil?
+        AcceleratorAttributes.validate!(input[:accelerator_attributes], context: "#{context}[:accelerator_attributes]") unless input[:accelerator_attributes].nil?
       end
     end
 
@@ -1257,7 +1259,7 @@ module AWS::SDK::GlobalAccelerator
     class UpdateAcceleratorOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateAcceleratorOutput, context: context)
-        Validators::Accelerator.validate!(input[:accelerator], context: "#{context}[:accelerator]") unless input[:accelerator].nil?
+        Accelerator.validate!(input[:accelerator], context: "#{context}[:accelerator]") unless input[:accelerator].nil?
       end
     end
 
@@ -1274,7 +1276,7 @@ module AWS::SDK::GlobalAccelerator
     class UpdateCustomRoutingAcceleratorAttributesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateCustomRoutingAcceleratorAttributesOutput, context: context)
-        Validators::CustomRoutingAcceleratorAttributes.validate!(input[:accelerator_attributes], context: "#{context}[:accelerator_attributes]") unless input[:accelerator_attributes].nil?
+        CustomRoutingAcceleratorAttributes.validate!(input[:accelerator_attributes], context: "#{context}[:accelerator_attributes]") unless input[:accelerator_attributes].nil?
       end
     end
 
@@ -1291,7 +1293,7 @@ module AWS::SDK::GlobalAccelerator
     class UpdateCustomRoutingAcceleratorOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateCustomRoutingAcceleratorOutput, context: context)
-        Validators::CustomRoutingAccelerator.validate!(input[:accelerator], context: "#{context}[:accelerator]") unless input[:accelerator].nil?
+        CustomRoutingAccelerator.validate!(input[:accelerator], context: "#{context}[:accelerator]") unless input[:accelerator].nil?
       end
     end
 
@@ -1299,14 +1301,14 @@ module AWS::SDK::GlobalAccelerator
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateCustomRoutingListenerInput, context: context)
         Hearth::Validator.validate!(input[:listener_arn], ::String, context: "#{context}[:listener_arn]")
-        Validators::PortRanges.validate!(input[:port_ranges], context: "#{context}[:port_ranges]") unless input[:port_ranges].nil?
+        PortRanges.validate!(input[:port_ranges], context: "#{context}[:port_ranges]") unless input[:port_ranges].nil?
       end
     end
 
     class UpdateCustomRoutingListenerOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateCustomRoutingListenerOutput, context: context)
-        Validators::CustomRoutingListener.validate!(input[:listener], context: "#{context}[:listener]") unless input[:listener].nil?
+        CustomRoutingListener.validate!(input[:listener], context: "#{context}[:listener]") unless input[:listener].nil?
       end
     end
 
@@ -1314,21 +1316,21 @@ module AWS::SDK::GlobalAccelerator
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateEndpointGroupInput, context: context)
         Hearth::Validator.validate!(input[:endpoint_group_arn], ::String, context: "#{context}[:endpoint_group_arn]")
-        Validators::EndpointConfigurations.validate!(input[:endpoint_configurations], context: "#{context}[:endpoint_configurations]") unless input[:endpoint_configurations].nil?
+        EndpointConfigurations.validate!(input[:endpoint_configurations], context: "#{context}[:endpoint_configurations]") unless input[:endpoint_configurations].nil?
         Hearth::Validator.validate!(input[:traffic_dial_percentage], ::Float, context: "#{context}[:traffic_dial_percentage]")
         Hearth::Validator.validate!(input[:health_check_port], ::Integer, context: "#{context}[:health_check_port]")
         Hearth::Validator.validate!(input[:health_check_protocol], ::String, context: "#{context}[:health_check_protocol]")
         Hearth::Validator.validate!(input[:health_check_path], ::String, context: "#{context}[:health_check_path]")
         Hearth::Validator.validate!(input[:health_check_interval_seconds], ::Integer, context: "#{context}[:health_check_interval_seconds]")
         Hearth::Validator.validate!(input[:threshold_count], ::Integer, context: "#{context}[:threshold_count]")
-        Validators::PortOverrides.validate!(input[:port_overrides], context: "#{context}[:port_overrides]") unless input[:port_overrides].nil?
+        PortOverrides.validate!(input[:port_overrides], context: "#{context}[:port_overrides]") unless input[:port_overrides].nil?
       end
     end
 
     class UpdateEndpointGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateEndpointGroupOutput, context: context)
-        Validators::EndpointGroup.validate!(input[:endpoint_group], context: "#{context}[:endpoint_group]") unless input[:endpoint_group].nil?
+        EndpointGroup.validate!(input[:endpoint_group], context: "#{context}[:endpoint_group]") unless input[:endpoint_group].nil?
       end
     end
 
@@ -1336,7 +1338,7 @@ module AWS::SDK::GlobalAccelerator
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateListenerInput, context: context)
         Hearth::Validator.validate!(input[:listener_arn], ::String, context: "#{context}[:listener_arn]")
-        Validators::PortRanges.validate!(input[:port_ranges], context: "#{context}[:port_ranges]") unless input[:port_ranges].nil?
+        PortRanges.validate!(input[:port_ranges], context: "#{context}[:port_ranges]") unless input[:port_ranges].nil?
         Hearth::Validator.validate!(input[:protocol], ::String, context: "#{context}[:protocol]")
         Hearth::Validator.validate!(input[:client_affinity], ::String, context: "#{context}[:client_affinity]")
       end
@@ -1345,7 +1347,7 @@ module AWS::SDK::GlobalAccelerator
     class UpdateListenerOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateListenerOutput, context: context)
-        Validators::Listener.validate!(input[:listener], context: "#{context}[:listener]") unless input[:listener].nil?
+        Listener.validate!(input[:listener], context: "#{context}[:listener]") unless input[:listener].nil?
       end
     end
 
@@ -1359,7 +1361,7 @@ module AWS::SDK::GlobalAccelerator
     class WithdrawByoipCidrOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::WithdrawByoipCidrOutput, context: context)
-        Validators::ByoipCidr.validate!(input[:byoip_cidr], context: "#{context}[:byoip_cidr]") unless input[:byoip_cidr].nil?
+        ByoipCidr.validate!(input[:byoip_cidr], context: "#{context}[:byoip_cidr]") unless input[:byoip_cidr].nil?
       end
     end
 

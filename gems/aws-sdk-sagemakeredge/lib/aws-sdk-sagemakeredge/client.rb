@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::SagemakerEdge
@@ -63,7 +65,7 @@ module AWS::SDK::SagemakerEdge
     def get_device_registration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDeviceRegistrationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDeviceRegistrationInput,
         validate_input: @config.validate_input
@@ -161,7 +163,7 @@ module AWS::SDK::SagemakerEdge
     def send_heartbeat(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SendHeartbeatInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SendHeartbeatInput,
         validate_input: @config.validate_input

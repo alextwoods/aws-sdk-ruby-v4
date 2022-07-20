@@ -2043,11 +2043,11 @@ module AWS::SDK::SMS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.execution_timeout_seconds ||= 0
       end
-
     end
 
     # Includes enum constants for ScriptType

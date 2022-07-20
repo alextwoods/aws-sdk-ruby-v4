@@ -4823,11 +4823,11 @@ module AWS::SDK::Batch
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.job_execution_timeout_minutes ||= 0
       end
-
     end
 
     # <p>Contains the parameters for <code>UpdateSchedulingPolicy</code>.</p>

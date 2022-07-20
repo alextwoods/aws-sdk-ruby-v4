@@ -3572,11 +3572,11 @@ module AWS::SDK::DynamoDB
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.cache_period_in_minutes ||= 0
       end
-
     end
 
     # @!attribute statement
@@ -4794,12 +4794,12 @@ module AWS::SDK::DynamoDB
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.index_size_bytes ||= 0
         self.item_count ||= 0
       end
-
     end
 
     # <p>Represents the properties of a global secondary index for the table when the backup
@@ -5573,11 +5573,11 @@ module AWS::SDK::DynamoDB
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute contributor_insights_summaries
@@ -5901,12 +5901,12 @@ module AWS::SDK::DynamoDB
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.index_size_bytes ||= 0
         self.item_count ||= 0
       end
-
     end
 
     # <p>Represents the properties of a local secondary index for the table when the backup was
@@ -7092,12 +7092,12 @@ module AWS::SDK::DynamoDB
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.count ||= 0
         self.scanned_count ||= 0
       end
-
     end
 
     # <p>Represents the properties of a replica.</p>
@@ -8636,12 +8636,12 @@ module AWS::SDK::DynamoDB
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.count ||= 0
         self.scanned_count ||= 0
       end
-
     end
 
     # Includes enum constants for Select
@@ -8741,11 +8741,11 @@ module AWS::SDK::DynamoDB
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.table_size_bytes ||= 0
       end
-
     end
 
     # <p>Contains the details of the features enabled on the table when the backup was created.
@@ -9378,12 +9378,12 @@ module AWS::SDK::DynamoDB
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.table_size_bytes ||= 0
         self.item_count ||= 0
       end
-
     end
 
     # <p>A target table with the specified name is either being created or deleted.

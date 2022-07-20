@@ -271,13 +271,13 @@ module AWS::SDK::AppSync
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.ttl ||= 0
         self.transit_encryption_enabled ||= false
         self.at_rest_encryption_enabled ||= false
       end
-
     end
 
     # Includes enum constants for ApiCacheStatus
@@ -479,12 +479,12 @@ module AWS::SDK::AppSync
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.expires ||= 0
         self.deletes ||= 0
       end
-
     end
 
     # <p>The API key exceeded a limit. Try your request again.</p>
@@ -689,11 +689,11 @@ module AWS::SDK::AppSync
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.ttl ||= 0
       end
-
     end
 
     # <p>Describes an Amazon Cognito user pool configuration.</p>
@@ -902,13 +902,13 @@ module AWS::SDK::AppSync
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.ttl ||= 0
         self.transit_encryption_enabled ||= false
         self.at_rest_encryption_enabled ||= false
       end
-
     end
 
     # <p>Represents the output of a <code>CreateApiCache</code> operation.</p>
@@ -949,11 +949,11 @@ module AWS::SDK::AppSync
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.expires ||= 0
       end
-
     end
 
     # @!attribute api_key
@@ -1158,11 +1158,11 @@ module AWS::SDK::AppSync
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_batch_size ||= 0
       end
-
     end
 
     # @!attribute function_configuration
@@ -1240,11 +1240,11 @@ module AWS::SDK::AppSync
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.xray_enabled ||= false
       end
-
     end
 
     # @!attribute graphql_api
@@ -1352,11 +1352,11 @@ module AWS::SDK::AppSync
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_batch_size ||= 0
       end
-
     end
 
     # @!attribute resolver
@@ -1786,12 +1786,12 @@ module AWS::SDK::AppSync
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.base_table_ttl ||= 0
         self.delta_sync_table_ttl ||= 0
       end
-
     end
 
     # @!attribute domain_name
@@ -1889,12 +1889,12 @@ module AWS::SDK::AppSync
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.use_caller_credentials ||= false
         self.versioned ||= false
       end
-
     end
 
     # <p>Describes an OpenSearch data source configuration.</p>
@@ -2030,11 +2030,11 @@ module AWS::SDK::AppSync
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_batch_size ||= 0
       end
-
     end
 
     # @!attribute domain_name
@@ -2446,11 +2446,11 @@ module AWS::SDK::AppSync
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.xray_enabled ||= false
       end
-
     end
 
     # <p>Describes an HTTP data source configuration.</p>
@@ -2531,11 +2531,11 @@ module AWS::SDK::AppSync
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.authorizer_result_ttl_in_seconds ||= 0
       end
-
     end
 
     # <p>The <code>LambdaConflictHandlerConfig</code> object when configuring <code>LAMBDA</code>
@@ -2604,11 +2604,11 @@ module AWS::SDK::AppSync
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute api_keys
@@ -2653,11 +2653,11 @@ module AWS::SDK::AppSync
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute data_sources
@@ -2695,11 +2695,11 @@ module AWS::SDK::AppSync
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute domain_name_configs
@@ -2743,11 +2743,11 @@ module AWS::SDK::AppSync
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute functions
@@ -2786,11 +2786,11 @@ module AWS::SDK::AppSync
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute graphql_apis
@@ -2841,11 +2841,11 @@ module AWS::SDK::AppSync
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute resolvers
@@ -2895,11 +2895,11 @@ module AWS::SDK::AppSync
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute resolvers
@@ -2976,11 +2976,11 @@ module AWS::SDK::AppSync
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute types
@@ -3068,11 +3068,11 @@ module AWS::SDK::AppSync
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.exclude_verbose_content ||= false
       end
-
     end
 
     # <p>The resource specified in the request was not found. Check the resource, and then try
@@ -3123,12 +3123,12 @@ module AWS::SDK::AppSync
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.iat_ttl ||= 0
         self.auth_ttl ||= 0
       end
-
     end
 
     # <p>Describes an OpenSearch data source configuration.</p>
@@ -3343,11 +3343,11 @@ module AWS::SDK::AppSync
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_batch_size ||= 0
       end
-
     end
 
     # Includes enum constants for ResolverKind
@@ -3721,11 +3721,11 @@ module AWS::SDK::AppSync
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.ttl ||= 0
       end
-
     end
 
     # <p>Represents the output of a <code>UpdateApiCache</code> operation.</p>
@@ -3771,11 +3771,11 @@ module AWS::SDK::AppSync
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.expires ||= 0
       end
-
     end
 
     # @!attribute api_key
@@ -3977,11 +3977,11 @@ module AWS::SDK::AppSync
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_batch_size ||= 0
       end
-
     end
 
     # @!attribute function_configuration
@@ -4059,11 +4059,11 @@ module AWS::SDK::AppSync
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.xray_enabled ||= false
       end
-
     end
 
     # @!attribute graphql_api
@@ -4171,11 +4171,11 @@ module AWS::SDK::AppSync
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_batch_size ||= 0
       end
-
     end
 
     # @!attribute resolver

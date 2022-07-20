@@ -234,7 +234,7 @@ module AWS::SDK::GlobalAccelerator
         type.ip_address_type = params[:ip_address_type]
         type.ip_addresses = IpAddresses.build(params[:ip_addresses], context: "#{context}[:ip_addresses]") unless params[:ip_addresses].nil?
         type.enabled = params[:enabled]
-        type.idempotency_token = params[:idempotency_token] || SecureRandom.uuid
+        type.idempotency_token = params[:idempotency_token] || ::SecureRandom.uuid
         type.tags = Tags.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type
       end
@@ -257,7 +257,7 @@ module AWS::SDK::GlobalAccelerator
         type.ip_address_type = params[:ip_address_type]
         type.ip_addresses = IpAddresses.build(params[:ip_addresses], context: "#{context}[:ip_addresses]") unless params[:ip_addresses].nil?
         type.enabled = params[:enabled]
-        type.idempotency_token = params[:idempotency_token] || SecureRandom.uuid
+        type.idempotency_token = params[:idempotency_token] || ::SecureRandom.uuid
         type.tags = Tags.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type
       end
@@ -279,7 +279,7 @@ module AWS::SDK::GlobalAccelerator
         type.listener_arn = params[:listener_arn]
         type.endpoint_group_region = params[:endpoint_group_region]
         type.destination_configurations = CustomRoutingDestinationConfigurations.build(params[:destination_configurations], context: "#{context}[:destination_configurations]") unless params[:destination_configurations].nil?
-        type.idempotency_token = params[:idempotency_token] || SecureRandom.uuid
+        type.idempotency_token = params[:idempotency_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -299,7 +299,7 @@ module AWS::SDK::GlobalAccelerator
         type = Types::CreateCustomRoutingListenerInput.new
         type.accelerator_arn = params[:accelerator_arn]
         type.port_ranges = PortRanges.build(params[:port_ranges], context: "#{context}[:port_ranges]") unless params[:port_ranges].nil?
-        type.idempotency_token = params[:idempotency_token] || SecureRandom.uuid
+        type.idempotency_token = params[:idempotency_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -326,7 +326,7 @@ module AWS::SDK::GlobalAccelerator
         type.health_check_path = params[:health_check_path]
         type.health_check_interval_seconds = params[:health_check_interval_seconds]
         type.threshold_count = params[:threshold_count]
-        type.idempotency_token = params[:idempotency_token] || SecureRandom.uuid
+        type.idempotency_token = params[:idempotency_token] || ::SecureRandom.uuid
         type.port_overrides = PortOverrides.build(params[:port_overrides], context: "#{context}[:port_overrides]") unless params[:port_overrides].nil?
         type
       end
@@ -349,7 +349,7 @@ module AWS::SDK::GlobalAccelerator
         type.port_ranges = PortRanges.build(params[:port_ranges], context: "#{context}[:port_ranges]") unless params[:port_ranges].nil?
         type.protocol = params[:protocol]
         type.client_affinity = params[:client_affinity]
-        type.idempotency_token = params[:idempotency_token] || SecureRandom.uuid
+        type.idempotency_token = params[:idempotency_token] || ::SecureRandom.uuid
         type
       end
     end

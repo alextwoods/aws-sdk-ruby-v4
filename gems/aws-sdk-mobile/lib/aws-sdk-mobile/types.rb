@@ -273,11 +273,11 @@ module AWS::SDK::Mobile
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.sync_from_resources ||= false
       end
-
     end
 
     # <p>
@@ -489,11 +489,11 @@ module AWS::SDK::Mobile
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # <p>
@@ -549,11 +549,11 @@ module AWS::SDK::Mobile
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # <p>

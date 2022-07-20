@@ -182,11 +182,11 @@ module AWS::SDK::RUM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.session_sample_rate ||= 0
       end
-
     end
 
     # <p>A structure that contains information about the RUM app monitor.</p>
@@ -437,11 +437,11 @@ module AWS::SDK::RUM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute events
@@ -837,12 +837,12 @@ module AWS::SDK::RUM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.after ||= 0
         self.before ||= 0
       end
-
     end
 
     # @!attribute resource_arn

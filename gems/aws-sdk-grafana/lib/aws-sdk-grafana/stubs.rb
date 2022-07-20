@@ -14,7 +14,7 @@ module AWS::SDK::Grafana
     class AssociateLicense
       def self.default(visited=[])
         {
-          workspace: Stubs::WorkspaceDescription.default(visited),
+          workspace: WorkspaceDescription.default(visited),
         }
       end
 
@@ -35,7 +35,7 @@ module AWS::SDK::Grafana
         {
           account_access_type: 'account_access_type',
           created: Time.now,
-          data_sources: Stubs::DataSourceTypesList.default(visited),
+          data_sources: DataSourceTypesList.default(visited),
           description: 'description',
           endpoint: 'endpoint',
           grafana_version: 'grafana_version',
@@ -43,8 +43,8 @@ module AWS::SDK::Grafana
           modified: Time.now,
           name: 'name',
           organization_role_name: 'organization_role_name',
-          notification_destinations: Stubs::NotificationDestinationsList.default(visited),
-          organizational_units: Stubs::OrganizationalUnitList.default(visited),
+          notification_destinations: NotificationDestinationsList.default(visited),
+          organizational_units: OrganizationalUnitList.default(visited),
           permission_type: 'permission_type',
           stack_set_name: 'stack_set_name',
           status: 'status',
@@ -53,8 +53,8 @@ module AWS::SDK::Grafana
           free_trial_consumed: false,
           license_expiration: Time.now,
           free_trial_expiration: Time.now,
-          authentication: Stubs::AuthenticationSummary.default(visited),
-          tags: Stubs::TagMap.default(visited),
+          authentication: AuthenticationSummary.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -113,7 +113,7 @@ module AWS::SDK::Grafana
         return nil if visited.include?('AuthenticationSummary')
         visited = visited + ['AuthenticationSummary']
         {
-          providers: Stubs::AuthenticationProviders.default(visited),
+          providers: AuthenticationProviders.default(visited),
           saml_configuration_status: 'saml_configuration_status',
         }
       end
@@ -211,7 +211,7 @@ module AWS::SDK::Grafana
     class CreateWorkspace
       def self.default(visited=[])
         {
-          workspace: Stubs::WorkspaceDescription.default(visited),
+          workspace: WorkspaceDescription.default(visited),
         }
       end
 
@@ -249,7 +249,7 @@ module AWS::SDK::Grafana
     class DeleteWorkspace
       def self.default(visited=[])
         {
-          workspace: Stubs::WorkspaceDescription.default(visited),
+          workspace: WorkspaceDescription.default(visited),
         }
       end
 
@@ -285,7 +285,7 @@ module AWS::SDK::Grafana
     class DescribeWorkspace
       def self.default(visited=[])
         {
-          workspace: Stubs::WorkspaceDescription.default(visited),
+          workspace: WorkspaceDescription.default(visited),
         }
       end
 
@@ -302,7 +302,7 @@ module AWS::SDK::Grafana
     class DescribeWorkspaceAuthentication
       def self.default(visited=[])
         {
-          authentication: Stubs::AuthenticationDescription.default(visited),
+          authentication: AuthenticationDescription.default(visited),
         }
       end
 
@@ -321,9 +321,9 @@ module AWS::SDK::Grafana
         return nil if visited.include?('AuthenticationDescription')
         visited = visited + ['AuthenticationDescription']
         {
-          providers: Stubs::AuthenticationProviders.default(visited),
-          saml: Stubs::SamlAuthentication.default(visited),
-          aws_sso: Stubs::AwsSsoAuthentication.default(visited),
+          providers: AuthenticationProviders.default(visited),
+          saml: SamlAuthentication.default(visited),
+          aws_sso: AwsSsoAuthentication.default(visited),
         }
       end
 
@@ -362,7 +362,7 @@ module AWS::SDK::Grafana
         visited = visited + ['SamlAuthentication']
         {
           status: 'status',
-          configuration: Stubs::SamlConfiguration.default(visited),
+          configuration: SamlConfiguration.default(visited),
         }
       end
 
@@ -381,10 +381,10 @@ module AWS::SDK::Grafana
         return nil if visited.include?('SamlConfiguration')
         visited = visited + ['SamlConfiguration']
         {
-          idp_metadata: Stubs::IdpMetadata.default(visited),
-          assertion_attributes: Stubs::AssertionAttributes.default(visited),
-          role_values: Stubs::RoleValues.default(visited),
-          allowed_organizations: Stubs::AllowedOrganizations.default(visited),
+          idp_metadata: IdpMetadata.default(visited),
+          assertion_attributes: AssertionAttributes.default(visited),
+          role_values: RoleValues.default(visited),
+          allowed_organizations: AllowedOrganizations.default(visited),
           login_validity_duration: 1,
         }
       end
@@ -427,8 +427,8 @@ module AWS::SDK::Grafana
         return nil if visited.include?('RoleValues')
         visited = visited + ['RoleValues']
         {
-          editor: Stubs::RoleValueList.default(visited),
-          admin: Stubs::RoleValueList.default(visited),
+          editor: RoleValueList.default(visited),
+          admin: RoleValueList.default(visited),
         }
       end
 
@@ -519,7 +519,7 @@ module AWS::SDK::Grafana
     class DisassociateLicense
       def self.default(visited=[])
         {
-          workspace: Stubs::WorkspaceDescription.default(visited),
+          workspace: WorkspaceDescription.default(visited),
         }
       end
 
@@ -537,7 +537,7 @@ module AWS::SDK::Grafana
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          permissions: Stubs::PermissionEntryList.default(visited),
+          permissions: PermissionEntryList.default(visited),
         }
       end
 
@@ -557,7 +557,7 @@ module AWS::SDK::Grafana
         return nil if visited.include?('PermissionEntryList')
         visited = visited + ['PermissionEntryList']
         [
-          Stubs::PermissionEntry.default(visited)
+          PermissionEntry.default(visited)
         ]
       end
 
@@ -577,7 +577,7 @@ module AWS::SDK::Grafana
         return nil if visited.include?('PermissionEntry')
         visited = visited + ['PermissionEntry']
         {
-          user: Stubs::User.default(visited),
+          user: User.default(visited),
           role: 'role',
         }
       end
@@ -615,7 +615,7 @@ module AWS::SDK::Grafana
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -632,7 +632,7 @@ module AWS::SDK::Grafana
     class ListWorkspaces
       def self.default(visited=[])
         {
-          workspaces: Stubs::WorkspaceList.default(visited),
+          workspaces: WorkspaceList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -653,7 +653,7 @@ module AWS::SDK::Grafana
         return nil if visited.include?('WorkspaceList')
         visited = visited + ['WorkspaceList']
         [
-          Stubs::WorkspaceSummary.default(visited)
+          WorkspaceSummary.default(visited)
         ]
       end
 
@@ -680,10 +680,10 @@ module AWS::SDK::Grafana
           id: 'id',
           modified: Time.now,
           name: 'name',
-          notification_destinations: Stubs::NotificationDestinationsList.default(visited),
+          notification_destinations: NotificationDestinationsList.default(visited),
           status: 'status',
-          authentication: Stubs::AuthenticationSummary.default(visited),
-          tags: Stubs::TagMap.default(visited),
+          authentication: AuthenticationSummary.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -735,7 +735,7 @@ module AWS::SDK::Grafana
     class UpdatePermissions
       def self.default(visited=[])
         {
-          errors: Stubs::UpdateErrorList.default(visited),
+          errors: UpdateErrorList.default(visited),
         }
       end
 
@@ -754,7 +754,7 @@ module AWS::SDK::Grafana
         return nil if visited.include?('UpdateErrorList')
         visited = visited + ['UpdateErrorList']
         [
-          Stubs::UpdateError.default(visited)
+          UpdateError.default(visited)
         ]
       end
 
@@ -776,7 +776,7 @@ module AWS::SDK::Grafana
         {
           code: 1,
           message: 'message',
-          caused_by: Stubs::UpdateInstruction.default(visited),
+          caused_by: UpdateInstruction.default(visited),
         }
       end
 
@@ -798,7 +798,7 @@ module AWS::SDK::Grafana
         {
           action: 'action',
           role: 'role',
-          users: Stubs::UserList.default(visited),
+          users: UserList.default(visited),
         }
       end
 
@@ -818,7 +818,7 @@ module AWS::SDK::Grafana
         return nil if visited.include?('UserList')
         visited = visited + ['UserList']
         [
-          Stubs::User.default(visited)
+          User.default(visited)
         ]
       end
 
@@ -836,7 +836,7 @@ module AWS::SDK::Grafana
     class UpdateWorkspace
       def self.default(visited=[])
         {
-          workspace: Stubs::WorkspaceDescription.default(visited),
+          workspace: WorkspaceDescription.default(visited),
         }
       end
 
@@ -853,7 +853,7 @@ module AWS::SDK::Grafana
     class UpdateWorkspaceAuthentication
       def self.default(visited=[])
         {
-          authentication: Stubs::AuthenticationDescription.default(visited),
+          authentication: AuthenticationDescription.default(visited),
         }
       end
 

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::SSMContacts
   module Validators
 
@@ -83,7 +85,7 @@ module AWS::SDK::SSMContacts
         Hearth::Validator.validate!(input[:contact_arn], ::String, context: "#{context}[:contact_arn]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::ContactChannelAddress.validate!(input[:delivery_address], context: "#{context}[:delivery_address]") unless input[:delivery_address].nil?
+        ContactChannelAddress.validate!(input[:delivery_address], context: "#{context}[:delivery_address]") unless input[:delivery_address].nil?
         Hearth::Validator.validate!(input[:activation_status], ::String, context: "#{context}[:activation_status]")
       end
     end
@@ -99,7 +101,7 @@ module AWS::SDK::SSMContacts
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ContactChannel.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ContactChannel.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -116,7 +118,7 @@ module AWS::SDK::SSMContacts
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Contact.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Contact.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -127,7 +129,7 @@ module AWS::SDK::SSMContacts
         Hearth::Validator.validate!(input[:contact_id], ::String, context: "#{context}[:contact_id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::ContactChannelAddress.validate!(input[:delivery_address], context: "#{context}[:delivery_address]") unless input[:delivery_address].nil?
+        ContactChannelAddress.validate!(input[:delivery_address], context: "#{context}[:delivery_address]") unless input[:delivery_address].nil?
         Hearth::Validator.validate!(input[:defer_activation], ::TrueClass, ::FalseClass, context: "#{context}[:defer_activation]")
         Hearth::Validator.validate!(input[:idempotency_token], ::String, context: "#{context}[:idempotency_token]")
       end
@@ -146,8 +148,8 @@ module AWS::SDK::SSMContacts
         Hearth::Validator.validate!(input[:alias], ::String, context: "#{context}[:alias]")
         Hearth::Validator.validate!(input[:display_name], ::String, context: "#{context}[:display_name]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::Plan.validate!(input[:plan], context: "#{context}[:plan]") unless input[:plan].nil?
-        Validators::TagsList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Plan.validate!(input[:plan], context: "#{context}[:plan]") unless input[:plan].nil?
+        TagsList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:idempotency_token], ::String, context: "#{context}[:idempotency_token]")
       end
     end
@@ -269,7 +271,7 @@ module AWS::SDK::SSMContacts
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Engagement.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Engagement.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -288,7 +290,7 @@ module AWS::SDK::SSMContacts
         Hearth::Validator.validate!(input[:contact_channel_arn], ::String, context: "#{context}[:contact_channel_arn]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::ContactChannelAddress.validate!(input[:delivery_address], context: "#{context}[:delivery_address]") unless input[:delivery_address].nil?
+        ContactChannelAddress.validate!(input[:delivery_address], context: "#{context}[:delivery_address]") unless input[:delivery_address].nil?
         Hearth::Validator.validate!(input[:activation_status], ::String, context: "#{context}[:activation_status]")
       end
     end
@@ -307,7 +309,7 @@ module AWS::SDK::SSMContacts
         Hearth::Validator.validate!(input[:alias], ::String, context: "#{context}[:alias]")
         Hearth::Validator.validate!(input[:display_name], ::String, context: "#{context}[:display_name]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::Plan.validate!(input[:plan], context: "#{context}[:plan]") unless input[:plan].nil?
+        Plan.validate!(input[:plan], context: "#{context}[:plan]") unless input[:plan].nil?
       end
     end
 
@@ -347,7 +349,7 @@ module AWS::SDK::SSMContacts
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListContactChannelsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::ContactChannelList.validate!(input[:contact_channels], context: "#{context}[:contact_channels]") unless input[:contact_channels].nil?
+        ContactChannelList.validate!(input[:contact_channels], context: "#{context}[:contact_channels]") unless input[:contact_channels].nil?
       end
     end
 
@@ -365,7 +367,7 @@ module AWS::SDK::SSMContacts
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListContactsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::ContactsList.validate!(input[:contacts], context: "#{context}[:contacts]") unless input[:contacts].nil?
+        ContactsList.validate!(input[:contacts], context: "#{context}[:contacts]") unless input[:contacts].nil?
       end
     end
 
@@ -375,7 +377,7 @@ module AWS::SDK::SSMContacts
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:incident_id], ::String, context: "#{context}[:incident_id]")
-        Validators::TimeRange.validate!(input[:time_range_value], context: "#{context}[:time_range_value]") unless input[:time_range_value].nil?
+        TimeRange.validate!(input[:time_range_value], context: "#{context}[:time_range_value]") unless input[:time_range_value].nil?
       end
     end
 
@@ -383,7 +385,7 @@ module AWS::SDK::SSMContacts
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListEngagementsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::EngagementsList.validate!(input[:engagements], context: "#{context}[:engagements]") unless input[:engagements].nil?
+        EngagementsList.validate!(input[:engagements], context: "#{context}[:engagements]") unless input[:engagements].nil?
       end
     end
 
@@ -400,7 +402,7 @@ module AWS::SDK::SSMContacts
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListPageReceiptsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::ReceiptsList.validate!(input[:receipts], context: "#{context}[:receipts]") unless input[:receipts].nil?
+        ReceiptsList.validate!(input[:receipts], context: "#{context}[:receipts]") unless input[:receipts].nil?
       end
     end
 
@@ -417,7 +419,7 @@ module AWS::SDK::SSMContacts
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListPagesByContactOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::PagesList.validate!(input[:pages], context: "#{context}[:pages]") unless input[:pages].nil?
+        PagesList.validate!(input[:pages], context: "#{context}[:pages]") unless input[:pages].nil?
       end
     end
 
@@ -434,7 +436,7 @@ module AWS::SDK::SSMContacts
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListPagesByEngagementOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::PagesList.validate!(input[:pages], context: "#{context}[:pages]") unless input[:pages].nil?
+        PagesList.validate!(input[:pages], context: "#{context}[:pages]") unless input[:pages].nil?
       end
     end
 
@@ -448,7 +450,7 @@ module AWS::SDK::SSMContacts
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagsList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagsList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -470,7 +472,7 @@ module AWS::SDK::SSMContacts
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Page.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Page.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -478,7 +480,7 @@ module AWS::SDK::SSMContacts
     class Plan
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Plan, context: context)
-        Validators::StagesList.validate!(input[:stages], context: "#{context}[:stages]") unless input[:stages].nil?
+        StagesList.validate!(input[:stages], context: "#{context}[:stages]") unless input[:stages].nil?
       end
     end
 
@@ -510,7 +512,7 @@ module AWS::SDK::SSMContacts
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Receipt.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Receipt.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -552,7 +554,7 @@ module AWS::SDK::SSMContacts
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Stage, context: context)
         Hearth::Validator.validate!(input[:duration_in_minutes], ::Integer, context: "#{context}[:duration_in_minutes]")
-        Validators::TargetsList.validate!(input[:targets], context: "#{context}[:targets]") unless input[:targets].nil?
+        TargetsList.validate!(input[:targets], context: "#{context}[:targets]") unless input[:targets].nil?
       end
     end
 
@@ -560,7 +562,7 @@ module AWS::SDK::SSMContacts
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Stage.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Stage.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -621,7 +623,7 @@ module AWS::SDK::SSMContacts
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagsList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagsList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -635,7 +637,7 @@ module AWS::SDK::SSMContacts
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -643,8 +645,8 @@ module AWS::SDK::SSMContacts
     class Target
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Target, context: context)
-        Validators::ChannelTargetInfo.validate!(input[:channel_target_info], context: "#{context}[:channel_target_info]") unless input[:channel_target_info].nil?
-        Validators::ContactTargetInfo.validate!(input[:contact_target_info], context: "#{context}[:contact_target_info]") unless input[:contact_target_info].nil?
+        ChannelTargetInfo.validate!(input[:channel_target_info], context: "#{context}[:channel_target_info]") unless input[:channel_target_info].nil?
+        ContactTargetInfo.validate!(input[:contact_target_info], context: "#{context}[:contact_target_info]") unless input[:contact_target_info].nil?
       end
     end
 
@@ -652,7 +654,7 @@ module AWS::SDK::SSMContacts
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Target.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Target.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -679,7 +681,7 @@ module AWS::SDK::SSMContacts
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -694,7 +696,7 @@ module AWS::SDK::SSMContacts
         Hearth::Validator.validate!(input, Types::UpdateContactChannelInput, context: context)
         Hearth::Validator.validate!(input[:contact_channel_id], ::String, context: "#{context}[:contact_channel_id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::ContactChannelAddress.validate!(input[:delivery_address], context: "#{context}[:delivery_address]") unless input[:delivery_address].nil?
+        ContactChannelAddress.validate!(input[:delivery_address], context: "#{context}[:delivery_address]") unless input[:delivery_address].nil?
       end
     end
 
@@ -709,7 +711,7 @@ module AWS::SDK::SSMContacts
         Hearth::Validator.validate!(input, Types::UpdateContactInput, context: context)
         Hearth::Validator.validate!(input[:contact_id], ::String, context: "#{context}[:contact_id]")
         Hearth::Validator.validate!(input[:display_name], ::String, context: "#{context}[:display_name]")
-        Validators::Plan.validate!(input[:plan], context: "#{context}[:plan]") unless input[:plan].nil?
+        Plan.validate!(input[:plan], context: "#{context}[:plan]") unless input[:plan].nil?
       end
     end
 
@@ -724,7 +726,7 @@ module AWS::SDK::SSMContacts
         Hearth::Validator.validate!(input, Types::ValidationException, context: context)
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
         Hearth::Validator.validate!(input[:reason], ::String, context: "#{context}[:reason]")
-        Validators::ValidationExceptionFieldList.validate!(input[:fields], context: "#{context}[:fields]") unless input[:fields].nil?
+        ValidationExceptionFieldList.validate!(input[:fields], context: "#{context}[:fields]") unless input[:fields].nil?
       end
     end
 
@@ -740,7 +742,7 @@ module AWS::SDK::SSMContacts
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ValidationExceptionField.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ValidationExceptionField.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

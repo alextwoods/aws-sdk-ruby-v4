@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::Schemas
@@ -79,7 +81,7 @@ module AWS::SDK::Schemas
     def create_discoverer(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDiscovererInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDiscovererInput,
         validate_input: @config.validate_input
@@ -162,7 +164,7 @@ module AWS::SDK::Schemas
     def create_registry(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateRegistryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateRegistryInput,
         validate_input: @config.validate_input
@@ -261,7 +263,7 @@ module AWS::SDK::Schemas
     def create_schema(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateSchemaInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateSchemaInput,
         validate_input: @config.validate_input
@@ -329,7 +331,7 @@ module AWS::SDK::Schemas
     def delete_discoverer(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDiscovererInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDiscovererInput,
         validate_input: @config.validate_input
@@ -396,7 +398,7 @@ module AWS::SDK::Schemas
     def delete_registry(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteRegistryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteRegistryInput,
         validate_input: @config.validate_input
@@ -463,7 +465,7 @@ module AWS::SDK::Schemas
     def delete_resource_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteResourcePolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteResourcePolicyInput,
         validate_input: @config.validate_input
@@ -534,7 +536,7 @@ module AWS::SDK::Schemas
     def delete_schema(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteSchemaInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteSchemaInput,
         validate_input: @config.validate_input
@@ -609,7 +611,7 @@ module AWS::SDK::Schemas
     def delete_schema_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteSchemaVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteSchemaVersionInput,
         validate_input: @config.validate_input
@@ -692,7 +694,7 @@ module AWS::SDK::Schemas
     def describe_code_binding(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeCodeBindingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeCodeBindingInput,
         validate_input: @config.validate_input
@@ -767,7 +769,7 @@ module AWS::SDK::Schemas
     def describe_discoverer(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDiscovererInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDiscovererInput,
         validate_input: @config.validate_input
@@ -839,7 +841,7 @@ module AWS::SDK::Schemas
     def describe_registry(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeRegistryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeRegistryInput,
         validate_input: @config.validate_input
@@ -924,7 +926,7 @@ module AWS::SDK::Schemas
     def describe_schema(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeSchemaInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeSchemaInput,
         validate_input: @config.validate_input
@@ -1003,7 +1005,7 @@ module AWS::SDK::Schemas
     def export_schema(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ExportSchemaInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ExportSchemaInput,
         validate_input: @config.validate_input
@@ -1083,7 +1085,7 @@ module AWS::SDK::Schemas
     def get_code_binding_source(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCodeBindingSourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCodeBindingSourceInput,
         validate_input: @config.validate_input
@@ -1157,7 +1159,7 @@ module AWS::SDK::Schemas
     def get_discovered_schema(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDiscoveredSchemaInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDiscoveredSchemaInput,
         validate_input: @config.validate_input
@@ -1227,7 +1229,7 @@ module AWS::SDK::Schemas
     def get_resource_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetResourcePolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetResourcePolicyInput,
         validate_input: @config.validate_input
@@ -1313,7 +1315,7 @@ module AWS::SDK::Schemas
     def list_discoverers(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDiscoverersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDiscoverersInput,
         validate_input: @config.validate_input
@@ -1396,7 +1398,7 @@ module AWS::SDK::Schemas
     def list_registries(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListRegistriesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListRegistriesInput,
         validate_input: @config.validate_input
@@ -1479,7 +1481,7 @@ module AWS::SDK::Schemas
     def list_schema_versions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListSchemaVersionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListSchemaVersionsInput,
         validate_input: @config.validate_input
@@ -1564,7 +1566,7 @@ module AWS::SDK::Schemas
     def list_schemas(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListSchemasInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListSchemasInput,
         validate_input: @config.validate_input
@@ -1633,7 +1635,7 @@ module AWS::SDK::Schemas
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -1716,7 +1718,7 @@ module AWS::SDK::Schemas
     def put_code_binding(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutCodeBindingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutCodeBindingInput,
         validate_input: @config.validate_input
@@ -1793,7 +1795,7 @@ module AWS::SDK::Schemas
     def put_resource_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutResourcePolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutResourcePolicyInput,
         validate_input: @config.validate_input
@@ -1881,7 +1883,7 @@ module AWS::SDK::Schemas
     def search_schemas(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SearchSchemasInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SearchSchemasInput,
         validate_input: @config.validate_input
@@ -1950,7 +1952,7 @@ module AWS::SDK::Schemas
     def start_discoverer(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartDiscovererInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartDiscovererInput,
         validate_input: @config.validate_input
@@ -2019,7 +2021,7 @@ module AWS::SDK::Schemas
     def stop_discoverer(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopDiscovererInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopDiscovererInput,
         validate_input: @config.validate_input
@@ -2092,7 +2094,7 @@ module AWS::SDK::Schemas
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -2166,7 +2168,7 @@ module AWS::SDK::Schemas
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -2249,7 +2251,7 @@ module AWS::SDK::Schemas
     def update_discoverer(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDiscovererInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDiscovererInput,
         validate_input: @config.validate_input
@@ -2326,7 +2328,7 @@ module AWS::SDK::Schemas
     def update_registry(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateRegistryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateRegistryInput,
         validate_input: @config.validate_input
@@ -2423,7 +2425,7 @@ module AWS::SDK::Schemas
     def update_schema(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateSchemaInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateSchemaInput,
         validate_input: @config.validate_input

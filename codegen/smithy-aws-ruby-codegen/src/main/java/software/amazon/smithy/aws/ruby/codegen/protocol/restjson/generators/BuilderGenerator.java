@@ -129,7 +129,11 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
 
     private void renderUnionMemberBuilder(UnionShape shape, MemberShape member) {
         Shape target = model.expectShape(member.getTarget());
-        String dataSetter = "data['" + member.getMemberName() + "'] = ";
+        String dataName = member.getMemberName();
+        if (member.hasTrait(JsonNameTrait.class)) {
+            dataName = member.expectTrait(JsonNameTrait.class).getValue();
+        }
+        String dataSetter = "data['" + dataName + "'] = ";
         if (target.isUnionShape()) {
             writer.write("input = input.__getobj__"); // need to avoid infinite recursion
         }

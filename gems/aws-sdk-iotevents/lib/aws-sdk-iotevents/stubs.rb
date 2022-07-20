@@ -39,7 +39,7 @@ module AWS::SDK::IoTEvents
     class CreateDetectorModel
       def self.default(visited=[])
         {
-          detector_model_configuration: Stubs::DetectorModelConfiguration.default(visited),
+          detector_model_configuration: DetectorModelConfiguration.default(visited),
         }
       end
 
@@ -92,7 +92,7 @@ module AWS::SDK::IoTEvents
     class CreateInput
       def self.default(visited=[])
         {
-          input_configuration: Stubs::InputConfiguration.default(visited),
+          input_configuration: InputConfiguration.default(visited),
         }
       end
 
@@ -187,10 +187,10 @@ module AWS::SDK::IoTEvents
           role_arn: 'role_arn',
           key: 'key',
           severity: 1,
-          alarm_rule: Stubs::AlarmRule.default(visited),
-          alarm_notification: Stubs::AlarmNotification.default(visited),
-          alarm_event_actions: Stubs::AlarmEventActions.default(visited),
-          alarm_capabilities: Stubs::AlarmCapabilities.default(visited),
+          alarm_rule: AlarmRule.default(visited),
+          alarm_notification: AlarmNotification.default(visited),
+          alarm_event_actions: AlarmEventActions.default(visited),
+          alarm_capabilities: AlarmCapabilities.default(visited),
         }
       end
 
@@ -223,8 +223,8 @@ module AWS::SDK::IoTEvents
         return nil if visited.include?('AlarmCapabilities')
         visited = visited + ['AlarmCapabilities']
         {
-          initialization_configuration: Stubs::InitializationConfiguration.default(visited),
-          acknowledge_flow: Stubs::AcknowledgeFlow.default(visited),
+          initialization_configuration: InitializationConfiguration.default(visited),
+          acknowledge_flow: AcknowledgeFlow.default(visited),
         }
       end
 
@@ -279,7 +279,7 @@ module AWS::SDK::IoTEvents
         return nil if visited.include?('AlarmEventActions')
         visited = visited + ['AlarmEventActions']
         {
-          alarm_actions: Stubs::AlarmActions.default(visited),
+          alarm_actions: AlarmActions.default(visited),
         }
       end
 
@@ -297,7 +297,7 @@ module AWS::SDK::IoTEvents
         return nil if visited.include?('AlarmActions')
         visited = visited + ['AlarmActions']
         [
-          Stubs::AlarmAction.default(visited)
+          AlarmAction.default(visited)
         ]
       end
 
@@ -317,15 +317,15 @@ module AWS::SDK::IoTEvents
         return nil if visited.include?('AlarmAction')
         visited = visited + ['AlarmAction']
         {
-          sns: Stubs::SNSTopicPublishAction.default(visited),
-          iot_topic_publish: Stubs::IotTopicPublishAction.default(visited),
-          lambda: Stubs::LambdaAction.default(visited),
-          iot_events: Stubs::IotEventsAction.default(visited),
-          sqs: Stubs::SqsAction.default(visited),
-          firehose: Stubs::FirehoseAction.default(visited),
-          dynamo_db: Stubs::DynamoDBAction.default(visited),
-          dynamo_d_bv2: Stubs::DynamoDBv2Action.default(visited),
-          iot_site_wise: Stubs::IotSiteWiseAction.default(visited),
+          sns: SNSTopicPublishAction.default(visited),
+          iot_topic_publish: IotTopicPublishAction.default(visited),
+          lambda: LambdaAction.default(visited),
+          iot_events: IotEventsAction.default(visited),
+          sqs: SqsAction.default(visited),
+          firehose: FirehoseAction.default(visited),
+          dynamo_db: DynamoDBAction.default(visited),
+          dynamo_d_bv2: DynamoDBv2Action.default(visited),
+          iot_site_wise: IotSiteWiseAction.default(visited),
         }
       end
 
@@ -355,7 +355,7 @@ module AWS::SDK::IoTEvents
           asset_id: 'asset_id',
           property_id: 'property_id',
           property_alias: 'property_alias',
-          property_value: Stubs::AssetPropertyValue.default(visited),
+          property_value: AssetPropertyValue.default(visited),
         }
       end
 
@@ -377,8 +377,8 @@ module AWS::SDK::IoTEvents
         return nil if visited.include?('AssetPropertyValue')
         visited = visited + ['AssetPropertyValue']
         {
-          value: Stubs::AssetPropertyVariant.default(visited),
-          timestamp: Stubs::AssetPropertyTimestamp.default(visited),
+          value: AssetPropertyVariant.default(visited),
+          timestamp: AssetPropertyTimestamp.default(visited),
           quality: 'quality',
         }
       end
@@ -444,7 +444,7 @@ module AWS::SDK::IoTEvents
         visited = visited + ['DynamoDBv2Action']
         {
           table_name: 'table_name',
-          payload: Stubs::Payload.default(visited),
+          payload: Payload.default(visited),
         }
       end
 
@@ -492,7 +492,7 @@ module AWS::SDK::IoTEvents
           operation: 'operation',
           payload_field: 'payload_field',
           table_name: 'table_name',
-          payload: Stubs::Payload.default(visited),
+          payload: Payload.default(visited),
         }
       end
 
@@ -521,7 +521,7 @@ module AWS::SDK::IoTEvents
         {
           delivery_stream_name: 'delivery_stream_name',
           separator: 'separator',
-          payload: Stubs::Payload.default(visited),
+          payload: Payload.default(visited),
         }
       end
 
@@ -543,7 +543,7 @@ module AWS::SDK::IoTEvents
         {
           queue_url: 'queue_url',
           use_base64: false,
-          payload: Stubs::Payload.default(visited),
+          payload: Payload.default(visited),
         }
       end
 
@@ -564,7 +564,7 @@ module AWS::SDK::IoTEvents
         visited = visited + ['IotEventsAction']
         {
           input_name: 'input_name',
-          payload: Stubs::Payload.default(visited),
+          payload: Payload.default(visited),
         }
       end
 
@@ -584,7 +584,7 @@ module AWS::SDK::IoTEvents
         visited = visited + ['LambdaAction']
         {
           function_arn: 'function_arn',
-          payload: Stubs::Payload.default(visited),
+          payload: Payload.default(visited),
         }
       end
 
@@ -604,7 +604,7 @@ module AWS::SDK::IoTEvents
         visited = visited + ['IotTopicPublishAction']
         {
           mqtt_topic: 'mqtt_topic',
-          payload: Stubs::Payload.default(visited),
+          payload: Payload.default(visited),
         }
       end
 
@@ -624,7 +624,7 @@ module AWS::SDK::IoTEvents
         visited = visited + ['SNSTopicPublishAction']
         {
           target_arn: 'target_arn',
-          payload: Stubs::Payload.default(visited),
+          payload: Payload.default(visited),
         }
       end
 
@@ -643,7 +643,7 @@ module AWS::SDK::IoTEvents
         return nil if visited.include?('AlarmNotification')
         visited = visited + ['AlarmNotification']
         {
-          notification_actions: Stubs::NotificationActions.default(visited),
+          notification_actions: NotificationActions.default(visited),
         }
       end
 
@@ -661,7 +661,7 @@ module AWS::SDK::IoTEvents
         return nil if visited.include?('NotificationActions')
         visited = visited + ['NotificationActions']
         [
-          Stubs::NotificationAction.default(visited)
+          NotificationAction.default(visited)
         ]
       end
 
@@ -681,9 +681,9 @@ module AWS::SDK::IoTEvents
         return nil if visited.include?('NotificationAction')
         visited = visited + ['NotificationAction']
         {
-          action: Stubs::NotificationTargetActions.default(visited),
-          sms_configurations: Stubs::SMSConfigurations.default(visited),
-          email_configurations: Stubs::EmailConfigurations.default(visited),
+          action: NotificationTargetActions.default(visited),
+          sms_configurations: SMSConfigurations.default(visited),
+          email_configurations: EmailConfigurations.default(visited),
         }
       end
 
@@ -703,7 +703,7 @@ module AWS::SDK::IoTEvents
         return nil if visited.include?('EmailConfigurations')
         visited = visited + ['EmailConfigurations']
         [
-          Stubs::EmailConfiguration.default(visited)
+          EmailConfiguration.default(visited)
         ]
       end
 
@@ -724,8 +724,8 @@ module AWS::SDK::IoTEvents
         visited = visited + ['EmailConfiguration']
         {
           from: 'from',
-          content: Stubs::EmailContent.default(visited),
-          recipients: Stubs::EmailRecipients.default(visited),
+          content: EmailContent.default(visited),
+          recipients: EmailRecipients.default(visited),
         }
       end
 
@@ -745,7 +745,7 @@ module AWS::SDK::IoTEvents
         return nil if visited.include?('EmailRecipients')
         visited = visited + ['EmailRecipients']
         {
-          to: Stubs::RecipientDetails.default(visited),
+          to: RecipientDetails.default(visited),
         }
       end
 
@@ -763,7 +763,7 @@ module AWS::SDK::IoTEvents
         return nil if visited.include?('RecipientDetails')
         visited = visited + ['RecipientDetails']
         [
-          Stubs::RecipientDetail.default(visited)
+          RecipientDetail.default(visited)
         ]
       end
 
@@ -783,7 +783,7 @@ module AWS::SDK::IoTEvents
         return nil if visited.include?('RecipientDetail')
         visited = visited + ['RecipientDetail']
         {
-          sso_identity: Stubs::SSOIdentity.default(visited),
+          sso_identity: SSOIdentity.default(visited),
         }
       end
 
@@ -841,7 +841,7 @@ module AWS::SDK::IoTEvents
         return nil if visited.include?('SMSConfigurations')
         visited = visited + ['SMSConfigurations']
         [
-          Stubs::SMSConfiguration.default(visited)
+          SMSConfiguration.default(visited)
         ]
       end
 
@@ -863,7 +863,7 @@ module AWS::SDK::IoTEvents
         {
           sender_id: 'sender_id',
           additional_message: 'additional_message',
-          recipients: Stubs::RecipientDetails.default(visited),
+          recipients: RecipientDetails.default(visited),
         }
       end
 
@@ -883,7 +883,7 @@ module AWS::SDK::IoTEvents
         return nil if visited.include?('NotificationTargetActions')
         visited = visited + ['NotificationTargetActions']
         {
-          lambda_action: Stubs::LambdaAction.default(visited),
+          lambda_action: LambdaAction.default(visited),
         }
       end
 
@@ -901,7 +901,7 @@ module AWS::SDK::IoTEvents
         return nil if visited.include?('AlarmRule')
         visited = visited + ['AlarmRule']
         {
-          simple_rule: Stubs::SimpleRule.default(visited),
+          simple_rule: SimpleRule.default(visited),
         }
       end
 
@@ -939,7 +939,7 @@ module AWS::SDK::IoTEvents
     class DescribeDetectorModel
       def self.default(visited=[])
         {
-          detector_model: Stubs::DetectorModel.default(visited),
+          detector_model: DetectorModel.default(visited),
         }
       end
 
@@ -958,8 +958,8 @@ module AWS::SDK::IoTEvents
         return nil if visited.include?('DetectorModel')
         visited = visited + ['DetectorModel']
         {
-          detector_model_definition: Stubs::DetectorModelDefinition.default(visited),
-          detector_model_configuration: Stubs::DetectorModelConfiguration.default(visited),
+          detector_model_definition: DetectorModelDefinition.default(visited),
+          detector_model_configuration: DetectorModelConfiguration.default(visited),
         }
       end
 
@@ -978,7 +978,7 @@ module AWS::SDK::IoTEvents
         return nil if visited.include?('DetectorModelDefinition')
         visited = visited + ['DetectorModelDefinition']
         {
-          states: Stubs::States.default(visited),
+          states: States.default(visited),
           initial_state_name: 'initial_state_name',
         }
       end
@@ -998,7 +998,7 @@ module AWS::SDK::IoTEvents
         return nil if visited.include?('States')
         visited = visited + ['States']
         [
-          Stubs::State.default(visited)
+          State.default(visited)
         ]
       end
 
@@ -1019,9 +1019,9 @@ module AWS::SDK::IoTEvents
         visited = visited + ['State']
         {
           state_name: 'state_name',
-          on_input: Stubs::OnInputLifecycle.default(visited),
-          on_enter: Stubs::OnEnterLifecycle.default(visited),
-          on_exit: Stubs::OnExitLifecycle.default(visited),
+          on_input: OnInputLifecycle.default(visited),
+          on_enter: OnEnterLifecycle.default(visited),
+          on_exit: OnExitLifecycle.default(visited),
         }
       end
 
@@ -1042,7 +1042,7 @@ module AWS::SDK::IoTEvents
         return nil if visited.include?('OnExitLifecycle')
         visited = visited + ['OnExitLifecycle']
         {
-          events: Stubs::Events.default(visited),
+          events: Events.default(visited),
         }
       end
 
@@ -1060,7 +1060,7 @@ module AWS::SDK::IoTEvents
         return nil if visited.include?('Events')
         visited = visited + ['Events']
         [
-          Stubs::Event.default(visited)
+          Event.default(visited)
         ]
       end
 
@@ -1082,7 +1082,7 @@ module AWS::SDK::IoTEvents
         {
           event_name: 'event_name',
           condition: 'condition',
-          actions: Stubs::Actions.default(visited),
+          actions: Actions.default(visited),
         }
       end
 
@@ -1102,7 +1102,7 @@ module AWS::SDK::IoTEvents
         return nil if visited.include?('Actions')
         visited = visited + ['Actions']
         [
-          Stubs::Action.default(visited)
+          Action.default(visited)
         ]
       end
 
@@ -1122,19 +1122,19 @@ module AWS::SDK::IoTEvents
         return nil if visited.include?('Action')
         visited = visited + ['Action']
         {
-          set_variable: Stubs::SetVariableAction.default(visited),
-          sns: Stubs::SNSTopicPublishAction.default(visited),
-          iot_topic_publish: Stubs::IotTopicPublishAction.default(visited),
-          set_timer: Stubs::SetTimerAction.default(visited),
-          clear_timer: Stubs::ClearTimerAction.default(visited),
-          reset_timer: Stubs::ResetTimerAction.default(visited),
-          lambda: Stubs::LambdaAction.default(visited),
-          iot_events: Stubs::IotEventsAction.default(visited),
-          sqs: Stubs::SqsAction.default(visited),
-          firehose: Stubs::FirehoseAction.default(visited),
-          dynamo_db: Stubs::DynamoDBAction.default(visited),
-          dynamo_d_bv2: Stubs::DynamoDBv2Action.default(visited),
-          iot_site_wise: Stubs::IotSiteWiseAction.default(visited),
+          set_variable: SetVariableAction.default(visited),
+          sns: SNSTopicPublishAction.default(visited),
+          iot_topic_publish: IotTopicPublishAction.default(visited),
+          set_timer: SetTimerAction.default(visited),
+          clear_timer: ClearTimerAction.default(visited),
+          reset_timer: ResetTimerAction.default(visited),
+          lambda: LambdaAction.default(visited),
+          iot_events: IotEventsAction.default(visited),
+          sqs: SqsAction.default(visited),
+          firehose: FirehoseAction.default(visited),
+          dynamo_db: DynamoDBAction.default(visited),
+          dynamo_d_bv2: DynamoDBv2Action.default(visited),
+          iot_site_wise: IotSiteWiseAction.default(visited),
         }
       end
 
@@ -1242,7 +1242,7 @@ module AWS::SDK::IoTEvents
         return nil if visited.include?('OnEnterLifecycle')
         visited = visited + ['OnEnterLifecycle']
         {
-          events: Stubs::Events.default(visited),
+          events: Events.default(visited),
         }
       end
 
@@ -1260,8 +1260,8 @@ module AWS::SDK::IoTEvents
         return nil if visited.include?('OnInputLifecycle')
         visited = visited + ['OnInputLifecycle']
         {
-          events: Stubs::Events.default(visited),
-          transition_events: Stubs::TransitionEvents.default(visited),
+          events: Events.default(visited),
+          transition_events: TransitionEvents.default(visited),
         }
       end
 
@@ -1280,7 +1280,7 @@ module AWS::SDK::IoTEvents
         return nil if visited.include?('TransitionEvents')
         visited = visited + ['TransitionEvents']
         [
-          Stubs::TransitionEvent.default(visited)
+          TransitionEvent.default(visited)
         ]
       end
 
@@ -1302,7 +1302,7 @@ module AWS::SDK::IoTEvents
         {
           event_name: 'event_name',
           condition: 'condition',
-          actions: Stubs::Actions.default(visited),
+          actions: Actions.default(visited),
           next_state: 'next_state',
         }
       end
@@ -1339,7 +1339,7 @@ module AWS::SDK::IoTEvents
     class DescribeInput
       def self.default(visited=[])
         {
-          input: Stubs::Input.default(visited),
+          input: Input.default(visited),
         }
       end
 
@@ -1358,8 +1358,8 @@ module AWS::SDK::IoTEvents
         return nil if visited.include?('Input')
         visited = visited + ['Input']
         {
-          input_configuration: Stubs::InputConfiguration.default(visited),
-          input_definition: Stubs::InputDefinition.default(visited),
+          input_configuration: InputConfiguration.default(visited),
+          input_definition: InputDefinition.default(visited),
         }
       end
 
@@ -1378,7 +1378,7 @@ module AWS::SDK::IoTEvents
         return nil if visited.include?('InputDefinition')
         visited = visited + ['InputDefinition']
         {
-          attributes: Stubs::Attributes.default(visited),
+          attributes: Attributes.default(visited),
         }
       end
 
@@ -1396,7 +1396,7 @@ module AWS::SDK::IoTEvents
         return nil if visited.include?('Attributes')
         visited = visited + ['Attributes']
         [
-          Stubs::Attribute.default(visited)
+          Attribute.default(visited)
         ]
       end
 
@@ -1432,7 +1432,7 @@ module AWS::SDK::IoTEvents
     class DescribeLoggingOptions
       def self.default(visited=[])
         {
-          logging_options: Stubs::LoggingOptions.default(visited),
+          logging_options: LoggingOptions.default(visited),
         }
       end
 
@@ -1454,7 +1454,7 @@ module AWS::SDK::IoTEvents
           role_arn: 'role_arn',
           level: 'level',
           enabled: false,
-          detector_debug_options: Stubs::DetectorDebugOptions.default(visited),
+          detector_debug_options: DetectorDebugOptions.default(visited),
         }
       end
 
@@ -1475,7 +1475,7 @@ module AWS::SDK::IoTEvents
         return nil if visited.include?('DetectorDebugOptions')
         visited = visited + ['DetectorDebugOptions']
         [
-          Stubs::DetectorDebugOption.default(visited)
+          DetectorDebugOption.default(visited)
         ]
       end
 
@@ -1513,7 +1513,7 @@ module AWS::SDK::IoTEvents
     class GetDetectorModelAnalysisResults
       def self.default(visited=[])
         {
-          analysis_results: Stubs::AnalysisResults.default(visited),
+          analysis_results: AnalysisResults.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1534,7 +1534,7 @@ module AWS::SDK::IoTEvents
         return nil if visited.include?('AnalysisResults')
         visited = visited + ['AnalysisResults']
         [
-          Stubs::AnalysisResult.default(visited)
+          AnalysisResult.default(visited)
         ]
       end
 
@@ -1557,7 +1557,7 @@ module AWS::SDK::IoTEvents
           type: 'type',
           level: 'level',
           message: 'message',
-          locations: Stubs::AnalysisResultLocations.default(visited),
+          locations: AnalysisResultLocations.default(visited),
         }
       end
 
@@ -1578,7 +1578,7 @@ module AWS::SDK::IoTEvents
         return nil if visited.include?('AnalysisResultLocations')
         visited = visited + ['AnalysisResultLocations']
         [
-          Stubs::AnalysisResultLocation.default(visited)
+          AnalysisResultLocation.default(visited)
         ]
       end
 
@@ -1614,7 +1614,7 @@ module AWS::SDK::IoTEvents
     class ListAlarmModelVersions
       def self.default(visited=[])
         {
-          alarm_model_version_summaries: Stubs::AlarmModelVersionSummaries.default(visited),
+          alarm_model_version_summaries: AlarmModelVersionSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1635,7 +1635,7 @@ module AWS::SDK::IoTEvents
         return nil if visited.include?('AlarmModelVersionSummaries')
         visited = visited + ['AlarmModelVersionSummaries']
         [
-          Stubs::AlarmModelVersionSummary.default(visited)
+          AlarmModelVersionSummary.default(visited)
         ]
       end
 
@@ -1685,7 +1685,7 @@ module AWS::SDK::IoTEvents
     class ListAlarmModels
       def self.default(visited=[])
         {
-          alarm_model_summaries: Stubs::AlarmModelSummaries.default(visited),
+          alarm_model_summaries: AlarmModelSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1706,7 +1706,7 @@ module AWS::SDK::IoTEvents
         return nil if visited.include?('AlarmModelSummaries')
         visited = visited + ['AlarmModelSummaries']
         [
-          Stubs::AlarmModelSummary.default(visited)
+          AlarmModelSummary.default(visited)
         ]
       end
 
@@ -1746,7 +1746,7 @@ module AWS::SDK::IoTEvents
     class ListDetectorModelVersions
       def self.default(visited=[])
         {
-          detector_model_version_summaries: Stubs::DetectorModelVersionSummaries.default(visited),
+          detector_model_version_summaries: DetectorModelVersionSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1767,7 +1767,7 @@ module AWS::SDK::IoTEvents
         return nil if visited.include?('DetectorModelVersionSummaries')
         visited = visited + ['DetectorModelVersionSummaries']
         [
-          Stubs::DetectorModelVersionSummary.default(visited)
+          DetectorModelVersionSummary.default(visited)
         ]
       end
 
@@ -1817,7 +1817,7 @@ module AWS::SDK::IoTEvents
     class ListDetectorModels
       def self.default(visited=[])
         {
-          detector_model_summaries: Stubs::DetectorModelSummaries.default(visited),
+          detector_model_summaries: DetectorModelSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1838,7 +1838,7 @@ module AWS::SDK::IoTEvents
         return nil if visited.include?('DetectorModelSummaries')
         visited = visited + ['DetectorModelSummaries']
         [
-          Stubs::DetectorModelSummary.default(visited)
+          DetectorModelSummary.default(visited)
         ]
       end
 
@@ -1878,7 +1878,7 @@ module AWS::SDK::IoTEvents
     class ListInputRoutings
       def self.default(visited=[])
         {
-          routed_resources: Stubs::RoutedResources.default(visited),
+          routed_resources: RoutedResources.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1899,7 +1899,7 @@ module AWS::SDK::IoTEvents
         return nil if visited.include?('RoutedResources')
         visited = visited + ['RoutedResources']
         [
-          Stubs::RoutedResource.default(visited)
+          RoutedResource.default(visited)
         ]
       end
 
@@ -1937,7 +1937,7 @@ module AWS::SDK::IoTEvents
     class ListInputs
       def self.default(visited=[])
         {
-          input_summaries: Stubs::InputSummaries.default(visited),
+          input_summaries: InputSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1958,7 +1958,7 @@ module AWS::SDK::IoTEvents
         return nil if visited.include?('InputSummaries')
         visited = visited + ['InputSummaries']
         [
-          Stubs::InputSummary.default(visited)
+          InputSummary.default(visited)
         ]
       end
 
@@ -2004,7 +2004,7 @@ module AWS::SDK::IoTEvents
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -2023,7 +2023,7 @@ module AWS::SDK::IoTEvents
         return nil if visited.include?('Tags')
         visited = visited + ['Tags']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -2142,7 +2142,7 @@ module AWS::SDK::IoTEvents
     class UpdateDetectorModel
       def self.default(visited=[])
         {
-          detector_model_configuration: Stubs::DetectorModelConfiguration.default(visited),
+          detector_model_configuration: DetectorModelConfiguration.default(visited),
         }
       end
 
@@ -2159,7 +2159,7 @@ module AWS::SDK::IoTEvents
     class UpdateInput
       def self.default(visited=[])
         {
-          input_configuration: Stubs::InputConfiguration.default(visited),
+          input_configuration: InputConfiguration.default(visited),
         }
       end
 

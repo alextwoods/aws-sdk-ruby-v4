@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::AmplifyUIBuilder
@@ -286,7 +288,7 @@ module AWS::SDK::AmplifyUIBuilder
     def create_component(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateComponentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateComponentInput,
         validate_input: @config.validate_input
@@ -396,7 +398,7 @@ module AWS::SDK::AmplifyUIBuilder
     def create_theme(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateThemeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateThemeInput,
         validate_input: @config.validate_input
@@ -474,7 +476,7 @@ module AWS::SDK::AmplifyUIBuilder
     def delete_component(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteComponentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteComponentInput,
         validate_input: @config.validate_input
@@ -551,7 +553,7 @@ module AWS::SDK::AmplifyUIBuilder
     def delete_theme(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteThemeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteThemeInput,
         validate_input: @config.validate_input
@@ -628,7 +630,7 @@ module AWS::SDK::AmplifyUIBuilder
     def exchange_code_for_token(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ExchangeCodeForTokenInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ExchangeCodeForTokenInput,
         validate_input: @config.validate_input
@@ -809,7 +811,7 @@ module AWS::SDK::AmplifyUIBuilder
     def export_components(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ExportComponentsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ExportComponentsInput,
         validate_input: @config.validate_input
@@ -902,7 +904,7 @@ module AWS::SDK::AmplifyUIBuilder
     def export_themes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ExportThemesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ExportThemesInput,
         validate_input: @config.validate_input
@@ -1079,7 +1081,7 @@ module AWS::SDK::AmplifyUIBuilder
     def get_component(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetComponentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetComponentInput,
         validate_input: @config.validate_input
@@ -1170,7 +1172,7 @@ module AWS::SDK::AmplifyUIBuilder
     def get_theme(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetThemeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetThemeInput,
         validate_input: @config.validate_input
@@ -1259,7 +1261,7 @@ module AWS::SDK::AmplifyUIBuilder
     def list_components(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListComponentsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListComponentsInput,
         validate_input: @config.validate_input
@@ -1347,7 +1349,7 @@ module AWS::SDK::AmplifyUIBuilder
     def list_themes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListThemesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListThemesInput,
         validate_input: @config.validate_input
@@ -1422,7 +1424,7 @@ module AWS::SDK::AmplifyUIBuilder
     def refresh_token(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RefreshTokenInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RefreshTokenInput,
         validate_input: @config.validate_input
@@ -1712,7 +1714,7 @@ module AWS::SDK::AmplifyUIBuilder
     def update_component(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateComponentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateComponentInput,
         validate_input: @config.validate_input
@@ -1823,7 +1825,7 @@ module AWS::SDK::AmplifyUIBuilder
     def update_theme(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateThemeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateThemeInput,
         validate_input: @config.validate_input

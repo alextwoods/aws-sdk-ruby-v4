@@ -34,8 +34,8 @@ module AWS::SDK::AppIntegrations
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:kms_key], ::String, context: "#{context}[:kms_key]")
         Hearth::Validator.validate!(input[:source_uri], ::String, context: "#{context}[:source_uri]")
-        Validators::ScheduleConfiguration.validate!(input[:schedule_config], context: "#{context}[:schedule_config]") unless input[:schedule_config].nil?
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ScheduleConfiguration.validate!(input[:schedule_config], context: "#{context}[:schedule_config]") unless input[:schedule_config].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
       end
     end
@@ -49,8 +49,8 @@ module AWS::SDK::AppIntegrations
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:kms_key], ::String, context: "#{context}[:kms_key]")
         Hearth::Validator.validate!(input[:source_uri], ::String, context: "#{context}[:source_uri]")
-        Validators::ScheduleConfiguration.validate!(input[:schedule_configuration], context: "#{context}[:schedule_configuration]") unless input[:schedule_configuration].nil?
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ScheduleConfiguration.validate!(input[:schedule_configuration], context: "#{context}[:schedule_configuration]") unless input[:schedule_configuration].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
       end
     end
@@ -60,10 +60,10 @@ module AWS::SDK::AppIntegrations
         Hearth::Validator.validate!(input, Types::CreateEventIntegrationInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::EventFilter.validate!(input[:event_filter], context: "#{context}[:event_filter]") unless input[:event_filter].nil?
+        EventFilter.validate!(input[:event_filter], context: "#{context}[:event_filter]") unless input[:event_filter].nil?
         Hearth::Validator.validate!(input[:event_bridge_bus], ::String, context: "#{context}[:event_bridge_bus]")
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -87,7 +87,7 @@ module AWS::SDK::AppIntegrations
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DataIntegrationAssociationSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DataIntegrationAssociationSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -105,7 +105,7 @@ module AWS::SDK::AppIntegrations
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DataIntegrationSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DataIntegrationSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -156,9 +156,9 @@ module AWS::SDK::AppIntegrations
         Hearth::Validator.validate!(input[:event_integration_arn], ::String, context: "#{context}[:event_integration_arn]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::EventFilter.validate!(input[:event_filter], context: "#{context}[:event_filter]") unless input[:event_filter].nil?
+        EventFilter.validate!(input[:event_filter], context: "#{context}[:event_filter]") unless input[:event_filter].nil?
         Hearth::Validator.validate!(input[:event_bridge_bus], ::String, context: "#{context}[:event_bridge_bus]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -170,7 +170,7 @@ module AWS::SDK::AppIntegrations
         Hearth::Validator.validate!(input[:event_integration_name], ::String, context: "#{context}[:event_integration_name]")
         Hearth::Validator.validate!(input[:client_id], ::String, context: "#{context}[:client_id]")
         Hearth::Validator.validate!(input[:event_bridge_rule_name], ::String, context: "#{context}[:event_bridge_rule_name]")
-        Validators::ClientAssociationMetadata.validate!(input[:client_association_metadata], context: "#{context}[:client_association_metadata]") unless input[:client_association_metadata].nil?
+        ClientAssociationMetadata.validate!(input[:client_association_metadata], context: "#{context}[:client_association_metadata]") unless input[:client_association_metadata].nil?
       end
     end
 
@@ -178,7 +178,7 @@ module AWS::SDK::AppIntegrations
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EventIntegrationAssociation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EventIntegrationAssociation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -187,7 +187,7 @@ module AWS::SDK::AppIntegrations
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EventIntegration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EventIntegration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -208,8 +208,8 @@ module AWS::SDK::AppIntegrations
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:kms_key], ::String, context: "#{context}[:kms_key]")
         Hearth::Validator.validate!(input[:source_uri], ::String, context: "#{context}[:source_uri]")
-        Validators::ScheduleConfiguration.validate!(input[:schedule_configuration], context: "#{context}[:schedule_configuration]") unless input[:schedule_configuration].nil?
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ScheduleConfiguration.validate!(input[:schedule_configuration], context: "#{context}[:schedule_configuration]") unless input[:schedule_configuration].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -227,8 +227,8 @@ module AWS::SDK::AppIntegrations
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:event_integration_arn], ::String, context: "#{context}[:event_integration_arn]")
         Hearth::Validator.validate!(input[:event_bridge_bus], ::String, context: "#{context}[:event_bridge_bus]")
-        Validators::EventFilter.validate!(input[:event_filter], context: "#{context}[:event_filter]") unless input[:event_filter].nil?
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        EventFilter.validate!(input[:event_filter], context: "#{context}[:event_filter]") unless input[:event_filter].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -258,7 +258,7 @@ module AWS::SDK::AppIntegrations
     class ListDataIntegrationAssociationsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDataIntegrationAssociationsOutput, context: context)
-        Validators::DataIntegrationAssociationsList.validate!(input[:data_integration_associations], context: "#{context}[:data_integration_associations]") unless input[:data_integration_associations].nil?
+        DataIntegrationAssociationsList.validate!(input[:data_integration_associations], context: "#{context}[:data_integration_associations]") unless input[:data_integration_associations].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -274,7 +274,7 @@ module AWS::SDK::AppIntegrations
     class ListDataIntegrationsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDataIntegrationsOutput, context: context)
-        Validators::DataIntegrationsList.validate!(input[:data_integrations], context: "#{context}[:data_integrations]") unless input[:data_integrations].nil?
+        DataIntegrationsList.validate!(input[:data_integrations], context: "#{context}[:data_integrations]") unless input[:data_integrations].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -291,7 +291,7 @@ module AWS::SDK::AppIntegrations
     class ListEventIntegrationAssociationsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListEventIntegrationAssociationsOutput, context: context)
-        Validators::EventIntegrationAssociationsList.validate!(input[:event_integration_associations], context: "#{context}[:event_integration_associations]") unless input[:event_integration_associations].nil?
+        EventIntegrationAssociationsList.validate!(input[:event_integration_associations], context: "#{context}[:event_integration_associations]") unless input[:event_integration_associations].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -307,7 +307,7 @@ module AWS::SDK::AppIntegrations
     class ListEventIntegrationsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListEventIntegrationsOutput, context: context)
-        Validators::EventIntegrationsList.validate!(input[:event_integrations], context: "#{context}[:event_integrations]") unless input[:event_integrations].nil?
+        EventIntegrationsList.validate!(input[:event_integrations], context: "#{context}[:event_integrations]") unless input[:event_integrations].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -322,7 +322,7 @@ module AWS::SDK::AppIntegrations
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -372,7 +372,7 @@ module AWS::SDK::AppIntegrations
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -393,7 +393,7 @@ module AWS::SDK::AppIntegrations
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 

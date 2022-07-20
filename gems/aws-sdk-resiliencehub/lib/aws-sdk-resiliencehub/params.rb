@@ -361,7 +361,7 @@ module AWS::SDK::Resiliencehub
         type.description = params[:description]
         type.policy_arn = params[:policy_arn]
         type.tags = TagMap.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.assessment_schedule = params[:assessment_schedule]
         type
       end
@@ -385,7 +385,7 @@ module AWS::SDK::Resiliencehub
         type.recommendation_types = RenderRecommendationTypeList.build(params[:recommendation_types], context: "#{context}[:recommendation_types]") unless params[:recommendation_types].nil?
         type.assessment_arn = params[:assessment_arn]
         type.name = params[:name]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.tags = TagMap.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type.bucket_name = params[:bucket_name]
         type
@@ -410,7 +410,7 @@ module AWS::SDK::Resiliencehub
         type.data_location_constraint = params[:data_location_constraint]
         type.tier = params[:tier]
         type.policy = DisruptionPolicy.build(params[:policy], context: "#{context}[:policy]") unless params[:policy].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.tags = TagMap.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type
       end
@@ -430,7 +430,7 @@ module AWS::SDK::Resiliencehub
         Hearth::Validator.validate!(params, ::Hash, Types::DeleteAppAssessmentInput, context: context)
         type = Types::DeleteAppAssessmentInput.new
         type.assessment_arn = params[:assessment_arn]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -451,7 +451,7 @@ module AWS::SDK::Resiliencehub
         type = Types::DeleteAppInput.new
         type.app_arn = params[:app_arn]
         type.force_delete = params[:force_delete]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -470,7 +470,7 @@ module AWS::SDK::Resiliencehub
         Hearth::Validator.validate!(params, ::Hash, Types::DeleteRecommendationTemplateInput, context: context)
         type = Types::DeleteRecommendationTemplateInput.new
         type.recommendation_template_arn = params[:recommendation_template_arn]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -490,7 +490,7 @@ module AWS::SDK::Resiliencehub
         Hearth::Validator.validate!(params, ::Hash, Types::DeleteResiliencyPolicyInput, context: context)
         type = Types::DeleteResiliencyPolicyInput.new
         type.policy_arn = params[:policy_arn]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -1453,7 +1453,7 @@ module AWS::SDK::Resiliencehub
         type.app_arn = params[:app_arn]
         type.app_version = params[:app_version]
         type.assessment_name = params[:assessment_name]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.tags = TagMap.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type
       end

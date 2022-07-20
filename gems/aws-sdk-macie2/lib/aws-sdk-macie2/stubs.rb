@@ -27,8 +27,8 @@ module AWS::SDK::Macie2
     class BatchGetCustomDataIdentifiers
       def self.default(visited=[])
         {
-          custom_data_identifiers: Stubs::List____listOfBatchGetCustomDataIdentifierSummary.default(visited),
-          not_found_identifier_ids: Stubs::List____listOf__string.default(visited),
+          custom_data_identifiers: List____listOfBatchGetCustomDataIdentifierSummary.default(visited),
+          not_found_identifier_ids: List____listOf__string.default(visited),
         }
       end
 
@@ -68,7 +68,7 @@ module AWS::SDK::Macie2
         return nil if visited.include?('List____listOfBatchGetCustomDataIdentifierSummary')
         visited = visited + ['List____listOfBatchGetCustomDataIdentifierSummary']
         [
-          Stubs::BatchGetCustomDataIdentifierSummary.default(visited)
+          BatchGetCustomDataIdentifierSummary.default(visited)
         ]
       end
 
@@ -169,7 +169,7 @@ module AWS::SDK::Macie2
     class CreateInvitations
       def self.default(visited=[])
         {
-          unprocessed_accounts: Stubs::List____listOfUnprocessedAccount.default(visited),
+          unprocessed_accounts: List____listOfUnprocessedAccount.default(visited),
         }
       end
 
@@ -188,7 +188,7 @@ module AWS::SDK::Macie2
         return nil if visited.include?('List____listOfUnprocessedAccount')
         visited = visited + ['List____listOfUnprocessedAccount']
         [
-          Stubs::UnprocessedAccount.default(visited)
+          UnprocessedAccount.default(visited)
         ]
       end
 
@@ -258,7 +258,7 @@ module AWS::SDK::Macie2
     class DeclineInvitations
       def self.default(visited=[])
         {
-          unprocessed_accounts: Stubs::List____listOfUnprocessedAccount.default(visited),
+          unprocessed_accounts: List____listOfUnprocessedAccount.default(visited),
         }
       end
 
@@ -301,7 +301,7 @@ module AWS::SDK::Macie2
     class DeleteInvitations
       def self.default(visited=[])
         {
-          unprocessed_accounts: Stubs::List____listOfUnprocessedAccount.default(visited),
+          unprocessed_accounts: List____listOfUnprocessedAccount.default(visited),
         }
       end
 
@@ -331,7 +331,7 @@ module AWS::SDK::Macie2
     class DescribeBuckets
       def self.default(visited=[])
         {
-          buckets: Stubs::List____listOfBucketMetadata.default(visited),
+          buckets: List____listOfBucketMetadata.default(visited),
           next_token: 'next_token',
         }
       end
@@ -352,7 +352,7 @@ module AWS::SDK::Macie2
         return nil if visited.include?('List____listOfBucketMetadata')
         visited = visited + ['List____listOfBucketMetadata']
         [
-          Stubs::BucketMetadata.default(visited)
+          BucketMetadata.default(visited)
         ]
       end
 
@@ -381,20 +381,20 @@ module AWS::SDK::Macie2
           classifiable_size_in_bytes: 1,
           error_code: 'error_code',
           error_message: 'error_message',
-          job_details: Stubs::JobDetails.default(visited),
+          job_details: JobDetails.default(visited),
           last_updated: Time.now,
           object_count: 1,
-          object_count_by_encryption_type: Stubs::ObjectCountByEncryptionType.default(visited),
-          public_access: Stubs::BucketPublicAccess.default(visited),
+          object_count_by_encryption_type: ObjectCountByEncryptionType.default(visited),
+          public_access: BucketPublicAccess.default(visited),
           region: 'region',
-          replication_details: Stubs::ReplicationDetails.default(visited),
-          server_side_encryption: Stubs::BucketServerSideEncryption.default(visited),
+          replication_details: ReplicationDetails.default(visited),
+          server_side_encryption: BucketServerSideEncryption.default(visited),
           shared_access: 'shared_access',
           size_in_bytes: 1,
           size_in_bytes_compressed: 1,
-          tags: Stubs::List____listOfKeyValuePair.default(visited),
-          unclassifiable_object_count: Stubs::ObjectLevelStatistics.default(visited),
-          unclassifiable_object_size_in_bytes: Stubs::ObjectLevelStatistics.default(visited),
+          tags: List____listOfKeyValuePair.default(visited),
+          unclassifiable_object_count: ObjectLevelStatistics.default(visited),
+          unclassifiable_object_size_in_bytes: ObjectLevelStatistics.default(visited),
           versioning: false,
         }
       end
@@ -458,7 +458,7 @@ module AWS::SDK::Macie2
         return nil if visited.include?('List____listOfKeyValuePair')
         visited = visited + ['List____listOfKeyValuePair']
         [
-          Stubs::KeyValuePair.default(visited)
+          KeyValuePair.default(visited)
         ]
       end
 
@@ -520,7 +520,7 @@ module AWS::SDK::Macie2
         {
           replicated: false,
           replicated_externally: false,
-          replication_accounts: Stubs::List____listOf__string.default(visited),
+          replication_accounts: List____listOf__string.default(visited),
         }
       end
 
@@ -541,7 +541,7 @@ module AWS::SDK::Macie2
         visited = visited + ['BucketPublicAccess']
         {
           effective_permission: 'effective_permission',
-          permission_configuration: Stubs::BucketPermissionConfiguration.default(visited),
+          permission_configuration: BucketPermissionConfiguration.default(visited),
         }
       end
 
@@ -560,8 +560,8 @@ module AWS::SDK::Macie2
         return nil if visited.include?('BucketPermissionConfiguration')
         visited = visited + ['BucketPermissionConfiguration']
         {
-          account_level_permissions: Stubs::AccountLevelPermissions.default(visited),
-          bucket_level_permissions: Stubs::BucketLevelPermissions.default(visited),
+          account_level_permissions: AccountLevelPermissions.default(visited),
+          bucket_level_permissions: BucketLevelPermissions.default(visited),
         }
       end
 
@@ -580,9 +580,9 @@ module AWS::SDK::Macie2
         return nil if visited.include?('BucketLevelPermissions')
         visited = visited + ['BucketLevelPermissions']
         {
-          access_control_list: Stubs::AccessControlList.default(visited),
-          block_public_access: Stubs::BlockPublicAccess.default(visited),
-          bucket_policy: Stubs::BucketPolicy.default(visited),
+          access_control_list: AccessControlList.default(visited),
+          block_public_access: BlockPublicAccess.default(visited),
+          bucket_policy: BucketPolicy.default(visited),
         }
       end
 
@@ -666,7 +666,7 @@ module AWS::SDK::Macie2
         return nil if visited.include?('AccountLevelPermissions')
         visited = visited + ['AccountLevelPermissions']
         {
-          block_public_access: Stubs::BlockPublicAccess.default(visited),
+          block_public_access: BlockPublicAccess.default(visited),
         }
       end
 
@@ -734,24 +734,24 @@ module AWS::SDK::Macie2
         {
           client_token: 'client_token',
           created_at: Time.now,
-          custom_data_identifier_ids: Stubs::List____listOf__string.default(visited),
+          custom_data_identifier_ids: List____listOf__string.default(visited),
           description: 'description',
           initial_run: false,
           job_arn: 'job_arn',
           job_id: 'job_id',
           job_status: 'job_status',
           job_type: 'job_type',
-          last_run_error_status: Stubs::LastRunErrorStatus.default(visited),
+          last_run_error_status: LastRunErrorStatus.default(visited),
           last_run_time: Time.now,
-          managed_data_identifier_ids: Stubs::List____listOf__string.default(visited),
+          managed_data_identifier_ids: List____listOf__string.default(visited),
           managed_data_identifier_selector: 'managed_data_identifier_selector',
           name: 'name',
-          s3_job_definition: Stubs::S3JobDefinition.default(visited),
+          s3_job_definition: S3JobDefinition.default(visited),
           sampling_percentage: 1,
-          schedule_frequency: Stubs::JobScheduleFrequency.default(visited),
-          statistics: Stubs::Statistics.default(visited),
-          tags: Stubs::TagMap.default(visited),
-          user_paused_details: Stubs::UserPausedDetails.default(visited),
+          schedule_frequency: JobScheduleFrequency.default(visited),
+          statistics: Statistics.default(visited),
+          tags: TagMap.default(visited),
+          user_paused_details: UserPausedDetails.default(visited),
         }
       end
 
@@ -851,9 +851,9 @@ module AWS::SDK::Macie2
         return nil if visited.include?('JobScheduleFrequency')
         visited = visited + ['JobScheduleFrequency']
         {
-          daily_schedule: Stubs::DailySchedule.default(visited),
-          monthly_schedule: Stubs::MonthlySchedule.default(visited),
-          weekly_schedule: Stubs::WeeklySchedule.default(visited),
+          daily_schedule: DailySchedule.default(visited),
+          monthly_schedule: MonthlySchedule.default(visited),
+          weekly_schedule: WeeklySchedule.default(visited),
         }
       end
 
@@ -925,9 +925,9 @@ module AWS::SDK::Macie2
         return nil if visited.include?('S3JobDefinition')
         visited = visited + ['S3JobDefinition']
         {
-          bucket_definitions: Stubs::List____listOfS3BucketDefinitionForJob.default(visited),
-          scoping: Stubs::Scoping.default(visited),
-          bucket_criteria: Stubs::S3BucketCriteriaForJob.default(visited),
+          bucket_definitions: List____listOfS3BucketDefinitionForJob.default(visited),
+          scoping: Scoping.default(visited),
+          bucket_criteria: S3BucketCriteriaForJob.default(visited),
         }
       end
 
@@ -947,8 +947,8 @@ module AWS::SDK::Macie2
         return nil if visited.include?('S3BucketCriteriaForJob')
         visited = visited + ['S3BucketCriteriaForJob']
         {
-          excludes: Stubs::CriteriaBlockForJob.default(visited),
-          includes: Stubs::CriteriaBlockForJob.default(visited),
+          excludes: CriteriaBlockForJob.default(visited),
+          includes: CriteriaBlockForJob.default(visited),
         }
       end
 
@@ -967,7 +967,7 @@ module AWS::SDK::Macie2
         return nil if visited.include?('CriteriaBlockForJob')
         visited = visited + ['CriteriaBlockForJob']
         {
-          and: Stubs::List____listOfCriteriaForJob.default(visited),
+          and: List____listOfCriteriaForJob.default(visited),
         }
       end
 
@@ -985,7 +985,7 @@ module AWS::SDK::Macie2
         return nil if visited.include?('List____listOfCriteriaForJob')
         visited = visited + ['List____listOfCriteriaForJob']
         [
-          Stubs::CriteriaForJob.default(visited)
+          CriteriaForJob.default(visited)
         ]
       end
 
@@ -1005,8 +1005,8 @@ module AWS::SDK::Macie2
         return nil if visited.include?('CriteriaForJob')
         visited = visited + ['CriteriaForJob']
         {
-          simple_criterion: Stubs::SimpleCriterionForJob.default(visited),
-          tag_criterion: Stubs::TagCriterionForJob.default(visited),
+          simple_criterion: SimpleCriterionForJob.default(visited),
+          tag_criterion: TagCriterionForJob.default(visited),
         }
       end
 
@@ -1026,7 +1026,7 @@ module AWS::SDK::Macie2
         visited = visited + ['TagCriterionForJob']
         {
           comparator: 'comparator',
-          tag_values: Stubs::List____listOfTagCriterionPairForJob.default(visited),
+          tag_values: List____listOfTagCriterionPairForJob.default(visited),
         }
       end
 
@@ -1045,7 +1045,7 @@ module AWS::SDK::Macie2
         return nil if visited.include?('List____listOfTagCriterionPairForJob')
         visited = visited + ['List____listOfTagCriterionPairForJob']
         [
-          Stubs::TagCriterionPairForJob.default(visited)
+          TagCriterionPairForJob.default(visited)
         ]
       end
 
@@ -1087,7 +1087,7 @@ module AWS::SDK::Macie2
         {
           comparator: 'comparator',
           key: 'key',
-          values: Stubs::List____listOf__string.default(visited),
+          values: List____listOf__string.default(visited),
         }
       end
 
@@ -1107,8 +1107,8 @@ module AWS::SDK::Macie2
         return nil if visited.include?('Scoping')
         visited = visited + ['Scoping']
         {
-          excludes: Stubs::JobScopingBlock.default(visited),
-          includes: Stubs::JobScopingBlock.default(visited),
+          excludes: JobScopingBlock.default(visited),
+          includes: JobScopingBlock.default(visited),
         }
       end
 
@@ -1127,7 +1127,7 @@ module AWS::SDK::Macie2
         return nil if visited.include?('JobScopingBlock')
         visited = visited + ['JobScopingBlock']
         {
-          and: Stubs::List____listOfJobScopeTerm.default(visited),
+          and: List____listOfJobScopeTerm.default(visited),
         }
       end
 
@@ -1145,7 +1145,7 @@ module AWS::SDK::Macie2
         return nil if visited.include?('List____listOfJobScopeTerm')
         visited = visited + ['List____listOfJobScopeTerm']
         [
-          Stubs::JobScopeTerm.default(visited)
+          JobScopeTerm.default(visited)
         ]
       end
 
@@ -1165,8 +1165,8 @@ module AWS::SDK::Macie2
         return nil if visited.include?('JobScopeTerm')
         visited = visited + ['JobScopeTerm']
         {
-          simple_scope_term: Stubs::SimpleScopeTerm.default(visited),
-          tag_scope_term: Stubs::TagScopeTerm.default(visited),
+          simple_scope_term: SimpleScopeTerm.default(visited),
+          tag_scope_term: TagScopeTerm.default(visited),
         }
       end
 
@@ -1187,7 +1187,7 @@ module AWS::SDK::Macie2
         {
           comparator: 'comparator',
           key: 'key',
-          tag_values: Stubs::List____listOfTagValuePair.default(visited),
+          tag_values: List____listOfTagValuePair.default(visited),
           target: 'target',
         }
       end
@@ -1209,7 +1209,7 @@ module AWS::SDK::Macie2
         return nil if visited.include?('List____listOfTagValuePair')
         visited = visited + ['List____listOfTagValuePair']
         [
-          Stubs::TagValuePair.default(visited)
+          TagValuePair.default(visited)
         ]
       end
 
@@ -1251,7 +1251,7 @@ module AWS::SDK::Macie2
         {
           comparator: 'comparator',
           key: 'key',
-          values: Stubs::List____listOf__string.default(visited),
+          values: List____listOf__string.default(visited),
         }
       end
 
@@ -1271,7 +1271,7 @@ module AWS::SDK::Macie2
         return nil if visited.include?('List____listOfS3BucketDefinitionForJob')
         visited = visited + ['List____listOfS3BucketDefinitionForJob']
         [
-          Stubs::S3BucketDefinitionForJob.default(visited)
+          S3BucketDefinitionForJob.default(visited)
         ]
       end
 
@@ -1292,7 +1292,7 @@ module AWS::SDK::Macie2
         visited = visited + ['S3BucketDefinitionForJob']
         {
           account_id: 'account_id',
-          buckets: Stubs::List____listOf__string.default(visited),
+          buckets: List____listOf__string.default(visited),
         }
       end
 
@@ -1437,7 +1437,7 @@ module AWS::SDK::Macie2
     class GetAdministratorAccount
       def self.default(visited=[])
         {
-          administrator: Stubs::Invitation.default(visited),
+          administrator: Invitation.default(visited),
         }
       end
 
@@ -1479,18 +1479,18 @@ module AWS::SDK::Macie2
       def self.default(visited=[])
         {
           bucket_count: 1,
-          bucket_count_by_effective_permission: Stubs::BucketCountByEffectivePermission.default(visited),
-          bucket_count_by_encryption_type: Stubs::BucketCountByEncryptionType.default(visited),
-          bucket_count_by_object_encryption_requirement: Stubs::BucketCountPolicyAllowsUnencryptedObjectUploads.default(visited),
-          bucket_count_by_shared_access_type: Stubs::BucketCountBySharedAccessType.default(visited),
+          bucket_count_by_effective_permission: BucketCountByEffectivePermission.default(visited),
+          bucket_count_by_encryption_type: BucketCountByEncryptionType.default(visited),
+          bucket_count_by_object_encryption_requirement: BucketCountPolicyAllowsUnencryptedObjectUploads.default(visited),
+          bucket_count_by_shared_access_type: BucketCountBySharedAccessType.default(visited),
           classifiable_object_count: 1,
           classifiable_size_in_bytes: 1,
           last_updated: Time.now,
           object_count: 1,
           size_in_bytes: 1,
           size_in_bytes_compressed: 1,
-          unclassifiable_object_count: Stubs::ObjectLevelStatistics.default(visited),
-          unclassifiable_object_size_in_bytes: Stubs::ObjectLevelStatistics.default(visited),
+          unclassifiable_object_count: ObjectLevelStatistics.default(visited),
+          unclassifiable_object_size_in_bytes: ObjectLevelStatistics.default(visited),
         }
       end
 
@@ -1613,7 +1613,7 @@ module AWS::SDK::Macie2
     class GetClassificationExportConfiguration
       def self.default(visited=[])
         {
-          configuration: Stubs::ClassificationExportConfiguration.default(visited),
+          configuration: ClassificationExportConfiguration.default(visited),
         }
       end
 
@@ -1632,7 +1632,7 @@ module AWS::SDK::Macie2
         return nil if visited.include?('ClassificationExportConfiguration')
         visited = visited + ['ClassificationExportConfiguration']
         {
-          s3_destination: Stubs::S3Destination.default(visited),
+          s3_destination: S3Destination.default(visited),
         }
       end
 
@@ -1675,13 +1675,13 @@ module AWS::SDK::Macie2
           deleted: false,
           description: 'description',
           id: 'id',
-          ignore_words: Stubs::List____listOf__string.default(visited),
-          keywords: Stubs::List____listOf__string.default(visited),
+          ignore_words: List____listOf__string.default(visited),
+          keywords: List____listOf__string.default(visited),
           maximum_match_distance: 1,
           name: 'name',
           regex: 'regex',
-          severity_levels: Stubs::SeverityLevelList.default(visited),
-          tags: Stubs::TagMap.default(visited),
+          severity_levels: SeverityLevelList.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -1711,7 +1711,7 @@ module AWS::SDK::Macie2
         return nil if visited.include?('SeverityLevelList')
         visited = visited + ['SeverityLevelList']
         [
-          Stubs::SeverityLevel.default(visited)
+          SeverityLevel.default(visited)
         ]
       end
 
@@ -1749,7 +1749,7 @@ module AWS::SDK::Macie2
     class GetFindingStatistics
       def self.default(visited=[])
         {
-          counts_by_group: Stubs::List____listOfGroupCount.default(visited),
+          counts_by_group: List____listOfGroupCount.default(visited),
         }
       end
 
@@ -1768,7 +1768,7 @@ module AWS::SDK::Macie2
         return nil if visited.include?('List____listOfGroupCount')
         visited = visited + ['List____listOfGroupCount']
         [
-          Stubs::GroupCount.default(visited)
+          GroupCount.default(visited)
         ]
       end
 
@@ -1806,7 +1806,7 @@ module AWS::SDK::Macie2
     class GetFindings
       def self.default(visited=[])
         {
-          findings: Stubs::List____listOfFinding.default(visited),
+          findings: List____listOfFinding.default(visited),
         }
       end
 
@@ -1825,7 +1825,7 @@ module AWS::SDK::Macie2
         return nil if visited.include?('List____listOfFinding')
         visited = visited + ['List____listOfFinding']
         [
-          Stubs::Finding.default(visited)
+          Finding.default(visited)
         ]
       end
 
@@ -1848,18 +1848,18 @@ module AWS::SDK::Macie2
           account_id: 'account_id',
           archived: false,
           category: 'category',
-          classification_details: Stubs::ClassificationDetails.default(visited),
+          classification_details: ClassificationDetails.default(visited),
           count: 1,
           created_at: Time.now,
           description: 'description',
           id: 'id',
           partition: 'partition',
-          policy_details: Stubs::PolicyDetails.default(visited),
+          policy_details: PolicyDetails.default(visited),
           region: 'region',
-          resources_affected: Stubs::ResourcesAffected.default(visited),
+          resources_affected: ResourcesAffected.default(visited),
           sample: false,
           schema_version: 'schema_version',
-          severity: Stubs::Severity.default(visited),
+          severity: Severity.default(visited),
           title: 'title',
           type: 'type',
           updated_at: Time.now,
@@ -1917,8 +1917,8 @@ module AWS::SDK::Macie2
         return nil if visited.include?('ResourcesAffected')
         visited = visited + ['ResourcesAffected']
         {
-          s3_bucket: Stubs::S3Bucket.default(visited),
-          s3_object: Stubs::S3Object.default(visited),
+          s3_bucket: S3Bucket.default(visited),
+          s3_object: S3Object.default(visited),
         }
       end
 
@@ -1944,10 +1944,10 @@ module AWS::SDK::Macie2
           last_modified: Time.now,
           path: 'path',
           public_access: false,
-          server_side_encryption: Stubs::ServerSideEncryption.default(visited),
+          server_side_encryption: ServerSideEncryption.default(visited),
           size: 1,
           storage_class: 'storage_class',
-          tags: Stubs::KeyValuePairList.default(visited),
+          tags: KeyValuePairList.default(visited),
           version_id: 'version_id',
         }
       end
@@ -1977,7 +1977,7 @@ module AWS::SDK::Macie2
         return nil if visited.include?('KeyValuePairList')
         visited = visited + ['KeyValuePairList']
         [
-          Stubs::KeyValuePair.default(visited)
+          KeyValuePair.default(visited)
         ]
       end
 
@@ -2020,11 +2020,11 @@ module AWS::SDK::Macie2
           allows_unencrypted_object_uploads: 'allows_unencrypted_object_uploads',
           arn: 'arn',
           created_at: Time.now,
-          default_server_side_encryption: Stubs::ServerSideEncryption.default(visited),
+          default_server_side_encryption: ServerSideEncryption.default(visited),
           name: 'name',
-          owner: Stubs::S3BucketOwner.default(visited),
-          public_access: Stubs::BucketPublicAccess.default(visited),
-          tags: Stubs::KeyValuePairList.default(visited),
+          owner: S3BucketOwner.default(visited),
+          public_access: BucketPublicAccess.default(visited),
+          tags: KeyValuePairList.default(visited),
         }
       end
 
@@ -2069,8 +2069,8 @@ module AWS::SDK::Macie2
         return nil if visited.include?('PolicyDetails')
         visited = visited + ['PolicyDetails']
         {
-          action: Stubs::FindingAction.default(visited),
-          actor: Stubs::FindingActor.default(visited),
+          action: FindingAction.default(visited),
+          actor: FindingActor.default(visited),
         }
       end
 
@@ -2089,9 +2089,9 @@ module AWS::SDK::Macie2
         return nil if visited.include?('FindingActor')
         visited = visited + ['FindingActor']
         {
-          domain_details: Stubs::DomainDetails.default(visited),
-          ip_address_details: Stubs::IpAddressDetails.default(visited),
-          user_identity: Stubs::UserIdentity.default(visited),
+          domain_details: DomainDetails.default(visited),
+          ip_address_details: IpAddressDetails.default(visited),
+          user_identity: UserIdentity.default(visited),
         }
       end
 
@@ -2111,12 +2111,12 @@ module AWS::SDK::Macie2
         return nil if visited.include?('UserIdentity')
         visited = visited + ['UserIdentity']
         {
-          assumed_role: Stubs::AssumedRole.default(visited),
-          aws_account: Stubs::AwsAccount.default(visited),
-          aws_service: Stubs::AwsService.default(visited),
-          federated_user: Stubs::FederatedUser.default(visited),
-          iam_user: Stubs::IamUser.default(visited),
-          root: Stubs::UserIdentityRoot.default(visited),
+          assumed_role: AssumedRole.default(visited),
+          aws_account: AwsAccount.default(visited),
+          aws_service: AwsService.default(visited),
+          federated_user: FederatedUser.default(visited),
+          iam_user: IamUser.default(visited),
+          root: UserIdentityRoot.default(visited),
           type: 'type',
         }
       end
@@ -2191,7 +2191,7 @@ module AWS::SDK::Macie2
           account_id: 'account_id',
           arn: 'arn',
           principal_id: 'principal_id',
-          session_context: Stubs::SessionContext.default(visited),
+          session_context: SessionContext.default(visited),
         }
       end
 
@@ -2213,8 +2213,8 @@ module AWS::SDK::Macie2
         return nil if visited.include?('SessionContext')
         visited = visited + ['SessionContext']
         {
-          attributes: Stubs::SessionContextAttributes.default(visited),
-          session_issuer: Stubs::SessionIssuer.default(visited),
+          attributes: SessionContextAttributes.default(visited),
+          session_issuer: SessionIssuer.default(visited),
         }
       end
 
@@ -2321,7 +2321,7 @@ module AWS::SDK::Macie2
           account_id: 'account_id',
           arn: 'arn',
           principal_id: 'principal_id',
-          session_context: Stubs::SessionContext.default(visited),
+          session_context: SessionContext.default(visited),
         }
       end
 
@@ -2344,10 +2344,10 @@ module AWS::SDK::Macie2
         visited = visited + ['IpAddressDetails']
         {
           ip_address_v4: 'ip_address_v4',
-          ip_city: Stubs::IpCity.default(visited),
-          ip_country: Stubs::IpCountry.default(visited),
-          ip_geo_location: Stubs::IpGeoLocation.default(visited),
-          ip_owner: Stubs::IpOwner.default(visited),
+          ip_city: IpCity.default(visited),
+          ip_country: IpCountry.default(visited),
+          ip_geo_location: IpGeoLocation.default(visited),
+          ip_owner: IpOwner.default(visited),
         }
       end
 
@@ -2470,7 +2470,7 @@ module AWS::SDK::Macie2
         visited = visited + ['FindingAction']
         {
           action_type: 'action_type',
-          api_call_details: Stubs::ApiCallDetails.default(visited),
+          api_call_details: ApiCallDetails.default(visited),
         }
       end
 
@@ -2517,7 +2517,7 @@ module AWS::SDK::Macie2
           job_arn: 'job_arn',
           job_id: 'job_id',
           origin_type: 'origin_type',
-          result: Stubs::ClassificationResult.default(visited),
+          result: ClassificationResult.default(visited),
         }
       end
 
@@ -2540,11 +2540,11 @@ module AWS::SDK::Macie2
         visited = visited + ['ClassificationResult']
         {
           additional_occurrences: false,
-          custom_data_identifiers: Stubs::CustomDataIdentifiers.default(visited),
+          custom_data_identifiers: CustomDataIdentifiers.default(visited),
           mime_type: 'mime_type',
-          sensitive_data: Stubs::SensitiveData.default(visited),
+          sensitive_data: SensitiveData.default(visited),
           size_classified: 1,
-          status: Stubs::ClassificationResultStatus.default(visited),
+          status: ClassificationResultStatus.default(visited),
         }
       end
 
@@ -2587,7 +2587,7 @@ module AWS::SDK::Macie2
         return nil if visited.include?('SensitiveData')
         visited = visited + ['SensitiveData']
         [
-          Stubs::SensitiveDataItem.default(visited)
+          SensitiveDataItem.default(visited)
         ]
       end
 
@@ -2608,7 +2608,7 @@ module AWS::SDK::Macie2
         visited = visited + ['SensitiveDataItem']
         {
           category: 'category',
-          detections: Stubs::DefaultDetections.default(visited),
+          detections: DefaultDetections.default(visited),
           total_count: 1,
         }
       end
@@ -2629,7 +2629,7 @@ module AWS::SDK::Macie2
         return nil if visited.include?('DefaultDetections')
         visited = visited + ['DefaultDetections']
         [
-          Stubs::DefaultDetection.default(visited)
+          DefaultDetection.default(visited)
         ]
       end
 
@@ -2650,7 +2650,7 @@ module AWS::SDK::Macie2
         visited = visited + ['DefaultDetection']
         {
           count: 1,
-          occurrences: Stubs::Occurrences.default(visited),
+          occurrences: Occurrences.default(visited),
           type: 'type',
         }
       end
@@ -2671,11 +2671,11 @@ module AWS::SDK::Macie2
         return nil if visited.include?('Occurrences')
         visited = visited + ['Occurrences']
         {
-          cells: Stubs::Cells.default(visited),
-          line_ranges: Stubs::Ranges.default(visited),
-          offset_ranges: Stubs::Ranges.default(visited),
-          pages: Stubs::Pages.default(visited),
-          records: Stubs::Records.default(visited),
+          cells: Cells.default(visited),
+          line_ranges: Ranges.default(visited),
+          offset_ranges: Ranges.default(visited),
+          pages: Pages.default(visited),
+          records: Records.default(visited),
         }
       end
 
@@ -2697,7 +2697,7 @@ module AWS::SDK::Macie2
         return nil if visited.include?('Records')
         visited = visited + ['Records']
         [
-          Stubs::Record.default(visited)
+          Record.default(visited)
         ]
       end
 
@@ -2737,7 +2737,7 @@ module AWS::SDK::Macie2
         return nil if visited.include?('Pages')
         visited = visited + ['Pages']
         [
-          Stubs::Page.default(visited)
+          Page.default(visited)
         ]
       end
 
@@ -2757,8 +2757,8 @@ module AWS::SDK::Macie2
         return nil if visited.include?('Page')
         visited = visited + ['Page']
         {
-          line_range: Stubs::Range.default(visited),
-          offset_range: Stubs::Range.default(visited),
+          line_range: Range.default(visited),
+          offset_range: Range.default(visited),
           page_number: 1,
         }
       end
@@ -2801,7 +2801,7 @@ module AWS::SDK::Macie2
         return nil if visited.include?('Ranges')
         visited = visited + ['Ranges']
         [
-          Stubs::Range.default(visited)
+          Range.default(visited)
         ]
       end
 
@@ -2821,7 +2821,7 @@ module AWS::SDK::Macie2
         return nil if visited.include?('Cells')
         visited = visited + ['Cells']
         [
-          Stubs::Cell.default(visited)
+          Cell.default(visited)
         ]
       end
 
@@ -2865,7 +2865,7 @@ module AWS::SDK::Macie2
         return nil if visited.include?('CustomDataIdentifiers')
         visited = visited + ['CustomDataIdentifiers']
         {
-          detections: Stubs::CustomDetections.default(visited),
+          detections: CustomDetections.default(visited),
           total_count: 1,
         }
       end
@@ -2885,7 +2885,7 @@ module AWS::SDK::Macie2
         return nil if visited.include?('CustomDetections')
         visited = visited + ['CustomDetections']
         [
-          Stubs::CustomDetection.default(visited)
+          CustomDetection.default(visited)
         ]
       end
 
@@ -2908,7 +2908,7 @@ module AWS::SDK::Macie2
           arn: 'arn',
           count: 1,
           name: 'name',
-          occurrences: Stubs::Occurrences.default(visited),
+          occurrences: Occurrences.default(visited),
         }
       end
 
@@ -2930,11 +2930,11 @@ module AWS::SDK::Macie2
           action: 'action',
           arn: 'arn',
           description: 'description',
-          finding_criteria: Stubs::FindingCriteria.default(visited),
+          finding_criteria: FindingCriteria.default(visited),
           id: 'id',
           name: 'name',
           position: 1,
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -2960,7 +2960,7 @@ module AWS::SDK::Macie2
         return nil if visited.include?('FindingCriteria')
         visited = visited + ['FindingCriteria']
         {
-          criterion: Stubs::Criterion.default(visited),
+          criterion: Criterion.default(visited),
         }
       end
 
@@ -2978,7 +2978,7 @@ module AWS::SDK::Macie2
         return nil if visited.include?('Criterion')
         visited = visited + ['Criterion']
         {
-          test_key: Stubs::CriterionAdditionalProperties.default(visited)
+          test_key: CriterionAdditionalProperties.default(visited)
         }
       end
 
@@ -2998,13 +2998,13 @@ module AWS::SDK::Macie2
         return nil if visited.include?('CriterionAdditionalProperties')
         visited = visited + ['CriterionAdditionalProperties']
         {
-          eq: Stubs::List____listOf__string.default(visited),
-          eq_exact_match: Stubs::List____listOf__string.default(visited),
+          eq: List____listOf__string.default(visited),
+          eq_exact_match: List____listOf__string.default(visited),
           gt: 1,
           gte: 1,
           lt: 1,
           lte: 1,
-          neq: Stubs::List____listOf__string.default(visited),
+          neq: List____listOf__string.default(visited),
         }
       end
 
@@ -3026,7 +3026,7 @@ module AWS::SDK::Macie2
     class GetFindingsPublicationConfiguration
       def self.default(visited=[])
         {
-          security_hub_configuration: Stubs::SecurityHubConfiguration.default(visited),
+          security_hub_configuration: SecurityHubConfiguration.default(visited),
         }
       end
 
@@ -3105,7 +3105,7 @@ module AWS::SDK::Macie2
     class GetMasterAccount
       def self.default(visited=[])
         {
-          master: Stubs::Invitation.default(visited),
+          master: Invitation.default(visited),
         }
       end
 
@@ -3129,7 +3129,7 @@ module AWS::SDK::Macie2
           invited_at: Time.now,
           master_account_id: 'master_account_id',
           relationship_status: 'relationship_status',
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
           updated_at: Time.now,
         }
       end
@@ -3156,7 +3156,7 @@ module AWS::SDK::Macie2
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          records: Stubs::List____listOfUsageRecord.default(visited),
+          records: List____listOfUsageRecord.default(visited),
           time_range: 'time_range',
         }
       end
@@ -3178,7 +3178,7 @@ module AWS::SDK::Macie2
         return nil if visited.include?('List____listOfUsageRecord')
         visited = visited + ['List____listOfUsageRecord']
         [
-          Stubs::UsageRecord.default(visited)
+          UsageRecord.default(visited)
         ]
       end
 
@@ -3200,7 +3200,7 @@ module AWS::SDK::Macie2
         {
           account_id: 'account_id',
           free_trial_start_date: Time.now,
-          usage: Stubs::List____listOfUsageByAccount.default(visited),
+          usage: List____listOfUsageByAccount.default(visited),
         }
       end
 
@@ -3220,7 +3220,7 @@ module AWS::SDK::Macie2
         return nil if visited.include?('List____listOfUsageByAccount')
         visited = visited + ['List____listOfUsageByAccount']
         [
-          Stubs::UsageByAccount.default(visited)
+          UsageByAccount.default(visited)
         ]
       end
 
@@ -3242,7 +3242,7 @@ module AWS::SDK::Macie2
         {
           currency: 'currency',
           estimated_cost: 'estimated_cost',
-          service_limit: Stubs::ServiceLimit.default(visited),
+          service_limit: ServiceLimit.default(visited),
           type: 'type',
         }
       end
@@ -3285,7 +3285,7 @@ module AWS::SDK::Macie2
       def self.default(visited=[])
         {
           time_range: 'time_range',
-          usage_totals: Stubs::List____listOfUsageTotal.default(visited),
+          usage_totals: List____listOfUsageTotal.default(visited),
         }
       end
 
@@ -3305,7 +3305,7 @@ module AWS::SDK::Macie2
         return nil if visited.include?('List____listOfUsageTotal')
         visited = visited + ['List____listOfUsageTotal']
         [
-          Stubs::UsageTotal.default(visited)
+          UsageTotal.default(visited)
         ]
       end
 
@@ -3345,7 +3345,7 @@ module AWS::SDK::Macie2
     class ListClassificationJobs
       def self.default(visited=[])
         {
-          items: Stubs::List____listOfJobSummary.default(visited),
+          items: List____listOfJobSummary.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3366,7 +3366,7 @@ module AWS::SDK::Macie2
         return nil if visited.include?('List____listOfJobSummary')
         visited = visited + ['List____listOfJobSummary']
         [
-          Stubs::JobSummary.default(visited)
+          JobSummary.default(visited)
         ]
       end
 
@@ -3386,15 +3386,15 @@ module AWS::SDK::Macie2
         return nil if visited.include?('JobSummary')
         visited = visited + ['JobSummary']
         {
-          bucket_definitions: Stubs::List____listOfS3BucketDefinitionForJob.default(visited),
+          bucket_definitions: List____listOfS3BucketDefinitionForJob.default(visited),
           created_at: Time.now,
           job_id: 'job_id',
           job_status: 'job_status',
           job_type: 'job_type',
-          last_run_error_status: Stubs::LastRunErrorStatus.default(visited),
+          last_run_error_status: LastRunErrorStatus.default(visited),
           name: 'name',
-          user_paused_details: Stubs::UserPausedDetails.default(visited),
-          bucket_criteria: Stubs::S3BucketCriteriaForJob.default(visited),
+          user_paused_details: UserPausedDetails.default(visited),
+          bucket_criteria: S3BucketCriteriaForJob.default(visited),
         }
       end
 
@@ -3418,7 +3418,7 @@ module AWS::SDK::Macie2
     class ListCustomDataIdentifiers
       def self.default(visited=[])
         {
-          items: Stubs::List____listOfCustomDataIdentifierSummary.default(visited),
+          items: List____listOfCustomDataIdentifierSummary.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3439,7 +3439,7 @@ module AWS::SDK::Macie2
         return nil if visited.include?('List____listOfCustomDataIdentifierSummary')
         visited = visited + ['List____listOfCustomDataIdentifierSummary']
         [
-          Stubs::CustomDataIdentifierSummary.default(visited)
+          CustomDataIdentifierSummary.default(visited)
         ]
       end
 
@@ -3483,7 +3483,7 @@ module AWS::SDK::Macie2
     class ListFindings
       def self.default(visited=[])
         {
-          finding_ids: Stubs::List____listOf__string.default(visited),
+          finding_ids: List____listOf__string.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3502,7 +3502,7 @@ module AWS::SDK::Macie2
     class ListFindingsFilters
       def self.default(visited=[])
         {
-          findings_filter_list_items: Stubs::List____listOfFindingsFilterListItem.default(visited),
+          findings_filter_list_items: List____listOfFindingsFilterListItem.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3523,7 +3523,7 @@ module AWS::SDK::Macie2
         return nil if visited.include?('List____listOfFindingsFilterListItem')
         visited = visited + ['List____listOfFindingsFilterListItem']
         [
-          Stubs::FindingsFilterListItem.default(visited)
+          FindingsFilterListItem.default(visited)
         ]
       end
 
@@ -3547,7 +3547,7 @@ module AWS::SDK::Macie2
           arn: 'arn',
           id: 'id',
           name: 'name',
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -3567,7 +3567,7 @@ module AWS::SDK::Macie2
     class ListInvitations
       def self.default(visited=[])
         {
-          invitations: Stubs::List____listOfInvitation.default(visited),
+          invitations: List____listOfInvitation.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3588,7 +3588,7 @@ module AWS::SDK::Macie2
         return nil if visited.include?('List____listOfInvitation')
         visited = visited + ['List____listOfInvitation']
         [
-          Stubs::Invitation.default(visited)
+          Invitation.default(visited)
         ]
       end
 
@@ -3606,7 +3606,7 @@ module AWS::SDK::Macie2
     class ListManagedDataIdentifiers
       def self.default(visited=[])
         {
-          items: Stubs::List____listOfManagedDataIdentifierSummary.default(visited),
+          items: List____listOfManagedDataIdentifierSummary.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3627,7 +3627,7 @@ module AWS::SDK::Macie2
         return nil if visited.include?('List____listOfManagedDataIdentifierSummary')
         visited = visited + ['List____listOfManagedDataIdentifierSummary']
         [
-          Stubs::ManagedDataIdentifierSummary.default(visited)
+          ManagedDataIdentifierSummary.default(visited)
         ]
       end
 
@@ -3665,7 +3665,7 @@ module AWS::SDK::Macie2
     class ListMembers
       def self.default(visited=[])
         {
-          members: Stubs::List____listOfMember.default(visited),
+          members: List____listOfMember.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3686,7 +3686,7 @@ module AWS::SDK::Macie2
         return nil if visited.include?('List____listOfMember')
         visited = visited + ['List____listOfMember']
         [
-          Stubs::Member.default(visited)
+          Member.default(visited)
         ]
       end
 
@@ -3713,7 +3713,7 @@ module AWS::SDK::Macie2
           invited_at: Time.now,
           master_account_id: 'master_account_id',
           relationship_status: 'relationship_status',
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
           updated_at: Time.now,
         }
       end
@@ -3738,7 +3738,7 @@ module AWS::SDK::Macie2
     class ListOrganizationAdminAccounts
       def self.default(visited=[])
         {
-          admin_accounts: Stubs::List____listOfAdminAccount.default(visited),
+          admin_accounts: List____listOfAdminAccount.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3759,7 +3759,7 @@ module AWS::SDK::Macie2
         return nil if visited.include?('List____listOfAdminAccount')
         visited = visited + ['List____listOfAdminAccount']
         [
-          Stubs::AdminAccount.default(visited)
+          AdminAccount.default(visited)
         ]
       end
 
@@ -3797,7 +3797,7 @@ module AWS::SDK::Macie2
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -3814,7 +3814,7 @@ module AWS::SDK::Macie2
     class PutClassificationExportConfiguration
       def self.default(visited=[])
         {
-          configuration: Stubs::ClassificationExportConfiguration.default(visited),
+          configuration: ClassificationExportConfiguration.default(visited),
         }
       end
 
@@ -3844,7 +3844,7 @@ module AWS::SDK::Macie2
     class SearchResources
       def self.default(visited=[])
         {
-          matching_resources: Stubs::List____listOfMatchingResource.default(visited),
+          matching_resources: List____listOfMatchingResource.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3865,7 +3865,7 @@ module AWS::SDK::Macie2
         return nil if visited.include?('List____listOfMatchingResource')
         visited = visited + ['List____listOfMatchingResource']
         [
-          Stubs::MatchingResource.default(visited)
+          MatchingResource.default(visited)
         ]
       end
 
@@ -3885,7 +3885,7 @@ module AWS::SDK::Macie2
         return nil if visited.include?('MatchingResource')
         visited = visited + ['MatchingResource']
         {
-          matching_bucket: Stubs::MatchingBucket.default(visited),
+          matching_bucket: MatchingBucket.default(visited),
         }
       end
 
@@ -3909,13 +3909,13 @@ module AWS::SDK::Macie2
           classifiable_size_in_bytes: 1,
           error_code: 'error_code',
           error_message: 'error_message',
-          job_details: Stubs::JobDetails.default(visited),
+          job_details: JobDetails.default(visited),
           object_count: 1,
-          object_count_by_encryption_type: Stubs::ObjectCountByEncryptionType.default(visited),
+          object_count_by_encryption_type: ObjectCountByEncryptionType.default(visited),
           size_in_bytes: 1,
           size_in_bytes_compressed: 1,
-          unclassifiable_object_count: Stubs::ObjectLevelStatistics.default(visited),
-          unclassifiable_object_size_in_bytes: Stubs::ObjectLevelStatistics.default(visited),
+          unclassifiable_object_count: ObjectLevelStatistics.default(visited),
+          unclassifiable_object_size_in_bytes: ObjectLevelStatistics.default(visited),
         }
       end
 

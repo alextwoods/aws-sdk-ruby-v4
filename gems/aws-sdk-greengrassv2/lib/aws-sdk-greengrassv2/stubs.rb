@@ -31,7 +31,7 @@ module AWS::SDK::GreengrassV2
     class BatchAssociateClientDeviceWithCoreDevice
       def self.default(visited=[])
         {
-          error_entries: Stubs::AssociateClientDeviceWithCoreDeviceErrorList.default(visited),
+          error_entries: AssociateClientDeviceWithCoreDeviceErrorList.default(visited),
         }
       end
 
@@ -50,7 +50,7 @@ module AWS::SDK::GreengrassV2
         return nil if visited.include?('AssociateClientDeviceWithCoreDeviceErrorList')
         visited = visited + ['AssociateClientDeviceWithCoreDeviceErrorList']
         [
-          Stubs::AssociateClientDeviceWithCoreDeviceErrorEntry.default(visited)
+          AssociateClientDeviceWithCoreDeviceErrorEntry.default(visited)
         ]
       end
 
@@ -90,7 +90,7 @@ module AWS::SDK::GreengrassV2
     class BatchDisassociateClientDeviceFromCoreDevice
       def self.default(visited=[])
         {
-          error_entries: Stubs::DisassociateClientDeviceFromCoreDeviceErrorList.default(visited),
+          error_entries: DisassociateClientDeviceFromCoreDeviceErrorList.default(visited),
         }
       end
 
@@ -109,7 +109,7 @@ module AWS::SDK::GreengrassV2
         return nil if visited.include?('DisassociateClientDeviceFromCoreDeviceErrorList')
         visited = visited + ['DisassociateClientDeviceFromCoreDeviceErrorList']
         [
-          Stubs::DisassociateClientDeviceFromCoreDeviceErrorEntry.default(visited)
+          DisassociateClientDeviceFromCoreDeviceErrorEntry.default(visited)
         ]
       end
 
@@ -170,7 +170,7 @@ module AWS::SDK::GreengrassV2
           component_name: 'component_name',
           component_version: 'component_version',
           creation_timestamp: Time.now,
-          status: Stubs::CloudComponentStatus.default(visited),
+          status: CloudComponentStatus.default(visited),
         }
       end
 
@@ -195,7 +195,7 @@ module AWS::SDK::GreengrassV2
         {
           component_state: 'component_state',
           message: 'message',
-          errors: Stubs::StringMap.default(visited),
+          errors: StringMap.default(visited),
           vendor_guidance: 'vendor_guidance',
           vendor_guidance_message: 'vendor_guidance_message',
         }
@@ -303,9 +303,9 @@ module AWS::SDK::GreengrassV2
           creation_timestamp: Time.now,
           publisher: 'publisher',
           description: 'description',
-          status: Stubs::CloudComponentStatus.default(visited),
-          platforms: Stubs::ComponentPlatformList.default(visited),
-          tags: Stubs::TagMap.default(visited),
+          status: CloudComponentStatus.default(visited),
+          platforms: ComponentPlatformList.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -352,7 +352,7 @@ module AWS::SDK::GreengrassV2
         return nil if visited.include?('ComponentPlatformList')
         visited = visited + ['ComponentPlatformList']
         [
-          Stubs::ComponentPlatform.default(visited)
+          ComponentPlatform.default(visited)
         ]
       end
 
@@ -373,7 +373,7 @@ module AWS::SDK::GreengrassV2
         visited = visited + ['ComponentPlatform']
         {
           name: 'name',
-          attributes: Stubs::PlatformAttributesMap.default(visited),
+          attributes: PlatformAttributesMap.default(visited),
         }
       end
 
@@ -429,7 +429,7 @@ module AWS::SDK::GreengrassV2
         {
           recipe_output_format: 'recipe_output_format',
           recipe: 'recipe',
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -465,7 +465,7 @@ module AWS::SDK::GreengrassV2
     class GetConnectivityInfo
       def self.default(visited=[])
         {
-          connectivity_info: Stubs::ConnectivityInfoList.default(visited),
+          connectivity_info: ConnectivityInfoList.default(visited),
           message: 'message',
         }
       end
@@ -486,7 +486,7 @@ module AWS::SDK::GreengrassV2
         return nil if visited.include?('ConnectivityInfoList')
         visited = visited + ['ConnectivityInfoList']
         [
-          Stubs::ConnectivityInfo.default(visited)
+          ConnectivityInfo.default(visited)
         ]
       end
 
@@ -534,7 +534,7 @@ module AWS::SDK::GreengrassV2
           architecture: 'architecture',
           status: 'status',
           last_status_update_timestamp: Time.now,
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -564,12 +564,12 @@ module AWS::SDK::GreengrassV2
           deployment_status: 'deployment_status',
           iot_job_id: 'iot_job_id',
           iot_job_arn: 'iot_job_arn',
-          components: Stubs::ComponentDeploymentSpecifications.default(visited),
-          deployment_policies: Stubs::DeploymentPolicies.default(visited),
-          iot_job_configuration: Stubs::DeploymentIoTJobConfiguration.default(visited),
+          components: ComponentDeploymentSpecifications.default(visited),
+          deployment_policies: DeploymentPolicies.default(visited),
+          iot_job_configuration: DeploymentIoTJobConfiguration.default(visited),
           creation_timestamp: Time.now,
           is_latest_for_target: false,
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -600,9 +600,9 @@ module AWS::SDK::GreengrassV2
         return nil if visited.include?('DeploymentIoTJobConfiguration')
         visited = visited + ['DeploymentIoTJobConfiguration']
         {
-          job_executions_rollout_config: Stubs::IoTJobExecutionsRolloutConfig.default(visited),
-          abort_config: Stubs::IoTJobAbortConfig.default(visited),
-          timeout_config: Stubs::IoTJobTimeoutConfig.default(visited),
+          job_executions_rollout_config: IoTJobExecutionsRolloutConfig.default(visited),
+          abort_config: IoTJobAbortConfig.default(visited),
+          timeout_config: IoTJobTimeoutConfig.default(visited),
         }
       end
 
@@ -640,7 +640,7 @@ module AWS::SDK::GreengrassV2
         return nil if visited.include?('IoTJobAbortConfig')
         visited = visited + ['IoTJobAbortConfig']
         {
-          criteria_list: Stubs::IoTJobAbortCriteriaList.default(visited),
+          criteria_list: IoTJobAbortCriteriaList.default(visited),
         }
       end
 
@@ -658,7 +658,7 @@ module AWS::SDK::GreengrassV2
         return nil if visited.include?('IoTJobAbortCriteriaList')
         visited = visited + ['IoTJobAbortCriteriaList']
         [
-          Stubs::IoTJobAbortCriteria.default(visited)
+          IoTJobAbortCriteria.default(visited)
         ]
       end
 
@@ -702,7 +702,7 @@ module AWS::SDK::GreengrassV2
         return nil if visited.include?('IoTJobExecutionsRolloutConfig')
         visited = visited + ['IoTJobExecutionsRolloutConfig']
         {
-          exponential_rate: Stubs::IoTJobExponentialRolloutRate.default(visited),
+          exponential_rate: IoTJobExponentialRolloutRate.default(visited),
           maximum_per_minute: 1,
         }
       end
@@ -724,7 +724,7 @@ module AWS::SDK::GreengrassV2
         {
           base_rate_per_minute: 1,
           increment_factor: 1.0,
-          rate_increase_criteria: Stubs::IoTJobRateIncreaseCriteria.default(visited),
+          rate_increase_criteria: IoTJobRateIncreaseCriteria.default(visited),
         }
       end
 
@@ -765,8 +765,8 @@ module AWS::SDK::GreengrassV2
         visited = visited + ['DeploymentPolicies']
         {
           failure_handling_policy: 'failure_handling_policy',
-          component_update_policy: Stubs::DeploymentComponentUpdatePolicy.default(visited),
-          configuration_validation_policy: Stubs::DeploymentConfigurationValidationPolicy.default(visited),
+          component_update_policy: DeploymentComponentUpdatePolicy.default(visited),
+          configuration_validation_policy: DeploymentConfigurationValidationPolicy.default(visited),
         }
       end
 
@@ -824,7 +824,7 @@ module AWS::SDK::GreengrassV2
         return nil if visited.include?('ComponentDeploymentSpecifications')
         visited = visited + ['ComponentDeploymentSpecifications']
         {
-          test_key: Stubs::ComponentDeploymentSpecification.default(visited)
+          test_key: ComponentDeploymentSpecification.default(visited)
         }
       end
 
@@ -845,8 +845,8 @@ module AWS::SDK::GreengrassV2
         visited = visited + ['ComponentDeploymentSpecification']
         {
           component_version: 'component_version',
-          configuration_update: Stubs::ComponentConfigurationUpdate.default(visited),
-          run_with: Stubs::ComponentRunWith.default(visited),
+          configuration_update: ComponentConfigurationUpdate.default(visited),
+          run_with: ComponentRunWith.default(visited),
         }
       end
 
@@ -867,7 +867,7 @@ module AWS::SDK::GreengrassV2
         visited = visited + ['ComponentRunWith']
         {
           posix_user: 'posix_user',
-          system_resource_limits: Stubs::SystemResourceLimits.default(visited),
+          system_resource_limits: SystemResourceLimits.default(visited),
           windows_user: 'windows_user',
         }
       end
@@ -909,7 +909,7 @@ module AWS::SDK::GreengrassV2
         visited = visited + ['ComponentConfigurationUpdate']
         {
           merge: 'merge',
-          reset: Stubs::ComponentConfigurationPathList.default(visited),
+          reset: ComponentConfigurationPathList.default(visited),
         }
       end
 
@@ -965,7 +965,7 @@ module AWS::SDK::GreengrassV2
     class ListClientDevicesAssociatedWithCoreDevice
       def self.default(visited=[])
         {
-          associated_client_devices: Stubs::AssociatedClientDeviceList.default(visited),
+          associated_client_devices: AssociatedClientDeviceList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -986,7 +986,7 @@ module AWS::SDK::GreengrassV2
         return nil if visited.include?('AssociatedClientDeviceList')
         visited = visited + ['AssociatedClientDeviceList']
         [
-          Stubs::AssociatedClientDevice.default(visited)
+          AssociatedClientDevice.default(visited)
         ]
       end
 
@@ -1024,7 +1024,7 @@ module AWS::SDK::GreengrassV2
     class ListComponentVersions
       def self.default(visited=[])
         {
-          component_versions: Stubs::ComponentVersionList.default(visited),
+          component_versions: ComponentVersionList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1045,7 +1045,7 @@ module AWS::SDK::GreengrassV2
         return nil if visited.include?('ComponentVersionList')
         visited = visited + ['ComponentVersionList']
         [
-          Stubs::ComponentVersionListItem.default(visited)
+          ComponentVersionListItem.default(visited)
         ]
       end
 
@@ -1085,7 +1085,7 @@ module AWS::SDK::GreengrassV2
     class ListComponents
       def self.default(visited=[])
         {
-          components: Stubs::ComponentList.default(visited),
+          components: ComponentList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1106,7 +1106,7 @@ module AWS::SDK::GreengrassV2
         return nil if visited.include?('ComponentList')
         visited = visited + ['ComponentList']
         [
-          Stubs::Component.default(visited)
+          Component.default(visited)
         ]
       end
 
@@ -1128,7 +1128,7 @@ module AWS::SDK::GreengrassV2
         {
           arn: 'arn',
           component_name: 'component_name',
-          latest_version: Stubs::ComponentLatestVersion.default(visited),
+          latest_version: ComponentLatestVersion.default(visited),
         }
       end
 
@@ -1153,7 +1153,7 @@ module AWS::SDK::GreengrassV2
           creation_timestamp: Time.now,
           description: 'description',
           publisher: 'publisher',
-          platforms: Stubs::ComponentPlatformList.default(visited),
+          platforms: ComponentPlatformList.default(visited),
         }
       end
 
@@ -1174,7 +1174,7 @@ module AWS::SDK::GreengrassV2
     class ListCoreDevices
       def self.default(visited=[])
         {
-          core_devices: Stubs::CoreDevicesList.default(visited),
+          core_devices: CoreDevicesList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1195,7 +1195,7 @@ module AWS::SDK::GreengrassV2
         return nil if visited.include?('CoreDevicesList')
         visited = visited + ['CoreDevicesList']
         [
-          Stubs::CoreDevice.default(visited)
+          CoreDevice.default(visited)
         ]
       end
 
@@ -1235,7 +1235,7 @@ module AWS::SDK::GreengrassV2
     class ListDeployments
       def self.default(visited=[])
         {
-          deployments: Stubs::DeploymentList.default(visited),
+          deployments: DeploymentList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1256,7 +1256,7 @@ module AWS::SDK::GreengrassV2
         return nil if visited.include?('DeploymentList')
         visited = visited + ['DeploymentList']
         [
-          Stubs::Deployment.default(visited)
+          Deployment.default(visited)
         ]
       end
 
@@ -1304,7 +1304,7 @@ module AWS::SDK::GreengrassV2
     class ListEffectiveDeployments
       def self.default(visited=[])
         {
-          effective_deployments: Stubs::EffectiveDeploymentsList.default(visited),
+          effective_deployments: EffectiveDeploymentsList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1325,7 +1325,7 @@ module AWS::SDK::GreengrassV2
         return nil if visited.include?('EffectiveDeploymentsList')
         visited = visited + ['EffectiveDeploymentsList']
         [
-          Stubs::EffectiveDeployment.default(visited)
+          EffectiveDeployment.default(visited)
         ]
       end
 
@@ -1379,7 +1379,7 @@ module AWS::SDK::GreengrassV2
     class ListInstalledComponents
       def self.default(visited=[])
         {
-          installed_components: Stubs::InstalledComponentList.default(visited),
+          installed_components: InstalledComponentList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1400,7 +1400,7 @@ module AWS::SDK::GreengrassV2
         return nil if visited.include?('InstalledComponentList')
         visited = visited + ['InstalledComponentList']
         [
-          Stubs::InstalledComponent.default(visited)
+          InstalledComponent.default(visited)
         ]
       end
 
@@ -1444,7 +1444,7 @@ module AWS::SDK::GreengrassV2
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -1461,7 +1461,7 @@ module AWS::SDK::GreengrassV2
     class ResolveComponentCandidates
       def self.default(visited=[])
         {
-          resolved_component_versions: Stubs::ResolvedComponentVersionsList.default(visited),
+          resolved_component_versions: ResolvedComponentVersionsList.default(visited),
         }
       end
 
@@ -1480,7 +1480,7 @@ module AWS::SDK::GreengrassV2
         return nil if visited.include?('ResolvedComponentVersionsList')
         visited = visited + ['ResolvedComponentVersionsList']
         [
-          Stubs::ResolvedComponentVersion.default(visited)
+          ResolvedComponentVersion.default(visited)
         ]
       end
 

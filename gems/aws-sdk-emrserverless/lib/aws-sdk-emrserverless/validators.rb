@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::EMRServerless
   module Validators
 
@@ -20,14 +22,14 @@ module AWS::SDK::EMRServerless
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
         Hearth::Validator.validate!(input[:state_details], ::String, context: "#{context}[:state_details]")
-        Validators::InitialCapacityConfigMap.validate!(input[:initial_capacity], context: "#{context}[:initial_capacity]") unless input[:initial_capacity].nil?
-        Validators::MaximumAllowedResources.validate!(input[:maximum_capacity], context: "#{context}[:maximum_capacity]") unless input[:maximum_capacity].nil?
+        InitialCapacityConfigMap.validate!(input[:initial_capacity], context: "#{context}[:initial_capacity]") unless input[:initial_capacity].nil?
+        MaximumAllowedResources.validate!(input[:maximum_capacity], context: "#{context}[:maximum_capacity]") unless input[:maximum_capacity].nil?
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:updated_at], ::Time, context: "#{context}[:updated_at]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::AutoStartConfig.validate!(input[:auto_start_configuration], context: "#{context}[:auto_start_configuration]") unless input[:auto_start_configuration].nil?
-        Validators::AutoStopConfig.validate!(input[:auto_stop_configuration], context: "#{context}[:auto_stop_configuration]") unless input[:auto_stop_configuration].nil?
-        Validators::NetworkConfiguration.validate!(input[:network_configuration], context: "#{context}[:network_configuration]") unless input[:network_configuration].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        AutoStartConfig.validate!(input[:auto_start_configuration], context: "#{context}[:auto_start_configuration]") unless input[:auto_start_configuration].nil?
+        AutoStopConfig.validate!(input[:auto_stop_configuration], context: "#{context}[:auto_stop_configuration]") unless input[:auto_stop_configuration].nil?
+        NetworkConfiguration.validate!(input[:network_configuration], context: "#{context}[:network_configuration]") unless input[:network_configuration].nil?
       end
     end
 
@@ -35,14 +37,14 @@ module AWS::SDK::EMRServerless
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ApplicationSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ApplicationSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
 
     class ApplicationStateSet
       def self.validate!(input, context:)
-        Hearth::Validator.validate!(input, ::Set, context: context)
+        Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
           Hearth::Validator.validate!(element, ::String, context: "#{context}[#{index}]")
         end
@@ -99,8 +101,8 @@ module AWS::SDK::EMRServerless
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Configuration, context: context)
         Hearth::Validator.validate!(input[:classification], ::String, context: "#{context}[:classification]")
-        Validators::SensitivePropertiesMap.validate!(input[:properties], context: "#{context}[:properties]") unless input[:properties].nil?
-        Validators::ConfigurationList.validate!(input[:configurations], context: "#{context}[:configurations]") unless input[:configurations].nil?
+        SensitivePropertiesMap.validate!(input[:properties], context: "#{context}[:properties]") unless input[:properties].nil?
+        ConfigurationList.validate!(input[:configurations], context: "#{context}[:configurations]") unless input[:configurations].nil?
       end
     end
 
@@ -108,7 +110,7 @@ module AWS::SDK::EMRServerless
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Configuration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Configuration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -116,8 +118,8 @@ module AWS::SDK::EMRServerless
     class ConfigurationOverrides
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ConfigurationOverrides, context: context)
-        Validators::ConfigurationList.validate!(input[:application_configuration], context: "#{context}[:application_configuration]") unless input[:application_configuration].nil?
-        Validators::MonitoringConfiguration.validate!(input[:monitoring_configuration], context: "#{context}[:monitoring_configuration]") unless input[:monitoring_configuration].nil?
+        ConfigurationList.validate!(input[:application_configuration], context: "#{context}[:application_configuration]") unless input[:application_configuration].nil?
+        MonitoringConfiguration.validate!(input[:monitoring_configuration], context: "#{context}[:monitoring_configuration]") unless input[:monitoring_configuration].nil?
       end
     end
 
@@ -135,12 +137,12 @@ module AWS::SDK::EMRServerless
         Hearth::Validator.validate!(input[:release_label], ::String, context: "#{context}[:release_label]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
-        Validators::InitialCapacityConfigMap.validate!(input[:initial_capacity], context: "#{context}[:initial_capacity]") unless input[:initial_capacity].nil?
-        Validators::MaximumAllowedResources.validate!(input[:maximum_capacity], context: "#{context}[:maximum_capacity]") unless input[:maximum_capacity].nil?
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::AutoStartConfig.validate!(input[:auto_start_configuration], context: "#{context}[:auto_start_configuration]") unless input[:auto_start_configuration].nil?
-        Validators::AutoStopConfig.validate!(input[:auto_stop_configuration], context: "#{context}[:auto_stop_configuration]") unless input[:auto_stop_configuration].nil?
-        Validators::NetworkConfiguration.validate!(input[:network_configuration], context: "#{context}[:network_configuration]") unless input[:network_configuration].nil?
+        InitialCapacityConfigMap.validate!(input[:initial_capacity], context: "#{context}[:initial_capacity]") unless input[:initial_capacity].nil?
+        MaximumAllowedResources.validate!(input[:maximum_capacity], context: "#{context}[:maximum_capacity]") unless input[:maximum_capacity].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        AutoStartConfig.validate!(input[:auto_start_configuration], context: "#{context}[:auto_start_configuration]") unless input[:auto_start_configuration].nil?
+        AutoStopConfig.validate!(input[:auto_stop_configuration], context: "#{context}[:auto_stop_configuration]") unless input[:auto_stop_configuration].nil?
+        NetworkConfiguration.validate!(input[:network_configuration], context: "#{context}[:network_configuration]") unless input[:network_configuration].nil?
       end
     end
 
@@ -185,7 +187,7 @@ module AWS::SDK::EMRServerless
     class GetApplicationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetApplicationOutput, context: context)
-        Validators::Application.validate!(input[:application], context: "#{context}[:application]") unless input[:application].nil?
+        Application.validate!(input[:application], context: "#{context}[:application]") unless input[:application].nil?
       end
     end
 
@@ -200,7 +202,7 @@ module AWS::SDK::EMRServerless
     class GetJobRunOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetJobRunOutput, context: context)
-        Validators::JobRun.validate!(input[:job_run], context: "#{context}[:job_run]") unless input[:job_run].nil?
+        JobRun.validate!(input[:job_run], context: "#{context}[:job_run]") unless input[:job_run].nil?
       end
     end
 
@@ -217,7 +219,7 @@ module AWS::SDK::EMRServerless
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::InitialCapacityConfig, context: context)
         Hearth::Validator.validate!(input[:worker_count], ::Integer, context: "#{context}[:worker_count]")
-        Validators::WorkerResourceConfig.validate!(input[:worker_configuration], context: "#{context}[:worker_configuration]") unless input[:worker_configuration].nil?
+        WorkerResourceConfig.validate!(input[:worker_configuration], context: "#{context}[:worker_configuration]") unless input[:worker_configuration].nil?
       end
     end
 
@@ -226,7 +228,7 @@ module AWS::SDK::EMRServerless
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::InitialCapacityConfig.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          InitialCapacityConfig.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -242,9 +244,9 @@ module AWS::SDK::EMRServerless
       def self.validate!(input, context:)
         case input
         when Types::JobDriver::SparkSubmit
-          Validators::SparkSubmit.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          SparkSubmit.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::JobDriver::Hive
-          Validators::Hive.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          Hive.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         else
           raise ArgumentError,
                 "Expected #{context} to be a union member of "\
@@ -279,18 +281,18 @@ module AWS::SDK::EMRServerless
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
         Hearth::Validator.validate!(input[:state_details], ::String, context: "#{context}[:state_details]")
         Hearth::Validator.validate!(input[:release_label], ::String, context: "#{context}[:release_label]")
-        Validators::ConfigurationOverrides.validate!(input[:configuration_overrides], context: "#{context}[:configuration_overrides]") unless input[:configuration_overrides].nil?
-        Validators::JobDriver.validate!(input[:job_driver], context: "#{context}[:job_driver]") unless input[:job_driver].nil?
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::TotalResourceUtilization.validate!(input[:total_resource_utilization], context: "#{context}[:total_resource_utilization]") unless input[:total_resource_utilization].nil?
-        Validators::NetworkConfiguration.validate!(input[:network_configuration], context: "#{context}[:network_configuration]") unless input[:network_configuration].nil?
+        ConfigurationOverrides.validate!(input[:configuration_overrides], context: "#{context}[:configuration_overrides]") unless input[:configuration_overrides].nil?
+        JobDriver.validate!(input[:job_driver], context: "#{context}[:job_driver]") unless input[:job_driver].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TotalResourceUtilization.validate!(input[:total_resource_utilization], context: "#{context}[:total_resource_utilization]") unless input[:total_resource_utilization].nil?
+        NetworkConfiguration.validate!(input[:network_configuration], context: "#{context}[:network_configuration]") unless input[:network_configuration].nil?
         Hearth::Validator.validate!(input[:total_execution_duration_seconds], ::Integer, context: "#{context}[:total_execution_duration_seconds]")
       end
     end
 
     class JobRunStateSet
       def self.validate!(input, context:)
-        Hearth::Validator.validate!(input, ::Set, context: context)
+        Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
           Hearth::Validator.validate!(element, ::String, context: "#{context}[#{index}]")
         end
@@ -319,7 +321,7 @@ module AWS::SDK::EMRServerless
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::JobRunSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          JobRunSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -329,14 +331,14 @@ module AWS::SDK::EMRServerless
         Hearth::Validator.validate!(input, Types::ListApplicationsInput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
-        Validators::ApplicationStateSet.validate!(input[:states], context: "#{context}[:states]") unless input[:states].nil?
+        ApplicationStateSet.validate!(input[:states], context: "#{context}[:states]") unless input[:states].nil?
       end
     end
 
     class ListApplicationsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListApplicationsOutput, context: context)
-        Validators::ApplicationList.validate!(input[:applications], context: "#{context}[:applications]") unless input[:applications].nil?
+        ApplicationList.validate!(input[:applications], context: "#{context}[:applications]") unless input[:applications].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -349,14 +351,14 @@ module AWS::SDK::EMRServerless
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:created_at_after], ::Time, context: "#{context}[:created_at_after]")
         Hearth::Validator.validate!(input[:created_at_before], ::Time, context: "#{context}[:created_at_before]")
-        Validators::JobRunStateSet.validate!(input[:states], context: "#{context}[:states]") unless input[:states].nil?
+        JobRunStateSet.validate!(input[:states], context: "#{context}[:states]") unless input[:states].nil?
       end
     end
 
     class ListJobRunsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListJobRunsOutput, context: context)
-        Validators::JobRuns.validate!(input[:job_runs], context: "#{context}[:job_runs]") unless input[:job_runs].nil?
+        JobRuns.validate!(input[:job_runs], context: "#{context}[:job_runs]") unless input[:job_runs].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -371,7 +373,7 @@ module AWS::SDK::EMRServerless
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -395,16 +397,16 @@ module AWS::SDK::EMRServerless
     class MonitoringConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::MonitoringConfiguration, context: context)
-        Validators::S3MonitoringConfiguration.validate!(input[:s3_monitoring_configuration], context: "#{context}[:s3_monitoring_configuration]") unless input[:s3_monitoring_configuration].nil?
-        Validators::ManagedPersistenceMonitoringConfiguration.validate!(input[:managed_persistence_monitoring_configuration], context: "#{context}[:managed_persistence_monitoring_configuration]") unless input[:managed_persistence_monitoring_configuration].nil?
+        S3MonitoringConfiguration.validate!(input[:s3_monitoring_configuration], context: "#{context}[:s3_monitoring_configuration]") unless input[:s3_monitoring_configuration].nil?
+        ManagedPersistenceMonitoringConfiguration.validate!(input[:managed_persistence_monitoring_configuration], context: "#{context}[:managed_persistence_monitoring_configuration]") unless input[:managed_persistence_monitoring_configuration].nil?
       end
     end
 
     class NetworkConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::NetworkConfiguration, context: context)
-        Validators::SubnetIds.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
-        Validators::SecurityGroupIds.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
+        SubnetIds.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
+        SecurityGroupIds.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
       end
     end
 
@@ -453,7 +455,7 @@ module AWS::SDK::EMRServerless
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SparkSubmit, context: context)
         Hearth::Validator.validate!(input[:entry_point], ::String, context: "#{context}[:entry_point]")
-        Validators::EntryPointArguments.validate!(input[:entry_point_arguments], context: "#{context}[:entry_point_arguments]") unless input[:entry_point_arguments].nil?
+        EntryPointArguments.validate!(input[:entry_point_arguments], context: "#{context}[:entry_point_arguments]") unless input[:entry_point_arguments].nil?
         Hearth::Validator.validate!(input[:spark_submit_parameters], ::String, context: "#{context}[:spark_submit_parameters]")
       end
     end
@@ -477,9 +479,9 @@ module AWS::SDK::EMRServerless
         Hearth::Validator.validate!(input[:application_id], ::String, context: "#{context}[:application_id]")
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
         Hearth::Validator.validate!(input[:execution_role_arn], ::String, context: "#{context}[:execution_role_arn]")
-        Validators::JobDriver.validate!(input[:job_driver], context: "#{context}[:job_driver]") unless input[:job_driver].nil?
-        Validators::ConfigurationOverrides.validate!(input[:configuration_overrides], context: "#{context}[:configuration_overrides]") unless input[:configuration_overrides].nil?
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        JobDriver.validate!(input[:job_driver], context: "#{context}[:job_driver]") unless input[:job_driver].nil?
+        ConfigurationOverrides.validate!(input[:configuration_overrides], context: "#{context}[:configuration_overrides]") unless input[:configuration_overrides].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:execution_timeout_minutes], ::Integer, context: "#{context}[:execution_timeout_minutes]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
       end
@@ -539,7 +541,7 @@ module AWS::SDK::EMRServerless
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -562,7 +564,7 @@ module AWS::SDK::EMRServerless
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -577,18 +579,18 @@ module AWS::SDK::EMRServerless
         Hearth::Validator.validate!(input, Types::UpdateApplicationInput, context: context)
         Hearth::Validator.validate!(input[:application_id], ::String, context: "#{context}[:application_id]")
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
-        Validators::InitialCapacityConfigMap.validate!(input[:initial_capacity], context: "#{context}[:initial_capacity]") unless input[:initial_capacity].nil?
-        Validators::MaximumAllowedResources.validate!(input[:maximum_capacity], context: "#{context}[:maximum_capacity]") unless input[:maximum_capacity].nil?
-        Validators::AutoStartConfig.validate!(input[:auto_start_configuration], context: "#{context}[:auto_start_configuration]") unless input[:auto_start_configuration].nil?
-        Validators::AutoStopConfig.validate!(input[:auto_stop_configuration], context: "#{context}[:auto_stop_configuration]") unless input[:auto_stop_configuration].nil?
-        Validators::NetworkConfiguration.validate!(input[:network_configuration], context: "#{context}[:network_configuration]") unless input[:network_configuration].nil?
+        InitialCapacityConfigMap.validate!(input[:initial_capacity], context: "#{context}[:initial_capacity]") unless input[:initial_capacity].nil?
+        MaximumAllowedResources.validate!(input[:maximum_capacity], context: "#{context}[:maximum_capacity]") unless input[:maximum_capacity].nil?
+        AutoStartConfig.validate!(input[:auto_start_configuration], context: "#{context}[:auto_start_configuration]") unless input[:auto_start_configuration].nil?
+        AutoStopConfig.validate!(input[:auto_stop_configuration], context: "#{context}[:auto_stop_configuration]") unless input[:auto_stop_configuration].nil?
+        NetworkConfiguration.validate!(input[:network_configuration], context: "#{context}[:network_configuration]") unless input[:network_configuration].nil?
       end
     end
 
     class UpdateApplicationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateApplicationOutput, context: context)
-        Validators::Application.validate!(input[:application], context: "#{context}[:application]") unless input[:application].nil?
+        Application.validate!(input[:application], context: "#{context}[:application]") unless input[:application].nil?
       end
     end
 

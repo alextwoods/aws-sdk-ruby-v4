@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::ServerlessApplicationRepository
@@ -177,7 +179,7 @@ module AWS::SDK::ServerlessApplicationRepository
     def create_application(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateApplicationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateApplicationInput,
         validate_input: @config.validate_input
@@ -290,7 +292,7 @@ module AWS::SDK::ServerlessApplicationRepository
     def create_application_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateApplicationVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateApplicationVersionInput,
         validate_input: @config.validate_input
@@ -460,7 +462,7 @@ module AWS::SDK::ServerlessApplicationRepository
     def create_cloud_formation_change_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateCloudFormationChangeSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateCloudFormationChangeSetInput,
         validate_input: @config.validate_input
@@ -541,7 +543,7 @@ module AWS::SDK::ServerlessApplicationRepository
     def create_cloud_formation_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateCloudFormationTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateCloudFormationTemplateInput,
         validate_input: @config.validate_input
@@ -609,7 +611,7 @@ module AWS::SDK::ServerlessApplicationRepository
     def delete_application(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteApplicationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteApplicationInput,
         validate_input: @config.validate_input
@@ -718,7 +720,7 @@ module AWS::SDK::ServerlessApplicationRepository
     def get_application(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetApplicationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetApplicationInput,
         validate_input: @config.validate_input
@@ -792,7 +794,7 @@ module AWS::SDK::ServerlessApplicationRepository
     def get_application_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetApplicationPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetApplicationPolicyInput,
         validate_input: @config.validate_input
@@ -870,7 +872,7 @@ module AWS::SDK::ServerlessApplicationRepository
     def get_cloud_formation_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCloudFormationTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCloudFormationTemplateInput,
         validate_input: @config.validate_input
@@ -954,7 +956,7 @@ module AWS::SDK::ServerlessApplicationRepository
     def list_application_dependencies(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListApplicationDependenciesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListApplicationDependenciesInput,
         validate_input: @config.validate_input
@@ -1036,7 +1038,7 @@ module AWS::SDK::ServerlessApplicationRepository
     def list_application_versions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListApplicationVersionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListApplicationVersionsInput,
         validate_input: @config.validate_input
@@ -1119,7 +1121,7 @@ module AWS::SDK::ServerlessApplicationRepository
     def list_applications(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListApplicationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListApplicationsInput,
         validate_input: @config.validate_input
@@ -1207,7 +1209,7 @@ module AWS::SDK::ServerlessApplicationRepository
     def put_application_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutApplicationPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutApplicationPolicyInput,
         validate_input: @config.validate_input
@@ -1279,7 +1281,7 @@ module AWS::SDK::ServerlessApplicationRepository
     def unshare_application(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UnshareApplicationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UnshareApplicationInput,
         validate_input: @config.validate_input
@@ -1411,7 +1413,7 @@ module AWS::SDK::ServerlessApplicationRepository
     def update_application(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateApplicationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateApplicationInput,
         validate_input: @config.validate_input

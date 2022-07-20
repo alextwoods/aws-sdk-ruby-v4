@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::Transcribe
@@ -154,14 +156,48 @@ module AWS::SDK::Transcribe
     #   resp.data.category_properties #=> Types::CategoryProperties
     #   resp.data.category_properties.category_name #=> String
     #   resp.data.category_properties.rules #=> Array<Rule>
-    #   resp.data.category_properties.rules[0] #=> Rule
+    #   resp.data.category_properties.rules[0] #=> Types::Rule, one of [NonTalkTimeFilter, InterruptionFilter, TranscriptFilter, SentimentFilter]
+    #   resp.data.category_properties.rules[0].non_talk_time_filter #=> Types::NonTalkTimeFilter
+    #   resp.data.category_properties.rules[0].non_talk_time_filter.threshold #=> Integer
+    #   resp.data.category_properties.rules[0].non_talk_time_filter.absolute_time_range #=> Types::AbsoluteTimeRange
+    #   resp.data.category_properties.rules[0].non_talk_time_filter.absolute_time_range.start_time #=> Integer
+    #   resp.data.category_properties.rules[0].non_talk_time_filter.absolute_time_range.end_time #=> Integer
+    #   resp.data.category_properties.rules[0].non_talk_time_filter.absolute_time_range.first #=> Integer
+    #   resp.data.category_properties.rules[0].non_talk_time_filter.absolute_time_range.last #=> Integer
+    #   resp.data.category_properties.rules[0].non_talk_time_filter.relative_time_range #=> Types::RelativeTimeRange
+    #   resp.data.category_properties.rules[0].non_talk_time_filter.relative_time_range.start_percentage #=> Integer
+    #   resp.data.category_properties.rules[0].non_talk_time_filter.relative_time_range.end_percentage #=> Integer
+    #   resp.data.category_properties.rules[0].non_talk_time_filter.relative_time_range.first #=> Integer
+    #   resp.data.category_properties.rules[0].non_talk_time_filter.relative_time_range.last #=> Integer
+    #   resp.data.category_properties.rules[0].non_talk_time_filter.negate #=> Boolean
+    #   resp.data.category_properties.rules[0].interruption_filter #=> Types::InterruptionFilter
+    #   resp.data.category_properties.rules[0].interruption_filter.threshold #=> Integer
+    #   resp.data.category_properties.rules[0].interruption_filter.participant_role #=> String, one of ["AGENT", "CUSTOMER"]
+    #   resp.data.category_properties.rules[0].interruption_filter.absolute_time_range #=> Types::AbsoluteTimeRange
+    #   resp.data.category_properties.rules[0].interruption_filter.relative_time_range #=> Types::RelativeTimeRange
+    #   resp.data.category_properties.rules[0].interruption_filter.negate #=> Boolean
+    #   resp.data.category_properties.rules[0].transcript_filter #=> Types::TranscriptFilter
+    #   resp.data.category_properties.rules[0].transcript_filter.transcript_filter_type #=> String, one of ["EXACT"]
+    #   resp.data.category_properties.rules[0].transcript_filter.absolute_time_range #=> Types::AbsoluteTimeRange
+    #   resp.data.category_properties.rules[0].transcript_filter.relative_time_range #=> Types::RelativeTimeRange
+    #   resp.data.category_properties.rules[0].transcript_filter.participant_role #=> String, one of ["AGENT", "CUSTOMER"]
+    #   resp.data.category_properties.rules[0].transcript_filter.negate #=> Boolean
+    #   resp.data.category_properties.rules[0].transcript_filter.targets #=> Array<String>
+    #   resp.data.category_properties.rules[0].transcript_filter.targets[0] #=> String
+    #   resp.data.category_properties.rules[0].sentiment_filter #=> Types::SentimentFilter
+    #   resp.data.category_properties.rules[0].sentiment_filter.sentiments #=> Array<String>
+    #   resp.data.category_properties.rules[0].sentiment_filter.sentiments[0] #=> String, one of ["POSITIVE", "NEGATIVE", "NEUTRAL", "MIXED"]
+    #   resp.data.category_properties.rules[0].sentiment_filter.absolute_time_range #=> Types::AbsoluteTimeRange
+    #   resp.data.category_properties.rules[0].sentiment_filter.relative_time_range #=> Types::RelativeTimeRange
+    #   resp.data.category_properties.rules[0].sentiment_filter.participant_role #=> String, one of ["AGENT", "CUSTOMER"]
+    #   resp.data.category_properties.rules[0].sentiment_filter.negate #=> Boolean
     #   resp.data.category_properties.create_time #=> Time
     #   resp.data.category_properties.last_update_time #=> Time
     #
     def create_call_analytics_category(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateCallAnalyticsCategoryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateCallAnalyticsCategoryInput,
         validate_input: @config.validate_input
@@ -306,7 +342,7 @@ module AWS::SDK::Transcribe
     def create_language_model(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateLanguageModelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateLanguageModelInput,
         validate_input: @config.validate_input
@@ -419,7 +455,7 @@ module AWS::SDK::Transcribe
     def create_medical_vocabulary(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateMedicalVocabularyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateMedicalVocabularyInput,
         validate_input: @config.validate_input
@@ -552,7 +588,7 @@ module AWS::SDK::Transcribe
     def create_vocabulary(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateVocabularyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateVocabularyInput,
         validate_input: @config.validate_input
@@ -683,7 +719,7 @@ module AWS::SDK::Transcribe
     def create_vocabulary_filter(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateVocabularyFilterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateVocabularyFilterInput,
         validate_input: @config.validate_input
@@ -754,7 +790,7 @@ module AWS::SDK::Transcribe
     def delete_call_analytics_category(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteCallAnalyticsCategoryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteCallAnalyticsCategoryInput,
         validate_input: @config.validate_input
@@ -823,7 +859,7 @@ module AWS::SDK::Transcribe
     def delete_call_analytics_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteCallAnalyticsJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteCallAnalyticsJobInput,
         validate_input: @config.validate_input
@@ -894,7 +930,7 @@ module AWS::SDK::Transcribe
     def delete_language_model(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteLanguageModelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteLanguageModelInput,
         validate_input: @config.validate_input
@@ -965,7 +1001,7 @@ module AWS::SDK::Transcribe
     def delete_medical_transcription_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteMedicalTranscriptionJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteMedicalTranscriptionJobInput,
         validate_input: @config.validate_input
@@ -1036,7 +1072,7 @@ module AWS::SDK::Transcribe
     def delete_medical_vocabulary(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteMedicalVocabularyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteMedicalVocabularyInput,
         validate_input: @config.validate_input
@@ -1105,7 +1141,7 @@ module AWS::SDK::Transcribe
     def delete_transcription_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteTranscriptionJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteTranscriptionJobInput,
         validate_input: @config.validate_input
@@ -1176,7 +1212,7 @@ module AWS::SDK::Transcribe
     def delete_vocabulary(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteVocabularyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteVocabularyInput,
         validate_input: @config.validate_input
@@ -1247,7 +1283,7 @@ module AWS::SDK::Transcribe
     def delete_vocabulary_filter(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteVocabularyFilterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteVocabularyFilterInput,
         validate_input: @config.validate_input
@@ -1337,7 +1373,7 @@ module AWS::SDK::Transcribe
     def describe_language_model(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeLanguageModelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeLanguageModelInput,
         validate_input: @config.validate_input
@@ -1407,14 +1443,48 @@ module AWS::SDK::Transcribe
     #   resp.data.category_properties #=> Types::CategoryProperties
     #   resp.data.category_properties.category_name #=> String
     #   resp.data.category_properties.rules #=> Array<Rule>
-    #   resp.data.category_properties.rules[0] #=> Rule
+    #   resp.data.category_properties.rules[0] #=> Types::Rule, one of [NonTalkTimeFilter, InterruptionFilter, TranscriptFilter, SentimentFilter]
+    #   resp.data.category_properties.rules[0].non_talk_time_filter #=> Types::NonTalkTimeFilter
+    #   resp.data.category_properties.rules[0].non_talk_time_filter.threshold #=> Integer
+    #   resp.data.category_properties.rules[0].non_talk_time_filter.absolute_time_range #=> Types::AbsoluteTimeRange
+    #   resp.data.category_properties.rules[0].non_talk_time_filter.absolute_time_range.start_time #=> Integer
+    #   resp.data.category_properties.rules[0].non_talk_time_filter.absolute_time_range.end_time #=> Integer
+    #   resp.data.category_properties.rules[0].non_talk_time_filter.absolute_time_range.first #=> Integer
+    #   resp.data.category_properties.rules[0].non_talk_time_filter.absolute_time_range.last #=> Integer
+    #   resp.data.category_properties.rules[0].non_talk_time_filter.relative_time_range #=> Types::RelativeTimeRange
+    #   resp.data.category_properties.rules[0].non_talk_time_filter.relative_time_range.start_percentage #=> Integer
+    #   resp.data.category_properties.rules[0].non_talk_time_filter.relative_time_range.end_percentage #=> Integer
+    #   resp.data.category_properties.rules[0].non_talk_time_filter.relative_time_range.first #=> Integer
+    #   resp.data.category_properties.rules[0].non_talk_time_filter.relative_time_range.last #=> Integer
+    #   resp.data.category_properties.rules[0].non_talk_time_filter.negate #=> Boolean
+    #   resp.data.category_properties.rules[0].interruption_filter #=> Types::InterruptionFilter
+    #   resp.data.category_properties.rules[0].interruption_filter.threshold #=> Integer
+    #   resp.data.category_properties.rules[0].interruption_filter.participant_role #=> String, one of ["AGENT", "CUSTOMER"]
+    #   resp.data.category_properties.rules[0].interruption_filter.absolute_time_range #=> Types::AbsoluteTimeRange
+    #   resp.data.category_properties.rules[0].interruption_filter.relative_time_range #=> Types::RelativeTimeRange
+    #   resp.data.category_properties.rules[0].interruption_filter.negate #=> Boolean
+    #   resp.data.category_properties.rules[0].transcript_filter #=> Types::TranscriptFilter
+    #   resp.data.category_properties.rules[0].transcript_filter.transcript_filter_type #=> String, one of ["EXACT"]
+    #   resp.data.category_properties.rules[0].transcript_filter.absolute_time_range #=> Types::AbsoluteTimeRange
+    #   resp.data.category_properties.rules[0].transcript_filter.relative_time_range #=> Types::RelativeTimeRange
+    #   resp.data.category_properties.rules[0].transcript_filter.participant_role #=> String, one of ["AGENT", "CUSTOMER"]
+    #   resp.data.category_properties.rules[0].transcript_filter.negate #=> Boolean
+    #   resp.data.category_properties.rules[0].transcript_filter.targets #=> Array<String>
+    #   resp.data.category_properties.rules[0].transcript_filter.targets[0] #=> String
+    #   resp.data.category_properties.rules[0].sentiment_filter #=> Types::SentimentFilter
+    #   resp.data.category_properties.rules[0].sentiment_filter.sentiments #=> Array<String>
+    #   resp.data.category_properties.rules[0].sentiment_filter.sentiments[0] #=> String, one of ["POSITIVE", "NEGATIVE", "NEUTRAL", "MIXED"]
+    #   resp.data.category_properties.rules[0].sentiment_filter.absolute_time_range #=> Types::AbsoluteTimeRange
+    #   resp.data.category_properties.rules[0].sentiment_filter.relative_time_range #=> Types::RelativeTimeRange
+    #   resp.data.category_properties.rules[0].sentiment_filter.participant_role #=> String, one of ["AGENT", "CUSTOMER"]
+    #   resp.data.category_properties.rules[0].sentiment_filter.negate #=> Boolean
     #   resp.data.category_properties.create_time #=> Time
     #   resp.data.category_properties.last_update_time #=> Time
     #
     def get_call_analytics_category(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCallAnalyticsCategoryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCallAnalyticsCategoryInput,
         validate_input: @config.validate_input
@@ -1532,7 +1602,7 @@ module AWS::SDK::Transcribe
     def get_call_analytics_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCallAnalyticsJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCallAnalyticsJobInput,
         validate_input: @config.validate_input
@@ -1637,7 +1707,7 @@ module AWS::SDK::Transcribe
     def get_medical_transcription_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetMedicalTranscriptionJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetMedicalTranscriptionJobInput,
         validate_input: @config.validate_input
@@ -1718,7 +1788,7 @@ module AWS::SDK::Transcribe
     def get_medical_vocabulary(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetMedicalVocabularyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetMedicalVocabularyInput,
         validate_input: @config.validate_input
@@ -1855,7 +1925,7 @@ module AWS::SDK::Transcribe
     def get_transcription_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetTranscriptionJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetTranscriptionJobInput,
         validate_input: @config.validate_input
@@ -1936,7 +2006,7 @@ module AWS::SDK::Transcribe
     def get_vocabulary(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetVocabularyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetVocabularyInput,
         validate_input: @config.validate_input
@@ -2015,7 +2085,7 @@ module AWS::SDK::Transcribe
     def get_vocabulary_filter(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetVocabularyFilterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetVocabularyFilterInput,
         validate_input: @config.validate_input
@@ -2096,14 +2166,48 @@ module AWS::SDK::Transcribe
     #   resp.data.categories[0] #=> Types::CategoryProperties
     #   resp.data.categories[0].category_name #=> String
     #   resp.data.categories[0].rules #=> Array<Rule>
-    #   resp.data.categories[0].rules[0] #=> Rule
+    #   resp.data.categories[0].rules[0] #=> Types::Rule, one of [NonTalkTimeFilter, InterruptionFilter, TranscriptFilter, SentimentFilter]
+    #   resp.data.categories[0].rules[0].non_talk_time_filter #=> Types::NonTalkTimeFilter
+    #   resp.data.categories[0].rules[0].non_talk_time_filter.threshold #=> Integer
+    #   resp.data.categories[0].rules[0].non_talk_time_filter.absolute_time_range #=> Types::AbsoluteTimeRange
+    #   resp.data.categories[0].rules[0].non_talk_time_filter.absolute_time_range.start_time #=> Integer
+    #   resp.data.categories[0].rules[0].non_talk_time_filter.absolute_time_range.end_time #=> Integer
+    #   resp.data.categories[0].rules[0].non_talk_time_filter.absolute_time_range.first #=> Integer
+    #   resp.data.categories[0].rules[0].non_talk_time_filter.absolute_time_range.last #=> Integer
+    #   resp.data.categories[0].rules[0].non_talk_time_filter.relative_time_range #=> Types::RelativeTimeRange
+    #   resp.data.categories[0].rules[0].non_talk_time_filter.relative_time_range.start_percentage #=> Integer
+    #   resp.data.categories[0].rules[0].non_talk_time_filter.relative_time_range.end_percentage #=> Integer
+    #   resp.data.categories[0].rules[0].non_talk_time_filter.relative_time_range.first #=> Integer
+    #   resp.data.categories[0].rules[0].non_talk_time_filter.relative_time_range.last #=> Integer
+    #   resp.data.categories[0].rules[0].non_talk_time_filter.negate #=> Boolean
+    #   resp.data.categories[0].rules[0].interruption_filter #=> Types::InterruptionFilter
+    #   resp.data.categories[0].rules[0].interruption_filter.threshold #=> Integer
+    #   resp.data.categories[0].rules[0].interruption_filter.participant_role #=> String, one of ["AGENT", "CUSTOMER"]
+    #   resp.data.categories[0].rules[0].interruption_filter.absolute_time_range #=> Types::AbsoluteTimeRange
+    #   resp.data.categories[0].rules[0].interruption_filter.relative_time_range #=> Types::RelativeTimeRange
+    #   resp.data.categories[0].rules[0].interruption_filter.negate #=> Boolean
+    #   resp.data.categories[0].rules[0].transcript_filter #=> Types::TranscriptFilter
+    #   resp.data.categories[0].rules[0].transcript_filter.transcript_filter_type #=> String, one of ["EXACT"]
+    #   resp.data.categories[0].rules[0].transcript_filter.absolute_time_range #=> Types::AbsoluteTimeRange
+    #   resp.data.categories[0].rules[0].transcript_filter.relative_time_range #=> Types::RelativeTimeRange
+    #   resp.data.categories[0].rules[0].transcript_filter.participant_role #=> String, one of ["AGENT", "CUSTOMER"]
+    #   resp.data.categories[0].rules[0].transcript_filter.negate #=> Boolean
+    #   resp.data.categories[0].rules[0].transcript_filter.targets #=> Array<String>
+    #   resp.data.categories[0].rules[0].transcript_filter.targets[0] #=> String
+    #   resp.data.categories[0].rules[0].sentiment_filter #=> Types::SentimentFilter
+    #   resp.data.categories[0].rules[0].sentiment_filter.sentiments #=> Array<String>
+    #   resp.data.categories[0].rules[0].sentiment_filter.sentiments[0] #=> String, one of ["POSITIVE", "NEGATIVE", "NEUTRAL", "MIXED"]
+    #   resp.data.categories[0].rules[0].sentiment_filter.absolute_time_range #=> Types::AbsoluteTimeRange
+    #   resp.data.categories[0].rules[0].sentiment_filter.relative_time_range #=> Types::RelativeTimeRange
+    #   resp.data.categories[0].rules[0].sentiment_filter.participant_role #=> String, one of ["AGENT", "CUSTOMER"]
+    #   resp.data.categories[0].rules[0].sentiment_filter.negate #=> Boolean
     #   resp.data.categories[0].create_time #=> Time
     #   resp.data.categories[0].last_update_time #=> Time
     #
     def list_call_analytics_categories(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListCallAnalyticsCategoriesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListCallAnalyticsCategoriesInput,
         validate_input: @config.validate_input
@@ -2206,7 +2310,7 @@ module AWS::SDK::Transcribe
     def list_call_analytics_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListCallAnalyticsJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListCallAnalyticsJobsInput,
         validate_input: @config.validate_input
@@ -2313,7 +2417,7 @@ module AWS::SDK::Transcribe
     def list_language_models(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListLanguageModelsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListLanguageModelsInput,
         validate_input: @config.validate_input
@@ -2420,7 +2524,7 @@ module AWS::SDK::Transcribe
     def list_medical_transcription_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListMedicalTranscriptionJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListMedicalTranscriptionJobsInput,
         validate_input: @config.validate_input
@@ -2520,7 +2624,7 @@ module AWS::SDK::Transcribe
     def list_medical_vocabularies(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListMedicalVocabulariesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListMedicalVocabulariesInput,
         validate_input: @config.validate_input
@@ -2602,7 +2706,7 @@ module AWS::SDK::Transcribe
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -2720,7 +2824,7 @@ module AWS::SDK::Transcribe
     def list_transcription_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTranscriptionJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTranscriptionJobsInput,
         validate_input: @config.validate_input
@@ -2820,7 +2924,7 @@ module AWS::SDK::Transcribe
     def list_vocabularies(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListVocabulariesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListVocabulariesInput,
         validate_input: @config.validate_input
@@ -2912,7 +3016,7 @@ module AWS::SDK::Transcribe
     def list_vocabulary_filters(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListVocabularyFiltersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListVocabularyFiltersInput,
         validate_input: @config.validate_input
@@ -3199,7 +3303,7 @@ module AWS::SDK::Transcribe
     def start_call_analytics_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartCallAnalyticsJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartCallAnalyticsJobInput,
         validate_input: @config.validate_input
@@ -3527,7 +3631,7 @@ module AWS::SDK::Transcribe
     def start_medical_transcription_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartMedicalTranscriptionJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartMedicalTranscriptionJobInput,
         validate_input: @config.validate_input
@@ -3997,7 +4101,7 @@ module AWS::SDK::Transcribe
     def start_transcription_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartTranscriptionJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartTranscriptionJobInput,
         validate_input: @config.validate_input
@@ -4085,7 +4189,7 @@ module AWS::SDK::Transcribe
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -4169,7 +4273,7 @@ module AWS::SDK::Transcribe
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -4285,14 +4389,48 @@ module AWS::SDK::Transcribe
     #   resp.data.category_properties #=> Types::CategoryProperties
     #   resp.data.category_properties.category_name #=> String
     #   resp.data.category_properties.rules #=> Array<Rule>
-    #   resp.data.category_properties.rules[0] #=> Rule
+    #   resp.data.category_properties.rules[0] #=> Types::Rule, one of [NonTalkTimeFilter, InterruptionFilter, TranscriptFilter, SentimentFilter]
+    #   resp.data.category_properties.rules[0].non_talk_time_filter #=> Types::NonTalkTimeFilter
+    #   resp.data.category_properties.rules[0].non_talk_time_filter.threshold #=> Integer
+    #   resp.data.category_properties.rules[0].non_talk_time_filter.absolute_time_range #=> Types::AbsoluteTimeRange
+    #   resp.data.category_properties.rules[0].non_talk_time_filter.absolute_time_range.start_time #=> Integer
+    #   resp.data.category_properties.rules[0].non_talk_time_filter.absolute_time_range.end_time #=> Integer
+    #   resp.data.category_properties.rules[0].non_talk_time_filter.absolute_time_range.first #=> Integer
+    #   resp.data.category_properties.rules[0].non_talk_time_filter.absolute_time_range.last #=> Integer
+    #   resp.data.category_properties.rules[0].non_talk_time_filter.relative_time_range #=> Types::RelativeTimeRange
+    #   resp.data.category_properties.rules[0].non_talk_time_filter.relative_time_range.start_percentage #=> Integer
+    #   resp.data.category_properties.rules[0].non_talk_time_filter.relative_time_range.end_percentage #=> Integer
+    #   resp.data.category_properties.rules[0].non_talk_time_filter.relative_time_range.first #=> Integer
+    #   resp.data.category_properties.rules[0].non_talk_time_filter.relative_time_range.last #=> Integer
+    #   resp.data.category_properties.rules[0].non_talk_time_filter.negate #=> Boolean
+    #   resp.data.category_properties.rules[0].interruption_filter #=> Types::InterruptionFilter
+    #   resp.data.category_properties.rules[0].interruption_filter.threshold #=> Integer
+    #   resp.data.category_properties.rules[0].interruption_filter.participant_role #=> String, one of ["AGENT", "CUSTOMER"]
+    #   resp.data.category_properties.rules[0].interruption_filter.absolute_time_range #=> Types::AbsoluteTimeRange
+    #   resp.data.category_properties.rules[0].interruption_filter.relative_time_range #=> Types::RelativeTimeRange
+    #   resp.data.category_properties.rules[0].interruption_filter.negate #=> Boolean
+    #   resp.data.category_properties.rules[0].transcript_filter #=> Types::TranscriptFilter
+    #   resp.data.category_properties.rules[0].transcript_filter.transcript_filter_type #=> String, one of ["EXACT"]
+    #   resp.data.category_properties.rules[0].transcript_filter.absolute_time_range #=> Types::AbsoluteTimeRange
+    #   resp.data.category_properties.rules[0].transcript_filter.relative_time_range #=> Types::RelativeTimeRange
+    #   resp.data.category_properties.rules[0].transcript_filter.participant_role #=> String, one of ["AGENT", "CUSTOMER"]
+    #   resp.data.category_properties.rules[0].transcript_filter.negate #=> Boolean
+    #   resp.data.category_properties.rules[0].transcript_filter.targets #=> Array<String>
+    #   resp.data.category_properties.rules[0].transcript_filter.targets[0] #=> String
+    #   resp.data.category_properties.rules[0].sentiment_filter #=> Types::SentimentFilter
+    #   resp.data.category_properties.rules[0].sentiment_filter.sentiments #=> Array<String>
+    #   resp.data.category_properties.rules[0].sentiment_filter.sentiments[0] #=> String, one of ["POSITIVE", "NEGATIVE", "NEUTRAL", "MIXED"]
+    #   resp.data.category_properties.rules[0].sentiment_filter.absolute_time_range #=> Types::AbsoluteTimeRange
+    #   resp.data.category_properties.rules[0].sentiment_filter.relative_time_range #=> Types::RelativeTimeRange
+    #   resp.data.category_properties.rules[0].sentiment_filter.participant_role #=> String, one of ["AGENT", "CUSTOMER"]
+    #   resp.data.category_properties.rules[0].sentiment_filter.negate #=> Boolean
     #   resp.data.category_properties.create_time #=> Time
     #   resp.data.category_properties.last_update_time #=> Time
     #
     def update_call_analytics_category(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateCallAnalyticsCategoryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateCallAnalyticsCategoryInput,
         validate_input: @config.validate_input
@@ -4382,7 +4520,7 @@ module AWS::SDK::Transcribe
     def update_medical_vocabulary(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateMedicalVocabularyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateMedicalVocabularyInput,
         validate_input: @config.validate_input
@@ -4493,7 +4631,7 @@ module AWS::SDK::Transcribe
     def update_vocabulary(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateVocabularyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateVocabularyInput,
         validate_input: @config.validate_input
@@ -4594,7 +4732,7 @@ module AWS::SDK::Transcribe
     def update_vocabulary_filter(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateVocabularyFilterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateVocabularyFilterInput,
         validate_input: @config.validate_input

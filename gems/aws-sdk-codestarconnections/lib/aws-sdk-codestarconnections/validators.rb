@@ -33,7 +33,7 @@ module AWS::SDK::CodeStarConnections
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Connection.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Connection.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -43,7 +43,7 @@ module AWS::SDK::CodeStarConnections
         Hearth::Validator.validate!(input, Types::CreateConnectionInput, context: context)
         Hearth::Validator.validate!(input[:provider_type], ::String, context: "#{context}[:provider_type]")
         Hearth::Validator.validate!(input[:connection_name], ::String, context: "#{context}[:connection_name]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:host_arn], ::String, context: "#{context}[:host_arn]")
       end
     end
@@ -52,7 +52,7 @@ module AWS::SDK::CodeStarConnections
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateConnectionOutput, context: context)
         Hearth::Validator.validate!(input[:connection_arn], ::String, context: "#{context}[:connection_arn]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -62,8 +62,8 @@ module AWS::SDK::CodeStarConnections
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:provider_type], ::String, context: "#{context}[:provider_type]")
         Hearth::Validator.validate!(input[:provider_endpoint], ::String, context: "#{context}[:provider_endpoint]")
-        Validators::VpcConfiguration.validate!(input[:vpc_configuration], context: "#{context}[:vpc_configuration]") unless input[:vpc_configuration].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        VpcConfiguration.validate!(input[:vpc_configuration], context: "#{context}[:vpc_configuration]") unless input[:vpc_configuration].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -71,7 +71,7 @@ module AWS::SDK::CodeStarConnections
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateHostOutput, context: context)
         Hearth::Validator.validate!(input[:host_arn], ::String, context: "#{context}[:host_arn]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -111,7 +111,7 @@ module AWS::SDK::CodeStarConnections
     class GetConnectionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetConnectionOutput, context: context)
-        Validators::Connection.validate!(input[:connection], context: "#{context}[:connection]") unless input[:connection].nil?
+        Connection.validate!(input[:connection], context: "#{context}[:connection]") unless input[:connection].nil?
       end
     end
 
@@ -129,7 +129,7 @@ module AWS::SDK::CodeStarConnections
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:provider_type], ::String, context: "#{context}[:provider_type]")
         Hearth::Validator.validate!(input[:provider_endpoint], ::String, context: "#{context}[:provider_endpoint]")
-        Validators::VpcConfiguration.validate!(input[:vpc_configuration], context: "#{context}[:vpc_configuration]") unless input[:vpc_configuration].nil?
+        VpcConfiguration.validate!(input[:vpc_configuration], context: "#{context}[:vpc_configuration]") unless input[:vpc_configuration].nil?
       end
     end
 
@@ -140,7 +140,7 @@ module AWS::SDK::CodeStarConnections
         Hearth::Validator.validate!(input[:host_arn], ::String, context: "#{context}[:host_arn]")
         Hearth::Validator.validate!(input[:provider_type], ::String, context: "#{context}[:provider_type]")
         Hearth::Validator.validate!(input[:provider_endpoint], ::String, context: "#{context}[:provider_endpoint]")
-        Validators::VpcConfiguration.validate!(input[:vpc_configuration], context: "#{context}[:vpc_configuration]") unless input[:vpc_configuration].nil?
+        VpcConfiguration.validate!(input[:vpc_configuration], context: "#{context}[:vpc_configuration]") unless input[:vpc_configuration].nil?
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:status_message], ::String, context: "#{context}[:status_message]")
       end
@@ -150,7 +150,7 @@ module AWS::SDK::CodeStarConnections
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Host.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Host.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -175,7 +175,7 @@ module AWS::SDK::CodeStarConnections
     class ListConnectionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListConnectionsOutput, context: context)
-        Validators::ConnectionList.validate!(input[:connections], context: "#{context}[:connections]") unless input[:connections].nil?
+        ConnectionList.validate!(input[:connections], context: "#{context}[:connections]") unless input[:connections].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -191,7 +191,7 @@ module AWS::SDK::CodeStarConnections
     class ListHostsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListHostsOutput, context: context)
-        Validators::HostList.validate!(input[:hosts], context: "#{context}[:hosts]") unless input[:hosts].nil?
+        HostList.validate!(input[:hosts], context: "#{context}[:hosts]") unless input[:hosts].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -206,7 +206,7 @@ module AWS::SDK::CodeStarConnections
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -263,7 +263,7 @@ module AWS::SDK::CodeStarConnections
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -272,7 +272,7 @@ module AWS::SDK::CodeStarConnections
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -293,7 +293,7 @@ module AWS::SDK::CodeStarConnections
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -308,7 +308,7 @@ module AWS::SDK::CodeStarConnections
         Hearth::Validator.validate!(input, Types::UpdateHostInput, context: context)
         Hearth::Validator.validate!(input[:host_arn], ::String, context: "#{context}[:host_arn]")
         Hearth::Validator.validate!(input[:provider_endpoint], ::String, context: "#{context}[:provider_endpoint]")
-        Validators::VpcConfiguration.validate!(input[:vpc_configuration], context: "#{context}[:vpc_configuration]") unless input[:vpc_configuration].nil?
+        VpcConfiguration.validate!(input[:vpc_configuration], context: "#{context}[:vpc_configuration]") unless input[:vpc_configuration].nil?
       end
     end
 
@@ -322,8 +322,8 @@ module AWS::SDK::CodeStarConnections
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::VpcConfiguration, context: context)
         Hearth::Validator.validate!(input[:vpc_id], ::String, context: "#{context}[:vpc_id]")
-        Validators::SubnetIds.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
-        Validators::SecurityGroupIds.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
+        SubnetIds.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
+        SecurityGroupIds.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
         Hearth::Validator.validate!(input[:tls_certificate], ::String, context: "#{context}[:tls_certificate]")
       end
     end

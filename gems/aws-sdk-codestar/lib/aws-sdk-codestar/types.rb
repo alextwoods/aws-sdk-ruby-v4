@@ -369,11 +369,11 @@ module AWS::SDK::CodeStar
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.delete_stack ||= false
       end
-
     end
 
     # @!attribute stack_id
@@ -659,6 +659,7 @@ module AWS::SDK::CodeStar
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.private_repository ||= false

@@ -474,11 +474,11 @@ module AWS::SDK::ChimeSDKMessaging
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.delete_resource ||= false
       end
-
     end
 
     # @!attribute channel_arn
@@ -726,6 +726,7 @@ module AWS::SDK::ChimeSDKMessaging
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.redacted ||= false
@@ -925,6 +926,7 @@ module AWS::SDK::ChimeSDKMessaging
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.redacted ||= false

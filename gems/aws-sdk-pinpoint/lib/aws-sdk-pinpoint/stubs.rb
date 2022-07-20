@@ -14,7 +14,7 @@ module AWS::SDK::Pinpoint
     class CreateApp
       def self.default(visited=[])
         {
-          application_response: Stubs::ApplicationResponse.default(visited),
+          application_response: ApplicationResponse.default(visited),
         }
       end
 
@@ -36,7 +36,7 @@ module AWS::SDK::Pinpoint
           arn: 'arn',
           id: 'id',
           name: 'name',
-          tags: Stubs::MapOf__string.default(visited),
+          tags: MapOf__string.default(visited),
           creation_date: 'creation_date',
         }
       end
@@ -77,7 +77,7 @@ module AWS::SDK::Pinpoint
     class CreateCampaign
       def self.default(visited=[])
         {
-          campaign_response: Stubs::CampaignResponse.default(visited),
+          campaign_response: CampaignResponse.default(visited),
         }
       end
 
@@ -96,27 +96,27 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('CampaignResponse')
         visited = visited + ['CampaignResponse']
         {
-          additional_treatments: Stubs::ListOfTreatmentResource.default(visited),
+          additional_treatments: ListOfTreatmentResource.default(visited),
           application_id: 'application_id',
           arn: 'arn',
           creation_date: 'creation_date',
-          custom_delivery_configuration: Stubs::CustomDeliveryConfiguration.default(visited),
-          default_state: Stubs::CampaignState.default(visited),
+          custom_delivery_configuration: CustomDeliveryConfiguration.default(visited),
+          default_state: CampaignState.default(visited),
           description: 'description',
           holdout_percent: 1,
-          hook: Stubs::CampaignHook.default(visited),
+          hook: CampaignHook.default(visited),
           id: 'id',
           is_paused: false,
           last_modified_date: 'last_modified_date',
-          limits: Stubs::CampaignLimits.default(visited),
-          message_configuration: Stubs::MessageConfiguration.default(visited),
+          limits: CampaignLimits.default(visited),
+          message_configuration: MessageConfiguration.default(visited),
           name: 'name',
-          schedule: Stubs::Schedule.default(visited),
+          schedule: Schedule.default(visited),
           segment_id: 'segment_id',
           segment_version: 1,
-          state: Stubs::CampaignState.default(visited),
-          tags: Stubs::MapOf__string.default(visited),
-          template_configuration: Stubs::TemplateConfiguration.default(visited),
+          state: CampaignState.default(visited),
+          tags: MapOf__string.default(visited),
+          template_configuration: TemplateConfiguration.default(visited),
           treatment_description: 'treatment_description',
           treatment_name: 'treatment_name',
           version: 1,
@@ -162,10 +162,10 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('TemplateConfiguration')
         visited = visited + ['TemplateConfiguration']
         {
-          email_template: Stubs::Template.default(visited),
-          push_template: Stubs::Template.default(visited),
-          sms_template: Stubs::Template.default(visited),
-          voice_template: Stubs::Template.default(visited),
+          email_template: Template.default(visited),
+          push_template: Template.default(visited),
+          sms_template: Template.default(visited),
+          voice_template: Template.default(visited),
         }
       end
 
@@ -225,10 +225,10 @@ module AWS::SDK::Pinpoint
         visited = visited + ['Schedule']
         {
           end_time: 'end_time',
-          event_filter: Stubs::CampaignEventFilter.default(visited),
+          event_filter: CampaignEventFilter.default(visited),
           frequency: 'frequency',
           is_local_time: false,
-          quiet_time: Stubs::QuietTime.default(visited),
+          quiet_time: QuietTime.default(visited),
           start_time: 'start_time',
           timezone: 'timezone',
         }
@@ -274,7 +274,7 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('CampaignEventFilter')
         visited = visited + ['CampaignEventFilter']
         {
-          dimensions: Stubs::EventDimensions.default(visited),
+          dimensions: EventDimensions.default(visited),
           filter_type: 'filter_type',
         }
       end
@@ -294,9 +294,9 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('EventDimensions')
         visited = visited + ['EventDimensions']
         {
-          attributes: Stubs::MapOfAttributeDimension.default(visited),
-          event_type: Stubs::SetDimension.default(visited),
-          metrics: Stubs::MapOfMetricDimension.default(visited),
+          attributes: MapOfAttributeDimension.default(visited),
+          event_type: SetDimension.default(visited),
+          metrics: MapOfMetricDimension.default(visited),
         }
       end
 
@@ -316,7 +316,7 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('MapOfMetricDimension')
         visited = visited + ['MapOfMetricDimension']
         {
-          test_key: Stubs::MetricDimension.default(visited)
+          test_key: MetricDimension.default(visited)
         }
       end
 
@@ -357,7 +357,7 @@ module AWS::SDK::Pinpoint
         visited = visited + ['SetDimension']
         {
           dimension_type: 'dimension_type',
-          values: Stubs::ListOf__string.default(visited),
+          values: ListOf__string.default(visited),
         }
       end
 
@@ -396,7 +396,7 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('MapOfAttributeDimension')
         visited = visited + ['MapOfAttributeDimension']
         {
-          test_key: Stubs::AttributeDimension.default(visited)
+          test_key: AttributeDimension.default(visited)
         }
       end
 
@@ -417,7 +417,7 @@ module AWS::SDK::Pinpoint
         visited = visited + ['AttributeDimension']
         {
           attribute_type: 'attribute_type',
-          values: Stubs::ListOf__string.default(visited),
+          values: ListOf__string.default(visited),
         }
       end
 
@@ -436,15 +436,15 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('MessageConfiguration')
         visited = visited + ['MessageConfiguration']
         {
-          adm_message: Stubs::Message.default(visited),
-          apns_message: Stubs::Message.default(visited),
-          baidu_message: Stubs::Message.default(visited),
-          custom_message: Stubs::CampaignCustomMessage.default(visited),
-          default_message: Stubs::Message.default(visited),
-          email_message: Stubs::CampaignEmailMessage.default(visited),
-          gcm_message: Stubs::Message.default(visited),
-          sms_message: Stubs::CampaignSmsMessage.default(visited),
-          in_app_message: Stubs::CampaignInAppMessage.default(visited),
+          adm_message: Message.default(visited),
+          apns_message: Message.default(visited),
+          baidu_message: Message.default(visited),
+          custom_message: CampaignCustomMessage.default(visited),
+          default_message: Message.default(visited),
+          email_message: CampaignEmailMessage.default(visited),
+          gcm_message: Message.default(visited),
+          sms_message: CampaignSmsMessage.default(visited),
+          in_app_message: CampaignInAppMessage.default(visited),
         }
       end
 
@@ -471,8 +471,8 @@ module AWS::SDK::Pinpoint
         visited = visited + ['CampaignInAppMessage']
         {
           body: 'body',
-          content: Stubs::ListOfInAppMessageContent.default(visited),
-          custom_config: Stubs::MapOf__string.default(visited),
+          content: ListOfInAppMessageContent.default(visited),
+          custom_config: MapOf__string.default(visited),
           layout: 'layout',
         }
       end
@@ -494,7 +494,7 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('ListOfInAppMessageContent')
         visited = visited + ['ListOfInAppMessageContent']
         [
-          Stubs::InAppMessageContent.default(visited)
+          InAppMessageContent.default(visited)
         ]
       end
 
@@ -515,11 +515,11 @@ module AWS::SDK::Pinpoint
         visited = visited + ['InAppMessageContent']
         {
           background_color: 'background_color',
-          body_config: Stubs::InAppMessageBodyConfig.default(visited),
-          header_config: Stubs::InAppMessageHeaderConfig.default(visited),
+          body_config: InAppMessageBodyConfig.default(visited),
+          header_config: InAppMessageHeaderConfig.default(visited),
           image_url: 'image_url',
-          primary_btn: Stubs::InAppMessageButton.default(visited),
-          secondary_btn: Stubs::InAppMessageButton.default(visited),
+          primary_btn: InAppMessageButton.default(visited),
+          secondary_btn: InAppMessageButton.default(visited),
         }
       end
 
@@ -542,10 +542,10 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('InAppMessageButton')
         visited = visited + ['InAppMessageButton']
         {
-          android: Stubs::OverrideButtonConfiguration.default(visited),
-          default_config: Stubs::DefaultButtonConfiguration.default(visited),
-          ios: Stubs::OverrideButtonConfiguration.default(visited),
-          web: Stubs::OverrideButtonConfiguration.default(visited),
+          android: OverrideButtonConfiguration.default(visited),
+          default_config: DefaultButtonConfiguration.default(visited),
+          ios: OverrideButtonConfiguration.default(visited),
+          web: OverrideButtonConfiguration.default(visited),
         }
       end
 
@@ -817,7 +817,7 @@ module AWS::SDK::Pinpoint
         visited = visited + ['CustomDeliveryConfiguration']
         {
           delivery_uri: 'delivery_uri',
-          endpoint_types: Stubs::ListOf__EndpointTypesElement.default(visited),
+          endpoint_types: ListOf__EndpointTypesElement.default(visited),
         }
       end
 
@@ -856,7 +856,7 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('ListOfTreatmentResource')
         visited = visited + ['ListOfTreatmentResource']
         [
-          Stubs::TreatmentResource.default(visited)
+          TreatmentResource.default(visited)
         ]
       end
 
@@ -876,13 +876,13 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('TreatmentResource')
         visited = visited + ['TreatmentResource']
         {
-          custom_delivery_configuration: Stubs::CustomDeliveryConfiguration.default(visited),
+          custom_delivery_configuration: CustomDeliveryConfiguration.default(visited),
           id: 'id',
-          message_configuration: Stubs::MessageConfiguration.default(visited),
-          schedule: Stubs::Schedule.default(visited),
+          message_configuration: MessageConfiguration.default(visited),
+          schedule: Schedule.default(visited),
           size_percent: 1,
-          state: Stubs::CampaignState.default(visited),
-          template_configuration: Stubs::TemplateConfiguration.default(visited),
+          state: CampaignState.default(visited),
+          template_configuration: TemplateConfiguration.default(visited),
           treatment_description: 'treatment_description',
           treatment_name: 'treatment_name',
         }
@@ -908,7 +908,7 @@ module AWS::SDK::Pinpoint
     class CreateEmailTemplate
       def self.default(visited=[])
         {
-          create_template_message_body: Stubs::CreateTemplateMessageBody.default(visited),
+          create_template_message_body: CreateTemplateMessageBody.default(visited),
         }
       end
 
@@ -947,7 +947,7 @@ module AWS::SDK::Pinpoint
     class CreateExportJob
       def self.default(visited=[])
         {
-          export_job_response: Stubs::ExportJobResponse.default(visited),
+          export_job_response: ExportJobResponse.default(visited),
         }
       end
 
@@ -970,9 +970,9 @@ module AWS::SDK::Pinpoint
           completed_pieces: 1,
           completion_date: 'completion_date',
           creation_date: 'creation_date',
-          definition: Stubs::ExportJobResource.default(visited),
+          definition: ExportJobResource.default(visited),
           failed_pieces: 1,
-          failures: Stubs::ListOf__string.default(visited),
+          failures: ListOf__string.default(visited),
           id: 'id',
           job_status: 'job_status',
           total_failures: 1,
@@ -1030,7 +1030,7 @@ module AWS::SDK::Pinpoint
     class CreateImportJob
       def self.default(visited=[])
         {
-          import_job_response: Stubs::ImportJobResponse.default(visited),
+          import_job_response: ImportJobResponse.default(visited),
         }
       end
 
@@ -1053,9 +1053,9 @@ module AWS::SDK::Pinpoint
           completed_pieces: 1,
           completion_date: 'completion_date',
           creation_date: 'creation_date',
-          definition: Stubs::ImportJobResource.default(visited),
+          definition: ImportJobResource.default(visited),
           failed_pieces: 1,
-          failures: Stubs::ListOf__string.default(visited),
+          failures: ListOf__string.default(visited),
           id: 'id',
           job_status: 'job_status',
           total_failures: 1,
@@ -1121,7 +1121,7 @@ module AWS::SDK::Pinpoint
     class CreateInAppTemplate
       def self.default(visited=[])
         {
-          template_create_message_body: Stubs::TemplateCreateMessageBody.default(visited),
+          template_create_message_body: TemplateCreateMessageBody.default(visited),
         }
       end
 
@@ -1160,7 +1160,7 @@ module AWS::SDK::Pinpoint
     class CreateJourney
       def self.default(visited=[])
         {
-          journey_response: Stubs::JourneyResponse.default(visited),
+          journey_response: JourneyResponse.default(visited),
         }
       end
 
@@ -1179,24 +1179,24 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('JourneyResponse')
         visited = visited + ['JourneyResponse']
         {
-          activities: Stubs::MapOfActivity.default(visited),
+          activities: MapOfActivity.default(visited),
           application_id: 'application_id',
           creation_date: 'creation_date',
           id: 'id',
           last_modified_date: 'last_modified_date',
-          limits: Stubs::JourneyLimits.default(visited),
+          limits: JourneyLimits.default(visited),
           local_time: false,
           name: 'name',
-          quiet_time: Stubs::QuietTime.default(visited),
+          quiet_time: QuietTime.default(visited),
           refresh_frequency: 'refresh_frequency',
-          schedule: Stubs::JourneySchedule.default(visited),
+          schedule: JourneySchedule.default(visited),
           start_activity: 'start_activity',
-          start_condition: Stubs::StartCondition.default(visited),
+          start_condition: StartCondition.default(visited),
           state: 'state',
-          tags: Stubs::MapOf__string.default(visited),
+          tags: MapOf__string.default(visited),
           wait_for_quiet_time: false,
           refresh_on_segment_update: false,
-          journey_channel_settings: Stubs::JourneyChannelSettings.default(visited),
+          journey_channel_settings: JourneyChannelSettings.default(visited),
         }
       end
 
@@ -1252,8 +1252,8 @@ module AWS::SDK::Pinpoint
         visited = visited + ['StartCondition']
         {
           description: 'description',
-          event_start_condition: Stubs::EventStartCondition.default(visited),
-          segment_start_condition: Stubs::SegmentCondition.default(visited),
+          event_start_condition: EventStartCondition.default(visited),
+          segment_start_condition: SegmentCondition.default(visited),
         }
       end
 
@@ -1291,7 +1291,7 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('EventStartCondition')
         visited = visited + ['EventStartCondition']
         {
-          event_filter: Stubs::EventFilter.default(visited),
+          event_filter: EventFilter.default(visited),
           segment_id: 'segment_id',
         }
       end
@@ -1311,7 +1311,7 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('EventFilter')
         visited = visited + ['EventFilter']
         {
-          dimensions: Stubs::EventDimensions.default(visited),
+          dimensions: EventDimensions.default(visited),
           filter_type: 'filter_type',
         }
       end
@@ -1377,7 +1377,7 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('MapOfActivity')
         visited = visited + ['MapOfActivity']
         {
-          test_key: Stubs::Activity.default(visited)
+          test_key: Activity.default(visited)
         }
       end
 
@@ -1397,17 +1397,17 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('Activity')
         visited = visited + ['Activity']
         {
-          custom: Stubs::CustomMessageActivity.default(visited),
-          conditional_split: Stubs::ConditionalSplitActivity.default(visited),
+          custom: CustomMessageActivity.default(visited),
+          conditional_split: ConditionalSplitActivity.default(visited),
           description: 'description',
-          email: Stubs::EmailMessageActivity.default(visited),
-          holdout: Stubs::HoldoutActivity.default(visited),
-          multi_condition: Stubs::MultiConditionalSplitActivity.default(visited),
-          push: Stubs::PushMessageActivity.default(visited),
-          random_split: Stubs::RandomSplitActivity.default(visited),
-          sms: Stubs::SMSMessageActivity.default(visited),
-          wait: Stubs::WaitActivity.default(visited),
-          contact_center: Stubs::ContactCenterActivity.default(visited),
+          email: EmailMessageActivity.default(visited),
+          holdout: HoldoutActivity.default(visited),
+          multi_condition: MultiConditionalSplitActivity.default(visited),
+          push: PushMessageActivity.default(visited),
+          random_split: RandomSplitActivity.default(visited),
+          sms: SMSMessageActivity.default(visited),
+          wait: WaitActivity.default(visited),
+          contact_center: ContactCenterActivity.default(visited),
         }
       end
 
@@ -1454,7 +1454,7 @@ module AWS::SDK::Pinpoint
         visited = visited + ['WaitActivity']
         {
           next_activity: 'next_activity',
-          wait_time: Stubs::WaitTime.default(visited),
+          wait_time: WaitTime.default(visited),
         }
       end
 
@@ -1493,7 +1493,7 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('SMSMessageActivity')
         visited = visited + ['SMSMessageActivity']
         {
-          message_config: Stubs::JourneySMSMessage.default(visited),
+          message_config: JourneySMSMessage.default(visited),
           next_activity: 'next_activity',
           template_name: 'template_name',
           template_version: 'template_version',
@@ -1543,7 +1543,7 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('RandomSplitActivity')
         visited = visited + ['RandomSplitActivity']
         {
-          branches: Stubs::ListOfRandomSplitEntry.default(visited),
+          branches: ListOfRandomSplitEntry.default(visited),
         }
       end
 
@@ -1561,7 +1561,7 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('ListOfRandomSplitEntry')
         visited = visited + ['ListOfRandomSplitEntry']
         [
-          Stubs::RandomSplitEntry.default(visited)
+          RandomSplitEntry.default(visited)
         ]
       end
 
@@ -1601,7 +1601,7 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('PushMessageActivity')
         visited = visited + ['PushMessageActivity']
         {
-          message_config: Stubs::JourneyPushMessage.default(visited),
+          message_config: JourneyPushMessage.default(visited),
           next_activity: 'next_activity',
           template_name: 'template_name',
           template_version: 'template_version',
@@ -1643,9 +1643,9 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('MultiConditionalSplitActivity')
         visited = visited + ['MultiConditionalSplitActivity']
         {
-          branches: Stubs::ListOfMultiConditionalBranch.default(visited),
+          branches: ListOfMultiConditionalBranch.default(visited),
           default_activity: 'default_activity',
-          evaluation_wait_time: Stubs::WaitTime.default(visited),
+          evaluation_wait_time: WaitTime.default(visited),
         }
       end
 
@@ -1665,7 +1665,7 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('ListOfMultiConditionalBranch')
         visited = visited + ['ListOfMultiConditionalBranch']
         [
-          Stubs::MultiConditionalBranch.default(visited)
+          MultiConditionalBranch.default(visited)
         ]
       end
 
@@ -1685,7 +1685,7 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('MultiConditionalBranch')
         visited = visited + ['MultiConditionalBranch']
         {
-          condition: Stubs::SimpleCondition.default(visited),
+          condition: SimpleCondition.default(visited),
           next_activity: 'next_activity',
         }
       end
@@ -1705,9 +1705,9 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('SimpleCondition')
         visited = visited + ['SimpleCondition']
         {
-          event_condition: Stubs::EventCondition.default(visited),
-          segment_condition: Stubs::SegmentCondition.default(visited),
-          segment_dimensions: Stubs::SegmentDimensions.default(visited),
+          event_condition: EventCondition.default(visited),
+          segment_condition: SegmentCondition.default(visited),
+          segment_dimensions: SegmentDimensions.default(visited),
         }
       end
 
@@ -1727,12 +1727,12 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('SegmentDimensions')
         visited = visited + ['SegmentDimensions']
         {
-          attributes: Stubs::MapOfAttributeDimension.default(visited),
-          behavior: Stubs::SegmentBehaviors.default(visited),
-          demographic: Stubs::SegmentDemographics.default(visited),
-          location: Stubs::SegmentLocation.default(visited),
-          metrics: Stubs::MapOfMetricDimension.default(visited),
-          user_attributes: Stubs::MapOfAttributeDimension.default(visited),
+          attributes: MapOfAttributeDimension.default(visited),
+          behavior: SegmentBehaviors.default(visited),
+          demographic: SegmentDemographics.default(visited),
+          location: SegmentLocation.default(visited),
+          metrics: MapOfMetricDimension.default(visited),
+          user_attributes: MapOfAttributeDimension.default(visited),
         }
       end
 
@@ -1755,8 +1755,8 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('SegmentLocation')
         visited = visited + ['SegmentLocation']
         {
-          country: Stubs::SetDimension.default(visited),
-          gps_point: Stubs::GPSPointDimension.default(visited),
+          country: SetDimension.default(visited),
+          gps_point: GPSPointDimension.default(visited),
         }
       end
 
@@ -1775,7 +1775,7 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('GPSPointDimension')
         visited = visited + ['GPSPointDimension']
         {
-          coordinates: Stubs::GPSCoordinates.default(visited),
+          coordinates: GPSCoordinates.default(visited),
           range_in_kilometers: 1.0,
         }
       end
@@ -1815,12 +1815,12 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('SegmentDemographics')
         visited = visited + ['SegmentDemographics']
         {
-          app_version: Stubs::SetDimension.default(visited),
-          channel: Stubs::SetDimension.default(visited),
-          device_type: Stubs::SetDimension.default(visited),
-          make: Stubs::SetDimension.default(visited),
-          model: Stubs::SetDimension.default(visited),
-          platform: Stubs::SetDimension.default(visited),
+          app_version: SetDimension.default(visited),
+          channel: SetDimension.default(visited),
+          device_type: SetDimension.default(visited),
+          make: SetDimension.default(visited),
+          model: SetDimension.default(visited),
+          platform: SetDimension.default(visited),
         }
       end
 
@@ -1843,7 +1843,7 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('SegmentBehaviors')
         visited = visited + ['SegmentBehaviors']
         {
-          recency: Stubs::RecencyDimension.default(visited),
+          recency: RecencyDimension.default(visited),
         }
       end
 
@@ -1881,7 +1881,7 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('EventCondition')
         visited = visited + ['EventCondition']
         {
-          dimensions: Stubs::EventDimensions.default(visited),
+          dimensions: EventDimensions.default(visited),
           message_activity: 'message_activity',
         }
       end
@@ -1921,7 +1921,7 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('EmailMessageActivity')
         visited = visited + ['EmailMessageActivity']
         {
-          message_config: Stubs::JourneyEmailMessage.default(visited),
+          message_config: JourneyEmailMessage.default(visited),
           next_activity: 'next_activity',
           template_name: 'template_name',
           template_version: 'template_version',
@@ -1963,8 +1963,8 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('ConditionalSplitActivity')
         visited = visited + ['ConditionalSplitActivity']
         {
-          condition: Stubs::Condition.default(visited),
-          evaluation_wait_time: Stubs::WaitTime.default(visited),
+          condition: Condition.default(visited),
+          evaluation_wait_time: WaitTime.default(visited),
           false_activity: 'false_activity',
           true_activity: 'true_activity',
         }
@@ -1987,7 +1987,7 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('Condition')
         visited = visited + ['Condition']
         {
-          conditions: Stubs::ListOfSimpleCondition.default(visited),
+          conditions: ListOfSimpleCondition.default(visited),
           operator: 'operator',
         }
       end
@@ -2007,7 +2007,7 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('ListOfSimpleCondition')
         visited = visited + ['ListOfSimpleCondition']
         [
-          Stubs::SimpleCondition.default(visited)
+          SimpleCondition.default(visited)
         ]
       end
 
@@ -2028,8 +2028,8 @@ module AWS::SDK::Pinpoint
         visited = visited + ['CustomMessageActivity']
         {
           delivery_uri: 'delivery_uri',
-          endpoint_types: Stubs::ListOf__EndpointTypesElement.default(visited),
-          message_config: Stubs::JourneyCustomMessage.default(visited),
+          endpoint_types: ListOf__EndpointTypesElement.default(visited),
+          message_config: JourneyCustomMessage.default(visited),
           next_activity: 'next_activity',
           template_name: 'template_name',
           template_version: 'template_version',
@@ -2071,7 +2071,7 @@ module AWS::SDK::Pinpoint
     class CreatePushTemplate
       def self.default(visited=[])
         {
-          create_template_message_body: Stubs::CreateTemplateMessageBody.default(visited),
+          create_template_message_body: CreateTemplateMessageBody.default(visited),
         }
       end
 
@@ -2088,7 +2088,7 @@ module AWS::SDK::Pinpoint
     class CreateRecommenderConfiguration
       def self.default(visited=[])
         {
-          recommender_configuration_response: Stubs::RecommenderConfigurationResponse.default(visited),
+          recommender_configuration_response: RecommenderConfigurationResponse.default(visited),
         }
       end
 
@@ -2107,7 +2107,7 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('RecommenderConfigurationResponse')
         visited = visited + ['RecommenderConfigurationResponse']
         {
-          attributes: Stubs::MapOf__string.default(visited),
+          attributes: MapOf__string.default(visited),
           creation_date: 'creation_date',
           description: 'description',
           id: 'id',
@@ -2145,7 +2145,7 @@ module AWS::SDK::Pinpoint
     class CreateSegment
       def self.default(visited=[])
         {
-          segment_response: Stubs::SegmentResponse.default(visited),
+          segment_response: SegmentResponse.default(visited),
         }
       end
 
@@ -2167,14 +2167,14 @@ module AWS::SDK::Pinpoint
           application_id: 'application_id',
           arn: 'arn',
           creation_date: 'creation_date',
-          dimensions: Stubs::SegmentDimensions.default(visited),
+          dimensions: SegmentDimensions.default(visited),
           id: 'id',
-          import_definition: Stubs::SegmentImportResource.default(visited),
+          import_definition: SegmentImportResource.default(visited),
           last_modified_date: 'last_modified_date',
           name: 'name',
-          segment_groups: Stubs::SegmentGroupList.default(visited),
+          segment_groups: SegmentGroupList.default(visited),
           segment_type: 'segment_type',
-          tags: Stubs::MapOf__string.default(visited),
+          tags: MapOf__string.default(visited),
           version: 1,
         }
       end
@@ -2204,7 +2204,7 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('SegmentGroupList')
         visited = visited + ['SegmentGroupList']
         {
-          groups: Stubs::ListOfSegmentGroup.default(visited),
+          groups: ListOfSegmentGroup.default(visited),
           include: 'include',
         }
       end
@@ -2224,7 +2224,7 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('ListOfSegmentGroup')
         visited = visited + ['ListOfSegmentGroup']
         [
-          Stubs::SegmentGroup.default(visited)
+          SegmentGroup.default(visited)
         ]
       end
 
@@ -2244,8 +2244,8 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('SegmentGroup')
         visited = visited + ['SegmentGroup']
         {
-          dimensions: Stubs::ListOfSegmentDimensions.default(visited),
-          source_segments: Stubs::ListOfSegmentReference.default(visited),
+          dimensions: ListOfSegmentDimensions.default(visited),
+          source_segments: ListOfSegmentReference.default(visited),
           source_type: 'source_type',
           type: 'type',
         }
@@ -2268,7 +2268,7 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('ListOfSegmentReference')
         visited = visited + ['ListOfSegmentReference']
         [
-          Stubs::SegmentReference.default(visited)
+          SegmentReference.default(visited)
         ]
       end
 
@@ -2308,7 +2308,7 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('ListOfSegmentDimensions')
         visited = visited + ['ListOfSegmentDimensions']
         [
-          Stubs::SegmentDimensions.default(visited)
+          SegmentDimensions.default(visited)
         ]
       end
 
@@ -2328,7 +2328,7 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('SegmentImportResource')
         visited = visited + ['SegmentImportResource']
         {
-          channel_counts: Stubs::MapOf__integer.default(visited),
+          channel_counts: MapOf__integer.default(visited),
           external_id: 'external_id',
           format: 'format',
           role_arn: 'role_arn',
@@ -2374,7 +2374,7 @@ module AWS::SDK::Pinpoint
     class CreateSmsTemplate
       def self.default(visited=[])
         {
-          create_template_message_body: Stubs::CreateTemplateMessageBody.default(visited),
+          create_template_message_body: CreateTemplateMessageBody.default(visited),
         }
       end
 
@@ -2391,7 +2391,7 @@ module AWS::SDK::Pinpoint
     class CreateVoiceTemplate
       def self.default(visited=[])
         {
-          create_template_message_body: Stubs::CreateTemplateMessageBody.default(visited),
+          create_template_message_body: CreateTemplateMessageBody.default(visited),
         }
       end
 
@@ -2408,7 +2408,7 @@ module AWS::SDK::Pinpoint
     class DeleteAdmChannel
       def self.default(visited=[])
         {
-          adm_channel_response: Stubs::ADMChannelResponse.default(visited),
+          adm_channel_response: ADMChannelResponse.default(visited),
         }
       end
 
@@ -2461,7 +2461,7 @@ module AWS::SDK::Pinpoint
     class DeleteApnsChannel
       def self.default(visited=[])
         {
-          apns_channel_response: Stubs::APNSChannelResponse.default(visited),
+          apns_channel_response: APNSChannelResponse.default(visited),
         }
       end
 
@@ -2518,7 +2518,7 @@ module AWS::SDK::Pinpoint
     class DeleteApnsSandboxChannel
       def self.default(visited=[])
         {
-          apns_sandbox_channel_response: Stubs::APNSSandboxChannelResponse.default(visited),
+          apns_sandbox_channel_response: APNSSandboxChannelResponse.default(visited),
         }
       end
 
@@ -2575,7 +2575,7 @@ module AWS::SDK::Pinpoint
     class DeleteApnsVoipChannel
       def self.default(visited=[])
         {
-          apns_voip_channel_response: Stubs::APNSVoipChannelResponse.default(visited),
+          apns_voip_channel_response: APNSVoipChannelResponse.default(visited),
         }
       end
 
@@ -2632,7 +2632,7 @@ module AWS::SDK::Pinpoint
     class DeleteApnsVoipSandboxChannel
       def self.default(visited=[])
         {
-          apns_voip_sandbox_channel_response: Stubs::APNSVoipSandboxChannelResponse.default(visited),
+          apns_voip_sandbox_channel_response: APNSVoipSandboxChannelResponse.default(visited),
         }
       end
 
@@ -2689,7 +2689,7 @@ module AWS::SDK::Pinpoint
     class DeleteApp
       def self.default(visited=[])
         {
-          application_response: Stubs::ApplicationResponse.default(visited),
+          application_response: ApplicationResponse.default(visited),
         }
       end
 
@@ -2706,7 +2706,7 @@ module AWS::SDK::Pinpoint
     class DeleteBaiduChannel
       def self.default(visited=[])
         {
-          baidu_channel_response: Stubs::BaiduChannelResponse.default(visited),
+          baidu_channel_response: BaiduChannelResponse.default(visited),
         }
       end
 
@@ -2761,7 +2761,7 @@ module AWS::SDK::Pinpoint
     class DeleteCampaign
       def self.default(visited=[])
         {
-          campaign_response: Stubs::CampaignResponse.default(visited),
+          campaign_response: CampaignResponse.default(visited),
         }
       end
 
@@ -2778,7 +2778,7 @@ module AWS::SDK::Pinpoint
     class DeleteEmailChannel
       def self.default(visited=[])
         {
-          email_channel_response: Stubs::EmailChannelResponse.default(visited),
+          email_channel_response: EmailChannelResponse.default(visited),
         }
       end
 
@@ -2841,7 +2841,7 @@ module AWS::SDK::Pinpoint
     class DeleteEmailTemplate
       def self.default(visited=[])
         {
-          message_body: Stubs::MessageBody.default(visited),
+          message_body: MessageBody.default(visited),
         }
       end
 
@@ -2878,7 +2878,7 @@ module AWS::SDK::Pinpoint
     class DeleteEndpoint
       def self.default(visited=[])
         {
-          endpoint_response: Stubs::EndpointResponse.default(visited),
+          endpoint_response: EndpointResponse.default(visited),
         }
       end
 
@@ -2899,19 +2899,19 @@ module AWS::SDK::Pinpoint
         {
           address: 'address',
           application_id: 'application_id',
-          attributes: Stubs::MapOfListOf__string.default(visited),
+          attributes: MapOfListOf__string.default(visited),
           channel_type: 'channel_type',
           cohort_id: 'cohort_id',
           creation_date: 'creation_date',
-          demographic: Stubs::EndpointDemographic.default(visited),
+          demographic: EndpointDemographic.default(visited),
           effective_date: 'effective_date',
           endpoint_status: 'endpoint_status',
           id: 'id',
-          location: Stubs::EndpointLocation.default(visited),
-          metrics: Stubs::MapOf__double.default(visited),
+          location: EndpointLocation.default(visited),
+          metrics: MapOf__double.default(visited),
           opt_out: 'opt_out',
           request_id: 'request_id',
-          user: Stubs::EndpointUser.default(visited),
+          user: EndpointUser.default(visited),
         }
       end
 
@@ -2943,7 +2943,7 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('EndpointUser')
         visited = visited + ['EndpointUser']
         {
-          user_attributes: Stubs::MapOfListOf__string.default(visited),
+          user_attributes: MapOfListOf__string.default(visited),
           user_id: 'user_id',
         }
       end
@@ -2963,7 +2963,7 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('MapOfListOf__string')
         visited = visited + ['MapOfListOf__string']
         {
-          test_key: Stubs::ListOf__string.default(visited)
+          test_key: ListOf__string.default(visited)
         }
       end
 
@@ -3061,7 +3061,7 @@ module AWS::SDK::Pinpoint
     class DeleteEventStream
       def self.default(visited=[])
         {
-          event_stream: Stubs::EventStream.default(visited),
+          event_stream: EventStream.default(visited),
         }
       end
 
@@ -3106,7 +3106,7 @@ module AWS::SDK::Pinpoint
     class DeleteGcmChannel
       def self.default(visited=[])
         {
-          gcm_channel_response: Stubs::GCMChannelResponse.default(visited),
+          gcm_channel_response: GCMChannelResponse.default(visited),
         }
       end
 
@@ -3161,7 +3161,7 @@ module AWS::SDK::Pinpoint
     class DeleteInAppTemplate
       def self.default(visited=[])
         {
-          message_body: Stubs::MessageBody.default(visited),
+          message_body: MessageBody.default(visited),
         }
       end
 
@@ -3178,7 +3178,7 @@ module AWS::SDK::Pinpoint
     class DeleteJourney
       def self.default(visited=[])
         {
-          journey_response: Stubs::JourneyResponse.default(visited),
+          journey_response: JourneyResponse.default(visited),
         }
       end
 
@@ -3195,7 +3195,7 @@ module AWS::SDK::Pinpoint
     class DeletePushTemplate
       def self.default(visited=[])
         {
-          message_body: Stubs::MessageBody.default(visited),
+          message_body: MessageBody.default(visited),
         }
       end
 
@@ -3212,7 +3212,7 @@ module AWS::SDK::Pinpoint
     class DeleteRecommenderConfiguration
       def self.default(visited=[])
         {
-          recommender_configuration_response: Stubs::RecommenderConfigurationResponse.default(visited),
+          recommender_configuration_response: RecommenderConfigurationResponse.default(visited),
         }
       end
 
@@ -3229,7 +3229,7 @@ module AWS::SDK::Pinpoint
     class DeleteSegment
       def self.default(visited=[])
         {
-          segment_response: Stubs::SegmentResponse.default(visited),
+          segment_response: SegmentResponse.default(visited),
         }
       end
 
@@ -3246,7 +3246,7 @@ module AWS::SDK::Pinpoint
     class DeleteSmsChannel
       def self.default(visited=[])
         {
-          sms_channel_response: Stubs::SMSChannelResponse.default(visited),
+          sms_channel_response: SMSChannelResponse.default(visited),
         }
       end
 
@@ -3307,7 +3307,7 @@ module AWS::SDK::Pinpoint
     class DeleteSmsTemplate
       def self.default(visited=[])
         {
-          message_body: Stubs::MessageBody.default(visited),
+          message_body: MessageBody.default(visited),
         }
       end
 
@@ -3324,7 +3324,7 @@ module AWS::SDK::Pinpoint
     class DeleteUserEndpoints
       def self.default(visited=[])
         {
-          endpoints_response: Stubs::EndpointsResponse.default(visited),
+          endpoints_response: EndpointsResponse.default(visited),
         }
       end
 
@@ -3343,7 +3343,7 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('EndpointsResponse')
         visited = visited + ['EndpointsResponse']
         {
-          item: Stubs::ListOfEndpointResponse.default(visited),
+          item: ListOfEndpointResponse.default(visited),
         }
       end
 
@@ -3361,7 +3361,7 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('ListOfEndpointResponse')
         visited = visited + ['ListOfEndpointResponse']
         [
-          Stubs::EndpointResponse.default(visited)
+          EndpointResponse.default(visited)
         ]
       end
 
@@ -3379,7 +3379,7 @@ module AWS::SDK::Pinpoint
     class DeleteVoiceChannel
       def self.default(visited=[])
         {
-          voice_channel_response: Stubs::VoiceChannelResponse.default(visited),
+          voice_channel_response: VoiceChannelResponse.default(visited),
         }
       end
 
@@ -3432,7 +3432,7 @@ module AWS::SDK::Pinpoint
     class DeleteVoiceTemplate
       def self.default(visited=[])
         {
-          message_body: Stubs::MessageBody.default(visited),
+          message_body: MessageBody.default(visited),
         }
       end
 
@@ -3449,7 +3449,7 @@ module AWS::SDK::Pinpoint
     class GetAdmChannel
       def self.default(visited=[])
         {
-          adm_channel_response: Stubs::ADMChannelResponse.default(visited),
+          adm_channel_response: ADMChannelResponse.default(visited),
         }
       end
 
@@ -3466,7 +3466,7 @@ module AWS::SDK::Pinpoint
     class GetApnsChannel
       def self.default(visited=[])
         {
-          apns_channel_response: Stubs::APNSChannelResponse.default(visited),
+          apns_channel_response: APNSChannelResponse.default(visited),
         }
       end
 
@@ -3483,7 +3483,7 @@ module AWS::SDK::Pinpoint
     class GetApnsSandboxChannel
       def self.default(visited=[])
         {
-          apns_sandbox_channel_response: Stubs::APNSSandboxChannelResponse.default(visited),
+          apns_sandbox_channel_response: APNSSandboxChannelResponse.default(visited),
         }
       end
 
@@ -3500,7 +3500,7 @@ module AWS::SDK::Pinpoint
     class GetApnsVoipChannel
       def self.default(visited=[])
         {
-          apns_voip_channel_response: Stubs::APNSVoipChannelResponse.default(visited),
+          apns_voip_channel_response: APNSVoipChannelResponse.default(visited),
         }
       end
 
@@ -3517,7 +3517,7 @@ module AWS::SDK::Pinpoint
     class GetApnsVoipSandboxChannel
       def self.default(visited=[])
         {
-          apns_voip_sandbox_channel_response: Stubs::APNSVoipSandboxChannelResponse.default(visited),
+          apns_voip_sandbox_channel_response: APNSVoipSandboxChannelResponse.default(visited),
         }
       end
 
@@ -3534,7 +3534,7 @@ module AWS::SDK::Pinpoint
     class GetApp
       def self.default(visited=[])
         {
-          application_response: Stubs::ApplicationResponse.default(visited),
+          application_response: ApplicationResponse.default(visited),
         }
       end
 
@@ -3551,7 +3551,7 @@ module AWS::SDK::Pinpoint
     class GetApplicationDateRangeKpi
       def self.default(visited=[])
         {
-          application_date_range_kpi_response: Stubs::ApplicationDateRangeKpiResponse.default(visited),
+          application_date_range_kpi_response: ApplicationDateRangeKpiResponse.default(visited),
         }
       end
 
@@ -3573,7 +3573,7 @@ module AWS::SDK::Pinpoint
           application_id: 'application_id',
           end_time: Time.now,
           kpi_name: 'kpi_name',
-          kpi_result: Stubs::BaseKpiResult.default(visited),
+          kpi_result: BaseKpiResult.default(visited),
           next_token: 'next_token',
           start_time: Time.now,
         }
@@ -3598,7 +3598,7 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('BaseKpiResult')
         visited = visited + ['BaseKpiResult']
         {
-          rows: Stubs::ListOfResultRow.default(visited),
+          rows: ListOfResultRow.default(visited),
         }
       end
 
@@ -3616,7 +3616,7 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('ListOfResultRow')
         visited = visited + ['ListOfResultRow']
         [
-          Stubs::ResultRow.default(visited)
+          ResultRow.default(visited)
         ]
       end
 
@@ -3636,8 +3636,8 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('ResultRow')
         visited = visited + ['ResultRow']
         {
-          grouped_bys: Stubs::ListOfResultRowValue.default(visited),
-          values: Stubs::ListOfResultRowValue.default(visited),
+          grouped_bys: ListOfResultRowValue.default(visited),
+          values: ListOfResultRowValue.default(visited),
         }
       end
 
@@ -3656,7 +3656,7 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('ListOfResultRowValue')
         visited = visited + ['ListOfResultRowValue']
         [
-          Stubs::ResultRowValue.default(visited)
+          ResultRowValue.default(visited)
         ]
       end
 
@@ -3696,7 +3696,7 @@ module AWS::SDK::Pinpoint
     class GetApplicationSettings
       def self.default(visited=[])
         {
-          application_settings_resource: Stubs::ApplicationSettingsResource.default(visited),
+          application_settings_resource: ApplicationSettingsResource.default(visited),
         }
       end
 
@@ -3716,10 +3716,10 @@ module AWS::SDK::Pinpoint
         visited = visited + ['ApplicationSettingsResource']
         {
           application_id: 'application_id',
-          campaign_hook: Stubs::CampaignHook.default(visited),
+          campaign_hook: CampaignHook.default(visited),
           last_modified_date: 'last_modified_date',
-          limits: Stubs::CampaignLimits.default(visited),
-          quiet_time: Stubs::QuietTime.default(visited),
+          limits: CampaignLimits.default(visited),
+          quiet_time: QuietTime.default(visited),
         }
       end
 
@@ -3739,7 +3739,7 @@ module AWS::SDK::Pinpoint
     class GetApps
       def self.default(visited=[])
         {
-          applications_response: Stubs::ApplicationsResponse.default(visited),
+          applications_response: ApplicationsResponse.default(visited),
         }
       end
 
@@ -3758,7 +3758,7 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('ApplicationsResponse')
         visited = visited + ['ApplicationsResponse']
         {
-          item: Stubs::ListOfApplicationResponse.default(visited),
+          item: ListOfApplicationResponse.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3778,7 +3778,7 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('ListOfApplicationResponse')
         visited = visited + ['ListOfApplicationResponse']
         [
-          Stubs::ApplicationResponse.default(visited)
+          ApplicationResponse.default(visited)
         ]
       end
 
@@ -3796,7 +3796,7 @@ module AWS::SDK::Pinpoint
     class GetBaiduChannel
       def self.default(visited=[])
         {
-          baidu_channel_response: Stubs::BaiduChannelResponse.default(visited),
+          baidu_channel_response: BaiduChannelResponse.default(visited),
         }
       end
 
@@ -3813,7 +3813,7 @@ module AWS::SDK::Pinpoint
     class GetCampaign
       def self.default(visited=[])
         {
-          campaign_response: Stubs::CampaignResponse.default(visited),
+          campaign_response: CampaignResponse.default(visited),
         }
       end
 
@@ -3830,7 +3830,7 @@ module AWS::SDK::Pinpoint
     class GetCampaignActivities
       def self.default(visited=[])
         {
-          activities_response: Stubs::ActivitiesResponse.default(visited),
+          activities_response: ActivitiesResponse.default(visited),
         }
       end
 
@@ -3849,7 +3849,7 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('ActivitiesResponse')
         visited = visited + ['ActivitiesResponse']
         {
-          item: Stubs::ListOfActivityResponse.default(visited),
+          item: ListOfActivityResponse.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3869,7 +3869,7 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('ListOfActivityResponse')
         visited = visited + ['ListOfActivityResponse']
         [
-          Stubs::ActivityResponse.default(visited)
+          ActivityResponse.default(visited)
         ]
       end
 
@@ -3929,7 +3929,7 @@ module AWS::SDK::Pinpoint
     class GetCampaignDateRangeKpi
       def self.default(visited=[])
         {
-          campaign_date_range_kpi_response: Stubs::CampaignDateRangeKpiResponse.default(visited),
+          campaign_date_range_kpi_response: CampaignDateRangeKpiResponse.default(visited),
         }
       end
 
@@ -3952,7 +3952,7 @@ module AWS::SDK::Pinpoint
           campaign_id: 'campaign_id',
           end_time: Time.now,
           kpi_name: 'kpi_name',
-          kpi_result: Stubs::BaseKpiResult.default(visited),
+          kpi_result: BaseKpiResult.default(visited),
           next_token: 'next_token',
           start_time: Time.now,
         }
@@ -3976,7 +3976,7 @@ module AWS::SDK::Pinpoint
     class GetCampaignVersion
       def self.default(visited=[])
         {
-          campaign_response: Stubs::CampaignResponse.default(visited),
+          campaign_response: CampaignResponse.default(visited),
         }
       end
 
@@ -3993,7 +3993,7 @@ module AWS::SDK::Pinpoint
     class GetCampaignVersions
       def self.default(visited=[])
         {
-          campaigns_response: Stubs::CampaignsResponse.default(visited),
+          campaigns_response: CampaignsResponse.default(visited),
         }
       end
 
@@ -4012,7 +4012,7 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('CampaignsResponse')
         visited = visited + ['CampaignsResponse']
         {
-          item: Stubs::ListOfCampaignResponse.default(visited),
+          item: ListOfCampaignResponse.default(visited),
           next_token: 'next_token',
         }
       end
@@ -4032,7 +4032,7 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('ListOfCampaignResponse')
         visited = visited + ['ListOfCampaignResponse']
         [
-          Stubs::CampaignResponse.default(visited)
+          CampaignResponse.default(visited)
         ]
       end
 
@@ -4050,7 +4050,7 @@ module AWS::SDK::Pinpoint
     class GetCampaigns
       def self.default(visited=[])
         {
-          campaigns_response: Stubs::CampaignsResponse.default(visited),
+          campaigns_response: CampaignsResponse.default(visited),
         }
       end
 
@@ -4067,7 +4067,7 @@ module AWS::SDK::Pinpoint
     class GetChannels
       def self.default(visited=[])
         {
-          channels_response: Stubs::ChannelsResponse.default(visited),
+          channels_response: ChannelsResponse.default(visited),
         }
       end
 
@@ -4086,7 +4086,7 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('ChannelsResponse')
         visited = visited + ['ChannelsResponse']
         {
-          channels: Stubs::MapOfChannelResponse.default(visited),
+          channels: MapOfChannelResponse.default(visited),
         }
       end
 
@@ -4104,7 +4104,7 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('MapOfChannelResponse')
         visited = visited + ['MapOfChannelResponse']
         {
-          test_key: Stubs::ChannelResponse.default(visited)
+          test_key: ChannelResponse.default(visited)
         }
       end
 
@@ -4156,7 +4156,7 @@ module AWS::SDK::Pinpoint
     class GetEmailChannel
       def self.default(visited=[])
         {
-          email_channel_response: Stubs::EmailChannelResponse.default(visited),
+          email_channel_response: EmailChannelResponse.default(visited),
         }
       end
 
@@ -4173,7 +4173,7 @@ module AWS::SDK::Pinpoint
     class GetEmailTemplate
       def self.default(visited=[])
         {
-          email_template_response: Stubs::EmailTemplateResponse.default(visited),
+          email_template_response: EmailTemplateResponse.default(visited),
         }
       end
 
@@ -4199,7 +4199,7 @@ module AWS::SDK::Pinpoint
           last_modified_date: 'last_modified_date',
           recommender_id: 'recommender_id',
           subject: 'subject',
-          tags: Stubs::MapOf__string.default(visited),
+          tags: MapOf__string.default(visited),
           template_description: 'template_description',
           template_name: 'template_name',
           template_type: 'template_type',
@@ -4232,7 +4232,7 @@ module AWS::SDK::Pinpoint
     class GetEndpoint
       def self.default(visited=[])
         {
-          endpoint_response: Stubs::EndpointResponse.default(visited),
+          endpoint_response: EndpointResponse.default(visited),
         }
       end
 
@@ -4249,7 +4249,7 @@ module AWS::SDK::Pinpoint
     class GetEventStream
       def self.default(visited=[])
         {
-          event_stream: Stubs::EventStream.default(visited),
+          event_stream: EventStream.default(visited),
         }
       end
 
@@ -4266,7 +4266,7 @@ module AWS::SDK::Pinpoint
     class GetExportJob
       def self.default(visited=[])
         {
-          export_job_response: Stubs::ExportJobResponse.default(visited),
+          export_job_response: ExportJobResponse.default(visited),
         }
       end
 
@@ -4283,7 +4283,7 @@ module AWS::SDK::Pinpoint
     class GetExportJobs
       def self.default(visited=[])
         {
-          export_jobs_response: Stubs::ExportJobsResponse.default(visited),
+          export_jobs_response: ExportJobsResponse.default(visited),
         }
       end
 
@@ -4302,7 +4302,7 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('ExportJobsResponse')
         visited = visited + ['ExportJobsResponse']
         {
-          item: Stubs::ListOfExportJobResponse.default(visited),
+          item: ListOfExportJobResponse.default(visited),
           next_token: 'next_token',
         }
       end
@@ -4322,7 +4322,7 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('ListOfExportJobResponse')
         visited = visited + ['ListOfExportJobResponse']
         [
-          Stubs::ExportJobResponse.default(visited)
+          ExportJobResponse.default(visited)
         ]
       end
 
@@ -4340,7 +4340,7 @@ module AWS::SDK::Pinpoint
     class GetGcmChannel
       def self.default(visited=[])
         {
-          gcm_channel_response: Stubs::GCMChannelResponse.default(visited),
+          gcm_channel_response: GCMChannelResponse.default(visited),
         }
       end
 
@@ -4357,7 +4357,7 @@ module AWS::SDK::Pinpoint
     class GetImportJob
       def self.default(visited=[])
         {
-          import_job_response: Stubs::ImportJobResponse.default(visited),
+          import_job_response: ImportJobResponse.default(visited),
         }
       end
 
@@ -4374,7 +4374,7 @@ module AWS::SDK::Pinpoint
     class GetImportJobs
       def self.default(visited=[])
         {
-          import_jobs_response: Stubs::ImportJobsResponse.default(visited),
+          import_jobs_response: ImportJobsResponse.default(visited),
         }
       end
 
@@ -4393,7 +4393,7 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('ImportJobsResponse')
         visited = visited + ['ImportJobsResponse']
         {
-          item: Stubs::ListOfImportJobResponse.default(visited),
+          item: ListOfImportJobResponse.default(visited),
           next_token: 'next_token',
         }
       end
@@ -4413,7 +4413,7 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('ListOfImportJobResponse')
         visited = visited + ['ListOfImportJobResponse']
         [
-          Stubs::ImportJobResponse.default(visited)
+          ImportJobResponse.default(visited)
         ]
       end
 
@@ -4431,7 +4431,7 @@ module AWS::SDK::Pinpoint
     class GetInAppMessages
       def self.default(visited=[])
         {
-          in_app_messages_response: Stubs::InAppMessagesResponse.default(visited),
+          in_app_messages_response: InAppMessagesResponse.default(visited),
         }
       end
 
@@ -4450,7 +4450,7 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('InAppMessagesResponse')
         visited = visited + ['InAppMessagesResponse']
         {
-          in_app_message_campaigns: Stubs::ListOfInAppMessageCampaign.default(visited),
+          in_app_message_campaigns: ListOfInAppMessageCampaign.default(visited),
         }
       end
 
@@ -4468,7 +4468,7 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('ListOfInAppMessageCampaign')
         visited = visited + ['ListOfInAppMessageCampaign']
         [
-          Stubs::InAppMessageCampaign.default(visited)
+          InAppMessageCampaign.default(visited)
         ]
       end
 
@@ -4490,9 +4490,9 @@ module AWS::SDK::Pinpoint
         {
           campaign_id: 'campaign_id',
           daily_cap: 1,
-          in_app_message: Stubs::InAppMessage.default(visited),
+          in_app_message: InAppMessage.default(visited),
           priority: 1,
-          schedule: Stubs::InAppCampaignSchedule.default(visited),
+          schedule: InAppCampaignSchedule.default(visited),
           session_cap: 1,
           total_cap: 1,
           treatment_id: 'treatment_id',
@@ -4521,8 +4521,8 @@ module AWS::SDK::Pinpoint
         visited = visited + ['InAppCampaignSchedule']
         {
           end_date: 'end_date',
-          event_filter: Stubs::CampaignEventFilter.default(visited),
-          quiet_time: Stubs::QuietTime.default(visited),
+          event_filter: CampaignEventFilter.default(visited),
+          quiet_time: QuietTime.default(visited),
         }
       end
 
@@ -4542,8 +4542,8 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('InAppMessage')
         visited = visited + ['InAppMessage']
         {
-          content: Stubs::ListOfInAppMessageContent.default(visited),
-          custom_config: Stubs::MapOf__string.default(visited),
+          content: ListOfInAppMessageContent.default(visited),
+          custom_config: MapOf__string.default(visited),
           layout: 'layout',
         }
       end
@@ -4562,7 +4562,7 @@ module AWS::SDK::Pinpoint
     class GetInAppTemplate
       def self.default(visited=[])
         {
-          in_app_template_response: Stubs::InAppTemplateResponse.default(visited),
+          in_app_template_response: InAppTemplateResponse.default(visited),
         }
       end
 
@@ -4582,12 +4582,12 @@ module AWS::SDK::Pinpoint
         visited = visited + ['InAppTemplateResponse']
         {
           arn: 'arn',
-          content: Stubs::ListOfInAppMessageContent.default(visited),
+          content: ListOfInAppMessageContent.default(visited),
           creation_date: 'creation_date',
-          custom_config: Stubs::MapOf__string.default(visited),
+          custom_config: MapOf__string.default(visited),
           last_modified_date: 'last_modified_date',
           layout: 'layout',
-          tags: Stubs::MapOf__string.default(visited),
+          tags: MapOf__string.default(visited),
           template_description: 'template_description',
           template_name: 'template_name',
           template_type: 'template_type',
@@ -4617,7 +4617,7 @@ module AWS::SDK::Pinpoint
     class GetJourney
       def self.default(visited=[])
         {
-          journey_response: Stubs::JourneyResponse.default(visited),
+          journey_response: JourneyResponse.default(visited),
         }
       end
 
@@ -4634,7 +4634,7 @@ module AWS::SDK::Pinpoint
     class GetJourneyDateRangeKpi
       def self.default(visited=[])
         {
-          journey_date_range_kpi_response: Stubs::JourneyDateRangeKpiResponse.default(visited),
+          journey_date_range_kpi_response: JourneyDateRangeKpiResponse.default(visited),
         }
       end
 
@@ -4657,7 +4657,7 @@ module AWS::SDK::Pinpoint
           end_time: Time.now,
           journey_id: 'journey_id',
           kpi_name: 'kpi_name',
-          kpi_result: Stubs::BaseKpiResult.default(visited),
+          kpi_result: BaseKpiResult.default(visited),
           next_token: 'next_token',
           start_time: Time.now,
         }
@@ -4681,7 +4681,7 @@ module AWS::SDK::Pinpoint
     class GetJourneyExecutionActivityMetrics
       def self.default(visited=[])
         {
-          journey_execution_activity_metrics_response: Stubs::JourneyExecutionActivityMetricsResponse.default(visited),
+          journey_execution_activity_metrics_response: JourneyExecutionActivityMetricsResponse.default(visited),
         }
       end
 
@@ -4705,7 +4705,7 @@ module AWS::SDK::Pinpoint
           journey_activity_id: 'journey_activity_id',
           journey_id: 'journey_id',
           last_evaluated_time: 'last_evaluated_time',
-          metrics: Stubs::MapOf__string.default(visited),
+          metrics: MapOf__string.default(visited),
         }
       end
 
@@ -4726,7 +4726,7 @@ module AWS::SDK::Pinpoint
     class GetJourneyExecutionMetrics
       def self.default(visited=[])
         {
-          journey_execution_metrics_response: Stubs::JourneyExecutionMetricsResponse.default(visited),
+          journey_execution_metrics_response: JourneyExecutionMetricsResponse.default(visited),
         }
       end
 
@@ -4748,7 +4748,7 @@ module AWS::SDK::Pinpoint
           application_id: 'application_id',
           journey_id: 'journey_id',
           last_evaluated_time: 'last_evaluated_time',
-          metrics: Stubs::MapOf__string.default(visited),
+          metrics: MapOf__string.default(visited),
         }
       end
 
@@ -4767,7 +4767,7 @@ module AWS::SDK::Pinpoint
     class GetPushTemplate
       def self.default(visited=[])
         {
-          push_notification_template_response: Stubs::PushNotificationTemplateResponse.default(visited),
+          push_notification_template_response: PushNotificationTemplateResponse.default(visited),
         }
       end
 
@@ -4786,17 +4786,17 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('PushNotificationTemplateResponse')
         visited = visited + ['PushNotificationTemplateResponse']
         {
-          adm: Stubs::AndroidPushNotificationTemplate.default(visited),
-          apns: Stubs::APNSPushNotificationTemplate.default(visited),
+          adm: AndroidPushNotificationTemplate.default(visited),
+          apns: APNSPushNotificationTemplate.default(visited),
           arn: 'arn',
-          baidu: Stubs::AndroidPushNotificationTemplate.default(visited),
+          baidu: AndroidPushNotificationTemplate.default(visited),
           creation_date: 'creation_date',
-          default: Stubs::DefaultPushNotificationTemplate.default(visited),
+          default: DefaultPushNotificationTemplate.default(visited),
           default_substitutions: 'default_substitutions',
-          gcm: Stubs::AndroidPushNotificationTemplate.default(visited),
+          gcm: AndroidPushNotificationTemplate.default(visited),
           last_modified_date: 'last_modified_date',
           recommender_id: 'recommender_id',
-          tags: Stubs::MapOf__string.default(visited),
+          tags: MapOf__string.default(visited),
           template_description: 'template_description',
           template_name: 'template_name',
           template_type: 'template_type',
@@ -4920,7 +4920,7 @@ module AWS::SDK::Pinpoint
     class GetRecommenderConfiguration
       def self.default(visited=[])
         {
-          recommender_configuration_response: Stubs::RecommenderConfigurationResponse.default(visited),
+          recommender_configuration_response: RecommenderConfigurationResponse.default(visited),
         }
       end
 
@@ -4937,7 +4937,7 @@ module AWS::SDK::Pinpoint
     class GetRecommenderConfigurations
       def self.default(visited=[])
         {
-          list_recommender_configurations_response: Stubs::ListRecommenderConfigurationsResponse.default(visited),
+          list_recommender_configurations_response: ListRecommenderConfigurationsResponse.default(visited),
         }
       end
 
@@ -4956,7 +4956,7 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('ListRecommenderConfigurationsResponse')
         visited = visited + ['ListRecommenderConfigurationsResponse']
         {
-          item: Stubs::ListOfRecommenderConfigurationResponse.default(visited),
+          item: ListOfRecommenderConfigurationResponse.default(visited),
           next_token: 'next_token',
         }
       end
@@ -4976,7 +4976,7 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('ListOfRecommenderConfigurationResponse')
         visited = visited + ['ListOfRecommenderConfigurationResponse']
         [
-          Stubs::RecommenderConfigurationResponse.default(visited)
+          RecommenderConfigurationResponse.default(visited)
         ]
       end
 
@@ -4994,7 +4994,7 @@ module AWS::SDK::Pinpoint
     class GetSegment
       def self.default(visited=[])
         {
-          segment_response: Stubs::SegmentResponse.default(visited),
+          segment_response: SegmentResponse.default(visited),
         }
       end
 
@@ -5011,7 +5011,7 @@ module AWS::SDK::Pinpoint
     class GetSegmentExportJobs
       def self.default(visited=[])
         {
-          export_jobs_response: Stubs::ExportJobsResponse.default(visited),
+          export_jobs_response: ExportJobsResponse.default(visited),
         }
       end
 
@@ -5028,7 +5028,7 @@ module AWS::SDK::Pinpoint
     class GetSegmentImportJobs
       def self.default(visited=[])
         {
-          import_jobs_response: Stubs::ImportJobsResponse.default(visited),
+          import_jobs_response: ImportJobsResponse.default(visited),
         }
       end
 
@@ -5045,7 +5045,7 @@ module AWS::SDK::Pinpoint
     class GetSegmentVersion
       def self.default(visited=[])
         {
-          segment_response: Stubs::SegmentResponse.default(visited),
+          segment_response: SegmentResponse.default(visited),
         }
       end
 
@@ -5062,7 +5062,7 @@ module AWS::SDK::Pinpoint
     class GetSegmentVersions
       def self.default(visited=[])
         {
-          segments_response: Stubs::SegmentsResponse.default(visited),
+          segments_response: SegmentsResponse.default(visited),
         }
       end
 
@@ -5081,7 +5081,7 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('SegmentsResponse')
         visited = visited + ['SegmentsResponse']
         {
-          item: Stubs::ListOfSegmentResponse.default(visited),
+          item: ListOfSegmentResponse.default(visited),
           next_token: 'next_token',
         }
       end
@@ -5101,7 +5101,7 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('ListOfSegmentResponse')
         visited = visited + ['ListOfSegmentResponse']
         [
-          Stubs::SegmentResponse.default(visited)
+          SegmentResponse.default(visited)
         ]
       end
 
@@ -5119,7 +5119,7 @@ module AWS::SDK::Pinpoint
     class GetSegments
       def self.default(visited=[])
         {
-          segments_response: Stubs::SegmentsResponse.default(visited),
+          segments_response: SegmentsResponse.default(visited),
         }
       end
 
@@ -5136,7 +5136,7 @@ module AWS::SDK::Pinpoint
     class GetSmsChannel
       def self.default(visited=[])
         {
-          sms_channel_response: Stubs::SMSChannelResponse.default(visited),
+          sms_channel_response: SMSChannelResponse.default(visited),
         }
       end
 
@@ -5153,7 +5153,7 @@ module AWS::SDK::Pinpoint
     class GetSmsTemplate
       def self.default(visited=[])
         {
-          sms_template_response: Stubs::SMSTemplateResponse.default(visited),
+          sms_template_response: SMSTemplateResponse.default(visited),
         }
       end
 
@@ -5178,7 +5178,7 @@ module AWS::SDK::Pinpoint
           default_substitutions: 'default_substitutions',
           last_modified_date: 'last_modified_date',
           recommender_id: 'recommender_id',
-          tags: Stubs::MapOf__string.default(visited),
+          tags: MapOf__string.default(visited),
           template_description: 'template_description',
           template_name: 'template_name',
           template_type: 'template_type',
@@ -5208,7 +5208,7 @@ module AWS::SDK::Pinpoint
     class GetUserEndpoints
       def self.default(visited=[])
         {
-          endpoints_response: Stubs::EndpointsResponse.default(visited),
+          endpoints_response: EndpointsResponse.default(visited),
         }
       end
 
@@ -5225,7 +5225,7 @@ module AWS::SDK::Pinpoint
     class GetVoiceChannel
       def self.default(visited=[])
         {
-          voice_channel_response: Stubs::VoiceChannelResponse.default(visited),
+          voice_channel_response: VoiceChannelResponse.default(visited),
         }
       end
 
@@ -5242,7 +5242,7 @@ module AWS::SDK::Pinpoint
     class GetVoiceTemplate
       def self.default(visited=[])
         {
-          voice_template_response: Stubs::VoiceTemplateResponse.default(visited),
+          voice_template_response: VoiceTemplateResponse.default(visited),
         }
       end
 
@@ -5267,7 +5267,7 @@ module AWS::SDK::Pinpoint
           default_substitutions: 'default_substitutions',
           language_code: 'language_code',
           last_modified_date: 'last_modified_date',
-          tags: Stubs::MapOf__string.default(visited),
+          tags: MapOf__string.default(visited),
           template_description: 'template_description',
           template_name: 'template_name',
           template_type: 'template_type',
@@ -5299,7 +5299,7 @@ module AWS::SDK::Pinpoint
     class ListJourneys
       def self.default(visited=[])
         {
-          journeys_response: Stubs::JourneysResponse.default(visited),
+          journeys_response: JourneysResponse.default(visited),
         }
       end
 
@@ -5318,7 +5318,7 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('JourneysResponse')
         visited = visited + ['JourneysResponse']
         {
-          item: Stubs::ListOfJourneyResponse.default(visited),
+          item: ListOfJourneyResponse.default(visited),
           next_token: 'next_token',
         }
       end
@@ -5338,7 +5338,7 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('ListOfJourneyResponse')
         visited = visited + ['ListOfJourneyResponse']
         [
-          Stubs::JourneyResponse.default(visited)
+          JourneyResponse.default(visited)
         ]
       end
 
@@ -5356,7 +5356,7 @@ module AWS::SDK::Pinpoint
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags_model: Stubs::TagsModel.default(visited),
+          tags_model: TagsModel.default(visited),
         }
       end
 
@@ -5375,7 +5375,7 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('TagsModel')
         visited = visited + ['TagsModel']
         {
-          tags: Stubs::MapOf__string.default(visited),
+          tags: MapOf__string.default(visited),
         }
       end
 
@@ -5391,7 +5391,7 @@ module AWS::SDK::Pinpoint
     class ListTemplateVersions
       def self.default(visited=[])
         {
-          template_versions_response: Stubs::TemplateVersionsResponse.default(visited),
+          template_versions_response: TemplateVersionsResponse.default(visited),
         }
       end
 
@@ -5410,7 +5410,7 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('TemplateVersionsResponse')
         visited = visited + ['TemplateVersionsResponse']
         {
-          item: Stubs::ListOfTemplateVersionResponse.default(visited),
+          item: ListOfTemplateVersionResponse.default(visited),
           message: 'message',
           next_token: 'next_token',
           request_id: 'request_id',
@@ -5434,7 +5434,7 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('ListOfTemplateVersionResponse')
         visited = visited + ['ListOfTemplateVersionResponse']
         [
-          Stubs::TemplateVersionResponse.default(visited)
+          TemplateVersionResponse.default(visited)
         ]
       end
 
@@ -5482,7 +5482,7 @@ module AWS::SDK::Pinpoint
     class ListTemplates
       def self.default(visited=[])
         {
-          templates_response: Stubs::TemplatesResponse.default(visited),
+          templates_response: TemplatesResponse.default(visited),
         }
       end
 
@@ -5501,7 +5501,7 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('TemplatesResponse')
         visited = visited + ['TemplatesResponse']
         {
-          item: Stubs::ListOfTemplateResponse.default(visited),
+          item: ListOfTemplateResponse.default(visited),
           next_token: 'next_token',
         }
       end
@@ -5521,7 +5521,7 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('ListOfTemplateResponse')
         visited = visited + ['ListOfTemplateResponse']
         [
-          Stubs::TemplateResponse.default(visited)
+          TemplateResponse.default(visited)
         ]
       end
 
@@ -5545,7 +5545,7 @@ module AWS::SDK::Pinpoint
           creation_date: 'creation_date',
           default_substitutions: 'default_substitutions',
           last_modified_date: 'last_modified_date',
-          tags: Stubs::MapOf__string.default(visited),
+          tags: MapOf__string.default(visited),
           template_description: 'template_description',
           template_name: 'template_name',
           template_type: 'template_type',
@@ -5573,7 +5573,7 @@ module AWS::SDK::Pinpoint
     class PhoneNumberValidate
       def self.default(visited=[])
         {
-          number_validate_response: Stubs::NumberValidateResponse.default(visited),
+          number_validate_response: NumberValidateResponse.default(visited),
         }
       end
 
@@ -5634,7 +5634,7 @@ module AWS::SDK::Pinpoint
     class PutEventStream
       def self.default(visited=[])
         {
-          event_stream: Stubs::EventStream.default(visited),
+          event_stream: EventStream.default(visited),
         }
       end
 
@@ -5651,7 +5651,7 @@ module AWS::SDK::Pinpoint
     class PutEvents
       def self.default(visited=[])
         {
-          events_response: Stubs::EventsResponse.default(visited),
+          events_response: EventsResponse.default(visited),
         }
       end
 
@@ -5670,7 +5670,7 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('EventsResponse')
         visited = visited + ['EventsResponse']
         {
-          results: Stubs::MapOfItemResponse.default(visited),
+          results: MapOfItemResponse.default(visited),
         }
       end
 
@@ -5688,7 +5688,7 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('MapOfItemResponse')
         visited = visited + ['MapOfItemResponse']
         {
-          test_key: Stubs::ItemResponse.default(visited)
+          test_key: ItemResponse.default(visited)
         }
       end
 
@@ -5708,8 +5708,8 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('ItemResponse')
         visited = visited + ['ItemResponse']
         {
-          endpoint_item_response: Stubs::EndpointItemResponse.default(visited),
-          events_item_response: Stubs::MapOfEventItemResponse.default(visited),
+          endpoint_item_response: EndpointItemResponse.default(visited),
+          events_item_response: MapOfEventItemResponse.default(visited),
         }
       end
 
@@ -5728,7 +5728,7 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('MapOfEventItemResponse')
         visited = visited + ['MapOfEventItemResponse']
         {
-          test_key: Stubs::EventItemResponse.default(visited)
+          test_key: EventItemResponse.default(visited)
         }
       end
 
@@ -5786,7 +5786,7 @@ module AWS::SDK::Pinpoint
     class RemoveAttributes
       def self.default(visited=[])
         {
-          attributes_resource: Stubs::AttributesResource.default(visited),
+          attributes_resource: AttributesResource.default(visited),
         }
       end
 
@@ -5807,7 +5807,7 @@ module AWS::SDK::Pinpoint
         {
           application_id: 'application_id',
           attribute_type: 'attribute_type',
-          attributes: Stubs::ListOf__string.default(visited),
+          attributes: ListOf__string.default(visited),
         }
       end
 
@@ -5825,7 +5825,7 @@ module AWS::SDK::Pinpoint
     class SendMessages
       def self.default(visited=[])
         {
-          message_response: Stubs::MessageResponse.default(visited),
+          message_response: MessageResponse.default(visited),
         }
       end
 
@@ -5845,9 +5845,9 @@ module AWS::SDK::Pinpoint
         visited = visited + ['MessageResponse']
         {
           application_id: 'application_id',
-          endpoint_result: Stubs::MapOfEndpointMessageResult.default(visited),
+          endpoint_result: MapOfEndpointMessageResult.default(visited),
           request_id: 'request_id',
-          result: Stubs::MapOfMessageResult.default(visited),
+          result: MapOfMessageResult.default(visited),
         }
       end
 
@@ -5868,7 +5868,7 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('MapOfMessageResult')
         visited = visited + ['MapOfMessageResult']
         {
-          test_key: Stubs::MessageResult.default(visited)
+          test_key: MessageResult.default(visited)
         }
       end
 
@@ -5914,7 +5914,7 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('MapOfEndpointMessageResult')
         visited = visited + ['MapOfEndpointMessageResult']
         {
-          test_key: Stubs::EndpointMessageResult.default(visited)
+          test_key: EndpointMessageResult.default(visited)
         }
       end
 
@@ -5960,7 +5960,7 @@ module AWS::SDK::Pinpoint
     class SendOTPMessage
       def self.default(visited=[])
         {
-          message_response: Stubs::MessageResponse.default(visited),
+          message_response: MessageResponse.default(visited),
         }
       end
 
@@ -5977,7 +5977,7 @@ module AWS::SDK::Pinpoint
     class SendUsersMessages
       def self.default(visited=[])
         {
-          send_users_message_response: Stubs::SendUsersMessageResponse.default(visited),
+          send_users_message_response: SendUsersMessageResponse.default(visited),
         }
       end
 
@@ -5998,7 +5998,7 @@ module AWS::SDK::Pinpoint
         {
           application_id: 'application_id',
           request_id: 'request_id',
-          result: Stubs::MapOfMapOfEndpointMessageResult.default(visited),
+          result: MapOfMapOfEndpointMessageResult.default(visited),
         }
       end
 
@@ -6018,7 +6018,7 @@ module AWS::SDK::Pinpoint
         return nil if visited.include?('MapOfMapOfEndpointMessageResult')
         visited = visited + ['MapOfMapOfEndpointMessageResult']
         {
-          test_key: Stubs::MapOfEndpointMessageResult.default(visited)
+          test_key: MapOfEndpointMessageResult.default(visited)
         }
       end
 
@@ -6062,7 +6062,7 @@ module AWS::SDK::Pinpoint
     class UpdateAdmChannel
       def self.default(visited=[])
         {
-          adm_channel_response: Stubs::ADMChannelResponse.default(visited),
+          adm_channel_response: ADMChannelResponse.default(visited),
         }
       end
 
@@ -6079,7 +6079,7 @@ module AWS::SDK::Pinpoint
     class UpdateApnsChannel
       def self.default(visited=[])
         {
-          apns_channel_response: Stubs::APNSChannelResponse.default(visited),
+          apns_channel_response: APNSChannelResponse.default(visited),
         }
       end
 
@@ -6096,7 +6096,7 @@ module AWS::SDK::Pinpoint
     class UpdateApnsSandboxChannel
       def self.default(visited=[])
         {
-          apns_sandbox_channel_response: Stubs::APNSSandboxChannelResponse.default(visited),
+          apns_sandbox_channel_response: APNSSandboxChannelResponse.default(visited),
         }
       end
 
@@ -6113,7 +6113,7 @@ module AWS::SDK::Pinpoint
     class UpdateApnsVoipChannel
       def self.default(visited=[])
         {
-          apns_voip_channel_response: Stubs::APNSVoipChannelResponse.default(visited),
+          apns_voip_channel_response: APNSVoipChannelResponse.default(visited),
         }
       end
 
@@ -6130,7 +6130,7 @@ module AWS::SDK::Pinpoint
     class UpdateApnsVoipSandboxChannel
       def self.default(visited=[])
         {
-          apns_voip_sandbox_channel_response: Stubs::APNSVoipSandboxChannelResponse.default(visited),
+          apns_voip_sandbox_channel_response: APNSVoipSandboxChannelResponse.default(visited),
         }
       end
 
@@ -6147,7 +6147,7 @@ module AWS::SDK::Pinpoint
     class UpdateApplicationSettings
       def self.default(visited=[])
         {
-          application_settings_resource: Stubs::ApplicationSettingsResource.default(visited),
+          application_settings_resource: ApplicationSettingsResource.default(visited),
         }
       end
 
@@ -6164,7 +6164,7 @@ module AWS::SDK::Pinpoint
     class UpdateBaiduChannel
       def self.default(visited=[])
         {
-          baidu_channel_response: Stubs::BaiduChannelResponse.default(visited),
+          baidu_channel_response: BaiduChannelResponse.default(visited),
         }
       end
 
@@ -6181,7 +6181,7 @@ module AWS::SDK::Pinpoint
     class UpdateCampaign
       def self.default(visited=[])
         {
-          campaign_response: Stubs::CampaignResponse.default(visited),
+          campaign_response: CampaignResponse.default(visited),
         }
       end
 
@@ -6198,7 +6198,7 @@ module AWS::SDK::Pinpoint
     class UpdateEmailChannel
       def self.default(visited=[])
         {
-          email_channel_response: Stubs::EmailChannelResponse.default(visited),
+          email_channel_response: EmailChannelResponse.default(visited),
         }
       end
 
@@ -6215,7 +6215,7 @@ module AWS::SDK::Pinpoint
     class UpdateEmailTemplate
       def self.default(visited=[])
         {
-          message_body: Stubs::MessageBody.default(visited),
+          message_body: MessageBody.default(visited),
         }
       end
 
@@ -6232,7 +6232,7 @@ module AWS::SDK::Pinpoint
     class UpdateEndpoint
       def self.default(visited=[])
         {
-          message_body: Stubs::MessageBody.default(visited),
+          message_body: MessageBody.default(visited),
         }
       end
 
@@ -6249,7 +6249,7 @@ module AWS::SDK::Pinpoint
     class UpdateEndpointsBatch
       def self.default(visited=[])
         {
-          message_body: Stubs::MessageBody.default(visited),
+          message_body: MessageBody.default(visited),
         }
       end
 
@@ -6266,7 +6266,7 @@ module AWS::SDK::Pinpoint
     class UpdateGcmChannel
       def self.default(visited=[])
         {
-          gcm_channel_response: Stubs::GCMChannelResponse.default(visited),
+          gcm_channel_response: GCMChannelResponse.default(visited),
         }
       end
 
@@ -6283,7 +6283,7 @@ module AWS::SDK::Pinpoint
     class UpdateInAppTemplate
       def self.default(visited=[])
         {
-          message_body: Stubs::MessageBody.default(visited),
+          message_body: MessageBody.default(visited),
         }
       end
 
@@ -6300,7 +6300,7 @@ module AWS::SDK::Pinpoint
     class UpdateJourney
       def self.default(visited=[])
         {
-          journey_response: Stubs::JourneyResponse.default(visited),
+          journey_response: JourneyResponse.default(visited),
         }
       end
 
@@ -6317,7 +6317,7 @@ module AWS::SDK::Pinpoint
     class UpdateJourneyState
       def self.default(visited=[])
         {
-          journey_response: Stubs::JourneyResponse.default(visited),
+          journey_response: JourneyResponse.default(visited),
         }
       end
 
@@ -6334,7 +6334,7 @@ module AWS::SDK::Pinpoint
     class UpdatePushTemplate
       def self.default(visited=[])
         {
-          message_body: Stubs::MessageBody.default(visited),
+          message_body: MessageBody.default(visited),
         }
       end
 
@@ -6351,7 +6351,7 @@ module AWS::SDK::Pinpoint
     class UpdateRecommenderConfiguration
       def self.default(visited=[])
         {
-          recommender_configuration_response: Stubs::RecommenderConfigurationResponse.default(visited),
+          recommender_configuration_response: RecommenderConfigurationResponse.default(visited),
         }
       end
 
@@ -6368,7 +6368,7 @@ module AWS::SDK::Pinpoint
     class UpdateSegment
       def self.default(visited=[])
         {
-          segment_response: Stubs::SegmentResponse.default(visited),
+          segment_response: SegmentResponse.default(visited),
         }
       end
 
@@ -6385,7 +6385,7 @@ module AWS::SDK::Pinpoint
     class UpdateSmsChannel
       def self.default(visited=[])
         {
-          sms_channel_response: Stubs::SMSChannelResponse.default(visited),
+          sms_channel_response: SMSChannelResponse.default(visited),
         }
       end
 
@@ -6402,7 +6402,7 @@ module AWS::SDK::Pinpoint
     class UpdateSmsTemplate
       def self.default(visited=[])
         {
-          message_body: Stubs::MessageBody.default(visited),
+          message_body: MessageBody.default(visited),
         }
       end
 
@@ -6419,7 +6419,7 @@ module AWS::SDK::Pinpoint
     class UpdateTemplateActiveVersion
       def self.default(visited=[])
         {
-          message_body: Stubs::MessageBody.default(visited),
+          message_body: MessageBody.default(visited),
         }
       end
 
@@ -6436,7 +6436,7 @@ module AWS::SDK::Pinpoint
     class UpdateVoiceChannel
       def self.default(visited=[])
         {
-          voice_channel_response: Stubs::VoiceChannelResponse.default(visited),
+          voice_channel_response: VoiceChannelResponse.default(visited),
         }
       end
 
@@ -6453,7 +6453,7 @@ module AWS::SDK::Pinpoint
     class UpdateVoiceTemplate
       def self.default(visited=[])
         {
-          message_body: Stubs::MessageBody.default(visited),
+          message_body: MessageBody.default(visited),
         }
       end
 
@@ -6470,7 +6470,7 @@ module AWS::SDK::Pinpoint
     class VerifyOTPMessage
       def self.default(visited=[])
         {
-          verification_response: Stubs::VerificationResponse.default(visited),
+          verification_response: VerificationResponse.default(visited),
         }
       end
 

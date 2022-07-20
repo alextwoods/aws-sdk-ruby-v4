@@ -28,8 +28,8 @@ module AWS::SDK::CodeCommit
     class BatchAssociateApprovalRuleTemplateWithRepositories
       def self.default(visited=[])
         {
-          associated_repository_names: Stubs::RepositoryNameList.default(visited),
-          errors: Stubs::BatchAssociateApprovalRuleTemplateWithRepositoriesErrorsList.default(visited),
+          associated_repository_names: RepositoryNameList.default(visited),
+          errors: BatchAssociateApprovalRuleTemplateWithRepositoriesErrorsList.default(visited),
         }
       end
 
@@ -48,7 +48,7 @@ module AWS::SDK::CodeCommit
         return nil if visited.include?('BatchAssociateApprovalRuleTemplateWithRepositoriesErrorsList')
         visited = visited + ['BatchAssociateApprovalRuleTemplateWithRepositoriesErrorsList']
         [
-          Stubs::BatchAssociateApprovalRuleTemplateWithRepositoriesError.default(visited)
+          BatchAssociateApprovalRuleTemplateWithRepositoriesError.default(visited)
         ]
       end
 
@@ -108,9 +108,9 @@ module AWS::SDK::CodeCommit
     class BatchDescribeMergeConflicts
       def self.default(visited=[])
         {
-          conflicts: Stubs::Conflicts.default(visited),
+          conflicts: Conflicts.default(visited),
           next_token: 'next_token',
-          errors: Stubs::BatchDescribeMergeConflictsErrors.default(visited),
+          errors: BatchDescribeMergeConflictsErrors.default(visited),
           destination_commit_id: 'destination_commit_id',
           source_commit_id: 'source_commit_id',
           base_commit_id: 'base_commit_id',
@@ -136,7 +136,7 @@ module AWS::SDK::CodeCommit
         return nil if visited.include?('BatchDescribeMergeConflictsErrors')
         visited = visited + ['BatchDescribeMergeConflictsErrors']
         [
-          Stubs::BatchDescribeMergeConflictsError.default(visited)
+          BatchDescribeMergeConflictsError.default(visited)
         ]
       end
 
@@ -178,7 +178,7 @@ module AWS::SDK::CodeCommit
         return nil if visited.include?('Conflicts')
         visited = visited + ['Conflicts']
         [
-          Stubs::Conflict.default(visited)
+          Conflict.default(visited)
         ]
       end
 
@@ -198,8 +198,8 @@ module AWS::SDK::CodeCommit
         return nil if visited.include?('Conflict')
         visited = visited + ['Conflict']
         {
-          conflict_metadata: Stubs::ConflictMetadata.default(visited),
-          merge_hunks: Stubs::MergeHunks.default(visited),
+          conflict_metadata: ConflictMetadata.default(visited),
+          merge_hunks: MergeHunks.default(visited),
         }
       end
 
@@ -218,7 +218,7 @@ module AWS::SDK::CodeCommit
         return nil if visited.include?('MergeHunks')
         visited = visited + ['MergeHunks']
         [
-          Stubs::MergeHunk.default(visited)
+          MergeHunk.default(visited)
         ]
       end
 
@@ -239,9 +239,9 @@ module AWS::SDK::CodeCommit
         visited = visited + ['MergeHunk']
         {
           is_conflict: false,
-          source: Stubs::MergeHunkDetail.default(visited),
-          destination: Stubs::MergeHunkDetail.default(visited),
-          base: Stubs::MergeHunkDetail.default(visited),
+          source: MergeHunkDetail.default(visited),
+          destination: MergeHunkDetail.default(visited),
+          base: MergeHunkDetail.default(visited),
         }
       end
 
@@ -285,15 +285,15 @@ module AWS::SDK::CodeCommit
         visited = visited + ['ConflictMetadata']
         {
           file_path: 'file_path',
-          file_sizes: Stubs::FileSizes.default(visited),
-          file_modes: Stubs::FileModes.default(visited),
-          object_types: Stubs::ObjectTypes.default(visited),
+          file_sizes: FileSizes.default(visited),
+          file_modes: FileModes.default(visited),
+          object_types: ObjectTypes.default(visited),
           number_of_conflicts: 1,
-          is_binary_file: Stubs::IsBinaryFile.default(visited),
+          is_binary_file: IsBinaryFile.default(visited),
           content_conflict: false,
           file_mode_conflict: false,
           object_type_conflict: false,
-          merge_operations: Stubs::MergeOperations.default(visited),
+          merge_operations: MergeOperations.default(visited),
         }
       end
 
@@ -426,8 +426,8 @@ module AWS::SDK::CodeCommit
     class BatchDisassociateApprovalRuleTemplateFromRepositories
       def self.default(visited=[])
         {
-          disassociated_repository_names: Stubs::RepositoryNameList.default(visited),
-          errors: Stubs::BatchDisassociateApprovalRuleTemplateFromRepositoriesErrorsList.default(visited),
+          disassociated_repository_names: RepositoryNameList.default(visited),
+          errors: BatchDisassociateApprovalRuleTemplateFromRepositoriesErrorsList.default(visited),
         }
       end
 
@@ -446,7 +446,7 @@ module AWS::SDK::CodeCommit
         return nil if visited.include?('BatchDisassociateApprovalRuleTemplateFromRepositoriesErrorsList')
         visited = visited + ['BatchDisassociateApprovalRuleTemplateFromRepositoriesErrorsList']
         [
-          Stubs::BatchDisassociateApprovalRuleTemplateFromRepositoriesError.default(visited)
+          BatchDisassociateApprovalRuleTemplateFromRepositoriesError.default(visited)
         ]
       end
 
@@ -486,8 +486,8 @@ module AWS::SDK::CodeCommit
     class BatchGetCommits
       def self.default(visited=[])
         {
-          commits: Stubs::CommitObjectsList.default(visited),
-          errors: Stubs::BatchGetCommitsErrorsList.default(visited),
+          commits: CommitObjectsList.default(visited),
+          errors: BatchGetCommitsErrorsList.default(visited),
         }
       end
 
@@ -506,7 +506,7 @@ module AWS::SDK::CodeCommit
         return nil if visited.include?('BatchGetCommitsErrorsList')
         visited = visited + ['BatchGetCommitsErrorsList']
         [
-          Stubs::BatchGetCommitsError.default(visited)
+          BatchGetCommitsError.default(visited)
         ]
       end
 
@@ -548,7 +548,7 @@ module AWS::SDK::CodeCommit
         return nil if visited.include?('CommitObjectsList')
         visited = visited + ['CommitObjectsList']
         [
-          Stubs::Commit.default(visited)
+          Commit.default(visited)
         ]
       end
 
@@ -570,10 +570,10 @@ module AWS::SDK::CodeCommit
         {
           commit_id: 'commit_id',
           tree_id: 'tree_id',
-          parents: Stubs::ParentList.default(visited),
+          parents: ParentList.default(visited),
           message: 'message',
-          author: Stubs::UserInfo.default(visited),
-          committer: Stubs::UserInfo.default(visited),
+          author: UserInfo.default(visited),
+          committer: UserInfo.default(visited),
           additional_data: 'additional_data',
         }
       end
@@ -638,8 +638,8 @@ module AWS::SDK::CodeCommit
     class BatchGetRepositories
       def self.default(visited=[])
         {
-          repositories: Stubs::RepositoryMetadataList.default(visited),
-          repositories_not_found: Stubs::RepositoryNotFoundList.default(visited),
+          repositories: RepositoryMetadataList.default(visited),
+          repositories_not_found: RepositoryNotFoundList.default(visited),
         }
       end
 
@@ -678,7 +678,7 @@ module AWS::SDK::CodeCommit
         return nil if visited.include?('RepositoryMetadataList')
         visited = visited + ['RepositoryMetadataList']
         [
-          Stubs::RepositoryMetadata.default(visited)
+          RepositoryMetadata.default(visited)
         ]
       end
 
@@ -732,7 +732,7 @@ module AWS::SDK::CodeCommit
     class CreateApprovalRuleTemplate
       def self.default(visited=[])
         {
-          approval_rule_template: Stubs::ApprovalRuleTemplate.default(visited),
+          approval_rule_template: ApprovalRuleTemplate.default(visited),
         }
       end
 
@@ -796,9 +796,9 @@ module AWS::SDK::CodeCommit
         {
           commit_id: 'commit_id',
           tree_id: 'tree_id',
-          files_added: Stubs::FilesMetadata.default(visited),
-          files_updated: Stubs::FilesMetadata.default(visited),
-          files_deleted: Stubs::FilesMetadata.default(visited),
+          files_added: FilesMetadata.default(visited),
+          files_updated: FilesMetadata.default(visited),
+          files_deleted: FilesMetadata.default(visited),
         }
       end
 
@@ -820,7 +820,7 @@ module AWS::SDK::CodeCommit
         return nil if visited.include?('FilesMetadata')
         visited = visited + ['FilesMetadata']
         [
-          Stubs::FileMetadata.default(visited)
+          FileMetadata.default(visited)
         ]
       end
 
@@ -860,7 +860,7 @@ module AWS::SDK::CodeCommit
     class CreatePullRequest
       def self.default(visited=[])
         {
-          pull_request: Stubs::PullRequest.default(visited),
+          pull_request: PullRequest.default(visited),
         }
       end
 
@@ -885,10 +885,10 @@ module AWS::SDK::CodeCommit
           creation_date: Time.now,
           pull_request_status: 'pull_request_status',
           author_arn: 'author_arn',
-          pull_request_targets: Stubs::PullRequestTargetList.default(visited),
+          pull_request_targets: PullRequestTargetList.default(visited),
           client_request_token: 'client_request_token',
           revision_id: 'revision_id',
-          approval_rules: Stubs::ApprovalRulesList.default(visited),
+          approval_rules: ApprovalRulesList.default(visited),
         }
       end
 
@@ -916,7 +916,7 @@ module AWS::SDK::CodeCommit
         return nil if visited.include?('ApprovalRulesList')
         visited = visited + ['ApprovalRulesList']
         [
-          Stubs::ApprovalRule.default(visited)
+          ApprovalRule.default(visited)
         ]
       end
 
@@ -943,7 +943,7 @@ module AWS::SDK::CodeCommit
           last_modified_date: Time.now,
           creation_date: Time.now,
           last_modified_user: 'last_modified_user',
-          origin_approval_rule_template: Stubs::OriginApprovalRuleTemplate.default(visited),
+          origin_approval_rule_template: OriginApprovalRuleTemplate.default(visited),
         }
       end
 
@@ -988,7 +988,7 @@ module AWS::SDK::CodeCommit
         return nil if visited.include?('PullRequestTargetList')
         visited = visited + ['PullRequestTargetList']
         [
-          Stubs::PullRequestTarget.default(visited)
+          PullRequestTarget.default(visited)
         ]
       end
 
@@ -1014,7 +1014,7 @@ module AWS::SDK::CodeCommit
           destination_commit: 'destination_commit',
           source_commit: 'source_commit',
           merge_base: 'merge_base',
-          merge_metadata: Stubs::MergeMetadata.default(visited),
+          merge_metadata: MergeMetadata.default(visited),
         }
       end
 
@@ -1060,7 +1060,7 @@ module AWS::SDK::CodeCommit
     class CreatePullRequestApprovalRule
       def self.default(visited=[])
         {
-          approval_rule: Stubs::ApprovalRule.default(visited),
+          approval_rule: ApprovalRule.default(visited),
         }
       end
 
@@ -1076,7 +1076,7 @@ module AWS::SDK::CodeCommit
     class CreateRepository
       def self.default(visited=[])
         {
-          repository_metadata: Stubs::RepositoryMetadata.default(visited),
+          repository_metadata: RepositoryMetadata.default(visited),
         }
       end
 
@@ -1126,7 +1126,7 @@ module AWS::SDK::CodeCommit
     class DeleteBranch
       def self.default(visited=[])
         {
-          deleted_branch: Stubs::BranchInfo.default(visited),
+          deleted_branch: BranchInfo.default(visited),
         }
       end
 
@@ -1162,7 +1162,7 @@ module AWS::SDK::CodeCommit
     class DeleteCommentContent
       def self.default(visited=[])
         {
-          comment: Stubs::Comment.default(visited),
+          comment: Comment.default(visited),
         }
       end
 
@@ -1188,8 +1188,8 @@ module AWS::SDK::CodeCommit
           author_arn: 'author_arn',
           deleted: false,
           client_request_token: 'client_request_token',
-          caller_reactions: Stubs::CallerReactions.default(visited),
-          reaction_counts: Stubs::ReactionCountsMap.default(visited),
+          caller_reactions: CallerReactions.default(visited),
+          reaction_counts: ReactionCountsMap.default(visited),
         }
       end
 
@@ -1308,8 +1308,8 @@ module AWS::SDK::CodeCommit
     class DescribeMergeConflicts
       def self.default(visited=[])
         {
-          conflict_metadata: Stubs::ConflictMetadata.default(visited),
-          merge_hunks: Stubs::MergeHunks.default(visited),
+          conflict_metadata: ConflictMetadata.default(visited),
+          merge_hunks: MergeHunks.default(visited),
           next_token: 'next_token',
           destination_commit_id: 'destination_commit_id',
           source_commit_id: 'source_commit_id',
@@ -1334,7 +1334,7 @@ module AWS::SDK::CodeCommit
     class DescribePullRequestEvents
       def self.default(visited=[])
         {
-          pull_request_events: Stubs::PullRequestEventList.default(visited),
+          pull_request_events: PullRequestEventList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1354,7 +1354,7 @@ module AWS::SDK::CodeCommit
         return nil if visited.include?('PullRequestEventList')
         visited = visited + ['PullRequestEventList']
         [
-          Stubs::PullRequestEvent.default(visited)
+          PullRequestEvent.default(visited)
         ]
       end
 
@@ -1378,13 +1378,13 @@ module AWS::SDK::CodeCommit
           event_date: Time.now,
           pull_request_event_type: 'pull_request_event_type',
           actor_arn: 'actor_arn',
-          pull_request_created_event_metadata: Stubs::PullRequestCreatedEventMetadata.default(visited),
-          pull_request_status_changed_event_metadata: Stubs::PullRequestStatusChangedEventMetadata.default(visited),
-          pull_request_source_reference_updated_event_metadata: Stubs::PullRequestSourceReferenceUpdatedEventMetadata.default(visited),
-          pull_request_merged_state_changed_event_metadata: Stubs::PullRequestMergedStateChangedEventMetadata.default(visited),
-          approval_rule_event_metadata: Stubs::ApprovalRuleEventMetadata.default(visited),
-          approval_state_changed_event_metadata: Stubs::ApprovalStateChangedEventMetadata.default(visited),
-          approval_rule_overridden_event_metadata: Stubs::ApprovalRuleOverriddenEventMetadata.default(visited),
+          pull_request_created_event_metadata: PullRequestCreatedEventMetadata.default(visited),
+          pull_request_status_changed_event_metadata: PullRequestStatusChangedEventMetadata.default(visited),
+          pull_request_source_reference_updated_event_metadata: PullRequestSourceReferenceUpdatedEventMetadata.default(visited),
+          pull_request_merged_state_changed_event_metadata: PullRequestMergedStateChangedEventMetadata.default(visited),
+          approval_rule_event_metadata: ApprovalRuleEventMetadata.default(visited),
+          approval_state_changed_event_metadata: ApprovalStateChangedEventMetadata.default(visited),
+          approval_rule_overridden_event_metadata: ApprovalRuleOverriddenEventMetadata.default(visited),
         }
       end
 
@@ -1476,7 +1476,7 @@ module AWS::SDK::CodeCommit
         {
           repository_name: 'repository_name',
           destination_reference: 'destination_reference',
-          merge_metadata: Stubs::MergeMetadata.default(visited),
+          merge_metadata: MergeMetadata.default(visited),
         }
       end
 
@@ -1574,7 +1574,7 @@ module AWS::SDK::CodeCommit
     class EvaluatePullRequestApprovalRules
       def self.default(visited=[])
         {
-          evaluation: Stubs::Evaluation.default(visited),
+          evaluation: Evaluation.default(visited),
         }
       end
 
@@ -1594,8 +1594,8 @@ module AWS::SDK::CodeCommit
         {
           approved: false,
           overridden: false,
-          approval_rules_satisfied: Stubs::ApprovalRulesSatisfiedList.default(visited),
-          approval_rules_not_satisfied: Stubs::ApprovalRulesNotSatisfiedList.default(visited),
+          approval_rules_satisfied: ApprovalRulesSatisfiedList.default(visited),
+          approval_rules_not_satisfied: ApprovalRulesNotSatisfiedList.default(visited),
         }
       end
 
@@ -1654,7 +1654,7 @@ module AWS::SDK::CodeCommit
     class GetApprovalRuleTemplate
       def self.default(visited=[])
         {
-          approval_rule_template: Stubs::ApprovalRuleTemplate.default(visited),
+          approval_rule_template: ApprovalRuleTemplate.default(visited),
         }
       end
 
@@ -1686,7 +1686,7 @@ module AWS::SDK::CodeCommit
     class GetBranch
       def self.default(visited=[])
         {
-          branch: Stubs::BranchInfo.default(visited),
+          branch: BranchInfo.default(visited),
         }
       end
 
@@ -1702,7 +1702,7 @@ module AWS::SDK::CodeCommit
     class GetComment
       def self.default(visited=[])
         {
-          comment: Stubs::Comment.default(visited),
+          comment: Comment.default(visited),
         }
       end
 
@@ -1718,7 +1718,7 @@ module AWS::SDK::CodeCommit
     class GetCommentReactions
       def self.default(visited=[])
         {
-          reactions_for_comment: Stubs::ReactionsForCommentList.default(visited),
+          reactions_for_comment: ReactionsForCommentList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1738,7 +1738,7 @@ module AWS::SDK::CodeCommit
         return nil if visited.include?('ReactionsForCommentList')
         visited = visited + ['ReactionsForCommentList']
         [
-          Stubs::ReactionForComment.default(visited)
+          ReactionForComment.default(visited)
         ]
       end
 
@@ -1758,8 +1758,8 @@ module AWS::SDK::CodeCommit
         return nil if visited.include?('ReactionForComment')
         visited = visited + ['ReactionForComment']
         {
-          reaction: Stubs::ReactionValueFormats.default(visited),
-          reaction_users: Stubs::ReactionUsersList.default(visited),
+          reaction: ReactionValueFormats.default(visited),
+          reaction_users: ReactionUsersList.default(visited),
           reactions_from_deleted_users_count: 1,
         }
       end
@@ -1820,7 +1820,7 @@ module AWS::SDK::CodeCommit
     class GetCommentsForComparedCommit
       def self.default(visited=[])
         {
-          comments_for_compared_commit_data: Stubs::CommentsForComparedCommitData.default(visited),
+          comments_for_compared_commit_data: CommentsForComparedCommitData.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1840,7 +1840,7 @@ module AWS::SDK::CodeCommit
         return nil if visited.include?('CommentsForComparedCommitData')
         visited = visited + ['CommentsForComparedCommitData']
         [
-          Stubs::CommentsForComparedCommit.default(visited)
+          CommentsForComparedCommit.default(visited)
         ]
       end
 
@@ -1865,8 +1865,8 @@ module AWS::SDK::CodeCommit
           after_commit_id: 'after_commit_id',
           before_blob_id: 'before_blob_id',
           after_blob_id: 'after_blob_id',
-          location: Stubs::Location.default(visited),
-          comments: Stubs::Comments.default(visited),
+          location: Location.default(visited),
+          comments: Comments.default(visited),
         }
       end
 
@@ -1890,7 +1890,7 @@ module AWS::SDK::CodeCommit
         return nil if visited.include?('Comments')
         visited = visited + ['Comments']
         [
-          Stubs::Comment.default(visited)
+          Comment.default(visited)
         ]
       end
 
@@ -1930,7 +1930,7 @@ module AWS::SDK::CodeCommit
     class GetCommentsForPullRequest
       def self.default(visited=[])
         {
-          comments_for_pull_request_data: Stubs::CommentsForPullRequestData.default(visited),
+          comments_for_pull_request_data: CommentsForPullRequestData.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1950,7 +1950,7 @@ module AWS::SDK::CodeCommit
         return nil if visited.include?('CommentsForPullRequestData')
         visited = visited + ['CommentsForPullRequestData']
         [
-          Stubs::CommentsForPullRequest.default(visited)
+          CommentsForPullRequest.default(visited)
         ]
       end
 
@@ -1976,8 +1976,8 @@ module AWS::SDK::CodeCommit
           after_commit_id: 'after_commit_id',
           before_blob_id: 'before_blob_id',
           after_blob_id: 'after_blob_id',
-          location: Stubs::Location.default(visited),
-          comments: Stubs::Comments.default(visited),
+          location: Location.default(visited),
+          comments: Comments.default(visited),
         }
       end
 
@@ -2000,7 +2000,7 @@ module AWS::SDK::CodeCommit
     class GetCommit
       def self.default(visited=[])
         {
-          commit: Stubs::Commit.default(visited),
+          commit: Commit.default(visited),
         }
       end
 
@@ -2016,7 +2016,7 @@ module AWS::SDK::CodeCommit
     class GetDifferences
       def self.default(visited=[])
         {
-          differences: Stubs::DifferenceList.default(visited),
+          differences: DifferenceList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2036,7 +2036,7 @@ module AWS::SDK::CodeCommit
         return nil if visited.include?('DifferenceList')
         visited = visited + ['DifferenceList']
         [
-          Stubs::Difference.default(visited)
+          Difference.default(visited)
         ]
       end
 
@@ -2056,8 +2056,8 @@ module AWS::SDK::CodeCommit
         return nil if visited.include?('Difference')
         visited = visited + ['Difference']
         {
-          before_blob: Stubs::BlobMetadata.default(visited),
-          after_blob: Stubs::BlobMetadata.default(visited),
+          before_blob: BlobMetadata.default(visited),
+          after_blob: BlobMetadata.default(visited),
           change_type: 'change_type',
         }
       end
@@ -2127,10 +2127,10 @@ module AWS::SDK::CodeCommit
           commit_id: 'commit_id',
           folder_path: 'folder_path',
           tree_id: 'tree_id',
-          sub_folders: Stubs::FolderList.default(visited),
-          files: Stubs::FileList.default(visited),
-          symbolic_links: Stubs::SymbolicLinkList.default(visited),
-          sub_modules: Stubs::SubModuleList.default(visited),
+          sub_folders: FolderList.default(visited),
+          files: FileList.default(visited),
+          symbolic_links: SymbolicLinkList.default(visited),
+          sub_modules: SubModuleList.default(visited),
         }
       end
 
@@ -2154,7 +2154,7 @@ module AWS::SDK::CodeCommit
         return nil if visited.include?('SubModuleList')
         visited = visited + ['SubModuleList']
         [
-          Stubs::SubModule.default(visited)
+          SubModule.default(visited)
         ]
       end
 
@@ -2196,7 +2196,7 @@ module AWS::SDK::CodeCommit
         return nil if visited.include?('SymbolicLinkList')
         visited = visited + ['SymbolicLinkList']
         [
-          Stubs::SymbolicLink.default(visited)
+          SymbolicLink.default(visited)
         ]
       end
 
@@ -2240,7 +2240,7 @@ module AWS::SDK::CodeCommit
         return nil if visited.include?('FileList')
         visited = visited + ['FileList']
         [
-          Stubs::File.default(visited)
+          File.default(visited)
         ]
       end
 
@@ -2284,7 +2284,7 @@ module AWS::SDK::CodeCommit
         return nil if visited.include?('FolderList')
         visited = visited + ['FolderList']
         [
-          Stubs::Folder.default(visited)
+          Folder.default(visited)
         ]
       end
 
@@ -2350,7 +2350,7 @@ module AWS::SDK::CodeCommit
           destination_commit_id: 'destination_commit_id',
           source_commit_id: 'source_commit_id',
           base_commit_id: 'base_commit_id',
-          conflict_metadata_list: Stubs::ConflictMetadataList.default(visited),
+          conflict_metadata_list: ConflictMetadataList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2374,7 +2374,7 @@ module AWS::SDK::CodeCommit
         return nil if visited.include?('ConflictMetadataList')
         visited = visited + ['ConflictMetadataList']
         [
-          Stubs::ConflictMetadata.default(visited)
+          ConflictMetadata.default(visited)
         ]
       end
 
@@ -2392,7 +2392,7 @@ module AWS::SDK::CodeCommit
     class GetMergeOptions
       def self.default(visited=[])
         {
-          merge_options: Stubs::MergeOptions.default(visited),
+          merge_options: MergeOptions.default(visited),
           source_commit_id: 'source_commit_id',
           destination_commit_id: 'destination_commit_id',
           base_commit_id: 'base_commit_id',
@@ -2434,7 +2434,7 @@ module AWS::SDK::CodeCommit
     class GetPullRequest
       def self.default(visited=[])
         {
-          pull_request: Stubs::PullRequest.default(visited),
+          pull_request: PullRequest.default(visited),
         }
       end
 
@@ -2450,7 +2450,7 @@ module AWS::SDK::CodeCommit
     class GetPullRequestApprovalStates
       def self.default(visited=[])
         {
-          approvals: Stubs::ApprovalList.default(visited),
+          approvals: ApprovalList.default(visited),
         }
       end
 
@@ -2468,7 +2468,7 @@ module AWS::SDK::CodeCommit
         return nil if visited.include?('ApprovalList')
         visited = visited + ['ApprovalList']
         [
-          Stubs::Approval.default(visited)
+          Approval.default(visited)
         ]
       end
 
@@ -2524,7 +2524,7 @@ module AWS::SDK::CodeCommit
     class GetRepository
       def self.default(visited=[])
         {
-          repository_metadata: Stubs::RepositoryMetadata.default(visited),
+          repository_metadata: RepositoryMetadata.default(visited),
         }
       end
 
@@ -2541,7 +2541,7 @@ module AWS::SDK::CodeCommit
       def self.default(visited=[])
         {
           configuration_id: 'configuration_id',
-          triggers: Stubs::RepositoryTriggersList.default(visited),
+          triggers: RepositoryTriggersList.default(visited),
         }
       end
 
@@ -2560,7 +2560,7 @@ module AWS::SDK::CodeCommit
         return nil if visited.include?('RepositoryTriggersList')
         visited = visited + ['RepositoryTriggersList']
         [
-          Stubs::RepositoryTrigger.default(visited)
+          RepositoryTrigger.default(visited)
         ]
       end
 
@@ -2583,8 +2583,8 @@ module AWS::SDK::CodeCommit
           name: 'name',
           destination_arn: 'destination_arn',
           custom_data: 'custom_data',
-          branches: Stubs::BranchNameList.default(visited),
-          events: Stubs::RepositoryTriggerEventList.default(visited),
+          branches: BranchNameList.default(visited),
+          events: RepositoryTriggerEventList.default(visited),
         }
       end
 
@@ -2644,7 +2644,7 @@ module AWS::SDK::CodeCommit
     class ListApprovalRuleTemplates
       def self.default(visited=[])
         {
-          approval_rule_template_names: Stubs::ApprovalRuleTemplateNameList.default(visited),
+          approval_rule_template_names: ApprovalRuleTemplateNameList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2682,7 +2682,7 @@ module AWS::SDK::CodeCommit
     class ListAssociatedApprovalRuleTemplatesForRepository
       def self.default(visited=[])
         {
-          approval_rule_template_names: Stubs::ApprovalRuleTemplateNameList.default(visited),
+          approval_rule_template_names: ApprovalRuleTemplateNameList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2700,7 +2700,7 @@ module AWS::SDK::CodeCommit
     class ListBranches
       def self.default(visited=[])
         {
-          branches: Stubs::BranchNameList.default(visited),
+          branches: BranchNameList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2718,7 +2718,7 @@ module AWS::SDK::CodeCommit
     class ListPullRequests
       def self.default(visited=[])
         {
-          pull_request_ids: Stubs::PullRequestIdList.default(visited),
+          pull_request_ids: PullRequestIdList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2756,7 +2756,7 @@ module AWS::SDK::CodeCommit
     class ListRepositories
       def self.default(visited=[])
         {
-          repositories: Stubs::RepositoryNameIdPairList.default(visited),
+          repositories: RepositoryNameIdPairList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2776,7 +2776,7 @@ module AWS::SDK::CodeCommit
         return nil if visited.include?('RepositoryNameIdPairList')
         visited = visited + ['RepositoryNameIdPairList']
         [
-          Stubs::RepositoryNameIdPair.default(visited)
+          RepositoryNameIdPair.default(visited)
         ]
       end
 
@@ -2814,7 +2814,7 @@ module AWS::SDK::CodeCommit
     class ListRepositoriesForApprovalRuleTemplate
       def self.default(visited=[])
         {
-          repository_names: Stubs::RepositoryNameList.default(visited),
+          repository_names: RepositoryNameList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2832,7 +2832,7 @@ module AWS::SDK::CodeCommit
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagsMap.default(visited),
+          tags: TagsMap.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2924,7 +2924,7 @@ module AWS::SDK::CodeCommit
     class MergePullRequestByFastForward
       def self.default(visited=[])
         {
-          pull_request: Stubs::PullRequest.default(visited),
+          pull_request: PullRequest.default(visited),
         }
       end
 
@@ -2940,7 +2940,7 @@ module AWS::SDK::CodeCommit
     class MergePullRequestBySquash
       def self.default(visited=[])
         {
-          pull_request: Stubs::PullRequest.default(visited),
+          pull_request: PullRequest.default(visited),
         }
       end
 
@@ -2956,7 +2956,7 @@ module AWS::SDK::CodeCommit
     class MergePullRequestByThreeWay
       def self.default(visited=[])
         {
-          pull_request: Stubs::PullRequest.default(visited),
+          pull_request: PullRequest.default(visited),
         }
       end
 
@@ -2991,8 +2991,8 @@ module AWS::SDK::CodeCommit
           after_commit_id: 'after_commit_id',
           before_blob_id: 'before_blob_id',
           after_blob_id: 'after_blob_id',
-          location: Stubs::Location.default(visited),
-          comment: Stubs::Comment.default(visited),
+          location: Location.default(visited),
+          comment: Comment.default(visited),
         }
       end
 
@@ -3020,8 +3020,8 @@ module AWS::SDK::CodeCommit
           after_commit_id: 'after_commit_id',
           before_blob_id: 'before_blob_id',
           after_blob_id: 'after_blob_id',
-          location: Stubs::Location.default(visited),
-          comment: Stubs::Comment.default(visited),
+          location: Location.default(visited),
+          comment: Comment.default(visited),
         }
       end
 
@@ -3044,7 +3044,7 @@ module AWS::SDK::CodeCommit
     class PostCommentReply
       def self.default(visited=[])
         {
-          comment: Stubs::Comment.default(visited),
+          comment: Comment.default(visited),
         }
       end
 
@@ -3124,8 +3124,8 @@ module AWS::SDK::CodeCommit
     class TestRepositoryTriggers
       def self.default(visited=[])
         {
-          successful_executions: Stubs::RepositoryTriggerNameList.default(visited),
-          failed_executions: Stubs::RepositoryTriggerExecutionFailureList.default(visited),
+          successful_executions: RepositoryTriggerNameList.default(visited),
+          failed_executions: RepositoryTriggerExecutionFailureList.default(visited),
         }
       end
 
@@ -3144,7 +3144,7 @@ module AWS::SDK::CodeCommit
         return nil if visited.include?('RepositoryTriggerExecutionFailureList')
         visited = visited + ['RepositoryTriggerExecutionFailureList']
         [
-          Stubs::RepositoryTriggerExecutionFailure.default(visited)
+          RepositoryTriggerExecutionFailure.default(visited)
         ]
       end
 
@@ -3216,7 +3216,7 @@ module AWS::SDK::CodeCommit
     class UpdateApprovalRuleTemplateContent
       def self.default(visited=[])
         {
-          approval_rule_template: Stubs::ApprovalRuleTemplate.default(visited),
+          approval_rule_template: ApprovalRuleTemplate.default(visited),
         }
       end
 
@@ -3232,7 +3232,7 @@ module AWS::SDK::CodeCommit
     class UpdateApprovalRuleTemplateDescription
       def self.default(visited=[])
         {
-          approval_rule_template: Stubs::ApprovalRuleTemplate.default(visited),
+          approval_rule_template: ApprovalRuleTemplate.default(visited),
         }
       end
 
@@ -3248,7 +3248,7 @@ module AWS::SDK::CodeCommit
     class UpdateApprovalRuleTemplateName
       def self.default(visited=[])
         {
-          approval_rule_template: Stubs::ApprovalRuleTemplate.default(visited),
+          approval_rule_template: ApprovalRuleTemplate.default(visited),
         }
       end
 
@@ -3264,7 +3264,7 @@ module AWS::SDK::CodeCommit
     class UpdateComment
       def self.default(visited=[])
         {
-          comment: Stubs::Comment.default(visited),
+          comment: Comment.default(visited),
         }
       end
 
@@ -3294,7 +3294,7 @@ module AWS::SDK::CodeCommit
     class UpdatePullRequestApprovalRuleContent
       def self.default(visited=[])
         {
-          approval_rule: Stubs::ApprovalRule.default(visited),
+          approval_rule: ApprovalRule.default(visited),
         }
       end
 
@@ -3324,7 +3324,7 @@ module AWS::SDK::CodeCommit
     class UpdatePullRequestDescription
       def self.default(visited=[])
         {
-          pull_request: Stubs::PullRequest.default(visited),
+          pull_request: PullRequest.default(visited),
         }
       end
 
@@ -3340,7 +3340,7 @@ module AWS::SDK::CodeCommit
     class UpdatePullRequestStatus
       def self.default(visited=[])
         {
-          pull_request: Stubs::PullRequest.default(visited),
+          pull_request: PullRequest.default(visited),
         }
       end
 
@@ -3356,7 +3356,7 @@ module AWS::SDK::CodeCommit
     class UpdatePullRequestTitle
       def self.default(visited=[])
         {
-          pull_request: Stubs::PullRequest.default(visited),
+          pull_request: PullRequest.default(visited),
         }
       end
 

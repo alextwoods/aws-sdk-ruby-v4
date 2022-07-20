@@ -92,12 +92,12 @@ module AWS::SDK::CodeDeploy
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
         self.ignore_poll_alarm_failure ||= false
       end
-
     end
 
     # <p>The maximum number of alarms for a deployment group (10) was exceeded.</p>
@@ -220,11 +220,11 @@ module AWS::SDK::CodeDeploy
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.linked_to_git_hub ||= false
       end
-
     end
 
     # <p>More applications were attempted to be created than are allowed.</p>
@@ -306,11 +306,11 @@ module AWS::SDK::CodeDeploy
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # Includes enum constants for AutoRollbackEvent
@@ -732,11 +732,11 @@ module AWS::SDK::CodeDeploy
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.termination_wait_time_in_minutes ||= 0
       end
-
     end
 
     # <p>A bucket name is required, but was not provided.</p>
@@ -834,11 +834,11 @@ module AWS::SDK::CodeDeploy
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.target_version_weight ||= 0
       end
-
     end
 
     # Includes enum constants for ComputePlatform
@@ -1287,12 +1287,12 @@ module AWS::SDK::CodeDeploy
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.ignore_application_stop_failures ||= false
         self.update_outdated_instances_only ||= false
       end
-
     end
 
     # <p> Represents the output of a <code>CreateDeployment</code> operation. </p>
@@ -2126,13 +2126,13 @@ module AWS::SDK::CodeDeploy
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.ignore_application_stop_failures ||= false
         self.update_outdated_instances_only ||= false
         self.instance_termination_wait_time_started ||= false
       end
-
     end
 
     # <p>The deployment does not have a status of Ready and can't continue yet.</p>
@@ -2233,6 +2233,7 @@ module AWS::SDK::CodeDeploy
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.pending ||= 0
@@ -2242,7 +2243,6 @@ module AWS::SDK::CodeDeploy
         self.skipped ||= 0
         self.ready ||= 0
       end
-
     end
 
     # Includes enum constants for DeploymentReadyAction
@@ -2294,11 +2294,11 @@ module AWS::SDK::CodeDeploy
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.wait_time_in_minutes ||= 0
       end
-
     end
 
     # Includes enum constants for DeploymentStatus
@@ -2842,6 +2842,7 @@ module AWS::SDK::CodeDeploy
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.desired_count ||= 0
@@ -2849,7 +2850,6 @@ module AWS::SDK::CodeDeploy
         self.running_count ||= 0
         self.traffic_weight ||= 0
       end
-
     end
 
     # <p>Information about a load balancer in Elastic Load Balancing to use in a deployment.
@@ -4758,11 +4758,11 @@ module AWS::SDK::CodeDeploy
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.target_version_weight ||= 0
       end
-
     end
 
     # <p> Information about the target AWS Lambda function during an AWS Lambda deployment.
@@ -5762,11 +5762,11 @@ module AWS::SDK::CodeDeploy
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.value ||= 0
       end
-
     end
 
     # Includes enum constants for MinimumHealthyHostsType
@@ -6714,12 +6714,12 @@ module AWS::SDK::CodeDeploy
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.canary_percentage ||= 0
         self.canary_interval ||= 0
       end
-
     end
 
     # <p>A configuration that shifts traffic from one version of a Lambda function or ECS task
@@ -6745,12 +6745,12 @@ module AWS::SDK::CodeDeploy
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.linear_percentage ||= 0
         self.linear_interval ||= 0
       end
-
     end
 
     # <p>Information about a time range.</p>

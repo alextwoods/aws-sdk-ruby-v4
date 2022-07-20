@@ -16,9 +16,9 @@ module AWS::SDK::LexModelBuildingService
         {
           name: 'name',
           description: 'description',
-          intents: Stubs::IntentList.default(visited),
-          clarification_prompt: Stubs::Prompt.default(visited),
-          abort_statement: Stubs::Statement.default(visited),
+          intents: IntentList.default(visited),
+          clarification_prompt: Prompt.default(visited),
+          abort_statement: Statement.default(visited),
           status: 'status',
           failure_reason: 'failure_reason',
           last_updated_date: Time.now,
@@ -65,7 +65,7 @@ module AWS::SDK::LexModelBuildingService
         return nil if visited.include?('Statement')
         visited = visited + ['Statement']
         {
-          messages: Stubs::MessageList.default(visited),
+          messages: MessageList.default(visited),
           response_card: 'response_card',
         }
       end
@@ -85,7 +85,7 @@ module AWS::SDK::LexModelBuildingService
         return nil if visited.include?('MessageList')
         visited = visited + ['MessageList']
         [
-          Stubs::Message.default(visited)
+          Message.default(visited)
         ]
       end
 
@@ -127,7 +127,7 @@ module AWS::SDK::LexModelBuildingService
         return nil if visited.include?('Prompt')
         visited = visited + ['Prompt']
         {
-          messages: Stubs::MessageList.default(visited),
+          messages: MessageList.default(visited),
           max_attempts: 1,
           response_card: 'response_card',
         }
@@ -149,7 +149,7 @@ module AWS::SDK::LexModelBuildingService
         return nil if visited.include?('IntentList')
         visited = visited + ['IntentList']
         [
-          Stubs::Intent.default(visited)
+          Intent.default(visited)
         ]
       end
 
@@ -189,22 +189,22 @@ module AWS::SDK::LexModelBuildingService
         {
           name: 'name',
           description: 'description',
-          slots: Stubs::SlotList.default(visited),
-          sample_utterances: Stubs::IntentUtteranceList.default(visited),
-          confirmation_prompt: Stubs::Prompt.default(visited),
-          rejection_statement: Stubs::Statement.default(visited),
-          follow_up_prompt: Stubs::FollowUpPrompt.default(visited),
-          conclusion_statement: Stubs::Statement.default(visited),
-          dialog_code_hook: Stubs::CodeHook.default(visited),
-          fulfillment_activity: Stubs::FulfillmentActivity.default(visited),
+          slots: SlotList.default(visited),
+          sample_utterances: IntentUtteranceList.default(visited),
+          confirmation_prompt: Prompt.default(visited),
+          rejection_statement: Statement.default(visited),
+          follow_up_prompt: FollowUpPrompt.default(visited),
+          conclusion_statement: Statement.default(visited),
+          dialog_code_hook: CodeHook.default(visited),
+          fulfillment_activity: FulfillmentActivity.default(visited),
           parent_intent_signature: 'parent_intent_signature',
           last_updated_date: Time.now,
           created_date: Time.now,
           version: 'version',
           checksum: 'checksum',
-          kendra_configuration: Stubs::KendraConfiguration.default(visited),
-          input_contexts: Stubs::InputContextList.default(visited),
-          output_contexts: Stubs::OutputContextList.default(visited),
+          kendra_configuration: KendraConfiguration.default(visited),
+          input_contexts: InputContextList.default(visited),
+          output_contexts: OutputContextList.default(visited),
         }
       end
 
@@ -240,7 +240,7 @@ module AWS::SDK::LexModelBuildingService
         return nil if visited.include?('OutputContextList')
         visited = visited + ['OutputContextList']
         [
-          Stubs::OutputContext.default(visited)
+          OutputContext.default(visited)
         ]
       end
 
@@ -282,7 +282,7 @@ module AWS::SDK::LexModelBuildingService
         return nil if visited.include?('InputContextList')
         visited = visited + ['InputContextList']
         [
-          Stubs::InputContext.default(visited)
+          InputContext.default(visited)
         ]
       end
 
@@ -343,7 +343,7 @@ module AWS::SDK::LexModelBuildingService
         visited = visited + ['FulfillmentActivity']
         {
           type: 'type',
-          code_hook: Stubs::CodeHook.default(visited),
+          code_hook: CodeHook.default(visited),
         }
       end
 
@@ -382,8 +382,8 @@ module AWS::SDK::LexModelBuildingService
         return nil if visited.include?('FollowUpPrompt')
         visited = visited + ['FollowUpPrompt']
         {
-          prompt: Stubs::Prompt.default(visited),
-          rejection_statement: Stubs::Statement.default(visited),
+          prompt: Prompt.default(visited),
+          rejection_statement: Statement.default(visited),
         }
       end
 
@@ -422,7 +422,7 @@ module AWS::SDK::LexModelBuildingService
         return nil if visited.include?('SlotList')
         visited = visited + ['SlotList']
         [
-          Stubs::Slot.default(visited)
+          Slot.default(visited)
         ]
       end
 
@@ -447,12 +447,12 @@ module AWS::SDK::LexModelBuildingService
           slot_constraint: 'slot_constraint',
           slot_type: 'slot_type',
           slot_type_version: 'slot_type_version',
-          value_elicitation_prompt: Stubs::Prompt.default(visited),
+          value_elicitation_prompt: Prompt.default(visited),
           priority: 1,
-          sample_utterances: Stubs::SlotUtteranceList.default(visited),
+          sample_utterances: SlotUtteranceList.default(visited),
           response_card: 'response_card',
           obfuscation_setting: 'obfuscation_setting',
-          default_value_spec: Stubs::SlotDefaultValueSpec.default(visited),
+          default_value_spec: SlotDefaultValueSpec.default(visited),
         }
       end
 
@@ -480,7 +480,7 @@ module AWS::SDK::LexModelBuildingService
         return nil if visited.include?('SlotDefaultValueSpec')
         visited = visited + ['SlotDefaultValueSpec']
         {
-          default_value_list: Stubs::SlotDefaultValueList.default(visited),
+          default_value_list: SlotDefaultValueList.default(visited),
         }
       end
 
@@ -498,7 +498,7 @@ module AWS::SDK::LexModelBuildingService
         return nil if visited.include?('SlotDefaultValueList')
         visited = visited + ['SlotDefaultValueList']
         [
-          Stubs::SlotDefaultValue.default(visited)
+          SlotDefaultValue.default(visited)
         ]
       end
 
@@ -556,14 +556,14 @@ module AWS::SDK::LexModelBuildingService
         {
           name: 'name',
           description: 'description',
-          enumeration_values: Stubs::EnumerationValues.default(visited),
+          enumeration_values: EnumerationValues.default(visited),
           last_updated_date: Time.now,
           created_date: Time.now,
           version: 'version',
           checksum: 'checksum',
           value_selection_strategy: 'value_selection_strategy',
           parent_slot_type_signature: 'parent_slot_type_signature',
-          slot_type_configurations: Stubs::SlotTypeConfigurations.default(visited),
+          slot_type_configurations: SlotTypeConfigurations.default(visited),
         }
       end
 
@@ -591,7 +591,7 @@ module AWS::SDK::LexModelBuildingService
         return nil if visited.include?('SlotTypeConfigurations')
         visited = visited + ['SlotTypeConfigurations']
         [
-          Stubs::SlotTypeConfiguration.default(visited)
+          SlotTypeConfiguration.default(visited)
         ]
       end
 
@@ -611,7 +611,7 @@ module AWS::SDK::LexModelBuildingService
         return nil if visited.include?('SlotTypeConfiguration')
         visited = visited + ['SlotTypeConfiguration']
         {
-          regex_configuration: Stubs::SlotTypeRegexConfiguration.default(visited),
+          regex_configuration: SlotTypeRegexConfiguration.default(visited),
         }
       end
 
@@ -647,7 +647,7 @@ module AWS::SDK::LexModelBuildingService
         return nil if visited.include?('EnumerationValues')
         visited = visited + ['EnumerationValues']
         [
-          Stubs::EnumerationValue.default(visited)
+          EnumerationValue.default(visited)
         ]
       end
 
@@ -668,7 +668,7 @@ module AWS::SDK::LexModelBuildingService
         visited = visited + ['EnumerationValue']
         {
           value: 'value',
-          synonyms: Stubs::SynonymList.default(visited),
+          synonyms: SynonymList.default(visited),
         }
       end
 
@@ -824,11 +824,11 @@ module AWS::SDK::LexModelBuildingService
         {
           name: 'name',
           description: 'description',
-          intents: Stubs::IntentList.default(visited),
+          intents: IntentList.default(visited),
           enable_model_improvements: false,
           nlu_intent_confidence_threshold: 1.0,
-          clarification_prompt: Stubs::Prompt.default(visited),
-          abort_statement: Stubs::Statement.default(visited),
+          clarification_prompt: Prompt.default(visited),
+          abort_statement: Statement.default(visited),
           status: 'status',
           failure_reason: 'failure_reason',
           last_updated_date: Time.now,
@@ -880,7 +880,7 @@ module AWS::SDK::LexModelBuildingService
           last_updated_date: Time.now,
           created_date: Time.now,
           checksum: 'checksum',
-          conversation_logs: Stubs::ConversationLogsResponse.default(visited),
+          conversation_logs: ConversationLogsResponse.default(visited),
         }
       end
 
@@ -906,7 +906,7 @@ module AWS::SDK::LexModelBuildingService
         return nil if visited.include?('ConversationLogsResponse')
         visited = visited + ['ConversationLogsResponse']
         {
-          log_settings: Stubs::LogSettingsResponseList.default(visited),
+          log_settings: LogSettingsResponseList.default(visited),
           iam_role_arn: 'iam_role_arn',
         }
       end
@@ -926,7 +926,7 @@ module AWS::SDK::LexModelBuildingService
         return nil if visited.include?('LogSettingsResponseList')
         visited = visited + ['LogSettingsResponseList']
         [
-          Stubs::LogSettingsResponse.default(visited)
+          LogSettingsResponse.default(visited)
         ]
       end
 
@@ -970,7 +970,7 @@ module AWS::SDK::LexModelBuildingService
     class GetBotAliases
       def self.default(visited=[])
         {
-          bot_aliases: Stubs::BotAliasMetadataList.default(visited),
+          bot_aliases: BotAliasMetadataList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -991,7 +991,7 @@ module AWS::SDK::LexModelBuildingService
         return nil if visited.include?('BotAliasMetadataList')
         visited = visited + ['BotAliasMetadataList']
         [
-          Stubs::BotAliasMetadata.default(visited)
+          BotAliasMetadata.default(visited)
         ]
       end
 
@@ -1018,7 +1018,7 @@ module AWS::SDK::LexModelBuildingService
           last_updated_date: Time.now,
           created_date: Time.now,
           checksum: 'checksum',
-          conversation_logs: Stubs::ConversationLogsResponse.default(visited),
+          conversation_logs: ConversationLogsResponse.default(visited),
         }
       end
 
@@ -1047,7 +1047,7 @@ module AWS::SDK::LexModelBuildingService
           bot_name: 'bot_name',
           created_date: Time.now,
           type: 'type',
-          bot_configuration: Stubs::ChannelConfigurationMap.default(visited),
+          bot_configuration: ChannelConfigurationMap.default(visited),
           status: 'status',
           failure_reason: 'failure_reason',
         }
@@ -1094,7 +1094,7 @@ module AWS::SDK::LexModelBuildingService
     class GetBotChannelAssociations
       def self.default(visited=[])
         {
-          bot_channel_associations: Stubs::BotChannelAssociationList.default(visited),
+          bot_channel_associations: BotChannelAssociationList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1115,7 +1115,7 @@ module AWS::SDK::LexModelBuildingService
         return nil if visited.include?('BotChannelAssociationList')
         visited = visited + ['BotChannelAssociationList']
         [
-          Stubs::BotChannelAssociation.default(visited)
+          BotChannelAssociation.default(visited)
         ]
       end
 
@@ -1141,7 +1141,7 @@ module AWS::SDK::LexModelBuildingService
           bot_name: 'bot_name',
           created_date: Time.now,
           type: 'type',
-          bot_configuration: Stubs::ChannelConfigurationMap.default(visited),
+          bot_configuration: ChannelConfigurationMap.default(visited),
           status: 'status',
           failure_reason: 'failure_reason',
         }
@@ -1167,7 +1167,7 @@ module AWS::SDK::LexModelBuildingService
     class GetBotVersions
       def self.default(visited=[])
         {
-          bots: Stubs::BotMetadataList.default(visited),
+          bots: BotMetadataList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1188,7 +1188,7 @@ module AWS::SDK::LexModelBuildingService
         return nil if visited.include?('BotMetadataList')
         visited = visited + ['BotMetadataList']
         [
-          Stubs::BotMetadata.default(visited)
+          BotMetadata.default(visited)
         ]
       end
 
@@ -1234,7 +1234,7 @@ module AWS::SDK::LexModelBuildingService
     class GetBots
       def self.default(visited=[])
         {
-          bots: Stubs::BotMetadataList.default(visited),
+          bots: BotMetadataList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1254,8 +1254,8 @@ module AWS::SDK::LexModelBuildingService
       def self.default(visited=[])
         {
           signature: 'signature',
-          supported_locales: Stubs::LocaleList.default(visited),
-          slots: Stubs::BuiltinIntentSlotList.default(visited),
+          supported_locales: LocaleList.default(visited),
+          slots: BuiltinIntentSlotList.default(visited),
         }
       end
 
@@ -1276,7 +1276,7 @@ module AWS::SDK::LexModelBuildingService
         return nil if visited.include?('BuiltinIntentSlotList')
         visited = visited + ['BuiltinIntentSlotList']
         [
-          Stubs::BuiltinIntentSlot.default(visited)
+          BuiltinIntentSlot.default(visited)
         ]
       end
 
@@ -1332,7 +1332,7 @@ module AWS::SDK::LexModelBuildingService
     class GetBuiltinIntents
       def self.default(visited=[])
         {
-          intents: Stubs::BuiltinIntentMetadataList.default(visited),
+          intents: BuiltinIntentMetadataList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1353,7 +1353,7 @@ module AWS::SDK::LexModelBuildingService
         return nil if visited.include?('BuiltinIntentMetadataList')
         visited = visited + ['BuiltinIntentMetadataList']
         [
-          Stubs::BuiltinIntentMetadata.default(visited)
+          BuiltinIntentMetadata.default(visited)
         ]
       end
 
@@ -1374,7 +1374,7 @@ module AWS::SDK::LexModelBuildingService
         visited = visited + ['BuiltinIntentMetadata']
         {
           signature: 'signature',
-          supported_locales: Stubs::LocaleList.default(visited),
+          supported_locales: LocaleList.default(visited),
         }
       end
 
@@ -1391,7 +1391,7 @@ module AWS::SDK::LexModelBuildingService
     class GetBuiltinSlotTypes
       def self.default(visited=[])
         {
-          slot_types: Stubs::BuiltinSlotTypeMetadataList.default(visited),
+          slot_types: BuiltinSlotTypeMetadataList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1412,7 +1412,7 @@ module AWS::SDK::LexModelBuildingService
         return nil if visited.include?('BuiltinSlotTypeMetadataList')
         visited = visited + ['BuiltinSlotTypeMetadataList']
         [
-          Stubs::BuiltinSlotTypeMetadata.default(visited)
+          BuiltinSlotTypeMetadata.default(visited)
         ]
       end
 
@@ -1433,7 +1433,7 @@ module AWS::SDK::LexModelBuildingService
         visited = visited + ['BuiltinSlotTypeMetadata']
         {
           signature: 'signature',
-          supported_locales: Stubs::LocaleList.default(visited),
+          supported_locales: LocaleList.default(visited),
         }
       end
 
@@ -1484,7 +1484,7 @@ module AWS::SDK::LexModelBuildingService
           merge_strategy: 'merge_strategy',
           import_id: 'import_id',
           import_status: 'import_status',
-          failure_reason: Stubs::StringList.default(visited),
+          failure_reason: StringList.default(visited),
           created_date: Time.now,
         }
       end
@@ -1530,22 +1530,22 @@ module AWS::SDK::LexModelBuildingService
         {
           name: 'name',
           description: 'description',
-          slots: Stubs::SlotList.default(visited),
-          sample_utterances: Stubs::IntentUtteranceList.default(visited),
-          confirmation_prompt: Stubs::Prompt.default(visited),
-          rejection_statement: Stubs::Statement.default(visited),
-          follow_up_prompt: Stubs::FollowUpPrompt.default(visited),
-          conclusion_statement: Stubs::Statement.default(visited),
-          dialog_code_hook: Stubs::CodeHook.default(visited),
-          fulfillment_activity: Stubs::FulfillmentActivity.default(visited),
+          slots: SlotList.default(visited),
+          sample_utterances: IntentUtteranceList.default(visited),
+          confirmation_prompt: Prompt.default(visited),
+          rejection_statement: Statement.default(visited),
+          follow_up_prompt: FollowUpPrompt.default(visited),
+          conclusion_statement: Statement.default(visited),
+          dialog_code_hook: CodeHook.default(visited),
+          fulfillment_activity: FulfillmentActivity.default(visited),
           parent_intent_signature: 'parent_intent_signature',
           last_updated_date: Time.now,
           created_date: Time.now,
           version: 'version',
           checksum: 'checksum',
-          kendra_configuration: Stubs::KendraConfiguration.default(visited),
-          input_contexts: Stubs::InputContextList.default(visited),
-          output_contexts: Stubs::OutputContextList.default(visited),
+          kendra_configuration: KendraConfiguration.default(visited),
+          input_contexts: InputContextList.default(visited),
+          output_contexts: OutputContextList.default(visited),
         }
       end
 
@@ -1579,7 +1579,7 @@ module AWS::SDK::LexModelBuildingService
     class GetIntentVersions
       def self.default(visited=[])
         {
-          intents: Stubs::IntentMetadataList.default(visited),
+          intents: IntentMetadataList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1600,7 +1600,7 @@ module AWS::SDK::LexModelBuildingService
         return nil if visited.include?('IntentMetadataList')
         visited = visited + ['IntentMetadataList']
         [
-          Stubs::IntentMetadata.default(visited)
+          IntentMetadata.default(visited)
         ]
       end
 
@@ -1644,7 +1644,7 @@ module AWS::SDK::LexModelBuildingService
     class GetIntents
       def self.default(visited=[])
         {
-          intents: Stubs::IntentMetadataList.default(visited),
+          intents: IntentMetadataList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1672,7 +1672,7 @@ module AWS::SDK::LexModelBuildingService
           migration_status: 'migration_status',
           migration_strategy: 'migration_strategy',
           migration_timestamp: Time.now,
-          alerts: Stubs::MigrationAlerts.default(visited),
+          alerts: MigrationAlerts.default(visited),
         }
       end
 
@@ -1700,7 +1700,7 @@ module AWS::SDK::LexModelBuildingService
         return nil if visited.include?('MigrationAlerts')
         visited = visited + ['MigrationAlerts']
         [
-          Stubs::MigrationAlert.default(visited)
+          MigrationAlert.default(visited)
         ]
       end
 
@@ -1722,8 +1722,8 @@ module AWS::SDK::LexModelBuildingService
         {
           type: 'type',
           message: 'message',
-          details: Stubs::MigrationAlertDetails.default(visited),
-          reference_ur_ls: Stubs::MigrationAlertReferenceURLs.default(visited),
+          details: MigrationAlertDetails.default(visited),
+          reference_ur_ls: MigrationAlertReferenceURLs.default(visited),
         }
       end
 
@@ -1782,7 +1782,7 @@ module AWS::SDK::LexModelBuildingService
     class GetMigrations
       def self.default(visited=[])
         {
-          migration_summaries: Stubs::MigrationSummaryList.default(visited),
+          migration_summaries: MigrationSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1803,7 +1803,7 @@ module AWS::SDK::LexModelBuildingService
         return nil if visited.include?('MigrationSummaryList')
         visited = visited + ['MigrationSummaryList']
         [
-          Stubs::MigrationSummary.default(visited)
+          MigrationSummary.default(visited)
         ]
       end
 
@@ -1857,14 +1857,14 @@ module AWS::SDK::LexModelBuildingService
         {
           name: 'name',
           description: 'description',
-          enumeration_values: Stubs::EnumerationValues.default(visited),
+          enumeration_values: EnumerationValues.default(visited),
           last_updated_date: Time.now,
           created_date: Time.now,
           version: 'version',
           checksum: 'checksum',
           value_selection_strategy: 'value_selection_strategy',
           parent_slot_type_signature: 'parent_slot_type_signature',
-          slot_type_configurations: Stubs::SlotTypeConfigurations.default(visited),
+          slot_type_configurations: SlotTypeConfigurations.default(visited),
         }
       end
 
@@ -1890,7 +1890,7 @@ module AWS::SDK::LexModelBuildingService
     class GetSlotTypeVersions
       def self.default(visited=[])
         {
-          slot_types: Stubs::SlotTypeMetadataList.default(visited),
+          slot_types: SlotTypeMetadataList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1911,7 +1911,7 @@ module AWS::SDK::LexModelBuildingService
         return nil if visited.include?('SlotTypeMetadataList')
         visited = visited + ['SlotTypeMetadataList']
         [
-          Stubs::SlotTypeMetadata.default(visited)
+          SlotTypeMetadata.default(visited)
         ]
       end
 
@@ -1955,7 +1955,7 @@ module AWS::SDK::LexModelBuildingService
     class GetSlotTypes
       def self.default(visited=[])
         {
-          slot_types: Stubs::SlotTypeMetadataList.default(visited),
+          slot_types: SlotTypeMetadataList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1975,7 +1975,7 @@ module AWS::SDK::LexModelBuildingService
       def self.default(visited=[])
         {
           bot_name: 'bot_name',
-          utterances: Stubs::ListsOfUtterances.default(visited),
+          utterances: ListsOfUtterances.default(visited),
         }
       end
 
@@ -1995,7 +1995,7 @@ module AWS::SDK::LexModelBuildingService
         return nil if visited.include?('ListsOfUtterances')
         visited = visited + ['ListsOfUtterances']
         [
-          Stubs::UtteranceList.default(visited)
+          UtteranceList.default(visited)
         ]
       end
 
@@ -2016,7 +2016,7 @@ module AWS::SDK::LexModelBuildingService
         visited = visited + ['UtteranceList']
         {
           bot_version: 'bot_version',
-          utterances: Stubs::ListOfUtterance.default(visited),
+          utterances: ListOfUtterance.default(visited),
         }
       end
 
@@ -2035,7 +2035,7 @@ module AWS::SDK::LexModelBuildingService
         return nil if visited.include?('ListOfUtterance')
         visited = visited + ['ListOfUtterance']
         [
-          Stubs::UtteranceData.default(visited)
+          UtteranceData.default(visited)
         ]
       end
 
@@ -2079,7 +2079,7 @@ module AWS::SDK::LexModelBuildingService
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -2098,7 +2098,7 @@ module AWS::SDK::LexModelBuildingService
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -2138,11 +2138,11 @@ module AWS::SDK::LexModelBuildingService
         {
           name: 'name',
           description: 'description',
-          intents: Stubs::IntentList.default(visited),
+          intents: IntentList.default(visited),
           enable_model_improvements: false,
           nlu_intent_confidence_threshold: 1.0,
-          clarification_prompt: Stubs::Prompt.default(visited),
-          abort_statement: Stubs::Statement.default(visited),
+          clarification_prompt: Prompt.default(visited),
+          abort_statement: Statement.default(visited),
           status: 'status',
           failure_reason: 'failure_reason',
           last_updated_date: Time.now,
@@ -2155,7 +2155,7 @@ module AWS::SDK::LexModelBuildingService
           child_directed: false,
           create_version: false,
           detect_sentiment: false,
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -2198,8 +2198,8 @@ module AWS::SDK::LexModelBuildingService
           last_updated_date: Time.now,
           created_date: Time.now,
           checksum: 'checksum',
-          conversation_logs: Stubs::ConversationLogsResponse.default(visited),
-          tags: Stubs::TagList.default(visited),
+          conversation_logs: ConversationLogsResponse.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -2226,23 +2226,23 @@ module AWS::SDK::LexModelBuildingService
         {
           name: 'name',
           description: 'description',
-          slots: Stubs::SlotList.default(visited),
-          sample_utterances: Stubs::IntentUtteranceList.default(visited),
-          confirmation_prompt: Stubs::Prompt.default(visited),
-          rejection_statement: Stubs::Statement.default(visited),
-          follow_up_prompt: Stubs::FollowUpPrompt.default(visited),
-          conclusion_statement: Stubs::Statement.default(visited),
-          dialog_code_hook: Stubs::CodeHook.default(visited),
-          fulfillment_activity: Stubs::FulfillmentActivity.default(visited),
+          slots: SlotList.default(visited),
+          sample_utterances: IntentUtteranceList.default(visited),
+          confirmation_prompt: Prompt.default(visited),
+          rejection_statement: Statement.default(visited),
+          follow_up_prompt: FollowUpPrompt.default(visited),
+          conclusion_statement: Statement.default(visited),
+          dialog_code_hook: CodeHook.default(visited),
+          fulfillment_activity: FulfillmentActivity.default(visited),
           parent_intent_signature: 'parent_intent_signature',
           last_updated_date: Time.now,
           created_date: Time.now,
           version: 'version',
           checksum: 'checksum',
           create_version: false,
-          kendra_configuration: Stubs::KendraConfiguration.default(visited),
-          input_contexts: Stubs::InputContextList.default(visited),
-          output_contexts: Stubs::OutputContextList.default(visited),
+          kendra_configuration: KendraConfiguration.default(visited),
+          input_contexts: InputContextList.default(visited),
+          output_contexts: OutputContextList.default(visited),
         }
       end
 
@@ -2279,7 +2279,7 @@ module AWS::SDK::LexModelBuildingService
         {
           name: 'name',
           description: 'description',
-          enumeration_values: Stubs::EnumerationValues.default(visited),
+          enumeration_values: EnumerationValues.default(visited),
           last_updated_date: Time.now,
           created_date: Time.now,
           version: 'version',
@@ -2287,7 +2287,7 @@ module AWS::SDK::LexModelBuildingService
           value_selection_strategy: 'value_selection_strategy',
           create_version: false,
           parent_slot_type_signature: 'parent_slot_type_signature',
-          slot_type_configurations: Stubs::SlotTypeConfigurations.default(visited),
+          slot_type_configurations: SlotTypeConfigurations.default(visited),
         }
       end
 
@@ -2319,7 +2319,7 @@ module AWS::SDK::LexModelBuildingService
           merge_strategy: 'merge_strategy',
           import_id: 'import_id',
           import_status: 'import_status',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           created_date: Time.now,
         }
       end

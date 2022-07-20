@@ -1397,13 +1397,13 @@ module AWS::SDK::DocDB
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.multi_az ||= false
         self.storage_encrypted ||= false
         self.deletion_protection ||= false
       end
-
     end
 
     # <p>You already have a cluster with the given identifier.</p>
@@ -1452,11 +1452,11 @@ module AWS::SDK::DocDB
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_cluster_writer ||= false
       end
-
     end
 
     # <p>
@@ -1684,13 +1684,13 @@ module AWS::SDK::DocDB
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.port ||= 0
         self.percent_progress ||= 0
         self.storage_encrypted ||= false
       end
-
     end
 
     # <p>You already have a cluster snapshot with the given identifier.</p>
@@ -1820,11 +1820,11 @@ module AWS::SDK::DocDB
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.supports_log_exports_to_cloudwatch_logs ||= false
       end
-
     end
 
     # <p>Detailed information about an instance. </p>
@@ -2000,6 +2000,7 @@ module AWS::SDK::DocDB
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.backup_retention_period ||= 0
@@ -2007,7 +2008,6 @@ module AWS::SDK::DocDB
         self.publicly_accessible ||= false
         self.storage_encrypted ||= false
       end
-
     end
 
     # <p>You already have a instance with the given identifier.</p>
@@ -2071,11 +2071,11 @@ module AWS::SDK::DocDB
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.normal ||= false
       end
-
     end
 
     # <p>A parameter group with the same name already exists.</p>
@@ -2335,11 +2335,11 @@ module AWS::SDK::DocDB
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.skip_final_snapshot ||= false
       end
-
     end
 
     # @!attribute db_cluster
@@ -2856,12 +2856,12 @@ module AWS::SDK::DocDB
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.include_shared ||= false
         self.include_public ||= false
       end
-
     end
 
     # <p>Represents the output of <a>DescribeDBClusterSnapshots</a>.</p>
@@ -3035,11 +3035,11 @@ module AWS::SDK::DocDB
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.default_only ||= false
       end
-
     end
 
     # <p>Represents the output of <a>DescribeDBEngineVersions</a>.</p>
@@ -3711,11 +3711,11 @@ module AWS::SDK::DocDB
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.port ||= 0
       end
-
     end
 
     # <p>Contains the result of a successful invocation of the
@@ -3889,11 +3889,11 @@ module AWS::SDK::DocDB
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # <p>You have reached the maximum number of event subscriptions. </p>
@@ -4076,11 +4076,11 @@ module AWS::SDK::DocDB
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_writer ||= false
       end
-
     end
 
     # <p>The <code>GlobalClusterIdentifier</code> doesn't refer to an existing global cluster.</p>
@@ -4546,11 +4546,11 @@ module AWS::SDK::DocDB
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.apply_immediately ||= false
       end
-
     end
 
     # @!attribute db_cluster
@@ -4783,11 +4783,11 @@ module AWS::SDK::DocDB
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.apply_immediately ||= false
       end
-
     end
 
     # @!attribute db_instance
@@ -4992,11 +4992,11 @@ module AWS::SDK::DocDB
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.vpc ||= false
       end
-
     end
 
     # <p>Detailed information about an individual parameter.</p>
@@ -5069,11 +5069,11 @@ module AWS::SDK::DocDB
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_modifiable ||= false
       end
-
     end
 
     # <p>A list of the log types whose configuration is still pending. These log types are in
@@ -5415,11 +5415,11 @@ module AWS::SDK::DocDB
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.reset_all_parameters ||= false
       end
-
     end
 
     # <p>Contains the name of a cluster parameter group.</p>
@@ -5758,11 +5758,11 @@ module AWS::SDK::DocDB
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.use_latest_restorable_time ||= false
       end
-
     end
 
     # @!attribute db_cluster
@@ -6099,12 +6099,12 @@ module AWS::SDK::DocDB
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.auto_upgrade ||= false
         self.is_major_version_upgrade ||= false
       end
-
     end
 
     # <p>Used as a response element for queries on virtual private cloud (VPC) security group

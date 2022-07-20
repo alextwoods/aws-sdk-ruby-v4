@@ -14,7 +14,7 @@ module AWS::SDK::FraudDetector
     class BatchCreateVariable
       def self.default(visited=[])
         {
-          errors: Stubs::BatchCreateVariableErrorList.default(visited),
+          errors: BatchCreateVariableErrorList.default(visited),
         }
       end
 
@@ -32,7 +32,7 @@ module AWS::SDK::FraudDetector
         return nil if visited.include?('BatchCreateVariableErrorList')
         visited = visited + ['BatchCreateVariableErrorList']
         [
-          Stubs::BatchCreateVariableError.default(visited)
+          BatchCreateVariableError.default(visited)
         ]
       end
 
@@ -72,8 +72,8 @@ module AWS::SDK::FraudDetector
     class BatchGetVariable
       def self.default(visited=[])
         {
-          variables: Stubs::VariableList.default(visited),
-          errors: Stubs::BatchGetVariableErrorList.default(visited),
+          variables: VariableList.default(visited),
+          errors: BatchGetVariableErrorList.default(visited),
         }
       end
 
@@ -92,7 +92,7 @@ module AWS::SDK::FraudDetector
         return nil if visited.include?('BatchGetVariableErrorList')
         visited = visited + ['BatchGetVariableErrorList']
         [
-          Stubs::BatchGetVariableError.default(visited)
+          BatchGetVariableError.default(visited)
         ]
       end
 
@@ -134,7 +134,7 @@ module AWS::SDK::FraudDetector
         return nil if visited.include?('VariableList')
         visited = visited + ['VariableList']
         [
-          Stubs::Variable.default(visited)
+          Variable.default(visited)
         ]
       end
 
@@ -298,7 +298,7 @@ module AWS::SDK::FraudDetector
     class CreateRule
       def self.default(visited=[])
         {
-          rule: Stubs::Rule.default(visited),
+          rule: Rule.default(visited),
         }
       end
 
@@ -565,7 +565,7 @@ module AWS::SDK::FraudDetector
       def self.default(visited=[])
         {
           detector_id: 'detector_id',
-          detector_version_summaries: Stubs::DetectorVersionSummaryList.default(visited),
+          detector_version_summaries: DetectorVersionSummaryList.default(visited),
           next_token: 'next_token',
           arn: 'arn',
         }
@@ -588,7 +588,7 @@ module AWS::SDK::FraudDetector
         return nil if visited.include?('DetectorVersionSummaryList')
         visited = visited + ['DetectorVersionSummaryList']
         [
-          Stubs::DetectorVersionSummary.default(visited)
+          DetectorVersionSummary.default(visited)
         ]
       end
 
@@ -630,7 +630,7 @@ module AWS::SDK::FraudDetector
     class DescribeModelVersions
       def self.default(visited=[])
         {
-          model_version_details: Stubs::ModelVersionDetailList.default(visited),
+          model_version_details: ModelVersionDetailList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -650,7 +650,7 @@ module AWS::SDK::FraudDetector
         return nil if visited.include?('ModelVersionDetailList')
         visited = visited + ['ModelVersionDetailList']
         [
-          Stubs::ModelVersionDetail.default(visited)
+          ModelVersionDetail.default(visited)
         ]
       end
 
@@ -675,10 +675,10 @@ module AWS::SDK::FraudDetector
           model_version_number: 'model_version_number',
           status: 'status',
           training_data_source: 'training_data_source',
-          training_data_schema: Stubs::TrainingDataSchema.default(visited),
-          external_events_detail: Stubs::ExternalEventsDetail.default(visited),
-          ingested_events_detail: Stubs::IngestedEventsDetail.default(visited),
-          training_result: Stubs::TrainingResult.default(visited),
+          training_data_schema: TrainingDataSchema.default(visited),
+          external_events_detail: ExternalEventsDetail.default(visited),
+          ingested_events_detail: IngestedEventsDetail.default(visited),
+          training_result: TrainingResult.default(visited),
           last_updated_time: 'last_updated_time',
           created_time: 'created_time',
           arn: 'arn',
@@ -710,9 +710,9 @@ module AWS::SDK::FraudDetector
         return nil if visited.include?('TrainingResult')
         visited = visited + ['TrainingResult']
         {
-          data_validation_metrics: Stubs::DataValidationMetrics.default(visited),
-          training_metrics: Stubs::TrainingMetrics.default(visited),
-          variable_importance_metrics: Stubs::VariableImportanceMetrics.default(visited),
+          data_validation_metrics: DataValidationMetrics.default(visited),
+          training_metrics: TrainingMetrics.default(visited),
+          variable_importance_metrics: VariableImportanceMetrics.default(visited),
         }
       end
 
@@ -732,7 +732,7 @@ module AWS::SDK::FraudDetector
         return nil if visited.include?('VariableImportanceMetrics')
         visited = visited + ['VariableImportanceMetrics']
         {
-          log_odds_metrics: Stubs::ListOfLogOddsMetrics.default(visited),
+          log_odds_metrics: ListOfLogOddsMetrics.default(visited),
         }
       end
 
@@ -750,7 +750,7 @@ module AWS::SDK::FraudDetector
         return nil if visited.include?('ListOfLogOddsMetrics')
         visited = visited + ['ListOfLogOddsMetrics']
         [
-          Stubs::LogOddsMetric.default(visited)
+          LogOddsMetric.default(visited)
         ]
       end
 
@@ -793,7 +793,7 @@ module AWS::SDK::FraudDetector
         visited = visited + ['TrainingMetrics']
         {
           auc: 1.0,
-          metric_data_points: Stubs::MetricDataPointsList.default(visited),
+          metric_data_points: MetricDataPointsList.default(visited),
         }
       end
 
@@ -812,7 +812,7 @@ module AWS::SDK::FraudDetector
         return nil if visited.include?('MetricDataPointsList')
         visited = visited + ['MetricDataPointsList']
         [
-          Stubs::MetricDataPoint.default(visited)
+          MetricDataPoint.default(visited)
         ]
       end
 
@@ -856,8 +856,8 @@ module AWS::SDK::FraudDetector
         return nil if visited.include?('DataValidationMetrics')
         visited = visited + ['DataValidationMetrics']
         {
-          file_level_messages: Stubs::FileValidationMessageList.default(visited),
-          field_level_messages: Stubs::FieldValidationMessageList.default(visited),
+          file_level_messages: FileValidationMessageList.default(visited),
+          field_level_messages: FieldValidationMessageList.default(visited),
         }
       end
 
@@ -876,7 +876,7 @@ module AWS::SDK::FraudDetector
         return nil if visited.include?('FieldValidationMessageList')
         visited = visited + ['FieldValidationMessageList']
         [
-          Stubs::FieldValidationMessage.default(visited)
+          FieldValidationMessage.default(visited)
         ]
       end
 
@@ -922,7 +922,7 @@ module AWS::SDK::FraudDetector
         return nil if visited.include?('FileValidationMessageList')
         visited = visited + ['FileValidationMessageList']
         [
-          Stubs::FileValidationMessage.default(visited)
+          FileValidationMessage.default(visited)
         ]
       end
 
@@ -964,7 +964,7 @@ module AWS::SDK::FraudDetector
         return nil if visited.include?('IngestedEventsDetail')
         visited = visited + ['IngestedEventsDetail']
         {
-          ingested_events_time_window: Stubs::IngestedEventsTimeWindow.default(visited),
+          ingested_events_time_window: IngestedEventsTimeWindow.default(visited),
         }
       end
 
@@ -1022,8 +1022,8 @@ module AWS::SDK::FraudDetector
         return nil if visited.include?('TrainingDataSchema')
         visited = visited + ['TrainingDataSchema']
         {
-          model_variables: Stubs::ListOfStrings.default(visited),
-          label_schema: Stubs::LabelSchema.default(visited),
+          model_variables: ListOfStrings.default(visited),
+          label_schema: LabelSchema.default(visited),
         }
       end
 
@@ -1042,7 +1042,7 @@ module AWS::SDK::FraudDetector
         return nil if visited.include?('LabelSchema')
         visited = visited + ['LabelSchema']
         {
-          label_mapper: Stubs::LabelMapper.default(visited),
+          label_mapper: LabelMapper.default(visited),
           unlabeled_events_treatment: 'unlabeled_events_treatment',
         }
       end
@@ -1062,7 +1062,7 @@ module AWS::SDK::FraudDetector
         return nil if visited.include?('LabelMapper')
         visited = visited + ['LabelMapper']
         {
-          test_key: Stubs::NonEmptyListOfStrings.default(visited)
+          test_key: NonEmptyListOfStrings.default(visited)
         }
       end
 
@@ -1120,7 +1120,7 @@ module AWS::SDK::FraudDetector
     class GetBatchImportJobs
       def self.default(visited=[])
         {
-          batch_imports: Stubs::BatchImportList.default(visited),
+          batch_imports: BatchImportList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1140,7 +1140,7 @@ module AWS::SDK::FraudDetector
         return nil if visited.include?('BatchImportList')
         visited = visited + ['BatchImportList']
         [
-          Stubs::BatchImport.default(visited)
+          BatchImport.default(visited)
         ]
       end
 
@@ -1200,7 +1200,7 @@ module AWS::SDK::FraudDetector
     class GetBatchPredictionJobs
       def self.default(visited=[])
         {
-          batch_predictions: Stubs::BatchPredictionList.default(visited),
+          batch_predictions: BatchPredictionList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1220,7 +1220,7 @@ module AWS::SDK::FraudDetector
         return nil if visited.include?('BatchPredictionList')
         visited = visited + ['BatchPredictionList']
         [
-          Stubs::BatchPrediction.default(visited)
+          BatchPrediction.default(visited)
         ]
       end
 
@@ -1305,9 +1305,9 @@ module AWS::SDK::FraudDetector
           detector_id: 'detector_id',
           detector_version_id: 'detector_version_id',
           description: 'description',
-          external_model_endpoints: Stubs::ListOfStrings.default(visited),
-          model_versions: Stubs::ListOfModelVersions.default(visited),
-          rules: Stubs::RuleList.default(visited),
+          external_model_endpoints: ListOfStrings.default(visited),
+          model_versions: ListOfModelVersions.default(visited),
+          rules: RuleList.default(visited),
           status: 'status',
           last_updated_time: 'last_updated_time',
           created_time: 'created_time',
@@ -1340,7 +1340,7 @@ module AWS::SDK::FraudDetector
         return nil if visited.include?('RuleList')
         visited = visited + ['RuleList']
         [
-          Stubs::Rule.default(visited)
+          Rule.default(visited)
         ]
       end
 
@@ -1360,7 +1360,7 @@ module AWS::SDK::FraudDetector
         return nil if visited.include?('ListOfModelVersions')
         visited = visited + ['ListOfModelVersions']
         [
-          Stubs::ModelVersion.default(visited)
+          ModelVersion.default(visited)
         ]
       end
 
@@ -1402,7 +1402,7 @@ module AWS::SDK::FraudDetector
     class GetDetectors
       def self.default(visited=[])
         {
-          detectors: Stubs::DetectorList.default(visited),
+          detectors: DetectorList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1422,7 +1422,7 @@ module AWS::SDK::FraudDetector
         return nil if visited.include?('DetectorList')
         visited = visited + ['DetectorList']
         [
-          Stubs::Detector.default(visited)
+          Detector.default(visited)
         ]
       end
 
@@ -1468,7 +1468,7 @@ module AWS::SDK::FraudDetector
     class GetEntityTypes
       def self.default(visited=[])
         {
-          entity_types: Stubs::EntityTypeList.default(visited),
+          entity_types: EntityTypeList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1488,7 +1488,7 @@ module AWS::SDK::FraudDetector
         return nil if visited.include?('EntityTypeList')
         visited = visited + ['EntityTypeList']
         [
-          Stubs::EntityType.default(visited)
+          EntityType.default(visited)
         ]
       end
 
@@ -1532,7 +1532,7 @@ module AWS::SDK::FraudDetector
     class GetEvent
       def self.default(visited=[])
         {
-          event: Stubs::Event.default(visited),
+          event: Event.default(visited),
         }
       end
 
@@ -1553,10 +1553,10 @@ module AWS::SDK::FraudDetector
           event_id: 'event_id',
           event_type_name: 'event_type_name',
           event_timestamp: 'event_timestamp',
-          event_variables: Stubs::EventAttributeMap.default(visited),
+          event_variables: EventAttributeMap.default(visited),
           current_label: 'current_label',
           label_timestamp: 'label_timestamp',
-          entities: Stubs::ListOfEntities.default(visited),
+          entities: ListOfEntities.default(visited),
         }
       end
 
@@ -1580,7 +1580,7 @@ module AWS::SDK::FraudDetector
         return nil if visited.include?('ListOfEntities')
         visited = visited + ['ListOfEntities']
         [
-          Stubs::Entity.default(visited)
+          Entity.default(visited)
         ]
       end
 
@@ -1638,9 +1638,9 @@ module AWS::SDK::FraudDetector
     class GetEventPrediction
       def self.default(visited=[])
         {
-          model_scores: Stubs::ListOfModelScores.default(visited),
-          rule_results: Stubs::ListOfRuleResults.default(visited),
-          external_model_outputs: Stubs::ListOfExternalModelOutputs.default(visited),
+          model_scores: ListOfModelScores.default(visited),
+          rule_results: ListOfRuleResults.default(visited),
+          external_model_outputs: ListOfExternalModelOutputs.default(visited),
         }
       end
 
@@ -1660,7 +1660,7 @@ module AWS::SDK::FraudDetector
         return nil if visited.include?('ListOfExternalModelOutputs')
         visited = visited + ['ListOfExternalModelOutputs']
         [
-          Stubs::ExternalModelOutputs.default(visited)
+          ExternalModelOutputs.default(visited)
         ]
       end
 
@@ -1680,8 +1680,8 @@ module AWS::SDK::FraudDetector
         return nil if visited.include?('ExternalModelOutputs')
         visited = visited + ['ExternalModelOutputs']
         {
-          external_model: Stubs::ExternalModelSummary.default(visited),
-          outputs: Stubs::ExternalModelPredictionMap.default(visited),
+          external_model: ExternalModelSummary.default(visited),
+          outputs: ExternalModelPredictionMap.default(visited),
         }
       end
 
@@ -1740,7 +1740,7 @@ module AWS::SDK::FraudDetector
         return nil if visited.include?('ListOfRuleResults')
         visited = visited + ['ListOfRuleResults']
         [
-          Stubs::RuleResult.default(visited)
+          RuleResult.default(visited)
         ]
       end
 
@@ -1761,7 +1761,7 @@ module AWS::SDK::FraudDetector
         visited = visited + ['RuleResult']
         {
           rule_id: 'rule_id',
-          outcomes: Stubs::ListOfStrings.default(visited),
+          outcomes: ListOfStrings.default(visited),
         }
       end
 
@@ -1780,7 +1780,7 @@ module AWS::SDK::FraudDetector
         return nil if visited.include?('ListOfModelScores')
         visited = visited + ['ListOfModelScores']
         [
-          Stubs::ModelScores.default(visited)
+          ModelScores.default(visited)
         ]
       end
 
@@ -1800,8 +1800,8 @@ module AWS::SDK::FraudDetector
         return nil if visited.include?('ModelScores')
         visited = visited + ['ModelScores']
         {
-          model_version: Stubs::ModelVersion.default(visited),
-          scores: Stubs::ModelPredictionMap.default(visited),
+          model_version: ModelVersion.default(visited),
+          scores: ModelPredictionMap.default(visited),
         }
       end
 
@@ -1846,12 +1846,12 @@ module AWS::SDK::FraudDetector
           detector_id: 'detector_id',
           detector_version_id: 'detector_version_id',
           detector_version_status: 'detector_version_status',
-          event_variables: Stubs::ListOfEventVariableSummaries.default(visited),
-          rules: Stubs::EvaluatedRuleList.default(visited),
+          event_variables: ListOfEventVariableSummaries.default(visited),
+          rules: EvaluatedRuleList.default(visited),
           rule_execution_mode: 'rule_execution_mode',
-          outcomes: Stubs::ListOfStrings.default(visited),
-          evaluated_model_versions: Stubs::ListOfEvaluatedModelVersions.default(visited),
-          evaluated_external_models: Stubs::ListOfEvaluatedExternalModels.default(visited),
+          outcomes: ListOfStrings.default(visited),
+          evaluated_model_versions: ListOfEvaluatedModelVersions.default(visited),
+          evaluated_external_models: ListOfEvaluatedExternalModels.default(visited),
           prediction_timestamp: 'prediction_timestamp',
         }
       end
@@ -1884,7 +1884,7 @@ module AWS::SDK::FraudDetector
         return nil if visited.include?('ListOfEvaluatedExternalModels')
         visited = visited + ['ListOfEvaluatedExternalModels']
         [
-          Stubs::EvaluatedExternalModel.default(visited)
+          EvaluatedExternalModel.default(visited)
         ]
       end
 
@@ -1906,8 +1906,8 @@ module AWS::SDK::FraudDetector
         {
           model_endpoint: 'model_endpoint',
           use_event_variables: false,
-          input_variables: Stubs::MapOfStrings.default(visited),
-          output_variables: Stubs::MapOfStrings.default(visited),
+          input_variables: MapOfStrings.default(visited),
+          output_variables: MapOfStrings.default(visited),
         }
       end
 
@@ -1948,7 +1948,7 @@ module AWS::SDK::FraudDetector
         return nil if visited.include?('ListOfEvaluatedModelVersions')
         visited = visited + ['ListOfEvaluatedModelVersions']
         [
-          Stubs::EvaluatedModelVersion.default(visited)
+          EvaluatedModelVersion.default(visited)
         ]
       end
 
@@ -1971,7 +1971,7 @@ module AWS::SDK::FraudDetector
           model_id: 'model_id',
           model_version: 'model_version',
           model_type: 'model_type',
-          evaluations: Stubs::ListOfModelVersionEvaluations.default(visited),
+          evaluations: ListOfModelVersionEvaluations.default(visited),
         }
       end
 
@@ -1992,7 +1992,7 @@ module AWS::SDK::FraudDetector
         return nil if visited.include?('ListOfModelVersionEvaluations')
         visited = visited + ['ListOfModelVersionEvaluations']
         [
-          Stubs::ModelVersionEvaluation.default(visited)
+          ModelVersionEvaluation.default(visited)
         ]
       end
 
@@ -2014,7 +2014,7 @@ module AWS::SDK::FraudDetector
         {
           output_variable_name: 'output_variable_name',
           evaluation_score: 'evaluation_score',
-          prediction_explanations: Stubs::PredictionExplanations.default(visited),
+          prediction_explanations: PredictionExplanations.default(visited),
         }
       end
 
@@ -2034,7 +2034,7 @@ module AWS::SDK::FraudDetector
         return nil if visited.include?('PredictionExplanations')
         visited = visited + ['PredictionExplanations']
         {
-          variable_impact_explanations: Stubs::ListOfVariableImpactExplanations.default(visited),
+          variable_impact_explanations: ListOfVariableImpactExplanations.default(visited),
         }
       end
 
@@ -2052,7 +2052,7 @@ module AWS::SDK::FraudDetector
         return nil if visited.include?('ListOfVariableImpactExplanations')
         visited = visited + ['ListOfVariableImpactExplanations']
         [
-          Stubs::VariableImpactExplanation.default(visited)
+          VariableImpactExplanation.default(visited)
         ]
       end
 
@@ -2094,7 +2094,7 @@ module AWS::SDK::FraudDetector
         return nil if visited.include?('EvaluatedRuleList')
         visited = visited + ['EvaluatedRuleList']
         [
-          Stubs::EvaluatedRule.default(visited)
+          EvaluatedRule.default(visited)
         ]
       end
 
@@ -2118,7 +2118,7 @@ module AWS::SDK::FraudDetector
           rule_version: 'rule_version',
           expression: 'expression',
           expression_with_values: 'expression_with_values',
-          outcomes: Stubs::ListOfStrings.default(visited),
+          outcomes: ListOfStrings.default(visited),
           evaluated: false,
           matched: false,
         }
@@ -2144,7 +2144,7 @@ module AWS::SDK::FraudDetector
         return nil if visited.include?('ListOfEventVariableSummaries')
         visited = visited + ['ListOfEventVariableSummaries']
         [
-          Stubs::EventVariableSummary.default(visited)
+          EventVariableSummary.default(visited)
         ]
       end
 
@@ -2184,7 +2184,7 @@ module AWS::SDK::FraudDetector
     class GetEventTypes
       def self.default(visited=[])
         {
-          event_types: Stubs::EventTypeList.default(visited),
+          event_types: EventTypeList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2204,7 +2204,7 @@ module AWS::SDK::FraudDetector
         return nil if visited.include?('EventTypeList')
         visited = visited + ['EventTypeList']
         [
-          Stubs::EventType.default(visited)
+          EventType.default(visited)
         ]
       end
 
@@ -2226,11 +2226,11 @@ module AWS::SDK::FraudDetector
         {
           name: 'name',
           description: 'description',
-          event_variables: Stubs::ListOfStrings.default(visited),
-          labels: Stubs::ListOfStrings.default(visited),
-          entity_types: Stubs::NonEmptyListOfStrings.default(visited),
+          event_variables: ListOfStrings.default(visited),
+          labels: ListOfStrings.default(visited),
+          entity_types: NonEmptyListOfStrings.default(visited),
           event_ingestion: 'event_ingestion',
-          ingested_event_statistics: Stubs::IngestedEventStatistics.default(visited),
+          ingested_event_statistics: IngestedEventStatistics.default(visited),
           last_updated_time: 'last_updated_time',
           created_time: 'created_time',
           arn: 'arn',
@@ -2284,7 +2284,7 @@ module AWS::SDK::FraudDetector
     class GetExternalModels
       def self.default(visited=[])
         {
-          external_models: Stubs::ExternalModelList.default(visited),
+          external_models: ExternalModelList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2304,7 +2304,7 @@ module AWS::SDK::FraudDetector
         return nil if visited.include?('ExternalModelList')
         visited = visited + ['ExternalModelList']
         [
-          Stubs::ExternalModel.default(visited)
+          ExternalModel.default(visited)
         ]
       end
 
@@ -2327,8 +2327,8 @@ module AWS::SDK::FraudDetector
           model_endpoint: 'model_endpoint',
           model_source: 'model_source',
           invoke_model_endpoint_role_arn: 'invoke_model_endpoint_role_arn',
-          input_configuration: Stubs::ModelInputConfiguration.default(visited),
-          output_configuration: Stubs::ModelOutputConfiguration.default(visited),
+          input_configuration: ModelInputConfiguration.default(visited),
+          output_configuration: ModelOutputConfiguration.default(visited),
           model_endpoint_status: 'model_endpoint_status',
           last_updated_time: 'last_updated_time',
           created_time: 'created_time',
@@ -2359,8 +2359,8 @@ module AWS::SDK::FraudDetector
         visited = visited + ['ModelOutputConfiguration']
         {
           format: 'format',
-          json_key_to_variable_map: Stubs::JsonKeyToVariableMap.default(visited),
-          csv_index_to_variable_map: Stubs::CsvIndexToVariableMap.default(visited),
+          json_key_to_variable_map: JsonKeyToVariableMap.default(visited),
+          csv_index_to_variable_map: CsvIndexToVariableMap.default(visited),
         }
       end
 
@@ -2444,7 +2444,7 @@ module AWS::SDK::FraudDetector
     class GetKMSEncryptionKey
       def self.default(visited=[])
         {
-          kms_key: Stubs::KMSKey.default(visited),
+          kms_key: KMSKey.default(visited),
         }
       end
 
@@ -2478,7 +2478,7 @@ module AWS::SDK::FraudDetector
     class GetLabels
       def self.default(visited=[])
         {
-          labels: Stubs::LabelList.default(visited),
+          labels: LabelList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2498,7 +2498,7 @@ module AWS::SDK::FraudDetector
         return nil if visited.include?('LabelList')
         visited = visited + ['LabelList']
         [
-          Stubs::Label.default(visited)
+          Label.default(visited)
         ]
       end
 
@@ -2546,9 +2546,9 @@ module AWS::SDK::FraudDetector
           model_type: 'model_type',
           model_version_number: 'model_version_number',
           training_data_source: 'training_data_source',
-          training_data_schema: Stubs::TrainingDataSchema.default(visited),
-          external_events_detail: Stubs::ExternalEventsDetail.default(visited),
-          ingested_events_detail: Stubs::IngestedEventsDetail.default(visited),
+          training_data_schema: TrainingDataSchema.default(visited),
+          external_events_detail: ExternalEventsDetail.default(visited),
+          ingested_events_detail: IngestedEventsDetail.default(visited),
           status: 'status',
           arn: 'arn',
         }
@@ -2575,7 +2575,7 @@ module AWS::SDK::FraudDetector
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          models: Stubs::ModelList.default(visited),
+          models: ModelList.default(visited),
         }
       end
 
@@ -2594,7 +2594,7 @@ module AWS::SDK::FraudDetector
         return nil if visited.include?('ModelList')
         visited = visited + ['ModelList']
         [
-          Stubs::Model.default(visited)
+          Model.default(visited)
         ]
       end
 
@@ -2642,7 +2642,7 @@ module AWS::SDK::FraudDetector
     class GetOutcomes
       def self.default(visited=[])
         {
-          outcomes: Stubs::OutcomeList.default(visited),
+          outcomes: OutcomeList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2662,7 +2662,7 @@ module AWS::SDK::FraudDetector
         return nil if visited.include?('OutcomeList')
         visited = visited + ['OutcomeList']
         [
-          Stubs::Outcome.default(visited)
+          Outcome.default(visited)
         ]
       end
 
@@ -2706,7 +2706,7 @@ module AWS::SDK::FraudDetector
     class GetRules
       def self.default(visited=[])
         {
-          rule_details: Stubs::RuleDetailList.default(visited),
+          rule_details: RuleDetailList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2726,7 +2726,7 @@ module AWS::SDK::FraudDetector
         return nil if visited.include?('RuleDetailList')
         visited = visited + ['RuleDetailList']
         [
-          Stubs::RuleDetail.default(visited)
+          RuleDetail.default(visited)
         ]
       end
 
@@ -2752,7 +2752,7 @@ module AWS::SDK::FraudDetector
           rule_version: 'rule_version',
           expression: 'expression',
           language: 'language',
-          outcomes: Stubs::NonEmptyListOfStrings.default(visited),
+          outcomes: NonEmptyListOfStrings.default(visited),
           last_updated_time: 'last_updated_time',
           created_time: 'created_time',
           arn: 'arn',
@@ -2780,7 +2780,7 @@ module AWS::SDK::FraudDetector
     class GetVariables
       def self.default(visited=[])
         {
-          variables: Stubs::VariableList.default(visited),
+          variables: VariableList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2798,7 +2798,7 @@ module AWS::SDK::FraudDetector
     class ListEventPredictions
       def self.default(visited=[])
         {
-          event_prediction_summaries: Stubs::ListOfEventPredictionSummaries.default(visited),
+          event_prediction_summaries: ListOfEventPredictionSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2818,7 +2818,7 @@ module AWS::SDK::FraudDetector
         return nil if visited.include?('ListOfEventPredictionSummaries')
         visited = visited + ['ListOfEventPredictionSummaries']
         [
-          Stubs::EventPredictionSummary.default(visited)
+          EventPredictionSummary.default(visited)
         ]
       end
 
@@ -2864,7 +2864,7 @@ module AWS::SDK::FraudDetector
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2884,7 +2884,7 @@ module AWS::SDK::FraudDetector
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -3182,7 +3182,7 @@ module AWS::SDK::FraudDetector
     class UpdateRuleVersion
       def self.default(visited=[])
         {
-          rule: Stubs::Rule.default(visited),
+          rule: Rule.default(visited),
         }
       end
 

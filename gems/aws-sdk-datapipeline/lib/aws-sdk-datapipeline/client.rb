@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::DataPipeline
@@ -116,7 +118,7 @@ module AWS::SDK::DataPipeline
     def activate_pipeline(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ActivatePipelineInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ActivatePipelineInput,
         validate_input: @config.validate_input
@@ -193,7 +195,7 @@ module AWS::SDK::DataPipeline
     def add_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AddTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AddTagsInput,
         validate_input: @config.validate_input
@@ -319,7 +321,7 @@ module AWS::SDK::DataPipeline
     def create_pipeline(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreatePipelineInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreatePipelineInput,
         validate_input: @config.validate_input
@@ -397,7 +399,7 @@ module AWS::SDK::DataPipeline
     def deactivate_pipeline(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeactivatePipelineInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeactivatePipelineInput,
         validate_input: @config.validate_input
@@ -496,7 +498,7 @@ module AWS::SDK::DataPipeline
     def delete_pipeline(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeletePipelineInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeletePipelineInput,
         validate_input: @config.validate_input
@@ -649,7 +651,7 @@ module AWS::SDK::DataPipeline
     def describe_objects(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeObjectsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeObjectsInput,
         validate_input: @config.validate_input
@@ -795,7 +797,7 @@ module AWS::SDK::DataPipeline
     def describe_pipelines(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribePipelinesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribePipelinesInput,
         validate_input: @config.validate_input
@@ -902,7 +904,7 @@ module AWS::SDK::DataPipeline
     def evaluate_expression(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::EvaluateExpressionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::EvaluateExpressionInput,
         validate_input: @config.validate_input
@@ -1060,7 +1062,7 @@ module AWS::SDK::DataPipeline
     def get_pipeline_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetPipelineDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetPipelineDefinitionInput,
         validate_input: @config.validate_input
@@ -1167,7 +1169,7 @@ module AWS::SDK::DataPipeline
     def list_pipelines(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPipelinesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPipelinesInput,
         validate_input: @config.validate_input
@@ -1339,7 +1341,7 @@ module AWS::SDK::DataPipeline
     def poll_for_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PollForTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PollForTaskInput,
         validate_input: @config.validate_input
@@ -1615,7 +1617,7 @@ module AWS::SDK::DataPipeline
     def put_pipeline_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutPipelineDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutPipelineDefinitionInput,
         validate_input: @config.validate_input
@@ -1758,7 +1760,7 @@ module AWS::SDK::DataPipeline
     def query_objects(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::QueryObjectsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::QueryObjectsInput,
         validate_input: @config.validate_input
@@ -1832,7 +1834,7 @@ module AWS::SDK::DataPipeline
     def remove_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RemoveTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RemoveTagsInput,
         validate_input: @config.validate_input
@@ -1948,7 +1950,7 @@ module AWS::SDK::DataPipeline
     def report_task_progress(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ReportTaskProgressInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ReportTaskProgressInput,
         validate_input: @config.validate_input
@@ -2061,7 +2063,7 @@ module AWS::SDK::DataPipeline
     def report_task_runner_heartbeat(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ReportTaskRunnerHeartbeatInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ReportTaskRunnerHeartbeatInput,
         validate_input: @config.validate_input
@@ -2172,7 +2174,7 @@ module AWS::SDK::DataPipeline
     def set_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SetStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SetStatusInput,
         validate_input: @config.validate_input
@@ -2289,7 +2291,7 @@ module AWS::SDK::DataPipeline
     def set_task_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SetTaskStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SetTaskStatusInput,
         validate_input: @config.validate_input
@@ -2557,7 +2559,7 @@ module AWS::SDK::DataPipeline
     def validate_pipeline_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ValidatePipelineDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ValidatePipelineDefinitionInput,
         validate_input: @config.validate_input

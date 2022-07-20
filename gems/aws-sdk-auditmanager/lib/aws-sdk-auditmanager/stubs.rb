@@ -27,8 +27,8 @@ module AWS::SDK::AuditManager
     class BatchAssociateAssessmentReportEvidence
       def self.default(visited=[])
         {
-          evidence_ids: Stubs::EvidenceIds.default(visited),
-          errors: Stubs::AssessmentReportEvidenceErrors.default(visited),
+          evidence_ids: EvidenceIds.default(visited),
+          errors: AssessmentReportEvidenceErrors.default(visited),
         }
       end
 
@@ -48,7 +48,7 @@ module AWS::SDK::AuditManager
         return nil if visited.include?('AssessmentReportEvidenceErrors')
         visited = visited + ['AssessmentReportEvidenceErrors']
         [
-          Stubs::AssessmentReportEvidenceError.default(visited)
+          AssessmentReportEvidenceError.default(visited)
         ]
       end
 
@@ -108,8 +108,8 @@ module AWS::SDK::AuditManager
     class BatchCreateDelegationByAssessment
       def self.default(visited=[])
         {
-          delegations: Stubs::Delegations.default(visited),
-          errors: Stubs::BatchCreateDelegationByAssessmentErrors.default(visited),
+          delegations: Delegations.default(visited),
+          errors: BatchCreateDelegationByAssessmentErrors.default(visited),
         }
       end
 
@@ -129,7 +129,7 @@ module AWS::SDK::AuditManager
         return nil if visited.include?('BatchCreateDelegationByAssessmentErrors')
         visited = visited + ['BatchCreateDelegationByAssessmentErrors']
         [
-          Stubs::BatchCreateDelegationByAssessmentError.default(visited)
+          BatchCreateDelegationByAssessmentError.default(visited)
         ]
       end
 
@@ -149,7 +149,7 @@ module AWS::SDK::AuditManager
         return nil if visited.include?('BatchCreateDelegationByAssessmentError')
         visited = visited + ['BatchCreateDelegationByAssessmentError']
         {
-          create_delegation_request: Stubs::CreateDelegationRequest.default(visited),
+          create_delegation_request: CreateDelegationRequest.default(visited),
           error_code: 'error_code',
           error_message: 'error_message',
         }
@@ -195,7 +195,7 @@ module AWS::SDK::AuditManager
         return nil if visited.include?('Delegations')
         visited = visited + ['Delegations']
         [
-          Stubs::Delegation.default(visited)
+          Delegation.default(visited)
         ]
       end
 
@@ -251,7 +251,7 @@ module AWS::SDK::AuditManager
     class BatchDeleteDelegationByAssessment
       def self.default(visited=[])
         {
-          errors: Stubs::BatchDeleteDelegationByAssessmentErrors.default(visited),
+          errors: BatchDeleteDelegationByAssessmentErrors.default(visited),
         }
       end
 
@@ -270,7 +270,7 @@ module AWS::SDK::AuditManager
         return nil if visited.include?('BatchDeleteDelegationByAssessmentErrors')
         visited = visited + ['BatchDeleteDelegationByAssessmentErrors']
         [
-          Stubs::BatchDeleteDelegationByAssessmentError.default(visited)
+          BatchDeleteDelegationByAssessmentError.default(visited)
         ]
       end
 
@@ -310,8 +310,8 @@ module AWS::SDK::AuditManager
     class BatchDisassociateAssessmentReportEvidence
       def self.default(visited=[])
         {
-          evidence_ids: Stubs::EvidenceIds.default(visited),
-          errors: Stubs::AssessmentReportEvidenceErrors.default(visited),
+          evidence_ids: EvidenceIds.default(visited),
+          errors: AssessmentReportEvidenceErrors.default(visited),
         }
       end
 
@@ -329,7 +329,7 @@ module AWS::SDK::AuditManager
     class BatchImportEvidenceToAssessmentControl
       def self.default(visited=[])
         {
-          errors: Stubs::BatchImportEvidenceToAssessmentControlErrors.default(visited),
+          errors: BatchImportEvidenceToAssessmentControlErrors.default(visited),
         }
       end
 
@@ -348,7 +348,7 @@ module AWS::SDK::AuditManager
         return nil if visited.include?('BatchImportEvidenceToAssessmentControlErrors')
         visited = visited + ['BatchImportEvidenceToAssessmentControlErrors']
         [
-          Stubs::BatchImportEvidenceToAssessmentControlError.default(visited)
+          BatchImportEvidenceToAssessmentControlError.default(visited)
         ]
       end
 
@@ -368,7 +368,7 @@ module AWS::SDK::AuditManager
         return nil if visited.include?('BatchImportEvidenceToAssessmentControlError')
         visited = visited + ['BatchImportEvidenceToAssessmentControlError']
         {
-          manual_evidence: Stubs::ManualEvidence.default(visited),
+          manual_evidence: ManualEvidence.default(visited),
           error_code: 'error_code',
           error_message: 'error_message',
         }
@@ -406,7 +406,7 @@ module AWS::SDK::AuditManager
     class CreateAssessment
       def self.default(visited=[])
         {
-          assessment: Stubs::Assessment.default(visited),
+          assessment: Assessment.default(visited),
         }
       end
 
@@ -426,10 +426,10 @@ module AWS::SDK::AuditManager
         visited = visited + ['Assessment']
         {
           arn: 'arn',
-          aws_account: Stubs::AWSAccount.default(visited),
-          metadata: Stubs::AssessmentMetadata.default(visited),
-          framework: Stubs::AssessmentFramework.default(visited),
-          tags: Stubs::TagMap.default(visited),
+          aws_account: AWSAccount.default(visited),
+          metadata: AssessmentMetadata.default(visited),
+          framework: AssessmentFramework.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -473,8 +473,8 @@ module AWS::SDK::AuditManager
         {
           id: 'id',
           arn: 'arn',
-          metadata: Stubs::FrameworkMetadata.default(visited),
-          control_sets: Stubs::AssessmentControlSets.default(visited),
+          metadata: FrameworkMetadata.default(visited),
+          control_sets: AssessmentControlSets.default(visited),
         }
       end
 
@@ -495,7 +495,7 @@ module AWS::SDK::AuditManager
         return nil if visited.include?('AssessmentControlSets')
         visited = visited + ['AssessmentControlSets']
         [
-          Stubs::AssessmentControlSet.default(visited)
+          AssessmentControlSet.default(visited)
         ]
       end
 
@@ -518,9 +518,9 @@ module AWS::SDK::AuditManager
           id: 'id',
           description: 'description',
           status: 'status',
-          roles: Stubs::Roles.default(visited),
-          controls: Stubs::AssessmentControls.default(visited),
-          delegations: Stubs::Delegations.default(visited),
+          roles: Roles.default(visited),
+          controls: AssessmentControls.default(visited),
+          delegations: Delegations.default(visited),
           system_evidence_count: 1,
           manual_evidence_count: 1,
         }
@@ -547,7 +547,7 @@ module AWS::SDK::AuditManager
         return nil if visited.include?('AssessmentControls')
         visited = visited + ['AssessmentControls']
         [
-          Stubs::AssessmentControl.default(visited)
+          AssessmentControl.default(visited)
         ]
       end
 
@@ -572,8 +572,8 @@ module AWS::SDK::AuditManager
           description: 'description',
           status: 'status',
           response: 'response',
-          comments: Stubs::ControlComments.default(visited),
-          evidence_sources: Stubs::EvidenceSources.default(visited),
+          comments: ControlComments.default(visited),
+          evidence_sources: EvidenceSources.default(visited),
           evidence_count: 1,
           assessment_report_evidence_count: 1,
         }
@@ -621,7 +621,7 @@ module AWS::SDK::AuditManager
         return nil if visited.include?('ControlComments')
         visited = visited + ['ControlComments']
         [
-          Stubs::ControlComment.default(visited)
+          ControlComment.default(visited)
         ]
       end
 
@@ -663,7 +663,7 @@ module AWS::SDK::AuditManager
         return nil if visited.include?('Roles')
         visited = visited + ['Roles']
         [
-          Stubs::Role.default(visited)
+          Role.default(visited)
         ]
       end
 
@@ -732,10 +732,10 @@ module AWS::SDK::AuditManager
           description: 'description',
           compliance_type: 'compliance_type',
           status: 'status',
-          assessment_reports_destination: Stubs::AssessmentReportsDestination.default(visited),
-          scope: Stubs::Scope.default(visited),
-          roles: Stubs::Roles.default(visited),
-          delegations: Stubs::Delegations.default(visited),
+          assessment_reports_destination: AssessmentReportsDestination.default(visited),
+          scope: Scope.default(visited),
+          roles: Roles.default(visited),
+          delegations: Delegations.default(visited),
           creation_time: Time.now,
           last_updated: Time.now,
         }
@@ -765,8 +765,8 @@ module AWS::SDK::AuditManager
         return nil if visited.include?('Scope')
         visited = visited + ['Scope']
         {
-          aws_accounts: Stubs::AWSAccounts.default(visited),
-          aws_services: Stubs::AWSServices.default(visited),
+          aws_accounts: AWSAccounts.default(visited),
+          aws_services: AWSServices.default(visited),
         }
       end
 
@@ -785,7 +785,7 @@ module AWS::SDK::AuditManager
         return nil if visited.include?('AWSServices')
         visited = visited + ['AWSServices']
         [
-          Stubs::AWSService.default(visited)
+          AWSService.default(visited)
         ]
       end
 
@@ -823,7 +823,7 @@ module AWS::SDK::AuditManager
         return nil if visited.include?('AWSAccounts')
         visited = visited + ['AWSAccounts']
         [
-          Stubs::AWSAccount.default(visited)
+          AWSAccount.default(visited)
         ]
       end
 
@@ -883,7 +883,7 @@ module AWS::SDK::AuditManager
     class CreateAssessmentFramework
       def self.default(visited=[])
         {
-          framework: Stubs::Framework.default(visited),
+          framework: Framework.default(visited),
         }
       end
 
@@ -910,12 +910,12 @@ module AWS::SDK::AuditManager
           description: 'description',
           logo: 'logo',
           control_sources: 'control_sources',
-          control_sets: Stubs::ControlSets.default(visited),
+          control_sets: ControlSets.default(visited),
           created_at: Time.now,
           last_updated_at: Time.now,
           created_by: 'created_by',
           last_updated_by: 'last_updated_by',
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -946,7 +946,7 @@ module AWS::SDK::AuditManager
         return nil if visited.include?('ControlSets')
         visited = visited + ['ControlSets']
         [
-          Stubs::ControlSet.default(visited)
+          ControlSet.default(visited)
         ]
       end
 
@@ -968,7 +968,7 @@ module AWS::SDK::AuditManager
         {
           id: 'id',
           name: 'name',
-          controls: Stubs::Controls.default(visited),
+          controls: Controls.default(visited),
         }
       end
 
@@ -988,7 +988,7 @@ module AWS::SDK::AuditManager
         return nil if visited.include?('Controls')
         visited = visited + ['Controls']
         [
-          Stubs::Control.default(visited)
+          Control.default(visited)
         ]
       end
 
@@ -1017,12 +1017,12 @@ module AWS::SDK::AuditManager
           action_plan_title: 'action_plan_title',
           action_plan_instructions: 'action_plan_instructions',
           control_sources: 'control_sources',
-          control_mapping_sources: Stubs::ControlMappingSources.default(visited),
+          control_mapping_sources: ControlMappingSources.default(visited),
           created_at: Time.now,
           last_updated_at: Time.now,
           created_by: 'created_by',
           last_updated_by: 'last_updated_by',
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -1054,7 +1054,7 @@ module AWS::SDK::AuditManager
         return nil if visited.include?('ControlMappingSources')
         visited = visited + ['ControlMappingSources']
         [
-          Stubs::ControlMappingSource.default(visited)
+          ControlMappingSource.default(visited)
         ]
       end
 
@@ -1079,7 +1079,7 @@ module AWS::SDK::AuditManager
           source_description: 'source_description',
           source_set_up_option: 'source_set_up_option',
           source_type: 'source_type',
-          source_keyword: Stubs::SourceKeyword.default(visited),
+          source_keyword: SourceKeyword.default(visited),
           source_frequency: 'source_frequency',
           troubleshooting_text: 'troubleshooting_text',
         }
@@ -1124,7 +1124,7 @@ module AWS::SDK::AuditManager
     class CreateAssessmentReport
       def self.default(visited=[])
         {
-          assessment_report: Stubs::AssessmentReport.default(visited),
+          assessment_report: AssessmentReport.default(visited),
         }
       end
 
@@ -1175,7 +1175,7 @@ module AWS::SDK::AuditManager
     class CreateControl
       def self.default(visited=[])
         {
-          control: Stubs::Control.default(visited),
+          control: Control.default(visited),
         }
       end
 
@@ -1317,8 +1317,8 @@ module AWS::SDK::AuditManager
     class GetAssessment
       def self.default(visited=[])
         {
-          assessment: Stubs::Assessment.default(visited),
-          user_role: Stubs::Role.default(visited),
+          assessment: Assessment.default(visited),
+          user_role: Role.default(visited),
         }
       end
 
@@ -1336,7 +1336,7 @@ module AWS::SDK::AuditManager
     class GetAssessmentFramework
       def self.default(visited=[])
         {
-          framework: Stubs::Framework.default(visited),
+          framework: Framework.default(visited),
         }
       end
 
@@ -1353,7 +1353,7 @@ module AWS::SDK::AuditManager
     class GetAssessmentReportUrl
       def self.default(visited=[])
         {
-          pre_signed_url: Stubs::URL.default(visited),
+          pre_signed_url: URL.default(visited),
         }
       end
 
@@ -1390,7 +1390,7 @@ module AWS::SDK::AuditManager
     class GetChangeLogs
       def self.default(visited=[])
         {
-          change_logs: Stubs::ChangeLogs.default(visited),
+          change_logs: ChangeLogs.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1411,7 +1411,7 @@ module AWS::SDK::AuditManager
         return nil if visited.include?('ChangeLogs')
         visited = visited + ['ChangeLogs']
         [
-          Stubs::ChangeLog.default(visited)
+          ChangeLog.default(visited)
         ]
       end
 
@@ -1455,7 +1455,7 @@ module AWS::SDK::AuditManager
     class GetControl
       def self.default(visited=[])
         {
-          control: Stubs::Control.default(visited),
+          control: Control.default(visited),
         }
       end
 
@@ -1472,7 +1472,7 @@ module AWS::SDK::AuditManager
     class GetDelegations
       def self.default(visited=[])
         {
-          delegations: Stubs::DelegationMetadataList.default(visited),
+          delegations: DelegationMetadataList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1493,7 +1493,7 @@ module AWS::SDK::AuditManager
         return nil if visited.include?('DelegationMetadataList')
         visited = visited + ['DelegationMetadataList']
         [
-          Stubs::DelegationMetadata.default(visited)
+          DelegationMetadata.default(visited)
         ]
       end
 
@@ -1541,7 +1541,7 @@ module AWS::SDK::AuditManager
     class GetEvidence
       def self.default(visited=[])
         {
-          evidence: Stubs::Evidence.default(visited),
+          evidence: Evidence.default(visited),
         }
       end
 
@@ -1566,8 +1566,8 @@ module AWS::SDK::AuditManager
           event_source: 'event_source',
           event_name: 'event_name',
           evidence_by_type: 'evidence_by_type',
-          resources_included: Stubs::Resources.default(visited),
-          attributes: Stubs::EvidenceAttributes.default(visited),
+          resources_included: Resources.default(visited),
+          attributes: EvidenceAttributes.default(visited),
           iam_id: 'iam_id',
           compliance_check: 'compliance_check',
           aws_organization: 'aws_organization',
@@ -1626,7 +1626,7 @@ module AWS::SDK::AuditManager
         return nil if visited.include?('Resources')
         visited = visited + ['Resources']
         [
-          Stubs::Resource.default(visited)
+          Resource.default(visited)
         ]
       end
 
@@ -1664,7 +1664,7 @@ module AWS::SDK::AuditManager
     class GetEvidenceByEvidenceFolder
       def self.default(visited=[])
         {
-          evidence: Stubs::EvidenceList.default(visited),
+          evidence: EvidenceList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1685,7 +1685,7 @@ module AWS::SDK::AuditManager
         return nil if visited.include?('EvidenceList')
         visited = visited + ['EvidenceList']
         [
-          Stubs::Evidence.default(visited)
+          Evidence.default(visited)
         ]
       end
 
@@ -1703,7 +1703,7 @@ module AWS::SDK::AuditManager
     class GetEvidenceFolder
       def self.default(visited=[])
         {
-          evidence_folder: Stubs::AssessmentEvidenceFolder.default(visited),
+          evidence_folder: AssessmentEvidenceFolder.default(visited),
         }
       end
 
@@ -1772,7 +1772,7 @@ module AWS::SDK::AuditManager
     class GetEvidenceFoldersByAssessment
       def self.default(visited=[])
         {
-          evidence_folders: Stubs::AssessmentEvidenceFolders.default(visited),
+          evidence_folders: AssessmentEvidenceFolders.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1793,7 +1793,7 @@ module AWS::SDK::AuditManager
         return nil if visited.include?('AssessmentEvidenceFolders')
         visited = visited + ['AssessmentEvidenceFolders']
         [
-          Stubs::AssessmentEvidenceFolder.default(visited)
+          AssessmentEvidenceFolder.default(visited)
         ]
       end
 
@@ -1811,7 +1811,7 @@ module AWS::SDK::AuditManager
     class GetEvidenceFoldersByAssessmentControl
       def self.default(visited=[])
         {
-          evidence_folders: Stubs::AssessmentEvidenceFolders.default(visited),
+          evidence_folders: AssessmentEvidenceFolders.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1830,7 +1830,7 @@ module AWS::SDK::AuditManager
     class GetInsights
       def self.default(visited=[])
         {
-          insights: Stubs::Insights.default(visited),
+          insights: Insights.default(visited),
         }
       end
 
@@ -1877,7 +1877,7 @@ module AWS::SDK::AuditManager
     class GetInsightsByAssessment
       def self.default(visited=[])
         {
-          insights: Stubs::InsightsByAssessment.default(visited),
+          insights: InsightsByAssessment.default(visited),
         }
       end
 
@@ -1941,7 +1941,7 @@ module AWS::SDK::AuditManager
     class GetServicesInScope
       def self.default(visited=[])
         {
-          service_metadata: Stubs::ServiceMetadataList.default(visited),
+          service_metadata: ServiceMetadataList.default(visited),
         }
       end
 
@@ -1960,7 +1960,7 @@ module AWS::SDK::AuditManager
         return nil if visited.include?('ServiceMetadataList')
         visited = visited + ['ServiceMetadataList']
         [
-          Stubs::ServiceMetadata.default(visited)
+          ServiceMetadata.default(visited)
         ]
       end
 
@@ -2002,7 +2002,7 @@ module AWS::SDK::AuditManager
     class GetSettings
       def self.default(visited=[])
         {
-          settings: Stubs::Settings.default(visited),
+          settings: Settings.default(visited),
         }
       end
 
@@ -2023,8 +2023,8 @@ module AWS::SDK::AuditManager
         {
           is_aws_org_enabled: false,
           sns_topic: 'sns_topic',
-          default_assessment_reports_destination: Stubs::AssessmentReportsDestination.default(visited),
-          default_process_owners: Stubs::Roles.default(visited),
+          default_assessment_reports_destination: AssessmentReportsDestination.default(visited),
+          default_process_owners: Roles.default(visited),
           kms_key: 'kms_key',
         }
       end
@@ -2045,7 +2045,7 @@ module AWS::SDK::AuditManager
     class ListAssessmentControlInsightsByControlDomain
       def self.default(visited=[])
         {
-          control_insights_by_assessment: Stubs::ControlInsightsMetadataByAssessment.default(visited),
+          control_insights_by_assessment: ControlInsightsMetadataByAssessment.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2066,7 +2066,7 @@ module AWS::SDK::AuditManager
         return nil if visited.include?('ControlInsightsMetadataByAssessment')
         visited = visited + ['ControlInsightsMetadataByAssessment']
         [
-          Stubs::ControlInsightsMetadataByAssessmentItem.default(visited)
+          ControlInsightsMetadataByAssessmentItem.default(visited)
         ]
       end
 
@@ -2088,7 +2088,7 @@ module AWS::SDK::AuditManager
         {
           name: 'name',
           id: 'id',
-          evidence_insights: Stubs::EvidenceInsights.default(visited),
+          evidence_insights: EvidenceInsights.default(visited),
           control_set_name: 'control_set_name',
           last_updated: Time.now,
         }
@@ -2132,7 +2132,7 @@ module AWS::SDK::AuditManager
     class ListAssessmentFrameworkShareRequests
       def self.default(visited=[])
         {
-          assessment_framework_share_requests: Stubs::AssessmentFrameworkShareRequestList.default(visited),
+          assessment_framework_share_requests: AssessmentFrameworkShareRequestList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2153,7 +2153,7 @@ module AWS::SDK::AuditManager
         return nil if visited.include?('AssessmentFrameworkShareRequestList')
         visited = visited + ['AssessmentFrameworkShareRequestList']
         [
-          Stubs::AssessmentFrameworkShareRequest.default(visited)
+          AssessmentFrameworkShareRequest.default(visited)
         ]
       end
 
@@ -2217,7 +2217,7 @@ module AWS::SDK::AuditManager
     class ListAssessmentFrameworks
       def self.default(visited=[])
         {
-          framework_metadata_list: Stubs::FrameworkMetadataList.default(visited),
+          framework_metadata_list: FrameworkMetadataList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2238,7 +2238,7 @@ module AWS::SDK::AuditManager
         return nil if visited.include?('FrameworkMetadataList')
         visited = visited + ['FrameworkMetadataList']
         [
-          Stubs::AssessmentFrameworkMetadata.default(visited)
+          AssessmentFrameworkMetadata.default(visited)
         ]
       end
 
@@ -2294,7 +2294,7 @@ module AWS::SDK::AuditManager
     class ListAssessmentReports
       def self.default(visited=[])
         {
-          assessment_reports: Stubs::AssessmentReportsMetadata.default(visited),
+          assessment_reports: AssessmentReportsMetadata.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2315,7 +2315,7 @@ module AWS::SDK::AuditManager
         return nil if visited.include?('AssessmentReportsMetadata')
         visited = visited + ['AssessmentReportsMetadata']
         [
-          Stubs::AssessmentReportMetadata.default(visited)
+          AssessmentReportMetadata.default(visited)
         ]
       end
 
@@ -2365,7 +2365,7 @@ module AWS::SDK::AuditManager
     class ListAssessments
       def self.default(visited=[])
         {
-          assessment_metadata: Stubs::ListAssessmentMetadata.default(visited),
+          assessment_metadata: ListAssessmentMetadata.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2386,7 +2386,7 @@ module AWS::SDK::AuditManager
         return nil if visited.include?('ListAssessmentMetadata')
         visited = visited + ['ListAssessmentMetadata']
         [
-          Stubs::AssessmentMetadataItem.default(visited)
+          AssessmentMetadataItem.default(visited)
         ]
       end
 
@@ -2410,8 +2410,8 @@ module AWS::SDK::AuditManager
           id: 'id',
           compliance_type: 'compliance_type',
           status: 'status',
-          roles: Stubs::Roles.default(visited),
-          delegations: Stubs::Delegations.default(visited),
+          roles: Roles.default(visited),
+          delegations: Delegations.default(visited),
           creation_time: Time.now,
           last_updated: Time.now,
         }
@@ -2436,7 +2436,7 @@ module AWS::SDK::AuditManager
     class ListControlDomainInsights
       def self.default(visited=[])
         {
-          control_domain_insights: Stubs::ControlDomainInsightsList.default(visited),
+          control_domain_insights: ControlDomainInsightsList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2457,7 +2457,7 @@ module AWS::SDK::AuditManager
         return nil if visited.include?('ControlDomainInsightsList')
         visited = visited + ['ControlDomainInsightsList']
         [
-          Stubs::ControlDomainInsights.default(visited)
+          ControlDomainInsights.default(visited)
         ]
       end
 
@@ -2481,7 +2481,7 @@ module AWS::SDK::AuditManager
           id: 'id',
           controls_count_by_noncompliant_evidence: 1,
           total_controls_count: 1,
-          evidence_insights: Stubs::EvidenceInsights.default(visited),
+          evidence_insights: EvidenceInsights.default(visited),
           last_updated: Time.now,
         }
       end
@@ -2503,7 +2503,7 @@ module AWS::SDK::AuditManager
     class ListControlDomainInsightsByAssessment
       def self.default(visited=[])
         {
-          control_domain_insights: Stubs::ControlDomainInsightsList.default(visited),
+          control_domain_insights: ControlDomainInsightsList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2522,7 +2522,7 @@ module AWS::SDK::AuditManager
     class ListControlInsightsByControlDomain
       def self.default(visited=[])
         {
-          control_insights_metadata: Stubs::ControlInsightsMetadata.default(visited),
+          control_insights_metadata: ControlInsightsMetadata.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2543,7 +2543,7 @@ module AWS::SDK::AuditManager
         return nil if visited.include?('ControlInsightsMetadata')
         visited = visited + ['ControlInsightsMetadata']
         [
-          Stubs::ControlInsightsMetadataItem.default(visited)
+          ControlInsightsMetadataItem.default(visited)
         ]
       end
 
@@ -2565,7 +2565,7 @@ module AWS::SDK::AuditManager
         {
           name: 'name',
           id: 'id',
-          evidence_insights: Stubs::EvidenceInsights.default(visited),
+          evidence_insights: EvidenceInsights.default(visited),
           last_updated: Time.now,
         }
       end
@@ -2585,7 +2585,7 @@ module AWS::SDK::AuditManager
     class ListControls
       def self.default(visited=[])
         {
-          control_metadata_list: Stubs::ControlMetadataList.default(visited),
+          control_metadata_list: ControlMetadataList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2606,7 +2606,7 @@ module AWS::SDK::AuditManager
         return nil if visited.include?('ControlMetadataList')
         visited = visited + ['ControlMetadataList']
         [
-          Stubs::ControlMetadata.default(visited)
+          ControlMetadata.default(visited)
         ]
       end
 
@@ -2652,7 +2652,7 @@ module AWS::SDK::AuditManager
     class ListKeywordsForDataSource
       def self.default(visited=[])
         {
-          keywords: Stubs::Keywords.default(visited),
+          keywords: Keywords.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2691,7 +2691,7 @@ module AWS::SDK::AuditManager
     class ListNotifications
       def self.default(visited=[])
         {
-          notifications: Stubs::Notifications.default(visited),
+          notifications: Notifications.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2712,7 +2712,7 @@ module AWS::SDK::AuditManager
         return nil if visited.include?('Notifications')
         visited = visited + ['Notifications']
         [
-          Stubs::Notification.default(visited)
+          Notification.default(visited)
         ]
       end
 
@@ -2762,7 +2762,7 @@ module AWS::SDK::AuditManager
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -2815,7 +2815,7 @@ module AWS::SDK::AuditManager
     class StartAssessmentFrameworkShare
       def self.default(visited=[])
         {
-          assessment_framework_share_request: Stubs::AssessmentFrameworkShareRequest.default(visited),
+          assessment_framework_share_request: AssessmentFrameworkShareRequest.default(visited),
         }
       end
 
@@ -2858,7 +2858,7 @@ module AWS::SDK::AuditManager
     class UpdateAssessment
       def self.default(visited=[])
         {
-          assessment: Stubs::Assessment.default(visited),
+          assessment: Assessment.default(visited),
         }
       end
 
@@ -2875,7 +2875,7 @@ module AWS::SDK::AuditManager
     class UpdateAssessmentControl
       def self.default(visited=[])
         {
-          control: Stubs::AssessmentControl.default(visited),
+          control: AssessmentControl.default(visited),
         }
       end
 
@@ -2892,7 +2892,7 @@ module AWS::SDK::AuditManager
     class UpdateAssessmentControlSetStatus
       def self.default(visited=[])
         {
-          control_set: Stubs::AssessmentControlSet.default(visited),
+          control_set: AssessmentControlSet.default(visited),
         }
       end
 
@@ -2909,7 +2909,7 @@ module AWS::SDK::AuditManager
     class UpdateAssessmentFramework
       def self.default(visited=[])
         {
-          framework: Stubs::Framework.default(visited),
+          framework: Framework.default(visited),
         }
       end
 
@@ -2926,7 +2926,7 @@ module AWS::SDK::AuditManager
     class UpdateAssessmentFrameworkShare
       def self.default(visited=[])
         {
-          assessment_framework_share_request: Stubs::AssessmentFrameworkShareRequest.default(visited),
+          assessment_framework_share_request: AssessmentFrameworkShareRequest.default(visited),
         }
       end
 
@@ -2943,7 +2943,7 @@ module AWS::SDK::AuditManager
     class UpdateAssessmentStatus
       def self.default(visited=[])
         {
-          assessment: Stubs::Assessment.default(visited),
+          assessment: Assessment.default(visited),
         }
       end
 
@@ -2960,7 +2960,7 @@ module AWS::SDK::AuditManager
     class UpdateControl
       def self.default(visited=[])
         {
-          control: Stubs::Control.default(visited),
+          control: Control.default(visited),
         }
       end
 
@@ -2977,7 +2977,7 @@ module AWS::SDK::AuditManager
     class UpdateSettings
       def self.default(visited=[])
         {
-          settings: Stubs::Settings.default(visited),
+          settings: Settings.default(visited),
         }
       end
 
@@ -2998,7 +2998,7 @@ module AWS::SDK::AuditManager
           signature_algorithm: 'signature_algorithm',
           signature_date_time: 'signature_date_time',
           signature_key_id: 'signature_key_id',
-          validation_errors: Stubs::ValidationErrors.default(visited),
+          validation_errors: ValidationErrors.default(visited),
         }
       end
 

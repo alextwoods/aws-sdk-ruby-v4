@@ -14,7 +14,7 @@ module AWS::SDK::Redshift
     class AcceptReservedNodeExchange
       def self.default(visited=[])
         {
-          exchanged_reserved_node: Stubs::ReservedNode.default(visited),
+          exchanged_reserved_node: ReservedNode.default(visited),
         }
       end
 
@@ -47,7 +47,7 @@ module AWS::SDK::Redshift
           node_count: 1,
           state: 'state',
           offering_type: 'offering_type',
-          recurring_charges: Stubs::RecurringChargeList.default(visited),
+          recurring_charges: RecurringChargeList.default(visited),
           reserved_node_offering_type: 'reserved_node_offering_type',
         }
       end
@@ -78,7 +78,7 @@ module AWS::SDK::Redshift
         return nil if visited.include?('RecurringChargeList')
         visited = visited + ['RecurringChargeList']
         [
-          Stubs::RecurringCharge.default(visited)
+          RecurringCharge.default(visited)
         ]
       end
 
@@ -140,7 +140,7 @@ module AWS::SDK::Redshift
           data_share_arn: 'data_share_arn',
           producer_arn: 'producer_arn',
           allow_publicly_accessible_consumers: false,
-          data_share_associations: Stubs::DataShareAssociationList.default(visited),
+          data_share_associations: DataShareAssociationList.default(visited),
           managed_by: 'managed_by',
         }
       end
@@ -167,7 +167,7 @@ module AWS::SDK::Redshift
         return nil if visited.include?('DataShareAssociationList')
         visited = visited + ['DataShareAssociationList']
         [
-          Stubs::DataShareAssociation.default(visited)
+          DataShareAssociation.default(visited)
         ]
       end
 
@@ -210,7 +210,7 @@ module AWS::SDK::Redshift
     class AuthorizeClusterSecurityGroupIngress
       def self.default(visited=[])
         {
-          cluster_security_group: Stubs::ClusterSecurityGroup.default(visited),
+          cluster_security_group: ClusterSecurityGroup.default(visited),
         }
       end
 
@@ -234,9 +234,9 @@ module AWS::SDK::Redshift
         {
           cluster_security_group_name: 'cluster_security_group_name',
           description: 'description',
-          ec2_security_groups: Stubs::EC2SecurityGroupList.default(visited),
-          ip_ranges: Stubs::IPRangeList.default(visited),
-          tags: Stubs::TagList.default(visited),
+          ec2_security_groups: EC2SecurityGroupList.default(visited),
+          ip_ranges: IPRangeList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -258,7 +258,7 @@ module AWS::SDK::Redshift
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -297,7 +297,7 @@ module AWS::SDK::Redshift
         return nil if visited.include?('IPRangeList')
         visited = visited + ['IPRangeList']
         [
-          Stubs::IPRange.default(visited)
+          IPRange.default(visited)
         ]
       end
 
@@ -318,7 +318,7 @@ module AWS::SDK::Redshift
         {
           status: 'status',
           cidrip: 'cidrip',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -338,7 +338,7 @@ module AWS::SDK::Redshift
         return nil if visited.include?('EC2SecurityGroupList')
         visited = visited + ['EC2SecurityGroupList']
         [
-          Stubs::EC2SecurityGroup.default(visited)
+          EC2SecurityGroup.default(visited)
         ]
       end
 
@@ -360,7 +360,7 @@ module AWS::SDK::Redshift
           status: 'status',
           ec2_security_group_name: 'ec2_security_group_name',
           ec2_security_group_owner_id: 'ec2_security_group_owner_id',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -382,7 +382,7 @@ module AWS::SDK::Redshift
           data_share_arn: 'data_share_arn',
           producer_arn: 'producer_arn',
           allow_publicly_accessible_consumers: false,
-          data_share_associations: Stubs::DataShareAssociationList.default(visited),
+          data_share_associations: DataShareAssociationList.default(visited),
           managed_by: 'managed_by',
         }
       end
@@ -414,7 +414,7 @@ module AWS::SDK::Redshift
           cluster_status: 'cluster_status',
           status: 'status',
           allowed_all_vp_cs: false,
-          allowed_vp_cs: Stubs::VpcIdentifierList.default(visited),
+          allowed_vp_cs: VpcIdentifierList.default(visited),
           endpoint_count: 1,
         }
       end
@@ -462,7 +462,7 @@ module AWS::SDK::Redshift
     class AuthorizeSnapshotAccess
       def self.default(visited=[])
         {
-          snapshot: Stubs::Snapshot.default(visited),
+          snapshot: Snapshot.default(visited),
         }
       end
 
@@ -502,7 +502,7 @@ module AWS::SDK::Redshift
           encrypted: false,
           kms_key_id: 'kms_key_id',
           encrypted_with_hsm: false,
-          accounts_with_restore_access: Stubs::AccountsWithRestoreAccessList.default(visited),
+          accounts_with_restore_access: AccountsWithRestoreAccessList.default(visited),
           owner_account: 'owner_account',
           total_backup_size_in_mega_bytes: 1.0,
           actual_incremental_backup_size_in_mega_bytes: 1.0,
@@ -511,8 +511,8 @@ module AWS::SDK::Redshift
           estimated_seconds_to_completion: 1,
           elapsed_time_in_seconds: 1,
           source_region: 'source_region',
-          tags: Stubs::TagList.default(visited),
-          restorable_node_types: Stubs::RestorableNodeTypeList.default(visited),
+          tags: TagList.default(visited),
+          restorable_node_types: RestorableNodeTypeList.default(visited),
           enhanced_vpc_routing: false,
           maintenance_track_name: 'maintenance_track_name',
           manual_snapshot_retention_period: 1,
@@ -587,7 +587,7 @@ module AWS::SDK::Redshift
         return nil if visited.include?('AccountsWithRestoreAccessList')
         visited = visited + ['AccountsWithRestoreAccessList']
         [
-          Stubs::AccountWithRestoreAccess.default(visited)
+          AccountWithRestoreAccess.default(visited)
         ]
       end
 
@@ -624,8 +624,8 @@ module AWS::SDK::Redshift
     class BatchDeleteClusterSnapshots
       def self.default(visited=[])
         {
-          resources: Stubs::SnapshotIdentifierList.default(visited),
-          errors: Stubs::BatchSnapshotOperationErrorList.default(visited),
+          resources: SnapshotIdentifierList.default(visited),
+          errors: BatchSnapshotOperationErrorList.default(visited),
         }
       end
 
@@ -648,7 +648,7 @@ module AWS::SDK::Redshift
         return nil if visited.include?('BatchSnapshotOperationErrorList')
         visited = visited + ['BatchSnapshotOperationErrorList']
         [
-          Stubs::SnapshotErrorMessage.default(visited)
+          SnapshotErrorMessage.default(visited)
         ]
       end
 
@@ -708,8 +708,8 @@ module AWS::SDK::Redshift
     class BatchModifyClusterSnapshots
       def self.default(visited=[])
         {
-          resources: Stubs::SnapshotIdentifierList.default(visited),
-          errors: Stubs::BatchSnapshotOperationErrors.default(visited),
+          resources: SnapshotIdentifierList.default(visited),
+          errors: BatchSnapshotOperationErrors.default(visited),
         }
       end
 
@@ -732,7 +732,7 @@ module AWS::SDK::Redshift
         return nil if visited.include?('BatchSnapshotOperationErrors')
         visited = visited + ['BatchSnapshotOperationErrors']
         [
-          Stubs::SnapshotErrorMessage.default(visited)
+          SnapshotErrorMessage.default(visited)
         ]
       end
 
@@ -753,9 +753,9 @@ module AWS::SDK::Redshift
           target_number_of_nodes: 1,
           target_cluster_type: 'target_cluster_type',
           status: 'status',
-          import_tables_completed: Stubs::ImportTablesCompleted.default(visited),
-          import_tables_in_progress: Stubs::ImportTablesInProgress.default(visited),
-          import_tables_not_started: Stubs::ImportTablesNotStarted.default(visited),
+          import_tables_completed: ImportTablesCompleted.default(visited),
+          import_tables_in_progress: ImportTablesInProgress.default(visited),
+          import_tables_not_started: ImportTablesNotStarted.default(visited),
           avg_resize_rate_in_mega_bytes_per_second: 1.0,
           total_resize_data_in_mega_bytes: 1,
           progress_in_mega_bytes: 1,
@@ -856,7 +856,7 @@ module AWS::SDK::Redshift
     class CopyClusterSnapshot
       def self.default(visited=[])
         {
-          snapshot: Stubs::Snapshot.default(visited),
+          snapshot: Snapshot.default(visited),
         }
       end
 
@@ -898,7 +898,7 @@ module AWS::SDK::Redshift
     class CreateCluster
       def self.default(visited=[])
         {
-          cluster: Stubs::Cluster.default(visited),
+          cluster: Cluster.default(visited),
         }
       end
 
@@ -927,51 +927,51 @@ module AWS::SDK::Redshift
           modify_status: 'modify_status',
           master_username: 'master_username',
           db_name: 'db_name',
-          endpoint: Stubs::Endpoint.default(visited),
+          endpoint: Endpoint.default(visited),
           cluster_create_time: Time.now,
           automated_snapshot_retention_period: 1,
           manual_snapshot_retention_period: 1,
-          cluster_security_groups: Stubs::ClusterSecurityGroupMembershipList.default(visited),
-          vpc_security_groups: Stubs::VpcSecurityGroupMembershipList.default(visited),
-          cluster_parameter_groups: Stubs::ClusterParameterGroupStatusList.default(visited),
+          cluster_security_groups: ClusterSecurityGroupMembershipList.default(visited),
+          vpc_security_groups: VpcSecurityGroupMembershipList.default(visited),
+          cluster_parameter_groups: ClusterParameterGroupStatusList.default(visited),
           cluster_subnet_group_name: 'cluster_subnet_group_name',
           vpc_id: 'vpc_id',
           availability_zone: 'availability_zone',
           preferred_maintenance_window: 'preferred_maintenance_window',
-          pending_modified_values: Stubs::PendingModifiedValues.default(visited),
+          pending_modified_values: PendingModifiedValues.default(visited),
           cluster_version: 'cluster_version',
           allow_version_upgrade: false,
           number_of_nodes: 1,
           publicly_accessible: false,
           encrypted: false,
-          restore_status: Stubs::RestoreStatus.default(visited),
-          data_transfer_progress: Stubs::DataTransferProgress.default(visited),
-          hsm_status: Stubs::HsmStatus.default(visited),
-          cluster_snapshot_copy_status: Stubs::ClusterSnapshotCopyStatus.default(visited),
+          restore_status: RestoreStatus.default(visited),
+          data_transfer_progress: DataTransferProgress.default(visited),
+          hsm_status: HsmStatus.default(visited),
+          cluster_snapshot_copy_status: ClusterSnapshotCopyStatus.default(visited),
           cluster_public_key: 'cluster_public_key',
-          cluster_nodes: Stubs::ClusterNodesList.default(visited),
-          elastic_ip_status: Stubs::ElasticIpStatus.default(visited),
+          cluster_nodes: ClusterNodesList.default(visited),
+          elastic_ip_status: ElasticIpStatus.default(visited),
           cluster_revision_number: 'cluster_revision_number',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           kms_key_id: 'kms_key_id',
           enhanced_vpc_routing: false,
-          iam_roles: Stubs::ClusterIamRoleList.default(visited),
-          pending_actions: Stubs::PendingActionsList.default(visited),
+          iam_roles: ClusterIamRoleList.default(visited),
+          pending_actions: PendingActionsList.default(visited),
           maintenance_track_name: 'maintenance_track_name',
           elastic_resize_number_of_node_options: 'elastic_resize_number_of_node_options',
-          deferred_maintenance_windows: Stubs::DeferredMaintenanceWindowsList.default(visited),
+          deferred_maintenance_windows: DeferredMaintenanceWindowsList.default(visited),
           snapshot_schedule_identifier: 'snapshot_schedule_identifier',
           snapshot_schedule_state: 'snapshot_schedule_state',
           expected_next_snapshot_schedule_time: Time.now,
           expected_next_snapshot_schedule_time_status: 'expected_next_snapshot_schedule_time_status',
           next_maintenance_window_start_time: Time.now,
-          resize_info: Stubs::ResizeInfo.default(visited),
+          resize_info: ResizeInfo.default(visited),
           availability_zone_relocation_status: 'availability_zone_relocation_status',
           cluster_namespace_arn: 'cluster_namespace_arn',
           total_storage_capacity_in_mega_bytes: 1,
-          aqua_configuration: Stubs::AquaConfiguration.default(visited),
+          aqua_configuration: AquaConfiguration.default(visited),
           default_iam_role_arn: 'default_iam_role_arn',
-          reserved_node_exchange_status: Stubs::ReservedNodeExchangeStatus.default(visited),
+          reserved_node_exchange_status: ReservedNodeExchangeStatus.default(visited),
         }
       end
 
@@ -1114,7 +1114,7 @@ module AWS::SDK::Redshift
         return nil if visited.include?('DeferredMaintenanceWindowsList')
         visited = visited + ['DeferredMaintenanceWindowsList']
         [
-          Stubs::DeferredMaintenanceWindow.default(visited)
+          DeferredMaintenanceWindow.default(visited)
         ]
       end
 
@@ -1174,7 +1174,7 @@ module AWS::SDK::Redshift
         return nil if visited.include?('ClusterIamRoleList')
         visited = visited + ['ClusterIamRoleList']
         [
-          Stubs::ClusterIamRole.default(visited)
+          ClusterIamRole.default(visited)
         ]
       end
 
@@ -1233,7 +1233,7 @@ module AWS::SDK::Redshift
         return nil if visited.include?('ClusterNodesList')
         visited = visited + ['ClusterNodesList']
         [
-          Stubs::ClusterNode.default(visited)
+          ClusterNode.default(visited)
         ]
       end
 
@@ -1414,7 +1414,7 @@ module AWS::SDK::Redshift
         return nil if visited.include?('ClusterParameterGroupStatusList')
         visited = visited + ['ClusterParameterGroupStatusList']
         [
-          Stubs::ClusterParameterGroupStatus.default(visited)
+          ClusterParameterGroupStatus.default(visited)
         ]
       end
 
@@ -1435,7 +1435,7 @@ module AWS::SDK::Redshift
         {
           parameter_group_name: 'parameter_group_name',
           parameter_apply_status: 'parameter_apply_status',
-          cluster_parameter_status_list: Stubs::ClusterParameterStatusList.default(visited),
+          cluster_parameter_status_list: ClusterParameterStatusList.default(visited),
         }
       end
 
@@ -1455,7 +1455,7 @@ module AWS::SDK::Redshift
         return nil if visited.include?('ClusterParameterStatusList')
         visited = visited + ['ClusterParameterStatusList']
         [
-          Stubs::ClusterParameterStatus.default(visited)
+          ClusterParameterStatus.default(visited)
         ]
       end
 
@@ -1496,7 +1496,7 @@ module AWS::SDK::Redshift
         return nil if visited.include?('VpcSecurityGroupMembershipList')
         visited = visited + ['VpcSecurityGroupMembershipList']
         [
-          Stubs::VpcSecurityGroupMembership.default(visited)
+          VpcSecurityGroupMembership.default(visited)
         ]
       end
 
@@ -1535,7 +1535,7 @@ module AWS::SDK::Redshift
         return nil if visited.include?('ClusterSecurityGroupMembershipList')
         visited = visited + ['ClusterSecurityGroupMembershipList']
         [
-          Stubs::ClusterSecurityGroupMembership.default(visited)
+          ClusterSecurityGroupMembership.default(visited)
         ]
       end
 
@@ -1576,7 +1576,7 @@ module AWS::SDK::Redshift
         {
           address: 'address',
           port: 1,
-          vpc_endpoints: Stubs::VpcEndpointsList.default(visited),
+          vpc_endpoints: VpcEndpointsList.default(visited),
         }
       end
 
@@ -1596,7 +1596,7 @@ module AWS::SDK::Redshift
         return nil if visited.include?('VpcEndpointsList')
         visited = visited + ['VpcEndpointsList']
         [
-          Stubs::VpcEndpoint.default(visited)
+          VpcEndpoint.default(visited)
         ]
       end
 
@@ -1617,7 +1617,7 @@ module AWS::SDK::Redshift
         {
           vpc_endpoint_id: 'vpc_endpoint_id',
           vpc_id: 'vpc_id',
-          network_interfaces: Stubs::NetworkInterfaceList.default(visited),
+          network_interfaces: NetworkInterfaceList.default(visited),
         }
       end
 
@@ -1637,7 +1637,7 @@ module AWS::SDK::Redshift
         return nil if visited.include?('NetworkInterfaceList')
         visited = visited + ['NetworkInterfaceList']
         [
-          Stubs::NetworkInterface.default(visited)
+          NetworkInterface.default(visited)
         ]
       end
 
@@ -1678,7 +1678,7 @@ module AWS::SDK::Redshift
     class CreateClusterParameterGroup
       def self.default(visited=[])
         {
-          cluster_parameter_group: Stubs::ClusterParameterGroup.default(visited),
+          cluster_parameter_group: ClusterParameterGroup.default(visited),
         }
       end
 
@@ -1703,7 +1703,7 @@ module AWS::SDK::Redshift
           parameter_group_name: 'parameter_group_name',
           parameter_group_family: 'parameter_group_family',
           description: 'description',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -1722,7 +1722,7 @@ module AWS::SDK::Redshift
     class CreateClusterSecurityGroup
       def self.default(visited=[])
         {
-          cluster_security_group: Stubs::ClusterSecurityGroup.default(visited),
+          cluster_security_group: ClusterSecurityGroup.default(visited),
         }
       end
 
@@ -1742,7 +1742,7 @@ module AWS::SDK::Redshift
     class CreateClusterSnapshot
       def self.default(visited=[])
         {
-          snapshot: Stubs::Snapshot.default(visited),
+          snapshot: Snapshot.default(visited),
         }
       end
 
@@ -1762,7 +1762,7 @@ module AWS::SDK::Redshift
     class CreateClusterSubnetGroup
       def self.default(visited=[])
         {
-          cluster_subnet_group: Stubs::ClusterSubnetGroup.default(visited),
+          cluster_subnet_group: ClusterSubnetGroup.default(visited),
         }
       end
 
@@ -1788,8 +1788,8 @@ module AWS::SDK::Redshift
           description: 'description',
           vpc_id: 'vpc_id',
           subnet_group_status: 'subnet_group_status',
-          subnets: Stubs::SubnetList.default(visited),
-          tags: Stubs::TagList.default(visited),
+          subnets: SubnetList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -1812,7 +1812,7 @@ module AWS::SDK::Redshift
         return nil if visited.include?('SubnetList')
         visited = visited + ['SubnetList']
         [
-          Stubs::Subnet.default(visited)
+          Subnet.default(visited)
         ]
       end
 
@@ -1832,7 +1832,7 @@ module AWS::SDK::Redshift
         visited = visited + ['Subnet']
         {
           subnet_identifier: 'subnet_identifier',
-          subnet_availability_zone: Stubs::AvailabilityZone.default(visited),
+          subnet_availability_zone: AvailabilityZone.default(visited),
           subnet_status: 'subnet_status',
         }
       end
@@ -1854,7 +1854,7 @@ module AWS::SDK::Redshift
         visited = visited + ['AvailabilityZone']
         {
           name: 'name',
-          supported_platforms: Stubs::SupportedPlatformsList.default(visited),
+          supported_platforms: SupportedPlatformsList.default(visited),
         }
       end
 
@@ -1873,7 +1873,7 @@ module AWS::SDK::Redshift
         return nil if visited.include?('SupportedPlatformsList')
         visited = visited + ['SupportedPlatformsList']
         [
-          Stubs::SupportedPlatform.default(visited)
+          SupportedPlatform.default(visited)
         ]
       end
 
@@ -1916,8 +1916,8 @@ module AWS::SDK::Redshift
           endpoint_create_time: Time.now,
           port: 1,
           address: 'address',
-          vpc_security_groups: Stubs::VpcSecurityGroupMembershipList.default(visited),
-          vpc_endpoint: Stubs::VpcEndpoint.default(visited),
+          vpc_security_groups: VpcSecurityGroupMembershipList.default(visited),
+          vpc_endpoint: VpcEndpoint.default(visited),
         }
       end
 
@@ -1946,7 +1946,7 @@ module AWS::SDK::Redshift
     class CreateEventSubscription
       def self.default(visited=[])
         {
-          event_subscription: Stubs::EventSubscription.default(visited),
+          event_subscription: EventSubscription.default(visited),
         }
       end
 
@@ -1974,11 +1974,11 @@ module AWS::SDK::Redshift
           status: 'status',
           subscription_creation_time: Time.now,
           source_type: 'source_type',
-          source_ids_list: Stubs::SourceIdsList.default(visited),
-          event_categories_list: Stubs::EventCategoriesList.default(visited),
+          source_ids_list: SourceIdsList.default(visited),
+          event_categories_list: EventCategoriesList.default(visited),
           severity: 'severity',
           enabled: false,
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -2042,7 +2042,7 @@ module AWS::SDK::Redshift
     class CreateHsmClientCertificate
       def self.default(visited=[])
         {
-          hsm_client_certificate: Stubs::HsmClientCertificate.default(visited),
+          hsm_client_certificate: HsmClientCertificate.default(visited),
         }
       end
 
@@ -2066,7 +2066,7 @@ module AWS::SDK::Redshift
         {
           hsm_client_certificate_identifier: 'hsm_client_certificate_identifier',
           hsm_client_certificate_public_key: 'hsm_client_certificate_public_key',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -2084,7 +2084,7 @@ module AWS::SDK::Redshift
     class CreateHsmConfiguration
       def self.default(visited=[])
         {
-          hsm_configuration: Stubs::HsmConfiguration.default(visited),
+          hsm_configuration: HsmConfiguration.default(visited),
         }
       end
 
@@ -2110,7 +2110,7 @@ module AWS::SDK::Redshift
           description: 'description',
           hsm_ip_address: 'hsm_ip_address',
           hsm_partition_name: 'hsm_partition_name',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -2131,12 +2131,12 @@ module AWS::SDK::Redshift
       def self.default(visited=[])
         {
           scheduled_action_name: 'scheduled_action_name',
-          target_action: Stubs::ScheduledActionType.default(visited),
+          target_action: ScheduledActionType.default(visited),
           schedule: 'schedule',
           iam_role: 'iam_role',
           scheduled_action_description: 'scheduled_action_description',
           state: 'state',
-          next_invocations: Stubs::ScheduledActionTimeList.default(visited),
+          next_invocations: ScheduledActionTimeList.default(visited),
           start_time: Time.now,
           end_time: Time.now,
         }
@@ -2187,9 +2187,9 @@ module AWS::SDK::Redshift
         return nil if visited.include?('ScheduledActionType')
         visited = visited + ['ScheduledActionType']
         {
-          resize_cluster: Stubs::ResizeClusterMessage.default(visited),
-          pause_cluster: Stubs::PauseClusterMessage.default(visited),
-          resume_cluster: Stubs::ResumeClusterMessage.default(visited),
+          resize_cluster: ResizeClusterMessage.default(visited),
+          pause_cluster: PauseClusterMessage.default(visited),
+          resume_cluster: ResumeClusterMessage.default(visited),
         }
       end
 
@@ -2273,7 +2273,7 @@ module AWS::SDK::Redshift
     class CreateSnapshotCopyGrant
       def self.default(visited=[])
         {
-          snapshot_copy_grant: Stubs::SnapshotCopyGrant.default(visited),
+          snapshot_copy_grant: SnapshotCopyGrant.default(visited),
         }
       end
 
@@ -2297,7 +2297,7 @@ module AWS::SDK::Redshift
         {
           snapshot_copy_grant_name: 'snapshot_copy_grant_name',
           kms_key_id: 'kms_key_id',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -2315,13 +2315,13 @@ module AWS::SDK::Redshift
     class CreateSnapshotSchedule
       def self.default(visited=[])
         {
-          schedule_definitions: Stubs::ScheduleDefinitionList.default(visited),
+          schedule_definitions: ScheduleDefinitionList.default(visited),
           schedule_identifier: 'schedule_identifier',
           schedule_description: 'schedule_description',
-          tags: Stubs::TagList.default(visited),
-          next_invocations: Stubs::ScheduledSnapshotTimeList.default(visited),
+          tags: TagList.default(visited),
+          next_invocations: ScheduledSnapshotTimeList.default(visited),
           associated_cluster_count: 1,
-          associated_clusters: Stubs::AssociatedClusterList.default(visited),
+          associated_clusters: AssociatedClusterList.default(visited),
         }
       end
 
@@ -2349,7 +2349,7 @@ module AWS::SDK::Redshift
         return nil if visited.include?('AssociatedClusterList')
         visited = visited + ['AssociatedClusterList']
         [
-          Stubs::ClusterAssociatedToSchedule.default(visited)
+          ClusterAssociatedToSchedule.default(visited)
         ]
       end
 
@@ -2449,7 +2449,7 @@ module AWS::SDK::Redshift
           amount: 1,
           period: 'period',
           breach_action: 'breach_action',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -2479,7 +2479,7 @@ module AWS::SDK::Redshift
           data_share_arn: 'data_share_arn',
           producer_arn: 'producer_arn',
           allow_publicly_accessible_consumers: false,
-          data_share_associations: Stubs::DataShareAssociationList.default(visited),
+          data_share_associations: DataShareAssociationList.default(visited),
           managed_by: 'managed_by',
         }
       end
@@ -2524,7 +2524,7 @@ module AWS::SDK::Redshift
     class DeleteCluster
       def self.default(visited=[])
         {
-          cluster: Stubs::Cluster.default(visited),
+          cluster: Cluster.default(visited),
         }
       end
 
@@ -2580,7 +2580,7 @@ module AWS::SDK::Redshift
     class DeleteClusterSnapshot
       def self.default(visited=[])
         {
-          snapshot: Stubs::Snapshot.default(visited),
+          snapshot: Snapshot.default(visited),
         }
       end
 
@@ -2626,8 +2626,8 @@ module AWS::SDK::Redshift
           endpoint_create_time: Time.now,
           port: 1,
           address: 'address',
-          vpc_security_groups: Stubs::VpcSecurityGroupMembershipList.default(visited),
-          vpc_endpoint: Stubs::VpcEndpoint.default(visited),
+          vpc_security_groups: VpcSecurityGroupMembershipList.default(visited),
+          vpc_endpoint: VpcEndpoint.default(visited),
         }
       end
 
@@ -2822,7 +2822,7 @@ module AWS::SDK::Redshift
     class DescribeAccountAttributes
       def self.default(visited=[])
         {
-          account_attributes: Stubs::AttributeList.default(visited),
+          account_attributes: AttributeList.default(visited),
         }
       end
 
@@ -2844,7 +2844,7 @@ module AWS::SDK::Redshift
         return nil if visited.include?('AttributeList')
         visited = visited + ['AttributeList']
         [
-          Stubs::AccountAttribute.default(visited)
+          AccountAttribute.default(visited)
         ]
       end
 
@@ -2864,7 +2864,7 @@ module AWS::SDK::Redshift
         visited = visited + ['AccountAttribute']
         {
           attribute_name: 'attribute_name',
-          attribute_values: Stubs::AttributeValueList.default(visited),
+          attribute_values: AttributeValueList.default(visited),
         }
       end
 
@@ -2883,7 +2883,7 @@ module AWS::SDK::Redshift
         return nil if visited.include?('AttributeValueList')
         visited = visited + ['AttributeValueList']
         [
-          Stubs::AttributeValueTarget.default(visited)
+          AttributeValueTarget.default(visited)
         ]
       end
 
@@ -2918,7 +2918,7 @@ module AWS::SDK::Redshift
     class DescribeAuthenticationProfiles
       def self.default(visited=[])
         {
-          authentication_profiles: Stubs::AuthenticationProfileList.default(visited),
+          authentication_profiles: AuthenticationProfileList.default(visited),
         }
       end
 
@@ -2940,7 +2940,7 @@ module AWS::SDK::Redshift
         return nil if visited.include?('AuthenticationProfileList')
         visited = visited + ['AuthenticationProfileList']
         [
-          Stubs::AuthenticationProfile.default(visited)
+          AuthenticationProfile.default(visited)
         ]
       end
 
@@ -2978,7 +2978,7 @@ module AWS::SDK::Redshift
       def self.default(visited=[])
         {
           marker: 'marker',
-          cluster_db_revisions: Stubs::ClusterDbRevisionsList.default(visited),
+          cluster_db_revisions: ClusterDbRevisionsList.default(visited),
         }
       end
 
@@ -3001,7 +3001,7 @@ module AWS::SDK::Redshift
         return nil if visited.include?('ClusterDbRevisionsList')
         visited = visited + ['ClusterDbRevisionsList']
         [
-          Stubs::ClusterDbRevision.default(visited)
+          ClusterDbRevision.default(visited)
         ]
       end
 
@@ -3023,7 +3023,7 @@ module AWS::SDK::Redshift
           cluster_identifier: 'cluster_identifier',
           current_database_revision: 'current_database_revision',
           database_revision_release_date: Time.now,
-          revision_targets: Stubs::RevisionTargetsList.default(visited),
+          revision_targets: RevisionTargetsList.default(visited),
         }
       end
 
@@ -3044,7 +3044,7 @@ module AWS::SDK::Redshift
         return nil if visited.include?('RevisionTargetsList')
         visited = visited + ['RevisionTargetsList']
         [
-          Stubs::RevisionTarget.default(visited)
+          RevisionTarget.default(visited)
         ]
       end
 
@@ -3084,7 +3084,7 @@ module AWS::SDK::Redshift
       def self.default(visited=[])
         {
           marker: 'marker',
-          parameter_groups: Stubs::ParameterGroupList.default(visited),
+          parameter_groups: ParameterGroupList.default(visited),
         }
       end
 
@@ -3107,7 +3107,7 @@ module AWS::SDK::Redshift
         return nil if visited.include?('ParameterGroupList')
         visited = visited + ['ParameterGroupList']
         [
-          Stubs::ClusterParameterGroup.default(visited)
+          ClusterParameterGroup.default(visited)
         ]
       end
 
@@ -3124,7 +3124,7 @@ module AWS::SDK::Redshift
     class DescribeClusterParameters
       def self.default(visited=[])
         {
-          parameters: Stubs::ParametersList.default(visited),
+          parameters: ParametersList.default(visited),
           marker: 'marker',
         }
       end
@@ -3148,7 +3148,7 @@ module AWS::SDK::Redshift
         return nil if visited.include?('ParametersList')
         visited = visited + ['ParametersList']
         [
-          Stubs::Parameter.default(visited)
+          Parameter.default(visited)
         ]
       end
 
@@ -3200,7 +3200,7 @@ module AWS::SDK::Redshift
       def self.default(visited=[])
         {
           marker: 'marker',
-          cluster_security_groups: Stubs::ClusterSecurityGroups.default(visited),
+          cluster_security_groups: ClusterSecurityGroups.default(visited),
         }
       end
 
@@ -3223,7 +3223,7 @@ module AWS::SDK::Redshift
         return nil if visited.include?('ClusterSecurityGroups')
         visited = visited + ['ClusterSecurityGroups']
         [
-          Stubs::ClusterSecurityGroup.default(visited)
+          ClusterSecurityGroup.default(visited)
         ]
       end
 
@@ -3241,7 +3241,7 @@ module AWS::SDK::Redshift
       def self.default(visited=[])
         {
           marker: 'marker',
-          snapshots: Stubs::SnapshotList.default(visited),
+          snapshots: SnapshotList.default(visited),
         }
       end
 
@@ -3264,7 +3264,7 @@ module AWS::SDK::Redshift
         return nil if visited.include?('SnapshotList')
         visited = visited + ['SnapshotList']
         [
-          Stubs::Snapshot.default(visited)
+          Snapshot.default(visited)
         ]
       end
 
@@ -3282,7 +3282,7 @@ module AWS::SDK::Redshift
       def self.default(visited=[])
         {
           marker: 'marker',
-          cluster_subnet_groups: Stubs::ClusterSubnetGroups.default(visited),
+          cluster_subnet_groups: ClusterSubnetGroups.default(visited),
         }
       end
 
@@ -3305,7 +3305,7 @@ module AWS::SDK::Redshift
         return nil if visited.include?('ClusterSubnetGroups')
         visited = visited + ['ClusterSubnetGroups']
         [
-          Stubs::ClusterSubnetGroup.default(visited)
+          ClusterSubnetGroup.default(visited)
         ]
       end
 
@@ -3322,7 +3322,7 @@ module AWS::SDK::Redshift
     class DescribeClusterTracks
       def self.default(visited=[])
         {
-          maintenance_tracks: Stubs::TrackList.default(visited),
+          maintenance_tracks: TrackList.default(visited),
           marker: 'marker',
         }
       end
@@ -3346,7 +3346,7 @@ module AWS::SDK::Redshift
         return nil if visited.include?('TrackList')
         visited = visited + ['TrackList']
         [
-          Stubs::MaintenanceTrack.default(visited)
+          MaintenanceTrack.default(visited)
         ]
       end
 
@@ -3367,7 +3367,7 @@ module AWS::SDK::Redshift
         {
           maintenance_track_name: 'maintenance_track_name',
           database_version: 'database_version',
-          update_targets: Stubs::EligibleTracksToUpdateList.default(visited),
+          update_targets: EligibleTracksToUpdateList.default(visited),
         }
       end
 
@@ -3387,7 +3387,7 @@ module AWS::SDK::Redshift
         return nil if visited.include?('EligibleTracksToUpdateList')
         visited = visited + ['EligibleTracksToUpdateList']
         [
-          Stubs::UpdateTarget.default(visited)
+          UpdateTarget.default(visited)
         ]
       end
 
@@ -3408,7 +3408,7 @@ module AWS::SDK::Redshift
         {
           maintenance_track_name: 'maintenance_track_name',
           database_version: 'database_version',
-          supported_operations: Stubs::SupportedOperationList.default(visited),
+          supported_operations: SupportedOperationList.default(visited),
         }
       end
 
@@ -3428,7 +3428,7 @@ module AWS::SDK::Redshift
         return nil if visited.include?('SupportedOperationList')
         visited = visited + ['SupportedOperationList']
         [
-          Stubs::SupportedOperation.default(visited)
+          SupportedOperation.default(visited)
         ]
       end
 
@@ -3464,7 +3464,7 @@ module AWS::SDK::Redshift
       def self.default(visited=[])
         {
           marker: 'marker',
-          cluster_versions: Stubs::ClusterVersionList.default(visited),
+          cluster_versions: ClusterVersionList.default(visited),
         }
       end
 
@@ -3487,7 +3487,7 @@ module AWS::SDK::Redshift
         return nil if visited.include?('ClusterVersionList')
         visited = visited + ['ClusterVersionList']
         [
-          Stubs::ClusterVersion.default(visited)
+          ClusterVersion.default(visited)
         ]
       end
 
@@ -3527,7 +3527,7 @@ module AWS::SDK::Redshift
       def self.default(visited=[])
         {
           marker: 'marker',
-          clusters: Stubs::ClusterList.default(visited),
+          clusters: ClusterList.default(visited),
         }
       end
 
@@ -3550,7 +3550,7 @@ module AWS::SDK::Redshift
         return nil if visited.include?('ClusterList')
         visited = visited + ['ClusterList']
         [
-          Stubs::Cluster.default(visited)
+          Cluster.default(visited)
         ]
       end
 
@@ -3567,7 +3567,7 @@ module AWS::SDK::Redshift
     class DescribeDataShares
       def self.default(visited=[])
         {
-          data_shares: Stubs::DataShareList.default(visited),
+          data_shares: DataShareList.default(visited),
           marker: 'marker',
         }
       end
@@ -3591,7 +3591,7 @@ module AWS::SDK::Redshift
         return nil if visited.include?('DataShareList')
         visited = visited + ['DataShareList']
         [
-          Stubs::DataShare.default(visited)
+          DataShare.default(visited)
         ]
       end
 
@@ -3613,7 +3613,7 @@ module AWS::SDK::Redshift
           data_share_arn: 'data_share_arn',
           producer_arn: 'producer_arn',
           allow_publicly_accessible_consumers: false,
-          data_share_associations: Stubs::DataShareAssociationList.default(visited),
+          data_share_associations: DataShareAssociationList.default(visited),
           managed_by: 'managed_by',
         }
       end
@@ -3634,7 +3634,7 @@ module AWS::SDK::Redshift
     class DescribeDataSharesForConsumer
       def self.default(visited=[])
         {
-          data_shares: Stubs::DataShareList.default(visited),
+          data_shares: DataShareList.default(visited),
           marker: 'marker',
         }
       end
@@ -3656,7 +3656,7 @@ module AWS::SDK::Redshift
     class DescribeDataSharesForProducer
       def self.default(visited=[])
         {
-          data_shares: Stubs::DataShareList.default(visited),
+          data_shares: DataShareList.default(visited),
           marker: 'marker',
         }
       end
@@ -3678,7 +3678,7 @@ module AWS::SDK::Redshift
     class DescribeDefaultClusterParameters
       def self.default(visited=[])
         {
-          default_cluster_parameters: Stubs::DefaultClusterParameters.default(visited),
+          default_cluster_parameters: DefaultClusterParameters.default(visited),
         }
       end
 
@@ -3702,7 +3702,7 @@ module AWS::SDK::Redshift
         {
           parameter_group_family: 'parameter_group_family',
           marker: 'marker',
-          parameters: Stubs::ParametersList.default(visited),
+          parameters: ParametersList.default(visited),
         }
       end
 
@@ -3720,7 +3720,7 @@ module AWS::SDK::Redshift
     class DescribeEndpointAccess
       def self.default(visited=[])
         {
-          endpoint_access_list: Stubs::EndpointAccesses.default(visited),
+          endpoint_access_list: EndpointAccesses.default(visited),
           marker: 'marker',
         }
       end
@@ -3744,7 +3744,7 @@ module AWS::SDK::Redshift
         return nil if visited.include?('EndpointAccesses')
         visited = visited + ['EndpointAccesses']
         [
-          Stubs::EndpointAccess.default(visited)
+          EndpointAccess.default(visited)
         ]
       end
 
@@ -3771,8 +3771,8 @@ module AWS::SDK::Redshift
           endpoint_create_time: Time.now,
           port: 1,
           address: 'address',
-          vpc_security_groups: Stubs::VpcSecurityGroupMembershipList.default(visited),
-          vpc_endpoint: Stubs::VpcEndpoint.default(visited),
+          vpc_security_groups: VpcSecurityGroupMembershipList.default(visited),
+          vpc_endpoint: VpcEndpoint.default(visited),
         }
       end
 
@@ -3797,7 +3797,7 @@ module AWS::SDK::Redshift
     class DescribeEndpointAuthorization
       def self.default(visited=[])
         {
-          endpoint_authorization_list: Stubs::EndpointAuthorizations.default(visited),
+          endpoint_authorization_list: EndpointAuthorizations.default(visited),
           marker: 'marker',
         }
       end
@@ -3821,7 +3821,7 @@ module AWS::SDK::Redshift
         return nil if visited.include?('EndpointAuthorizations')
         visited = visited + ['EndpointAuthorizations']
         [
-          Stubs::EndpointAuthorization.default(visited)
+          EndpointAuthorization.default(visited)
         ]
       end
 
@@ -3847,7 +3847,7 @@ module AWS::SDK::Redshift
           cluster_status: 'cluster_status',
           status: 'status',
           allowed_all_vp_cs: false,
-          allowed_vp_cs: Stubs::VpcIdentifierList.default(visited),
+          allowed_vp_cs: VpcIdentifierList.default(visited),
           endpoint_count: 1,
         }
       end
@@ -3872,7 +3872,7 @@ module AWS::SDK::Redshift
     class DescribeEventCategories
       def self.default(visited=[])
         {
-          event_categories_map_list: Stubs::EventCategoriesMapList.default(visited),
+          event_categories_map_list: EventCategoriesMapList.default(visited),
         }
       end
 
@@ -3894,7 +3894,7 @@ module AWS::SDK::Redshift
         return nil if visited.include?('EventCategoriesMapList')
         visited = visited + ['EventCategoriesMapList']
         [
-          Stubs::EventCategoriesMap.default(visited)
+          EventCategoriesMap.default(visited)
         ]
       end
 
@@ -3914,7 +3914,7 @@ module AWS::SDK::Redshift
         visited = visited + ['EventCategoriesMap']
         {
           source_type: 'source_type',
-          events: Stubs::EventInfoMapList.default(visited),
+          events: EventInfoMapList.default(visited),
         }
       end
 
@@ -3933,7 +3933,7 @@ module AWS::SDK::Redshift
         return nil if visited.include?('EventInfoMapList')
         visited = visited + ['EventInfoMapList']
         [
-          Stubs::EventInfoMap.default(visited)
+          EventInfoMap.default(visited)
         ]
       end
 
@@ -3953,7 +3953,7 @@ module AWS::SDK::Redshift
         visited = visited + ['EventInfoMap']
         {
           event_id: 'event_id',
-          event_categories: Stubs::EventCategoriesList.default(visited),
+          event_categories: EventCategoriesList.default(visited),
           event_description: 'event_description',
           severity: 'severity',
         }
@@ -3975,7 +3975,7 @@ module AWS::SDK::Redshift
       def self.default(visited=[])
         {
           marker: 'marker',
-          event_subscriptions_list: Stubs::EventSubscriptionsList.default(visited),
+          event_subscriptions_list: EventSubscriptionsList.default(visited),
         }
       end
 
@@ -3998,7 +3998,7 @@ module AWS::SDK::Redshift
         return nil if visited.include?('EventSubscriptionsList')
         visited = visited + ['EventSubscriptionsList']
         [
-          Stubs::EventSubscription.default(visited)
+          EventSubscription.default(visited)
         ]
       end
 
@@ -4016,7 +4016,7 @@ module AWS::SDK::Redshift
       def self.default(visited=[])
         {
           marker: 'marker',
-          events: Stubs::EventList.default(visited),
+          events: EventList.default(visited),
         }
       end
 
@@ -4039,7 +4039,7 @@ module AWS::SDK::Redshift
         return nil if visited.include?('EventList')
         visited = visited + ['EventList']
         [
-          Stubs::Event.default(visited)
+          Event.default(visited)
         ]
       end
 
@@ -4061,7 +4061,7 @@ module AWS::SDK::Redshift
           source_identifier: 'source_identifier',
           source_type: 'source_type',
           message: 'message',
-          event_categories: Stubs::EventCategoriesList.default(visited),
+          event_categories: EventCategoriesList.default(visited),
           severity: 'severity',
           date: Time.now,
           event_id: 'event_id',
@@ -4087,7 +4087,7 @@ module AWS::SDK::Redshift
       def self.default(visited=[])
         {
           marker: 'marker',
-          hsm_client_certificates: Stubs::HsmClientCertificateList.default(visited),
+          hsm_client_certificates: HsmClientCertificateList.default(visited),
         }
       end
 
@@ -4110,7 +4110,7 @@ module AWS::SDK::Redshift
         return nil if visited.include?('HsmClientCertificateList')
         visited = visited + ['HsmClientCertificateList']
         [
-          Stubs::HsmClientCertificate.default(visited)
+          HsmClientCertificate.default(visited)
         ]
       end
 
@@ -4128,7 +4128,7 @@ module AWS::SDK::Redshift
       def self.default(visited=[])
         {
           marker: 'marker',
-          hsm_configurations: Stubs::HsmConfigurationList.default(visited),
+          hsm_configurations: HsmConfigurationList.default(visited),
         }
       end
 
@@ -4151,7 +4151,7 @@ module AWS::SDK::Redshift
         return nil if visited.include?('HsmConfigurationList')
         visited = visited + ['HsmConfigurationList']
         [
-          Stubs::HsmConfiguration.default(visited)
+          HsmConfiguration.default(visited)
         ]
       end
 
@@ -4175,7 +4175,7 @@ module AWS::SDK::Redshift
           last_failure_time: Time.now,
           last_failure_message: 'last_failure_message',
           log_destination_type: 'log_destination_type',
-          log_exports: Stubs::LogTypeList.default(visited),
+          log_exports: LogTypeList.default(visited),
         }
       end
 
@@ -4221,7 +4221,7 @@ module AWS::SDK::Redshift
     class DescribeNodeConfigurationOptions
       def self.default(visited=[])
         {
-          node_configuration_option_list: Stubs::NodeConfigurationOptionList.default(visited),
+          node_configuration_option_list: NodeConfigurationOptionList.default(visited),
           marker: 'marker',
         }
       end
@@ -4245,7 +4245,7 @@ module AWS::SDK::Redshift
         return nil if visited.include?('NodeConfigurationOptionList')
         visited = visited + ['NodeConfigurationOptionList']
         [
-          Stubs::NodeConfigurationOption.default(visited)
+          NodeConfigurationOption.default(visited)
         ]
       end
 
@@ -4286,7 +4286,7 @@ module AWS::SDK::Redshift
     class DescribeOrderableClusterOptions
       def self.default(visited=[])
         {
-          orderable_cluster_options: Stubs::OrderableClusterOptionsList.default(visited),
+          orderable_cluster_options: OrderableClusterOptionsList.default(visited),
           marker: 'marker',
         }
       end
@@ -4310,7 +4310,7 @@ module AWS::SDK::Redshift
         return nil if visited.include?('OrderableClusterOptionsList')
         visited = visited + ['OrderableClusterOptionsList']
         [
-          Stubs::OrderableClusterOption.default(visited)
+          OrderableClusterOption.default(visited)
         ]
       end
 
@@ -4332,7 +4332,7 @@ module AWS::SDK::Redshift
           cluster_version: 'cluster_version',
           cluster_type: 'cluster_type',
           node_type: 'node_type',
-          availability_zones: Stubs::AvailabilityZoneList.default(visited),
+          availability_zones: AvailabilityZoneList.default(visited),
         }
       end
 
@@ -4353,7 +4353,7 @@ module AWS::SDK::Redshift
         return nil if visited.include?('AvailabilityZoneList')
         visited = visited + ['AvailabilityZoneList']
         [
-          Stubs::AvailabilityZone.default(visited)
+          AvailabilityZone.default(visited)
         ]
       end
 
@@ -4370,7 +4370,7 @@ module AWS::SDK::Redshift
     class DescribePartners
       def self.default(visited=[])
         {
-          partner_integration_info_list: Stubs::PartnerIntegrationInfoList.default(visited),
+          partner_integration_info_list: PartnerIntegrationInfoList.default(visited),
         }
       end
 
@@ -4392,7 +4392,7 @@ module AWS::SDK::Redshift
         return nil if visited.include?('PartnerIntegrationInfoList')
         visited = visited + ['PartnerIntegrationInfoList']
         [
-          Stubs::PartnerIntegrationInfo.default(visited)
+          PartnerIntegrationInfo.default(visited)
         ]
       end
 
@@ -4437,7 +4437,7 @@ module AWS::SDK::Redshift
     class DescribeReservedNodeExchangeStatus
       def self.default(visited=[])
         {
-          reserved_node_exchange_status_details: Stubs::ReservedNodeExchangeStatusList.default(visited),
+          reserved_node_exchange_status_details: ReservedNodeExchangeStatusList.default(visited),
           marker: 'marker',
         }
       end
@@ -4461,7 +4461,7 @@ module AWS::SDK::Redshift
         return nil if visited.include?('ReservedNodeExchangeStatusList')
         visited = visited + ['ReservedNodeExchangeStatusList']
         [
-          Stubs::ReservedNodeExchangeStatus.default(visited)
+          ReservedNodeExchangeStatus.default(visited)
         ]
       end
 
@@ -4479,7 +4479,7 @@ module AWS::SDK::Redshift
       def self.default(visited=[])
         {
           marker: 'marker',
-          reserved_node_offerings: Stubs::ReservedNodeOfferingList.default(visited),
+          reserved_node_offerings: ReservedNodeOfferingList.default(visited),
         }
       end
 
@@ -4502,7 +4502,7 @@ module AWS::SDK::Redshift
         return nil if visited.include?('ReservedNodeOfferingList')
         visited = visited + ['ReservedNodeOfferingList']
         [
-          Stubs::ReservedNodeOffering.default(visited)
+          ReservedNodeOffering.default(visited)
         ]
       end
 
@@ -4528,7 +4528,7 @@ module AWS::SDK::Redshift
           usage_price: 1.0,
           currency_code: 'currency_code',
           offering_type: 'offering_type',
-          recurring_charges: Stubs::RecurringChargeList.default(visited),
+          recurring_charges: RecurringChargeList.default(visited),
           reserved_node_offering_type: 'reserved_node_offering_type',
         }
       end
@@ -4554,7 +4554,7 @@ module AWS::SDK::Redshift
       def self.default(visited=[])
         {
           marker: 'marker',
-          reserved_nodes: Stubs::ReservedNodeList.default(visited),
+          reserved_nodes: ReservedNodeList.default(visited),
         }
       end
 
@@ -4577,7 +4577,7 @@ module AWS::SDK::Redshift
         return nil if visited.include?('ReservedNodeList')
         visited = visited + ['ReservedNodeList']
         [
-          Stubs::ReservedNode.default(visited)
+          ReservedNode.default(visited)
         ]
       end
 
@@ -4598,9 +4598,9 @@ module AWS::SDK::Redshift
           target_number_of_nodes: 1,
           target_cluster_type: 'target_cluster_type',
           status: 'status',
-          import_tables_completed: Stubs::ImportTablesCompleted.default(visited),
-          import_tables_in_progress: Stubs::ImportTablesInProgress.default(visited),
-          import_tables_not_started: Stubs::ImportTablesNotStarted.default(visited),
+          import_tables_completed: ImportTablesCompleted.default(visited),
+          import_tables_in_progress: ImportTablesInProgress.default(visited),
+          import_tables_not_started: ImportTablesNotStarted.default(visited),
           avg_resize_rate_in_mega_bytes_per_second: 1.0,
           total_resize_data_in_mega_bytes: 1,
           progress_in_mega_bytes: 1,
@@ -4645,7 +4645,7 @@ module AWS::SDK::Redshift
       def self.default(visited=[])
         {
           marker: 'marker',
-          scheduled_actions: Stubs::ScheduledActionList.default(visited),
+          scheduled_actions: ScheduledActionList.default(visited),
         }
       end
 
@@ -4668,7 +4668,7 @@ module AWS::SDK::Redshift
         return nil if visited.include?('ScheduledActionList')
         visited = visited + ['ScheduledActionList']
         [
-          Stubs::ScheduledAction.default(visited)
+          ScheduledAction.default(visited)
         ]
       end
 
@@ -4688,12 +4688,12 @@ module AWS::SDK::Redshift
         visited = visited + ['ScheduledAction']
         {
           scheduled_action_name: 'scheduled_action_name',
-          target_action: Stubs::ScheduledActionType.default(visited),
+          target_action: ScheduledActionType.default(visited),
           schedule: 'schedule',
           iam_role: 'iam_role',
           scheduled_action_description: 'scheduled_action_description',
           state: 'state',
-          next_invocations: Stubs::ScheduledActionTimeList.default(visited),
+          next_invocations: ScheduledActionTimeList.default(visited),
           start_time: Time.now,
           end_time: Time.now,
         }
@@ -4720,7 +4720,7 @@ module AWS::SDK::Redshift
       def self.default(visited=[])
         {
           marker: 'marker',
-          snapshot_copy_grants: Stubs::SnapshotCopyGrantList.default(visited),
+          snapshot_copy_grants: SnapshotCopyGrantList.default(visited),
         }
       end
 
@@ -4743,7 +4743,7 @@ module AWS::SDK::Redshift
         return nil if visited.include?('SnapshotCopyGrantList')
         visited = visited + ['SnapshotCopyGrantList']
         [
-          Stubs::SnapshotCopyGrant.default(visited)
+          SnapshotCopyGrant.default(visited)
         ]
       end
 
@@ -4760,7 +4760,7 @@ module AWS::SDK::Redshift
     class DescribeSnapshotSchedules
       def self.default(visited=[])
         {
-          snapshot_schedules: Stubs::SnapshotScheduleList.default(visited),
+          snapshot_schedules: SnapshotScheduleList.default(visited),
           marker: 'marker',
         }
       end
@@ -4784,7 +4784,7 @@ module AWS::SDK::Redshift
         return nil if visited.include?('SnapshotScheduleList')
         visited = visited + ['SnapshotScheduleList']
         [
-          Stubs::SnapshotSchedule.default(visited)
+          SnapshotSchedule.default(visited)
         ]
       end
 
@@ -4803,13 +4803,13 @@ module AWS::SDK::Redshift
         return nil if visited.include?('SnapshotSchedule')
         visited = visited + ['SnapshotSchedule']
         {
-          schedule_definitions: Stubs::ScheduleDefinitionList.default(visited),
+          schedule_definitions: ScheduleDefinitionList.default(visited),
           schedule_identifier: 'schedule_identifier',
           schedule_description: 'schedule_description',
-          tags: Stubs::TagList.default(visited),
-          next_invocations: Stubs::ScheduledSnapshotTimeList.default(visited),
+          tags: TagList.default(visited),
+          next_invocations: ScheduledSnapshotTimeList.default(visited),
           associated_cluster_count: 1,
-          associated_clusters: Stubs::AssociatedClusterList.default(visited),
+          associated_clusters: AssociatedClusterList.default(visited),
         }
       end
 
@@ -4853,7 +4853,7 @@ module AWS::SDK::Redshift
     class DescribeTableRestoreStatus
       def self.default(visited=[])
         {
-          table_restore_status_details: Stubs::TableRestoreStatusList.default(visited),
+          table_restore_status_details: TableRestoreStatusList.default(visited),
           marker: 'marker',
         }
       end
@@ -4877,7 +4877,7 @@ module AWS::SDK::Redshift
         return nil if visited.include?('TableRestoreStatusList')
         visited = visited + ['TableRestoreStatusList']
         [
-          Stubs::TableRestoreStatus.default(visited)
+          TableRestoreStatus.default(visited)
         ]
       end
 
@@ -4938,7 +4938,7 @@ module AWS::SDK::Redshift
     class DescribeTags
       def self.default(visited=[])
         {
-          tagged_resources: Stubs::TaggedResourceList.default(visited),
+          tagged_resources: TaggedResourceList.default(visited),
           marker: 'marker',
         }
       end
@@ -4962,7 +4962,7 @@ module AWS::SDK::Redshift
         return nil if visited.include?('TaggedResourceList')
         visited = visited + ['TaggedResourceList']
         [
-          Stubs::TaggedResource.default(visited)
+          TaggedResource.default(visited)
         ]
       end
 
@@ -4981,7 +4981,7 @@ module AWS::SDK::Redshift
         return nil if visited.include?('TaggedResource')
         visited = visited + ['TaggedResource']
         {
-          tag: Stubs::Tag.default(visited),
+          tag: Tag.default(visited),
           resource_name: 'resource_name',
           resource_type: 'resource_type',
         }
@@ -5001,7 +5001,7 @@ module AWS::SDK::Redshift
     class DescribeUsageLimits
       def self.default(visited=[])
         {
-          usage_limits: Stubs::UsageLimits.default(visited),
+          usage_limits: UsageLimits.default(visited),
           marker: 'marker',
         }
       end
@@ -5025,7 +5025,7 @@ module AWS::SDK::Redshift
         return nil if visited.include?('UsageLimits')
         visited = visited + ['UsageLimits']
         [
-          Stubs::UsageLimit.default(visited)
+          UsageLimit.default(visited)
         ]
       end
 
@@ -5051,7 +5051,7 @@ module AWS::SDK::Redshift
           amount: 1,
           period: 'period',
           breach_action: 'breach_action',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -5081,7 +5081,7 @@ module AWS::SDK::Redshift
           last_failure_time: Time.now,
           last_failure_message: 'last_failure_message',
           log_destination_type: 'log_destination_type',
-          log_exports: Stubs::LogTypeList.default(visited),
+          log_exports: LogTypeList.default(visited),
         }
       end
 
@@ -5108,7 +5108,7 @@ module AWS::SDK::Redshift
     class DisableSnapshotCopy
       def self.default(visited=[])
         {
-          cluster: Stubs::Cluster.default(visited),
+          cluster: Cluster.default(visited),
         }
       end
 
@@ -5131,7 +5131,7 @@ module AWS::SDK::Redshift
           data_share_arn: 'data_share_arn',
           producer_arn: 'producer_arn',
           allow_publicly_accessible_consumers: false,
-          data_share_associations: Stubs::DataShareAssociationList.default(visited),
+          data_share_associations: DataShareAssociationList.default(visited),
           managed_by: 'managed_by',
         }
       end
@@ -5163,7 +5163,7 @@ module AWS::SDK::Redshift
           last_failure_time: Time.now,
           last_failure_message: 'last_failure_message',
           log_destination_type: 'log_destination_type',
-          log_exports: Stubs::LogTypeList.default(visited),
+          log_exports: LogTypeList.default(visited),
         }
       end
 
@@ -5190,7 +5190,7 @@ module AWS::SDK::Redshift
     class EnableSnapshotCopy
       def self.default(visited=[])
         {
-          cluster: Stubs::Cluster.default(visited),
+          cluster: Cluster.default(visited),
         }
       end
 
@@ -5261,7 +5261,7 @@ module AWS::SDK::Redshift
       def self.default(visited=[])
         {
           marker: 'marker',
-          reserved_node_configuration_option_list: Stubs::ReservedNodeConfigurationOptionList.default(visited),
+          reserved_node_configuration_option_list: ReservedNodeConfigurationOptionList.default(visited),
         }
       end
 
@@ -5284,7 +5284,7 @@ module AWS::SDK::Redshift
         return nil if visited.include?('ReservedNodeConfigurationOptionList')
         visited = visited + ['ReservedNodeConfigurationOptionList']
         [
-          Stubs::ReservedNodeConfigurationOption.default(visited)
+          ReservedNodeConfigurationOption.default(visited)
         ]
       end
 
@@ -5303,9 +5303,9 @@ module AWS::SDK::Redshift
         return nil if visited.include?('ReservedNodeConfigurationOption')
         visited = visited + ['ReservedNodeConfigurationOption']
         {
-          source_reserved_node: Stubs::ReservedNode.default(visited),
+          source_reserved_node: ReservedNode.default(visited),
           target_reserved_node_count: 1,
-          target_reserved_node_offering: Stubs::ReservedNodeOffering.default(visited),
+          target_reserved_node_offering: ReservedNodeOffering.default(visited),
         }
       end
 
@@ -5324,7 +5324,7 @@ module AWS::SDK::Redshift
       def self.default(visited=[])
         {
           marker: 'marker',
-          reserved_node_offerings: Stubs::ReservedNodeOfferingList.default(visited),
+          reserved_node_offerings: ReservedNodeOfferingList.default(visited),
         }
       end
 
@@ -5345,7 +5345,7 @@ module AWS::SDK::Redshift
     class ModifyAquaConfiguration
       def self.default(visited=[])
         {
-          aqua_configuration: Stubs::AquaConfiguration.default(visited),
+          aqua_configuration: AquaConfiguration.default(visited),
         }
       end
 
@@ -5387,7 +5387,7 @@ module AWS::SDK::Redshift
     class ModifyCluster
       def self.default(visited=[])
         {
-          cluster: Stubs::Cluster.default(visited),
+          cluster: Cluster.default(visited),
         }
       end
 
@@ -5407,7 +5407,7 @@ module AWS::SDK::Redshift
     class ModifyClusterDbRevision
       def self.default(visited=[])
         {
-          cluster: Stubs::Cluster.default(visited),
+          cluster: Cluster.default(visited),
         }
       end
 
@@ -5427,7 +5427,7 @@ module AWS::SDK::Redshift
     class ModifyClusterIamRoles
       def self.default(visited=[])
         {
-          cluster: Stubs::Cluster.default(visited),
+          cluster: Cluster.default(visited),
         }
       end
 
@@ -5447,7 +5447,7 @@ module AWS::SDK::Redshift
     class ModifyClusterMaintenance
       def self.default(visited=[])
         {
-          cluster: Stubs::Cluster.default(visited),
+          cluster: Cluster.default(visited),
         }
       end
 
@@ -5489,7 +5489,7 @@ module AWS::SDK::Redshift
     class ModifyClusterSnapshot
       def self.default(visited=[])
         {
-          snapshot: Stubs::Snapshot.default(visited),
+          snapshot: Snapshot.default(visited),
         }
       end
 
@@ -5527,7 +5527,7 @@ module AWS::SDK::Redshift
     class ModifyClusterSubnetGroup
       def self.default(visited=[])
         {
-          cluster_subnet_group: Stubs::ClusterSubnetGroup.default(visited),
+          cluster_subnet_group: ClusterSubnetGroup.default(visited),
         }
       end
 
@@ -5555,8 +5555,8 @@ module AWS::SDK::Redshift
           endpoint_create_time: Time.now,
           port: 1,
           address: 'address',
-          vpc_security_groups: Stubs::VpcSecurityGroupMembershipList.default(visited),
-          vpc_endpoint: Stubs::VpcEndpoint.default(visited),
+          vpc_security_groups: VpcSecurityGroupMembershipList.default(visited),
+          vpc_endpoint: VpcEndpoint.default(visited),
         }
       end
 
@@ -5585,7 +5585,7 @@ module AWS::SDK::Redshift
     class ModifyEventSubscription
       def self.default(visited=[])
         {
-          event_subscription: Stubs::EventSubscription.default(visited),
+          event_subscription: EventSubscription.default(visited),
         }
       end
 
@@ -5606,12 +5606,12 @@ module AWS::SDK::Redshift
       def self.default(visited=[])
         {
           scheduled_action_name: 'scheduled_action_name',
-          target_action: Stubs::ScheduledActionType.default(visited),
+          target_action: ScheduledActionType.default(visited),
           schedule: 'schedule',
           iam_role: 'iam_role',
           scheduled_action_description: 'scheduled_action_description',
           state: 'state',
-          next_invocations: Stubs::ScheduledActionTimeList.default(visited),
+          next_invocations: ScheduledActionTimeList.default(visited),
           start_time: Time.now,
           end_time: Time.now,
         }
@@ -5641,7 +5641,7 @@ module AWS::SDK::Redshift
     class ModifySnapshotCopyRetentionPeriod
       def self.default(visited=[])
         {
-          cluster: Stubs::Cluster.default(visited),
+          cluster: Cluster.default(visited),
         }
       end
 
@@ -5661,13 +5661,13 @@ module AWS::SDK::Redshift
     class ModifySnapshotSchedule
       def self.default(visited=[])
         {
-          schedule_definitions: Stubs::ScheduleDefinitionList.default(visited),
+          schedule_definitions: ScheduleDefinitionList.default(visited),
           schedule_identifier: 'schedule_identifier',
           schedule_description: 'schedule_description',
-          tags: Stubs::TagList.default(visited),
-          next_invocations: Stubs::ScheduledSnapshotTimeList.default(visited),
+          tags: TagList.default(visited),
+          next_invocations: ScheduledSnapshotTimeList.default(visited),
           associated_cluster_count: 1,
-          associated_clusters: Stubs::AssociatedClusterList.default(visited),
+          associated_clusters: AssociatedClusterList.default(visited),
         }
       end
 
@@ -5700,7 +5700,7 @@ module AWS::SDK::Redshift
           amount: 1,
           period: 'period',
           breach_action: 'breach_action',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -5727,7 +5727,7 @@ module AWS::SDK::Redshift
     class PauseCluster
       def self.default(visited=[])
         {
-          cluster: Stubs::Cluster.default(visited),
+          cluster: Cluster.default(visited),
         }
       end
 
@@ -5747,7 +5747,7 @@ module AWS::SDK::Redshift
     class PurchaseReservedNodeOffering
       def self.default(visited=[])
         {
-          reserved_node: Stubs::ReservedNode.default(visited),
+          reserved_node: ReservedNode.default(visited),
         }
       end
 
@@ -5767,7 +5767,7 @@ module AWS::SDK::Redshift
     class RebootCluster
       def self.default(visited=[])
         {
-          cluster: Stubs::Cluster.default(visited),
+          cluster: Cluster.default(visited),
         }
       end
 
@@ -5790,7 +5790,7 @@ module AWS::SDK::Redshift
           data_share_arn: 'data_share_arn',
           producer_arn: 'producer_arn',
           allow_publicly_accessible_consumers: false,
-          data_share_associations: Stubs::DataShareAssociationList.default(visited),
+          data_share_associations: DataShareAssociationList.default(visited),
           managed_by: 'managed_by',
         }
       end
@@ -5837,7 +5837,7 @@ module AWS::SDK::Redshift
     class ResizeCluster
       def self.default(visited=[])
         {
-          cluster: Stubs::Cluster.default(visited),
+          cluster: Cluster.default(visited),
         }
       end
 
@@ -5857,7 +5857,7 @@ module AWS::SDK::Redshift
     class RestoreFromClusterSnapshot
       def self.default(visited=[])
         {
-          cluster: Stubs::Cluster.default(visited),
+          cluster: Cluster.default(visited),
         }
       end
 
@@ -5877,7 +5877,7 @@ module AWS::SDK::Redshift
     class RestoreTableFromClusterSnapshot
       def self.default(visited=[])
         {
-          table_restore_status: Stubs::TableRestoreStatus.default(visited),
+          table_restore_status: TableRestoreStatus.default(visited),
         }
       end
 
@@ -5897,7 +5897,7 @@ module AWS::SDK::Redshift
     class ResumeCluster
       def self.default(visited=[])
         {
-          cluster: Stubs::Cluster.default(visited),
+          cluster: Cluster.default(visited),
         }
       end
 
@@ -5917,7 +5917,7 @@ module AWS::SDK::Redshift
     class RevokeClusterSecurityGroupIngress
       def self.default(visited=[])
         {
-          cluster_security_group: Stubs::ClusterSecurityGroup.default(visited),
+          cluster_security_group: ClusterSecurityGroup.default(visited),
         }
       end
 
@@ -5944,7 +5944,7 @@ module AWS::SDK::Redshift
           cluster_status: 'cluster_status',
           status: 'status',
           allowed_all_vp_cs: false,
-          allowed_vp_cs: Stubs::VpcIdentifierList.default(visited),
+          allowed_vp_cs: VpcIdentifierList.default(visited),
           endpoint_count: 1,
         }
       end
@@ -5973,7 +5973,7 @@ module AWS::SDK::Redshift
     class RevokeSnapshotAccess
       def self.default(visited=[])
         {
-          snapshot: Stubs::Snapshot.default(visited),
+          snapshot: Snapshot.default(visited),
         }
       end
 
@@ -5993,7 +5993,7 @@ module AWS::SDK::Redshift
     class RotateEncryptionKey
       def self.default(visited=[])
         {
-          cluster: Stubs::Cluster.default(visited),
+          cluster: Cluster.default(visited),
         }
       end
 

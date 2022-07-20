@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::Kendra
   module Validators
 
@@ -36,7 +38,7 @@ module AWS::SDK::Kendra
         Hearth::Validator.validate!(input, Types::AdditionalResultAttribute, context: context)
         Hearth::Validator.validate!(input[:key], ::String, context: "#{context}[:key]")
         Hearth::Validator.validate!(input[:value_type], ::String, context: "#{context}[:value_type]")
-        Validators::AdditionalResultAttributeValue.validate!(input[:value], context: "#{context}[:value]") unless input[:value].nil?
+        AdditionalResultAttributeValue.validate!(input[:value], context: "#{context}[:value]") unless input[:value].nil?
       end
     end
 
@@ -44,7 +46,7 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AdditionalResultAttribute.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AdditionalResultAttribute.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -52,7 +54,7 @@ module AWS::SDK::Kendra
     class AdditionalResultAttributeValue
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AdditionalResultAttributeValue, context: context)
-        Validators::TextWithHighlights.validate!(input[:text_with_highlights_value], context: "#{context}[:text_with_highlights_value]") unless input[:text_with_highlights_value].nil?
+        TextWithHighlights.validate!(input[:text_with_highlights_value], context: "#{context}[:text_with_highlights_value]") unless input[:text_with_highlights_value].nil?
       end
     end
 
@@ -60,7 +62,7 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::FailedEntity.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          FailedEntity.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -70,14 +72,14 @@ module AWS::SDK::Kendra
         Hearth::Validator.validate!(input, Types::AssociateEntitiesToExperienceInput, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:index_id], ::String, context: "#{context}[:index_id]")
-        Validators::AssociateEntityList.validate!(input[:entity_list], context: "#{context}[:entity_list]") unless input[:entity_list].nil?
+        AssociateEntityList.validate!(input[:entity_list], context: "#{context}[:entity_list]") unless input[:entity_list].nil?
       end
     end
 
     class AssociateEntitiesToExperienceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AssociateEntitiesToExperienceOutput, context: context)
-        Validators::AssociateEntitiesToExperienceFailedEntityList.validate!(input[:failed_entity_list], context: "#{context}[:failed_entity_list]") unless input[:failed_entity_list].nil?
+        AssociateEntitiesToExperienceFailedEntityList.validate!(input[:failed_entity_list], context: "#{context}[:failed_entity_list]") unless input[:failed_entity_list].nil?
       end
     end
 
@@ -85,7 +87,7 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EntityConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EntityConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -95,30 +97,30 @@ module AWS::SDK::Kendra
         Hearth::Validator.validate!(input, Types::AssociatePersonasToEntitiesInput, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:index_id], ::String, context: "#{context}[:index_id]")
-        Validators::EntityPersonaConfigurationList.validate!(input[:personas], context: "#{context}[:personas]") unless input[:personas].nil?
+        EntityPersonaConfigurationList.validate!(input[:personas], context: "#{context}[:personas]") unless input[:personas].nil?
       end
     end
 
     class AssociatePersonasToEntitiesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AssociatePersonasToEntitiesOutput, context: context)
-        Validators::FailedEntityList.validate!(input[:failed_entity_list], context: "#{context}[:failed_entity_list]") unless input[:failed_entity_list].nil?
+        FailedEntityList.validate!(input[:failed_entity_list], context: "#{context}[:failed_entity_list]") unless input[:failed_entity_list].nil?
       end
     end
 
     class AttributeFilter
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AttributeFilter, context: context)
-        Validators::AttributeFilterList.validate!(input[:and_all_filters], context: "#{context}[:and_all_filters]") unless input[:and_all_filters].nil?
-        Validators::AttributeFilterList.validate!(input[:or_all_filters], context: "#{context}[:or_all_filters]") unless input[:or_all_filters].nil?
-        Validators::AttributeFilter.validate!(input[:not_filter], context: "#{context}[:not_filter]") unless input[:not_filter].nil?
-        Validators::DocumentAttribute.validate!(input[:equals_to], context: "#{context}[:equals_to]") unless input[:equals_to].nil?
-        Validators::DocumentAttribute.validate!(input[:contains_all], context: "#{context}[:contains_all]") unless input[:contains_all].nil?
-        Validators::DocumentAttribute.validate!(input[:contains_any], context: "#{context}[:contains_any]") unless input[:contains_any].nil?
-        Validators::DocumentAttribute.validate!(input[:greater_than], context: "#{context}[:greater_than]") unless input[:greater_than].nil?
-        Validators::DocumentAttribute.validate!(input[:greater_than_or_equals], context: "#{context}[:greater_than_or_equals]") unless input[:greater_than_or_equals].nil?
-        Validators::DocumentAttribute.validate!(input[:less_than], context: "#{context}[:less_than]") unless input[:less_than].nil?
-        Validators::DocumentAttribute.validate!(input[:less_than_or_equals], context: "#{context}[:less_than_or_equals]") unless input[:less_than_or_equals].nil?
+        AttributeFilterList.validate!(input[:and_all_filters], context: "#{context}[:and_all_filters]") unless input[:and_all_filters].nil?
+        AttributeFilterList.validate!(input[:or_all_filters], context: "#{context}[:or_all_filters]") unless input[:or_all_filters].nil?
+        AttributeFilter.validate!(input[:not_filter], context: "#{context}[:not_filter]") unless input[:not_filter].nil?
+        DocumentAttribute.validate!(input[:equals_to], context: "#{context}[:equals_to]") unless input[:equals_to].nil?
+        DocumentAttribute.validate!(input[:contains_all], context: "#{context}[:contains_all]") unless input[:contains_all].nil?
+        DocumentAttribute.validate!(input[:contains_any], context: "#{context}[:contains_any]") unless input[:contains_any].nil?
+        DocumentAttribute.validate!(input[:greater_than], context: "#{context}[:greater_than]") unless input[:greater_than].nil?
+        DocumentAttribute.validate!(input[:greater_than_or_equals], context: "#{context}[:greater_than_or_equals]") unless input[:greater_than_or_equals].nil?
+        DocumentAttribute.validate!(input[:less_than], context: "#{context}[:less_than]") unless input[:less_than].nil?
+        DocumentAttribute.validate!(input[:less_than_or_equals], context: "#{context}[:less_than_or_equals]") unless input[:less_than_or_equals].nil?
       end
     end
 
@@ -126,7 +128,7 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AttributeFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AttributeFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -134,7 +136,7 @@ module AWS::SDK::Kendra
     class AuthenticationConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AuthenticationConfiguration, context: context)
-        Validators::BasicAuthenticationConfigurationList.validate!(input[:basic_authentication], context: "#{context}[:basic_authentication]") unless input[:basic_authentication].nil?
+        BasicAuthenticationConfigurationList.validate!(input[:basic_authentication], context: "#{context}[:basic_authentication]") unless input[:basic_authentication].nil?
       end
     end
 
@@ -151,7 +153,7 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BasicAuthenticationConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BasicAuthenticationConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -160,15 +162,15 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchDeleteDocumentInput, context: context)
         Hearth::Validator.validate!(input[:index_id], ::String, context: "#{context}[:index_id]")
-        Validators::DocumentIdList.validate!(input[:document_id_list], context: "#{context}[:document_id_list]") unless input[:document_id_list].nil?
-        Validators::DataSourceSyncJobMetricTarget.validate!(input[:data_source_sync_job_metric_target], context: "#{context}[:data_source_sync_job_metric_target]") unless input[:data_source_sync_job_metric_target].nil?
+        DocumentIdList.validate!(input[:document_id_list], context: "#{context}[:document_id_list]") unless input[:document_id_list].nil?
+        DataSourceSyncJobMetricTarget.validate!(input[:data_source_sync_job_metric_target], context: "#{context}[:data_source_sync_job_metric_target]") unless input[:data_source_sync_job_metric_target].nil?
       end
     end
 
     class BatchDeleteDocumentOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchDeleteDocumentOutput, context: context)
-        Validators::BatchDeleteDocumentResponseFailedDocuments.validate!(input[:failed_documents], context: "#{context}[:failed_documents]") unless input[:failed_documents].nil?
+        BatchDeleteDocumentResponseFailedDocuments.validate!(input[:failed_documents], context: "#{context}[:failed_documents]") unless input[:failed_documents].nil?
       end
     end
 
@@ -185,7 +187,7 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BatchDeleteDocumentResponseFailedDocument.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BatchDeleteDocumentResponseFailedDocument.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -194,15 +196,15 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchGetDocumentStatusInput, context: context)
         Hearth::Validator.validate!(input[:index_id], ::String, context: "#{context}[:index_id]")
-        Validators::DocumentInfoList.validate!(input[:document_info_list], context: "#{context}[:document_info_list]") unless input[:document_info_list].nil?
+        DocumentInfoList.validate!(input[:document_info_list], context: "#{context}[:document_info_list]") unless input[:document_info_list].nil?
       end
     end
 
     class BatchGetDocumentStatusOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchGetDocumentStatusOutput, context: context)
-        Validators::BatchGetDocumentStatusResponseErrors.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
-        Validators::DocumentStatusList.validate!(input[:document_status_list], context: "#{context}[:document_status_list]") unless input[:document_status_list].nil?
+        BatchGetDocumentStatusResponseErrors.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
+        DocumentStatusList.validate!(input[:document_status_list], context: "#{context}[:document_status_list]") unless input[:document_status_list].nil?
       end
     end
 
@@ -219,7 +221,7 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BatchGetDocumentStatusResponseError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BatchGetDocumentStatusResponseError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -229,15 +231,15 @@ module AWS::SDK::Kendra
         Hearth::Validator.validate!(input, Types::BatchPutDocumentInput, context: context)
         Hearth::Validator.validate!(input[:index_id], ::String, context: "#{context}[:index_id]")
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
-        Validators::DocumentList.validate!(input[:documents], context: "#{context}[:documents]") unless input[:documents].nil?
-        Validators::CustomDocumentEnrichmentConfiguration.validate!(input[:custom_document_enrichment_configuration], context: "#{context}[:custom_document_enrichment_configuration]") unless input[:custom_document_enrichment_configuration].nil?
+        DocumentList.validate!(input[:documents], context: "#{context}[:documents]") unless input[:documents].nil?
+        CustomDocumentEnrichmentConfiguration.validate!(input[:custom_document_enrichment_configuration], context: "#{context}[:custom_document_enrichment_configuration]") unless input[:custom_document_enrichment_configuration].nil?
       end
     end
 
     class BatchPutDocumentOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchPutDocumentOutput, context: context)
-        Validators::BatchPutDocumentResponseFailedDocuments.validate!(input[:failed_documents], context: "#{context}[:failed_documents]") unless input[:failed_documents].nil?
+        BatchPutDocumentResponseFailedDocuments.validate!(input[:failed_documents], context: "#{context}[:failed_documents]") unless input[:failed_documents].nil?
       end
     end
 
@@ -254,7 +256,7 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BatchPutDocumentResponseFailedDocument.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BatchPutDocumentResponseFailedDocument.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -268,13 +270,13 @@ module AWS::SDK::Kendra
         Hearth::Validator.validate!(input[:crawl_comments], ::TrueClass, ::FalseClass, context: "#{context}[:crawl_comments]")
         Hearth::Validator.validate!(input[:crawl_tasks], ::TrueClass, ::FalseClass, context: "#{context}[:crawl_tasks]")
         Hearth::Validator.validate!(input[:crawl_web_links], ::TrueClass, ::FalseClass, context: "#{context}[:crawl_web_links]")
-        Validators::DataSourceToIndexFieldMappingList.validate!(input[:file_field_mappings], context: "#{context}[:file_field_mappings]") unless input[:file_field_mappings].nil?
-        Validators::DataSourceToIndexFieldMappingList.validate!(input[:task_field_mappings], context: "#{context}[:task_field_mappings]") unless input[:task_field_mappings].nil?
-        Validators::DataSourceToIndexFieldMappingList.validate!(input[:comment_field_mappings], context: "#{context}[:comment_field_mappings]") unless input[:comment_field_mappings].nil?
-        Validators::DataSourceToIndexFieldMappingList.validate!(input[:web_link_field_mappings], context: "#{context}[:web_link_field_mappings]") unless input[:web_link_field_mappings].nil?
-        Validators::DataSourceInclusionsExclusionsStrings.validate!(input[:inclusion_patterns], context: "#{context}[:inclusion_patterns]") unless input[:inclusion_patterns].nil?
-        Validators::DataSourceInclusionsExclusionsStrings.validate!(input[:exclusion_patterns], context: "#{context}[:exclusion_patterns]") unless input[:exclusion_patterns].nil?
-        Validators::DataSourceVpcConfiguration.validate!(input[:vpc_configuration], context: "#{context}[:vpc_configuration]") unless input[:vpc_configuration].nil?
+        DataSourceToIndexFieldMappingList.validate!(input[:file_field_mappings], context: "#{context}[:file_field_mappings]") unless input[:file_field_mappings].nil?
+        DataSourceToIndexFieldMappingList.validate!(input[:task_field_mappings], context: "#{context}[:task_field_mappings]") unless input[:task_field_mappings].nil?
+        DataSourceToIndexFieldMappingList.validate!(input[:comment_field_mappings], context: "#{context}[:comment_field_mappings]") unless input[:comment_field_mappings].nil?
+        DataSourceToIndexFieldMappingList.validate!(input[:web_link_field_mappings], context: "#{context}[:web_link_field_mappings]") unless input[:web_link_field_mappings].nil?
+        DataSourceInclusionsExclusionsStrings.validate!(input[:inclusion_patterns], context: "#{context}[:inclusion_patterns]") unless input[:inclusion_patterns].nil?
+        DataSourceInclusionsExclusionsStrings.validate!(input[:exclusion_patterns], context: "#{context}[:exclusion_patterns]") unless input[:exclusion_patterns].nil?
+        DataSourceVpcConfiguration.validate!(input[:vpc_configuration], context: "#{context}[:vpc_configuration]") unless input[:vpc_configuration].nil?
       end
     end
 
@@ -320,7 +322,7 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ClickFeedback.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ClickFeedback.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -331,8 +333,8 @@ module AWS::SDK::Kendra
         Hearth::Validator.validate!(input[:document_id_column_name], ::String, context: "#{context}[:document_id_column_name]")
         Hearth::Validator.validate!(input[:document_data_column_name], ::String, context: "#{context}[:document_data_column_name]")
         Hearth::Validator.validate!(input[:document_title_column_name], ::String, context: "#{context}[:document_title_column_name]")
-        Validators::DataSourceToIndexFieldMappingList.validate!(input[:field_mappings], context: "#{context}[:field_mappings]") unless input[:field_mappings].nil?
-        Validators::ChangeDetectingColumns.validate!(input[:change_detecting_columns], context: "#{context}[:change_detecting_columns]") unless input[:change_detecting_columns].nil?
+        DataSourceToIndexFieldMappingList.validate!(input[:field_mappings], context: "#{context}[:field_mappings]") unless input[:field_mappings].nil?
+        ChangeDetectingColumns.validate!(input[:change_detecting_columns], context: "#{context}[:change_detecting_columns]") unless input[:change_detecting_columns].nil?
       end
     end
 
@@ -347,7 +349,7 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ConfluenceAttachmentConfiguration, context: context)
         Hearth::Validator.validate!(input[:crawl_attachments], ::TrueClass, ::FalseClass, context: "#{context}[:crawl_attachments]")
-        Validators::ConfluenceAttachmentFieldMappingsList.validate!(input[:attachment_field_mappings], context: "#{context}[:attachment_field_mappings]") unless input[:attachment_field_mappings].nil?
+        ConfluenceAttachmentFieldMappingsList.validate!(input[:attachment_field_mappings], context: "#{context}[:attachment_field_mappings]") unless input[:attachment_field_mappings].nil?
       end
     end
 
@@ -355,7 +357,7 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ConfluenceAttachmentToIndexFieldMapping.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ConfluenceAttachmentToIndexFieldMapping.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -372,7 +374,7 @@ module AWS::SDK::Kendra
     class ConfluenceBlogConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ConfluenceBlogConfiguration, context: context)
-        Validators::ConfluenceBlogFieldMappingsList.validate!(input[:blog_field_mappings], context: "#{context}[:blog_field_mappings]") unless input[:blog_field_mappings].nil?
+        ConfluenceBlogFieldMappingsList.validate!(input[:blog_field_mappings], context: "#{context}[:blog_field_mappings]") unless input[:blog_field_mappings].nil?
       end
     end
 
@@ -380,7 +382,7 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ConfluenceBlogToIndexFieldMapping.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ConfluenceBlogToIndexFieldMapping.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -400,20 +402,20 @@ module AWS::SDK::Kendra
         Hearth::Validator.validate!(input[:server_url], ::String, context: "#{context}[:server_url]")
         Hearth::Validator.validate!(input[:secret_arn], ::String, context: "#{context}[:secret_arn]")
         Hearth::Validator.validate!(input[:version], ::String, context: "#{context}[:version]")
-        Validators::ConfluenceSpaceConfiguration.validate!(input[:space_configuration], context: "#{context}[:space_configuration]") unless input[:space_configuration].nil?
-        Validators::ConfluencePageConfiguration.validate!(input[:page_configuration], context: "#{context}[:page_configuration]") unless input[:page_configuration].nil?
-        Validators::ConfluenceBlogConfiguration.validate!(input[:blog_configuration], context: "#{context}[:blog_configuration]") unless input[:blog_configuration].nil?
-        Validators::ConfluenceAttachmentConfiguration.validate!(input[:attachment_configuration], context: "#{context}[:attachment_configuration]") unless input[:attachment_configuration].nil?
-        Validators::DataSourceVpcConfiguration.validate!(input[:vpc_configuration], context: "#{context}[:vpc_configuration]") unless input[:vpc_configuration].nil?
-        Validators::DataSourceInclusionsExclusionsStrings.validate!(input[:inclusion_patterns], context: "#{context}[:inclusion_patterns]") unless input[:inclusion_patterns].nil?
-        Validators::DataSourceInclusionsExclusionsStrings.validate!(input[:exclusion_patterns], context: "#{context}[:exclusion_patterns]") unless input[:exclusion_patterns].nil?
+        ConfluenceSpaceConfiguration.validate!(input[:space_configuration], context: "#{context}[:space_configuration]") unless input[:space_configuration].nil?
+        ConfluencePageConfiguration.validate!(input[:page_configuration], context: "#{context}[:page_configuration]") unless input[:page_configuration].nil?
+        ConfluenceBlogConfiguration.validate!(input[:blog_configuration], context: "#{context}[:blog_configuration]") unless input[:blog_configuration].nil?
+        ConfluenceAttachmentConfiguration.validate!(input[:attachment_configuration], context: "#{context}[:attachment_configuration]") unless input[:attachment_configuration].nil?
+        DataSourceVpcConfiguration.validate!(input[:vpc_configuration], context: "#{context}[:vpc_configuration]") unless input[:vpc_configuration].nil?
+        DataSourceInclusionsExclusionsStrings.validate!(input[:inclusion_patterns], context: "#{context}[:inclusion_patterns]") unless input[:inclusion_patterns].nil?
+        DataSourceInclusionsExclusionsStrings.validate!(input[:exclusion_patterns], context: "#{context}[:exclusion_patterns]") unless input[:exclusion_patterns].nil?
       end
     end
 
     class ConfluencePageConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ConfluencePageConfiguration, context: context)
-        Validators::ConfluencePageFieldMappingsList.validate!(input[:page_field_mappings], context: "#{context}[:page_field_mappings]") unless input[:page_field_mappings].nil?
+        ConfluencePageFieldMappingsList.validate!(input[:page_field_mappings], context: "#{context}[:page_field_mappings]") unless input[:page_field_mappings].nil?
       end
     end
 
@@ -421,7 +423,7 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ConfluencePageToIndexFieldMapping.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ConfluencePageToIndexFieldMapping.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -440,9 +442,9 @@ module AWS::SDK::Kendra
         Hearth::Validator.validate!(input, Types::ConfluenceSpaceConfiguration, context: context)
         Hearth::Validator.validate!(input[:crawl_personal_spaces], ::TrueClass, ::FalseClass, context: "#{context}[:crawl_personal_spaces]")
         Hearth::Validator.validate!(input[:crawl_archived_spaces], ::TrueClass, ::FalseClass, context: "#{context}[:crawl_archived_spaces]")
-        Validators::ConfluenceSpaceList.validate!(input[:include_spaces], context: "#{context}[:include_spaces]") unless input[:include_spaces].nil?
-        Validators::ConfluenceSpaceList.validate!(input[:exclude_spaces], context: "#{context}[:exclude_spaces]") unless input[:exclude_spaces].nil?
-        Validators::ConfluenceSpaceFieldMappingsList.validate!(input[:space_field_mappings], context: "#{context}[:space_field_mappings]") unless input[:space_field_mappings].nil?
+        ConfluenceSpaceList.validate!(input[:include_spaces], context: "#{context}[:include_spaces]") unless input[:include_spaces].nil?
+        ConfluenceSpaceList.validate!(input[:exclude_spaces], context: "#{context}[:exclude_spaces]") unless input[:exclude_spaces].nil?
+        ConfluenceSpaceFieldMappingsList.validate!(input[:space_field_mappings], context: "#{context}[:space_field_mappings]") unless input[:space_field_mappings].nil?
       end
     end
 
@@ -450,7 +452,7 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ConfluenceSpaceToIndexFieldMapping.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ConfluenceSpaceToIndexFieldMapping.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -487,8 +489,8 @@ module AWS::SDK::Kendra
     class ContentSourceConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ContentSourceConfiguration, context: context)
-        Validators::DataSourceIdList.validate!(input[:data_source_ids], context: "#{context}[:data_source_ids]") unless input[:data_source_ids].nil?
-        Validators::FaqIdsList.validate!(input[:faq_ids], context: "#{context}[:faq_ids]") unless input[:faq_ids].nil?
+        DataSourceIdList.validate!(input[:data_source_ids], context: "#{context}[:data_source_ids]") unless input[:data_source_ids].nil?
+        FaqIdsList.validate!(input[:faq_ids], context: "#{context}[:faq_ids]") unless input[:faq_ids].nil?
         Hearth::Validator.validate!(input[:direct_put_content], ::TrueClass, ::FalseClass, context: "#{context}[:direct_put_content]")
       end
     end
@@ -507,7 +509,7 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Correction.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Correction.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -518,14 +520,14 @@ module AWS::SDK::Kendra
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:index_id], ::String, context: "#{context}[:index_id]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::DataSourceConfiguration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
+        DataSourceConfiguration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:schedule], ::String, context: "#{context}[:schedule]")
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
         Hearth::Validator.validate!(input[:language_code], ::String, context: "#{context}[:language_code]")
-        Validators::CustomDocumentEnrichmentConfiguration.validate!(input[:custom_document_enrichment_configuration], context: "#{context}[:custom_document_enrichment_configuration]") unless input[:custom_document_enrichment_configuration].nil?
+        CustomDocumentEnrichmentConfiguration.validate!(input[:custom_document_enrichment_configuration], context: "#{context}[:custom_document_enrichment_configuration]") unless input[:custom_document_enrichment_configuration].nil?
       end
     end
 
@@ -542,7 +544,7 @@ module AWS::SDK::Kendra
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:index_id], ::String, context: "#{context}[:index_id]")
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
-        Validators::ExperienceConfiguration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
+        ExperienceConfiguration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
       end
@@ -561,9 +563,9 @@ module AWS::SDK::Kendra
         Hearth::Validator.validate!(input[:index_id], ::String, context: "#{context}[:index_id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::S3Path.validate!(input[:s3_path], context: "#{context}[:s3_path]") unless input[:s3_path].nil?
+        S3Path.validate!(input[:s3_path], context: "#{context}[:s3_path]") unless input[:s3_path].nil?
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:file_format], ::String, context: "#{context}[:file_format]")
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
         Hearth::Validator.validate!(input[:language_code], ::String, context: "#{context}[:language_code]")
@@ -583,13 +585,13 @@ module AWS::SDK::Kendra
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:edition], ::String, context: "#{context}[:edition]")
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
-        Validators::ServerSideEncryptionConfiguration.validate!(input[:server_side_encryption_configuration], context: "#{context}[:server_side_encryption_configuration]") unless input[:server_side_encryption_configuration].nil?
+        ServerSideEncryptionConfiguration.validate!(input[:server_side_encryption_configuration], context: "#{context}[:server_side_encryption_configuration]") unless input[:server_side_encryption_configuration].nil?
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::UserTokenConfigurationList.validate!(input[:user_token_configurations], context: "#{context}[:user_token_configurations]") unless input[:user_token_configurations].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        UserTokenConfigurationList.validate!(input[:user_token_configurations], context: "#{context}[:user_token_configurations]") unless input[:user_token_configurations].nil?
         Hearth::Validator.validate!(input[:user_context_policy], ::String, context: "#{context}[:user_context_policy]")
-        Validators::UserGroupResolutionConfiguration.validate!(input[:user_group_resolution_configuration], context: "#{context}[:user_group_resolution_configuration]") unless input[:user_group_resolution_configuration].nil?
+        UserGroupResolutionConfiguration.validate!(input[:user_group_resolution_configuration], context: "#{context}[:user_group_resolution_configuration]") unless input[:user_group_resolution_configuration].nil?
       end
     end
 
@@ -606,10 +608,10 @@ module AWS::SDK::Kendra
         Hearth::Validator.validate!(input[:index_id], ::String, context: "#{context}[:index_id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::S3Path.validate!(input[:source_s3_path], context: "#{context}[:source_s3_path]") unless input[:source_s3_path].nil?
+        S3Path.validate!(input[:source_s3_path], context: "#{context}[:source_s3_path]") unless input[:source_s3_path].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -627,8 +629,8 @@ module AWS::SDK::Kendra
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::S3Path.validate!(input[:source_s3_path], context: "#{context}[:source_s3_path]") unless input[:source_s3_path].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        S3Path.validate!(input[:source_s3_path], context: "#{context}[:source_s3_path]") unless input[:source_s3_path].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
       end
     end
@@ -643,9 +645,9 @@ module AWS::SDK::Kendra
     class CustomDocumentEnrichmentConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CustomDocumentEnrichmentConfiguration, context: context)
-        Validators::InlineCustomDocumentEnrichmentConfigurationList.validate!(input[:inline_configurations], context: "#{context}[:inline_configurations]") unless input[:inline_configurations].nil?
-        Validators::HookConfiguration.validate!(input[:pre_extraction_hook_configuration], context: "#{context}[:pre_extraction_hook_configuration]") unless input[:pre_extraction_hook_configuration].nil?
-        Validators::HookConfiguration.validate!(input[:post_extraction_hook_configuration], context: "#{context}[:post_extraction_hook_configuration]") unless input[:post_extraction_hook_configuration].nil?
+        InlineCustomDocumentEnrichmentConfigurationList.validate!(input[:inline_configurations], context: "#{context}[:inline_configurations]") unless input[:inline_configurations].nil?
+        HookConfiguration.validate!(input[:pre_extraction_hook_configuration], context: "#{context}[:pre_extraction_hook_configuration]") unless input[:pre_extraction_hook_configuration].nil?
+        HookConfiguration.validate!(input[:post_extraction_hook_configuration], context: "#{context}[:post_extraction_hook_configuration]") unless input[:post_extraction_hook_configuration].nil?
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
       end
     end
@@ -653,22 +655,22 @@ module AWS::SDK::Kendra
     class DataSourceConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DataSourceConfiguration, context: context)
-        Validators::S3DataSourceConfiguration.validate!(input[:s3_configuration], context: "#{context}[:s3_configuration]") unless input[:s3_configuration].nil?
-        Validators::SharePointConfiguration.validate!(input[:share_point_configuration], context: "#{context}[:share_point_configuration]") unless input[:share_point_configuration].nil?
-        Validators::DatabaseConfiguration.validate!(input[:database_configuration], context: "#{context}[:database_configuration]") unless input[:database_configuration].nil?
-        Validators::SalesforceConfiguration.validate!(input[:salesforce_configuration], context: "#{context}[:salesforce_configuration]") unless input[:salesforce_configuration].nil?
-        Validators::OneDriveConfiguration.validate!(input[:one_drive_configuration], context: "#{context}[:one_drive_configuration]") unless input[:one_drive_configuration].nil?
-        Validators::ServiceNowConfiguration.validate!(input[:service_now_configuration], context: "#{context}[:service_now_configuration]") unless input[:service_now_configuration].nil?
-        Validators::ConfluenceConfiguration.validate!(input[:confluence_configuration], context: "#{context}[:confluence_configuration]") unless input[:confluence_configuration].nil?
-        Validators::GoogleDriveConfiguration.validate!(input[:google_drive_configuration], context: "#{context}[:google_drive_configuration]") unless input[:google_drive_configuration].nil?
-        Validators::WebCrawlerConfiguration.validate!(input[:web_crawler_configuration], context: "#{context}[:web_crawler_configuration]") unless input[:web_crawler_configuration].nil?
-        Validators::WorkDocsConfiguration.validate!(input[:work_docs_configuration], context: "#{context}[:work_docs_configuration]") unless input[:work_docs_configuration].nil?
-        Validators::FsxConfiguration.validate!(input[:fsx_configuration], context: "#{context}[:fsx_configuration]") unless input[:fsx_configuration].nil?
-        Validators::SlackConfiguration.validate!(input[:slack_configuration], context: "#{context}[:slack_configuration]") unless input[:slack_configuration].nil?
-        Validators::BoxConfiguration.validate!(input[:box_configuration], context: "#{context}[:box_configuration]") unless input[:box_configuration].nil?
-        Validators::QuipConfiguration.validate!(input[:quip_configuration], context: "#{context}[:quip_configuration]") unless input[:quip_configuration].nil?
-        Validators::JiraConfiguration.validate!(input[:jira_configuration], context: "#{context}[:jira_configuration]") unless input[:jira_configuration].nil?
-        Validators::GitHubConfiguration.validate!(input[:git_hub_configuration], context: "#{context}[:git_hub_configuration]") unless input[:git_hub_configuration].nil?
+        S3DataSourceConfiguration.validate!(input[:s3_configuration], context: "#{context}[:s3_configuration]") unless input[:s3_configuration].nil?
+        SharePointConfiguration.validate!(input[:share_point_configuration], context: "#{context}[:share_point_configuration]") unless input[:share_point_configuration].nil?
+        DatabaseConfiguration.validate!(input[:database_configuration], context: "#{context}[:database_configuration]") unless input[:database_configuration].nil?
+        SalesforceConfiguration.validate!(input[:salesforce_configuration], context: "#{context}[:salesforce_configuration]") unless input[:salesforce_configuration].nil?
+        OneDriveConfiguration.validate!(input[:one_drive_configuration], context: "#{context}[:one_drive_configuration]") unless input[:one_drive_configuration].nil?
+        ServiceNowConfiguration.validate!(input[:service_now_configuration], context: "#{context}[:service_now_configuration]") unless input[:service_now_configuration].nil?
+        ConfluenceConfiguration.validate!(input[:confluence_configuration], context: "#{context}[:confluence_configuration]") unless input[:confluence_configuration].nil?
+        GoogleDriveConfiguration.validate!(input[:google_drive_configuration], context: "#{context}[:google_drive_configuration]") unless input[:google_drive_configuration].nil?
+        WebCrawlerConfiguration.validate!(input[:web_crawler_configuration], context: "#{context}[:web_crawler_configuration]") unless input[:web_crawler_configuration].nil?
+        WorkDocsConfiguration.validate!(input[:work_docs_configuration], context: "#{context}[:work_docs_configuration]") unless input[:work_docs_configuration].nil?
+        FsxConfiguration.validate!(input[:fsx_configuration], context: "#{context}[:fsx_configuration]") unless input[:fsx_configuration].nil?
+        SlackConfiguration.validate!(input[:slack_configuration], context: "#{context}[:slack_configuration]") unless input[:slack_configuration].nil?
+        BoxConfiguration.validate!(input[:box_configuration], context: "#{context}[:box_configuration]") unless input[:box_configuration].nil?
+        QuipConfiguration.validate!(input[:quip_configuration], context: "#{context}[:quip_configuration]") unless input[:quip_configuration].nil?
+        JiraConfiguration.validate!(input[:jira_configuration], context: "#{context}[:jira_configuration]") unless input[:jira_configuration].nil?
+        GitHubConfiguration.validate!(input[:git_hub_configuration], context: "#{context}[:git_hub_configuration]") unless input[:git_hub_configuration].nil?
       end
     end
 
@@ -684,7 +686,7 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DataSourceGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DataSourceGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -724,7 +726,7 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DataSourceSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DataSourceSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -739,7 +741,7 @@ module AWS::SDK::Kendra
         Hearth::Validator.validate!(input[:error_message], ::String, context: "#{context}[:error_message]")
         Hearth::Validator.validate!(input[:error_code], ::String, context: "#{context}[:error_code]")
         Hearth::Validator.validate!(input[:data_source_error_code], ::String, context: "#{context}[:data_source_error_code]")
-        Validators::DataSourceSyncJobMetrics.validate!(input[:metrics], context: "#{context}[:metrics]") unless input[:metrics].nil?
+        DataSourceSyncJobMetrics.validate!(input[:metrics], context: "#{context}[:metrics]") unless input[:metrics].nil?
       end
     end
 
@@ -747,7 +749,7 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DataSourceSyncJob.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DataSourceSyncJob.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -784,7 +786,7 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DataSourceToIndexFieldMapping.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DataSourceToIndexFieldMapping.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -792,8 +794,8 @@ module AWS::SDK::Kendra
     class DataSourceVpcConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DataSourceVpcConfiguration, context: context)
-        Validators::SubnetIdList.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
-        Validators::SecurityGroupIdList.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
+        SubnetIdList.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
+        SecurityGroupIdList.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
       end
     end
 
@@ -801,11 +803,11 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DatabaseConfiguration, context: context)
         Hearth::Validator.validate!(input[:database_engine_type], ::String, context: "#{context}[:database_engine_type]")
-        Validators::ConnectionConfiguration.validate!(input[:connection_configuration], context: "#{context}[:connection_configuration]") unless input[:connection_configuration].nil?
-        Validators::DataSourceVpcConfiguration.validate!(input[:vpc_configuration], context: "#{context}[:vpc_configuration]") unless input[:vpc_configuration].nil?
-        Validators::ColumnConfiguration.validate!(input[:column_configuration], context: "#{context}[:column_configuration]") unless input[:column_configuration].nil?
-        Validators::AclConfiguration.validate!(input[:acl_configuration], context: "#{context}[:acl_configuration]") unless input[:acl_configuration].nil?
-        Validators::SqlConfiguration.validate!(input[:sql_configuration], context: "#{context}[:sql_configuration]") unless input[:sql_configuration].nil?
+        ConnectionConfiguration.validate!(input[:connection_configuration], context: "#{context}[:connection_configuration]") unless input[:connection_configuration].nil?
+        DataSourceVpcConfiguration.validate!(input[:vpc_configuration], context: "#{context}[:vpc_configuration]") unless input[:vpc_configuration].nil?
+        ColumnConfiguration.validate!(input[:column_configuration], context: "#{context}[:column_configuration]") unless input[:column_configuration].nil?
+        AclConfiguration.validate!(input[:acl_configuration], context: "#{context}[:acl_configuration]") unless input[:acl_configuration].nil?
+        SqlConfiguration.validate!(input[:sql_configuration], context: "#{context}[:sql_configuration]") unless input[:sql_configuration].nil?
       end
     end
 
@@ -923,7 +925,7 @@ module AWS::SDK::Kendra
         Hearth::Validator.validate!(input[:index_id], ::String, context: "#{context}[:index_id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::DataSourceConfiguration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
+        DataSourceConfiguration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:updated_at], ::Time, context: "#{context}[:updated_at]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
@@ -932,7 +934,7 @@ module AWS::SDK::Kendra
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
         Hearth::Validator.validate!(input[:error_message], ::String, context: "#{context}[:error_message]")
         Hearth::Validator.validate!(input[:language_code], ::String, context: "#{context}[:language_code]")
-        Validators::CustomDocumentEnrichmentConfiguration.validate!(input[:custom_document_enrichment_configuration], context: "#{context}[:custom_document_enrichment_configuration]") unless input[:custom_document_enrichment_configuration].nil?
+        CustomDocumentEnrichmentConfiguration.validate!(input[:custom_document_enrichment_configuration], context: "#{context}[:custom_document_enrichment_configuration]") unless input[:custom_document_enrichment_configuration].nil?
       end
     end
 
@@ -950,8 +952,8 @@ module AWS::SDK::Kendra
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:index_id], ::String, context: "#{context}[:index_id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::ExperienceEndpoints.validate!(input[:endpoints], context: "#{context}[:endpoints]") unless input[:endpoints].nil?
-        Validators::ExperienceConfiguration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
+        ExperienceEndpoints.validate!(input[:endpoints], context: "#{context}[:endpoints]") unless input[:endpoints].nil?
+        ExperienceConfiguration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:updated_at], ::Time, context: "#{context}[:updated_at]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
@@ -978,7 +980,7 @@ module AWS::SDK::Kendra
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:updated_at], ::Time, context: "#{context}[:updated_at]")
-        Validators::S3Path.validate!(input[:s3_path], context: "#{context}[:s3_path]") unless input[:s3_path].nil?
+        S3Path.validate!(input[:s3_path], context: "#{context}[:s3_path]") unless input[:s3_path].nil?
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
         Hearth::Validator.validate!(input[:error_message], ::String, context: "#{context}[:error_message]")
@@ -1001,18 +1003,18 @@ module AWS::SDK::Kendra
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:edition], ::String, context: "#{context}[:edition]")
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
-        Validators::ServerSideEncryptionConfiguration.validate!(input[:server_side_encryption_configuration], context: "#{context}[:server_side_encryption_configuration]") unless input[:server_side_encryption_configuration].nil?
+        ServerSideEncryptionConfiguration.validate!(input[:server_side_encryption_configuration], context: "#{context}[:server_side_encryption_configuration]") unless input[:server_side_encryption_configuration].nil?
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:updated_at], ::Time, context: "#{context}[:updated_at]")
-        Validators::DocumentMetadataConfigurationList.validate!(input[:document_metadata_configurations], context: "#{context}[:document_metadata_configurations]") unless input[:document_metadata_configurations].nil?
-        Validators::IndexStatistics.validate!(input[:index_statistics], context: "#{context}[:index_statistics]") unless input[:index_statistics].nil?
+        DocumentMetadataConfigurationList.validate!(input[:document_metadata_configurations], context: "#{context}[:document_metadata_configurations]") unless input[:document_metadata_configurations].nil?
+        IndexStatistics.validate!(input[:index_statistics], context: "#{context}[:index_statistics]") unless input[:index_statistics].nil?
         Hearth::Validator.validate!(input[:error_message], ::String, context: "#{context}[:error_message]")
-        Validators::CapacityUnitsConfiguration.validate!(input[:capacity_units], context: "#{context}[:capacity_units]") unless input[:capacity_units].nil?
-        Validators::UserTokenConfigurationList.validate!(input[:user_token_configurations], context: "#{context}[:user_token_configurations]") unless input[:user_token_configurations].nil?
+        CapacityUnitsConfiguration.validate!(input[:capacity_units], context: "#{context}[:capacity_units]") unless input[:capacity_units].nil?
+        UserTokenConfigurationList.validate!(input[:user_token_configurations], context: "#{context}[:user_token_configurations]") unless input[:user_token_configurations].nil?
         Hearth::Validator.validate!(input[:user_context_policy], ::String, context: "#{context}[:user_context_policy]")
-        Validators::UserGroupResolutionConfiguration.validate!(input[:user_group_resolution_configuration], context: "#{context}[:user_group_resolution_configuration]") unless input[:user_group_resolution_configuration].nil?
+        UserGroupResolutionConfiguration.validate!(input[:user_group_resolution_configuration], context: "#{context}[:user_group_resolution_configuration]") unless input[:user_group_resolution_configuration].nil?
       end
     end
 
@@ -1031,7 +1033,7 @@ module AWS::SDK::Kendra
         Hearth::Validator.validate!(input[:index_id], ::String, context: "#{context}[:index_id]")
         Hearth::Validator.validate!(input[:data_source_id], ::String, context: "#{context}[:data_source_id]")
         Hearth::Validator.validate!(input[:group_id], ::String, context: "#{context}[:group_id]")
-        Validators::GroupOrderingIdSummaries.validate!(input[:group_ordering_id_summaries], context: "#{context}[:group_ordering_id_summaries]") unless input[:group_ordering_id_summaries].nil?
+        GroupOrderingIdSummaries.validate!(input[:group_ordering_id_summaries], context: "#{context}[:group_ordering_id_summaries]") unless input[:group_ordering_id_summaries].nil?
       end
     end
 
@@ -1054,7 +1056,7 @@ module AWS::SDK::Kendra
         Hearth::Validator.validate!(input[:error_message], ::String, context: "#{context}[:error_message]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:updated_at], ::Time, context: "#{context}[:updated_at]")
-        Validators::S3Path.validate!(input[:source_s3_path], context: "#{context}[:source_s3_path]") unless input[:source_s3_path].nil?
+        S3Path.validate!(input[:source_s3_path], context: "#{context}[:source_s3_path]") unless input[:source_s3_path].nil?
         Hearth::Validator.validate!(input[:item_count], ::Integer, context: "#{context}[:item_count]")
         Hearth::Validator.validate!(input[:file_size_bytes], ::Integer, context: "#{context}[:file_size_bytes]")
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
@@ -1103,7 +1105,7 @@ module AWS::SDK::Kendra
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:updated_at], ::Time, context: "#{context}[:updated_at]")
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
-        Validators::S3Path.validate!(input[:source_s3_path], context: "#{context}[:source_s3_path]") unless input[:source_s3_path].nil?
+        S3Path.validate!(input[:source_s3_path], context: "#{context}[:source_s3_path]") unless input[:source_s3_path].nil?
         Hearth::Validator.validate!(input[:file_size_bytes], ::Integer, context: "#{context}[:file_size_bytes]")
         Hearth::Validator.validate!(input[:term_count], ::Integer, context: "#{context}[:term_count]")
         Hearth::Validator.validate!(input[:synonym_rule_count], ::Integer, context: "#{context}[:synonym_rule_count]")
@@ -1115,14 +1117,14 @@ module AWS::SDK::Kendra
         Hearth::Validator.validate!(input, Types::DisassociateEntitiesFromExperienceInput, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:index_id], ::String, context: "#{context}[:index_id]")
-        Validators::DisassociateEntityList.validate!(input[:entity_list], context: "#{context}[:entity_list]") unless input[:entity_list].nil?
+        DisassociateEntityList.validate!(input[:entity_list], context: "#{context}[:entity_list]") unless input[:entity_list].nil?
       end
     end
 
     class DisassociateEntitiesFromExperienceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DisassociateEntitiesFromExperienceOutput, context: context)
-        Validators::FailedEntityList.validate!(input[:failed_entity_list], context: "#{context}[:failed_entity_list]") unless input[:failed_entity_list].nil?
+        FailedEntityList.validate!(input[:failed_entity_list], context: "#{context}[:failed_entity_list]") unless input[:failed_entity_list].nil?
       end
     end
 
@@ -1130,7 +1132,7 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EntityConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EntityConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1140,14 +1142,14 @@ module AWS::SDK::Kendra
         Hearth::Validator.validate!(input, Types::DisassociatePersonasFromEntitiesInput, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:index_id], ::String, context: "#{context}[:index_id]")
-        Validators::EntityIdsList.validate!(input[:entity_ids], context: "#{context}[:entity_ids]") unless input[:entity_ids].nil?
+        EntityIdsList.validate!(input[:entity_ids], context: "#{context}[:entity_ids]") unless input[:entity_ids].nil?
       end
     end
 
     class DisassociatePersonasFromEntitiesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DisassociatePersonasFromEntitiesOutput, context: context)
-        Validators::FailedEntityList.validate!(input[:failed_entity_list], context: "#{context}[:failed_entity_list]") unless input[:failed_entity_list].nil?
+        FailedEntityList.validate!(input[:failed_entity_list], context: "#{context}[:failed_entity_list]") unless input[:failed_entity_list].nil?
       end
     end
 
@@ -1157,10 +1159,10 @@ module AWS::SDK::Kendra
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:title], ::String, context: "#{context}[:title]")
         Hearth::Validator.validate!(input[:blob], ::String, context: "#{context}[:blob]")
-        Validators::S3Path.validate!(input[:s3_path], context: "#{context}[:s3_path]") unless input[:s3_path].nil?
-        Validators::DocumentAttributeList.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
-        Validators::PrincipalList.validate!(input[:access_control_list], context: "#{context}[:access_control_list]") unless input[:access_control_list].nil?
-        Validators::HierarchicalPrincipalList.validate!(input[:hierarchical_access_control_list], context: "#{context}[:hierarchical_access_control_list]") unless input[:hierarchical_access_control_list].nil?
+        S3Path.validate!(input[:s3_path], context: "#{context}[:s3_path]") unless input[:s3_path].nil?
+        DocumentAttributeList.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        PrincipalList.validate!(input[:access_control_list], context: "#{context}[:access_control_list]") unless input[:access_control_list].nil?
+        HierarchicalPrincipalList.validate!(input[:hierarchical_access_control_list], context: "#{context}[:hierarchical_access_control_list]") unless input[:hierarchical_access_control_list].nil?
         Hearth::Validator.validate!(input[:content_type], ::String, context: "#{context}[:content_type]")
       end
     end
@@ -1169,7 +1171,7 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DocumentAttribute, context: context)
         Hearth::Validator.validate!(input[:key], ::String, context: "#{context}[:key]")
-        Validators::DocumentAttributeValue.validate!(input[:value], context: "#{context}[:value]") unless input[:value].nil?
+        DocumentAttributeValue.validate!(input[:value], context: "#{context}[:value]") unless input[:value].nil?
       end
     end
 
@@ -1178,7 +1180,7 @@ module AWS::SDK::Kendra
         Hearth::Validator.validate!(input, Types::DocumentAttributeCondition, context: context)
         Hearth::Validator.validate!(input[:condition_document_attribute_key], ::String, context: "#{context}[:condition_document_attribute_key]")
         Hearth::Validator.validate!(input[:operator], ::String, context: "#{context}[:operator]")
-        Validators::DocumentAttributeValue.validate!(input[:condition_on_value], context: "#{context}[:condition_on_value]") unless input[:condition_on_value].nil?
+        DocumentAttributeValue.validate!(input[:condition_on_value], context: "#{context}[:condition_on_value]") unless input[:condition_on_value].nil?
       end
     end
 
@@ -1195,7 +1197,7 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DocumentAttribute.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DocumentAttribute.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1214,7 +1216,7 @@ module AWS::SDK::Kendra
         Hearth::Validator.validate!(input, Types::DocumentAttributeTarget, context: context)
         Hearth::Validator.validate!(input[:target_document_attribute_key], ::String, context: "#{context}[:target_document_attribute_key]")
         Hearth::Validator.validate!(input[:target_document_attribute_value_deletion], ::TrueClass, ::FalseClass, context: "#{context}[:target_document_attribute_value_deletion]")
-        Validators::DocumentAttributeValue.validate!(input[:target_document_attribute_value], context: "#{context}[:target_document_attribute_value]") unless input[:target_document_attribute_value].nil?
+        DocumentAttributeValue.validate!(input[:target_document_attribute_value], context: "#{context}[:target_document_attribute_value]") unless input[:target_document_attribute_value].nil?
       end
     end
 
@@ -1222,7 +1224,7 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DocumentAttributeValue, context: context)
         Hearth::Validator.validate!(input[:string_value], ::String, context: "#{context}[:string_value]")
-        Validators::DocumentAttributeStringListValue.validate!(input[:string_list_value], context: "#{context}[:string_list_value]") unless input[:string_list_value].nil?
+        DocumentAttributeStringListValue.validate!(input[:string_list_value], context: "#{context}[:string_list_value]") unless input[:string_list_value].nil?
         Hearth::Validator.validate!(input[:long_value], ::Integer, context: "#{context}[:long_value]")
         Hearth::Validator.validate!(input[:date_value], ::Time, context: "#{context}[:date_value]")
       end
@@ -1231,9 +1233,9 @@ module AWS::SDK::Kendra
     class DocumentAttributeValueCountPair
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DocumentAttributeValueCountPair, context: context)
-        Validators::DocumentAttributeValue.validate!(input[:document_attribute_value], context: "#{context}[:document_attribute_value]") unless input[:document_attribute_value].nil?
+        DocumentAttributeValue.validate!(input[:document_attribute_value], context: "#{context}[:document_attribute_value]") unless input[:document_attribute_value].nil?
         Hearth::Validator.validate!(input[:count], ::Integer, context: "#{context}[:count]")
-        Validators::FacetResultList.validate!(input[:facet_results], context: "#{context}[:facet_results]") unless input[:facet_results].nil?
+        FacetResultList.validate!(input[:facet_results], context: "#{context}[:facet_results]") unless input[:facet_results].nil?
       end
     end
 
@@ -1241,7 +1243,7 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DocumentAttributeValueCountPair.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DocumentAttributeValueCountPair.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1259,7 +1261,7 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DocumentInfo, context: context)
         Hearth::Validator.validate!(input[:document_id], ::String, context: "#{context}[:document_id]")
-        Validators::DocumentAttributeList.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        DocumentAttributeList.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
       end
     end
 
@@ -1267,7 +1269,7 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DocumentInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DocumentInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1276,7 +1278,7 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Document.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Document.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1286,8 +1288,8 @@ module AWS::SDK::Kendra
         Hearth::Validator.validate!(input, Types::DocumentMetadataConfiguration, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::Relevance.validate!(input[:relevance], context: "#{context}[:relevance]") unless input[:relevance].nil?
-        Validators::Search.validate!(input[:search], context: "#{context}[:search]") unless input[:search].nil?
+        Relevance.validate!(input[:relevance], context: "#{context}[:relevance]") unless input[:relevance].nil?
+        Search.validate!(input[:search], context: "#{context}[:search]") unless input[:search].nil?
       end
     end
 
@@ -1295,7 +1297,7 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DocumentMetadataConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DocumentMetadataConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1304,7 +1306,7 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DocumentRelevanceConfiguration, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::Relevance.validate!(input[:relevance], context: "#{context}[:relevance]") unless input[:relevance].nil?
+        Relevance.validate!(input[:relevance], context: "#{context}[:relevance]") unless input[:relevance].nil?
       end
     end
 
@@ -1312,7 +1314,7 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DocumentRelevanceConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DocumentRelevanceConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1321,7 +1323,7 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Status.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Status.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1373,7 +1375,7 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EntityPersonaConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EntityPersonaConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1408,8 +1410,8 @@ module AWS::SDK::Kendra
     class ExperienceConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ExperienceConfiguration, context: context)
-        Validators::ContentSourceConfiguration.validate!(input[:content_source_configuration], context: "#{context}[:content_source_configuration]") unless input[:content_source_configuration].nil?
-        Validators::UserIdentityConfiguration.validate!(input[:user_identity_configuration], context: "#{context}[:user_identity_configuration]") unless input[:user_identity_configuration].nil?
+        ContentSourceConfiguration.validate!(input[:content_source_configuration], context: "#{context}[:content_source_configuration]") unless input[:content_source_configuration].nil?
+        UserIdentityConfiguration.validate!(input[:user_identity_configuration], context: "#{context}[:user_identity_configuration]") unless input[:user_identity_configuration].nil?
       end
     end
 
@@ -1425,7 +1427,7 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ExperienceEndpoint.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ExperienceEndpoint.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1435,7 +1437,7 @@ module AWS::SDK::Kendra
         Hearth::Validator.validate!(input, Types::ExperienceEntitiesSummary, context: context)
         Hearth::Validator.validate!(input[:entity_id], ::String, context: "#{context}[:entity_id]")
         Hearth::Validator.validate!(input[:entity_type], ::String, context: "#{context}[:entity_type]")
-        Validators::EntityDisplayData.validate!(input[:display_data], context: "#{context}[:display_data]") unless input[:display_data].nil?
+        EntityDisplayData.validate!(input[:display_data], context: "#{context}[:display_data]") unless input[:display_data].nil?
       end
     end
 
@@ -1443,7 +1445,7 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ExperienceEntitiesSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ExperienceEntitiesSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1455,7 +1457,7 @@ module AWS::SDK::Kendra
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::ExperienceEndpoints.validate!(input[:endpoints], context: "#{context}[:endpoints]") unless input[:endpoints].nil?
+        ExperienceEndpoints.validate!(input[:endpoints], context: "#{context}[:endpoints]") unless input[:endpoints].nil?
       end
     end
 
@@ -1463,7 +1465,7 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ExperiencesSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ExperiencesSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1472,7 +1474,7 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Facet, context: context)
         Hearth::Validator.validate!(input[:document_attribute_key], ::String, context: "#{context}[:document_attribute_key]")
-        Validators::FacetList.validate!(input[:facets], context: "#{context}[:facets]") unless input[:facets].nil?
+        FacetList.validate!(input[:facets], context: "#{context}[:facets]") unless input[:facets].nil?
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
       end
     end
@@ -1481,7 +1483,7 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Facet.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Facet.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1491,7 +1493,7 @@ module AWS::SDK::Kendra
         Hearth::Validator.validate!(input, Types::FacetResult, context: context)
         Hearth::Validator.validate!(input[:document_attribute_key], ::String, context: "#{context}[:document_attribute_key]")
         Hearth::Validator.validate!(input[:document_attribute_value_type], ::String, context: "#{context}[:document_attribute_value_type]")
-        Validators::DocumentAttributeValueCountPairList.validate!(input[:document_attribute_value_count_pairs], context: "#{context}[:document_attribute_value_count_pairs]") unless input[:document_attribute_value_count_pairs].nil?
+        DocumentAttributeValueCountPairList.validate!(input[:document_attribute_value_count_pairs], context: "#{context}[:document_attribute_value_count_pairs]") unless input[:document_attribute_value_count_pairs].nil?
       end
     end
 
@@ -1499,7 +1501,7 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::FacetResult.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          FacetResult.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1516,7 +1518,7 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::FailedEntity.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          FailedEntity.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1554,7 +1556,7 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::FaqSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          FaqSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1573,11 +1575,11 @@ module AWS::SDK::Kendra
         Hearth::Validator.validate!(input, Types::FsxConfiguration, context: context)
         Hearth::Validator.validate!(input[:file_system_id], ::String, context: "#{context}[:file_system_id]")
         Hearth::Validator.validate!(input[:file_system_type], ::String, context: "#{context}[:file_system_type]")
-        Validators::DataSourceVpcConfiguration.validate!(input[:vpc_configuration], context: "#{context}[:vpc_configuration]") unless input[:vpc_configuration].nil?
+        DataSourceVpcConfiguration.validate!(input[:vpc_configuration], context: "#{context}[:vpc_configuration]") unless input[:vpc_configuration].nil?
         Hearth::Validator.validate!(input[:secret_arn], ::String, context: "#{context}[:secret_arn]")
-        Validators::DataSourceInclusionsExclusionsStrings.validate!(input[:inclusion_patterns], context: "#{context}[:inclusion_patterns]") unless input[:inclusion_patterns].nil?
-        Validators::DataSourceInclusionsExclusionsStrings.validate!(input[:exclusion_patterns], context: "#{context}[:exclusion_patterns]") unless input[:exclusion_patterns].nil?
-        Validators::DataSourceToIndexFieldMappingList.validate!(input[:field_mappings], context: "#{context}[:field_mappings]") unless input[:field_mappings].nil?
+        DataSourceInclusionsExclusionsStrings.validate!(input[:inclusion_patterns], context: "#{context}[:inclusion_patterns]") unless input[:inclusion_patterns].nil?
+        DataSourceInclusionsExclusionsStrings.validate!(input[:exclusion_patterns], context: "#{context}[:exclusion_patterns]") unless input[:exclusion_patterns].nil?
+        DataSourceToIndexFieldMappingList.validate!(input[:field_mappings], context: "#{context}[:field_mappings]") unless input[:field_mappings].nil?
       end
     end
 
@@ -1594,7 +1596,7 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetQuerySuggestionsOutput, context: context)
         Hearth::Validator.validate!(input[:query_suggestions_id], ::String, context: "#{context}[:query_suggestions_id]")
-        Validators::SuggestionList.validate!(input[:suggestions], context: "#{context}[:suggestions]") unless input[:suggestions].nil?
+        SuggestionList.validate!(input[:suggestions], context: "#{context}[:suggestions]") unless input[:suggestions].nil?
       end
     end
 
@@ -1612,9 +1614,9 @@ module AWS::SDK::Kendra
     class GetSnapshotsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetSnapshotsOutput, context: context)
-        Validators::TimeRange.validate!(input[:snap_shot_time_filter], context: "#{context}[:snap_shot_time_filter]") unless input[:snap_shot_time_filter].nil?
-        Validators::SnapshotsDataHeaderFields.validate!(input[:snapshots_data_header], context: "#{context}[:snapshots_data_header]") unless input[:snapshots_data_header].nil?
-        Validators::SnapshotsDataRecords.validate!(input[:snapshots_data], context: "#{context}[:snapshots_data]") unless input[:snapshots_data].nil?
+        TimeRange.validate!(input[:snap_shot_time_filter], context: "#{context}[:snap_shot_time_filter]") unless input[:snap_shot_time_filter].nil?
+        SnapshotsDataHeaderFields.validate!(input[:snapshots_data_header], context: "#{context}[:snapshots_data_header]") unless input[:snapshots_data_header].nil?
+        SnapshotsDataRecords.validate!(input[:snapshots_data], context: "#{context}[:snapshots_data]") unless input[:snapshots_data].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1622,28 +1624,28 @@ module AWS::SDK::Kendra
     class GitHubConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GitHubConfiguration, context: context)
-        Validators::SaaSConfiguration.validate!(input[:saa_s_configuration], context: "#{context}[:saa_s_configuration]") unless input[:saa_s_configuration].nil?
-        Validators::OnPremiseConfiguration.validate!(input[:on_premise_configuration], context: "#{context}[:on_premise_configuration]") unless input[:on_premise_configuration].nil?
+        SaaSConfiguration.validate!(input[:saa_s_configuration], context: "#{context}[:saa_s_configuration]") unless input[:saa_s_configuration].nil?
+        OnPremiseConfiguration.validate!(input[:on_premise_configuration], context: "#{context}[:on_premise_configuration]") unless input[:on_premise_configuration].nil?
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
         Hearth::Validator.validate!(input[:secret_arn], ::String, context: "#{context}[:secret_arn]")
         Hearth::Validator.validate!(input[:use_change_log], ::TrueClass, ::FalseClass, context: "#{context}[:use_change_log]")
-        Validators::GitHubDocumentCrawlProperties.validate!(input[:git_hub_document_crawl_properties], context: "#{context}[:git_hub_document_crawl_properties]") unless input[:git_hub_document_crawl_properties].nil?
-        Validators::RepositoryNames.validate!(input[:repository_filter], context: "#{context}[:repository_filter]") unless input[:repository_filter].nil?
-        Validators::StringList.validate!(input[:inclusion_folder_name_patterns], context: "#{context}[:inclusion_folder_name_patterns]") unless input[:inclusion_folder_name_patterns].nil?
-        Validators::StringList.validate!(input[:inclusion_file_type_patterns], context: "#{context}[:inclusion_file_type_patterns]") unless input[:inclusion_file_type_patterns].nil?
-        Validators::StringList.validate!(input[:inclusion_file_name_patterns], context: "#{context}[:inclusion_file_name_patterns]") unless input[:inclusion_file_name_patterns].nil?
-        Validators::StringList.validate!(input[:exclusion_folder_name_patterns], context: "#{context}[:exclusion_folder_name_patterns]") unless input[:exclusion_folder_name_patterns].nil?
-        Validators::StringList.validate!(input[:exclusion_file_type_patterns], context: "#{context}[:exclusion_file_type_patterns]") unless input[:exclusion_file_type_patterns].nil?
-        Validators::StringList.validate!(input[:exclusion_file_name_patterns], context: "#{context}[:exclusion_file_name_patterns]") unless input[:exclusion_file_name_patterns].nil?
-        Validators::DataSourceVpcConfiguration.validate!(input[:vpc_configuration], context: "#{context}[:vpc_configuration]") unless input[:vpc_configuration].nil?
-        Validators::DataSourceToIndexFieldMappingList.validate!(input[:git_hub_repository_configuration_field_mappings], context: "#{context}[:git_hub_repository_configuration_field_mappings]") unless input[:git_hub_repository_configuration_field_mappings].nil?
-        Validators::DataSourceToIndexFieldMappingList.validate!(input[:git_hub_commit_configuration_field_mappings], context: "#{context}[:git_hub_commit_configuration_field_mappings]") unless input[:git_hub_commit_configuration_field_mappings].nil?
-        Validators::DataSourceToIndexFieldMappingList.validate!(input[:git_hub_issue_document_configuration_field_mappings], context: "#{context}[:git_hub_issue_document_configuration_field_mappings]") unless input[:git_hub_issue_document_configuration_field_mappings].nil?
-        Validators::DataSourceToIndexFieldMappingList.validate!(input[:git_hub_issue_comment_configuration_field_mappings], context: "#{context}[:git_hub_issue_comment_configuration_field_mappings]") unless input[:git_hub_issue_comment_configuration_field_mappings].nil?
-        Validators::DataSourceToIndexFieldMappingList.validate!(input[:git_hub_issue_attachment_configuration_field_mappings], context: "#{context}[:git_hub_issue_attachment_configuration_field_mappings]") unless input[:git_hub_issue_attachment_configuration_field_mappings].nil?
-        Validators::DataSourceToIndexFieldMappingList.validate!(input[:git_hub_pull_request_comment_configuration_field_mappings], context: "#{context}[:git_hub_pull_request_comment_configuration_field_mappings]") unless input[:git_hub_pull_request_comment_configuration_field_mappings].nil?
-        Validators::DataSourceToIndexFieldMappingList.validate!(input[:git_hub_pull_request_document_configuration_field_mappings], context: "#{context}[:git_hub_pull_request_document_configuration_field_mappings]") unless input[:git_hub_pull_request_document_configuration_field_mappings].nil?
-        Validators::DataSourceToIndexFieldMappingList.validate!(input[:git_hub_pull_request_document_attachment_configuration_field_mappings], context: "#{context}[:git_hub_pull_request_document_attachment_configuration_field_mappings]") unless input[:git_hub_pull_request_document_attachment_configuration_field_mappings].nil?
+        GitHubDocumentCrawlProperties.validate!(input[:git_hub_document_crawl_properties], context: "#{context}[:git_hub_document_crawl_properties]") unless input[:git_hub_document_crawl_properties].nil?
+        RepositoryNames.validate!(input[:repository_filter], context: "#{context}[:repository_filter]") unless input[:repository_filter].nil?
+        StringList.validate!(input[:inclusion_folder_name_patterns], context: "#{context}[:inclusion_folder_name_patterns]") unless input[:inclusion_folder_name_patterns].nil?
+        StringList.validate!(input[:inclusion_file_type_patterns], context: "#{context}[:inclusion_file_type_patterns]") unless input[:inclusion_file_type_patterns].nil?
+        StringList.validate!(input[:inclusion_file_name_patterns], context: "#{context}[:inclusion_file_name_patterns]") unless input[:inclusion_file_name_patterns].nil?
+        StringList.validate!(input[:exclusion_folder_name_patterns], context: "#{context}[:exclusion_folder_name_patterns]") unless input[:exclusion_folder_name_patterns].nil?
+        StringList.validate!(input[:exclusion_file_type_patterns], context: "#{context}[:exclusion_file_type_patterns]") unless input[:exclusion_file_type_patterns].nil?
+        StringList.validate!(input[:exclusion_file_name_patterns], context: "#{context}[:exclusion_file_name_patterns]") unless input[:exclusion_file_name_patterns].nil?
+        DataSourceVpcConfiguration.validate!(input[:vpc_configuration], context: "#{context}[:vpc_configuration]") unless input[:vpc_configuration].nil?
+        DataSourceToIndexFieldMappingList.validate!(input[:git_hub_repository_configuration_field_mappings], context: "#{context}[:git_hub_repository_configuration_field_mappings]") unless input[:git_hub_repository_configuration_field_mappings].nil?
+        DataSourceToIndexFieldMappingList.validate!(input[:git_hub_commit_configuration_field_mappings], context: "#{context}[:git_hub_commit_configuration_field_mappings]") unless input[:git_hub_commit_configuration_field_mappings].nil?
+        DataSourceToIndexFieldMappingList.validate!(input[:git_hub_issue_document_configuration_field_mappings], context: "#{context}[:git_hub_issue_document_configuration_field_mappings]") unless input[:git_hub_issue_document_configuration_field_mappings].nil?
+        DataSourceToIndexFieldMappingList.validate!(input[:git_hub_issue_comment_configuration_field_mappings], context: "#{context}[:git_hub_issue_comment_configuration_field_mappings]") unless input[:git_hub_issue_comment_configuration_field_mappings].nil?
+        DataSourceToIndexFieldMappingList.validate!(input[:git_hub_issue_attachment_configuration_field_mappings], context: "#{context}[:git_hub_issue_attachment_configuration_field_mappings]") unless input[:git_hub_issue_attachment_configuration_field_mappings].nil?
+        DataSourceToIndexFieldMappingList.validate!(input[:git_hub_pull_request_comment_configuration_field_mappings], context: "#{context}[:git_hub_pull_request_comment_configuration_field_mappings]") unless input[:git_hub_pull_request_comment_configuration_field_mappings].nil?
+        DataSourceToIndexFieldMappingList.validate!(input[:git_hub_pull_request_document_configuration_field_mappings], context: "#{context}[:git_hub_pull_request_document_configuration_field_mappings]") unless input[:git_hub_pull_request_document_configuration_field_mappings].nil?
+        DataSourceToIndexFieldMappingList.validate!(input[:git_hub_pull_request_document_attachment_configuration_field_mappings], context: "#{context}[:git_hub_pull_request_document_attachment_configuration_field_mappings]") unless input[:git_hub_pull_request_document_attachment_configuration_field_mappings].nil?
       end
     end
 
@@ -1664,21 +1666,21 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GoogleDriveConfiguration, context: context)
         Hearth::Validator.validate!(input[:secret_arn], ::String, context: "#{context}[:secret_arn]")
-        Validators::DataSourceInclusionsExclusionsStrings.validate!(input[:inclusion_patterns], context: "#{context}[:inclusion_patterns]") unless input[:inclusion_patterns].nil?
-        Validators::DataSourceInclusionsExclusionsStrings.validate!(input[:exclusion_patterns], context: "#{context}[:exclusion_patterns]") unless input[:exclusion_patterns].nil?
-        Validators::DataSourceToIndexFieldMappingList.validate!(input[:field_mappings], context: "#{context}[:field_mappings]") unless input[:field_mappings].nil?
-        Validators::ExcludeMimeTypesList.validate!(input[:exclude_mime_types], context: "#{context}[:exclude_mime_types]") unless input[:exclude_mime_types].nil?
-        Validators::ExcludeUserAccountsList.validate!(input[:exclude_user_accounts], context: "#{context}[:exclude_user_accounts]") unless input[:exclude_user_accounts].nil?
-        Validators::ExcludeSharedDrivesList.validate!(input[:exclude_shared_drives], context: "#{context}[:exclude_shared_drives]") unless input[:exclude_shared_drives].nil?
+        DataSourceInclusionsExclusionsStrings.validate!(input[:inclusion_patterns], context: "#{context}[:inclusion_patterns]") unless input[:inclusion_patterns].nil?
+        DataSourceInclusionsExclusionsStrings.validate!(input[:exclusion_patterns], context: "#{context}[:exclusion_patterns]") unless input[:exclusion_patterns].nil?
+        DataSourceToIndexFieldMappingList.validate!(input[:field_mappings], context: "#{context}[:field_mappings]") unless input[:field_mappings].nil?
+        ExcludeMimeTypesList.validate!(input[:exclude_mime_types], context: "#{context}[:exclude_mime_types]") unless input[:exclude_mime_types].nil?
+        ExcludeUserAccountsList.validate!(input[:exclude_user_accounts], context: "#{context}[:exclude_user_accounts]") unless input[:exclude_user_accounts].nil?
+        ExcludeSharedDrivesList.validate!(input[:exclude_shared_drives], context: "#{context}[:exclude_shared_drives]") unless input[:exclude_shared_drives].nil?
       end
     end
 
     class GroupMembers
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GroupMembers, context: context)
-        Validators::MemberGroups.validate!(input[:member_groups], context: "#{context}[:member_groups]") unless input[:member_groups].nil?
-        Validators::MemberUsers.validate!(input[:member_users], context: "#{context}[:member_users]") unless input[:member_users].nil?
-        Validators::S3Path.validate!(input[:s3_pathfor_group_members], context: "#{context}[:s3_pathfor_group_members]") unless input[:s3_pathfor_group_members].nil?
+        MemberGroups.validate!(input[:member_groups], context: "#{context}[:member_groups]") unless input[:member_groups].nil?
+        MemberUsers.validate!(input[:member_users], context: "#{context}[:member_users]") unless input[:member_users].nil?
+        S3Path.validate!(input[:s3_pathfor_group_members], context: "#{context}[:s3_pathfor_group_members]") unless input[:s3_pathfor_group_members].nil?
       end
     end
 
@@ -1686,7 +1688,7 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::GroupOrderingIdSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          GroupOrderingIdSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1722,7 +1724,7 @@ module AWS::SDK::Kendra
     class HierarchicalPrincipal
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::HierarchicalPrincipal, context: context)
-        Validators::PrincipalList.validate!(input[:principal_list], context: "#{context}[:principal_list]") unless input[:principal_list].nil?
+        PrincipalList.validate!(input[:principal_list], context: "#{context}[:principal_list]") unless input[:principal_list].nil?
       end
     end
 
@@ -1730,7 +1732,7 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::HierarchicalPrincipal.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          HierarchicalPrincipal.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1749,7 +1751,7 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Highlight.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Highlight.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1757,7 +1759,7 @@ module AWS::SDK::Kendra
     class HookConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::HookConfiguration, context: context)
-        Validators::DocumentAttributeCondition.validate!(input[:invocation_condition], context: "#{context}[:invocation_condition]") unless input[:invocation_condition].nil?
+        DocumentAttributeCondition.validate!(input[:invocation_condition], context: "#{context}[:invocation_condition]") unless input[:invocation_condition].nil?
         Hearth::Validator.validate!(input[:lambda_arn], ::String, context: "#{context}[:lambda_arn]")
         Hearth::Validator.validate!(input[:s3_bucket], ::String, context: "#{context}[:s3_bucket]")
       end
@@ -1779,7 +1781,7 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::IndexConfigurationSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          IndexConfigurationSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1787,16 +1789,16 @@ module AWS::SDK::Kendra
     class IndexStatistics
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::IndexStatistics, context: context)
-        Validators::FaqStatistics.validate!(input[:faq_statistics], context: "#{context}[:faq_statistics]") unless input[:faq_statistics].nil?
-        Validators::TextDocumentStatistics.validate!(input[:text_document_statistics], context: "#{context}[:text_document_statistics]") unless input[:text_document_statistics].nil?
+        FaqStatistics.validate!(input[:faq_statistics], context: "#{context}[:faq_statistics]") unless input[:faq_statistics].nil?
+        TextDocumentStatistics.validate!(input[:text_document_statistics], context: "#{context}[:text_document_statistics]") unless input[:text_document_statistics].nil?
       end
     end
 
     class InlineCustomDocumentEnrichmentConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::InlineCustomDocumentEnrichmentConfiguration, context: context)
-        Validators::DocumentAttributeCondition.validate!(input[:condition], context: "#{context}[:condition]") unless input[:condition].nil?
-        Validators::DocumentAttributeTarget.validate!(input[:target], context: "#{context}[:target]") unless input[:target].nil?
+        DocumentAttributeCondition.validate!(input[:condition], context: "#{context}[:condition]") unless input[:condition].nil?
+        DocumentAttributeTarget.validate!(input[:target], context: "#{context}[:target]") unless input[:target].nil?
         Hearth::Validator.validate!(input[:document_content_deletion], ::TrueClass, ::FalseClass, context: "#{context}[:document_content_deletion]")
       end
     end
@@ -1805,7 +1807,7 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::InlineCustomDocumentEnrichmentConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          InlineCustomDocumentEnrichmentConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1848,18 +1850,18 @@ module AWS::SDK::Kendra
         Hearth::Validator.validate!(input[:jira_account_url], ::String, context: "#{context}[:jira_account_url]")
         Hearth::Validator.validate!(input[:secret_arn], ::String, context: "#{context}[:secret_arn]")
         Hearth::Validator.validate!(input[:use_change_log], ::TrueClass, ::FalseClass, context: "#{context}[:use_change_log]")
-        Validators::Project.validate!(input[:project], context: "#{context}[:project]") unless input[:project].nil?
-        Validators::IssueType.validate!(input[:issue_type], context: "#{context}[:issue_type]") unless input[:issue_type].nil?
-        Validators::JiraStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
-        Validators::IssueSubEntityFilter.validate!(input[:issue_sub_entity_filter], context: "#{context}[:issue_sub_entity_filter]") unless input[:issue_sub_entity_filter].nil?
-        Validators::DataSourceToIndexFieldMappingList.validate!(input[:attachment_field_mappings], context: "#{context}[:attachment_field_mappings]") unless input[:attachment_field_mappings].nil?
-        Validators::DataSourceToIndexFieldMappingList.validate!(input[:comment_field_mappings], context: "#{context}[:comment_field_mappings]") unless input[:comment_field_mappings].nil?
-        Validators::DataSourceToIndexFieldMappingList.validate!(input[:issue_field_mappings], context: "#{context}[:issue_field_mappings]") unless input[:issue_field_mappings].nil?
-        Validators::DataSourceToIndexFieldMappingList.validate!(input[:project_field_mappings], context: "#{context}[:project_field_mappings]") unless input[:project_field_mappings].nil?
-        Validators::DataSourceToIndexFieldMappingList.validate!(input[:work_log_field_mappings], context: "#{context}[:work_log_field_mappings]") unless input[:work_log_field_mappings].nil?
-        Validators::DataSourceInclusionsExclusionsStrings.validate!(input[:inclusion_patterns], context: "#{context}[:inclusion_patterns]") unless input[:inclusion_patterns].nil?
-        Validators::DataSourceInclusionsExclusionsStrings.validate!(input[:exclusion_patterns], context: "#{context}[:exclusion_patterns]") unless input[:exclusion_patterns].nil?
-        Validators::DataSourceVpcConfiguration.validate!(input[:vpc_configuration], context: "#{context}[:vpc_configuration]") unless input[:vpc_configuration].nil?
+        Project.validate!(input[:project], context: "#{context}[:project]") unless input[:project].nil?
+        IssueType.validate!(input[:issue_type], context: "#{context}[:issue_type]") unless input[:issue_type].nil?
+        JiraStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
+        IssueSubEntityFilter.validate!(input[:issue_sub_entity_filter], context: "#{context}[:issue_sub_entity_filter]") unless input[:issue_sub_entity_filter].nil?
+        DataSourceToIndexFieldMappingList.validate!(input[:attachment_field_mappings], context: "#{context}[:attachment_field_mappings]") unless input[:attachment_field_mappings].nil?
+        DataSourceToIndexFieldMappingList.validate!(input[:comment_field_mappings], context: "#{context}[:comment_field_mappings]") unless input[:comment_field_mappings].nil?
+        DataSourceToIndexFieldMappingList.validate!(input[:issue_field_mappings], context: "#{context}[:issue_field_mappings]") unless input[:issue_field_mappings].nil?
+        DataSourceToIndexFieldMappingList.validate!(input[:project_field_mappings], context: "#{context}[:project_field_mappings]") unless input[:project_field_mappings].nil?
+        DataSourceToIndexFieldMappingList.validate!(input[:work_log_field_mappings], context: "#{context}[:work_log_field_mappings]") unless input[:work_log_field_mappings].nil?
+        DataSourceInclusionsExclusionsStrings.validate!(input[:inclusion_patterns], context: "#{context}[:inclusion_patterns]") unless input[:inclusion_patterns].nil?
+        DataSourceInclusionsExclusionsStrings.validate!(input[:exclusion_patterns], context: "#{context}[:exclusion_patterns]") unless input[:exclusion_patterns].nil?
+        DataSourceVpcConfiguration.validate!(input[:vpc_configuration], context: "#{context}[:vpc_configuration]") unless input[:vpc_configuration].nil?
       end
     end
 
@@ -1900,7 +1902,7 @@ module AWS::SDK::Kendra
         Hearth::Validator.validate!(input[:index_id], ::String, context: "#{context}[:index_id]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
-        Validators::TimeRange.validate!(input[:start_time_filter], context: "#{context}[:start_time_filter]") unless input[:start_time_filter].nil?
+        TimeRange.validate!(input[:start_time_filter], context: "#{context}[:start_time_filter]") unless input[:start_time_filter].nil?
         Hearth::Validator.validate!(input[:status_filter], ::String, context: "#{context}[:status_filter]")
       end
     end
@@ -1908,7 +1910,7 @@ module AWS::SDK::Kendra
     class ListDataSourceSyncJobsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDataSourceSyncJobsOutput, context: context)
-        Validators::DataSourceSyncJobHistoryList.validate!(input[:history], context: "#{context}[:history]") unless input[:history].nil?
+        DataSourceSyncJobHistoryList.validate!(input[:history], context: "#{context}[:history]") unless input[:history].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1925,7 +1927,7 @@ module AWS::SDK::Kendra
     class ListDataSourcesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDataSourcesOutput, context: context)
-        Validators::DataSourceSummaryList.validate!(input[:summary_items], context: "#{context}[:summary_items]") unless input[:summary_items].nil?
+        DataSourceSummaryList.validate!(input[:summary_items], context: "#{context}[:summary_items]") unless input[:summary_items].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1943,7 +1945,7 @@ module AWS::SDK::Kendra
     class ListEntityPersonasOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListEntityPersonasOutput, context: context)
-        Validators::PersonasSummaryList.validate!(input[:summary_items], context: "#{context}[:summary_items]") unless input[:summary_items].nil?
+        PersonasSummaryList.validate!(input[:summary_items], context: "#{context}[:summary_items]") unless input[:summary_items].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1960,7 +1962,7 @@ module AWS::SDK::Kendra
     class ListExperienceEntitiesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListExperienceEntitiesOutput, context: context)
-        Validators::ExperienceEntitiesSummaryList.validate!(input[:summary_items], context: "#{context}[:summary_items]") unless input[:summary_items].nil?
+        ExperienceEntitiesSummaryList.validate!(input[:summary_items], context: "#{context}[:summary_items]") unless input[:summary_items].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1977,7 +1979,7 @@ module AWS::SDK::Kendra
     class ListExperiencesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListExperiencesOutput, context: context)
-        Validators::ExperiencesSummaryList.validate!(input[:summary_items], context: "#{context}[:summary_items]") unless input[:summary_items].nil?
+        ExperiencesSummaryList.validate!(input[:summary_items], context: "#{context}[:summary_items]") unless input[:summary_items].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1995,7 +1997,7 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListFaqsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::FaqSummaryItems.validate!(input[:faq_summary_items], context: "#{context}[:faq_summary_items]") unless input[:faq_summary_items].nil?
+        FaqSummaryItems.validate!(input[:faq_summary_items], context: "#{context}[:faq_summary_items]") unless input[:faq_summary_items].nil?
       end
     end
 
@@ -2013,7 +2015,7 @@ module AWS::SDK::Kendra
     class ListGroupsOlderThanOrderingIdOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListGroupsOlderThanOrderingIdOutput, context: context)
-        Validators::ListOfGroupSummaries.validate!(input[:groups_summaries], context: "#{context}[:groups_summaries]") unless input[:groups_summaries].nil?
+        ListOfGroupSummaries.validate!(input[:groups_summaries], context: "#{context}[:groups_summaries]") unless input[:groups_summaries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -2029,7 +2031,7 @@ module AWS::SDK::Kendra
     class ListIndicesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListIndicesOutput, context: context)
-        Validators::IndexConfigurationSummaryList.validate!(input[:index_configuration_summary_items], context: "#{context}[:index_configuration_summary_items]") unless input[:index_configuration_summary_items].nil?
+        IndexConfigurationSummaryList.validate!(input[:index_configuration_summary_items], context: "#{context}[:index_configuration_summary_items]") unless input[:index_configuration_summary_items].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -2038,7 +2040,7 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::GroupSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          GroupSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2055,7 +2057,7 @@ module AWS::SDK::Kendra
     class ListQuerySuggestionsBlockListsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListQuerySuggestionsBlockListsOutput, context: context)
-        Validators::QuerySuggestionsBlockListSummaryItems.validate!(input[:block_list_summary_items], context: "#{context}[:block_list_summary_items]") unless input[:block_list_summary_items].nil?
+        QuerySuggestionsBlockListSummaryItems.validate!(input[:block_list_summary_items], context: "#{context}[:block_list_summary_items]") unless input[:block_list_summary_items].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -2070,7 +2072,7 @@ module AWS::SDK::Kendra
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -2087,7 +2089,7 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListThesauriOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::ThesaurusSummaryItems.validate!(input[:thesaurus_summary_items], context: "#{context}[:thesaurus_summary_items]") unless input[:thesaurus_summary_items].nil?
+        ThesaurusSummaryItems.validate!(input[:thesaurus_summary_items], context: "#{context}[:thesaurus_summary_items]") unless input[:thesaurus_summary_items].nil?
       end
     end
 
@@ -2103,7 +2105,7 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MemberGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MemberGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2119,7 +2121,7 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MemberUser.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MemberUser.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2129,7 +2131,7 @@ module AWS::SDK::Kendra
         Hearth::Validator.validate!(input, Types::OnPremiseConfiguration, context: context)
         Hearth::Validator.validate!(input[:host_url], ::String, context: "#{context}[:host_url]")
         Hearth::Validator.validate!(input[:organization_name], ::String, context: "#{context}[:organization_name]")
-        Validators::S3Path.validate!(input[:ssl_certificate_s3_path], context: "#{context}[:ssl_certificate_s3_path]") unless input[:ssl_certificate_s3_path].nil?
+        S3Path.validate!(input[:ssl_certificate_s3_path], context: "#{context}[:ssl_certificate_s3_path]") unless input[:ssl_certificate_s3_path].nil?
       end
     end
 
@@ -2138,10 +2140,10 @@ module AWS::SDK::Kendra
         Hearth::Validator.validate!(input, Types::OneDriveConfiguration, context: context)
         Hearth::Validator.validate!(input[:tenant_domain], ::String, context: "#{context}[:tenant_domain]")
         Hearth::Validator.validate!(input[:secret_arn], ::String, context: "#{context}[:secret_arn]")
-        Validators::OneDriveUsers.validate!(input[:one_drive_users], context: "#{context}[:one_drive_users]") unless input[:one_drive_users].nil?
-        Validators::DataSourceInclusionsExclusionsStrings.validate!(input[:inclusion_patterns], context: "#{context}[:inclusion_patterns]") unless input[:inclusion_patterns].nil?
-        Validators::DataSourceInclusionsExclusionsStrings.validate!(input[:exclusion_patterns], context: "#{context}[:exclusion_patterns]") unless input[:exclusion_patterns].nil?
-        Validators::DataSourceToIndexFieldMappingList.validate!(input[:field_mappings], context: "#{context}[:field_mappings]") unless input[:field_mappings].nil?
+        OneDriveUsers.validate!(input[:one_drive_users], context: "#{context}[:one_drive_users]") unless input[:one_drive_users].nil?
+        DataSourceInclusionsExclusionsStrings.validate!(input[:inclusion_patterns], context: "#{context}[:inclusion_patterns]") unless input[:inclusion_patterns].nil?
+        DataSourceInclusionsExclusionsStrings.validate!(input[:exclusion_patterns], context: "#{context}[:exclusion_patterns]") unless input[:exclusion_patterns].nil?
+        DataSourceToIndexFieldMappingList.validate!(input[:field_mappings], context: "#{context}[:field_mappings]") unless input[:field_mappings].nil?
         Hearth::Validator.validate!(input[:disable_local_groups], ::TrueClass, ::FalseClass, context: "#{context}[:disable_local_groups]")
       end
     end
@@ -2158,8 +2160,8 @@ module AWS::SDK::Kendra
     class OneDriveUsers
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::OneDriveUsers, context: context)
-        Validators::OneDriveUserList.validate!(input[:one_drive_user_list], context: "#{context}[:one_drive_user_list]") unless input[:one_drive_user_list].nil?
-        Validators::S3Path.validate!(input[:one_drive_user_s3_path], context: "#{context}[:one_drive_user_s3_path]") unless input[:one_drive_user_s3_path].nil?
+        OneDriveUserList.validate!(input[:one_drive_user_list], context: "#{context}[:one_drive_user_list]") unless input[:one_drive_user_list].nil?
+        S3Path.validate!(input[:one_drive_user_s3_path], context: "#{context}[:one_drive_user_s3_path]") unless input[:one_drive_user_s3_path].nil?
       end
     end
 
@@ -2177,7 +2179,7 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PersonasSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PersonasSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2196,7 +2198,7 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Principal.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Principal.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2243,7 +2245,7 @@ module AWS::SDK::Kendra
         Hearth::Validator.validate!(input[:index_id], ::String, context: "#{context}[:index_id]")
         Hearth::Validator.validate!(input[:data_source_id], ::String, context: "#{context}[:data_source_id]")
         Hearth::Validator.validate!(input[:group_id], ::String, context: "#{context}[:group_id]")
-        Validators::GroupMembers.validate!(input[:group_members], context: "#{context}[:group_members]") unless input[:group_members].nil?
+        GroupMembers.validate!(input[:group_members], context: "#{context}[:group_members]") unless input[:group_members].nil?
         Hearth::Validator.validate!(input[:ordering_id], ::Integer, context: "#{context}[:ordering_id]")
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
       end
@@ -2260,17 +2262,17 @@ module AWS::SDK::Kendra
         Hearth::Validator.validate!(input, Types::QueryInput, context: context)
         Hearth::Validator.validate!(input[:index_id], ::String, context: "#{context}[:index_id]")
         Hearth::Validator.validate!(input[:query_text], ::String, context: "#{context}[:query_text]")
-        Validators::AttributeFilter.validate!(input[:attribute_filter], context: "#{context}[:attribute_filter]") unless input[:attribute_filter].nil?
-        Validators::FacetList.validate!(input[:facets], context: "#{context}[:facets]") unless input[:facets].nil?
-        Validators::DocumentAttributeKeyList.validate!(input[:requested_document_attributes], context: "#{context}[:requested_document_attributes]") unless input[:requested_document_attributes].nil?
+        AttributeFilter.validate!(input[:attribute_filter], context: "#{context}[:attribute_filter]") unless input[:attribute_filter].nil?
+        FacetList.validate!(input[:facets], context: "#{context}[:facets]") unless input[:facets].nil?
+        DocumentAttributeKeyList.validate!(input[:requested_document_attributes], context: "#{context}[:requested_document_attributes]") unless input[:requested_document_attributes].nil?
         Hearth::Validator.validate!(input[:query_result_type_filter], ::String, context: "#{context}[:query_result_type_filter]")
-        Validators::DocumentRelevanceOverrideConfigurationList.validate!(input[:document_relevance_override_configurations], context: "#{context}[:document_relevance_override_configurations]") unless input[:document_relevance_override_configurations].nil?
+        DocumentRelevanceOverrideConfigurationList.validate!(input[:document_relevance_override_configurations], context: "#{context}[:document_relevance_override_configurations]") unless input[:document_relevance_override_configurations].nil?
         Hearth::Validator.validate!(input[:page_number], ::Integer, context: "#{context}[:page_number]")
         Hearth::Validator.validate!(input[:page_size], ::Integer, context: "#{context}[:page_size]")
-        Validators::SortingConfiguration.validate!(input[:sorting_configuration], context: "#{context}[:sorting_configuration]") unless input[:sorting_configuration].nil?
-        Validators::UserContext.validate!(input[:user_context], context: "#{context}[:user_context]") unless input[:user_context].nil?
+        SortingConfiguration.validate!(input[:sorting_configuration], context: "#{context}[:sorting_configuration]") unless input[:sorting_configuration].nil?
+        UserContext.validate!(input[:user_context], context: "#{context}[:user_context]") unless input[:user_context].nil?
         Hearth::Validator.validate!(input[:visitor_id], ::String, context: "#{context}[:visitor_id]")
-        Validators::SpellCorrectionConfiguration.validate!(input[:spell_correction_configuration], context: "#{context}[:spell_correction_configuration]") unless input[:spell_correction_configuration].nil?
+        SpellCorrectionConfiguration.validate!(input[:spell_correction_configuration], context: "#{context}[:spell_correction_configuration]") unless input[:spell_correction_configuration].nil?
       end
     end
 
@@ -2278,11 +2280,11 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::QueryOutput, context: context)
         Hearth::Validator.validate!(input[:query_id], ::String, context: "#{context}[:query_id]")
-        Validators::QueryResultItemList.validate!(input[:result_items], context: "#{context}[:result_items]") unless input[:result_items].nil?
-        Validators::FacetResultList.validate!(input[:facet_results], context: "#{context}[:facet_results]") unless input[:facet_results].nil?
+        QueryResultItemList.validate!(input[:result_items], context: "#{context}[:result_items]") unless input[:result_items].nil?
+        FacetResultList.validate!(input[:facet_results], context: "#{context}[:facet_results]") unless input[:facet_results].nil?
         Hearth::Validator.validate!(input[:total_number_of_results], ::Integer, context: "#{context}[:total_number_of_results]")
-        Validators::WarningList.validate!(input[:warnings], context: "#{context}[:warnings]") unless input[:warnings].nil?
-        Validators::SpellCorrectedQueryList.validate!(input[:spell_corrected_queries], context: "#{context}[:spell_corrected_queries]") unless input[:spell_corrected_queries].nil?
+        WarningList.validate!(input[:warnings], context: "#{context}[:warnings]") unless input[:warnings].nil?
+        SpellCorrectedQueryList.validate!(input[:spell_corrected_queries], context: "#{context}[:spell_corrected_queries]") unless input[:spell_corrected_queries].nil?
       end
     end
 
@@ -2291,13 +2293,13 @@ module AWS::SDK::Kendra
         Hearth::Validator.validate!(input, Types::QueryResultItem, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::AdditionalResultAttributeList.validate!(input[:additional_attributes], context: "#{context}[:additional_attributes]") unless input[:additional_attributes].nil?
+        AdditionalResultAttributeList.validate!(input[:additional_attributes], context: "#{context}[:additional_attributes]") unless input[:additional_attributes].nil?
         Hearth::Validator.validate!(input[:document_id], ::String, context: "#{context}[:document_id]")
-        Validators::TextWithHighlights.validate!(input[:document_title], context: "#{context}[:document_title]") unless input[:document_title].nil?
-        Validators::TextWithHighlights.validate!(input[:document_excerpt], context: "#{context}[:document_excerpt]") unless input[:document_excerpt].nil?
+        TextWithHighlights.validate!(input[:document_title], context: "#{context}[:document_title]") unless input[:document_title].nil?
+        TextWithHighlights.validate!(input[:document_excerpt], context: "#{context}[:document_excerpt]") unless input[:document_excerpt].nil?
         Hearth::Validator.validate!(input[:document_uri], ::String, context: "#{context}[:document_uri]")
-        Validators::DocumentAttributeList.validate!(input[:document_attributes], context: "#{context}[:document_attributes]") unless input[:document_attributes].nil?
-        Validators::ScoreAttributes.validate!(input[:score_attributes], context: "#{context}[:score_attributes]") unless input[:score_attributes].nil?
+        DocumentAttributeList.validate!(input[:document_attributes], context: "#{context}[:document_attributes]") unless input[:document_attributes].nil?
+        ScoreAttributes.validate!(input[:score_attributes], context: "#{context}[:score_attributes]") unless input[:score_attributes].nil?
         Hearth::Validator.validate!(input[:feedback_token], ::String, context: "#{context}[:feedback_token]")
       end
     end
@@ -2306,7 +2308,7 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::QueryResultItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          QueryResultItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2327,7 +2329,7 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::QuerySuggestionsBlockListSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          QuerySuggestionsBlockListSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2340,13 +2342,13 @@ module AWS::SDK::Kendra
         Hearth::Validator.validate!(input[:crawl_file_comments], ::TrueClass, ::FalseClass, context: "#{context}[:crawl_file_comments]")
         Hearth::Validator.validate!(input[:crawl_chat_rooms], ::TrueClass, ::FalseClass, context: "#{context}[:crawl_chat_rooms]")
         Hearth::Validator.validate!(input[:crawl_attachments], ::TrueClass, ::FalseClass, context: "#{context}[:crawl_attachments]")
-        Validators::FolderIdList.validate!(input[:folder_ids], context: "#{context}[:folder_ids]") unless input[:folder_ids].nil?
-        Validators::DataSourceToIndexFieldMappingList.validate!(input[:thread_field_mappings], context: "#{context}[:thread_field_mappings]") unless input[:thread_field_mappings].nil?
-        Validators::DataSourceToIndexFieldMappingList.validate!(input[:message_field_mappings], context: "#{context}[:message_field_mappings]") unless input[:message_field_mappings].nil?
-        Validators::DataSourceToIndexFieldMappingList.validate!(input[:attachment_field_mappings], context: "#{context}[:attachment_field_mappings]") unless input[:attachment_field_mappings].nil?
-        Validators::DataSourceInclusionsExclusionsStrings.validate!(input[:inclusion_patterns], context: "#{context}[:inclusion_patterns]") unless input[:inclusion_patterns].nil?
-        Validators::DataSourceInclusionsExclusionsStrings.validate!(input[:exclusion_patterns], context: "#{context}[:exclusion_patterns]") unless input[:exclusion_patterns].nil?
-        Validators::DataSourceVpcConfiguration.validate!(input[:vpc_configuration], context: "#{context}[:vpc_configuration]") unless input[:vpc_configuration].nil?
+        FolderIdList.validate!(input[:folder_ids], context: "#{context}[:folder_ids]") unless input[:folder_ids].nil?
+        DataSourceToIndexFieldMappingList.validate!(input[:thread_field_mappings], context: "#{context}[:thread_field_mappings]") unless input[:thread_field_mappings].nil?
+        DataSourceToIndexFieldMappingList.validate!(input[:message_field_mappings], context: "#{context}[:message_field_mappings]") unless input[:message_field_mappings].nil?
+        DataSourceToIndexFieldMappingList.validate!(input[:attachment_field_mappings], context: "#{context}[:attachment_field_mappings]") unless input[:attachment_field_mappings].nil?
+        DataSourceInclusionsExclusionsStrings.validate!(input[:inclusion_patterns], context: "#{context}[:inclusion_patterns]") unless input[:inclusion_patterns].nil?
+        DataSourceInclusionsExclusionsStrings.validate!(input[:exclusion_patterns], context: "#{context}[:exclusion_patterns]") unless input[:exclusion_patterns].nil?
+        DataSourceVpcConfiguration.validate!(input[:vpc_configuration], context: "#{context}[:vpc_configuration]") unless input[:vpc_configuration].nil?
       end
     end
 
@@ -2357,7 +2359,7 @@ module AWS::SDK::Kendra
         Hearth::Validator.validate!(input[:importance], ::Integer, context: "#{context}[:importance]")
         Hearth::Validator.validate!(input[:duration], ::String, context: "#{context}[:duration]")
         Hearth::Validator.validate!(input[:rank_order], ::String, context: "#{context}[:rank_order]")
-        Validators::ValueImportanceMap.validate!(input[:value_importance_map], context: "#{context}[:value_importance_map]") unless input[:value_importance_map].nil?
+        ValueImportanceMap.validate!(input[:value_importance_map], context: "#{context}[:value_importance_map]") unless input[:value_importance_map].nil?
       end
     end
 
@@ -2373,7 +2375,7 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RelevanceFeedback.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RelevanceFeedback.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2419,11 +2421,11 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::S3DataSourceConfiguration, context: context)
         Hearth::Validator.validate!(input[:bucket_name], ::String, context: "#{context}[:bucket_name]")
-        Validators::DataSourceInclusionsExclusionsStrings.validate!(input[:inclusion_prefixes], context: "#{context}[:inclusion_prefixes]") unless input[:inclusion_prefixes].nil?
-        Validators::DataSourceInclusionsExclusionsStrings.validate!(input[:inclusion_patterns], context: "#{context}[:inclusion_patterns]") unless input[:inclusion_patterns].nil?
-        Validators::DataSourceInclusionsExclusionsStrings.validate!(input[:exclusion_patterns], context: "#{context}[:exclusion_patterns]") unless input[:exclusion_patterns].nil?
-        Validators::DocumentsMetadataConfiguration.validate!(input[:documents_metadata_configuration], context: "#{context}[:documents_metadata_configuration]") unless input[:documents_metadata_configuration].nil?
-        Validators::AccessControlListConfiguration.validate!(input[:access_control_list_configuration], context: "#{context}[:access_control_list_configuration]") unless input[:access_control_list_configuration].nil?
+        DataSourceInclusionsExclusionsStrings.validate!(input[:inclusion_prefixes], context: "#{context}[:inclusion_prefixes]") unless input[:inclusion_prefixes].nil?
+        DataSourceInclusionsExclusionsStrings.validate!(input[:inclusion_patterns], context: "#{context}[:inclusion_patterns]") unless input[:inclusion_patterns].nil?
+        DataSourceInclusionsExclusionsStrings.validate!(input[:exclusion_patterns], context: "#{context}[:exclusion_patterns]") unless input[:exclusion_patterns].nil?
+        DocumentsMetadataConfiguration.validate!(input[:documents_metadata_configuration], context: "#{context}[:documents_metadata_configuration]") unless input[:documents_metadata_configuration].nil?
+        AccessControlListConfiguration.validate!(input[:access_control_list_configuration], context: "#{context}[:access_control_list_configuration]") unless input[:access_control_list_configuration].nil?
       end
     end
 
@@ -2448,8 +2450,8 @@ module AWS::SDK::Kendra
         Hearth::Validator.validate!(input, Types::SalesforceChatterFeedConfiguration, context: context)
         Hearth::Validator.validate!(input[:document_data_field_name], ::String, context: "#{context}[:document_data_field_name]")
         Hearth::Validator.validate!(input[:document_title_field_name], ::String, context: "#{context}[:document_title_field_name]")
-        Validators::DataSourceToIndexFieldMappingList.validate!(input[:field_mappings], context: "#{context}[:field_mappings]") unless input[:field_mappings].nil?
-        Validators::SalesforceChatterFeedIncludeFilterTypes.validate!(input[:include_filter_types], context: "#{context}[:include_filter_types]") unless input[:include_filter_types].nil?
+        DataSourceToIndexFieldMappingList.validate!(input[:field_mappings], context: "#{context}[:field_mappings]") unless input[:field_mappings].nil?
+        SalesforceChatterFeedIncludeFilterTypes.validate!(input[:include_filter_types], context: "#{context}[:include_filter_types]") unless input[:include_filter_types].nil?
       end
     end
 
@@ -2467,13 +2469,13 @@ module AWS::SDK::Kendra
         Hearth::Validator.validate!(input, Types::SalesforceConfiguration, context: context)
         Hearth::Validator.validate!(input[:server_url], ::String, context: "#{context}[:server_url]")
         Hearth::Validator.validate!(input[:secret_arn], ::String, context: "#{context}[:secret_arn]")
-        Validators::SalesforceStandardObjectConfigurationList.validate!(input[:standard_object_configurations], context: "#{context}[:standard_object_configurations]") unless input[:standard_object_configurations].nil?
-        Validators::SalesforceKnowledgeArticleConfiguration.validate!(input[:knowledge_article_configuration], context: "#{context}[:knowledge_article_configuration]") unless input[:knowledge_article_configuration].nil?
-        Validators::SalesforceChatterFeedConfiguration.validate!(input[:chatter_feed_configuration], context: "#{context}[:chatter_feed_configuration]") unless input[:chatter_feed_configuration].nil?
+        SalesforceStandardObjectConfigurationList.validate!(input[:standard_object_configurations], context: "#{context}[:standard_object_configurations]") unless input[:standard_object_configurations].nil?
+        SalesforceKnowledgeArticleConfiguration.validate!(input[:knowledge_article_configuration], context: "#{context}[:knowledge_article_configuration]") unless input[:knowledge_article_configuration].nil?
+        SalesforceChatterFeedConfiguration.validate!(input[:chatter_feed_configuration], context: "#{context}[:chatter_feed_configuration]") unless input[:chatter_feed_configuration].nil?
         Hearth::Validator.validate!(input[:crawl_attachments], ::TrueClass, ::FalseClass, context: "#{context}[:crawl_attachments]")
-        Validators::SalesforceStandardObjectAttachmentConfiguration.validate!(input[:standard_object_attachment_configuration], context: "#{context}[:standard_object_attachment_configuration]") unless input[:standard_object_attachment_configuration].nil?
-        Validators::DataSourceInclusionsExclusionsStrings.validate!(input[:include_attachment_file_patterns], context: "#{context}[:include_attachment_file_patterns]") unless input[:include_attachment_file_patterns].nil?
-        Validators::DataSourceInclusionsExclusionsStrings.validate!(input[:exclude_attachment_file_patterns], context: "#{context}[:exclude_attachment_file_patterns]") unless input[:exclude_attachment_file_patterns].nil?
+        SalesforceStandardObjectAttachmentConfiguration.validate!(input[:standard_object_attachment_configuration], context: "#{context}[:standard_object_attachment_configuration]") unless input[:standard_object_attachment_configuration].nil?
+        DataSourceInclusionsExclusionsStrings.validate!(input[:include_attachment_file_patterns], context: "#{context}[:include_attachment_file_patterns]") unless input[:include_attachment_file_patterns].nil?
+        DataSourceInclusionsExclusionsStrings.validate!(input[:exclude_attachment_file_patterns], context: "#{context}[:exclude_attachment_file_patterns]") unless input[:exclude_attachment_file_patterns].nil?
       end
     end
 
@@ -2483,7 +2485,7 @@ module AWS::SDK::Kendra
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:document_data_field_name], ::String, context: "#{context}[:document_data_field_name]")
         Hearth::Validator.validate!(input[:document_title_field_name], ::String, context: "#{context}[:document_title_field_name]")
-        Validators::DataSourceToIndexFieldMappingList.validate!(input[:field_mappings], context: "#{context}[:field_mappings]") unless input[:field_mappings].nil?
+        DataSourceToIndexFieldMappingList.validate!(input[:field_mappings], context: "#{context}[:field_mappings]") unless input[:field_mappings].nil?
       end
     end
 
@@ -2491,7 +2493,7 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SalesforceCustomKnowledgeArticleTypeConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SalesforceCustomKnowledgeArticleTypeConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2499,9 +2501,9 @@ module AWS::SDK::Kendra
     class SalesforceKnowledgeArticleConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SalesforceKnowledgeArticleConfiguration, context: context)
-        Validators::SalesforceKnowledgeArticleStateList.validate!(input[:included_states], context: "#{context}[:included_states]") unless input[:included_states].nil?
-        Validators::SalesforceStandardKnowledgeArticleTypeConfiguration.validate!(input[:standard_knowledge_article_type_configuration], context: "#{context}[:standard_knowledge_article_type_configuration]") unless input[:standard_knowledge_article_type_configuration].nil?
-        Validators::SalesforceCustomKnowledgeArticleTypeConfigurationList.validate!(input[:custom_knowledge_article_type_configurations], context: "#{context}[:custom_knowledge_article_type_configurations]") unless input[:custom_knowledge_article_type_configurations].nil?
+        SalesforceKnowledgeArticleStateList.validate!(input[:included_states], context: "#{context}[:included_states]") unless input[:included_states].nil?
+        SalesforceStandardKnowledgeArticleTypeConfiguration.validate!(input[:standard_knowledge_article_type_configuration], context: "#{context}[:standard_knowledge_article_type_configuration]") unless input[:standard_knowledge_article_type_configuration].nil?
+        SalesforceCustomKnowledgeArticleTypeConfigurationList.validate!(input[:custom_knowledge_article_type_configurations], context: "#{context}[:custom_knowledge_article_type_configurations]") unless input[:custom_knowledge_article_type_configurations].nil?
       end
     end
 
@@ -2519,7 +2521,7 @@ module AWS::SDK::Kendra
         Hearth::Validator.validate!(input, Types::SalesforceStandardKnowledgeArticleTypeConfiguration, context: context)
         Hearth::Validator.validate!(input[:document_data_field_name], ::String, context: "#{context}[:document_data_field_name]")
         Hearth::Validator.validate!(input[:document_title_field_name], ::String, context: "#{context}[:document_title_field_name]")
-        Validators::DataSourceToIndexFieldMappingList.validate!(input[:field_mappings], context: "#{context}[:field_mappings]") unless input[:field_mappings].nil?
+        DataSourceToIndexFieldMappingList.validate!(input[:field_mappings], context: "#{context}[:field_mappings]") unless input[:field_mappings].nil?
       end
     end
 
@@ -2527,7 +2529,7 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SalesforceStandardObjectAttachmentConfiguration, context: context)
         Hearth::Validator.validate!(input[:document_title_field_name], ::String, context: "#{context}[:document_title_field_name]")
-        Validators::DataSourceToIndexFieldMappingList.validate!(input[:field_mappings], context: "#{context}[:field_mappings]") unless input[:field_mappings].nil?
+        DataSourceToIndexFieldMappingList.validate!(input[:field_mappings], context: "#{context}[:field_mappings]") unless input[:field_mappings].nil?
       end
     end
 
@@ -2537,7 +2539,7 @@ module AWS::SDK::Kendra
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:document_data_field_name], ::String, context: "#{context}[:document_data_field_name]")
         Hearth::Validator.validate!(input[:document_title_field_name], ::String, context: "#{context}[:document_title_field_name]")
-        Validators::DataSourceToIndexFieldMappingList.validate!(input[:field_mappings], context: "#{context}[:field_mappings]") unless input[:field_mappings].nil?
+        DataSourceToIndexFieldMappingList.validate!(input[:field_mappings], context: "#{context}[:field_mappings]") unless input[:field_mappings].nil?
       end
     end
 
@@ -2545,7 +2547,7 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SalesforceStandardObjectConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SalesforceStandardObjectConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2579,7 +2581,7 @@ module AWS::SDK::Kendra
     class SeedUrlConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SeedUrlConfiguration, context: context)
-        Validators::SeedUrlList.validate!(input[:seed_urls], context: "#{context}[:seed_urls]") unless input[:seed_urls].nil?
+        SeedUrlList.validate!(input[:seed_urls], context: "#{context}[:seed_urls]") unless input[:seed_urls].nil?
         Hearth::Validator.validate!(input[:web_crawler_mode], ::String, context: "#{context}[:web_crawler_mode]")
       end
     end
@@ -2606,8 +2608,8 @@ module AWS::SDK::Kendra
         Hearth::Validator.validate!(input[:host_url], ::String, context: "#{context}[:host_url]")
         Hearth::Validator.validate!(input[:secret_arn], ::String, context: "#{context}[:secret_arn]")
         Hearth::Validator.validate!(input[:service_now_build_version], ::String, context: "#{context}[:service_now_build_version]")
-        Validators::ServiceNowKnowledgeArticleConfiguration.validate!(input[:knowledge_article_configuration], context: "#{context}[:knowledge_article_configuration]") unless input[:knowledge_article_configuration].nil?
-        Validators::ServiceNowServiceCatalogConfiguration.validate!(input[:service_catalog_configuration], context: "#{context}[:service_catalog_configuration]") unless input[:service_catalog_configuration].nil?
+        ServiceNowKnowledgeArticleConfiguration.validate!(input[:knowledge_article_configuration], context: "#{context}[:knowledge_article_configuration]") unless input[:knowledge_article_configuration].nil?
+        ServiceNowServiceCatalogConfiguration.validate!(input[:service_catalog_configuration], context: "#{context}[:service_catalog_configuration]") unless input[:service_catalog_configuration].nil?
         Hearth::Validator.validate!(input[:authentication_type], ::String, context: "#{context}[:authentication_type]")
       end
     end
@@ -2616,11 +2618,11 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ServiceNowKnowledgeArticleConfiguration, context: context)
         Hearth::Validator.validate!(input[:crawl_attachments], ::TrueClass, ::FalseClass, context: "#{context}[:crawl_attachments]")
-        Validators::DataSourceInclusionsExclusionsStrings.validate!(input[:include_attachment_file_patterns], context: "#{context}[:include_attachment_file_patterns]") unless input[:include_attachment_file_patterns].nil?
-        Validators::DataSourceInclusionsExclusionsStrings.validate!(input[:exclude_attachment_file_patterns], context: "#{context}[:exclude_attachment_file_patterns]") unless input[:exclude_attachment_file_patterns].nil?
+        DataSourceInclusionsExclusionsStrings.validate!(input[:include_attachment_file_patterns], context: "#{context}[:include_attachment_file_patterns]") unless input[:include_attachment_file_patterns].nil?
+        DataSourceInclusionsExclusionsStrings.validate!(input[:exclude_attachment_file_patterns], context: "#{context}[:exclude_attachment_file_patterns]") unless input[:exclude_attachment_file_patterns].nil?
         Hearth::Validator.validate!(input[:document_data_field_name], ::String, context: "#{context}[:document_data_field_name]")
         Hearth::Validator.validate!(input[:document_title_field_name], ::String, context: "#{context}[:document_title_field_name]")
-        Validators::DataSourceToIndexFieldMappingList.validate!(input[:field_mappings], context: "#{context}[:field_mappings]") unless input[:field_mappings].nil?
+        DataSourceToIndexFieldMappingList.validate!(input[:field_mappings], context: "#{context}[:field_mappings]") unless input[:field_mappings].nil?
         Hearth::Validator.validate!(input[:filter_query], ::String, context: "#{context}[:filter_query]")
       end
     end
@@ -2629,11 +2631,11 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ServiceNowServiceCatalogConfiguration, context: context)
         Hearth::Validator.validate!(input[:crawl_attachments], ::TrueClass, ::FalseClass, context: "#{context}[:crawl_attachments]")
-        Validators::DataSourceInclusionsExclusionsStrings.validate!(input[:include_attachment_file_patterns], context: "#{context}[:include_attachment_file_patterns]") unless input[:include_attachment_file_patterns].nil?
-        Validators::DataSourceInclusionsExclusionsStrings.validate!(input[:exclude_attachment_file_patterns], context: "#{context}[:exclude_attachment_file_patterns]") unless input[:exclude_attachment_file_patterns].nil?
+        DataSourceInclusionsExclusionsStrings.validate!(input[:include_attachment_file_patterns], context: "#{context}[:include_attachment_file_patterns]") unless input[:include_attachment_file_patterns].nil?
+        DataSourceInclusionsExclusionsStrings.validate!(input[:exclude_attachment_file_patterns], context: "#{context}[:exclude_attachment_file_patterns]") unless input[:exclude_attachment_file_patterns].nil?
         Hearth::Validator.validate!(input[:document_data_field_name], ::String, context: "#{context}[:document_data_field_name]")
         Hearth::Validator.validate!(input[:document_title_field_name], ::String, context: "#{context}[:document_title_field_name]")
-        Validators::DataSourceToIndexFieldMappingList.validate!(input[:field_mappings], context: "#{context}[:field_mappings]") unless input[:field_mappings].nil?
+        DataSourceToIndexFieldMappingList.validate!(input[:field_mappings], context: "#{context}[:field_mappings]") unless input[:field_mappings].nil?
       end
     end
 
@@ -2648,17 +2650,17 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SharePointConfiguration, context: context)
         Hearth::Validator.validate!(input[:share_point_version], ::String, context: "#{context}[:share_point_version]")
-        Validators::SharePointUrlList.validate!(input[:urls], context: "#{context}[:urls]") unless input[:urls].nil?
+        SharePointUrlList.validate!(input[:urls], context: "#{context}[:urls]") unless input[:urls].nil?
         Hearth::Validator.validate!(input[:secret_arn], ::String, context: "#{context}[:secret_arn]")
         Hearth::Validator.validate!(input[:crawl_attachments], ::TrueClass, ::FalseClass, context: "#{context}[:crawl_attachments]")
         Hearth::Validator.validate!(input[:use_change_log], ::TrueClass, ::FalseClass, context: "#{context}[:use_change_log]")
-        Validators::DataSourceInclusionsExclusionsStrings.validate!(input[:inclusion_patterns], context: "#{context}[:inclusion_patterns]") unless input[:inclusion_patterns].nil?
-        Validators::DataSourceInclusionsExclusionsStrings.validate!(input[:exclusion_patterns], context: "#{context}[:exclusion_patterns]") unless input[:exclusion_patterns].nil?
-        Validators::DataSourceVpcConfiguration.validate!(input[:vpc_configuration], context: "#{context}[:vpc_configuration]") unless input[:vpc_configuration].nil?
-        Validators::DataSourceToIndexFieldMappingList.validate!(input[:field_mappings], context: "#{context}[:field_mappings]") unless input[:field_mappings].nil?
+        DataSourceInclusionsExclusionsStrings.validate!(input[:inclusion_patterns], context: "#{context}[:inclusion_patterns]") unless input[:inclusion_patterns].nil?
+        DataSourceInclusionsExclusionsStrings.validate!(input[:exclusion_patterns], context: "#{context}[:exclusion_patterns]") unless input[:exclusion_patterns].nil?
+        DataSourceVpcConfiguration.validate!(input[:vpc_configuration], context: "#{context}[:vpc_configuration]") unless input[:vpc_configuration].nil?
+        DataSourceToIndexFieldMappingList.validate!(input[:field_mappings], context: "#{context}[:field_mappings]") unless input[:field_mappings].nil?
         Hearth::Validator.validate!(input[:document_title_field_name], ::String, context: "#{context}[:document_title_field_name]")
         Hearth::Validator.validate!(input[:disable_local_groups], ::TrueClass, ::FalseClass, context: "#{context}[:disable_local_groups]")
-        Validators::S3Path.validate!(input[:ssl_certificate_s3_path], context: "#{context}[:ssl_certificate_s3_path]") unless input[:ssl_certificate_s3_path].nil?
+        S3Path.validate!(input[:ssl_certificate_s3_path], context: "#{context}[:ssl_certificate_s3_path]") unless input[:ssl_certificate_s3_path].nil?
       end
     end
 
@@ -2674,7 +2676,7 @@ module AWS::SDK::Kendra
     class SiteMapsConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SiteMapsConfiguration, context: context)
-        Validators::SiteMapsList.validate!(input[:site_maps], context: "#{context}[:site_maps]") unless input[:site_maps].nil?
+        SiteMapsList.validate!(input[:site_maps], context: "#{context}[:site_maps]") unless input[:site_maps].nil?
       end
     end
 
@@ -2692,18 +2694,18 @@ module AWS::SDK::Kendra
         Hearth::Validator.validate!(input, Types::SlackConfiguration, context: context)
         Hearth::Validator.validate!(input[:team_id], ::String, context: "#{context}[:team_id]")
         Hearth::Validator.validate!(input[:secret_arn], ::String, context: "#{context}[:secret_arn]")
-        Validators::DataSourceVpcConfiguration.validate!(input[:vpc_configuration], context: "#{context}[:vpc_configuration]") unless input[:vpc_configuration].nil?
-        Validators::SlackEntityList.validate!(input[:slack_entity_list], context: "#{context}[:slack_entity_list]") unless input[:slack_entity_list].nil?
+        DataSourceVpcConfiguration.validate!(input[:vpc_configuration], context: "#{context}[:vpc_configuration]") unless input[:vpc_configuration].nil?
+        SlackEntityList.validate!(input[:slack_entity_list], context: "#{context}[:slack_entity_list]") unless input[:slack_entity_list].nil?
         Hearth::Validator.validate!(input[:use_change_log], ::TrueClass, ::FalseClass, context: "#{context}[:use_change_log]")
         Hearth::Validator.validate!(input[:crawl_bot_message], ::TrueClass, ::FalseClass, context: "#{context}[:crawl_bot_message]")
         Hearth::Validator.validate!(input[:exclude_archived], ::TrueClass, ::FalseClass, context: "#{context}[:exclude_archived]")
         Hearth::Validator.validate!(input[:since_crawl_date], ::String, context: "#{context}[:since_crawl_date]")
         Hearth::Validator.validate!(input[:look_back_period], ::Integer, context: "#{context}[:look_back_period]")
-        Validators::PrivateChannelFilter.validate!(input[:private_channel_filter], context: "#{context}[:private_channel_filter]") unless input[:private_channel_filter].nil?
-        Validators::PublicChannelFilter.validate!(input[:public_channel_filter], context: "#{context}[:public_channel_filter]") unless input[:public_channel_filter].nil?
-        Validators::DataSourceInclusionsExclusionsStrings.validate!(input[:inclusion_patterns], context: "#{context}[:inclusion_patterns]") unless input[:inclusion_patterns].nil?
-        Validators::DataSourceInclusionsExclusionsStrings.validate!(input[:exclusion_patterns], context: "#{context}[:exclusion_patterns]") unless input[:exclusion_patterns].nil?
-        Validators::DataSourceToIndexFieldMappingList.validate!(input[:field_mappings], context: "#{context}[:field_mappings]") unless input[:field_mappings].nil?
+        PrivateChannelFilter.validate!(input[:private_channel_filter], context: "#{context}[:private_channel_filter]") unless input[:private_channel_filter].nil?
+        PublicChannelFilter.validate!(input[:public_channel_filter], context: "#{context}[:public_channel_filter]") unless input[:public_channel_filter].nil?
+        DataSourceInclusionsExclusionsStrings.validate!(input[:inclusion_patterns], context: "#{context}[:inclusion_patterns]") unless input[:inclusion_patterns].nil?
+        DataSourceInclusionsExclusionsStrings.validate!(input[:exclusion_patterns], context: "#{context}[:exclusion_patterns]") unless input[:exclusion_patterns].nil?
+        DataSourceToIndexFieldMappingList.validate!(input[:field_mappings], context: "#{context}[:field_mappings]") unless input[:field_mappings].nil?
       end
     end
 
@@ -2738,7 +2740,7 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SnapshotsDataRecord.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SnapshotsDataRecord.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2755,7 +2757,7 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SpellCorrectedQuery, context: context)
         Hearth::Validator.validate!(input[:suggested_query_text], ::String, context: "#{context}[:suggested_query_text]")
-        Validators::CorrectionList.validate!(input[:corrections], context: "#{context}[:corrections]") unless input[:corrections].nil?
+        CorrectionList.validate!(input[:corrections], context: "#{context}[:corrections]") unless input[:corrections].nil?
       end
     end
 
@@ -2763,7 +2765,7 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SpellCorrectedQuery.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SpellCorrectedQuery.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2835,8 +2837,8 @@ module AWS::SDK::Kendra
         Hearth::Validator.validate!(input, Types::SubmitFeedbackInput, context: context)
         Hearth::Validator.validate!(input[:index_id], ::String, context: "#{context}[:index_id]")
         Hearth::Validator.validate!(input[:query_id], ::String, context: "#{context}[:query_id]")
-        Validators::ClickFeedbackList.validate!(input[:click_feedback_items], context: "#{context}[:click_feedback_items]") unless input[:click_feedback_items].nil?
-        Validators::RelevanceFeedbackList.validate!(input[:relevance_feedback_items], context: "#{context}[:relevance_feedback_items]") unless input[:relevance_feedback_items].nil?
+        ClickFeedbackList.validate!(input[:click_feedback_items], context: "#{context}[:click_feedback_items]") unless input[:click_feedback_items].nil?
+        RelevanceFeedbackList.validate!(input[:relevance_feedback_items], context: "#{context}[:relevance_feedback_items]") unless input[:relevance_feedback_items].nil?
       end
     end
 
@@ -2859,7 +2861,7 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Suggestion, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
-        Validators::SuggestionValue.validate!(input[:value], context: "#{context}[:value]") unless input[:value].nil?
+        SuggestionValue.validate!(input[:value], context: "#{context}[:value]") unless input[:value].nil?
       end
     end
 
@@ -2875,7 +2877,7 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SuggestionHighlight.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SuggestionHighlight.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2884,7 +2886,7 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Suggestion.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Suggestion.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2893,14 +2895,14 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SuggestionTextWithHighlights, context: context)
         Hearth::Validator.validate!(input[:text], ::String, context: "#{context}[:text]")
-        Validators::SuggestionHighlightList.validate!(input[:highlights], context: "#{context}[:highlights]") unless input[:highlights].nil?
+        SuggestionHighlightList.validate!(input[:highlights], context: "#{context}[:highlights]") unless input[:highlights].nil?
       end
     end
 
     class SuggestionValue
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SuggestionValue, context: context)
-        Validators::SuggestionTextWithHighlights.validate!(input[:text], context: "#{context}[:text]") unless input[:text].nil?
+        SuggestionTextWithHighlights.validate!(input[:text], context: "#{context}[:text]") unless input[:text].nil?
       end
     end
 
@@ -2925,7 +2927,7 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2934,7 +2936,7 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -2956,7 +2958,7 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TextWithHighlights, context: context)
         Hearth::Validator.validate!(input[:text], ::String, context: "#{context}[:text]")
-        Validators::HighlightList.validate!(input[:highlights], context: "#{context}[:highlights]") unless input[:highlights].nil?
+        HighlightList.validate!(input[:highlights], context: "#{context}[:highlights]") unless input[:highlights].nil?
       end
     end
 
@@ -2975,7 +2977,7 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ThesaurusSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ThesaurusSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2999,7 +3001,7 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -3015,12 +3017,12 @@ module AWS::SDK::Kendra
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:index_id], ::String, context: "#{context}[:index_id]")
-        Validators::DataSourceConfiguration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
+        DataSourceConfiguration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:schedule], ::String, context: "#{context}[:schedule]")
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
         Hearth::Validator.validate!(input[:language_code], ::String, context: "#{context}[:language_code]")
-        Validators::CustomDocumentEnrichmentConfiguration.validate!(input[:custom_document_enrichment_configuration], context: "#{context}[:custom_document_enrichment_configuration]") unless input[:custom_document_enrichment_configuration].nil?
+        CustomDocumentEnrichmentConfiguration.validate!(input[:custom_document_enrichment_configuration], context: "#{context}[:custom_document_enrichment_configuration]") unless input[:custom_document_enrichment_configuration].nil?
       end
     end
 
@@ -3037,7 +3039,7 @@ module AWS::SDK::Kendra
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:index_id], ::String, context: "#{context}[:index_id]")
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
-        Validators::ExperienceConfiguration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
+        ExperienceConfiguration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
       end
     end
@@ -3055,11 +3057,11 @@ module AWS::SDK::Kendra
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::DocumentMetadataConfigurationList.validate!(input[:document_metadata_configuration_updates], context: "#{context}[:document_metadata_configuration_updates]") unless input[:document_metadata_configuration_updates].nil?
-        Validators::CapacityUnitsConfiguration.validate!(input[:capacity_units], context: "#{context}[:capacity_units]") unless input[:capacity_units].nil?
-        Validators::UserTokenConfigurationList.validate!(input[:user_token_configurations], context: "#{context}[:user_token_configurations]") unless input[:user_token_configurations].nil?
+        DocumentMetadataConfigurationList.validate!(input[:document_metadata_configuration_updates], context: "#{context}[:document_metadata_configuration_updates]") unless input[:document_metadata_configuration_updates].nil?
+        CapacityUnitsConfiguration.validate!(input[:capacity_units], context: "#{context}[:capacity_units]") unless input[:capacity_units].nil?
+        UserTokenConfigurationList.validate!(input[:user_token_configurations], context: "#{context}[:user_token_configurations]") unless input[:user_token_configurations].nil?
         Hearth::Validator.validate!(input[:user_context_policy], ::String, context: "#{context}[:user_context_policy]")
-        Validators::UserGroupResolutionConfiguration.validate!(input[:user_group_resolution_configuration], context: "#{context}[:user_group_resolution_configuration]") unless input[:user_group_resolution_configuration].nil?
+        UserGroupResolutionConfiguration.validate!(input[:user_group_resolution_configuration], context: "#{context}[:user_group_resolution_configuration]") unless input[:user_group_resolution_configuration].nil?
       end
     end
 
@@ -3076,7 +3078,7 @@ module AWS::SDK::Kendra
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::S3Path.validate!(input[:source_s3_path], context: "#{context}[:source_s3_path]") unless input[:source_s3_path].nil?
+        S3Path.validate!(input[:source_s3_path], context: "#{context}[:source_s3_path]") unless input[:source_s3_path].nil?
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
       end
     end
@@ -3113,7 +3115,7 @@ module AWS::SDK::Kendra
         Hearth::Validator.validate!(input[:index_id], ::String, context: "#{context}[:index_id]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
-        Validators::S3Path.validate!(input[:source_s3_path], context: "#{context}[:source_s3_path]") unless input[:source_s3_path].nil?
+        S3Path.validate!(input[:source_s3_path], context: "#{context}[:source_s3_path]") unless input[:source_s3_path].nil?
       end
     end
 
@@ -3126,8 +3128,8 @@ module AWS::SDK::Kendra
     class Urls
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Urls, context: context)
-        Validators::SeedUrlConfiguration.validate!(input[:seed_url_configuration], context: "#{context}[:seed_url_configuration]") unless input[:seed_url_configuration].nil?
-        Validators::SiteMapsConfiguration.validate!(input[:site_maps_configuration], context: "#{context}[:site_maps_configuration]") unless input[:site_maps_configuration].nil?
+        SeedUrlConfiguration.validate!(input[:seed_url_configuration], context: "#{context}[:seed_url_configuration]") unless input[:seed_url_configuration].nil?
+        SiteMapsConfiguration.validate!(input[:site_maps_configuration], context: "#{context}[:site_maps_configuration]") unless input[:site_maps_configuration].nil?
       end
     end
 
@@ -3136,8 +3138,8 @@ module AWS::SDK::Kendra
         Hearth::Validator.validate!(input, Types::UserContext, context: context)
         Hearth::Validator.validate!(input[:token], ::String, context: "#{context}[:token]")
         Hearth::Validator.validate!(input[:user_id], ::String, context: "#{context}[:user_id]")
-        Validators::Groups.validate!(input[:groups], context: "#{context}[:groups]") unless input[:groups].nil?
-        Validators::DataSourceGroups.validate!(input[:data_source_groups], context: "#{context}[:data_source_groups]") unless input[:data_source_groups].nil?
+        Groups.validate!(input[:groups], context: "#{context}[:groups]") unless input[:groups].nil?
+        DataSourceGroups.validate!(input[:data_source_groups], context: "#{context}[:data_source_groups]") unless input[:data_source_groups].nil?
       end
     end
 
@@ -3158,8 +3160,8 @@ module AWS::SDK::Kendra
     class UserTokenConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UserTokenConfiguration, context: context)
-        Validators::JwtTokenTypeConfiguration.validate!(input[:jwt_token_type_configuration], context: "#{context}[:jwt_token_type_configuration]") unless input[:jwt_token_type_configuration].nil?
-        Validators::JsonTokenTypeConfiguration.validate!(input[:json_token_type_configuration], context: "#{context}[:json_token_type_configuration]") unless input[:json_token_type_configuration].nil?
+        JwtTokenTypeConfiguration.validate!(input[:jwt_token_type_configuration], context: "#{context}[:jwt_token_type_configuration]") unless input[:jwt_token_type_configuration].nil?
+        JsonTokenTypeConfiguration.validate!(input[:json_token_type_configuration], context: "#{context}[:json_token_type_configuration]") unless input[:json_token_type_configuration].nil?
       end
     end
 
@@ -3167,7 +3169,7 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::UserTokenConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          UserTokenConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3201,7 +3203,7 @@ module AWS::SDK::Kendra
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Warning.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Warning.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3209,15 +3211,15 @@ module AWS::SDK::Kendra
     class WebCrawlerConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::WebCrawlerConfiguration, context: context)
-        Validators::Urls.validate!(input[:urls], context: "#{context}[:urls]") unless input[:urls].nil?
+        Urls.validate!(input[:urls], context: "#{context}[:urls]") unless input[:urls].nil?
         Hearth::Validator.validate!(input[:crawl_depth], ::Integer, context: "#{context}[:crawl_depth]")
         Hearth::Validator.validate!(input[:max_links_per_page], ::Integer, context: "#{context}[:max_links_per_page]")
         Hearth::Validator.validate!(input[:max_content_size_per_page_in_mega_bytes], ::Float, context: "#{context}[:max_content_size_per_page_in_mega_bytes]")
         Hearth::Validator.validate!(input[:max_urls_per_minute_crawl_rate], ::Integer, context: "#{context}[:max_urls_per_minute_crawl_rate]")
-        Validators::DataSourceInclusionsExclusionsStrings.validate!(input[:url_inclusion_patterns], context: "#{context}[:url_inclusion_patterns]") unless input[:url_inclusion_patterns].nil?
-        Validators::DataSourceInclusionsExclusionsStrings.validate!(input[:url_exclusion_patterns], context: "#{context}[:url_exclusion_patterns]") unless input[:url_exclusion_patterns].nil?
-        Validators::ProxyConfiguration.validate!(input[:proxy_configuration], context: "#{context}[:proxy_configuration]") unless input[:proxy_configuration].nil?
-        Validators::AuthenticationConfiguration.validate!(input[:authentication_configuration], context: "#{context}[:authentication_configuration]") unless input[:authentication_configuration].nil?
+        DataSourceInclusionsExclusionsStrings.validate!(input[:url_inclusion_patterns], context: "#{context}[:url_inclusion_patterns]") unless input[:url_inclusion_patterns].nil?
+        DataSourceInclusionsExclusionsStrings.validate!(input[:url_exclusion_patterns], context: "#{context}[:url_exclusion_patterns]") unless input[:url_exclusion_patterns].nil?
+        ProxyConfiguration.validate!(input[:proxy_configuration], context: "#{context}[:proxy_configuration]") unless input[:proxy_configuration].nil?
+        AuthenticationConfiguration.validate!(input[:authentication_configuration], context: "#{context}[:authentication_configuration]") unless input[:authentication_configuration].nil?
       end
     end
 
@@ -3227,9 +3229,9 @@ module AWS::SDK::Kendra
         Hearth::Validator.validate!(input[:organization_id], ::String, context: "#{context}[:organization_id]")
         Hearth::Validator.validate!(input[:crawl_comments], ::TrueClass, ::FalseClass, context: "#{context}[:crawl_comments]")
         Hearth::Validator.validate!(input[:use_change_log], ::TrueClass, ::FalseClass, context: "#{context}[:use_change_log]")
-        Validators::DataSourceInclusionsExclusionsStrings.validate!(input[:inclusion_patterns], context: "#{context}[:inclusion_patterns]") unless input[:inclusion_patterns].nil?
-        Validators::DataSourceInclusionsExclusionsStrings.validate!(input[:exclusion_patterns], context: "#{context}[:exclusion_patterns]") unless input[:exclusion_patterns].nil?
-        Validators::DataSourceToIndexFieldMappingList.validate!(input[:field_mappings], context: "#{context}[:field_mappings]") unless input[:field_mappings].nil?
+        DataSourceInclusionsExclusionsStrings.validate!(input[:inclusion_patterns], context: "#{context}[:inclusion_patterns]") unless input[:inclusion_patterns].nil?
+        DataSourceInclusionsExclusionsStrings.validate!(input[:exclusion_patterns], context: "#{context}[:exclusion_patterns]") unless input[:exclusion_patterns].nil?
+        DataSourceToIndexFieldMappingList.validate!(input[:field_mappings], context: "#{context}[:field_mappings]") unless input[:field_mappings].nil?
       end
     end
 

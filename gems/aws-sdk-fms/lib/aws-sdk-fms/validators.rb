@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::FMS
   module Validators
 
@@ -31,7 +33,7 @@ module AWS::SDK::FMS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::App.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          App.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -44,8 +46,8 @@ module AWS::SDK::FMS
         Hearth::Validator.validate!(input[:list_update_token], ::String, context: "#{context}[:list_update_token]")
         Hearth::Validator.validate!(input[:create_time], ::Time, context: "#{context}[:create_time]")
         Hearth::Validator.validate!(input[:last_update_time], ::Time, context: "#{context}[:last_update_time]")
-        Validators::AppsList.validate!(input[:apps_list], context: "#{context}[:apps_list]") unless input[:apps_list].nil?
-        Validators::PreviousAppsList.validate!(input[:previous_apps_list], context: "#{context}[:previous_apps_list]") unless input[:previous_apps_list].nil?
+        AppsList.validate!(input[:apps_list], context: "#{context}[:apps_list]") unless input[:apps_list].nil?
+        PreviousAppsList.validate!(input[:previous_apps_list], context: "#{context}[:previous_apps_list]") unless input[:previous_apps_list].nil?
       end
     end
 
@@ -55,7 +57,7 @@ module AWS::SDK::FMS
         Hearth::Validator.validate!(input[:list_arn], ::String, context: "#{context}[:list_arn]")
         Hearth::Validator.validate!(input[:list_id], ::String, context: "#{context}[:list_id]")
         Hearth::Validator.validate!(input[:list_name], ::String, context: "#{context}[:list_name]")
-        Validators::AppsList.validate!(input[:apps_list], context: "#{context}[:apps_list]") unless input[:apps_list].nil?
+        AppsList.validate!(input[:apps_list], context: "#{context}[:apps_list]") unless input[:apps_list].nil?
       end
     end
 
@@ -63,7 +65,7 @@ module AWS::SDK::FMS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AppsListDataSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AppsListDataSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -99,7 +101,7 @@ module AWS::SDK::FMS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AwsEc2InstanceViolation, context: context)
         Hearth::Validator.validate!(input[:violation_target], ::String, context: "#{context}[:violation_target]")
-        Validators::AwsEc2NetworkInterfaceViolations.validate!(input[:aws_ec2_network_interface_violations], context: "#{context}[:aws_ec2_network_interface_violations]") unless input[:aws_ec2_network_interface_violations].nil?
+        AwsEc2NetworkInterfaceViolations.validate!(input[:aws_ec2_network_interface_violations], context: "#{context}[:aws_ec2_network_interface_violations]") unless input[:aws_ec2_network_interface_violations].nil?
       end
     end
 
@@ -107,7 +109,7 @@ module AWS::SDK::FMS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AwsEc2NetworkInterfaceViolation, context: context)
         Hearth::Validator.validate!(input[:violation_target], ::String, context: "#{context}[:violation_target]")
-        Validators::ResourceIdList.validate!(input[:violating_security_groups], context: "#{context}[:violating_security_groups]") unless input[:violating_security_groups].nil?
+        ResourceIdList.validate!(input[:violating_security_groups], context: "#{context}[:violating_security_groups]") unless input[:violating_security_groups].nil?
       end
     end
 
@@ -115,7 +117,7 @@ module AWS::SDK::FMS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AwsEc2NetworkInterfaceViolation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AwsEc2NetworkInterfaceViolation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -125,8 +127,8 @@ module AWS::SDK::FMS
         Hearth::Validator.validate!(input, Types::AwsVPCSecurityGroupViolation, context: context)
         Hearth::Validator.validate!(input[:violation_target], ::String, context: "#{context}[:violation_target]")
         Hearth::Validator.validate!(input[:violation_target_description], ::String, context: "#{context}[:violation_target_description]")
-        Validators::PartialMatches.validate!(input[:partial_matches], context: "#{context}[:partial_matches]") unless input[:partial_matches].nil?
-        Validators::SecurityGroupRemediationActions.validate!(input[:possible_security_group_remediation_actions], context: "#{context}[:possible_security_group_remediation_actions]") unless input[:possible_security_group_remediation_actions].nil?
+        PartialMatches.validate!(input[:partial_matches], context: "#{context}[:partial_matches]") unless input[:partial_matches].nil?
+        SecurityGroupRemediationActions.validate!(input[:possible_security_group_remediation_actions], context: "#{context}[:possible_security_group_remediation_actions]") unless input[:possible_security_group_remediation_actions].nil?
       end
     end
 
@@ -136,7 +138,7 @@ module AWS::SDK::FMS
         Hearth::Validator.validate!(input[:resource_id], ::String, context: "#{context}[:resource_id]")
         Hearth::Validator.validate!(input[:violation_reason], ::String, context: "#{context}[:violation_reason]")
         Hearth::Validator.validate!(input[:resource_type], ::String, context: "#{context}[:resource_type]")
-        Validators::ComplianceViolatorMetadata.validate!(input[:metadata], context: "#{context}[:metadata]") unless input[:metadata].nil?
+        ComplianceViolatorMetadata.validate!(input[:metadata], context: "#{context}[:metadata]") unless input[:metadata].nil?
       end
     end
 
@@ -154,7 +156,7 @@ module AWS::SDK::FMS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ComplianceViolator.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ComplianceViolator.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -173,7 +175,7 @@ module AWS::SDK::FMS
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::CustomerPolicyScopeIdList.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          CustomerPolicyScopeIdList.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -289,7 +291,7 @@ module AWS::SDK::FMS
         Hearth::Validator.validate!(input[:violation_target_description], ::String, context: "#{context}[:violation_target_description]")
         Hearth::Validator.validate!(input[:conflicting_priority], ::Integer, context: "#{context}[:conflicting_priority]")
         Hearth::Validator.validate!(input[:conflicting_policy_id], ::String, context: "#{context}[:conflicting_policy_id]")
-        Validators::DnsRuleGroupPriorities.validate!(input[:unavailable_priorities], context: "#{context}[:unavailable_priorities]") unless input[:unavailable_priorities].nil?
+        DnsRuleGroupPriorities.validate!(input[:unavailable_priorities], context: "#{context}[:unavailable_priorities]") unless input[:unavailable_priorities].nil?
       end
     end
 
@@ -297,9 +299,9 @@ module AWS::SDK::FMS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::EC2AssociateRouteTableAction, context: context)
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::ActionTarget.validate!(input[:route_table_id], context: "#{context}[:route_table_id]") unless input[:route_table_id].nil?
-        Validators::ActionTarget.validate!(input[:subnet_id], context: "#{context}[:subnet_id]") unless input[:subnet_id].nil?
-        Validators::ActionTarget.validate!(input[:gateway_id], context: "#{context}[:gateway_id]") unless input[:gateway_id].nil?
+        ActionTarget.validate!(input[:route_table_id], context: "#{context}[:route_table_id]") unless input[:route_table_id].nil?
+        ActionTarget.validate!(input[:subnet_id], context: "#{context}[:subnet_id]") unless input[:subnet_id].nil?
+        ActionTarget.validate!(input[:gateway_id], context: "#{context}[:gateway_id]") unless input[:gateway_id].nil?
       end
     end
 
@@ -307,8 +309,8 @@ module AWS::SDK::FMS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::EC2CopyRouteTableAction, context: context)
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::ActionTarget.validate!(input[:vpc_id], context: "#{context}[:vpc_id]") unless input[:vpc_id].nil?
-        Validators::ActionTarget.validate!(input[:route_table_id], context: "#{context}[:route_table_id]") unless input[:route_table_id].nil?
+        ActionTarget.validate!(input[:vpc_id], context: "#{context}[:vpc_id]") unless input[:vpc_id].nil?
+        ActionTarget.validate!(input[:route_table_id], context: "#{context}[:route_table_id]") unless input[:route_table_id].nil?
       end
     end
 
@@ -319,9 +321,9 @@ module AWS::SDK::FMS
         Hearth::Validator.validate!(input[:destination_cidr_block], ::String, context: "#{context}[:destination_cidr_block]")
         Hearth::Validator.validate!(input[:destination_prefix_list_id], ::String, context: "#{context}[:destination_prefix_list_id]")
         Hearth::Validator.validate!(input[:destination_ipv6_cidr_block], ::String, context: "#{context}[:destination_ipv6_cidr_block]")
-        Validators::ActionTarget.validate!(input[:vpc_endpoint_id], context: "#{context}[:vpc_endpoint_id]") unless input[:vpc_endpoint_id].nil?
-        Validators::ActionTarget.validate!(input[:gateway_id], context: "#{context}[:gateway_id]") unless input[:gateway_id].nil?
-        Validators::ActionTarget.validate!(input[:route_table_id], context: "#{context}[:route_table_id]") unless input[:route_table_id].nil?
+        ActionTarget.validate!(input[:vpc_endpoint_id], context: "#{context}[:vpc_endpoint_id]") unless input[:vpc_endpoint_id].nil?
+        ActionTarget.validate!(input[:gateway_id], context: "#{context}[:gateway_id]") unless input[:gateway_id].nil?
+        ActionTarget.validate!(input[:route_table_id], context: "#{context}[:route_table_id]") unless input[:route_table_id].nil?
       end
     end
 
@@ -329,7 +331,7 @@ module AWS::SDK::FMS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::EC2CreateRouteTableAction, context: context)
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::ActionTarget.validate!(input[:vpc_id], context: "#{context}[:vpc_id]") unless input[:vpc_id].nil?
+        ActionTarget.validate!(input[:vpc_id], context: "#{context}[:vpc_id]") unless input[:vpc_id].nil?
       end
     end
 
@@ -340,7 +342,7 @@ module AWS::SDK::FMS
         Hearth::Validator.validate!(input[:destination_cidr_block], ::String, context: "#{context}[:destination_cidr_block]")
         Hearth::Validator.validate!(input[:destination_prefix_list_id], ::String, context: "#{context}[:destination_prefix_list_id]")
         Hearth::Validator.validate!(input[:destination_ipv6_cidr_block], ::String, context: "#{context}[:destination_ipv6_cidr_block]")
-        Validators::ActionTarget.validate!(input[:route_table_id], context: "#{context}[:route_table_id]") unless input[:route_table_id].nil?
+        ActionTarget.validate!(input[:route_table_id], context: "#{context}[:route_table_id]") unless input[:route_table_id].nil?
       end
     end
 
@@ -351,8 +353,8 @@ module AWS::SDK::FMS
         Hearth::Validator.validate!(input[:destination_cidr_block], ::String, context: "#{context}[:destination_cidr_block]")
         Hearth::Validator.validate!(input[:destination_prefix_list_id], ::String, context: "#{context}[:destination_prefix_list_id]")
         Hearth::Validator.validate!(input[:destination_ipv6_cidr_block], ::String, context: "#{context}[:destination_ipv6_cidr_block]")
-        Validators::ActionTarget.validate!(input[:gateway_id], context: "#{context}[:gateway_id]") unless input[:gateway_id].nil?
-        Validators::ActionTarget.validate!(input[:route_table_id], context: "#{context}[:route_table_id]") unless input[:route_table_id].nil?
+        ActionTarget.validate!(input[:gateway_id], context: "#{context}[:gateway_id]") unless input[:gateway_id].nil?
+        ActionTarget.validate!(input[:route_table_id], context: "#{context}[:route_table_id]") unless input[:route_table_id].nil?
       end
     end
 
@@ -360,8 +362,8 @@ module AWS::SDK::FMS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::EC2ReplaceRouteTableAssociationAction, context: context)
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::ActionTarget.validate!(input[:association_id], context: "#{context}[:association_id]") unless input[:association_id].nil?
-        Validators::ActionTarget.validate!(input[:route_table_id], context: "#{context}[:route_table_id]") unless input[:route_table_id].nil?
+        ActionTarget.validate!(input[:association_id], context: "#{context}[:association_id]") unless input[:association_id].nil?
+        ActionTarget.validate!(input[:route_table_id], context: "#{context}[:route_table_id]") unless input[:route_table_id].nil?
       end
     end
 
@@ -378,7 +380,7 @@ module AWS::SDK::FMS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EvaluationResult.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EvaluationResult.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -389,8 +391,8 @@ module AWS::SDK::FMS
         Hearth::Validator.validate!(input[:ip_v4_cidr], ::String, context: "#{context}[:ip_v4_cidr]")
         Hearth::Validator.validate!(input[:prefix_list_id], ::String, context: "#{context}[:prefix_list_id]")
         Hearth::Validator.validate!(input[:ip_v6_cidr], ::String, context: "#{context}[:ip_v6_cidr]")
-        Validators::ResourceIdList.validate!(input[:contributing_subnets], context: "#{context}[:contributing_subnets]") unless input[:contributing_subnets].nil?
-        Validators::LengthBoundedStringList.validate!(input[:allowed_targets], context: "#{context}[:allowed_targets]") unless input[:allowed_targets].nil?
+        ResourceIdList.validate!(input[:contributing_subnets], context: "#{context}[:contributing_subnets]") unless input[:contributing_subnets].nil?
+        LengthBoundedStringList.validate!(input[:allowed_targets], context: "#{context}[:allowed_targets]") unless input[:allowed_targets].nil?
         Hearth::Validator.validate!(input[:route_table_id], ::String, context: "#{context}[:route_table_id]")
       end
     end
@@ -399,7 +401,7 @@ module AWS::SDK::FMS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ExpectedRoute.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ExpectedRoute.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -458,7 +460,7 @@ module AWS::SDK::FMS
     class GetAppsListOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetAppsListOutput, context: context)
-        Validators::AppsListData.validate!(input[:apps_list], context: "#{context}[:apps_list]") unless input[:apps_list].nil?
+        AppsListData.validate!(input[:apps_list], context: "#{context}[:apps_list]") unless input[:apps_list].nil?
         Hearth::Validator.validate!(input[:apps_list_arn], ::String, context: "#{context}[:apps_list_arn]")
       end
     end
@@ -474,7 +476,7 @@ module AWS::SDK::FMS
     class GetComplianceDetailOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetComplianceDetailOutput, context: context)
-        Validators::PolicyComplianceDetail.validate!(input[:policy_compliance_detail], context: "#{context}[:policy_compliance_detail]") unless input[:policy_compliance_detail].nil?
+        PolicyComplianceDetail.validate!(input[:policy_compliance_detail], context: "#{context}[:policy_compliance_detail]") unless input[:policy_compliance_detail].nil?
       end
     end
 
@@ -502,7 +504,7 @@ module AWS::SDK::FMS
     class GetPolicyOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetPolicyOutput, context: context)
-        Validators::Policy.validate!(input[:policy], context: "#{context}[:policy]") unless input[:policy].nil?
+        Policy.validate!(input[:policy], context: "#{context}[:policy]") unless input[:policy].nil?
         Hearth::Validator.validate!(input[:policy_arn], ::String, context: "#{context}[:policy_arn]")
       end
     end
@@ -540,7 +542,7 @@ module AWS::SDK::FMS
     class GetProtocolsListOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetProtocolsListOutput, context: context)
-        Validators::ProtocolsListData.validate!(input[:protocols_list], context: "#{context}[:protocols_list]") unless input[:protocols_list].nil?
+        ProtocolsListData.validate!(input[:protocols_list], context: "#{context}[:protocols_list]") unless input[:protocols_list].nil?
         Hearth::Validator.validate!(input[:protocols_list_arn], ::String, context: "#{context}[:protocols_list_arn]")
       end
     end
@@ -573,7 +575,7 @@ module AWS::SDK::FMS
     class GetViolationDetailsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetViolationDetailsOutput, context: context)
-        Validators::ViolationDetail.validate!(input[:violation_detail], context: "#{context}[:violation_detail]") unless input[:violation_detail].nil?
+        ViolationDetail.validate!(input[:violation_detail], context: "#{context}[:violation_detail]") unless input[:violation_detail].nil?
       end
     end
 
@@ -643,7 +645,7 @@ module AWS::SDK::FMS
     class ListAppsListsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAppsListsOutput, context: context)
-        Validators::AppsListsData.validate!(input[:apps_lists], context: "#{context}[:apps_lists]") unless input[:apps_lists].nil?
+        AppsListsData.validate!(input[:apps_lists], context: "#{context}[:apps_lists]") unless input[:apps_lists].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -660,7 +662,7 @@ module AWS::SDK::FMS
     class ListComplianceStatusOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListComplianceStatusOutput, context: context)
-        Validators::PolicyComplianceStatusList.validate!(input[:policy_compliance_status_list], context: "#{context}[:policy_compliance_status_list]") unless input[:policy_compliance_status_list].nil?
+        PolicyComplianceStatusList.validate!(input[:policy_compliance_status_list], context: "#{context}[:policy_compliance_status_list]") unless input[:policy_compliance_status_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -676,7 +678,7 @@ module AWS::SDK::FMS
     class ListMemberAccountsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListMemberAccountsOutput, context: context)
-        Validators::MemberAccounts.validate!(input[:member_accounts], context: "#{context}[:member_accounts]") unless input[:member_accounts].nil?
+        MemberAccounts.validate!(input[:member_accounts], context: "#{context}[:member_accounts]") unless input[:member_accounts].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -692,7 +694,7 @@ module AWS::SDK::FMS
     class ListPoliciesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListPoliciesOutput, context: context)
-        Validators::PolicySummaryList.validate!(input[:policy_list], context: "#{context}[:policy_list]") unless input[:policy_list].nil?
+        PolicySummaryList.validate!(input[:policy_list], context: "#{context}[:policy_list]") unless input[:policy_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -709,7 +711,7 @@ module AWS::SDK::FMS
     class ListProtocolsListsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListProtocolsListsOutput, context: context)
-        Validators::ProtocolsListsData.validate!(input[:protocols_lists], context: "#{context}[:protocols_lists]") unless input[:protocols_lists].nil?
+        ProtocolsListsData.validate!(input[:protocols_lists], context: "#{context}[:protocols_lists]") unless input[:protocols_lists].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -724,7 +726,7 @@ module AWS::SDK::FMS
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagList.validate!(input[:tag_list], context: "#{context}[:tag_list]") unless input[:tag_list].nil?
+        TagList.validate!(input[:tag_list], context: "#{context}[:tag_list]") unless input[:tag_list].nil?
       end
     end
 
@@ -740,7 +742,7 @@ module AWS::SDK::FMS
     class ListThirdPartyFirewallFirewallPoliciesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListThirdPartyFirewallFirewallPoliciesOutput, context: context)
-        Validators::ThirdPartyFirewallFirewallPolicies.validate!(input[:third_party_firewall_firewall_policies], context: "#{context}[:third_party_firewall_firewall_policies]") unless input[:third_party_firewall_firewall_policies].nil?
+        ThirdPartyFirewallFirewallPolicies.validate!(input[:third_party_firewall_firewall_policies], context: "#{context}[:third_party_firewall_firewall_policies]") unless input[:third_party_firewall_firewall_policies].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -769,7 +771,7 @@ module AWS::SDK::FMS
         Hearth::Validator.validate!(input[:violation_target], ::String, context: "#{context}[:violation_target]")
         Hearth::Validator.validate!(input[:route_table_id], ::String, context: "#{context}[:route_table_id]")
         Hearth::Validator.validate!(input[:vpc_id], ::String, context: "#{context}[:vpc_id]")
-        Validators::Routes.validate!(input[:violating_routes], context: "#{context}[:violating_routes]") unless input[:violating_routes].nil?
+        Routes.validate!(input[:violating_routes], context: "#{context}[:violating_routes]") unless input[:violating_routes].nil?
       end
     end
 
@@ -779,17 +781,17 @@ module AWS::SDK::FMS
         Hearth::Validator.validate!(input[:subnet_id], ::String, context: "#{context}[:subnet_id]")
         Hearth::Validator.validate!(input[:subnet_availability_zone], ::String, context: "#{context}[:subnet_availability_zone]")
         Hearth::Validator.validate!(input[:route_table_id], ::String, context: "#{context}[:route_table_id]")
-        Validators::Routes.validate!(input[:violating_routes], context: "#{context}[:violating_routes]") unless input[:violating_routes].nil?
+        Routes.validate!(input[:violating_routes], context: "#{context}[:violating_routes]") unless input[:violating_routes].nil?
         Hearth::Validator.validate!(input[:is_route_table_used_in_different_az], ::TrueClass, ::FalseClass, context: "#{context}[:is_route_table_used_in_different_az]")
         Hearth::Validator.validate!(input[:current_firewall_subnet_route_table], ::String, context: "#{context}[:current_firewall_subnet_route_table]")
         Hearth::Validator.validate!(input[:expected_firewall_endpoint], ::String, context: "#{context}[:expected_firewall_endpoint]")
         Hearth::Validator.validate!(input[:firewall_subnet_id], ::String, context: "#{context}[:firewall_subnet_id]")
-        Validators::ExpectedRoutes.validate!(input[:expected_firewall_subnet_routes], context: "#{context}[:expected_firewall_subnet_routes]") unless input[:expected_firewall_subnet_routes].nil?
-        Validators::Routes.validate!(input[:actual_firewall_subnet_routes], context: "#{context}[:actual_firewall_subnet_routes]") unless input[:actual_firewall_subnet_routes].nil?
+        ExpectedRoutes.validate!(input[:expected_firewall_subnet_routes], context: "#{context}[:expected_firewall_subnet_routes]") unless input[:expected_firewall_subnet_routes].nil?
+        Routes.validate!(input[:actual_firewall_subnet_routes], context: "#{context}[:actual_firewall_subnet_routes]") unless input[:actual_firewall_subnet_routes].nil?
         Hearth::Validator.validate!(input[:internet_gateway_id], ::String, context: "#{context}[:internet_gateway_id]")
         Hearth::Validator.validate!(input[:current_internet_gateway_route_table], ::String, context: "#{context}[:current_internet_gateway_route_table]")
-        Validators::ExpectedRoutes.validate!(input[:expected_internet_gateway_routes], context: "#{context}[:expected_internet_gateway_routes]") unless input[:expected_internet_gateway_routes].nil?
-        Validators::Routes.validate!(input[:actual_internet_gateway_routes], context: "#{context}[:actual_internet_gateway_routes]") unless input[:actual_internet_gateway_routes].nil?
+        ExpectedRoutes.validate!(input[:expected_internet_gateway_routes], context: "#{context}[:expected_internet_gateway_routes]") unless input[:expected_internet_gateway_routes].nil?
+        Routes.validate!(input[:actual_internet_gateway_routes], context: "#{context}[:actual_internet_gateway_routes]") unless input[:actual_internet_gateway_routes].nil?
         Hearth::Validator.validate!(input[:vpc_id], ::String, context: "#{context}[:vpc_id]")
       end
     end
@@ -797,21 +799,21 @@ module AWS::SDK::FMS
     class NetworkFirewallInvalidRouteConfigurationViolation
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::NetworkFirewallInvalidRouteConfigurationViolation, context: context)
-        Validators::ResourceIdList.validate!(input[:affected_subnets], context: "#{context}[:affected_subnets]") unless input[:affected_subnets].nil?
+        ResourceIdList.validate!(input[:affected_subnets], context: "#{context}[:affected_subnets]") unless input[:affected_subnets].nil?
         Hearth::Validator.validate!(input[:route_table_id], ::String, context: "#{context}[:route_table_id]")
         Hearth::Validator.validate!(input[:is_route_table_used_in_different_az], ::TrueClass, ::FalseClass, context: "#{context}[:is_route_table_used_in_different_az]")
-        Validators::Route.validate!(input[:violating_route], context: "#{context}[:violating_route]") unless input[:violating_route].nil?
+        Route.validate!(input[:violating_route], context: "#{context}[:violating_route]") unless input[:violating_route].nil?
         Hearth::Validator.validate!(input[:current_firewall_subnet_route_table], ::String, context: "#{context}[:current_firewall_subnet_route_table]")
         Hearth::Validator.validate!(input[:expected_firewall_endpoint], ::String, context: "#{context}[:expected_firewall_endpoint]")
         Hearth::Validator.validate!(input[:actual_firewall_endpoint], ::String, context: "#{context}[:actual_firewall_endpoint]")
         Hearth::Validator.validate!(input[:expected_firewall_subnet_id], ::String, context: "#{context}[:expected_firewall_subnet_id]")
         Hearth::Validator.validate!(input[:actual_firewall_subnet_id], ::String, context: "#{context}[:actual_firewall_subnet_id]")
-        Validators::ExpectedRoutes.validate!(input[:expected_firewall_subnet_routes], context: "#{context}[:expected_firewall_subnet_routes]") unless input[:expected_firewall_subnet_routes].nil?
-        Validators::Routes.validate!(input[:actual_firewall_subnet_routes], context: "#{context}[:actual_firewall_subnet_routes]") unless input[:actual_firewall_subnet_routes].nil?
+        ExpectedRoutes.validate!(input[:expected_firewall_subnet_routes], context: "#{context}[:expected_firewall_subnet_routes]") unless input[:expected_firewall_subnet_routes].nil?
+        Routes.validate!(input[:actual_firewall_subnet_routes], context: "#{context}[:actual_firewall_subnet_routes]") unless input[:actual_firewall_subnet_routes].nil?
         Hearth::Validator.validate!(input[:internet_gateway_id], ::String, context: "#{context}[:internet_gateway_id]")
         Hearth::Validator.validate!(input[:current_internet_gateway_route_table], ::String, context: "#{context}[:current_internet_gateway_route_table]")
-        Validators::ExpectedRoutes.validate!(input[:expected_internet_gateway_routes], context: "#{context}[:expected_internet_gateway_routes]") unless input[:expected_internet_gateway_routes].nil?
-        Validators::Routes.validate!(input[:actual_internet_gateway_routes], context: "#{context}[:actual_internet_gateway_routes]") unless input[:actual_internet_gateway_routes].nil?
+        ExpectedRoutes.validate!(input[:expected_internet_gateway_routes], context: "#{context}[:expected_internet_gateway_routes]") unless input[:expected_internet_gateway_routes].nil?
+        Routes.validate!(input[:actual_internet_gateway_routes], context: "#{context}[:actual_internet_gateway_routes]") unless input[:actual_internet_gateway_routes].nil?
         Hearth::Validator.validate!(input[:vpc_id], ::String, context: "#{context}[:vpc_id]")
       end
     end
@@ -831,7 +833,7 @@ module AWS::SDK::FMS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::NetworkFirewallMissingExpectedRoutesViolation, context: context)
         Hearth::Validator.validate!(input[:violation_target], ::String, context: "#{context}[:violation_target]")
-        Validators::ExpectedRoutes.validate!(input[:expected_routes], context: "#{context}[:expected_routes]") unless input[:expected_routes].nil?
+        ExpectedRoutes.validate!(input[:expected_routes], context: "#{context}[:expected_routes]") unless input[:expected_routes].nil?
         Hearth::Validator.validate!(input[:vpc_id], ::String, context: "#{context}[:vpc_id]")
       end
     end
@@ -866,11 +868,11 @@ module AWS::SDK::FMS
     class NetworkFirewallPolicyDescription
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::NetworkFirewallPolicyDescription, context: context)
-        Validators::StatelessRuleGroupList.validate!(input[:stateless_rule_groups], context: "#{context}[:stateless_rule_groups]") unless input[:stateless_rule_groups].nil?
-        Validators::NetworkFirewallActionList.validate!(input[:stateless_default_actions], context: "#{context}[:stateless_default_actions]") unless input[:stateless_default_actions].nil?
-        Validators::NetworkFirewallActionList.validate!(input[:stateless_fragment_default_actions], context: "#{context}[:stateless_fragment_default_actions]") unless input[:stateless_fragment_default_actions].nil?
-        Validators::NetworkFirewallActionList.validate!(input[:stateless_custom_actions], context: "#{context}[:stateless_custom_actions]") unless input[:stateless_custom_actions].nil?
-        Validators::StatefulRuleGroupList.validate!(input[:stateful_rule_groups], context: "#{context}[:stateful_rule_groups]") unless input[:stateful_rule_groups].nil?
+        StatelessRuleGroupList.validate!(input[:stateless_rule_groups], context: "#{context}[:stateless_rule_groups]") unless input[:stateless_rule_groups].nil?
+        NetworkFirewallActionList.validate!(input[:stateless_default_actions], context: "#{context}[:stateless_default_actions]") unless input[:stateless_default_actions].nil?
+        NetworkFirewallActionList.validate!(input[:stateless_fragment_default_actions], context: "#{context}[:stateless_fragment_default_actions]") unless input[:stateless_fragment_default_actions].nil?
+        NetworkFirewallActionList.validate!(input[:stateless_custom_actions], context: "#{context}[:stateless_custom_actions]") unless input[:stateless_custom_actions].nil?
+        StatefulRuleGroupList.validate!(input[:stateful_rule_groups], context: "#{context}[:stateful_rule_groups]") unless input[:stateful_rule_groups].nil?
       end
     end
 
@@ -878,8 +880,8 @@ module AWS::SDK::FMS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::NetworkFirewallPolicyModifiedViolation, context: context)
         Hearth::Validator.validate!(input[:violation_target], ::String, context: "#{context}[:violation_target]")
-        Validators::NetworkFirewallPolicyDescription.validate!(input[:current_policy_description], context: "#{context}[:current_policy_description]") unless input[:current_policy_description].nil?
-        Validators::NetworkFirewallPolicyDescription.validate!(input[:expected_policy_description], context: "#{context}[:expected_policy_description]") unless input[:expected_policy_description].nil?
+        NetworkFirewallPolicyDescription.validate!(input[:current_policy_description], context: "#{context}[:current_policy_description]") unless input[:current_policy_description].nil?
+        NetworkFirewallPolicyDescription.validate!(input[:expected_policy_description], context: "#{context}[:expected_policy_description]") unless input[:expected_policy_description].nil?
       end
     end
 
@@ -887,7 +889,7 @@ module AWS::SDK::FMS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::NetworkFirewallUnexpectedFirewallRoutesViolation, context: context)
         Hearth::Validator.validate!(input[:firewall_subnet_id], ::String, context: "#{context}[:firewall_subnet_id]")
-        Validators::Routes.validate!(input[:violating_routes], context: "#{context}[:violating_routes]") unless input[:violating_routes].nil?
+        Routes.validate!(input[:violating_routes], context: "#{context}[:violating_routes]") unless input[:violating_routes].nil?
         Hearth::Validator.validate!(input[:route_table_id], ::String, context: "#{context}[:route_table_id]")
         Hearth::Validator.validate!(input[:firewall_endpoint], ::String, context: "#{context}[:firewall_endpoint]")
         Hearth::Validator.validate!(input[:vpc_id], ::String, context: "#{context}[:vpc_id]")
@@ -898,7 +900,7 @@ module AWS::SDK::FMS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::NetworkFirewallUnexpectedGatewayRoutesViolation, context: context)
         Hearth::Validator.validate!(input[:gateway_id], ::String, context: "#{context}[:gateway_id]")
-        Validators::Routes.validate!(input[:violating_routes], context: "#{context}[:violating_routes]") unless input[:violating_routes].nil?
+        Routes.validate!(input[:violating_routes], context: "#{context}[:violating_routes]") unless input[:violating_routes].nil?
         Hearth::Validator.validate!(input[:route_table_id], ::String, context: "#{context}[:route_table_id]")
         Hearth::Validator.validate!(input[:vpc_id], ::String, context: "#{context}[:vpc_id]")
       end
@@ -908,7 +910,7 @@ module AWS::SDK::FMS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RemediationActionWithOrder.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RemediationActionWithOrder.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -917,7 +919,7 @@ module AWS::SDK::FMS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PartialMatch, context: context)
         Hearth::Validator.validate!(input[:reference], ::String, context: "#{context}[:reference]")
-        Validators::TargetViolationReasons.validate!(input[:target_violation_reasons], context: "#{context}[:target_violation_reasons]") unless input[:target_violation_reasons].nil?
+        TargetViolationReasons.validate!(input[:target_violation_reasons], context: "#{context}[:target_violation_reasons]") unless input[:target_violation_reasons].nil?
       end
     end
 
@@ -925,7 +927,7 @@ module AWS::SDK::FMS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PartialMatch.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PartialMatch.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -936,15 +938,15 @@ module AWS::SDK::FMS
         Hearth::Validator.validate!(input[:policy_id], ::String, context: "#{context}[:policy_id]")
         Hearth::Validator.validate!(input[:policy_name], ::String, context: "#{context}[:policy_name]")
         Hearth::Validator.validate!(input[:policy_update_token], ::String, context: "#{context}[:policy_update_token]")
-        Validators::SecurityServicePolicyData.validate!(input[:security_service_policy_data], context: "#{context}[:security_service_policy_data]") unless input[:security_service_policy_data].nil?
+        SecurityServicePolicyData.validate!(input[:security_service_policy_data], context: "#{context}[:security_service_policy_data]") unless input[:security_service_policy_data].nil?
         Hearth::Validator.validate!(input[:resource_type], ::String, context: "#{context}[:resource_type]")
-        Validators::ResourceTypeList.validate!(input[:resource_type_list], context: "#{context}[:resource_type_list]") unless input[:resource_type_list].nil?
-        Validators::ResourceTags.validate!(input[:resource_tags], context: "#{context}[:resource_tags]") unless input[:resource_tags].nil?
+        ResourceTypeList.validate!(input[:resource_type_list], context: "#{context}[:resource_type_list]") unless input[:resource_type_list].nil?
+        ResourceTags.validate!(input[:resource_tags], context: "#{context}[:resource_tags]") unless input[:resource_tags].nil?
         Hearth::Validator.validate!(input[:exclude_resource_tags], ::TrueClass, ::FalseClass, context: "#{context}[:exclude_resource_tags]")
         Hearth::Validator.validate!(input[:remediation_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:remediation_enabled]")
         Hearth::Validator.validate!(input[:delete_unused_fm_managed_resources], ::TrueClass, ::FalseClass, context: "#{context}[:delete_unused_fm_managed_resources]")
-        Validators::CustomerPolicyScopeMap.validate!(input[:include_map], context: "#{context}[:include_map]") unless input[:include_map].nil?
-        Validators::CustomerPolicyScopeMap.validate!(input[:exclude_map], context: "#{context}[:exclude_map]") unless input[:exclude_map].nil?
+        CustomerPolicyScopeMap.validate!(input[:include_map], context: "#{context}[:include_map]") unless input[:include_map].nil?
+        CustomerPolicyScopeMap.validate!(input[:exclude_map], context: "#{context}[:exclude_map]") unless input[:exclude_map].nil?
       end
     end
 
@@ -954,10 +956,10 @@ module AWS::SDK::FMS
         Hearth::Validator.validate!(input[:policy_owner], ::String, context: "#{context}[:policy_owner]")
         Hearth::Validator.validate!(input[:policy_id], ::String, context: "#{context}[:policy_id]")
         Hearth::Validator.validate!(input[:member_account], ::String, context: "#{context}[:member_account]")
-        Validators::ComplianceViolators.validate!(input[:violators], context: "#{context}[:violators]") unless input[:violators].nil?
+        ComplianceViolators.validate!(input[:violators], context: "#{context}[:violators]") unless input[:violators].nil?
         Hearth::Validator.validate!(input[:evaluation_limit_exceeded], ::TrueClass, ::FalseClass, context: "#{context}[:evaluation_limit_exceeded]")
         Hearth::Validator.validate!(input[:expired_at], ::Time, context: "#{context}[:expired_at]")
-        Validators::IssueInfoMap.validate!(input[:issue_info_map], context: "#{context}[:issue_info_map]") unless input[:issue_info_map].nil?
+        IssueInfoMap.validate!(input[:issue_info_map], context: "#{context}[:issue_info_map]") unless input[:issue_info_map].nil?
       end
     end
 
@@ -968,9 +970,9 @@ module AWS::SDK::FMS
         Hearth::Validator.validate!(input[:policy_id], ::String, context: "#{context}[:policy_id]")
         Hearth::Validator.validate!(input[:policy_name], ::String, context: "#{context}[:policy_name]")
         Hearth::Validator.validate!(input[:member_account], ::String, context: "#{context}[:member_account]")
-        Validators::EvaluationResults.validate!(input[:evaluation_results], context: "#{context}[:evaluation_results]") unless input[:evaluation_results].nil?
+        EvaluationResults.validate!(input[:evaluation_results], context: "#{context}[:evaluation_results]") unless input[:evaluation_results].nil?
         Hearth::Validator.validate!(input[:last_updated], ::Time, context: "#{context}[:last_updated]")
-        Validators::IssueInfoMap.validate!(input[:issue_info_map], context: "#{context}[:issue_info_map]") unless input[:issue_info_map].nil?
+        IssueInfoMap.validate!(input[:issue_info_map], context: "#{context}[:issue_info_map]") unless input[:issue_info_map].nil?
       end
     end
 
@@ -978,7 +980,7 @@ module AWS::SDK::FMS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PolicyComplianceStatus.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PolicyComplianceStatus.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -986,8 +988,8 @@ module AWS::SDK::FMS
     class PolicyOption
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PolicyOption, context: context)
-        Validators::NetworkFirewallPolicy.validate!(input[:network_firewall_policy], context: "#{context}[:network_firewall_policy]") unless input[:network_firewall_policy].nil?
-        Validators::ThirdPartyFirewallPolicy.validate!(input[:third_party_firewall_policy], context: "#{context}[:third_party_firewall_policy]") unless input[:third_party_firewall_policy].nil?
+        NetworkFirewallPolicy.validate!(input[:network_firewall_policy], context: "#{context}[:network_firewall_policy]") unless input[:network_firewall_policy].nil?
+        ThirdPartyFirewallPolicy.validate!(input[:third_party_firewall_policy], context: "#{context}[:third_party_firewall_policy]") unless input[:third_party_firewall_policy].nil?
       end
     end
 
@@ -1008,7 +1010,7 @@ module AWS::SDK::FMS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PolicySummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PolicySummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1017,7 +1019,7 @@ module AWS::SDK::FMS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PossibleRemediationAction, context: context)
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::OrderedRemediationActions.validate!(input[:ordered_remediation_actions], context: "#{context}[:ordered_remediation_actions]") unless input[:ordered_remediation_actions].nil?
+        OrderedRemediationActions.validate!(input[:ordered_remediation_actions], context: "#{context}[:ordered_remediation_actions]") unless input[:ordered_remediation_actions].nil?
         Hearth::Validator.validate!(input[:is_default_action], ::TrueClass, ::FalseClass, context: "#{context}[:is_default_action]")
       end
     end
@@ -1026,7 +1028,7 @@ module AWS::SDK::FMS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PossibleRemediationAction.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PossibleRemediationAction.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1035,7 +1037,7 @@ module AWS::SDK::FMS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PossibleRemediationActions, context: context)
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::PossibleRemediationActionList.validate!(input[:actions], context: "#{context}[:actions]") unless input[:actions].nil?
+        PossibleRemediationActionList.validate!(input[:actions], context: "#{context}[:actions]") unless input[:actions].nil?
       end
     end
 
@@ -1044,7 +1046,7 @@ module AWS::SDK::FMS
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::AppsList.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          AppsList.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -1054,7 +1056,7 @@ module AWS::SDK::FMS
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::ProtocolsList.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          ProtocolsList.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -1076,8 +1078,8 @@ module AWS::SDK::FMS
         Hearth::Validator.validate!(input[:list_update_token], ::String, context: "#{context}[:list_update_token]")
         Hearth::Validator.validate!(input[:create_time], ::Time, context: "#{context}[:create_time]")
         Hearth::Validator.validate!(input[:last_update_time], ::Time, context: "#{context}[:last_update_time]")
-        Validators::ProtocolsList.validate!(input[:protocols_list], context: "#{context}[:protocols_list]") unless input[:protocols_list].nil?
-        Validators::PreviousProtocolsList.validate!(input[:previous_protocols_list], context: "#{context}[:previous_protocols_list]") unless input[:previous_protocols_list].nil?
+        ProtocolsList.validate!(input[:protocols_list], context: "#{context}[:protocols_list]") unless input[:protocols_list].nil?
+        PreviousProtocolsList.validate!(input[:previous_protocols_list], context: "#{context}[:previous_protocols_list]") unless input[:previous_protocols_list].nil?
       end
     end
 
@@ -1087,7 +1089,7 @@ module AWS::SDK::FMS
         Hearth::Validator.validate!(input[:list_arn], ::String, context: "#{context}[:list_arn]")
         Hearth::Validator.validate!(input[:list_id], ::String, context: "#{context}[:list_id]")
         Hearth::Validator.validate!(input[:list_name], ::String, context: "#{context}[:list_name]")
-        Validators::ProtocolsList.validate!(input[:protocols_list], context: "#{context}[:protocols_list]") unless input[:protocols_list].nil?
+        ProtocolsList.validate!(input[:protocols_list], context: "#{context}[:protocols_list]") unless input[:protocols_list].nil?
       end
     end
 
@@ -1095,7 +1097,7 @@ module AWS::SDK::FMS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ProtocolsListDataSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ProtocolsListDataSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1103,15 +1105,15 @@ module AWS::SDK::FMS
     class PutAppsListInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutAppsListInput, context: context)
-        Validators::AppsListData.validate!(input[:apps_list], context: "#{context}[:apps_list]") unless input[:apps_list].nil?
-        Validators::TagList.validate!(input[:tag_list], context: "#{context}[:tag_list]") unless input[:tag_list].nil?
+        AppsListData.validate!(input[:apps_list], context: "#{context}[:apps_list]") unless input[:apps_list].nil?
+        TagList.validate!(input[:tag_list], context: "#{context}[:tag_list]") unless input[:tag_list].nil?
       end
     end
 
     class PutAppsListOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutAppsListOutput, context: context)
-        Validators::AppsListData.validate!(input[:apps_list], context: "#{context}[:apps_list]") unless input[:apps_list].nil?
+        AppsListData.validate!(input[:apps_list], context: "#{context}[:apps_list]") unless input[:apps_list].nil?
         Hearth::Validator.validate!(input[:apps_list_arn], ::String, context: "#{context}[:apps_list_arn]")
       end
     end
@@ -1133,15 +1135,15 @@ module AWS::SDK::FMS
     class PutPolicyInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutPolicyInput, context: context)
-        Validators::Policy.validate!(input[:policy], context: "#{context}[:policy]") unless input[:policy].nil?
-        Validators::TagList.validate!(input[:tag_list], context: "#{context}[:tag_list]") unless input[:tag_list].nil?
+        Policy.validate!(input[:policy], context: "#{context}[:policy]") unless input[:policy].nil?
+        TagList.validate!(input[:tag_list], context: "#{context}[:tag_list]") unless input[:tag_list].nil?
       end
     end
 
     class PutPolicyOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutPolicyOutput, context: context)
-        Validators::Policy.validate!(input[:policy], context: "#{context}[:policy]") unless input[:policy].nil?
+        Policy.validate!(input[:policy], context: "#{context}[:policy]") unless input[:policy].nil?
         Hearth::Validator.validate!(input[:policy_arn], ::String, context: "#{context}[:policy_arn]")
       end
     end
@@ -1149,15 +1151,15 @@ module AWS::SDK::FMS
     class PutProtocolsListInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutProtocolsListInput, context: context)
-        Validators::ProtocolsListData.validate!(input[:protocols_list], context: "#{context}[:protocols_list]") unless input[:protocols_list].nil?
-        Validators::TagList.validate!(input[:tag_list], context: "#{context}[:tag_list]") unless input[:tag_list].nil?
+        ProtocolsListData.validate!(input[:protocols_list], context: "#{context}[:protocols_list]") unless input[:protocols_list].nil?
+        TagList.validate!(input[:tag_list], context: "#{context}[:tag_list]") unless input[:tag_list].nil?
       end
     end
 
     class PutProtocolsListOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutProtocolsListOutput, context: context)
-        Validators::ProtocolsListData.validate!(input[:protocols_list], context: "#{context}[:protocols_list]") unless input[:protocols_list].nil?
+        ProtocolsListData.validate!(input[:protocols_list], context: "#{context}[:protocols_list]") unless input[:protocols_list].nil?
         Hearth::Validator.validate!(input[:protocols_list_arn], ::String, context: "#{context}[:protocols_list_arn]")
       end
     end
@@ -1166,21 +1168,21 @@ module AWS::SDK::FMS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RemediationAction, context: context)
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::EC2CreateRouteAction.validate!(input[:ec2_create_route_action], context: "#{context}[:ec2_create_route_action]") unless input[:ec2_create_route_action].nil?
-        Validators::EC2ReplaceRouteAction.validate!(input[:ec2_replace_route_action], context: "#{context}[:ec2_replace_route_action]") unless input[:ec2_replace_route_action].nil?
-        Validators::EC2DeleteRouteAction.validate!(input[:ec2_delete_route_action], context: "#{context}[:ec2_delete_route_action]") unless input[:ec2_delete_route_action].nil?
-        Validators::EC2CopyRouteTableAction.validate!(input[:ec2_copy_route_table_action], context: "#{context}[:ec2_copy_route_table_action]") unless input[:ec2_copy_route_table_action].nil?
-        Validators::EC2ReplaceRouteTableAssociationAction.validate!(input[:ec2_replace_route_table_association_action], context: "#{context}[:ec2_replace_route_table_association_action]") unless input[:ec2_replace_route_table_association_action].nil?
-        Validators::EC2AssociateRouteTableAction.validate!(input[:ec2_associate_route_table_action], context: "#{context}[:ec2_associate_route_table_action]") unless input[:ec2_associate_route_table_action].nil?
-        Validators::EC2CreateRouteTableAction.validate!(input[:ec2_create_route_table_action], context: "#{context}[:ec2_create_route_table_action]") unless input[:ec2_create_route_table_action].nil?
-        Validators::FMSPolicyUpdateFirewallCreationConfigAction.validate!(input[:fms_policy_update_firewall_creation_config_action], context: "#{context}[:fms_policy_update_firewall_creation_config_action]") unless input[:fms_policy_update_firewall_creation_config_action].nil?
+        EC2CreateRouteAction.validate!(input[:ec2_create_route_action], context: "#{context}[:ec2_create_route_action]") unless input[:ec2_create_route_action].nil?
+        EC2ReplaceRouteAction.validate!(input[:ec2_replace_route_action], context: "#{context}[:ec2_replace_route_action]") unless input[:ec2_replace_route_action].nil?
+        EC2DeleteRouteAction.validate!(input[:ec2_delete_route_action], context: "#{context}[:ec2_delete_route_action]") unless input[:ec2_delete_route_action].nil?
+        EC2CopyRouteTableAction.validate!(input[:ec2_copy_route_table_action], context: "#{context}[:ec2_copy_route_table_action]") unless input[:ec2_copy_route_table_action].nil?
+        EC2ReplaceRouteTableAssociationAction.validate!(input[:ec2_replace_route_table_association_action], context: "#{context}[:ec2_replace_route_table_association_action]") unless input[:ec2_replace_route_table_association_action].nil?
+        EC2AssociateRouteTableAction.validate!(input[:ec2_associate_route_table_action], context: "#{context}[:ec2_associate_route_table_action]") unless input[:ec2_associate_route_table_action].nil?
+        EC2CreateRouteTableAction.validate!(input[:ec2_create_route_table_action], context: "#{context}[:ec2_create_route_table_action]") unless input[:ec2_create_route_table_action].nil?
+        FMSPolicyUpdateFirewallCreationConfigAction.validate!(input[:fms_policy_update_firewall_creation_config_action], context: "#{context}[:fms_policy_update_firewall_creation_config_action]") unless input[:fms_policy_update_firewall_creation_config_action].nil?
       end
     end
 
     class RemediationActionWithOrder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RemediationActionWithOrder, context: context)
-        Validators::RemediationAction.validate!(input[:remediation_action], context: "#{context}[:remediation_action]") unless input[:remediation_action].nil?
+        RemediationAction.validate!(input[:remediation_action], context: "#{context}[:remediation_action]") unless input[:remediation_action].nil?
         Hearth::Validator.validate!(input[:order], ::Integer, context: "#{context}[:order]")
       end
     end
@@ -1213,7 +1215,7 @@ module AWS::SDK::FMS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ResourceTag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ResourceTag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1230,29 +1232,29 @@ module AWS::SDK::FMS
     class ResourceViolation
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ResourceViolation, context: context)
-        Validators::AwsVPCSecurityGroupViolation.validate!(input[:aws_vpc_security_group_violation], context: "#{context}[:aws_vpc_security_group_violation]") unless input[:aws_vpc_security_group_violation].nil?
-        Validators::AwsEc2NetworkInterfaceViolation.validate!(input[:aws_ec2_network_interface_violation], context: "#{context}[:aws_ec2_network_interface_violation]") unless input[:aws_ec2_network_interface_violation].nil?
-        Validators::AwsEc2InstanceViolation.validate!(input[:aws_ec2_instance_violation], context: "#{context}[:aws_ec2_instance_violation]") unless input[:aws_ec2_instance_violation].nil?
-        Validators::NetworkFirewallMissingFirewallViolation.validate!(input[:network_firewall_missing_firewall_violation], context: "#{context}[:network_firewall_missing_firewall_violation]") unless input[:network_firewall_missing_firewall_violation].nil?
-        Validators::NetworkFirewallMissingSubnetViolation.validate!(input[:network_firewall_missing_subnet_violation], context: "#{context}[:network_firewall_missing_subnet_violation]") unless input[:network_firewall_missing_subnet_violation].nil?
-        Validators::NetworkFirewallMissingExpectedRTViolation.validate!(input[:network_firewall_missing_expected_rt_violation], context: "#{context}[:network_firewall_missing_expected_rt_violation]") unless input[:network_firewall_missing_expected_rt_violation].nil?
-        Validators::NetworkFirewallPolicyModifiedViolation.validate!(input[:network_firewall_policy_modified_violation], context: "#{context}[:network_firewall_policy_modified_violation]") unless input[:network_firewall_policy_modified_violation].nil?
-        Validators::NetworkFirewallInternetTrafficNotInspectedViolation.validate!(input[:network_firewall_internet_traffic_not_inspected_violation], context: "#{context}[:network_firewall_internet_traffic_not_inspected_violation]") unless input[:network_firewall_internet_traffic_not_inspected_violation].nil?
-        Validators::NetworkFirewallInvalidRouteConfigurationViolation.validate!(input[:network_firewall_invalid_route_configuration_violation], context: "#{context}[:network_firewall_invalid_route_configuration_violation]") unless input[:network_firewall_invalid_route_configuration_violation].nil?
-        Validators::NetworkFirewallBlackHoleRouteDetectedViolation.validate!(input[:network_firewall_black_hole_route_detected_violation], context: "#{context}[:network_firewall_black_hole_route_detected_violation]") unless input[:network_firewall_black_hole_route_detected_violation].nil?
-        Validators::NetworkFirewallUnexpectedFirewallRoutesViolation.validate!(input[:network_firewall_unexpected_firewall_routes_violation], context: "#{context}[:network_firewall_unexpected_firewall_routes_violation]") unless input[:network_firewall_unexpected_firewall_routes_violation].nil?
-        Validators::NetworkFirewallUnexpectedGatewayRoutesViolation.validate!(input[:network_firewall_unexpected_gateway_routes_violation], context: "#{context}[:network_firewall_unexpected_gateway_routes_violation]") unless input[:network_firewall_unexpected_gateway_routes_violation].nil?
-        Validators::NetworkFirewallMissingExpectedRoutesViolation.validate!(input[:network_firewall_missing_expected_routes_violation], context: "#{context}[:network_firewall_missing_expected_routes_violation]") unless input[:network_firewall_missing_expected_routes_violation].nil?
-        Validators::DnsRuleGroupPriorityConflictViolation.validate!(input[:dns_rule_group_priority_conflict_violation], context: "#{context}[:dns_rule_group_priority_conflict_violation]") unless input[:dns_rule_group_priority_conflict_violation].nil?
-        Validators::DnsDuplicateRuleGroupViolation.validate!(input[:dns_duplicate_rule_group_violation], context: "#{context}[:dns_duplicate_rule_group_violation]") unless input[:dns_duplicate_rule_group_violation].nil?
-        Validators::DnsRuleGroupLimitExceededViolation.validate!(input[:dns_rule_group_limit_exceeded_violation], context: "#{context}[:dns_rule_group_limit_exceeded_violation]") unless input[:dns_rule_group_limit_exceeded_violation].nil?
-        Validators::PossibleRemediationActions.validate!(input[:possible_remediation_actions], context: "#{context}[:possible_remediation_actions]") unless input[:possible_remediation_actions].nil?
-        Validators::FirewallSubnetIsOutOfScopeViolation.validate!(input[:firewall_subnet_is_out_of_scope_violation], context: "#{context}[:firewall_subnet_is_out_of_scope_violation]") unless input[:firewall_subnet_is_out_of_scope_violation].nil?
-        Validators::RouteHasOutOfScopeEndpointViolation.validate!(input[:route_has_out_of_scope_endpoint_violation], context: "#{context}[:route_has_out_of_scope_endpoint_violation]") unless input[:route_has_out_of_scope_endpoint_violation].nil?
-        Validators::ThirdPartyFirewallMissingFirewallViolation.validate!(input[:third_party_firewall_missing_firewall_violation], context: "#{context}[:third_party_firewall_missing_firewall_violation]") unless input[:third_party_firewall_missing_firewall_violation].nil?
-        Validators::ThirdPartyFirewallMissingSubnetViolation.validate!(input[:third_party_firewall_missing_subnet_violation], context: "#{context}[:third_party_firewall_missing_subnet_violation]") unless input[:third_party_firewall_missing_subnet_violation].nil?
-        Validators::ThirdPartyFirewallMissingExpectedRouteTableViolation.validate!(input[:third_party_firewall_missing_expected_route_table_violation], context: "#{context}[:third_party_firewall_missing_expected_route_table_violation]") unless input[:third_party_firewall_missing_expected_route_table_violation].nil?
-        Validators::FirewallSubnetMissingVPCEndpointViolation.validate!(input[:firewall_subnet_missing_vpc_endpoint_violation], context: "#{context}[:firewall_subnet_missing_vpc_endpoint_violation]") unless input[:firewall_subnet_missing_vpc_endpoint_violation].nil?
+        AwsVPCSecurityGroupViolation.validate!(input[:aws_vpc_security_group_violation], context: "#{context}[:aws_vpc_security_group_violation]") unless input[:aws_vpc_security_group_violation].nil?
+        AwsEc2NetworkInterfaceViolation.validate!(input[:aws_ec2_network_interface_violation], context: "#{context}[:aws_ec2_network_interface_violation]") unless input[:aws_ec2_network_interface_violation].nil?
+        AwsEc2InstanceViolation.validate!(input[:aws_ec2_instance_violation], context: "#{context}[:aws_ec2_instance_violation]") unless input[:aws_ec2_instance_violation].nil?
+        NetworkFirewallMissingFirewallViolation.validate!(input[:network_firewall_missing_firewall_violation], context: "#{context}[:network_firewall_missing_firewall_violation]") unless input[:network_firewall_missing_firewall_violation].nil?
+        NetworkFirewallMissingSubnetViolation.validate!(input[:network_firewall_missing_subnet_violation], context: "#{context}[:network_firewall_missing_subnet_violation]") unless input[:network_firewall_missing_subnet_violation].nil?
+        NetworkFirewallMissingExpectedRTViolation.validate!(input[:network_firewall_missing_expected_rt_violation], context: "#{context}[:network_firewall_missing_expected_rt_violation]") unless input[:network_firewall_missing_expected_rt_violation].nil?
+        NetworkFirewallPolicyModifiedViolation.validate!(input[:network_firewall_policy_modified_violation], context: "#{context}[:network_firewall_policy_modified_violation]") unless input[:network_firewall_policy_modified_violation].nil?
+        NetworkFirewallInternetTrafficNotInspectedViolation.validate!(input[:network_firewall_internet_traffic_not_inspected_violation], context: "#{context}[:network_firewall_internet_traffic_not_inspected_violation]") unless input[:network_firewall_internet_traffic_not_inspected_violation].nil?
+        NetworkFirewallInvalidRouteConfigurationViolation.validate!(input[:network_firewall_invalid_route_configuration_violation], context: "#{context}[:network_firewall_invalid_route_configuration_violation]") unless input[:network_firewall_invalid_route_configuration_violation].nil?
+        NetworkFirewallBlackHoleRouteDetectedViolation.validate!(input[:network_firewall_black_hole_route_detected_violation], context: "#{context}[:network_firewall_black_hole_route_detected_violation]") unless input[:network_firewall_black_hole_route_detected_violation].nil?
+        NetworkFirewallUnexpectedFirewallRoutesViolation.validate!(input[:network_firewall_unexpected_firewall_routes_violation], context: "#{context}[:network_firewall_unexpected_firewall_routes_violation]") unless input[:network_firewall_unexpected_firewall_routes_violation].nil?
+        NetworkFirewallUnexpectedGatewayRoutesViolation.validate!(input[:network_firewall_unexpected_gateway_routes_violation], context: "#{context}[:network_firewall_unexpected_gateway_routes_violation]") unless input[:network_firewall_unexpected_gateway_routes_violation].nil?
+        NetworkFirewallMissingExpectedRoutesViolation.validate!(input[:network_firewall_missing_expected_routes_violation], context: "#{context}[:network_firewall_missing_expected_routes_violation]") unless input[:network_firewall_missing_expected_routes_violation].nil?
+        DnsRuleGroupPriorityConflictViolation.validate!(input[:dns_rule_group_priority_conflict_violation], context: "#{context}[:dns_rule_group_priority_conflict_violation]") unless input[:dns_rule_group_priority_conflict_violation].nil?
+        DnsDuplicateRuleGroupViolation.validate!(input[:dns_duplicate_rule_group_violation], context: "#{context}[:dns_duplicate_rule_group_violation]") unless input[:dns_duplicate_rule_group_violation].nil?
+        DnsRuleGroupLimitExceededViolation.validate!(input[:dns_rule_group_limit_exceeded_violation], context: "#{context}[:dns_rule_group_limit_exceeded_violation]") unless input[:dns_rule_group_limit_exceeded_violation].nil?
+        PossibleRemediationActions.validate!(input[:possible_remediation_actions], context: "#{context}[:possible_remediation_actions]") unless input[:possible_remediation_actions].nil?
+        FirewallSubnetIsOutOfScopeViolation.validate!(input[:firewall_subnet_is_out_of_scope_violation], context: "#{context}[:firewall_subnet_is_out_of_scope_violation]") unless input[:firewall_subnet_is_out_of_scope_violation].nil?
+        RouteHasOutOfScopeEndpointViolation.validate!(input[:route_has_out_of_scope_endpoint_violation], context: "#{context}[:route_has_out_of_scope_endpoint_violation]") unless input[:route_has_out_of_scope_endpoint_violation].nil?
+        ThirdPartyFirewallMissingFirewallViolation.validate!(input[:third_party_firewall_missing_firewall_violation], context: "#{context}[:third_party_firewall_missing_firewall_violation]") unless input[:third_party_firewall_missing_firewall_violation].nil?
+        ThirdPartyFirewallMissingSubnetViolation.validate!(input[:third_party_firewall_missing_subnet_violation], context: "#{context}[:third_party_firewall_missing_subnet_violation]") unless input[:third_party_firewall_missing_subnet_violation].nil?
+        ThirdPartyFirewallMissingExpectedRouteTableViolation.validate!(input[:third_party_firewall_missing_expected_route_table_violation], context: "#{context}[:third_party_firewall_missing_expected_route_table_violation]") unless input[:third_party_firewall_missing_expected_route_table_violation].nil?
+        FirewallSubnetMissingVPCEndpointViolation.validate!(input[:firewall_subnet_missing_vpc_endpoint_violation], context: "#{context}[:firewall_subnet_missing_vpc_endpoint_violation]") unless input[:firewall_subnet_missing_vpc_endpoint_violation].nil?
       end
     end
 
@@ -1260,7 +1262,7 @@ module AWS::SDK::FMS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ResourceViolation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ResourceViolation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1281,15 +1283,15 @@ module AWS::SDK::FMS
         Hearth::Validator.validate!(input[:subnet_id], ::String, context: "#{context}[:subnet_id]")
         Hearth::Validator.validate!(input[:vpc_id], ::String, context: "#{context}[:vpc_id]")
         Hearth::Validator.validate!(input[:route_table_id], ::String, context: "#{context}[:route_table_id]")
-        Validators::Routes.validate!(input[:violating_routes], context: "#{context}[:violating_routes]") unless input[:violating_routes].nil?
+        Routes.validate!(input[:violating_routes], context: "#{context}[:violating_routes]") unless input[:violating_routes].nil?
         Hearth::Validator.validate!(input[:subnet_availability_zone], ::String, context: "#{context}[:subnet_availability_zone]")
         Hearth::Validator.validate!(input[:subnet_availability_zone_id], ::String, context: "#{context}[:subnet_availability_zone_id]")
         Hearth::Validator.validate!(input[:current_firewall_subnet_route_table], ::String, context: "#{context}[:current_firewall_subnet_route_table]")
         Hearth::Validator.validate!(input[:firewall_subnet_id], ::String, context: "#{context}[:firewall_subnet_id]")
-        Validators::Routes.validate!(input[:firewall_subnet_routes], context: "#{context}[:firewall_subnet_routes]") unless input[:firewall_subnet_routes].nil?
+        Routes.validate!(input[:firewall_subnet_routes], context: "#{context}[:firewall_subnet_routes]") unless input[:firewall_subnet_routes].nil?
         Hearth::Validator.validate!(input[:internet_gateway_id], ::String, context: "#{context}[:internet_gateway_id]")
         Hearth::Validator.validate!(input[:current_internet_gateway_route_table], ::String, context: "#{context}[:current_internet_gateway_route_table]")
-        Validators::Routes.validate!(input[:internet_gateway_routes], context: "#{context}[:internet_gateway_routes]") unless input[:internet_gateway_routes].nil?
+        Routes.validate!(input[:internet_gateway_routes], context: "#{context}[:internet_gateway_routes]") unless input[:internet_gateway_routes].nil?
       end
     end
 
@@ -1297,7 +1299,7 @@ module AWS::SDK::FMS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Route.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Route.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1307,7 +1309,7 @@ module AWS::SDK::FMS
         Hearth::Validator.validate!(input, Types::SecurityGroupRemediationAction, context: context)
         Hearth::Validator.validate!(input[:remediation_action_type], ::String, context: "#{context}[:remediation_action_type]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::SecurityGroupRuleDescription.validate!(input[:remediation_result], context: "#{context}[:remediation_result]") unless input[:remediation_result].nil?
+        SecurityGroupRuleDescription.validate!(input[:remediation_result], context: "#{context}[:remediation_result]") unless input[:remediation_result].nil?
         Hearth::Validator.validate!(input[:is_default_action], ::TrueClass, ::FalseClass, context: "#{context}[:is_default_action]")
       end
     end
@@ -1316,7 +1318,7 @@ module AWS::SDK::FMS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SecurityGroupRemediationAction.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SecurityGroupRemediationAction.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1338,7 +1340,7 @@ module AWS::SDK::FMS
         Hearth::Validator.validate!(input, Types::SecurityServicePolicyData, context: context)
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
         Hearth::Validator.validate!(input[:managed_service_data], ::String, context: "#{context}[:managed_service_data]")
-        Validators::PolicyOption.validate!(input[:policy_option], context: "#{context}[:policy_option]") unless input[:policy_option].nil?
+        PolicyOption.validate!(input[:policy_option], context: "#{context}[:policy_option]") unless input[:policy_option].nil?
       end
     end
 
@@ -1354,7 +1356,7 @@ module AWS::SDK::FMS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::StatefulRuleGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          StatefulRuleGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1372,7 +1374,7 @@ module AWS::SDK::FMS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::StatelessRuleGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          StatelessRuleGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1398,7 +1400,7 @@ module AWS::SDK::FMS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1407,7 +1409,7 @@ module AWS::SDK::FMS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagList.validate!(input[:tag_list], context: "#{context}[:tag_list]") unless input[:tag_list].nil?
+        TagList.validate!(input[:tag_list], context: "#{context}[:tag_list]") unless input[:tag_list].nil?
       end
     end
 
@@ -1430,7 +1432,7 @@ module AWS::SDK::FMS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ThirdPartyFirewallFirewallPolicy.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ThirdPartyFirewallFirewallPolicy.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1485,7 +1487,7 @@ module AWS::SDK::FMS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -1502,8 +1504,8 @@ module AWS::SDK::FMS
         Hearth::Validator.validate!(input[:member_account], ::String, context: "#{context}[:member_account]")
         Hearth::Validator.validate!(input[:resource_id], ::String, context: "#{context}[:resource_id]")
         Hearth::Validator.validate!(input[:resource_type], ::String, context: "#{context}[:resource_type]")
-        Validators::ResourceViolations.validate!(input[:resource_violations], context: "#{context}[:resource_violations]") unless input[:resource_violations].nil?
-        Validators::TagList.validate!(input[:resource_tags], context: "#{context}[:resource_tags]") unless input[:resource_tags].nil?
+        ResourceViolations.validate!(input[:resource_violations], context: "#{context}[:resource_violations]") unless input[:resource_violations].nil?
+        TagList.validate!(input[:resource_tags], context: "#{context}[:resource_tags]") unless input[:resource_tags].nil?
         Hearth::Validator.validate!(input[:resource_description], ::String, context: "#{context}[:resource_description]")
       end
     end

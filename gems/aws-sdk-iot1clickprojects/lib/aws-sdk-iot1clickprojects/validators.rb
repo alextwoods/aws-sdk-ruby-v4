@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::IoT1ClickProjects
   module Validators
 
@@ -31,7 +33,7 @@ module AWS::SDK::IoT1ClickProjects
         Hearth::Validator.validate!(input, Types::CreatePlacementInput, context: context)
         Hearth::Validator.validate!(input[:placement_name], ::String, context: "#{context}[:placement_name]")
         Hearth::Validator.validate!(input[:project_name], ::String, context: "#{context}[:project_name]")
-        Validators::PlacementAttributeMap.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        PlacementAttributeMap.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
       end
     end
 
@@ -46,8 +48,8 @@ module AWS::SDK::IoT1ClickProjects
         Hearth::Validator.validate!(input, Types::CreateProjectInput, context: context)
         Hearth::Validator.validate!(input[:project_name], ::String, context: "#{context}[:project_name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::PlacementTemplate.validate!(input[:placement_template], context: "#{context}[:placement_template]") unless input[:placement_template].nil?
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        PlacementTemplate.validate!(input[:placement_template], context: "#{context}[:placement_template]") unless input[:placement_template].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -105,7 +107,7 @@ module AWS::SDK::IoT1ClickProjects
     class DescribePlacementOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribePlacementOutput, context: context)
-        Validators::PlacementDescription.validate!(input[:placement], context: "#{context}[:placement]") unless input[:placement].nil?
+        PlacementDescription.validate!(input[:placement], context: "#{context}[:placement]") unless input[:placement].nil?
       end
     end
 
@@ -119,7 +121,7 @@ module AWS::SDK::IoT1ClickProjects
     class DescribeProjectOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeProjectOutput, context: context)
-        Validators::ProjectDescription.validate!(input[:project], context: "#{context}[:project]") unless input[:project].nil?
+        ProjectDescription.validate!(input[:project], context: "#{context}[:project]") unless input[:project].nil?
       end
     end
 
@@ -147,7 +149,7 @@ module AWS::SDK::IoT1ClickProjects
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeviceTemplate, context: context)
         Hearth::Validator.validate!(input[:device_type], ::String, context: "#{context}[:device_type]")
-        Validators::DeviceCallbackOverrideMap.validate!(input[:callback_overrides], context: "#{context}[:callback_overrides]") unless input[:callback_overrides].nil?
+        DeviceCallbackOverrideMap.validate!(input[:callback_overrides], context: "#{context}[:callback_overrides]") unless input[:callback_overrides].nil?
       end
     end
 
@@ -156,7 +158,7 @@ module AWS::SDK::IoT1ClickProjects
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::DeviceTemplate.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          DeviceTemplate.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -187,7 +189,7 @@ module AWS::SDK::IoT1ClickProjects
     class GetDevicesInPlacementOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetDevicesInPlacementOutput, context: context)
-        Validators::DeviceMap.validate!(input[:devices], context: "#{context}[:devices]") unless input[:devices].nil?
+        DeviceMap.validate!(input[:devices], context: "#{context}[:devices]") unless input[:devices].nil?
       end
     end
 
@@ -219,7 +221,7 @@ module AWS::SDK::IoT1ClickProjects
     class ListPlacementsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListPlacementsOutput, context: context)
-        Validators::PlacementSummaryList.validate!(input[:placements], context: "#{context}[:placements]") unless input[:placements].nil?
+        PlacementSummaryList.validate!(input[:placements], context: "#{context}[:placements]") unless input[:placements].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -235,7 +237,7 @@ module AWS::SDK::IoT1ClickProjects
     class ListProjectsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListProjectsOutput, context: context)
-        Validators::ProjectSummaryList.validate!(input[:projects], context: "#{context}[:projects]") unless input[:projects].nil?
+        ProjectSummaryList.validate!(input[:projects], context: "#{context}[:projects]") unless input[:projects].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -250,7 +252,7 @@ module AWS::SDK::IoT1ClickProjects
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -269,7 +271,7 @@ module AWS::SDK::IoT1ClickProjects
         Hearth::Validator.validate!(input, Types::PlacementDescription, context: context)
         Hearth::Validator.validate!(input[:project_name], ::String, context: "#{context}[:project_name]")
         Hearth::Validator.validate!(input[:placement_name], ::String, context: "#{context}[:placement_name]")
-        Validators::PlacementAttributeMap.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        PlacementAttributeMap.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
         Hearth::Validator.validate!(input[:created_date], ::Time, context: "#{context}[:created_date]")
         Hearth::Validator.validate!(input[:updated_date], ::Time, context: "#{context}[:updated_date]")
       end
@@ -289,7 +291,7 @@ module AWS::SDK::IoT1ClickProjects
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PlacementSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PlacementSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -297,8 +299,8 @@ module AWS::SDK::IoT1ClickProjects
     class PlacementTemplate
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PlacementTemplate, context: context)
-        Validators::DefaultPlacementAttributeMap.validate!(input[:default_attributes], context: "#{context}[:default_attributes]") unless input[:default_attributes].nil?
-        Validators::DeviceTemplateMap.validate!(input[:device_templates], context: "#{context}[:device_templates]") unless input[:device_templates].nil?
+        DefaultPlacementAttributeMap.validate!(input[:default_attributes], context: "#{context}[:default_attributes]") unless input[:default_attributes].nil?
+        DeviceTemplateMap.validate!(input[:device_templates], context: "#{context}[:device_templates]") unless input[:device_templates].nil?
       end
     end
 
@@ -310,8 +312,8 @@ module AWS::SDK::IoT1ClickProjects
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:created_date], ::Time, context: "#{context}[:created_date]")
         Hearth::Validator.validate!(input[:updated_date], ::Time, context: "#{context}[:updated_date]")
-        Validators::PlacementTemplate.validate!(input[:placement_template], context: "#{context}[:placement_template]") unless input[:placement_template].nil?
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        PlacementTemplate.validate!(input[:placement_template], context: "#{context}[:placement_template]") unless input[:placement_template].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -322,7 +324,7 @@ module AWS::SDK::IoT1ClickProjects
         Hearth::Validator.validate!(input[:project_name], ::String, context: "#{context}[:project_name]")
         Hearth::Validator.validate!(input[:created_date], ::Time, context: "#{context}[:created_date]")
         Hearth::Validator.validate!(input[:updated_date], ::Time, context: "#{context}[:updated_date]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -330,7 +332,7 @@ module AWS::SDK::IoT1ClickProjects
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ProjectSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ProjectSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -374,7 +376,7 @@ module AWS::SDK::IoT1ClickProjects
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -396,7 +398,7 @@ module AWS::SDK::IoT1ClickProjects
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -411,7 +413,7 @@ module AWS::SDK::IoT1ClickProjects
         Hearth::Validator.validate!(input, Types::UpdatePlacementInput, context: context)
         Hearth::Validator.validate!(input[:placement_name], ::String, context: "#{context}[:placement_name]")
         Hearth::Validator.validate!(input[:project_name], ::String, context: "#{context}[:project_name]")
-        Validators::PlacementAttributeMap.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        PlacementAttributeMap.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
       end
     end
 
@@ -426,7 +428,7 @@ module AWS::SDK::IoT1ClickProjects
         Hearth::Validator.validate!(input, Types::UpdateProjectInput, context: context)
         Hearth::Validator.validate!(input[:project_name], ::String, context: "#{context}[:project_name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::PlacementTemplate.validate!(input[:placement_template], context: "#{context}[:placement_template]") unless input[:placement_template].nil?
+        PlacementTemplate.validate!(input[:placement_template], context: "#{context}[:placement_template]") unless input[:placement_template].nil?
       end
     end
 

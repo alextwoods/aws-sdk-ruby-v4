@@ -260,6 +260,7 @@ module AWS::SDK::Resiliencehub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.resiliency_score ||= 0
@@ -527,11 +528,11 @@ module AWS::SDK::Resiliencehub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.resiliency_score ||= 0
       end
-
     end
 
     # Includes enum constants for AppComplianceStatusType
@@ -690,11 +691,11 @@ module AWS::SDK::Resiliencehub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.resiliency_score ||= 0
       end
-
     end
 
     # <p>The version of the application.</p>
@@ -937,11 +938,11 @@ module AWS::SDK::Resiliencehub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.amount ||= 0
       end
-
     end
 
     # Includes enum constants for CostFrequency
@@ -1752,6 +1753,7 @@ module AWS::SDK::Resiliencehub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.achievable_rto_in_secs ||= 0
@@ -1759,7 +1761,6 @@ module AWS::SDK::Resiliencehub
         self.current_rpo_in_secs ||= 0
         self.achievable_rpo_in_secs ||= 0
       end
-
     end
 
     # Includes enum constants for DisruptionType
@@ -1820,12 +1821,12 @@ module AWS::SDK::Resiliencehub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.rto_in_secs ||= 0
         self.rpo_in_secs ||= 0
       end
-
     end
 
     # Includes enum constants for HaArchitecture
@@ -3005,12 +3006,12 @@ module AWS::SDK::Resiliencehub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.expected_rto_in_secs ||= 0
         self.expected_rpo_in_secs ||= 0
       end
-
     end
 
     # <p>Defines a recommendation.</p>
@@ -3429,11 +3430,11 @@ module AWS::SDK::Resiliencehub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.score ||= 0
       end
-
     end
 
     # @!attribute app_arn

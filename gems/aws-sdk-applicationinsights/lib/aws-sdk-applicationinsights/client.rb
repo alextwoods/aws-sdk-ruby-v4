@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::ApplicationInsights
@@ -120,7 +122,7 @@ module AWS::SDK::ApplicationInsights
     def create_application(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateApplicationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateApplicationInput,
         validate_input: @config.validate_input
@@ -198,7 +200,7 @@ module AWS::SDK::ApplicationInsights
     def create_component(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateComponentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateComponentInput,
         validate_input: @config.validate_input
@@ -298,7 +300,7 @@ module AWS::SDK::ApplicationInsights
     def create_log_pattern(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateLogPatternInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateLogPatternInput,
         validate_input: @config.validate_input
@@ -367,7 +369,7 @@ module AWS::SDK::ApplicationInsights
     def delete_application(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteApplicationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteApplicationInput,
         validate_input: @config.validate_input
@@ -441,7 +443,7 @@ module AWS::SDK::ApplicationInsights
     def delete_component(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteComponentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteComponentInput,
         validate_input: @config.validate_input
@@ -517,7 +519,7 @@ module AWS::SDK::ApplicationInsights
     def delete_log_pattern(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteLogPatternInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteLogPatternInput,
         validate_input: @config.validate_input
@@ -594,7 +596,7 @@ module AWS::SDK::ApplicationInsights
     def describe_application(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeApplicationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeApplicationInput,
         validate_input: @config.validate_input
@@ -679,7 +681,7 @@ module AWS::SDK::ApplicationInsights
     def describe_component(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeComponentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeComponentInput,
         validate_input: @config.validate_input
@@ -754,7 +756,7 @@ module AWS::SDK::ApplicationInsights
     def describe_component_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeComponentConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeComponentConfigurationInput,
         validate_input: @config.validate_input
@@ -831,7 +833,7 @@ module AWS::SDK::ApplicationInsights
     def describe_component_configuration_recommendation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeComponentConfigurationRecommendationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeComponentConfigurationRecommendationInput,
         validate_input: @config.validate_input
@@ -913,7 +915,7 @@ module AWS::SDK::ApplicationInsights
     def describe_log_pattern(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeLogPatternInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeLogPatternInput,
         validate_input: @config.validate_input
@@ -1027,7 +1029,7 @@ module AWS::SDK::ApplicationInsights
     def describe_observation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeObservationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeObservationInput,
         validate_input: @config.validate_input
@@ -1109,7 +1111,7 @@ module AWS::SDK::ApplicationInsights
     def describe_problem(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeProblemInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeProblemInput,
         validate_input: @config.validate_input
@@ -1225,7 +1227,7 @@ module AWS::SDK::ApplicationInsights
     def describe_problem_observations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeProblemObservationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeProblemObservationsInput,
         validate_input: @config.validate_input
@@ -1309,7 +1311,7 @@ module AWS::SDK::ApplicationInsights
     def list_applications(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListApplicationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListApplicationsInput,
         validate_input: @config.validate_input
@@ -1398,7 +1400,7 @@ module AWS::SDK::ApplicationInsights
     def list_components(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListComponentsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListComponentsInput,
         validate_input: @config.validate_input
@@ -1519,7 +1521,7 @@ module AWS::SDK::ApplicationInsights
     def list_configuration_history(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListConfigurationHistoryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListConfigurationHistoryInput,
         validate_input: @config.validate_input
@@ -1600,7 +1602,7 @@ module AWS::SDK::ApplicationInsights
     def list_log_pattern_sets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListLogPatternSetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListLogPatternSetsInput,
         validate_input: @config.validate_input
@@ -1689,7 +1691,7 @@ module AWS::SDK::ApplicationInsights
     def list_log_patterns(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListLogPatternsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListLogPatternsInput,
         validate_input: @config.validate_input
@@ -1797,7 +1799,7 @@ module AWS::SDK::ApplicationInsights
     def list_problems(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListProblemsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListProblemsInput,
         validate_input: @config.validate_input
@@ -1875,7 +1877,7 @@ module AWS::SDK::ApplicationInsights
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -1962,7 +1964,7 @@ module AWS::SDK::ApplicationInsights
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -2041,7 +2043,7 @@ module AWS::SDK::ApplicationInsights
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -2142,7 +2144,7 @@ module AWS::SDK::ApplicationInsights
     def update_application(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateApplicationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateApplicationInput,
         validate_input: @config.validate_input
@@ -2225,7 +2227,7 @@ module AWS::SDK::ApplicationInsights
     def update_component(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateComponentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateComponentInput,
         validate_input: @config.validate_input
@@ -2320,7 +2322,7 @@ module AWS::SDK::ApplicationInsights
     def update_component_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateComponentConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateComponentConfigurationInput,
         validate_input: @config.validate_input
@@ -2420,7 +2422,7 @@ module AWS::SDK::ApplicationInsights
     def update_log_pattern(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateLogPatternInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateLogPatternInput,
         validate_input: @config.validate_input

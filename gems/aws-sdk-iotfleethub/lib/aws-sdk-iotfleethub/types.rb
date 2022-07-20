@@ -87,12 +87,12 @@ module AWS::SDK::IoTFleetHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.application_creation_date ||= 0
         self.application_last_update_date ||= 0
       end
-
     end
 
     # <p>The request conflicts with the current state of the resource.</p>
@@ -283,12 +283,12 @@ module AWS::SDK::IoTFleetHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.application_creation_date ||= 0
         self.application_last_update_date ||= 0
       end
-
     end
 
     # <p>An unexpected error has occurred.</p>

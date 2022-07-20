@@ -14,8 +14,8 @@ module AWS::SDK::ConfigService
     class BatchGetAggregateResourceConfig
       def self.default(visited=[])
         {
-          base_configuration_items: Stubs::BaseConfigurationItems.default(visited),
-          unprocessed_resource_identifiers: Stubs::UnprocessedResourceIdentifierList.default(visited),
+          base_configuration_items: BaseConfigurationItems.default(visited),
+          unprocessed_resource_identifiers: UnprocessedResourceIdentifierList.default(visited),
         }
       end
 
@@ -34,7 +34,7 @@ module AWS::SDK::ConfigService
         return nil if visited.include?('UnprocessedResourceIdentifierList')
         visited = visited + ['UnprocessedResourceIdentifierList']
         [
-          Stubs::AggregateResourceIdentifier.default(visited)
+          AggregateResourceIdentifier.default(visited)
         ]
       end
 
@@ -80,7 +80,7 @@ module AWS::SDK::ConfigService
         return nil if visited.include?('BaseConfigurationItems')
         visited = visited + ['BaseConfigurationItems']
         [
-          Stubs::BaseConfigurationItem.default(visited)
+          BaseConfigurationItem.default(visited)
         ]
       end
 
@@ -113,7 +113,7 @@ module AWS::SDK::ConfigService
           availability_zone: 'availability_zone',
           resource_creation_time: Time.now,
           configuration: 'configuration',
-          supplementary_configuration: Stubs::SupplementaryConfiguration.default(visited),
+          supplementary_configuration: SupplementaryConfiguration.default(visited),
         }
       end
 
@@ -162,8 +162,8 @@ module AWS::SDK::ConfigService
     class BatchGetResourceConfig
       def self.default(visited=[])
         {
-          base_configuration_items: Stubs::BaseConfigurationItems.default(visited),
-          unprocessed_resource_keys: Stubs::ResourceKeys.default(visited),
+          base_configuration_items: BaseConfigurationItems.default(visited),
+          unprocessed_resource_keys: ResourceKeys.default(visited),
         }
       end
 
@@ -182,7 +182,7 @@ module AWS::SDK::ConfigService
         return nil if visited.include?('ResourceKeys')
         visited = visited + ['ResourceKeys']
         [
-          Stubs::ResourceKey.default(visited)
+          ResourceKey.default(visited)
         ]
       end
 
@@ -374,7 +374,7 @@ module AWS::SDK::ConfigService
     class DeleteRemediationExceptions
       def self.default(visited=[])
         {
-          failed_batches: Stubs::FailedDeleteRemediationExceptionsBatches.default(visited),
+          failed_batches: FailedDeleteRemediationExceptionsBatches.default(visited),
         }
       end
 
@@ -392,7 +392,7 @@ module AWS::SDK::ConfigService
         return nil if visited.include?('FailedDeleteRemediationExceptionsBatches')
         visited = visited + ['FailedDeleteRemediationExceptionsBatches']
         [
-          Stubs::FailedDeleteRemediationExceptionsBatch.default(visited)
+          FailedDeleteRemediationExceptionsBatch.default(visited)
         ]
       end
 
@@ -413,7 +413,7 @@ module AWS::SDK::ConfigService
         visited = visited + ['FailedDeleteRemediationExceptionsBatch']
         {
           failure_message: 'failure_message',
-          failed_items: Stubs::RemediationExceptionResourceKeys.default(visited),
+          failed_items: RemediationExceptionResourceKeys.default(visited),
         }
       end
 
@@ -432,7 +432,7 @@ module AWS::SDK::ConfigService
         return nil if visited.include?('RemediationExceptionResourceKeys')
         visited = visited + ['RemediationExceptionResourceKeys']
         [
-          Stubs::RemediationExceptionResourceKey.default(visited)
+          RemediationExceptionResourceKey.default(visited)
         ]
       end
 
@@ -528,7 +528,7 @@ module AWS::SDK::ConfigService
     class DescribeAggregateComplianceByConfigRules
       def self.default(visited=[])
         {
-          aggregate_compliance_by_config_rules: Stubs::AggregateComplianceByConfigRuleList.default(visited),
+          aggregate_compliance_by_config_rules: AggregateComplianceByConfigRuleList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -548,7 +548,7 @@ module AWS::SDK::ConfigService
         return nil if visited.include?('AggregateComplianceByConfigRuleList')
         visited = visited + ['AggregateComplianceByConfigRuleList']
         [
-          Stubs::AggregateComplianceByConfigRule.default(visited)
+          AggregateComplianceByConfigRule.default(visited)
         ]
       end
 
@@ -569,7 +569,7 @@ module AWS::SDK::ConfigService
         visited = visited + ['AggregateComplianceByConfigRule']
         {
           config_rule_name: 'config_rule_name',
-          compliance: Stubs::Compliance.default(visited),
+          compliance: Compliance.default(visited),
           account_id: 'account_id',
           aws_region: 'aws_region',
         }
@@ -593,7 +593,7 @@ module AWS::SDK::ConfigService
         visited = visited + ['Compliance']
         {
           compliance_type: 'compliance_type',
-          compliance_contributor_count: Stubs::ComplianceContributorCount.default(visited),
+          compliance_contributor_count: ComplianceContributorCount.default(visited),
         }
       end
 
@@ -630,7 +630,7 @@ module AWS::SDK::ConfigService
     class DescribeAggregateComplianceByConformancePacks
       def self.default(visited=[])
         {
-          aggregate_compliance_by_conformance_packs: Stubs::AggregateComplianceByConformancePackList.default(visited),
+          aggregate_compliance_by_conformance_packs: AggregateComplianceByConformancePackList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -650,7 +650,7 @@ module AWS::SDK::ConfigService
         return nil if visited.include?('AggregateComplianceByConformancePackList')
         visited = visited + ['AggregateComplianceByConformancePackList']
         [
-          Stubs::AggregateComplianceByConformancePack.default(visited)
+          AggregateComplianceByConformancePack.default(visited)
         ]
       end
 
@@ -671,7 +671,7 @@ module AWS::SDK::ConfigService
         visited = visited + ['AggregateComplianceByConformancePack']
         {
           conformance_pack_name: 'conformance_pack_name',
-          compliance: Stubs::AggregateConformancePackCompliance.default(visited),
+          compliance: AggregateConformancePackCompliance.default(visited),
           account_id: 'account_id',
           aws_region: 'aws_region',
         }
@@ -716,7 +716,7 @@ module AWS::SDK::ConfigService
     class DescribeAggregationAuthorizations
       def self.default(visited=[])
         {
-          aggregation_authorizations: Stubs::AggregationAuthorizationList.default(visited),
+          aggregation_authorizations: AggregationAuthorizationList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -736,7 +736,7 @@ module AWS::SDK::ConfigService
         return nil if visited.include?('AggregationAuthorizationList')
         visited = visited + ['AggregationAuthorizationList']
         [
-          Stubs::AggregationAuthorization.default(visited)
+          AggregationAuthorization.default(visited)
         ]
       end
 
@@ -778,7 +778,7 @@ module AWS::SDK::ConfigService
     class DescribeComplianceByConfigRule
       def self.default(visited=[])
         {
-          compliance_by_config_rules: Stubs::ComplianceByConfigRules.default(visited),
+          compliance_by_config_rules: ComplianceByConfigRules.default(visited),
           next_token: 'next_token',
         }
       end
@@ -798,7 +798,7 @@ module AWS::SDK::ConfigService
         return nil if visited.include?('ComplianceByConfigRules')
         visited = visited + ['ComplianceByConfigRules']
         [
-          Stubs::ComplianceByConfigRule.default(visited)
+          ComplianceByConfigRule.default(visited)
         ]
       end
 
@@ -819,7 +819,7 @@ module AWS::SDK::ConfigService
         visited = visited + ['ComplianceByConfigRule']
         {
           config_rule_name: 'config_rule_name',
-          compliance: Stubs::Compliance.default(visited),
+          compliance: Compliance.default(visited),
         }
       end
 
@@ -836,7 +836,7 @@ module AWS::SDK::ConfigService
     class DescribeComplianceByResource
       def self.default(visited=[])
         {
-          compliance_by_resources: Stubs::ComplianceByResources.default(visited),
+          compliance_by_resources: ComplianceByResources.default(visited),
           next_token: 'next_token',
         }
       end
@@ -856,7 +856,7 @@ module AWS::SDK::ConfigService
         return nil if visited.include?('ComplianceByResources')
         visited = visited + ['ComplianceByResources']
         [
-          Stubs::ComplianceByResource.default(visited)
+          ComplianceByResource.default(visited)
         ]
       end
 
@@ -878,7 +878,7 @@ module AWS::SDK::ConfigService
         {
           resource_type: 'resource_type',
           resource_id: 'resource_id',
-          compliance: Stubs::Compliance.default(visited),
+          compliance: Compliance.default(visited),
         }
       end
 
@@ -896,7 +896,7 @@ module AWS::SDK::ConfigService
     class DescribeConfigRuleEvaluationStatus
       def self.default(visited=[])
         {
-          config_rules_evaluation_status: Stubs::ConfigRuleEvaluationStatusList.default(visited),
+          config_rules_evaluation_status: ConfigRuleEvaluationStatusList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -916,7 +916,7 @@ module AWS::SDK::ConfigService
         return nil if visited.include?('ConfigRuleEvaluationStatusList')
         visited = visited + ['ConfigRuleEvaluationStatusList']
         [
-          Stubs::ConfigRuleEvaluationStatus.default(visited)
+          ConfigRuleEvaluationStatus.default(visited)
         ]
       end
 
@@ -980,7 +980,7 @@ module AWS::SDK::ConfigService
     class DescribeConfigRules
       def self.default(visited=[])
         {
-          config_rules: Stubs::ConfigRules.default(visited),
+          config_rules: ConfigRules.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1000,7 +1000,7 @@ module AWS::SDK::ConfigService
         return nil if visited.include?('ConfigRules')
         visited = visited + ['ConfigRules']
         [
-          Stubs::ConfigRule.default(visited)
+          ConfigRule.default(visited)
         ]
       end
 
@@ -1024,8 +1024,8 @@ module AWS::SDK::ConfigService
           config_rule_arn: 'config_rule_arn',
           config_rule_id: 'config_rule_id',
           description: 'description',
-          scope: Stubs::Scope.default(visited),
-          source: Stubs::Source.default(visited),
+          scope: Scope.default(visited),
+          source: Source.default(visited),
           input_parameters: 'input_parameters',
           maximum_execution_frequency: 'maximum_execution_frequency',
           config_rule_state: 'config_rule_state',
@@ -1058,8 +1058,8 @@ module AWS::SDK::ConfigService
         {
           owner: 'owner',
           source_identifier: 'source_identifier',
-          source_details: Stubs::SourceDetails.default(visited),
-          custom_policy_details: Stubs::CustomPolicyDetails.default(visited),
+          source_details: SourceDetails.default(visited),
+          custom_policy_details: CustomPolicyDetails.default(visited),
         }
       end
 
@@ -1102,7 +1102,7 @@ module AWS::SDK::ConfigService
         return nil if visited.include?('SourceDetails')
         visited = visited + ['SourceDetails']
         [
-          Stubs::SourceDetail.default(visited)
+          SourceDetail.default(visited)
         ]
       end
 
@@ -1144,7 +1144,7 @@ module AWS::SDK::ConfigService
         return nil if visited.include?('Scope')
         visited = visited + ['Scope']
         {
-          compliance_resource_types: Stubs::ComplianceResourceTypes.default(visited),
+          compliance_resource_types: ComplianceResourceTypes.default(visited),
           tag_key: 'tag_key',
           tag_value: 'tag_value',
           compliance_resource_id: 'compliance_resource_id',
@@ -1186,7 +1186,7 @@ module AWS::SDK::ConfigService
     class DescribeConfigurationAggregatorSourcesStatus
       def self.default(visited=[])
         {
-          aggregated_source_status_list: Stubs::AggregatedSourceStatusList.default(visited),
+          aggregated_source_status_list: AggregatedSourceStatusList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1206,7 +1206,7 @@ module AWS::SDK::ConfigService
         return nil if visited.include?('AggregatedSourceStatusList')
         visited = visited + ['AggregatedSourceStatusList']
         [
-          Stubs::AggregatedSourceStatus.default(visited)
+          AggregatedSourceStatus.default(visited)
         ]
       end
 
@@ -1254,7 +1254,7 @@ module AWS::SDK::ConfigService
     class DescribeConfigurationAggregators
       def self.default(visited=[])
         {
-          configuration_aggregators: Stubs::ConfigurationAggregatorList.default(visited),
+          configuration_aggregators: ConfigurationAggregatorList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1274,7 +1274,7 @@ module AWS::SDK::ConfigService
         return nil if visited.include?('ConfigurationAggregatorList')
         visited = visited + ['ConfigurationAggregatorList']
         [
-          Stubs::ConfigurationAggregator.default(visited)
+          ConfigurationAggregator.default(visited)
         ]
       end
 
@@ -1296,8 +1296,8 @@ module AWS::SDK::ConfigService
         {
           configuration_aggregator_name: 'configuration_aggregator_name',
           configuration_aggregator_arn: 'configuration_aggregator_arn',
-          account_aggregation_sources: Stubs::AccountAggregationSourceList.default(visited),
-          organization_aggregation_source: Stubs::OrganizationAggregationSource.default(visited),
+          account_aggregation_sources: AccountAggregationSourceList.default(visited),
+          organization_aggregation_source: OrganizationAggregationSource.default(visited),
           creation_time: Time.now,
           last_updated_time: Time.now,
           created_by: 'created_by',
@@ -1325,7 +1325,7 @@ module AWS::SDK::ConfigService
         visited = visited + ['OrganizationAggregationSource']
         {
           role_arn: 'role_arn',
-          aws_regions: Stubs::AggregatorRegionList.default(visited),
+          aws_regions: AggregatorRegionList.default(visited),
           all_aws_regions: false,
         }
       end
@@ -1366,7 +1366,7 @@ module AWS::SDK::ConfigService
         return nil if visited.include?('AccountAggregationSourceList')
         visited = visited + ['AccountAggregationSourceList']
         [
-          Stubs::AccountAggregationSource.default(visited)
+          AccountAggregationSource.default(visited)
         ]
       end
 
@@ -1386,9 +1386,9 @@ module AWS::SDK::ConfigService
         return nil if visited.include?('AccountAggregationSource')
         visited = visited + ['AccountAggregationSource']
         {
-          account_ids: Stubs::AccountAggregationSourceAccountList.default(visited),
+          account_ids: AccountAggregationSourceAccountList.default(visited),
           all_aws_regions: false,
-          aws_regions: Stubs::AggregatorRegionList.default(visited),
+          aws_regions: AggregatorRegionList.default(visited),
         }
       end
 
@@ -1426,7 +1426,7 @@ module AWS::SDK::ConfigService
     class DescribeConfigurationRecorderStatus
       def self.default(visited=[])
         {
-          configuration_recorders_status: Stubs::ConfigurationRecorderStatusList.default(visited),
+          configuration_recorders_status: ConfigurationRecorderStatusList.default(visited),
         }
       end
 
@@ -1444,7 +1444,7 @@ module AWS::SDK::ConfigService
         return nil if visited.include?('ConfigurationRecorderStatusList')
         visited = visited + ['ConfigurationRecorderStatusList']
         [
-          Stubs::ConfigurationRecorderStatus.default(visited)
+          ConfigurationRecorderStatus.default(visited)
         ]
       end
 
@@ -1494,7 +1494,7 @@ module AWS::SDK::ConfigService
     class DescribeConfigurationRecorders
       def self.default(visited=[])
         {
-          configuration_recorders: Stubs::ConfigurationRecorderList.default(visited),
+          configuration_recorders: ConfigurationRecorderList.default(visited),
         }
       end
 
@@ -1512,7 +1512,7 @@ module AWS::SDK::ConfigService
         return nil if visited.include?('ConfigurationRecorderList')
         visited = visited + ['ConfigurationRecorderList']
         [
-          Stubs::ConfigurationRecorder.default(visited)
+          ConfigurationRecorder.default(visited)
         ]
       end
 
@@ -1534,7 +1534,7 @@ module AWS::SDK::ConfigService
         {
           name: 'name',
           role_arn: 'role_arn',
-          recording_group: Stubs::RecordingGroup.default(visited),
+          recording_group: RecordingGroup.default(visited),
         }
       end
 
@@ -1556,7 +1556,7 @@ module AWS::SDK::ConfigService
         {
           all_supported: false,
           include_global_resource_types: false,
-          resource_types: Stubs::ResourceTypeList.default(visited),
+          resource_types: ResourceTypeList.default(visited),
         }
       end
 
@@ -1595,7 +1595,7 @@ module AWS::SDK::ConfigService
       def self.default(visited=[])
         {
           conformance_pack_name: 'conformance_pack_name',
-          conformance_pack_rule_compliance_list: Stubs::ConformancePackRuleComplianceList.default(visited),
+          conformance_pack_rule_compliance_list: ConformancePackRuleComplianceList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1616,7 +1616,7 @@ module AWS::SDK::ConfigService
         return nil if visited.include?('ConformancePackRuleComplianceList')
         visited = visited + ['ConformancePackRuleComplianceList']
         [
-          Stubs::ConformancePackRuleCompliance.default(visited)
+          ConformancePackRuleCompliance.default(visited)
         ]
       end
 
@@ -1638,7 +1638,7 @@ module AWS::SDK::ConfigService
         {
           config_rule_name: 'config_rule_name',
           compliance_type: 'compliance_type',
-          controls: Stubs::ControlsList.default(visited),
+          controls: ControlsList.default(visited),
         }
       end
 
@@ -1676,7 +1676,7 @@ module AWS::SDK::ConfigService
     class DescribeConformancePackStatus
       def self.default(visited=[])
         {
-          conformance_pack_status_details: Stubs::ConformancePackStatusDetailsList.default(visited),
+          conformance_pack_status_details: ConformancePackStatusDetailsList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1696,7 +1696,7 @@ module AWS::SDK::ConfigService
         return nil if visited.include?('ConformancePackStatusDetailsList')
         visited = visited + ['ConformancePackStatusDetailsList']
         [
-          Stubs::ConformancePackStatusDetail.default(visited)
+          ConformancePackStatusDetail.default(visited)
         ]
       end
 
@@ -1746,7 +1746,7 @@ module AWS::SDK::ConfigService
     class DescribeConformancePacks
       def self.default(visited=[])
         {
-          conformance_pack_details: Stubs::ConformancePackDetailList.default(visited),
+          conformance_pack_details: ConformancePackDetailList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1766,7 +1766,7 @@ module AWS::SDK::ConfigService
         return nil if visited.include?('ConformancePackDetailList')
         visited = visited + ['ConformancePackDetailList']
         [
-          Stubs::ConformancePackDetail.default(visited)
+          ConformancePackDetail.default(visited)
         ]
       end
 
@@ -1791,7 +1791,7 @@ module AWS::SDK::ConfigService
           conformance_pack_id: 'conformance_pack_id',
           delivery_s3_bucket: 'delivery_s3_bucket',
           delivery_s3_key_prefix: 'delivery_s3_key_prefix',
-          conformance_pack_input_parameters: Stubs::ConformancePackInputParameters.default(visited),
+          conformance_pack_input_parameters: ConformancePackInputParameters.default(visited),
           last_update_requested_time: Time.now,
           created_by: 'created_by',
         }
@@ -1818,7 +1818,7 @@ module AWS::SDK::ConfigService
         return nil if visited.include?('ConformancePackInputParameters')
         visited = visited + ['ConformancePackInputParameters']
         [
-          Stubs::ConformancePackInputParameter.default(visited)
+          ConformancePackInputParameter.default(visited)
         ]
       end
 
@@ -1856,7 +1856,7 @@ module AWS::SDK::ConfigService
     class DescribeDeliveryChannelStatus
       def self.default(visited=[])
         {
-          delivery_channels_status: Stubs::DeliveryChannelStatusList.default(visited),
+          delivery_channels_status: DeliveryChannelStatusList.default(visited),
         }
       end
 
@@ -1874,7 +1874,7 @@ module AWS::SDK::ConfigService
         return nil if visited.include?('DeliveryChannelStatusList')
         visited = visited + ['DeliveryChannelStatusList']
         [
-          Stubs::DeliveryChannelStatus.default(visited)
+          DeliveryChannelStatus.default(visited)
         ]
       end
 
@@ -1895,9 +1895,9 @@ module AWS::SDK::ConfigService
         visited = visited + ['DeliveryChannelStatus']
         {
           name: 'name',
-          config_snapshot_delivery_info: Stubs::ConfigExportDeliveryInfo.default(visited),
-          config_history_delivery_info: Stubs::ConfigExportDeliveryInfo.default(visited),
-          config_stream_delivery_info: Stubs::ConfigStreamDeliveryInfo.default(visited),
+          config_snapshot_delivery_info: ConfigExportDeliveryInfo.default(visited),
+          config_history_delivery_info: ConfigExportDeliveryInfo.default(visited),
+          config_stream_delivery_info: ConfigStreamDeliveryInfo.default(visited),
         }
       end
 
@@ -1968,7 +1968,7 @@ module AWS::SDK::ConfigService
     class DescribeDeliveryChannels
       def self.default(visited=[])
         {
-          delivery_channels: Stubs::DeliveryChannelList.default(visited),
+          delivery_channels: DeliveryChannelList.default(visited),
         }
       end
 
@@ -1986,7 +1986,7 @@ module AWS::SDK::ConfigService
         return nil if visited.include?('DeliveryChannelList')
         visited = visited + ['DeliveryChannelList']
         [
-          Stubs::DeliveryChannel.default(visited)
+          DeliveryChannel.default(visited)
         ]
       end
 
@@ -2011,7 +2011,7 @@ module AWS::SDK::ConfigService
           s3_key_prefix: 's3_key_prefix',
           s3_kms_key_arn: 's3_kms_key_arn',
           sns_topic_arn: 'sns_topic_arn',
-          config_snapshot_delivery_properties: Stubs::ConfigSnapshotDeliveryProperties.default(visited),
+          config_snapshot_delivery_properties: ConfigSnapshotDeliveryProperties.default(visited),
         }
       end
 
@@ -2050,7 +2050,7 @@ module AWS::SDK::ConfigService
     class DescribeOrganizationConfigRuleStatuses
       def self.default(visited=[])
         {
-          organization_config_rule_statuses: Stubs::OrganizationConfigRuleStatuses.default(visited),
+          organization_config_rule_statuses: OrganizationConfigRuleStatuses.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2070,7 +2070,7 @@ module AWS::SDK::ConfigService
         return nil if visited.include?('OrganizationConfigRuleStatuses')
         visited = visited + ['OrganizationConfigRuleStatuses']
         [
-          Stubs::OrganizationConfigRuleStatus.default(visited)
+          OrganizationConfigRuleStatus.default(visited)
         ]
       end
 
@@ -2114,7 +2114,7 @@ module AWS::SDK::ConfigService
     class DescribeOrganizationConfigRules
       def self.default(visited=[])
         {
-          organization_config_rules: Stubs::OrganizationConfigRules.default(visited),
+          organization_config_rules: OrganizationConfigRules.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2134,7 +2134,7 @@ module AWS::SDK::ConfigService
         return nil if visited.include?('OrganizationConfigRules')
         visited = visited + ['OrganizationConfigRules']
         [
-          Stubs::OrganizationConfigRule.default(visited)
+          OrganizationConfigRule.default(visited)
         ]
       end
 
@@ -2156,11 +2156,11 @@ module AWS::SDK::ConfigService
         {
           organization_config_rule_name: 'organization_config_rule_name',
           organization_config_rule_arn: 'organization_config_rule_arn',
-          organization_managed_rule_metadata: Stubs::OrganizationManagedRuleMetadata.default(visited),
-          organization_custom_rule_metadata: Stubs::OrganizationCustomRuleMetadata.default(visited),
-          excluded_accounts: Stubs::ExcludedAccounts.default(visited),
+          organization_managed_rule_metadata: OrganizationManagedRuleMetadata.default(visited),
+          organization_custom_rule_metadata: OrganizationCustomRuleMetadata.default(visited),
+          excluded_accounts: ExcludedAccounts.default(visited),
           last_update_time: Time.now,
-          organization_custom_policy_rule_metadata: Stubs::OrganizationCustomPolicyRuleMetadataNoPolicy.default(visited),
+          organization_custom_policy_rule_metadata: OrganizationCustomPolicyRuleMetadataNoPolicy.default(visited),
         }
       end
 
@@ -2185,15 +2185,15 @@ module AWS::SDK::ConfigService
         visited = visited + ['OrganizationCustomPolicyRuleMetadataNoPolicy']
         {
           description: 'description',
-          organization_config_rule_trigger_types: Stubs::OrganizationConfigRuleTriggerTypeNoSNs.default(visited),
+          organization_config_rule_trigger_types: OrganizationConfigRuleTriggerTypeNoSNs.default(visited),
           input_parameters: 'input_parameters',
           maximum_execution_frequency: 'maximum_execution_frequency',
-          resource_types_scope: Stubs::ResourceTypesScope.default(visited),
+          resource_types_scope: ResourceTypesScope.default(visited),
           resource_id_scope: 'resource_id_scope',
           tag_key_scope: 'tag_key_scope',
           tag_value_scope: 'tag_value_scope',
           policy_runtime: 'policy_runtime',
-          debug_log_delivery_accounts: Stubs::DebugLogDeliveryAccounts.default(visited),
+          debug_log_delivery_accounts: DebugLogDeliveryAccounts.default(visited),
         }
       end
 
@@ -2302,10 +2302,10 @@ module AWS::SDK::ConfigService
         {
           description: 'description',
           lambda_function_arn: 'lambda_function_arn',
-          organization_config_rule_trigger_types: Stubs::OrganizationConfigRuleTriggerTypes.default(visited),
+          organization_config_rule_trigger_types: OrganizationConfigRuleTriggerTypes.default(visited),
           input_parameters: 'input_parameters',
           maximum_execution_frequency: 'maximum_execution_frequency',
-          resource_types_scope: Stubs::ResourceTypesScope.default(visited),
+          resource_types_scope: ResourceTypesScope.default(visited),
           resource_id_scope: 'resource_id_scope',
           tag_key_scope: 'tag_key_scope',
           tag_value_scope: 'tag_value_scope',
@@ -2358,7 +2358,7 @@ module AWS::SDK::ConfigService
           rule_identifier: 'rule_identifier',
           input_parameters: 'input_parameters',
           maximum_execution_frequency: 'maximum_execution_frequency',
-          resource_types_scope: Stubs::ResourceTypesScope.default(visited),
+          resource_types_scope: ResourceTypesScope.default(visited),
           resource_id_scope: 'resource_id_scope',
           tag_key_scope: 'tag_key_scope',
           tag_value_scope: 'tag_value_scope',
@@ -2384,7 +2384,7 @@ module AWS::SDK::ConfigService
     class DescribeOrganizationConformancePackStatuses
       def self.default(visited=[])
         {
-          organization_conformance_pack_statuses: Stubs::OrganizationConformancePackStatuses.default(visited),
+          organization_conformance_pack_statuses: OrganizationConformancePackStatuses.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2404,7 +2404,7 @@ module AWS::SDK::ConfigService
         return nil if visited.include?('OrganizationConformancePackStatuses')
         visited = visited + ['OrganizationConformancePackStatuses']
         [
-          Stubs::OrganizationConformancePackStatus.default(visited)
+          OrganizationConformancePackStatus.default(visited)
         ]
       end
 
@@ -2448,7 +2448,7 @@ module AWS::SDK::ConfigService
     class DescribeOrganizationConformancePacks
       def self.default(visited=[])
         {
-          organization_conformance_packs: Stubs::OrganizationConformancePacks.default(visited),
+          organization_conformance_packs: OrganizationConformancePacks.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2468,7 +2468,7 @@ module AWS::SDK::ConfigService
         return nil if visited.include?('OrganizationConformancePacks')
         visited = visited + ['OrganizationConformancePacks']
         [
-          Stubs::OrganizationConformancePack.default(visited)
+          OrganizationConformancePack.default(visited)
         ]
       end
 
@@ -2492,8 +2492,8 @@ module AWS::SDK::ConfigService
           organization_conformance_pack_arn: 'organization_conformance_pack_arn',
           delivery_s3_bucket: 'delivery_s3_bucket',
           delivery_s3_key_prefix: 'delivery_s3_key_prefix',
-          conformance_pack_input_parameters: Stubs::ConformancePackInputParameters.default(visited),
-          excluded_accounts: Stubs::ExcludedAccounts.default(visited),
+          conformance_pack_input_parameters: ConformancePackInputParameters.default(visited),
+          excluded_accounts: ExcludedAccounts.default(visited),
           last_update_time: Time.now,
         }
       end
@@ -2516,7 +2516,7 @@ module AWS::SDK::ConfigService
     class DescribePendingAggregationRequests
       def self.default(visited=[])
         {
-          pending_aggregation_requests: Stubs::PendingAggregationRequestList.default(visited),
+          pending_aggregation_requests: PendingAggregationRequestList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2536,7 +2536,7 @@ module AWS::SDK::ConfigService
         return nil if visited.include?('PendingAggregationRequestList')
         visited = visited + ['PendingAggregationRequestList']
         [
-          Stubs::PendingAggregationRequest.default(visited)
+          PendingAggregationRequest.default(visited)
         ]
       end
 
@@ -2574,7 +2574,7 @@ module AWS::SDK::ConfigService
     class DescribeRemediationConfigurations
       def self.default(visited=[])
         {
-          remediation_configurations: Stubs::RemediationConfigurations.default(visited),
+          remediation_configurations: RemediationConfigurations.default(visited),
         }
       end
 
@@ -2592,7 +2592,7 @@ module AWS::SDK::ConfigService
         return nil if visited.include?('RemediationConfigurations')
         visited = visited + ['RemediationConfigurations']
         [
-          Stubs::RemediationConfiguration.default(visited)
+          RemediationConfiguration.default(visited)
         ]
       end
 
@@ -2616,10 +2616,10 @@ module AWS::SDK::ConfigService
           target_type: 'target_type',
           target_id: 'target_id',
           target_version: 'target_version',
-          parameters: Stubs::RemediationParameters.default(visited),
+          parameters: RemediationParameters.default(visited),
           resource_type: 'resource_type',
           automatic: false,
-          execution_controls: Stubs::ExecutionControls.default(visited),
+          execution_controls: ExecutionControls.default(visited),
           maximum_automatic_attempts: 1,
           retry_attempt_seconds: 1,
           arn: 'arn',
@@ -2652,7 +2652,7 @@ module AWS::SDK::ConfigService
         return nil if visited.include?('ExecutionControls')
         visited = visited + ['ExecutionControls']
         {
-          ssm_controls: Stubs::SsmControls.default(visited),
+          ssm_controls: SsmControls.default(visited),
         }
       end
 
@@ -2690,7 +2690,7 @@ module AWS::SDK::ConfigService
         return nil if visited.include?('RemediationParameters')
         visited = visited + ['RemediationParameters']
         {
-          test_key: Stubs::RemediationParameterValue.default(visited)
+          test_key: RemediationParameterValue.default(visited)
         }
       end
 
@@ -2710,8 +2710,8 @@ module AWS::SDK::ConfigService
         return nil if visited.include?('RemediationParameterValue')
         visited = visited + ['RemediationParameterValue']
         {
-          resource_value: Stubs::ResourceValue.default(visited),
-          static_value: Stubs::StaticValue.default(visited),
+          resource_value: ResourceValue.default(visited),
+          static_value: StaticValue.default(visited),
         }
       end
 
@@ -2730,7 +2730,7 @@ module AWS::SDK::ConfigService
         return nil if visited.include?('StaticValue')
         visited = visited + ['StaticValue']
         {
-          values: Stubs::StaticParameterValues.default(visited),
+          values: StaticParameterValues.default(visited),
         }
       end
 
@@ -2784,7 +2784,7 @@ module AWS::SDK::ConfigService
     class DescribeRemediationExceptions
       def self.default(visited=[])
         {
-          remediation_exceptions: Stubs::RemediationExceptions.default(visited),
+          remediation_exceptions: RemediationExceptions.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2804,7 +2804,7 @@ module AWS::SDK::ConfigService
         return nil if visited.include?('RemediationExceptions')
         visited = visited + ['RemediationExceptions']
         [
-          Stubs::RemediationException.default(visited)
+          RemediationException.default(visited)
         ]
       end
 
@@ -2848,7 +2848,7 @@ module AWS::SDK::ConfigService
     class DescribeRemediationExecutionStatus
       def self.default(visited=[])
         {
-          remediation_execution_statuses: Stubs::RemediationExecutionStatuses.default(visited),
+          remediation_execution_statuses: RemediationExecutionStatuses.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2868,7 +2868,7 @@ module AWS::SDK::ConfigService
         return nil if visited.include?('RemediationExecutionStatuses')
         visited = visited + ['RemediationExecutionStatuses']
         [
-          Stubs::RemediationExecutionStatus.default(visited)
+          RemediationExecutionStatus.default(visited)
         ]
       end
 
@@ -2888,9 +2888,9 @@ module AWS::SDK::ConfigService
         return nil if visited.include?('RemediationExecutionStatus')
         visited = visited + ['RemediationExecutionStatus']
         {
-          resource_key: Stubs::ResourceKey.default(visited),
+          resource_key: ResourceKey.default(visited),
           state: 'state',
-          step_details: Stubs::RemediationExecutionSteps.default(visited),
+          step_details: RemediationExecutionSteps.default(visited),
           invocation_time: Time.now,
           last_updated_time: Time.now,
         }
@@ -2914,7 +2914,7 @@ module AWS::SDK::ConfigService
         return nil if visited.include?('RemediationExecutionSteps')
         visited = visited + ['RemediationExecutionSteps']
         [
-          Stubs::RemediationExecutionStep.default(visited)
+          RemediationExecutionStep.default(visited)
         ]
       end
 
@@ -2958,7 +2958,7 @@ module AWS::SDK::ConfigService
     class DescribeRetentionConfigurations
       def self.default(visited=[])
         {
-          retention_configurations: Stubs::RetentionConfigurationList.default(visited),
+          retention_configurations: RetentionConfigurationList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2978,7 +2978,7 @@ module AWS::SDK::ConfigService
         return nil if visited.include?('RetentionConfigurationList')
         visited = visited + ['RetentionConfigurationList']
         [
-          Stubs::RetentionConfiguration.default(visited)
+          RetentionConfiguration.default(visited)
         ]
       end
 
@@ -3016,7 +3016,7 @@ module AWS::SDK::ConfigService
     class GetAggregateComplianceDetailsByConfigRule
       def self.default(visited=[])
         {
-          aggregate_evaluation_results: Stubs::AggregateEvaluationResultList.default(visited),
+          aggregate_evaluation_results: AggregateEvaluationResultList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3036,7 +3036,7 @@ module AWS::SDK::ConfigService
         return nil if visited.include?('AggregateEvaluationResultList')
         visited = visited + ['AggregateEvaluationResultList']
         [
-          Stubs::AggregateEvaluationResult.default(visited)
+          AggregateEvaluationResult.default(visited)
         ]
       end
 
@@ -3056,7 +3056,7 @@ module AWS::SDK::ConfigService
         return nil if visited.include?('AggregateEvaluationResult')
         visited = visited + ['AggregateEvaluationResult']
         {
-          evaluation_result_identifier: Stubs::EvaluationResultIdentifier.default(visited),
+          evaluation_result_identifier: EvaluationResultIdentifier.default(visited),
           compliance_type: 'compliance_type',
           result_recorded_time: Time.now,
           config_rule_invoked_time: Time.now,
@@ -3086,7 +3086,7 @@ module AWS::SDK::ConfigService
         return nil if visited.include?('EvaluationResultIdentifier')
         visited = visited + ['EvaluationResultIdentifier']
         {
-          evaluation_result_qualifier: Stubs::EvaluationResultQualifier.default(visited),
+          evaluation_result_qualifier: EvaluationResultQualifier.default(visited),
           ordering_timestamp: Time.now,
         }
       end
@@ -3127,7 +3127,7 @@ module AWS::SDK::ConfigService
       def self.default(visited=[])
         {
           group_by_key: 'group_by_key',
-          aggregate_compliance_counts: Stubs::AggregateComplianceCountList.default(visited),
+          aggregate_compliance_counts: AggregateComplianceCountList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3148,7 +3148,7 @@ module AWS::SDK::ConfigService
         return nil if visited.include?('AggregateComplianceCountList')
         visited = visited + ['AggregateComplianceCountList']
         [
-          Stubs::AggregateComplianceCount.default(visited)
+          AggregateComplianceCount.default(visited)
         ]
       end
 
@@ -3169,7 +3169,7 @@ module AWS::SDK::ConfigService
         visited = visited + ['AggregateComplianceCount']
         {
           group_name: 'group_name',
-          compliance_summary: Stubs::ComplianceSummary.default(visited),
+          compliance_summary: ComplianceSummary.default(visited),
         }
       end
 
@@ -3188,8 +3188,8 @@ module AWS::SDK::ConfigService
         return nil if visited.include?('ComplianceSummary')
         visited = visited + ['ComplianceSummary']
         {
-          compliant_resource_count: Stubs::ComplianceContributorCount.default(visited),
-          non_compliant_resource_count: Stubs::ComplianceContributorCount.default(visited),
+          compliant_resource_count: ComplianceContributorCount.default(visited),
+          non_compliant_resource_count: ComplianceContributorCount.default(visited),
           compliance_summary_timestamp: Time.now,
         }
       end
@@ -3208,7 +3208,7 @@ module AWS::SDK::ConfigService
     class GetAggregateConformancePackComplianceSummary
       def self.default(visited=[])
         {
-          aggregate_conformance_pack_compliance_summaries: Stubs::AggregateConformancePackComplianceSummaryList.default(visited),
+          aggregate_conformance_pack_compliance_summaries: AggregateConformancePackComplianceSummaryList.default(visited),
           group_by_key: 'group_by_key',
           next_token: 'next_token',
         }
@@ -3230,7 +3230,7 @@ module AWS::SDK::ConfigService
         return nil if visited.include?('AggregateConformancePackComplianceSummaryList')
         visited = visited + ['AggregateConformancePackComplianceSummaryList']
         [
-          Stubs::AggregateConformancePackComplianceSummary.default(visited)
+          AggregateConformancePackComplianceSummary.default(visited)
         ]
       end
 
@@ -3250,7 +3250,7 @@ module AWS::SDK::ConfigService
         return nil if visited.include?('AggregateConformancePackComplianceSummary')
         visited = visited + ['AggregateConformancePackComplianceSummary']
         {
-          compliance_summary: Stubs::AggregateConformancePackComplianceCount.default(visited),
+          compliance_summary: AggregateConformancePackComplianceCount.default(visited),
           group_name: 'group_name',
         }
       end
@@ -3290,7 +3290,7 @@ module AWS::SDK::ConfigService
         {
           total_discovered_resources: 1,
           group_by_key: 'group_by_key',
-          grouped_resource_counts: Stubs::GroupedResourceCountList.default(visited),
+          grouped_resource_counts: GroupedResourceCountList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3312,7 +3312,7 @@ module AWS::SDK::ConfigService
         return nil if visited.include?('GroupedResourceCountList')
         visited = visited + ['GroupedResourceCountList']
         [
-          Stubs::GroupedResourceCount.default(visited)
+          GroupedResourceCount.default(visited)
         ]
       end
 
@@ -3350,7 +3350,7 @@ module AWS::SDK::ConfigService
     class GetAggregateResourceConfig
       def self.default(visited=[])
         {
-          configuration_item: Stubs::ConfigurationItem.default(visited),
+          configuration_item: ConfigurationItem.default(visited),
         }
       end
 
@@ -3381,11 +3381,11 @@ module AWS::SDK::ConfigService
           aws_region: 'aws_region',
           availability_zone: 'availability_zone',
           resource_creation_time: Time.now,
-          tags: Stubs::Tags.default(visited),
-          related_events: Stubs::RelatedEventList.default(visited),
-          relationships: Stubs::RelationshipList.default(visited),
+          tags: Tags.default(visited),
+          related_events: RelatedEventList.default(visited),
+          relationships: RelationshipList.default(visited),
           configuration: 'configuration',
-          supplementary_configuration: Stubs::SupplementaryConfiguration.default(visited),
+          supplementary_configuration: SupplementaryConfiguration.default(visited),
         }
       end
 
@@ -3420,7 +3420,7 @@ module AWS::SDK::ConfigService
         return nil if visited.include?('RelationshipList')
         visited = visited + ['RelationshipList']
         [
-          Stubs::Relationship.default(visited)
+          Relationship.default(visited)
         ]
       end
 
@@ -3502,7 +3502,7 @@ module AWS::SDK::ConfigService
     class GetComplianceDetailsByConfigRule
       def self.default(visited=[])
         {
-          evaluation_results: Stubs::EvaluationResults.default(visited),
+          evaluation_results: EvaluationResults.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3522,7 +3522,7 @@ module AWS::SDK::ConfigService
         return nil if visited.include?('EvaluationResults')
         visited = visited + ['EvaluationResults']
         [
-          Stubs::EvaluationResult.default(visited)
+          EvaluationResult.default(visited)
         ]
       end
 
@@ -3542,7 +3542,7 @@ module AWS::SDK::ConfigService
         return nil if visited.include?('EvaluationResult')
         visited = visited + ['EvaluationResult']
         {
-          evaluation_result_identifier: Stubs::EvaluationResultIdentifier.default(visited),
+          evaluation_result_identifier: EvaluationResultIdentifier.default(visited),
           compliance_type: 'compliance_type',
           result_recorded_time: Time.now,
           config_rule_invoked_time: Time.now,
@@ -3568,7 +3568,7 @@ module AWS::SDK::ConfigService
     class GetComplianceDetailsByResource
       def self.default(visited=[])
         {
-          evaluation_results: Stubs::EvaluationResults.default(visited),
+          evaluation_results: EvaluationResults.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3586,7 +3586,7 @@ module AWS::SDK::ConfigService
     class GetComplianceSummaryByConfigRule
       def self.default(visited=[])
         {
-          compliance_summary: Stubs::ComplianceSummary.default(visited),
+          compliance_summary: ComplianceSummary.default(visited),
         }
       end
 
@@ -3602,7 +3602,7 @@ module AWS::SDK::ConfigService
     class GetComplianceSummaryByResourceType
       def self.default(visited=[])
         {
-          compliance_summaries_by_resource_type: Stubs::ComplianceSummariesByResourceType.default(visited),
+          compliance_summaries_by_resource_type: ComplianceSummariesByResourceType.default(visited),
         }
       end
 
@@ -3620,7 +3620,7 @@ module AWS::SDK::ConfigService
         return nil if visited.include?('ComplianceSummariesByResourceType')
         visited = visited + ['ComplianceSummariesByResourceType']
         [
-          Stubs::ComplianceSummaryByResourceType.default(visited)
+          ComplianceSummaryByResourceType.default(visited)
         ]
       end
 
@@ -3641,7 +3641,7 @@ module AWS::SDK::ConfigService
         visited = visited + ['ComplianceSummaryByResourceType']
         {
           resource_type: 'resource_type',
-          compliance_summary: Stubs::ComplianceSummary.default(visited),
+          compliance_summary: ComplianceSummary.default(visited),
         }
       end
 
@@ -3659,7 +3659,7 @@ module AWS::SDK::ConfigService
       def self.default(visited=[])
         {
           conformance_pack_name: 'conformance_pack_name',
-          conformance_pack_rule_evaluation_results: Stubs::ConformancePackRuleEvaluationResultsList.default(visited),
+          conformance_pack_rule_evaluation_results: ConformancePackRuleEvaluationResultsList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3680,7 +3680,7 @@ module AWS::SDK::ConfigService
         return nil if visited.include?('ConformancePackRuleEvaluationResultsList')
         visited = visited + ['ConformancePackRuleEvaluationResultsList']
         [
-          Stubs::ConformancePackEvaluationResult.default(visited)
+          ConformancePackEvaluationResult.default(visited)
         ]
       end
 
@@ -3701,7 +3701,7 @@ module AWS::SDK::ConfigService
         visited = visited + ['ConformancePackEvaluationResult']
         {
           compliance_type: 'compliance_type',
-          evaluation_result_identifier: Stubs::EvaluationResultIdentifier.default(visited),
+          evaluation_result_identifier: EvaluationResultIdentifier.default(visited),
           config_rule_invoked_time: Time.now,
           result_recorded_time: Time.now,
           annotation: 'annotation',
@@ -3724,7 +3724,7 @@ module AWS::SDK::ConfigService
     class GetConformancePackComplianceSummary
       def self.default(visited=[])
         {
-          conformance_pack_compliance_summary_list: Stubs::ConformancePackComplianceSummaryList.default(visited),
+          conformance_pack_compliance_summary_list: ConformancePackComplianceSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3744,7 +3744,7 @@ module AWS::SDK::ConfigService
         return nil if visited.include?('ConformancePackComplianceSummaryList')
         visited = visited + ['ConformancePackComplianceSummaryList']
         [
-          Stubs::ConformancePackComplianceSummary.default(visited)
+          ConformancePackComplianceSummary.default(visited)
         ]
       end
 
@@ -3799,7 +3799,7 @@ module AWS::SDK::ConfigService
       def self.default(visited=[])
         {
           total_discovered_resources: 1,
-          resource_counts: Stubs::ResourceCounts.default(visited),
+          resource_counts: ResourceCounts.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3820,7 +3820,7 @@ module AWS::SDK::ConfigService
         return nil if visited.include?('ResourceCounts')
         visited = visited + ['ResourceCounts']
         [
-          Stubs::ResourceCount.default(visited)
+          ResourceCount.default(visited)
         ]
       end
 
@@ -3858,7 +3858,7 @@ module AWS::SDK::ConfigService
     class GetOrganizationConfigRuleDetailedStatus
       def self.default(visited=[])
         {
-          organization_config_rule_detailed_status: Stubs::OrganizationConfigRuleDetailedStatus.default(visited),
+          organization_config_rule_detailed_status: OrganizationConfigRuleDetailedStatus.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3878,7 +3878,7 @@ module AWS::SDK::ConfigService
         return nil if visited.include?('OrganizationConfigRuleDetailedStatus')
         visited = visited + ['OrganizationConfigRuleDetailedStatus']
         [
-          Stubs::MemberAccountStatus.default(visited)
+          MemberAccountStatus.default(visited)
         ]
       end
 
@@ -3924,7 +3924,7 @@ module AWS::SDK::ConfigService
     class GetOrganizationConformancePackDetailedStatus
       def self.default(visited=[])
         {
-          organization_conformance_pack_detailed_statuses: Stubs::OrganizationConformancePackDetailedStatuses.default(visited),
+          organization_conformance_pack_detailed_statuses: OrganizationConformancePackDetailedStatuses.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3944,7 +3944,7 @@ module AWS::SDK::ConfigService
         return nil if visited.include?('OrganizationConformancePackDetailedStatuses')
         visited = visited + ['OrganizationConformancePackDetailedStatuses']
         [
-          Stubs::OrganizationConformancePackDetailedStatus.default(visited)
+          OrganizationConformancePackDetailedStatus.default(visited)
         ]
       end
 
@@ -4006,7 +4006,7 @@ module AWS::SDK::ConfigService
     class GetResourceConfigHistory
       def self.default(visited=[])
         {
-          configuration_items: Stubs::ConfigurationItemList.default(visited),
+          configuration_items: ConfigurationItemList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -4026,7 +4026,7 @@ module AWS::SDK::ConfigService
         return nil if visited.include?('ConfigurationItemList')
         visited = visited + ['ConfigurationItemList']
         [
-          Stubs::ConfigurationItem.default(visited)
+          ConfigurationItem.default(visited)
         ]
       end
 
@@ -4044,7 +4044,7 @@ module AWS::SDK::ConfigService
     class GetStoredQuery
       def self.default(visited=[])
         {
-          stored_query: Stubs::StoredQuery.default(visited),
+          stored_query: StoredQuery.default(visited),
         }
       end
 
@@ -4086,7 +4086,7 @@ module AWS::SDK::ConfigService
     class ListAggregateDiscoveredResources
       def self.default(visited=[])
         {
-          resource_identifiers: Stubs::DiscoveredResourceIdentifierList.default(visited),
+          resource_identifiers: DiscoveredResourceIdentifierList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -4106,7 +4106,7 @@ module AWS::SDK::ConfigService
         return nil if visited.include?('DiscoveredResourceIdentifierList')
         visited = visited + ['DiscoveredResourceIdentifierList']
         [
-          Stubs::AggregateResourceIdentifier.default(visited)
+          AggregateResourceIdentifier.default(visited)
         ]
       end
 
@@ -4124,7 +4124,7 @@ module AWS::SDK::ConfigService
     class ListDiscoveredResources
       def self.default(visited=[])
         {
-          resource_identifiers: Stubs::ResourceIdentifierList.default(visited),
+          resource_identifiers: ResourceIdentifierList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -4144,7 +4144,7 @@ module AWS::SDK::ConfigService
         return nil if visited.include?('ResourceIdentifierList')
         visited = visited + ['ResourceIdentifierList']
         [
-          Stubs::ResourceIdentifier.default(visited)
+          ResourceIdentifier.default(visited)
         ]
       end
 
@@ -4186,7 +4186,7 @@ module AWS::SDK::ConfigService
     class ListStoredQueries
       def self.default(visited=[])
         {
-          stored_query_metadata: Stubs::StoredQueryMetadataList.default(visited),
+          stored_query_metadata: StoredQueryMetadataList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -4206,7 +4206,7 @@ module AWS::SDK::ConfigService
         return nil if visited.include?('StoredQueryMetadataList')
         visited = visited + ['StoredQueryMetadataList']
         [
-          Stubs::StoredQueryMetadata.default(visited)
+          StoredQueryMetadata.default(visited)
         ]
       end
 
@@ -4248,7 +4248,7 @@ module AWS::SDK::ConfigService
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -4268,7 +4268,7 @@ module AWS::SDK::ConfigService
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -4306,7 +4306,7 @@ module AWS::SDK::ConfigService
     class PutAggregationAuthorization
       def self.default(visited=[])
         {
-          aggregation_authorization: Stubs::AggregationAuthorization.default(visited),
+          aggregation_authorization: AggregationAuthorization.default(visited),
         }
       end
 
@@ -4336,7 +4336,7 @@ module AWS::SDK::ConfigService
     class PutConfigurationAggregator
       def self.default(visited=[])
         {
-          configuration_aggregator: Stubs::ConfigurationAggregator.default(visited),
+          configuration_aggregator: ConfigurationAggregator.default(visited),
         }
       end
 
@@ -4396,7 +4396,7 @@ module AWS::SDK::ConfigService
     class PutEvaluations
       def self.default(visited=[])
         {
-          failed_evaluations: Stubs::Evaluations.default(visited),
+          failed_evaluations: Evaluations.default(visited),
         }
       end
 
@@ -4414,7 +4414,7 @@ module AWS::SDK::ConfigService
         return nil if visited.include?('Evaluations')
         visited = visited + ['Evaluations']
         [
-          Stubs::Evaluation.default(visited)
+          Evaluation.default(visited)
         ]
       end
 
@@ -4504,7 +4504,7 @@ module AWS::SDK::ConfigService
     class PutRemediationConfigurations
       def self.default(visited=[])
         {
-          failed_batches: Stubs::FailedRemediationBatches.default(visited),
+          failed_batches: FailedRemediationBatches.default(visited),
         }
       end
 
@@ -4522,7 +4522,7 @@ module AWS::SDK::ConfigService
         return nil if visited.include?('FailedRemediationBatches')
         visited = visited + ['FailedRemediationBatches']
         [
-          Stubs::FailedRemediationBatch.default(visited)
+          FailedRemediationBatch.default(visited)
         ]
       end
 
@@ -4543,7 +4543,7 @@ module AWS::SDK::ConfigService
         visited = visited + ['FailedRemediationBatch']
         {
           failure_message: 'failure_message',
-          failed_items: Stubs::RemediationConfigurations.default(visited),
+          failed_items: RemediationConfigurations.default(visited),
         }
       end
 
@@ -4560,7 +4560,7 @@ module AWS::SDK::ConfigService
     class PutRemediationExceptions
       def self.default(visited=[])
         {
-          failed_batches: Stubs::FailedRemediationExceptionBatches.default(visited),
+          failed_batches: FailedRemediationExceptionBatches.default(visited),
         }
       end
 
@@ -4578,7 +4578,7 @@ module AWS::SDK::ConfigService
         return nil if visited.include?('FailedRemediationExceptionBatches')
         visited = visited + ['FailedRemediationExceptionBatches']
         [
-          Stubs::FailedRemediationExceptionBatch.default(visited)
+          FailedRemediationExceptionBatch.default(visited)
         ]
       end
 
@@ -4599,7 +4599,7 @@ module AWS::SDK::ConfigService
         visited = visited + ['FailedRemediationExceptionBatch']
         {
           failure_message: 'failure_message',
-          failed_items: Stubs::RemediationExceptions.default(visited),
+          failed_items: RemediationExceptions.default(visited),
         }
       end
 
@@ -4630,7 +4630,7 @@ module AWS::SDK::ConfigService
     class PutRetentionConfiguration
       def self.default(visited=[])
         {
-          retention_configuration: Stubs::RetentionConfiguration.default(visited),
+          retention_configuration: RetentionConfiguration.default(visited),
         }
       end
 
@@ -4662,8 +4662,8 @@ module AWS::SDK::ConfigService
     class SelectAggregateResourceConfig
       def self.default(visited=[])
         {
-          results: Stubs::Results.default(visited),
-          query_info: Stubs::QueryInfo.default(visited),
+          results: Results.default(visited),
+          query_info: QueryInfo.default(visited),
           next_token: 'next_token',
         }
       end
@@ -4684,7 +4684,7 @@ module AWS::SDK::ConfigService
         return nil if visited.include?('QueryInfo')
         visited = visited + ['QueryInfo']
         {
-          select_fields: Stubs::FieldInfoList.default(visited),
+          select_fields: FieldInfoList.default(visited),
         }
       end
 
@@ -4702,7 +4702,7 @@ module AWS::SDK::ConfigService
         return nil if visited.include?('FieldInfoList')
         visited = visited + ['FieldInfoList']
         [
-          Stubs::FieldInfo.default(visited)
+          FieldInfo.default(visited)
         ]
       end
 
@@ -4758,8 +4758,8 @@ module AWS::SDK::ConfigService
     class SelectResourceConfig
       def self.default(visited=[])
         {
-          results: Stubs::Results.default(visited),
-          query_info: Stubs::QueryInfo.default(visited),
+          results: Results.default(visited),
+          query_info: QueryInfo.default(visited),
           next_token: 'next_token',
         }
       end
@@ -4807,7 +4807,7 @@ module AWS::SDK::ConfigService
       def self.default(visited=[])
         {
           failure_message: 'failure_message',
-          failed_items: Stubs::ResourceKeys.default(visited),
+          failed_items: ResourceKeys.default(visited),
         }
       end
 

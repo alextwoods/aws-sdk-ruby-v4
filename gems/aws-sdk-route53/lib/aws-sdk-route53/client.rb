@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::Route53
@@ -70,7 +72,7 @@ module AWS::SDK::Route53
     def activate_key_signing_key(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ActivateKeySigningKeyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ActivateKeySigningKeyInput,
         validate_input: @config.validate_input
@@ -192,7 +194,7 @@ module AWS::SDK::Route53
     def associate_vpc_with_hosted_zone(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateVPCWithHostedZoneInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateVPCWithHostedZoneInput,
         validate_input: @config.validate_input
@@ -320,7 +322,7 @@ module AWS::SDK::Route53
     def change_cidr_collection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ChangeCidrCollectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ChangeCidrCollectionInput,
         validate_input: @config.validate_input
@@ -528,7 +530,7 @@ module AWS::SDK::Route53
     def change_resource_record_sets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ChangeResourceRecordSetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ChangeResourceRecordSetsInput,
         validate_input: @config.validate_input
@@ -629,7 +631,7 @@ module AWS::SDK::Route53
     def change_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ChangeTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ChangeTagsForResourceInput,
         validate_input: @config.validate_input
@@ -712,7 +714,7 @@ module AWS::SDK::Route53
     def create_cidr_collection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateCidrCollectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateCidrCollectionInput,
         validate_input: @config.validate_input
@@ -913,7 +915,7 @@ module AWS::SDK::Route53
     def create_health_check(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateHealthCheckInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateHealthCheckInput,
         validate_input: @config.validate_input
@@ -1120,7 +1122,7 @@ module AWS::SDK::Route53
     def create_hosted_zone(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateHostedZoneInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateHostedZoneInput,
         validate_input: @config.validate_input
@@ -1275,7 +1277,7 @@ module AWS::SDK::Route53
     def create_key_signing_key(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateKeySigningKeyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateKeySigningKeyInput,
         validate_input: @config.validate_input
@@ -1525,7 +1527,7 @@ module AWS::SDK::Route53
     def create_query_logging_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateQueryLoggingConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateQueryLoggingConfigInput,
         validate_input: @config.validate_input
@@ -1666,7 +1668,7 @@ module AWS::SDK::Route53
     def create_reusable_delegation_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateReusableDelegationSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateReusableDelegationSetInput,
         validate_input: @config.validate_input
@@ -1752,7 +1754,7 @@ module AWS::SDK::Route53
     def create_traffic_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateTrafficPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateTrafficPolicyInput,
         validate_input: @config.validate_input
@@ -1858,7 +1860,7 @@ module AWS::SDK::Route53
     def create_traffic_policy_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateTrafficPolicyInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateTrafficPolicyInstanceInput,
         validate_input: @config.validate_input
@@ -1951,7 +1953,7 @@ module AWS::SDK::Route53
     def create_traffic_policy_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateTrafficPolicyVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateTrafficPolicyVersionInput,
         validate_input: @config.validate_input
@@ -2042,7 +2044,7 @@ module AWS::SDK::Route53
     def create_vpc_association_authorization(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateVPCAssociationAuthorizationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateVPCAssociationAuthorizationInput,
         validate_input: @config.validate_input
@@ -2120,7 +2122,7 @@ module AWS::SDK::Route53
     def deactivate_key_signing_key(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeactivateKeySigningKeyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeactivateKeySigningKeyInput,
         validate_input: @config.validate_input
@@ -2189,7 +2191,7 @@ module AWS::SDK::Route53
     def delete_cidr_collection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteCidrCollectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteCidrCollectionInput,
         validate_input: @config.validate_input
@@ -2271,7 +2273,7 @@ module AWS::SDK::Route53
     def delete_health_check(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteHealthCheckInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteHealthCheckInput,
         validate_input: @config.validate_input
@@ -2385,7 +2387,7 @@ module AWS::SDK::Route53
     def delete_hosted_zone(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteHostedZoneInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteHostedZoneInput,
         validate_input: @config.validate_input
@@ -2467,7 +2469,7 @@ module AWS::SDK::Route53
     def delete_key_signing_key(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteKeySigningKeyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteKeySigningKeyInput,
         validate_input: @config.validate_input
@@ -2538,7 +2540,7 @@ module AWS::SDK::Route53
     def delete_query_logging_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteQueryLoggingConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteQueryLoggingConfigInput,
         validate_input: @config.validate_input
@@ -2613,7 +2615,7 @@ module AWS::SDK::Route53
     def delete_reusable_delegation_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteReusableDelegationSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteReusableDelegationSetInput,
         validate_input: @config.validate_input
@@ -2700,7 +2702,7 @@ module AWS::SDK::Route53
     def delete_traffic_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteTrafficPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteTrafficPolicyInput,
         validate_input: @config.validate_input
@@ -2778,7 +2780,7 @@ module AWS::SDK::Route53
     def delete_traffic_policy_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteTrafficPolicyInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteTrafficPolicyInstanceInput,
         validate_input: @config.validate_input
@@ -2865,7 +2867,7 @@ module AWS::SDK::Route53
     def delete_vpc_association_authorization(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteVPCAssociationAuthorizationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteVPCAssociationAuthorizationInput,
         validate_input: @config.validate_input
@@ -2939,7 +2941,7 @@ module AWS::SDK::Route53
     def disable_hosted_zone_dnssec(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisableHostedZoneDNSSECInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisableHostedZoneDNSSECInput,
         validate_input: @config.validate_input
@@ -3073,7 +3075,7 @@ module AWS::SDK::Route53
     def disassociate_vpc_from_hosted_zone(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateVPCFromHostedZoneInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateVPCFromHostedZoneInput,
         validate_input: @config.validate_input
@@ -3146,7 +3148,7 @@ module AWS::SDK::Route53
     def enable_hosted_zone_dnssec(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::EnableHostedZoneDNSSECInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::EnableHostedZoneDNSSECInput,
         validate_input: @config.validate_input
@@ -3256,7 +3258,7 @@ module AWS::SDK::Route53
     def get_account_limit(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAccountLimitInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAccountLimitInput,
         validate_input: @config.validate_input
@@ -3345,7 +3347,7 @@ module AWS::SDK::Route53
     def get_change(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetChangeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetChangeInput,
         validate_input: @config.validate_input
@@ -3419,7 +3421,7 @@ module AWS::SDK::Route53
     def get_checker_ip_ranges(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCheckerIpRangesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCheckerIpRangesInput,
         validate_input: @config.validate_input
@@ -3509,7 +3511,7 @@ module AWS::SDK::Route53
     def get_dnssec(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDNSSECInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDNSSECInput,
         validate_input: @config.validate_input
@@ -3653,7 +3655,7 @@ module AWS::SDK::Route53
     def get_geo_location(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetGeoLocationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetGeoLocationInput,
         validate_input: @config.validate_input
@@ -3765,7 +3767,7 @@ module AWS::SDK::Route53
     def get_health_check(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetHealthCheckInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetHealthCheckInput,
         validate_input: @config.validate_input
@@ -3829,7 +3831,7 @@ module AWS::SDK::Route53
     def get_health_check_count(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetHealthCheckCountInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetHealthCheckCountInput,
         validate_input: @config.validate_input
@@ -3912,7 +3914,7 @@ module AWS::SDK::Route53
     def get_health_check_last_failure_reason(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetHealthCheckLastFailureReasonInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetHealthCheckLastFailureReasonInput,
         validate_input: @config.validate_input
@@ -4000,7 +4002,7 @@ module AWS::SDK::Route53
     def get_health_check_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetHealthCheckStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetHealthCheckStatusInput,
         validate_input: @config.validate_input
@@ -4089,7 +4091,7 @@ module AWS::SDK::Route53
     def get_hosted_zone(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetHostedZoneInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetHostedZoneInput,
         validate_input: @config.validate_input
@@ -4153,7 +4155,7 @@ module AWS::SDK::Route53
     def get_hosted_zone_count(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetHostedZoneCountInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetHostedZoneCountInput,
         validate_input: @config.validate_input
@@ -4246,7 +4248,7 @@ module AWS::SDK::Route53
     def get_hosted_zone_limit(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetHostedZoneLimitInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetHostedZoneLimitInput,
         validate_input: @config.validate_input
@@ -4321,7 +4323,7 @@ module AWS::SDK::Route53
     def get_query_logging_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetQueryLoggingConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetQueryLoggingConfigInput,
         validate_input: @config.validate_input
@@ -4396,7 +4398,7 @@ module AWS::SDK::Route53
     def get_reusable_delegation_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetReusableDelegationSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetReusableDelegationSetInput,
         validate_input: @config.validate_input
@@ -4477,7 +4479,7 @@ module AWS::SDK::Route53
     def get_reusable_delegation_set_limit(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetReusableDelegationSetLimitInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetReusableDelegationSetLimitInput,
         validate_input: @config.validate_input
@@ -4559,7 +4561,7 @@ module AWS::SDK::Route53
     def get_traffic_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetTrafficPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetTrafficPolicyInput,
         validate_input: @config.validate_input
@@ -4648,7 +4650,7 @@ module AWS::SDK::Route53
     def get_traffic_policy_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetTrafficPolicyInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetTrafficPolicyInstanceInput,
         validate_input: @config.validate_input
@@ -4713,7 +4715,7 @@ module AWS::SDK::Route53
     def get_traffic_policy_instance_count(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetTrafficPolicyInstanceCountInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetTrafficPolicyInstanceCountInput,
         validate_input: @config.validate_input
@@ -4799,7 +4801,7 @@ module AWS::SDK::Route53
     def list_cidr_blocks(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListCidrBlocksInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListCidrBlocksInput,
         validate_input: @config.validate_input
@@ -4881,7 +4883,7 @@ module AWS::SDK::Route53
     def list_cidr_collections(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListCidrCollectionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListCidrCollectionsInput,
         validate_input: @config.validate_input
@@ -4964,7 +4966,7 @@ module AWS::SDK::Route53
     def list_cidr_locations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListCidrLocationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListCidrLocationsInput,
         validate_input: @config.validate_input
@@ -5086,7 +5088,7 @@ module AWS::SDK::Route53
     def list_geo_locations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListGeoLocationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListGeoLocationsInput,
         validate_input: @config.validate_input
@@ -5215,7 +5217,7 @@ module AWS::SDK::Route53
     def list_health_checks(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListHealthChecksInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListHealthChecksInput,
         validate_input: @config.validate_input
@@ -5325,7 +5327,7 @@ module AWS::SDK::Route53
     def list_hosted_zones(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListHostedZonesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListHostedZonesInput,
         validate_input: @config.validate_input
@@ -5492,7 +5494,7 @@ module AWS::SDK::Route53
     def list_hosted_zones_by_name(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListHostedZonesByNameInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListHostedZonesByNameInput,
         validate_input: @config.validate_input
@@ -5631,7 +5633,7 @@ module AWS::SDK::Route53
     def list_hosted_zones_by_vpc(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListHostedZonesByVPCInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListHostedZonesByVPCInput,
         validate_input: @config.validate_input
@@ -5731,7 +5733,7 @@ module AWS::SDK::Route53
     def list_query_logging_configs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListQueryLoggingConfigsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListQueryLoggingConfigsInput,
         validate_input: @config.validate_input
@@ -5976,7 +5978,7 @@ module AWS::SDK::Route53
     def list_resource_record_sets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListResourceRecordSetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListResourceRecordSetsInput,
         validate_input: @config.validate_input
@@ -6068,7 +6070,7 @@ module AWS::SDK::Route53
     def list_reusable_delegation_sets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListReusableDelegationSetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListReusableDelegationSetsInput,
         validate_input: @config.validate_input
@@ -6157,7 +6159,7 @@ module AWS::SDK::Route53
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -6250,7 +6252,7 @@ module AWS::SDK::Route53
     def list_tags_for_resources(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourcesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourcesInput,
         validate_input: @config.validate_input
@@ -6348,7 +6350,7 @@ module AWS::SDK::Route53
     def list_traffic_policies(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTrafficPoliciesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTrafficPoliciesInput,
         validate_input: @config.validate_input
@@ -6484,7 +6486,7 @@ module AWS::SDK::Route53
     def list_traffic_policy_instances(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTrafficPolicyInstancesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTrafficPolicyInstancesInput,
         validate_input: @config.validate_input
@@ -6612,7 +6614,7 @@ module AWS::SDK::Route53
     def list_traffic_policy_instances_by_hosted_zone(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTrafficPolicyInstancesByHostedZoneInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTrafficPolicyInstancesByHostedZoneInput,
         validate_input: @config.validate_input
@@ -6763,7 +6765,7 @@ module AWS::SDK::Route53
     def list_traffic_policy_instances_by_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTrafficPolicyInstancesByPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTrafficPolicyInstancesByPolicyInput,
         validate_input: @config.validate_input
@@ -6865,7 +6867,7 @@ module AWS::SDK::Route53
     def list_traffic_policy_versions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTrafficPolicyVersionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTrafficPolicyVersionsInput,
         validate_input: @config.validate_input
@@ -6960,7 +6962,7 @@ module AWS::SDK::Route53
     def list_vpc_association_authorizations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListVPCAssociationAuthorizationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListVPCAssociationAuthorizationsInput,
         validate_input: @config.validate_input
@@ -7084,7 +7086,7 @@ module AWS::SDK::Route53
     def test_dns_answer(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TestDNSAnswerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TestDNSAnswerInput,
         validate_input: @config.validate_input
@@ -7557,7 +7559,7 @@ module AWS::SDK::Route53
     def update_health_check(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateHealthCheckInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateHealthCheckInput,
         validate_input: @config.validate_input
@@ -7642,7 +7644,7 @@ module AWS::SDK::Route53
     def update_hosted_zone_comment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateHostedZoneCommentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateHostedZoneCommentInput,
         validate_input: @config.validate_input
@@ -7727,7 +7729,7 @@ module AWS::SDK::Route53
     def update_traffic_policy_comment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateTrafficPolicyCommentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateTrafficPolicyCommentInput,
         validate_input: @config.validate_input
@@ -7842,7 +7844,7 @@ module AWS::SDK::Route53
     def update_traffic_policy_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateTrafficPolicyInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateTrafficPolicyInstanceInput,
         validate_input: @config.validate_input

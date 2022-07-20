@@ -151,7 +151,7 @@ module AWS::SDK::Athena
         type.description = params[:description]
         type.database = params[:database]
         type.query_string = params[:query_string]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.work_group = params[:work_group]
         type
       end
@@ -291,7 +291,7 @@ module AWS::SDK::Athena
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::DeleteNamedQueryInput, context: context)
         type = Types::DeleteNamedQueryInput.new
-        type.named_query_id = params[:named_query_id] || SecureRandom.uuid
+        type.named_query_id = params[:named_query_id] || ::SecureRandom.uuid
         type
       end
     end
@@ -979,7 +979,7 @@ module AWS::SDK::Athena
         Hearth::Validator.validate!(params, ::Hash, Types::StartQueryExecutionInput, context: context)
         type = Types::StartQueryExecutionInput.new
         type.query_string = params[:query_string]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.query_execution_context = QueryExecutionContext.build(params[:query_execution_context], context: "#{context}[:query_execution_context]") unless params[:query_execution_context].nil?
         type.result_configuration = ResultConfiguration.build(params[:result_configuration], context: "#{context}[:result_configuration]") unless params[:result_configuration].nil?
         type.work_group = params[:work_group]
@@ -1000,7 +1000,7 @@ module AWS::SDK::Athena
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::StopQueryExecutionInput, context: context)
         type = Types::StopQueryExecutionInput.new
-        type.query_execution_id = params[:query_execution_id] || SecureRandom.uuid
+        type.query_execution_id = params[:query_execution_id] || ::SecureRandom.uuid
         type
       end
     end

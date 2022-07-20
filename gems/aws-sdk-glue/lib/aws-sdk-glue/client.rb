@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::Glue
@@ -139,7 +141,7 @@ module AWS::SDK::Glue
     def batch_create_partition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchCreatePartitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchCreatePartitionInput,
         validate_input: @config.validate_input
@@ -220,7 +222,7 @@ module AWS::SDK::Glue
     def batch_delete_connection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchDeleteConnectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchDeleteConnectionInput,
         validate_input: @config.validate_input
@@ -316,7 +318,7 @@ module AWS::SDK::Glue
     def batch_delete_partition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchDeletePartitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchDeletePartitionInput,
         validate_input: @config.validate_input
@@ -416,7 +418,7 @@ module AWS::SDK::Glue
     def batch_delete_table(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchDeleteTableInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchDeleteTableInput,
         validate_input: @config.validate_input
@@ -508,7 +510,7 @@ module AWS::SDK::Glue
     def batch_delete_table_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchDeleteTableVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchDeleteTableVersionInput,
         validate_input: @config.validate_input
@@ -605,7 +607,7 @@ module AWS::SDK::Glue
     def batch_get_blueprints(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchGetBlueprintsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchGetBlueprintsInput,
         validate_input: @config.validate_input
@@ -750,7 +752,7 @@ module AWS::SDK::Glue
     def batch_get_crawlers(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchGetCrawlersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchGetCrawlersInput,
         validate_input: @config.validate_input
@@ -828,7 +830,7 @@ module AWS::SDK::Glue
     def batch_get_custom_entity_types(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchGetCustomEntityTypesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchGetCustomEntityTypesInput,
         validate_input: @config.validate_input
@@ -934,7 +936,7 @@ module AWS::SDK::Glue
     def batch_get_dev_endpoints(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchGetDevEndpointsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchGetDevEndpointsInput,
         validate_input: @config.validate_input
@@ -1456,7 +1458,7 @@ module AWS::SDK::Glue
     def batch_get_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchGetJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchGetJobsInput,
         validate_input: @config.validate_input
@@ -1597,7 +1599,7 @@ module AWS::SDK::Glue
     def batch_get_partition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchGetPartitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchGetPartitionInput,
         validate_input: @config.validate_input
@@ -1700,7 +1702,7 @@ module AWS::SDK::Glue
     def batch_get_triggers(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchGetTriggersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchGetTriggersInput,
         validate_input: @config.validate_input
@@ -1887,7 +1889,7 @@ module AWS::SDK::Glue
     def batch_get_workflows(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchGetWorkflowsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchGetWorkflowsInput,
         validate_input: @config.validate_input
@@ -1973,7 +1975,7 @@ module AWS::SDK::Glue
     def batch_stop_job_run(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchStopJobRunInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchStopJobRunInput,
         validate_input: @config.validate_input
@@ -2126,7 +2128,7 @@ module AWS::SDK::Glue
     def batch_update_partition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchUpdatePartitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchUpdatePartitionInput,
         validate_input: @config.validate_input
@@ -2203,7 +2205,7 @@ module AWS::SDK::Glue
     def cancel_ml_task_run(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelMLTaskRunInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelMLTaskRunInput,
         validate_input: @config.validate_input
@@ -2279,7 +2281,7 @@ module AWS::SDK::Glue
     def cancel_statement(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelStatementInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelStatementInput,
         validate_input: @config.validate_input
@@ -2353,7 +2355,7 @@ module AWS::SDK::Glue
     def check_schema_version_validity(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CheckSchemaVersionValidityInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CheckSchemaVersionValidityInput,
         validate_input: @config.validate_input
@@ -2436,7 +2438,7 @@ module AWS::SDK::Glue
     def create_blueprint(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateBlueprintInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateBlueprintInput,
         validate_input: @config.validate_input
@@ -2544,7 +2546,7 @@ module AWS::SDK::Glue
     def create_classifier(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateClassifierInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateClassifierInput,
         validate_input: @config.validate_input
@@ -2641,7 +2643,7 @@ module AWS::SDK::Glue
     def create_connection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateConnectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateConnectionInput,
         validate_input: @config.validate_input
@@ -2840,7 +2842,7 @@ module AWS::SDK::Glue
     def create_crawler(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateCrawlerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateCrawlerInput,
         validate_input: @config.validate_input
@@ -2923,7 +2925,7 @@ module AWS::SDK::Glue
     def create_custom_entity_type(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateCustomEntityTypeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateCustomEntityTypeInput,
         validate_input: @config.validate_input
@@ -3017,7 +3019,7 @@ module AWS::SDK::Glue
     def create_database(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDatabaseInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDatabaseInput,
         validate_input: @config.validate_input
@@ -3213,7 +3215,7 @@ module AWS::SDK::Glue
     def create_dev_endpoint(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDevEndpointInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDevEndpointInput,
         validate_input: @config.validate_input
@@ -3860,7 +3862,7 @@ module AWS::SDK::Glue
     def create_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateJobInput,
         validate_input: @config.validate_input
@@ -4080,7 +4082,7 @@ module AWS::SDK::Glue
     def create_ml_transform(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateMLTransformInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateMLTransformInput,
         validate_input: @config.validate_input
@@ -4219,7 +4221,7 @@ module AWS::SDK::Glue
     def create_partition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreatePartitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreatePartitionInput,
         validate_input: @config.validate_input
@@ -4304,7 +4306,7 @@ module AWS::SDK::Glue
     def create_partition_index(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreatePartitionIndexInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreatePartitionIndexInput,
         validate_input: @config.validate_input
@@ -4387,7 +4389,7 @@ module AWS::SDK::Glue
     def create_registry(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateRegistryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateRegistryInput,
         validate_input: @config.validate_input
@@ -4536,7 +4538,7 @@ module AWS::SDK::Glue
     def create_schema(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateSchemaInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateSchemaInput,
         validate_input: @config.validate_input
@@ -4633,7 +4635,7 @@ module AWS::SDK::Glue
     def create_script(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateScriptInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateScriptInput,
         validate_input: @config.validate_input
@@ -4722,7 +4724,7 @@ module AWS::SDK::Glue
     def create_security_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateSecurityConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateSecurityConfigurationInput,
         validate_input: @config.validate_input
@@ -4878,7 +4880,7 @@ module AWS::SDK::Glue
     def create_session(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateSessionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateSessionInput,
         validate_input: @config.validate_input
@@ -5038,7 +5040,7 @@ module AWS::SDK::Glue
     def create_table(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateTableInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateTableInput,
         validate_input: @config.validate_input
@@ -5180,7 +5182,7 @@ module AWS::SDK::Glue
     def create_trigger(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateTriggerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateTriggerInput,
         validate_input: @config.validate_input
@@ -5269,7 +5271,7 @@ module AWS::SDK::Glue
     def create_user_defined_function(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateUserDefinedFunctionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateUserDefinedFunctionInput,
         validate_input: @config.validate_input
@@ -5358,7 +5360,7 @@ module AWS::SDK::Glue
     def create_workflow(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateWorkflowInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateWorkflowInput,
         validate_input: @config.validate_input
@@ -5427,7 +5429,7 @@ module AWS::SDK::Glue
     def delete_blueprint(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteBlueprintInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteBlueprintInput,
         validate_input: @config.validate_input
@@ -5495,7 +5497,7 @@ module AWS::SDK::Glue
     def delete_classifier(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteClassifierInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteClassifierInput,
         validate_input: @config.validate_input
@@ -5584,7 +5586,7 @@ module AWS::SDK::Glue
     def delete_column_statistics_for_partition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteColumnStatisticsForPartitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteColumnStatisticsForPartitionInput,
         validate_input: @config.validate_input
@@ -5667,7 +5669,7 @@ module AWS::SDK::Glue
     def delete_column_statistics_for_table(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteColumnStatisticsForTableInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteColumnStatisticsForTableInput,
         validate_input: @config.validate_input
@@ -5740,7 +5742,7 @@ module AWS::SDK::Glue
     def delete_connection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteConnectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteConnectionInput,
         validate_input: @config.validate_input
@@ -5809,7 +5811,7 @@ module AWS::SDK::Glue
     def delete_crawler(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteCrawlerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteCrawlerInput,
         validate_input: @config.validate_input
@@ -5878,7 +5880,7 @@ module AWS::SDK::Glue
     def delete_custom_entity_type(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteCustomEntityTypeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteCustomEntityTypeInput,
         validate_input: @config.validate_input
@@ -5964,7 +5966,7 @@ module AWS::SDK::Glue
     def delete_database(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDatabaseInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDatabaseInput,
         validate_input: @config.validate_input
@@ -6032,7 +6034,7 @@ module AWS::SDK::Glue
     def delete_dev_endpoint(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDevEndpointInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDevEndpointInput,
         validate_input: @config.validate_input
@@ -6102,7 +6104,7 @@ module AWS::SDK::Glue
     def delete_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteJobInput,
         validate_input: @config.validate_input
@@ -6176,7 +6178,7 @@ module AWS::SDK::Glue
     def delete_ml_transform(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteMLTransformInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteMLTransformInput,
         validate_input: @config.validate_input
@@ -6260,7 +6262,7 @@ module AWS::SDK::Glue
     def delete_partition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeletePartitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeletePartitionInput,
         validate_input: @config.validate_input
@@ -6340,7 +6342,7 @@ module AWS::SDK::Glue
     def delete_partition_index(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeletePartitionIndexInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeletePartitionIndexInput,
         validate_input: @config.validate_input
@@ -6414,7 +6416,7 @@ module AWS::SDK::Glue
     def delete_registry(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteRegistryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteRegistryInput,
         validate_input: @config.validate_input
@@ -6486,7 +6488,7 @@ module AWS::SDK::Glue
     def delete_resource_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteResourcePolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteResourcePolicyInput,
         validate_input: @config.validate_input
@@ -6561,7 +6563,7 @@ module AWS::SDK::Glue
     def delete_schema(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteSchemaInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteSchemaInput,
         validate_input: @config.validate_input
@@ -6654,7 +6656,7 @@ module AWS::SDK::Glue
     def delete_schema_versions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteSchemaVersionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteSchemaVersionsInput,
         validate_input: @config.validate_input
@@ -6722,7 +6724,7 @@ module AWS::SDK::Glue
     def delete_security_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteSecurityConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteSecurityConfigurationInput,
         validate_input: @config.validate_input
@@ -6795,7 +6797,7 @@ module AWS::SDK::Glue
     def delete_session(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteSessionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteSessionInput,
         validate_input: @config.validate_input
@@ -6888,7 +6890,7 @@ module AWS::SDK::Glue
     def delete_table(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteTableInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteTableInput,
         validate_input: @config.validate_input
@@ -6971,7 +6973,7 @@ module AWS::SDK::Glue
     def delete_table_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteTableVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteTableVersionInput,
         validate_input: @config.validate_input
@@ -7041,7 +7043,7 @@ module AWS::SDK::Glue
     def delete_trigger(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteTriggerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteTriggerInput,
         validate_input: @config.validate_input
@@ -7118,7 +7120,7 @@ module AWS::SDK::Glue
     def delete_user_defined_function(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteUserDefinedFunctionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteUserDefinedFunctionInput,
         validate_input: @config.validate_input
@@ -7187,7 +7189,7 @@ module AWS::SDK::Glue
     def delete_workflow(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteWorkflowInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteWorkflowInput,
         validate_input: @config.validate_input
@@ -7279,7 +7281,7 @@ module AWS::SDK::Glue
     def get_blueprint(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetBlueprintInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetBlueprintInput,
         validate_input: @config.validate_input
@@ -7362,7 +7364,7 @@ module AWS::SDK::Glue
     def get_blueprint_run(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetBlueprintRunInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetBlueprintRunInput,
         validate_input: @config.validate_input
@@ -7451,7 +7453,7 @@ module AWS::SDK::Glue
     def get_blueprint_runs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetBlueprintRunsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetBlueprintRunsInput,
         validate_input: @config.validate_input
@@ -7523,7 +7525,7 @@ module AWS::SDK::Glue
     def get_catalog_import_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCatalogImportStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCatalogImportStatusInput,
         validate_input: @config.validate_input
@@ -7625,7 +7627,7 @@ module AWS::SDK::Glue
     def get_classifier(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetClassifierInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetClassifierInput,
         validate_input: @config.validate_input
@@ -7733,7 +7735,7 @@ module AWS::SDK::Glue
     def get_classifiers(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetClassifiersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetClassifiersInput,
         validate_input: @config.validate_input
@@ -7872,7 +7874,7 @@ module AWS::SDK::Glue
     def get_column_statistics_for_partition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetColumnStatisticsForPartitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetColumnStatisticsForPartitionInput,
         validate_input: @config.validate_input
@@ -8005,7 +8007,7 @@ module AWS::SDK::Glue
     def get_column_statistics_for_table(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetColumnStatisticsForTableInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetColumnStatisticsForTableInput,
         validate_input: @config.validate_input
@@ -8102,7 +8104,7 @@ module AWS::SDK::Glue
     def get_connection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetConnectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetConnectionInput,
         validate_input: @config.validate_input
@@ -8214,7 +8216,7 @@ module AWS::SDK::Glue
     def get_connections(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetConnectionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetConnectionsInput,
         validate_input: @config.validate_input
@@ -8353,7 +8355,7 @@ module AWS::SDK::Glue
     def get_crawler(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCrawlerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCrawlerInput,
         validate_input: @config.validate_input
@@ -8442,7 +8444,7 @@ module AWS::SDK::Glue
     def get_crawler_metrics(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCrawlerMetricsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCrawlerMetricsInput,
         validate_input: @config.validate_input
@@ -8588,7 +8590,7 @@ module AWS::SDK::Glue
     def get_crawlers(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCrawlersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCrawlersInput,
         validate_input: @config.validate_input
@@ -8660,7 +8662,7 @@ module AWS::SDK::Glue
     def get_custom_entity_type(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCustomEntityTypeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCustomEntityTypeInput,
         validate_input: @config.validate_input
@@ -8736,7 +8738,7 @@ module AWS::SDK::Glue
     def get_data_catalog_encryption_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDataCatalogEncryptionSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDataCatalogEncryptionSettingsInput,
         validate_input: @config.validate_input
@@ -8827,7 +8829,7 @@ module AWS::SDK::Glue
     def get_database(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDatabaseInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDatabaseInput,
         validate_input: @config.validate_input
@@ -8936,7 +8938,7 @@ module AWS::SDK::Glue
     def get_databases(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDatabasesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDatabasesInput,
         validate_input: @config.validate_input
@@ -9019,7 +9021,7 @@ module AWS::SDK::Glue
     def get_dataflow_graph(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDataflowGraphInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDataflowGraphInput,
         validate_input: @config.validate_input
@@ -9121,7 +9123,7 @@ module AWS::SDK::Glue
     def get_dev_endpoint(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDevEndpointInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDevEndpointInput,
         validate_input: @config.validate_input
@@ -9229,7 +9231,7 @@ module AWS::SDK::Glue
     def get_dev_endpoints(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDevEndpointsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDevEndpointsInput,
         validate_input: @config.validate_input
@@ -9744,7 +9746,7 @@ module AWS::SDK::Glue
     def get_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetJobInput,
         validate_input: @config.validate_input
@@ -9824,7 +9826,7 @@ module AWS::SDK::Glue
     def get_job_bookmark(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetJobBookmarkInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetJobBookmarkInput,
         validate_input: @config.validate_input
@@ -9929,7 +9931,7 @@ module AWS::SDK::Glue
     def get_job_run(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetJobRunInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetJobRunInput,
         validate_input: @config.validate_input
@@ -10036,7 +10038,7 @@ module AWS::SDK::Glue
     def get_job_runs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetJobRunsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetJobRunsInput,
         validate_input: @config.validate_input
@@ -10557,7 +10559,7 @@ module AWS::SDK::Glue
     def get_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetJobsInput,
         validate_input: @config.validate_input
@@ -10655,7 +10657,7 @@ module AWS::SDK::Glue
     def get_ml_task_run(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetMLTaskRunInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetMLTaskRunInput,
         validate_input: @config.validate_input
@@ -10778,7 +10780,7 @@ module AWS::SDK::Glue
     def get_ml_task_runs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetMLTaskRunsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetMLTaskRunsInput,
         validate_input: @config.validate_input
@@ -10903,7 +10905,7 @@ module AWS::SDK::Glue
     def get_ml_transform(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetMLTransformInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetMLTransformInput,
         validate_input: @config.validate_input
@@ -11060,7 +11062,7 @@ module AWS::SDK::Glue
     def get_ml_transforms(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetMLTransformsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetMLTransformsInput,
         validate_input: @config.validate_input
@@ -11154,7 +11156,7 @@ module AWS::SDK::Glue
     def get_mapping(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetMappingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetMappingInput,
         validate_input: @config.validate_input
@@ -11287,7 +11289,7 @@ module AWS::SDK::Glue
     def get_partition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetPartitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetPartitionInput,
         validate_input: @config.validate_input
@@ -11383,7 +11385,7 @@ module AWS::SDK::Glue
     def get_partition_indexes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetPartitionIndexesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetPartitionIndexesInput,
         validate_input: @config.validate_input
@@ -11649,7 +11651,7 @@ module AWS::SDK::Glue
     def get_partitions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetPartitionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetPartitionsInput,
         validate_input: @config.validate_input
@@ -11772,7 +11774,7 @@ module AWS::SDK::Glue
     def get_plan(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetPlanInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetPlanInput,
         validate_input: @config.validate_input
@@ -11849,7 +11851,7 @@ module AWS::SDK::Glue
     def get_registry(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetRegistryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetRegistryInput,
         validate_input: @config.validate_input
@@ -11933,7 +11935,7 @@ module AWS::SDK::Glue
     def get_resource_policies(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetResourcePoliciesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetResourcePoliciesInput,
         validate_input: @config.validate_input
@@ -12008,7 +12010,7 @@ module AWS::SDK::Glue
     def get_resource_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetResourcePolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetResourcePolicyInput,
         validate_input: @config.validate_input
@@ -12101,7 +12103,7 @@ module AWS::SDK::Glue
     def get_schema(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSchemaInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSchemaInput,
         validate_input: @config.validate_input
@@ -12190,7 +12192,7 @@ module AWS::SDK::Glue
     def get_schema_by_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSchemaByDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSchemaByDefinitionInput,
         validate_input: @config.validate_input
@@ -12288,7 +12290,7 @@ module AWS::SDK::Glue
     def get_schema_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSchemaVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSchemaVersionInput,
         validate_input: @config.validate_input
@@ -12384,7 +12386,7 @@ module AWS::SDK::Glue
     def get_schema_versions_diff(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSchemaVersionsDiffInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSchemaVersionsDiffInput,
         validate_input: @config.validate_input
@@ -12466,7 +12468,7 @@ module AWS::SDK::Glue
     def get_security_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSecurityConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSecurityConfigurationInput,
         validate_input: @config.validate_input
@@ -12554,7 +12556,7 @@ module AWS::SDK::Glue
     def get_security_configurations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSecurityConfigurationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSecurityConfigurationsInput,
         validate_input: @config.validate_input
@@ -12645,7 +12647,7 @@ module AWS::SDK::Glue
     def get_session(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSessionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSessionInput,
         validate_input: @config.validate_input
@@ -12737,7 +12739,7 @@ module AWS::SDK::Glue
     def get_statement(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetStatementInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetStatementInput,
         validate_input: @config.validate_input
@@ -12888,7 +12890,7 @@ module AWS::SDK::Glue
     def get_table(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetTableInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetTableInput,
         validate_input: @config.validate_input
@@ -13036,7 +13038,7 @@ module AWS::SDK::Glue
     def get_table_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetTableVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetTableVersionInput,
         validate_input: @config.validate_input
@@ -13191,7 +13193,7 @@ module AWS::SDK::Glue
     def get_table_versions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetTableVersionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetTableVersionsInput,
         validate_input: @config.validate_input
@@ -13352,7 +13354,7 @@ module AWS::SDK::Glue
     def get_tables(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetTablesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetTablesInput,
         validate_input: @config.validate_input
@@ -13422,7 +13424,7 @@ module AWS::SDK::Glue
     def get_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetTagsInput,
         validate_input: @config.validate_input
@@ -13520,7 +13522,7 @@ module AWS::SDK::Glue
     def get_trigger(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetTriggerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetTriggerInput,
         validate_input: @config.validate_input
@@ -13629,7 +13631,7 @@ module AWS::SDK::Glue
     def get_triggers(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetTriggersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetTriggersInput,
         validate_input: @config.validate_input
@@ -13762,7 +13764,7 @@ module AWS::SDK::Glue
     def get_unfiltered_partition_metadata(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetUnfilteredPartitionMetadataInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetUnfilteredPartitionMetadataInput,
         validate_input: @config.validate_input
@@ -13906,7 +13908,7 @@ module AWS::SDK::Glue
     def get_unfiltered_partitions_metadata(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetUnfilteredPartitionsMetadataInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetUnfilteredPartitionsMetadataInput,
         validate_input: @config.validate_input
@@ -14053,7 +14055,7 @@ module AWS::SDK::Glue
     def get_unfiltered_table_metadata(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetUnfilteredTableMetadataInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetUnfilteredTableMetadataInput,
         validate_input: @config.validate_input
@@ -14142,7 +14144,7 @@ module AWS::SDK::Glue
     def get_user_defined_function(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetUserDefinedFunctionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetUserDefinedFunctionInput,
         validate_input: @config.validate_input
@@ -14243,7 +14245,7 @@ module AWS::SDK::Glue
     def get_user_defined_functions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetUserDefinedFunctionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetUserDefinedFunctionsInput,
         validate_input: @config.validate_input
@@ -14425,7 +14427,7 @@ module AWS::SDK::Glue
     def get_workflow(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetWorkflowInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetWorkflowInput,
         validate_input: @config.validate_input
@@ -14600,7 +14602,7 @@ module AWS::SDK::Glue
     def get_workflow_run(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetWorkflowRunInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetWorkflowRunInput,
         validate_input: @config.validate_input
@@ -14674,7 +14676,7 @@ module AWS::SDK::Glue
     def get_workflow_run_properties(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetWorkflowRunPropertiesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetWorkflowRunPropertiesInput,
         validate_input: @config.validate_input
@@ -14855,7 +14857,7 @@ module AWS::SDK::Glue
     def get_workflow_runs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetWorkflowRunsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetWorkflowRunsInput,
         validate_input: @config.validate_input
@@ -14923,7 +14925,7 @@ module AWS::SDK::Glue
     def import_catalog_to_glue(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ImportCatalogToGlueInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ImportCatalogToGlueInput,
         validate_input: @config.validate_input
@@ -15004,7 +15006,7 @@ module AWS::SDK::Glue
     def list_blueprints(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListBlueprintsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListBlueprintsInput,
         validate_input: @config.validate_input
@@ -15091,7 +15093,7 @@ module AWS::SDK::Glue
     def list_crawlers(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListCrawlersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListCrawlersInput,
         validate_input: @config.validate_input
@@ -15170,7 +15172,7 @@ module AWS::SDK::Glue
     def list_custom_entity_types(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListCustomEntityTypesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListCustomEntityTypesInput,
         validate_input: @config.validate_input
@@ -15257,7 +15259,7 @@ module AWS::SDK::Glue
     def list_dev_endpoints(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDevEndpointsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDevEndpointsInput,
         validate_input: @config.validate_input
@@ -15342,7 +15344,7 @@ module AWS::SDK::Glue
     def list_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListJobsInput,
         validate_input: @config.validate_input
@@ -15453,7 +15455,7 @@ module AWS::SDK::Glue
     def list_ml_transforms(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListMLTransformsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListMLTransformsInput,
         validate_input: @config.validate_input
@@ -15534,7 +15536,7 @@ module AWS::SDK::Glue
     def list_registries(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListRegistriesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListRegistriesInput,
         validate_input: @config.validate_input
@@ -15630,7 +15632,7 @@ module AWS::SDK::Glue
     def list_schema_versions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListSchemaVersionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListSchemaVersionsInput,
         validate_input: @config.validate_input
@@ -15720,7 +15722,7 @@ module AWS::SDK::Glue
     def list_schemas(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListSchemasInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListSchemasInput,
         validate_input: @config.validate_input
@@ -15825,7 +15827,7 @@ module AWS::SDK::Glue
     def list_sessions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListSessionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListSessionsInput,
         validate_input: @config.validate_input
@@ -15916,7 +15918,7 @@ module AWS::SDK::Glue
     def list_statements(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListStatementsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListStatementsInput,
         validate_input: @config.validate_input
@@ -16006,7 +16008,7 @@ module AWS::SDK::Glue
     def list_triggers(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTriggersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTriggersInput,
         validate_input: @config.validate_input
@@ -16081,7 +16083,7 @@ module AWS::SDK::Glue
     def list_workflows(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListWorkflowsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListWorkflowsInput,
         validate_input: @config.validate_input
@@ -16164,7 +16166,7 @@ module AWS::SDK::Glue
     def put_data_catalog_encryption_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutDataCatalogEncryptionSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutDataCatalogEncryptionSettingsInput,
         validate_input: @config.validate_input
@@ -16265,7 +16267,7 @@ module AWS::SDK::Glue
     def put_resource_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutResourcePolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutResourcePolicyInput,
         validate_input: @config.validate_input
@@ -16363,7 +16365,7 @@ module AWS::SDK::Glue
     def put_schema_version_metadata(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutSchemaVersionMetadataInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutSchemaVersionMetadataInput,
         validate_input: @config.validate_input
@@ -16441,7 +16443,7 @@ module AWS::SDK::Glue
     def put_workflow_run_properties(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutWorkflowRunPropertiesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutWorkflowRunPropertiesInput,
         validate_input: @config.validate_input
@@ -16551,7 +16553,7 @@ module AWS::SDK::Glue
     def query_schema_version_metadata(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::QuerySchemaVersionMetadataInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::QuerySchemaVersionMetadataInput,
         validate_input: @config.validate_input
@@ -16640,7 +16642,7 @@ module AWS::SDK::Glue
     def register_schema_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RegisterSchemaVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RegisterSchemaVersionInput,
         validate_input: @config.validate_input
@@ -16738,7 +16740,7 @@ module AWS::SDK::Glue
     def remove_schema_version_metadata(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RemoveSchemaVersionMetadataInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RemoveSchemaVersionMetadataInput,
         validate_input: @config.validate_input
@@ -16818,7 +16820,7 @@ module AWS::SDK::Glue
     def reset_job_bookmark(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ResetJobBookmarkInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ResetJobBookmarkInput,
         validate_input: @config.validate_input
@@ -16899,7 +16901,7 @@ module AWS::SDK::Glue
     def resume_workflow_run(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ResumeWorkflowRunInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ResumeWorkflowRunInput,
         validate_input: @config.validate_input
@@ -16976,7 +16978,7 @@ module AWS::SDK::Glue
     def run_statement(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RunStatementInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RunStatementInput,
         validate_input: @config.validate_input
@@ -17159,7 +17161,7 @@ module AWS::SDK::Glue
     def search_tables(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SearchTablesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SearchTablesInput,
         validate_input: @config.validate_input
@@ -17236,7 +17238,7 @@ module AWS::SDK::Glue
     def start_blueprint_run(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartBlueprintRunInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartBlueprintRunInput,
         validate_input: @config.validate_input
@@ -17306,7 +17308,7 @@ module AWS::SDK::Glue
     def start_crawler(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartCrawlerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartCrawlerInput,
         validate_input: @config.validate_input
@@ -17376,7 +17378,7 @@ module AWS::SDK::Glue
     def start_crawler_schedule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartCrawlerScheduleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartCrawlerScheduleInput,
         validate_input: @config.validate_input
@@ -17457,7 +17459,7 @@ module AWS::SDK::Glue
     def start_export_labels_task_run(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartExportLabelsTaskRunInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartExportLabelsTaskRunInput,
         validate_input: @config.validate_input
@@ -17559,7 +17561,7 @@ module AWS::SDK::Glue
     def start_import_labels_task_run(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartImportLabelsTaskRunInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartImportLabelsTaskRunInput,
         validate_input: @config.validate_input
@@ -17711,7 +17713,7 @@ module AWS::SDK::Glue
     def start_job_run(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartJobRunInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartJobRunInput,
         validate_input: @config.validate_input
@@ -17787,7 +17789,7 @@ module AWS::SDK::Glue
     def start_ml_evaluation_task_run(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartMLEvaluationTaskRunInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartMLEvaluationTaskRunInput,
         validate_input: @config.validate_input
@@ -17874,7 +17876,7 @@ module AWS::SDK::Glue
     def start_ml_labeling_set_generation_task_run(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartMLLabelingSetGenerationTaskRunInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartMLLabelingSetGenerationTaskRunInput,
         validate_input: @config.validate_input
@@ -17945,7 +17947,7 @@ module AWS::SDK::Glue
     def start_trigger(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartTriggerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartTriggerInput,
         validate_input: @config.validate_input
@@ -18020,7 +18022,7 @@ module AWS::SDK::Glue
     def start_workflow_run(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartWorkflowRunInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartWorkflowRunInput,
         validate_input: @config.validate_input
@@ -18088,7 +18090,7 @@ module AWS::SDK::Glue
     def stop_crawler(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopCrawlerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopCrawlerInput,
         validate_input: @config.validate_input
@@ -18158,7 +18160,7 @@ module AWS::SDK::Glue
     def stop_crawler_schedule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopCrawlerScheduleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopCrawlerScheduleInput,
         validate_input: @config.validate_input
@@ -18231,7 +18233,7 @@ module AWS::SDK::Glue
     def stop_session(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopSessionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopSessionInput,
         validate_input: @config.validate_input
@@ -18300,7 +18302,7 @@ module AWS::SDK::Glue
     def stop_trigger(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopTriggerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopTriggerInput,
         validate_input: @config.validate_input
@@ -18372,7 +18374,7 @@ module AWS::SDK::Glue
     def stop_workflow_run(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopWorkflowRunInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopWorkflowRunInput,
         validate_input: @config.validate_input
@@ -18449,7 +18451,7 @@ module AWS::SDK::Glue
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -18523,7 +18525,7 @@ module AWS::SDK::Glue
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -18600,7 +18602,7 @@ module AWS::SDK::Glue
     def update_blueprint(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateBlueprintInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateBlueprintInput,
         validate_input: @config.validate_input
@@ -18704,7 +18706,7 @@ module AWS::SDK::Glue
     def update_classifier(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateClassifierInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateClassifierInput,
         validate_input: @config.validate_input
@@ -18890,7 +18892,7 @@ module AWS::SDK::Glue
     def update_column_statistics_for_partition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateColumnStatisticsForPartitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateColumnStatisticsForPartitionInput,
         validate_input: @config.validate_input
@@ -19070,7 +19072,7 @@ module AWS::SDK::Glue
     def update_column_statistics_for_table(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateColumnStatisticsForTableInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateColumnStatisticsForTableInput,
         validate_input: @config.validate_input
@@ -19165,7 +19167,7 @@ module AWS::SDK::Glue
     def update_connection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateConnectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateConnectionInput,
         validate_input: @config.validate_input
@@ -19357,7 +19359,7 @@ module AWS::SDK::Glue
     def update_crawler(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateCrawlerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateCrawlerInput,
         validate_input: @config.validate_input
@@ -19431,7 +19433,7 @@ module AWS::SDK::Glue
     def update_crawler_schedule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateCrawlerScheduleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateCrawlerScheduleInput,
         validate_input: @config.validate_input
@@ -19531,7 +19533,7 @@ module AWS::SDK::Glue
     def update_database(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDatabaseInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDatabaseInput,
         validate_input: @config.validate_input
@@ -19650,7 +19652,7 @@ module AWS::SDK::Glue
     def update_dev_endpoint(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDevEndpointInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDevEndpointInput,
         validate_input: @config.validate_input
@@ -20191,7 +20193,7 @@ module AWS::SDK::Glue
     def update_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateJobInput,
         validate_input: @config.validate_input
@@ -20330,7 +20332,7 @@ module AWS::SDK::Glue
     def update_ml_transform(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateMLTransformInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateMLTransformInput,
         validate_input: @config.validate_input
@@ -20477,7 +20479,7 @@ module AWS::SDK::Glue
     def update_partition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdatePartitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdatePartitionInput,
         validate_input: @config.validate_input
@@ -20554,7 +20556,7 @@ module AWS::SDK::Glue
     def update_registry(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateRegistryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateRegistryInput,
         validate_input: @config.validate_input
@@ -20655,7 +20657,7 @@ module AWS::SDK::Glue
     def update_schema(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateSchemaInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateSchemaInput,
         validate_input: @config.validate_input
@@ -20811,7 +20813,7 @@ module AWS::SDK::Glue
     def update_table(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateTableInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateTableInput,
         validate_input: @config.validate_input
@@ -20947,7 +20949,7 @@ module AWS::SDK::Glue
     def update_trigger(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateTriggerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateTriggerInput,
         validate_input: @config.validate_input
@@ -21041,7 +21043,7 @@ module AWS::SDK::Glue
     def update_user_defined_function(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateUserDefinedFunctionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateUserDefinedFunctionInput,
         validate_input: @config.validate_input
@@ -21124,7 +21126,7 @@ module AWS::SDK::Glue
     def update_workflow(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateWorkflowInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateWorkflowInput,
         validate_input: @config.validate_input

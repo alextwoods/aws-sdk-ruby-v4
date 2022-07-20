@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::PinpointSMSVoice
@@ -57,7 +59,7 @@ module AWS::SDK::PinpointSMSVoice
     def create_configuration_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateConfigurationSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateConfigurationSetInput,
         validate_input: @config.validate_input
@@ -149,7 +151,7 @@ module AWS::SDK::PinpointSMSVoice
     def create_configuration_set_event_destination(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateConfigurationSetEventDestinationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateConfigurationSetEventDestinationInput,
         validate_input: @config.validate_input
@@ -217,7 +219,7 @@ module AWS::SDK::PinpointSMSVoice
     def delete_configuration_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteConfigurationSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteConfigurationSetInput,
         validate_input: @config.validate_input
@@ -288,7 +290,7 @@ module AWS::SDK::PinpointSMSVoice
     def delete_configuration_set_event_destination(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteConfigurationSetEventDestinationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteConfigurationSetEventDestinationInput,
         validate_input: @config.validate_input
@@ -369,7 +371,7 @@ module AWS::SDK::PinpointSMSVoice
     def get_configuration_set_event_destinations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetConfigurationSetEventDestinationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetConfigurationSetEventDestinationsInput,
         validate_input: @config.validate_input
@@ -443,7 +445,7 @@ module AWS::SDK::PinpointSMSVoice
     def list_configuration_sets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListConfigurationSetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListConfigurationSetsInput,
         validate_input: @config.validate_input
@@ -541,7 +543,7 @@ module AWS::SDK::PinpointSMSVoice
     def send_voice_message(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SendVoiceMessageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SendVoiceMessageInput,
         validate_input: @config.validate_input
@@ -633,7 +635,7 @@ module AWS::SDK::PinpointSMSVoice
     def update_configuration_set_event_destination(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateConfigurationSetEventDestinationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateConfigurationSetEventDestinationInput,
         validate_input: @config.validate_input

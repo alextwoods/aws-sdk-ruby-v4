@@ -460,11 +460,11 @@ module AWS::SDK::AppConfig
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.final_bake_time_in_minutes ||= 0
       end
-
     end
 
     # @!attribute id
@@ -525,13 +525,13 @@ module AWS::SDK::AppConfig
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.deployment_duration_in_minutes ||= 0
         self.growth_factor ||= 0
         self.final_bake_time_in_minutes ||= 0
       end
-
     end
 
     # @!attribute application_id
@@ -716,6 +716,7 @@ module AWS::SDK::AppConfig
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.version_number ||= 0
@@ -842,11 +843,11 @@ module AWS::SDK::AppConfig
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.version_number ||= 0
       end
-
     end
 
     DeleteHostedConfigurationVersionOutput = ::Struct.new(
@@ -1012,13 +1013,13 @@ module AWS::SDK::AppConfig
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.deployment_duration_in_minutes ||= 0
         self.growth_factor ||= 0
         self.final_bake_time_in_minutes ||= 0
       end
-
     end
 
     # <p>Information about the deployment.</p>
@@ -1099,6 +1100,7 @@ module AWS::SDK::AppConfig
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.deployment_number ||= 0
@@ -1107,7 +1109,6 @@ module AWS::SDK::AppConfig
         self.final_bake_time_in_minutes ||= 0
         self.percentage_complete ||= 0
       end
-
     end
 
     # @!attribute application_id
@@ -1535,6 +1536,7 @@ module AWS::SDK::AppConfig
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.deployment_number ||= 0
@@ -1543,7 +1545,6 @@ module AWS::SDK::AppConfig
         self.final_bake_time_in_minutes ||= 0
         self.percentage_complete ||= 0
       end
-
     end
 
     # @!attribute deployment_strategy_id
@@ -1616,13 +1617,13 @@ module AWS::SDK::AppConfig
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.deployment_duration_in_minutes ||= 0
         self.growth_factor ||= 0
         self.final_bake_time_in_minutes ||= 0
       end
-
     end
 
     # @!attribute application_id
@@ -1712,11 +1713,11 @@ module AWS::SDK::AppConfig
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.version_number ||= 0
       end
-
     end
 
     # @!attribute application_id
@@ -1760,6 +1761,7 @@ module AWS::SDK::AppConfig
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.version_number ||= 0
@@ -1825,11 +1827,11 @@ module AWS::SDK::AppConfig
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.version_number ||= 0
       end
-
     end
 
     # <p>There was an internal failure in the AppConfig service.</p>
@@ -2231,12 +2233,12 @@ module AWS::SDK::AppConfig
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.limit ||= 0
         self.size ||= 0
       end
-
     end
 
     # Includes enum constants for ReplicateTo
@@ -2452,6 +2454,7 @@ module AWS::SDK::AppConfig
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.deployment_number ||= 0
@@ -2460,7 +2463,6 @@ module AWS::SDK::AppConfig
         self.final_bake_time_in_minutes ||= 0
         self.percentage_complete ||= 0
       end
-
     end
 
     # @!attribute application_id
@@ -2606,6 +2608,7 @@ module AWS::SDK::AppConfig
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.deployment_number ||= 0
@@ -2614,7 +2617,6 @@ module AWS::SDK::AppConfig
         self.final_bake_time_in_minutes ||= 0
         self.percentage_complete ||= 0
       end
-
     end
 
     # @!attribute resource_arn
@@ -2977,13 +2979,13 @@ module AWS::SDK::AppConfig
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.deployment_duration_in_minutes ||= 0
         self.growth_factor ||= 0
         self.final_bake_time_in_minutes ||= 0
       end
-
     end
 
     # @!attribute application_id

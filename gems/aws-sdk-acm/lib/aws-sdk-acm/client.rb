@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::ACM
@@ -90,7 +92,7 @@ module AWS::SDK::ACM
     def add_tags_to_certificate(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AddTagsToCertificateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AddTagsToCertificateInput,
         validate_input: @config.validate_input
@@ -170,7 +172,7 @@ module AWS::SDK::ACM
     def delete_certificate(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteCertificateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteCertificateInput,
         validate_input: @config.validate_input
@@ -293,7 +295,7 @@ module AWS::SDK::ACM
     def describe_certificate(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeCertificateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeCertificateInput,
         validate_input: @config.validate_input
@@ -382,7 +384,7 @@ module AWS::SDK::ACM
     def export_certificate(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ExportCertificateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ExportCertificateInput,
         validate_input: @config.validate_input
@@ -448,7 +450,7 @@ module AWS::SDK::ACM
     def get_account_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAccountConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAccountConfigurationInput,
         validate_input: @config.validate_input
@@ -525,7 +527,7 @@ module AWS::SDK::ACM
     def get_certificate(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCertificateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCertificateInput,
         validate_input: @config.validate_input
@@ -690,7 +692,7 @@ module AWS::SDK::ACM
     def import_certificate(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ImportCertificateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ImportCertificateInput,
         validate_input: @config.validate_input
@@ -796,7 +798,7 @@ module AWS::SDK::ACM
     def list_certificates(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListCertificatesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListCertificatesInput,
         validate_input: @config.validate_input
@@ -875,7 +877,7 @@ module AWS::SDK::ACM
     def list_tags_for_certificate(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForCertificateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForCertificateInput,
         validate_input: @config.validate_input
@@ -963,7 +965,7 @@ module AWS::SDK::ACM
     def put_account_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutAccountConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutAccountConfigurationInput,
         validate_input: @config.validate_input
@@ -1053,7 +1055,7 @@ module AWS::SDK::ACM
     def remove_tags_from_certificate(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RemoveTagsFromCertificateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RemoveTagsFromCertificateInput,
         validate_input: @config.validate_input
@@ -1130,7 +1132,7 @@ module AWS::SDK::ACM
     def renew_certificate(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RenewCertificateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RenewCertificateInput,
         validate_input: @config.validate_input
@@ -1307,7 +1309,7 @@ module AWS::SDK::ACM
     def request_certificate(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RequestCertificateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RequestCertificateInput,
         validate_input: @config.validate_input
@@ -1421,7 +1423,7 @@ module AWS::SDK::ACM
     def resend_validation_email(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ResendValidationEmailInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ResendValidationEmailInput,
         validate_input: @config.validate_input
@@ -1505,7 +1507,7 @@ module AWS::SDK::ACM
     def update_certificate_options(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateCertificateOptionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateCertificateOptionsInput,
         validate_input: @config.validate_input

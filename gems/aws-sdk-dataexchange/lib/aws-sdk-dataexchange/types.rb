@@ -733,12 +733,12 @@ module AWS::SDK::DataExchange
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.finalized ||= false
         self.revoked ||= false
       end
-
     end
 
     # <p>A data set is an AWS resource with one or more revisions.</p>
@@ -1603,12 +1603,12 @@ module AWS::SDK::DataExchange
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.finalized ||= false
         self.revoked ||= false
       end
-
     end
 
     # <p>The request details.</p>
@@ -2073,11 +2073,11 @@ module AWS::SDK::DataExchange
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.limit_value ||= 0
       end
-
     end
 
     # Includes enum constants for JobErrorLimitName
@@ -2226,11 +2226,11 @@ module AWS::SDK::DataExchange
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute next_token
@@ -2273,11 +2273,11 @@ module AWS::SDK::DataExchange
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute data_sets
@@ -2320,11 +2320,11 @@ module AWS::SDK::DataExchange
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute event_actions
@@ -2373,11 +2373,11 @@ module AWS::SDK::DataExchange
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute jobs
@@ -2426,11 +2426,11 @@ module AWS::SDK::DataExchange
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute assets
@@ -2787,12 +2787,12 @@ module AWS::SDK::DataExchange
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.finalized ||= false
         self.revoked ||= false
       end
-
     end
 
     # <p>Information about the published revision.</p>
@@ -2905,12 +2905,12 @@ module AWS::SDK::DataExchange
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.finalized ||= false
         self.revoked ||= false
       end
-
     end
 
     # <p>The S3 object that is the asset.</p>
@@ -2925,11 +2925,11 @@ module AWS::SDK::DataExchange
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.size ||= 0
       end
-
     end
 
     # <p>The request body for SendApiAsset.</p>
@@ -3044,11 +3044,11 @@ module AWS::SDK::DataExchange
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.limit_value ||= 0
       end
-
     end
 
     # @!attribute job_id
@@ -3484,11 +3484,11 @@ module AWS::SDK::DataExchange
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.finalized ||= false
       end
-
     end
 
     # @!attribute arn
@@ -3561,12 +3561,12 @@ module AWS::SDK::DataExchange
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.finalized ||= false
         self.revoked ||= false
       end
-
     end
 
     # <p>The request was invalid.</p>

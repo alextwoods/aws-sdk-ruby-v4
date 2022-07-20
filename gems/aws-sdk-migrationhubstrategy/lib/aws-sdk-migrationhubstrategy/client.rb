@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::MigrationHubStrategy
@@ -106,7 +108,7 @@ module AWS::SDK::MigrationHubStrategy
     def get_application_component_details(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetApplicationComponentDetailsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetApplicationComponentDetailsInput,
         validate_input: @config.validate_input
@@ -185,7 +187,7 @@ module AWS::SDK::MigrationHubStrategy
     def get_application_component_strategies(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetApplicationComponentStrategiesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetApplicationComponentStrategiesInput,
         validate_input: @config.validate_input
@@ -261,7 +263,7 @@ module AWS::SDK::MigrationHubStrategy
     def get_assessment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAssessmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAssessmentInput,
         validate_input: @config.validate_input
@@ -340,7 +342,7 @@ module AWS::SDK::MigrationHubStrategy
     def get_import_file_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetImportFileTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetImportFileTaskInput,
         validate_input: @config.validate_input
@@ -405,15 +407,33 @@ module AWS::SDK::MigrationHubStrategy
     #   resp.data.prioritize_business_goals.business_goals.modernize_infrastructure_with_cloud_native_technologies #=> Integer
     #   resp.data.prioritize_business_goals.business_goals.license_cost_reduction #=> Integer
     #   resp.data.application_preferences #=> Types::ApplicationPreferences
-    #   resp.data.application_preferences.management_preference #=> ManagementPreference
+    #   resp.data.application_preferences.management_preference #=> Types::ManagementPreference, one of [AwsManagedResources, SelfManageResources, NoPreference]
+    #   resp.data.application_preferences.management_preference.aws_managed_resources #=> Types::AwsManagedResources
+    #   resp.data.application_preferences.management_preference.aws_managed_resources.target_destination #=> Array<String>
+    #   resp.data.application_preferences.management_preference.aws_managed_resources.target_destination[0] #=> String, one of ["None specified", "AWS Elastic BeanStalk", "AWS Fargate"]
+    #   resp.data.application_preferences.management_preference.self_manage_resources #=> Types::SelfManageResources
+    #   resp.data.application_preferences.management_preference.self_manage_resources.target_destination #=> Array<String>
+    #   resp.data.application_preferences.management_preference.self_manage_resources.target_destination[0] #=> String, one of ["None specified", "Amazon Elastic Cloud Compute (EC2)", "Amazon Elastic Container Service (ECS)", "Amazon Elastic Kubernetes Service (EKS)"]
+    #   resp.data.application_preferences.management_preference.no_preference #=> Types::NoManagementPreference
+    #   resp.data.application_preferences.management_preference.no_preference.target_destination #=> Array<String>
+    #   resp.data.application_preferences.management_preference.no_preference.target_destination[0] #=> String, one of ["None specified", "AWS Elastic BeanStalk", "AWS Fargate", "Amazon Elastic Cloud Compute (EC2)", "Amazon Elastic Container Service (ECS)", "Amazon Elastic Kubernetes Service (EKS)"]
     #   resp.data.database_preferences #=> Types::DatabasePreferences
     #   resp.data.database_preferences.database_management_preference #=> String, one of ["AWS-managed", "Self-manage", "No preference"]
-    #   resp.data.database_preferences.database_migration_preference #=> DatabaseMigrationPreference
+    #   resp.data.database_preferences.database_migration_preference #=> Types::DatabaseMigrationPreference, one of [Heterogeneous, Homogeneous, NoPreference]
+    #   resp.data.database_preferences.database_migration_preference.heterogeneous #=> Types::Heterogeneous
+    #   resp.data.database_preferences.database_migration_preference.heterogeneous.target_database_engine #=> Array<String>
+    #   resp.data.database_preferences.database_migration_preference.heterogeneous.target_database_engine[0] #=> String, one of ["None specified", "Amazon Aurora", "AWS PostgreSQL", "MySQL", "Microsoft SQL Server", "Oracle Database", "MariaDB", "SAP", "Db2 LUW", "MongoDB"]
+    #   resp.data.database_preferences.database_migration_preference.homogeneous #=> Types::Homogeneous
+    #   resp.data.database_preferences.database_migration_preference.homogeneous.target_database_engine #=> Array<String>
+    #   resp.data.database_preferences.database_migration_preference.homogeneous.target_database_engine[0] #=> String, one of ["None specified"]
+    #   resp.data.database_preferences.database_migration_preference.no_preference #=> Types::NoDatabaseMigrationPreference
+    #   resp.data.database_preferences.database_migration_preference.no_preference.target_database_engine #=> Array<String>
+    #   resp.data.database_preferences.database_migration_preference.no_preference.target_database_engine[0] #=> String, one of ["None specified", "Amazon Aurora", "AWS PostgreSQL", "MySQL", "Microsoft SQL Server", "Oracle Database", "MariaDB", "SAP", "Db2 LUW", "MongoDB"]
     #
     def get_portfolio_preferences(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetPortfolioPreferencesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetPortfolioPreferencesInput,
         validate_input: @config.validate_input
@@ -500,7 +520,7 @@ module AWS::SDK::MigrationHubStrategy
     def get_portfolio_summary(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetPortfolioSummaryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetPortfolioSummaryInput,
         validate_input: @config.validate_input
@@ -577,7 +597,7 @@ module AWS::SDK::MigrationHubStrategy
     def get_recommendation_report_details(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetRecommendationReportDetailsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetRecommendationReportDetailsInput,
         validate_input: @config.validate_input
@@ -698,7 +718,7 @@ module AWS::SDK::MigrationHubStrategy
     def get_server_details(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetServerDetailsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetServerDetailsInput,
         validate_input: @config.validate_input
@@ -777,7 +797,7 @@ module AWS::SDK::MigrationHubStrategy
     def get_server_strategies(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetServerStrategiesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetServerStrategiesInput,
         validate_input: @config.validate_input
@@ -913,7 +933,7 @@ module AWS::SDK::MigrationHubStrategy
     def list_application_components(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListApplicationComponentsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListApplicationComponentsInput,
         validate_input: @config.validate_input
@@ -997,7 +1017,7 @@ module AWS::SDK::MigrationHubStrategy
     def list_collectors(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListCollectorsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListCollectorsInput,
         validate_input: @config.validate_input
@@ -1084,7 +1104,7 @@ module AWS::SDK::MigrationHubStrategy
     def list_import_file_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListImportFileTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListImportFileTaskInput,
         validate_input: @config.validate_input
@@ -1223,7 +1243,7 @@ module AWS::SDK::MigrationHubStrategy
     def list_servers(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListServersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListServersInput,
         validate_input: @config.validate_input
@@ -1345,7 +1365,7 @@ module AWS::SDK::MigrationHubStrategy
     def put_portfolio_preferences(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutPortfolioPreferencesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutPortfolioPreferencesInput,
         validate_input: @config.validate_input
@@ -1424,7 +1444,7 @@ module AWS::SDK::MigrationHubStrategy
     def start_assessment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartAssessmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartAssessmentInput,
         validate_input: @config.validate_input
@@ -1522,7 +1542,7 @@ module AWS::SDK::MigrationHubStrategy
     def start_import_file_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartImportFileTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartImportFileTaskInput,
         validate_input: @config.validate_input
@@ -1600,7 +1620,7 @@ module AWS::SDK::MigrationHubStrategy
     def start_recommendation_report_generation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartRecommendationReportGenerationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartRecommendationReportGenerationInput,
         validate_input: @config.validate_input
@@ -1668,7 +1688,7 @@ module AWS::SDK::MigrationHubStrategy
     def stop_assessment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopAssessmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopAssessmentInput,
         validate_input: @config.validate_input
@@ -1764,7 +1784,7 @@ module AWS::SDK::MigrationHubStrategy
     def update_application_component_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateApplicationComponentConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateApplicationComponentConfigInput,
         validate_input: @config.validate_input
@@ -1841,7 +1861,7 @@ module AWS::SDK::MigrationHubStrategy
     def update_server_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateServerConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateServerConfigInput,
         validate_input: @config.validate_input

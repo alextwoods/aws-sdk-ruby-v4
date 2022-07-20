@@ -16,7 +16,7 @@ module AWS::SDK::Nimble
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::AcceptEulasInput, context: context)
         type = Types::AcceptEulasInput.new
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.eula_ids = EulaIdList.build(params[:eula_ids], context: "#{context}[:eula_ids]") unless params[:eula_ids].nil?
         type.studio_id = params[:studio_id]
         type
@@ -111,7 +111,7 @@ module AWS::SDK::Nimble
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::CreateLaunchProfileInput, context: context)
         type = Types::CreateLaunchProfileInput.new
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.description = params[:description]
         type.ec2_subnet_ids = EC2SubnetIdList.build(params[:ec2_subnet_ids], context: "#{context}[:ec2_subnet_ids]") unless params[:ec2_subnet_ids].nil?
         type.launch_profile_protocol_versions = LaunchProfileProtocolVersionList.build(params[:launch_profile_protocol_versions], context: "#{context}[:launch_profile_protocol_versions]") unless params[:launch_profile_protocol_versions].nil?
@@ -137,7 +137,7 @@ module AWS::SDK::Nimble
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::CreateStreamingImageInput, context: context)
         type = Types::CreateStreamingImageInput.new
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.description = params[:description]
         type.ec2_image_id = params[:ec2_image_id]
         type.name = params[:name]
@@ -160,7 +160,7 @@ module AWS::SDK::Nimble
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::CreateStreamingSessionInput, context: context)
         type = Types::CreateStreamingSessionInput.new
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.ec2_instance_type = params[:ec2_instance_type]
         type.launch_profile_id = params[:launch_profile_id]
         type.owned_by = params[:owned_by]
@@ -184,7 +184,7 @@ module AWS::SDK::Nimble
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::CreateStreamingSessionStreamInput, context: context)
         type = Types::CreateStreamingSessionStreamInput.new
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.expiration_in_seconds = params[:expiration_in_seconds]
         type.session_id = params[:session_id]
         type.studio_id = params[:studio_id]
@@ -205,7 +205,7 @@ module AWS::SDK::Nimble
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::CreateStudioComponentInput, context: context)
         type = Types::CreateStudioComponentInput.new
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.configuration = StudioComponentConfiguration.build(params[:configuration], context: "#{context}[:configuration]") unless params[:configuration].nil?
         type.description = params[:description]
         type.ec2_security_group_ids = StudioComponentSecurityGroupIdList.build(params[:ec2_security_group_ids], context: "#{context}[:ec2_security_group_ids]") unless params[:ec2_security_group_ids].nil?
@@ -216,6 +216,8 @@ module AWS::SDK::Nimble
         type.subtype = params[:subtype]
         type.tags = Tags.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type.type = params[:type]
+        type.secure_initialization_role_arn = params[:secure_initialization_role_arn]
+        type.runtime_role_arn = params[:runtime_role_arn]
         type
       end
     end
@@ -234,7 +236,7 @@ module AWS::SDK::Nimble
         Hearth::Validator.validate!(params, ::Hash, Types::CreateStudioInput, context: context)
         type = Types::CreateStudioInput.new
         type.admin_role_arn = params[:admin_role_arn]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.display_name = params[:display_name]
         type.studio_encryption_configuration = StudioEncryptionConfiguration.build(params[:studio_encryption_configuration], context: "#{context}[:studio_encryption_configuration]") unless params[:studio_encryption_configuration].nil?
         type.studio_name = params[:studio_name]
@@ -257,7 +259,7 @@ module AWS::SDK::Nimble
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::DeleteLaunchProfileInput, context: context)
         type = Types::DeleteLaunchProfileInput.new
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.launch_profile_id = params[:launch_profile_id]
         type.studio_id = params[:studio_id]
         type
@@ -268,7 +270,7 @@ module AWS::SDK::Nimble
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::DeleteLaunchProfileMemberInput, context: context)
         type = Types::DeleteLaunchProfileMemberInput.new
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.launch_profile_id = params[:launch_profile_id]
         type.principal_id = params[:principal_id]
         type.studio_id = params[:studio_id]
@@ -297,7 +299,7 @@ module AWS::SDK::Nimble
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::DeleteStreamingImageInput, context: context)
         type = Types::DeleteStreamingImageInput.new
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.streaming_image_id = params[:streaming_image_id]
         type.studio_id = params[:studio_id]
         type
@@ -317,7 +319,7 @@ module AWS::SDK::Nimble
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::DeleteStreamingSessionInput, context: context)
         type = Types::DeleteStreamingSessionInput.new
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.session_id = params[:session_id]
         type.studio_id = params[:studio_id]
         type
@@ -337,7 +339,7 @@ module AWS::SDK::Nimble
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::DeleteStudioComponentInput, context: context)
         type = Types::DeleteStudioComponentInput.new
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.studio_component_id = params[:studio_component_id]
         type.studio_id = params[:studio_id]
         type
@@ -357,7 +359,7 @@ module AWS::SDK::Nimble
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::DeleteStudioInput, context: context)
         type = Types::DeleteStudioInput.new
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.studio_id = params[:studio_id]
         type
       end
@@ -367,7 +369,7 @@ module AWS::SDK::Nimble
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::DeleteStudioMemberInput, context: context)
         type = Types::DeleteStudioMemberInput.new
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.principal_id = params[:principal_id]
         type.studio_id = params[:studio_id]
         type
@@ -761,6 +763,8 @@ module AWS::SDK::Nimble
         type.script = params[:script]
         type.studio_component_id = params[:studio_component_id]
         type.studio_component_name = params[:studio_component_name]
+        type.secure_initialization_role_arn = params[:secure_initialization_role_arn]
+        type.runtime_role_arn = params[:runtime_role_arn]
         type
       end
     end
@@ -1120,7 +1124,7 @@ module AWS::SDK::Nimble
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::PutLaunchProfileMembersInput, context: context)
         type = Types::PutLaunchProfileMembersInput.new
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.identity_store_id = params[:identity_store_id]
         type.launch_profile_id = params[:launch_profile_id]
         type.members = NewLaunchProfileMemberList.build(params[:members], context: "#{context}[:members]") unless params[:members].nil?
@@ -1141,7 +1145,7 @@ module AWS::SDK::Nimble
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::PutStudioMembersInput, context: context)
         type = Types::PutStudioMembersInput.new
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.identity_store_id = params[:identity_store_id]
         type.members = NewStudioMemberList.build(params[:members], context: "#{context}[:members]") unless params[:members].nil?
         type.studio_id = params[:studio_id]
@@ -1206,7 +1210,7 @@ module AWS::SDK::Nimble
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::StartStreamingSessionInput, context: context)
         type = Types::StartStreamingSessionInput.new
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.session_id = params[:session_id]
         type.studio_id = params[:studio_id]
         type
@@ -1226,7 +1230,7 @@ module AWS::SDK::Nimble
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::StartStudioSSOConfigurationRepairInput, context: context)
         type = Types::StartStudioSSOConfigurationRepairInput.new
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.studio_id = params[:studio_id]
         type
       end
@@ -1245,7 +1249,7 @@ module AWS::SDK::Nimble
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::StopStreamingSessionInput, context: context)
         type = Types::StopStreamingSessionInput.new
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.session_id = params[:session_id]
         type.studio_id = params[:studio_id]
         type
@@ -1496,6 +1500,8 @@ module AWS::SDK::Nimble
         type.type = params[:type]
         type.updated_at = params[:updated_at]
         type.updated_by = params[:updated_by]
+        type.secure_initialization_role_arn = params[:secure_initialization_role_arn]
+        type.runtime_role_arn = params[:runtime_role_arn]
         type
       end
     end
@@ -1745,7 +1751,7 @@ module AWS::SDK::Nimble
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::UpdateLaunchProfileInput, context: context)
         type = Types::UpdateLaunchProfileInput.new
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.description = params[:description]
         type.launch_profile_id = params[:launch_profile_id]
         type.launch_profile_protocol_versions = LaunchProfileProtocolVersionList.build(params[:launch_profile_protocol_versions], context: "#{context}[:launch_profile_protocol_versions]") unless params[:launch_profile_protocol_versions].nil?
@@ -1761,7 +1767,7 @@ module AWS::SDK::Nimble
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::UpdateLaunchProfileMemberInput, context: context)
         type = Types::UpdateLaunchProfileMemberInput.new
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.launch_profile_id = params[:launch_profile_id]
         type.persona = params[:persona]
         type.principal_id = params[:principal_id]
@@ -1792,7 +1798,7 @@ module AWS::SDK::Nimble
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::UpdateStreamingImageInput, context: context)
         type = Types::UpdateStreamingImageInput.new
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.description = params[:description]
         type.name = params[:name]
         type.streaming_image_id = params[:streaming_image_id]
@@ -1814,7 +1820,7 @@ module AWS::SDK::Nimble
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::UpdateStudioComponentInput, context: context)
         type = Types::UpdateStudioComponentInput.new
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.configuration = StudioComponentConfiguration.build(params[:configuration], context: "#{context}[:configuration]") unless params[:configuration].nil?
         type.description = params[:description]
         type.ec2_security_group_ids = StudioComponentSecurityGroupIdList.build(params[:ec2_security_group_ids], context: "#{context}[:ec2_security_group_ids]") unless params[:ec2_security_group_ids].nil?
@@ -1825,6 +1831,8 @@ module AWS::SDK::Nimble
         type.studio_id = params[:studio_id]
         type.subtype = params[:subtype]
         type.type = params[:type]
+        type.secure_initialization_role_arn = params[:secure_initialization_role_arn]
+        type.runtime_role_arn = params[:runtime_role_arn]
         type
       end
     end
@@ -1843,7 +1851,7 @@ module AWS::SDK::Nimble
         Hearth::Validator.validate!(params, ::Hash, Types::UpdateStudioInput, context: context)
         type = Types::UpdateStudioInput.new
         type.admin_role_arn = params[:admin_role_arn]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.display_name = params[:display_name]
         type.studio_id = params[:studio_id]
         type.user_role_arn = params[:user_role_arn]

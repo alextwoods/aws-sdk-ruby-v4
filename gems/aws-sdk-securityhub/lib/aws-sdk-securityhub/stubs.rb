@@ -40,7 +40,7 @@ module AWS::SDK::SecurityHub
     class BatchDisableStandards
       def self.default(visited=[])
         {
-          standards_subscriptions: Stubs::StandardsSubscriptions.default(visited),
+          standards_subscriptions: StandardsSubscriptions.default(visited),
         }
       end
 
@@ -59,7 +59,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('StandardsSubscriptions')
         visited = visited + ['StandardsSubscriptions']
         [
-          Stubs::StandardsSubscription.default(visited)
+          StandardsSubscription.default(visited)
         ]
       end
 
@@ -81,9 +81,9 @@ module AWS::SDK::SecurityHub
         {
           standards_subscription_arn: 'standards_subscription_arn',
           standards_arn: 'standards_arn',
-          standards_input: Stubs::StandardsInputParameterMap.default(visited),
+          standards_input: StandardsInputParameterMap.default(visited),
           standards_status: 'standards_status',
-          standards_status_reason: Stubs::StandardsStatusReason.default(visited),
+          standards_status_reason: StandardsStatusReason.default(visited),
         }
       end
 
@@ -141,7 +141,7 @@ module AWS::SDK::SecurityHub
     class BatchEnableStandards
       def self.default(visited=[])
         {
-          standards_subscriptions: Stubs::StandardsSubscriptions.default(visited),
+          standards_subscriptions: StandardsSubscriptions.default(visited),
         }
       end
 
@@ -160,7 +160,7 @@ module AWS::SDK::SecurityHub
         {
           failed_count: 1,
           success_count: 1,
-          failed_findings: Stubs::ImportFindingsErrorList.default(visited),
+          failed_findings: ImportFindingsErrorList.default(visited),
         }
       end
 
@@ -181,7 +181,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('ImportFindingsErrorList')
         visited = visited + ['ImportFindingsErrorList']
         [
-          Stubs::ImportFindingsError.default(visited)
+          ImportFindingsError.default(visited)
         ]
       end
 
@@ -221,8 +221,8 @@ module AWS::SDK::SecurityHub
     class BatchUpdateFindings
       def self.default(visited=[])
         {
-          processed_findings: Stubs::AwsSecurityFindingIdentifierList.default(visited),
-          unprocessed_findings: Stubs::BatchUpdateFindingsUnprocessedFindingsList.default(visited),
+          processed_findings: AwsSecurityFindingIdentifierList.default(visited),
+          unprocessed_findings: BatchUpdateFindingsUnprocessedFindingsList.default(visited),
         }
       end
 
@@ -242,7 +242,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('BatchUpdateFindingsUnprocessedFindingsList')
         visited = visited + ['BatchUpdateFindingsUnprocessedFindingsList']
         [
-          Stubs::BatchUpdateFindingsUnprocessedFinding.default(visited)
+          BatchUpdateFindingsUnprocessedFinding.default(visited)
         ]
       end
 
@@ -262,7 +262,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('BatchUpdateFindingsUnprocessedFinding')
         visited = visited + ['BatchUpdateFindingsUnprocessedFinding']
         {
-          finding_identifier: Stubs::AwsSecurityFindingIdentifier.default(visited),
+          finding_identifier: AwsSecurityFindingIdentifier.default(visited),
           error_code: 'error_code',
           error_message: 'error_message',
         }
@@ -304,7 +304,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsSecurityFindingIdentifierList')
         visited = visited + ['AwsSecurityFindingIdentifierList']
         [
-          Stubs::AwsSecurityFindingIdentifier.default(visited)
+          AwsSecurityFindingIdentifier.default(visited)
         ]
       end
 
@@ -342,7 +342,7 @@ module AWS::SDK::SecurityHub
           finding_aggregator_arn: 'finding_aggregator_arn',
           finding_aggregation_region: 'finding_aggregation_region',
           region_linking_mode: 'region_linking_mode',
-          regions: Stubs::StringList.default(visited),
+          regions: StringList.default(visited),
         }
       end
 
@@ -399,7 +399,7 @@ module AWS::SDK::SecurityHub
     class CreateMembers
       def self.default(visited=[])
         {
-          unprocessed_accounts: Stubs::ResultList.default(visited),
+          unprocessed_accounts: ResultList.default(visited),
         }
       end
 
@@ -418,7 +418,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('ResultList')
         visited = visited + ['ResultList']
         [
-          Stubs::Result.default(visited)
+          Result.default(visited)
         ]
       end
 
@@ -456,7 +456,7 @@ module AWS::SDK::SecurityHub
     class DeclineInvitations
       def self.default(visited=[])
         {
-          unprocessed_accounts: Stubs::ResultList.default(visited),
+          unprocessed_accounts: ResultList.default(visited),
         }
       end
 
@@ -520,7 +520,7 @@ module AWS::SDK::SecurityHub
     class DeleteInvitations
       def self.default(visited=[])
         {
-          unprocessed_accounts: Stubs::ResultList.default(visited),
+          unprocessed_accounts: ResultList.default(visited),
         }
       end
 
@@ -537,7 +537,7 @@ module AWS::SDK::SecurityHub
     class DeleteMembers
       def self.default(visited=[])
         {
-          unprocessed_accounts: Stubs::ResultList.default(visited),
+          unprocessed_accounts: ResultList.default(visited),
         }
       end
 
@@ -554,7 +554,7 @@ module AWS::SDK::SecurityHub
     class DescribeActionTargets
       def self.default(visited=[])
         {
-          action_targets: Stubs::ActionTargetList.default(visited),
+          action_targets: ActionTargetList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -575,7 +575,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('ActionTargetList')
         visited = visited + ['ActionTargetList']
         [
-          Stubs::ActionTarget.default(visited)
+          ActionTarget.default(visited)
         ]
       end
 
@@ -657,7 +657,7 @@ module AWS::SDK::SecurityHub
     class DescribeProducts
       def self.default(visited=[])
         {
-          products: Stubs::ProductsList.default(visited),
+          products: ProductsList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -678,7 +678,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('ProductsList')
         visited = visited + ['ProductsList']
         [
-          Stubs::Product.default(visited)
+          Product.default(visited)
         ]
       end
 
@@ -702,8 +702,8 @@ module AWS::SDK::SecurityHub
           product_name: 'product_name',
           company_name: 'company_name',
           description: 'description',
-          categories: Stubs::CategoryList.default(visited),
-          integration_types: Stubs::IntegrationTypeList.default(visited),
+          categories: CategoryList.default(visited),
+          integration_types: IntegrationTypeList.default(visited),
           marketplace_url: 'marketplace_url',
           activation_url: 'activation_url',
           product_subscription_resource_policy: 'product_subscription_resource_policy',
@@ -770,7 +770,7 @@ module AWS::SDK::SecurityHub
     class DescribeStandards
       def self.default(visited=[])
         {
-          standards: Stubs::Standards.default(visited),
+          standards: Standards.default(visited),
           next_token: 'next_token',
         }
       end
@@ -791,7 +791,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('Standards')
         visited = visited + ['Standards']
         [
-          Stubs::Standard.default(visited)
+          Standard.default(visited)
         ]
       end
 
@@ -833,7 +833,7 @@ module AWS::SDK::SecurityHub
     class DescribeStandardsControls
       def self.default(visited=[])
         {
-          controls: Stubs::StandardsControls.default(visited),
+          controls: StandardsControls.default(visited),
           next_token: 'next_token',
         }
       end
@@ -854,7 +854,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('StandardsControls')
         visited = visited + ['StandardsControls']
         [
-          Stubs::StandardsControl.default(visited)
+          StandardsControl.default(visited)
         ]
       end
 
@@ -883,7 +883,7 @@ module AWS::SDK::SecurityHub
           description: 'description',
           remediation_url: 'remediation_url',
           severity_rating: 'severity_rating',
-          related_requirements: Stubs::RelatedRequirementsList.default(visited),
+          related_requirements: RelatedRequirementsList.default(visited),
         }
       end
 
@@ -1049,7 +1049,7 @@ module AWS::SDK::SecurityHub
     class GetAdministratorAccount
       def self.default(visited=[])
         {
-          administrator: Stubs::Invitation.default(visited),
+          administrator: Invitation.default(visited),
         }
       end
 
@@ -1090,7 +1090,7 @@ module AWS::SDK::SecurityHub
     class GetEnabledStandards
       def self.default(visited=[])
         {
-          standards_subscriptions: Stubs::StandardsSubscriptions.default(visited),
+          standards_subscriptions: StandardsSubscriptions.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1112,7 +1112,7 @@ module AWS::SDK::SecurityHub
           finding_aggregator_arn: 'finding_aggregator_arn',
           finding_aggregation_region: 'finding_aggregation_region',
           region_linking_mode: 'region_linking_mode',
-          regions: Stubs::StringList.default(visited),
+          regions: StringList.default(visited),
         }
       end
 
@@ -1132,7 +1132,7 @@ module AWS::SDK::SecurityHub
     class GetFindings
       def self.default(visited=[])
         {
-          findings: Stubs::AwsSecurityFindingList.default(visited),
+          findings: AwsSecurityFindingList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1153,7 +1153,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsSecurityFindingList')
         visited = visited + ['AwsSecurityFindingList']
         [
-          Stubs::AwsSecurityFinding.default(visited)
+          AwsSecurityFinding.default(visited)
         ]
       end
 
@@ -1181,37 +1181,37 @@ module AWS::SDK::SecurityHub
           region: 'region',
           generator_id: 'generator_id',
           aws_account_id: 'aws_account_id',
-          types: Stubs::TypeList.default(visited),
+          types: TypeList.default(visited),
           first_observed_at: 'first_observed_at',
           last_observed_at: 'last_observed_at',
           created_at: 'created_at',
           updated_at: 'updated_at',
-          severity: Stubs::Severity.default(visited),
+          severity: Severity.default(visited),
           confidence: 1,
           criticality: 1,
           title: 'title',
           description: 'description',
-          remediation: Stubs::Remediation.default(visited),
+          remediation: Remediation.default(visited),
           source_url: 'source_url',
-          product_fields: Stubs::FieldMap.default(visited),
-          user_defined_fields: Stubs::FieldMap.default(visited),
-          malware: Stubs::MalwareList.default(visited),
-          network: Stubs::Network.default(visited),
-          network_path: Stubs::NetworkPathList.default(visited),
-          process: Stubs::ProcessDetails.default(visited),
-          threat_intel_indicators: Stubs::ThreatIntelIndicatorList.default(visited),
-          resources: Stubs::ResourceList.default(visited),
-          compliance: Stubs::Compliance.default(visited),
+          product_fields: FieldMap.default(visited),
+          user_defined_fields: FieldMap.default(visited),
+          malware: MalwareList.default(visited),
+          network: Network.default(visited),
+          network_path: NetworkPathList.default(visited),
+          process: ProcessDetails.default(visited),
+          threat_intel_indicators: ThreatIntelIndicatorList.default(visited),
+          resources: ResourceList.default(visited),
+          compliance: Compliance.default(visited),
           verification_state: 'verification_state',
           workflow_state: 'workflow_state',
-          workflow: Stubs::Workflow.default(visited),
+          workflow: Workflow.default(visited),
           record_state: 'record_state',
-          related_findings: Stubs::RelatedFindingList.default(visited),
-          note: Stubs::Note.default(visited),
-          vulnerabilities: Stubs::VulnerabilityList.default(visited),
-          patch_summary: Stubs::PatchSummary.default(visited),
-          action: Stubs::Action.default(visited),
-          finding_provider_fields: Stubs::FindingProviderFields.default(visited),
+          related_findings: RelatedFindingList.default(visited),
+          note: Note.default(visited),
+          vulnerabilities: VulnerabilityList.default(visited),
+          patch_summary: PatchSummary.default(visited),
+          action: Action.default(visited),
+          finding_provider_fields: FindingProviderFields.default(visited),
           sample: false,
         }
       end
@@ -1271,9 +1271,9 @@ module AWS::SDK::SecurityHub
         {
           confidence: 1,
           criticality: 1,
-          related_findings: Stubs::RelatedFindingList.default(visited),
-          severity: Stubs::FindingProviderSeverity.default(visited),
-          types: Stubs::TypeList.default(visited),
+          related_findings: RelatedFindingList.default(visited),
+          severity: FindingProviderSeverity.default(visited),
+          types: TypeList.default(visited),
         }
       end
 
@@ -1335,7 +1335,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('RelatedFindingList')
         visited = visited + ['RelatedFindingList']
         [
-          Stubs::RelatedFinding.default(visited)
+          RelatedFinding.default(visited)
         ]
       end
 
@@ -1376,10 +1376,10 @@ module AWS::SDK::SecurityHub
         visited = visited + ['Action']
         {
           action_type: 'action_type',
-          network_connection_action: Stubs::NetworkConnectionAction.default(visited),
-          aws_api_call_action: Stubs::AwsApiCallAction.default(visited),
-          dns_request_action: Stubs::DnsRequestAction.default(visited),
-          port_probe_action: Stubs::PortProbeAction.default(visited),
+          network_connection_action: NetworkConnectionAction.default(visited),
+          aws_api_call_action: AwsApiCallAction.default(visited),
+          dns_request_action: DnsRequestAction.default(visited),
+          port_probe_action: PortProbeAction.default(visited),
         }
       end
 
@@ -1401,7 +1401,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('PortProbeAction')
         visited = visited + ['PortProbeAction']
         {
-          port_probe_details: Stubs::PortProbeDetailList.default(visited),
+          port_probe_details: PortProbeDetailList.default(visited),
           blocked: false,
         }
       end
@@ -1421,7 +1421,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('PortProbeDetailList')
         visited = visited + ['PortProbeDetailList']
         [
-          Stubs::PortProbeDetail.default(visited)
+          PortProbeDetail.default(visited)
         ]
       end
 
@@ -1441,9 +1441,9 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('PortProbeDetail')
         visited = visited + ['PortProbeDetail']
         {
-          local_port_details: Stubs::ActionLocalPortDetails.default(visited),
-          local_ip_details: Stubs::ActionLocalIpDetails.default(visited),
-          remote_ip_details: Stubs::ActionRemoteIpDetails.default(visited),
+          local_port_details: ActionLocalPortDetails.default(visited),
+          local_ip_details: ActionLocalIpDetails.default(visited),
+          remote_ip_details: ActionRemoteIpDetails.default(visited),
         }
       end
 
@@ -1464,10 +1464,10 @@ module AWS::SDK::SecurityHub
         visited = visited + ['ActionRemoteIpDetails']
         {
           ip_address_v4: 'ip_address_v4',
-          organization: Stubs::IpOrganizationDetails.default(visited),
-          country: Stubs::Country.default(visited),
-          city: Stubs::City.default(visited),
-          geo_location: Stubs::GeoLocation.default(visited),
+          organization: IpOrganizationDetails.default(visited),
+          country: Country.default(visited),
+          city: City.default(visited),
+          geo_location: GeoLocation.default(visited),
         }
       end
 
@@ -1634,9 +1634,9 @@ module AWS::SDK::SecurityHub
           api: 'api',
           service_name: 'service_name',
           caller_type: 'caller_type',
-          remote_ip_details: Stubs::ActionRemoteIpDetails.default(visited),
-          domain_details: Stubs::AwsApiCallActionDomainDetails.default(visited),
-          affected_resources: Stubs::FieldMap.default(visited),
+          remote_ip_details: ActionRemoteIpDetails.default(visited),
+          domain_details: AwsApiCallActionDomainDetails.default(visited),
+          affected_resources: FieldMap.default(visited),
           first_seen: 'first_seen',
           last_seen: 'last_seen',
         }
@@ -1702,9 +1702,9 @@ module AWS::SDK::SecurityHub
         visited = visited + ['NetworkConnectionAction']
         {
           connection_direction: 'connection_direction',
-          remote_ip_details: Stubs::ActionRemoteIpDetails.default(visited),
-          remote_port_details: Stubs::ActionRemotePortDetails.default(visited),
-          local_port_details: Stubs::ActionLocalPortDetails.default(visited),
+          remote_ip_details: ActionRemoteIpDetails.default(visited),
+          remote_port_details: ActionRemotePortDetails.default(visited),
+          local_port_details: ActionLocalPortDetails.default(visited),
           protocol: 'protocol',
           blocked: false,
         }
@@ -1787,7 +1787,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('VulnerabilityList')
         visited = visited + ['VulnerabilityList']
         [
-          Stubs::Vulnerability.default(visited)
+          Vulnerability.default(visited)
         ]
       end
 
@@ -1808,11 +1808,11 @@ module AWS::SDK::SecurityHub
         visited = visited + ['Vulnerability']
         {
           id: 'id',
-          vulnerable_packages: Stubs::SoftwarePackageList.default(visited),
-          cvss: Stubs::CvssList.default(visited),
-          related_vulnerabilities: Stubs::StringList.default(visited),
-          vendor: Stubs::VulnerabilityVendor.default(visited),
-          reference_urls: Stubs::StringList.default(visited),
+          vulnerable_packages: SoftwarePackageList.default(visited),
+          cvss: CvssList.default(visited),
+          related_vulnerabilities: StringList.default(visited),
+          vendor: VulnerabilityVendor.default(visited),
+          reference_urls: StringList.default(visited),
         }
       end
 
@@ -1861,7 +1861,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('CvssList')
         visited = visited + ['CvssList']
         [
-          Stubs::Cvss.default(visited)
+          Cvss.default(visited)
         ]
       end
 
@@ -1885,7 +1885,7 @@ module AWS::SDK::SecurityHub
           base_score: 1.0,
           base_vector: 'base_vector',
           source: 'source',
-          adjustments: Stubs::AdjustmentList.default(visited),
+          adjustments: AdjustmentList.default(visited),
         }
       end
 
@@ -1907,7 +1907,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AdjustmentList')
         visited = visited + ['AdjustmentList']
         [
-          Stubs::Adjustment.default(visited)
+          Adjustment.default(visited)
         ]
       end
 
@@ -1947,7 +1947,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('SoftwarePackageList')
         visited = visited + ['SoftwarePackageList']
         [
-          Stubs::SoftwarePackage.default(visited)
+          SoftwarePackage.default(visited)
         ]
       end
 
@@ -2038,8 +2038,8 @@ module AWS::SDK::SecurityHub
         visited = visited + ['Compliance']
         {
           status: 'status',
-          related_requirements: Stubs::RelatedRequirementsList.default(visited),
-          status_reasons: Stubs::StatusReasonsList.default(visited),
+          related_requirements: RelatedRequirementsList.default(visited),
+          status_reasons: StatusReasonsList.default(visited),
         }
       end
 
@@ -2059,7 +2059,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('StatusReasonsList')
         visited = visited + ['StatusReasonsList']
         [
-          Stubs::StatusReason.default(visited)
+          StatusReason.default(visited)
         ]
       end
 
@@ -2099,7 +2099,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('ResourceList')
         visited = visited + ['ResourceList']
         [
-          Stubs::Resource.default(visited)
+          Resource.default(visited)
         ]
       end
 
@@ -2124,9 +2124,9 @@ module AWS::SDK::SecurityHub
           partition: 'partition',
           region: 'region',
           resource_role: 'resource_role',
-          tags: Stubs::FieldMap.default(visited),
-          data_classification: Stubs::DataClassificationDetails.default(visited),
-          details: Stubs::ResourceDetails.default(visited),
+          tags: FieldMap.default(visited),
+          data_classification: DataClassificationDetails.default(visited),
+          details: ResourceDetails.default(visited),
         }
       end
 
@@ -2151,69 +2151,69 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('ResourceDetails')
         visited = visited + ['ResourceDetails']
         {
-          aws_auto_scaling_auto_scaling_group: Stubs::AwsAutoScalingAutoScalingGroupDetails.default(visited),
-          aws_code_build_project: Stubs::AwsCodeBuildProjectDetails.default(visited),
-          aws_cloud_front_distribution: Stubs::AwsCloudFrontDistributionDetails.default(visited),
-          aws_ec2_instance: Stubs::AwsEc2InstanceDetails.default(visited),
-          aws_ec2_network_interface: Stubs::AwsEc2NetworkInterfaceDetails.default(visited),
-          aws_ec2_security_group: Stubs::AwsEc2SecurityGroupDetails.default(visited),
-          aws_ec2_volume: Stubs::AwsEc2VolumeDetails.default(visited),
-          aws_ec2_vpc: Stubs::AwsEc2VpcDetails.default(visited),
-          aws_ec2_eip: Stubs::AwsEc2EipDetails.default(visited),
-          aws_ec2_subnet: Stubs::AwsEc2SubnetDetails.default(visited),
-          aws_ec2_network_acl: Stubs::AwsEc2NetworkAclDetails.default(visited),
-          aws_elbv2_load_balancer: Stubs::AwsElbv2LoadBalancerDetails.default(visited),
-          aws_elastic_beanstalk_environment: Stubs::AwsElasticBeanstalkEnvironmentDetails.default(visited),
-          aws_elasticsearch_domain: Stubs::AwsElasticsearchDomainDetails.default(visited),
-          aws_s3_bucket: Stubs::AwsS3BucketDetails.default(visited),
-          aws_s3_account_public_access_block: Stubs::AwsS3AccountPublicAccessBlockDetails.default(visited),
-          aws_s3_object: Stubs::AwsS3ObjectDetails.default(visited),
-          aws_secrets_manager_secret: Stubs::AwsSecretsManagerSecretDetails.default(visited),
-          aws_iam_access_key: Stubs::AwsIamAccessKeyDetails.default(visited),
-          aws_iam_user: Stubs::AwsIamUserDetails.default(visited),
-          aws_iam_policy: Stubs::AwsIamPolicyDetails.default(visited),
-          aws_api_gateway_v2_stage: Stubs::AwsApiGatewayV2StageDetails.default(visited),
-          aws_api_gateway_v2_api: Stubs::AwsApiGatewayV2ApiDetails.default(visited),
-          aws_dynamo_db_table: Stubs::AwsDynamoDbTableDetails.default(visited),
-          aws_api_gateway_stage: Stubs::AwsApiGatewayStageDetails.default(visited),
-          aws_api_gateway_rest_api: Stubs::AwsApiGatewayRestApiDetails.default(visited),
-          aws_cloud_trail_trail: Stubs::AwsCloudTrailTrailDetails.default(visited),
-          aws_ssm_patch_compliance: Stubs::AwsSsmPatchComplianceDetails.default(visited),
-          aws_certificate_manager_certificate: Stubs::AwsCertificateManagerCertificateDetails.default(visited),
-          aws_redshift_cluster: Stubs::AwsRedshiftClusterDetails.default(visited),
-          aws_elb_load_balancer: Stubs::AwsElbLoadBalancerDetails.default(visited),
-          aws_iam_group: Stubs::AwsIamGroupDetails.default(visited),
-          aws_iam_role: Stubs::AwsIamRoleDetails.default(visited),
-          aws_kms_key: Stubs::AwsKmsKeyDetails.default(visited),
-          aws_lambda_function: Stubs::AwsLambdaFunctionDetails.default(visited),
-          aws_lambda_layer_version: Stubs::AwsLambdaLayerVersionDetails.default(visited),
-          aws_rds_db_instance: Stubs::AwsRdsDbInstanceDetails.default(visited),
-          aws_sns_topic: Stubs::AwsSnsTopicDetails.default(visited),
-          aws_sqs_queue: Stubs::AwsSqsQueueDetails.default(visited),
-          aws_waf_web_acl: Stubs::AwsWafWebAclDetails.default(visited),
-          aws_rds_db_snapshot: Stubs::AwsRdsDbSnapshotDetails.default(visited),
-          aws_rds_db_cluster_snapshot: Stubs::AwsRdsDbClusterSnapshotDetails.default(visited),
-          aws_rds_db_cluster: Stubs::AwsRdsDbClusterDetails.default(visited),
-          aws_ecs_cluster: Stubs::AwsEcsClusterDetails.default(visited),
-          aws_ecs_task_definition: Stubs::AwsEcsTaskDefinitionDetails.default(visited),
-          container: Stubs::ContainerDetails.default(visited),
-          other: Stubs::FieldMap.default(visited),
-          aws_rds_event_subscription: Stubs::AwsRdsEventSubscriptionDetails.default(visited),
-          aws_ecs_service: Stubs::AwsEcsServiceDetails.default(visited),
-          aws_auto_scaling_launch_configuration: Stubs::AwsAutoScalingLaunchConfigurationDetails.default(visited),
-          aws_ec2_vpn_connection: Stubs::AwsEc2VpnConnectionDetails.default(visited),
-          aws_ecr_container_image: Stubs::AwsEcrContainerImageDetails.default(visited),
-          aws_open_search_service_domain: Stubs::AwsOpenSearchServiceDomainDetails.default(visited),
-          aws_ec2_vpc_endpoint_service: Stubs::AwsEc2VpcEndpointServiceDetails.default(visited),
-          aws_xray_encryption_config: Stubs::AwsXrayEncryptionConfigDetails.default(visited),
-          aws_waf_rate_based_rule: Stubs::AwsWafRateBasedRuleDetails.default(visited),
-          aws_waf_regional_rate_based_rule: Stubs::AwsWafRegionalRateBasedRuleDetails.default(visited),
-          aws_ecr_repository: Stubs::AwsEcrRepositoryDetails.default(visited),
-          aws_eks_cluster: Stubs::AwsEksClusterDetails.default(visited),
-          aws_network_firewall_firewall_policy: Stubs::AwsNetworkFirewallFirewallPolicyDetails.default(visited),
-          aws_network_firewall_firewall: Stubs::AwsNetworkFirewallFirewallDetails.default(visited),
-          aws_network_firewall_rule_group: Stubs::AwsNetworkFirewallRuleGroupDetails.default(visited),
-          aws_rds_db_security_group: Stubs::AwsRdsDbSecurityGroupDetails.default(visited),
+          aws_auto_scaling_auto_scaling_group: AwsAutoScalingAutoScalingGroupDetails.default(visited),
+          aws_code_build_project: AwsCodeBuildProjectDetails.default(visited),
+          aws_cloud_front_distribution: AwsCloudFrontDistributionDetails.default(visited),
+          aws_ec2_instance: AwsEc2InstanceDetails.default(visited),
+          aws_ec2_network_interface: AwsEc2NetworkInterfaceDetails.default(visited),
+          aws_ec2_security_group: AwsEc2SecurityGroupDetails.default(visited),
+          aws_ec2_volume: AwsEc2VolumeDetails.default(visited),
+          aws_ec2_vpc: AwsEc2VpcDetails.default(visited),
+          aws_ec2_eip: AwsEc2EipDetails.default(visited),
+          aws_ec2_subnet: AwsEc2SubnetDetails.default(visited),
+          aws_ec2_network_acl: AwsEc2NetworkAclDetails.default(visited),
+          aws_elbv2_load_balancer: AwsElbv2LoadBalancerDetails.default(visited),
+          aws_elastic_beanstalk_environment: AwsElasticBeanstalkEnvironmentDetails.default(visited),
+          aws_elasticsearch_domain: AwsElasticsearchDomainDetails.default(visited),
+          aws_s3_bucket: AwsS3BucketDetails.default(visited),
+          aws_s3_account_public_access_block: AwsS3AccountPublicAccessBlockDetails.default(visited),
+          aws_s3_object: AwsS3ObjectDetails.default(visited),
+          aws_secrets_manager_secret: AwsSecretsManagerSecretDetails.default(visited),
+          aws_iam_access_key: AwsIamAccessKeyDetails.default(visited),
+          aws_iam_user: AwsIamUserDetails.default(visited),
+          aws_iam_policy: AwsIamPolicyDetails.default(visited),
+          aws_api_gateway_v2_stage: AwsApiGatewayV2StageDetails.default(visited),
+          aws_api_gateway_v2_api: AwsApiGatewayV2ApiDetails.default(visited),
+          aws_dynamo_db_table: AwsDynamoDbTableDetails.default(visited),
+          aws_api_gateway_stage: AwsApiGatewayStageDetails.default(visited),
+          aws_api_gateway_rest_api: AwsApiGatewayRestApiDetails.default(visited),
+          aws_cloud_trail_trail: AwsCloudTrailTrailDetails.default(visited),
+          aws_ssm_patch_compliance: AwsSsmPatchComplianceDetails.default(visited),
+          aws_certificate_manager_certificate: AwsCertificateManagerCertificateDetails.default(visited),
+          aws_redshift_cluster: AwsRedshiftClusterDetails.default(visited),
+          aws_elb_load_balancer: AwsElbLoadBalancerDetails.default(visited),
+          aws_iam_group: AwsIamGroupDetails.default(visited),
+          aws_iam_role: AwsIamRoleDetails.default(visited),
+          aws_kms_key: AwsKmsKeyDetails.default(visited),
+          aws_lambda_function: AwsLambdaFunctionDetails.default(visited),
+          aws_lambda_layer_version: AwsLambdaLayerVersionDetails.default(visited),
+          aws_rds_db_instance: AwsRdsDbInstanceDetails.default(visited),
+          aws_sns_topic: AwsSnsTopicDetails.default(visited),
+          aws_sqs_queue: AwsSqsQueueDetails.default(visited),
+          aws_waf_web_acl: AwsWafWebAclDetails.default(visited),
+          aws_rds_db_snapshot: AwsRdsDbSnapshotDetails.default(visited),
+          aws_rds_db_cluster_snapshot: AwsRdsDbClusterSnapshotDetails.default(visited),
+          aws_rds_db_cluster: AwsRdsDbClusterDetails.default(visited),
+          aws_ecs_cluster: AwsEcsClusterDetails.default(visited),
+          aws_ecs_task_definition: AwsEcsTaskDefinitionDetails.default(visited),
+          container: ContainerDetails.default(visited),
+          other: FieldMap.default(visited),
+          aws_rds_event_subscription: AwsRdsEventSubscriptionDetails.default(visited),
+          aws_ecs_service: AwsEcsServiceDetails.default(visited),
+          aws_auto_scaling_launch_configuration: AwsAutoScalingLaunchConfigurationDetails.default(visited),
+          aws_ec2_vpn_connection: AwsEc2VpnConnectionDetails.default(visited),
+          aws_ecr_container_image: AwsEcrContainerImageDetails.default(visited),
+          aws_open_search_service_domain: AwsOpenSearchServiceDomainDetails.default(visited),
+          aws_ec2_vpc_endpoint_service: AwsEc2VpcEndpointServiceDetails.default(visited),
+          aws_xray_encryption_config: AwsXrayEncryptionConfigDetails.default(visited),
+          aws_waf_rate_based_rule: AwsWafRateBasedRuleDetails.default(visited),
+          aws_waf_regional_rate_based_rule: AwsWafRegionalRateBasedRuleDetails.default(visited),
+          aws_ecr_repository: AwsEcrRepositoryDetails.default(visited),
+          aws_eks_cluster: AwsEksClusterDetails.default(visited),
+          aws_network_firewall_firewall_policy: AwsNetworkFirewallFirewallPolicyDetails.default(visited),
+          aws_network_firewall_firewall: AwsNetworkFirewallFirewallDetails.default(visited),
+          aws_network_firewall_rule_group: AwsNetworkFirewallRuleGroupDetails.default(visited),
+          aws_rds_db_security_group: AwsRdsDbSecurityGroupDetails.default(visited),
         }
       end
 
@@ -2296,8 +2296,8 @@ module AWS::SDK::SecurityHub
           db_security_group_arn: 'db_security_group_arn',
           db_security_group_description: 'db_security_group_description',
           db_security_group_name: 'db_security_group_name',
-          ec2_security_groups: Stubs::AwsRdsDbSecurityGroupEc2SecurityGroups.default(visited),
-          ip_ranges: Stubs::AwsRdsDbSecurityGroupIpRanges.default(visited),
+          ec2_security_groups: AwsRdsDbSecurityGroupEc2SecurityGroups.default(visited),
+          ip_ranges: AwsRdsDbSecurityGroupIpRanges.default(visited),
           owner_id: 'owner_id',
           vpc_id: 'vpc_id',
         }
@@ -2323,7 +2323,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsRdsDbSecurityGroupIpRanges')
         visited = visited + ['AwsRdsDbSecurityGroupIpRanges']
         [
-          Stubs::AwsRdsDbSecurityGroupIpRange.default(visited)
+          AwsRdsDbSecurityGroupIpRange.default(visited)
         ]
       end
 
@@ -2363,7 +2363,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsRdsDbSecurityGroupEc2SecurityGroups')
         visited = visited + ['AwsRdsDbSecurityGroupEc2SecurityGroups']
         [
-          Stubs::AwsRdsDbSecurityGroupEc2SecurityGroup.default(visited)
+          AwsRdsDbSecurityGroupEc2SecurityGroup.default(visited)
         ]
       end
 
@@ -2409,7 +2409,7 @@ module AWS::SDK::SecurityHub
         {
           capacity: 1,
           description: 'description',
-          rule_group: Stubs::RuleGroupDetails.default(visited),
+          rule_group: RuleGroupDetails.default(visited),
           rule_group_arn: 'rule_group_arn',
           rule_group_id: 'rule_group_id',
           rule_group_name: 'rule_group_name',
@@ -2437,8 +2437,8 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('RuleGroupDetails')
         visited = visited + ['RuleGroupDetails']
         {
-          rule_variables: Stubs::RuleGroupVariables.default(visited),
-          rules_source: Stubs::RuleGroupSource.default(visited),
+          rule_variables: RuleGroupVariables.default(visited),
+          rules_source: RuleGroupSource.default(visited),
         }
       end
 
@@ -2457,10 +2457,10 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('RuleGroupSource')
         visited = visited + ['RuleGroupSource']
         {
-          rules_source_list: Stubs::RuleGroupSourceListDetails.default(visited),
+          rules_source_list: RuleGroupSourceListDetails.default(visited),
           rules_string: 'rules_string',
-          stateful_rules: Stubs::RuleGroupSourceStatefulRulesList.default(visited),
-          stateless_rules_and_custom_actions: Stubs::RuleGroupSourceStatelessRulesAndCustomActionsDetails.default(visited),
+          stateful_rules: RuleGroupSourceStatefulRulesList.default(visited),
+          stateless_rules_and_custom_actions: RuleGroupSourceStatelessRulesAndCustomActionsDetails.default(visited),
         }
       end
 
@@ -2481,8 +2481,8 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('RuleGroupSourceStatelessRulesAndCustomActionsDetails')
         visited = visited + ['RuleGroupSourceStatelessRulesAndCustomActionsDetails']
         {
-          custom_actions: Stubs::RuleGroupSourceCustomActionsList.default(visited),
-          stateless_rules: Stubs::RuleGroupSourceStatelessRulesList.default(visited),
+          custom_actions: RuleGroupSourceCustomActionsList.default(visited),
+          stateless_rules: RuleGroupSourceStatelessRulesList.default(visited),
         }
       end
 
@@ -2501,7 +2501,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('RuleGroupSourceStatelessRulesList')
         visited = visited + ['RuleGroupSourceStatelessRulesList']
         [
-          Stubs::RuleGroupSourceStatelessRulesDetails.default(visited)
+          RuleGroupSourceStatelessRulesDetails.default(visited)
         ]
       end
 
@@ -2522,7 +2522,7 @@ module AWS::SDK::SecurityHub
         visited = visited + ['RuleGroupSourceStatelessRulesDetails']
         {
           priority: 1,
-          rule_definition: Stubs::RuleGroupSourceStatelessRuleDefinition.default(visited),
+          rule_definition: RuleGroupSourceStatelessRuleDefinition.default(visited),
         }
       end
 
@@ -2541,8 +2541,8 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('RuleGroupSourceStatelessRuleDefinition')
         visited = visited + ['RuleGroupSourceStatelessRuleDefinition']
         {
-          actions: Stubs::NonEmptyStringList.default(visited),
-          match_attributes: Stubs::RuleGroupSourceStatelessRuleMatchAttributes.default(visited),
+          actions: NonEmptyStringList.default(visited),
+          match_attributes: RuleGroupSourceStatelessRuleMatchAttributes.default(visited),
         }
       end
 
@@ -2561,12 +2561,12 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('RuleGroupSourceStatelessRuleMatchAttributes')
         visited = visited + ['RuleGroupSourceStatelessRuleMatchAttributes']
         {
-          destination_ports: Stubs::RuleGroupSourceStatelessRuleMatchAttributesDestinationPortsList.default(visited),
-          destinations: Stubs::RuleGroupSourceStatelessRuleMatchAttributesDestinationsList.default(visited),
-          protocols: Stubs::RuleGroupSourceStatelessRuleMatchAttributesProtocolsList.default(visited),
-          source_ports: Stubs::RuleGroupSourceStatelessRuleMatchAttributesSourcePortsList.default(visited),
-          sources: Stubs::RuleGroupSourceStatelessRuleMatchAttributesSourcesList.default(visited),
-          tcp_flags: Stubs::RuleGroupSourceStatelessRuleMatchAttributesTcpFlagsList.default(visited),
+          destination_ports: RuleGroupSourceStatelessRuleMatchAttributesDestinationPortsList.default(visited),
+          destinations: RuleGroupSourceStatelessRuleMatchAttributesDestinationsList.default(visited),
+          protocols: RuleGroupSourceStatelessRuleMatchAttributesProtocolsList.default(visited),
+          source_ports: RuleGroupSourceStatelessRuleMatchAttributesSourcePortsList.default(visited),
+          sources: RuleGroupSourceStatelessRuleMatchAttributesSourcesList.default(visited),
+          tcp_flags: RuleGroupSourceStatelessRuleMatchAttributesTcpFlagsList.default(visited),
         }
       end
 
@@ -2589,7 +2589,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('RuleGroupSourceStatelessRuleMatchAttributesTcpFlagsList')
         visited = visited + ['RuleGroupSourceStatelessRuleMatchAttributesTcpFlagsList']
         [
-          Stubs::RuleGroupSourceStatelessRuleMatchAttributesTcpFlags.default(visited)
+          RuleGroupSourceStatelessRuleMatchAttributesTcpFlags.default(visited)
         ]
       end
 
@@ -2609,8 +2609,8 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('RuleGroupSourceStatelessRuleMatchAttributesTcpFlags')
         visited = visited + ['RuleGroupSourceStatelessRuleMatchAttributesTcpFlags']
         {
-          flags: Stubs::NonEmptyStringList.default(visited),
-          masks: Stubs::NonEmptyStringList.default(visited),
+          flags: NonEmptyStringList.default(visited),
+          masks: NonEmptyStringList.default(visited),
         }
       end
 
@@ -2649,7 +2649,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('RuleGroupSourceStatelessRuleMatchAttributesSourcesList')
         visited = visited + ['RuleGroupSourceStatelessRuleMatchAttributesSourcesList']
         [
-          Stubs::RuleGroupSourceStatelessRuleMatchAttributesSources.default(visited)
+          RuleGroupSourceStatelessRuleMatchAttributesSources.default(visited)
         ]
       end
 
@@ -2687,7 +2687,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('RuleGroupSourceStatelessRuleMatchAttributesSourcePortsList')
         visited = visited + ['RuleGroupSourceStatelessRuleMatchAttributesSourcePortsList']
         [
-          Stubs::RuleGroupSourceStatelessRuleMatchAttributesSourcePorts.default(visited)
+          RuleGroupSourceStatelessRuleMatchAttributesSourcePorts.default(visited)
         ]
       end
 
@@ -2747,7 +2747,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('RuleGroupSourceStatelessRuleMatchAttributesDestinationsList')
         visited = visited + ['RuleGroupSourceStatelessRuleMatchAttributesDestinationsList']
         [
-          Stubs::RuleGroupSourceStatelessRuleMatchAttributesDestinations.default(visited)
+          RuleGroupSourceStatelessRuleMatchAttributesDestinations.default(visited)
         ]
       end
 
@@ -2785,7 +2785,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('RuleGroupSourceStatelessRuleMatchAttributesDestinationPortsList')
         visited = visited + ['RuleGroupSourceStatelessRuleMatchAttributesDestinationPortsList']
         [
-          Stubs::RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts.default(visited)
+          RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts.default(visited)
         ]
       end
 
@@ -2825,7 +2825,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('RuleGroupSourceCustomActionsList')
         visited = visited + ['RuleGroupSourceCustomActionsList']
         [
-          Stubs::RuleGroupSourceCustomActionsDetails.default(visited)
+          RuleGroupSourceCustomActionsDetails.default(visited)
         ]
       end
 
@@ -2845,7 +2845,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('RuleGroupSourceCustomActionsDetails')
         visited = visited + ['RuleGroupSourceCustomActionsDetails']
         {
-          action_definition: Stubs::StatelessCustomActionDefinition.default(visited),
+          action_definition: StatelessCustomActionDefinition.default(visited),
           action_name: 'action_name',
         }
       end
@@ -2865,7 +2865,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('StatelessCustomActionDefinition')
         visited = visited + ['StatelessCustomActionDefinition']
         {
-          publish_metric_action: Stubs::StatelessCustomPublishMetricAction.default(visited),
+          publish_metric_action: StatelessCustomPublishMetricAction.default(visited),
         }
       end
 
@@ -2883,7 +2883,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('StatelessCustomPublishMetricAction')
         visited = visited + ['StatelessCustomPublishMetricAction']
         {
-          dimensions: Stubs::StatelessCustomPublishMetricActionDimensionsList.default(visited),
+          dimensions: StatelessCustomPublishMetricActionDimensionsList.default(visited),
         }
       end
 
@@ -2901,7 +2901,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('StatelessCustomPublishMetricActionDimensionsList')
         visited = visited + ['StatelessCustomPublishMetricActionDimensionsList']
         [
-          Stubs::StatelessCustomPublishMetricActionDimension.default(visited)
+          StatelessCustomPublishMetricActionDimension.default(visited)
         ]
       end
 
@@ -2939,7 +2939,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('RuleGroupSourceStatefulRulesList')
         visited = visited + ['RuleGroupSourceStatefulRulesList']
         [
-          Stubs::RuleGroupSourceStatefulRulesDetails.default(visited)
+          RuleGroupSourceStatefulRulesDetails.default(visited)
         ]
       end
 
@@ -2960,8 +2960,8 @@ module AWS::SDK::SecurityHub
         visited = visited + ['RuleGroupSourceStatefulRulesDetails']
         {
           action: 'action',
-          header: Stubs::RuleGroupSourceStatefulRulesHeaderDetails.default(visited),
-          rule_options: Stubs::RuleGroupSourceStatefulRulesOptionsList.default(visited),
+          header: RuleGroupSourceStatefulRulesHeaderDetails.default(visited),
+          rule_options: RuleGroupSourceStatefulRulesOptionsList.default(visited),
         }
       end
 
@@ -2981,7 +2981,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('RuleGroupSourceStatefulRulesOptionsList')
         visited = visited + ['RuleGroupSourceStatefulRulesOptionsList']
         [
-          Stubs::RuleGroupSourceStatefulRulesOptionsDetails.default(visited)
+          RuleGroupSourceStatefulRulesOptionsDetails.default(visited)
         ]
       end
 
@@ -3002,7 +3002,7 @@ module AWS::SDK::SecurityHub
         visited = visited + ['RuleGroupSourceStatefulRulesOptionsDetails']
         {
           keyword: 'keyword',
-          settings: Stubs::RuleGroupSourceStatefulRulesRuleOptionsSettingsList.default(visited),
+          settings: RuleGroupSourceStatefulRulesRuleOptionsSettingsList.default(visited),
         }
       end
 
@@ -3070,8 +3070,8 @@ module AWS::SDK::SecurityHub
         visited = visited + ['RuleGroupSourceListDetails']
         {
           generated_rules_type: 'generated_rules_type',
-          target_types: Stubs::NonEmptyStringList.default(visited),
-          targets: Stubs::NonEmptyStringList.default(visited),
+          target_types: NonEmptyStringList.default(visited),
+          targets: NonEmptyStringList.default(visited),
         }
       end
 
@@ -3091,8 +3091,8 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('RuleGroupVariables')
         visited = visited + ['RuleGroupVariables']
         {
-          ip_sets: Stubs::RuleGroupVariablesIpSetsDetails.default(visited),
-          port_sets: Stubs::RuleGroupVariablesPortSetsDetails.default(visited),
+          ip_sets: RuleGroupVariablesIpSetsDetails.default(visited),
+          port_sets: RuleGroupVariablesPortSetsDetails.default(visited),
         }
       end
 
@@ -3111,7 +3111,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('RuleGroupVariablesPortSetsDetails')
         visited = visited + ['RuleGroupVariablesPortSetsDetails']
         {
-          definition: Stubs::NonEmptyStringList.default(visited),
+          definition: NonEmptyStringList.default(visited),
         }
       end
 
@@ -3129,7 +3129,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('RuleGroupVariablesIpSetsDetails')
         visited = visited + ['RuleGroupVariablesIpSetsDetails']
         {
-          definition: Stubs::NonEmptyStringList.default(visited),
+          definition: NonEmptyStringList.default(visited),
         }
       end
 
@@ -3155,7 +3155,7 @@ module AWS::SDK::SecurityHub
           firewall_policy_arn: 'firewall_policy_arn',
           firewall_policy_change_protection: false,
           subnet_change_protection: false,
-          subnet_mappings: Stubs::AwsNetworkFirewallFirewallSubnetMappingsList.default(visited),
+          subnet_mappings: AwsNetworkFirewallFirewallSubnetMappingsList.default(visited),
           vpc_id: 'vpc_id',
         }
       end
@@ -3183,7 +3183,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsNetworkFirewallFirewallSubnetMappingsList')
         visited = visited + ['AwsNetworkFirewallFirewallSubnetMappingsList']
         [
-          Stubs::AwsNetworkFirewallFirewallSubnetMappingsDetails.default(visited)
+          AwsNetworkFirewallFirewallSubnetMappingsDetails.default(visited)
         ]
       end
 
@@ -3221,7 +3221,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsNetworkFirewallFirewallPolicyDetails')
         visited = visited + ['AwsNetworkFirewallFirewallPolicyDetails']
         {
-          firewall_policy: Stubs::FirewallPolicyDetails.default(visited),
+          firewall_policy: FirewallPolicyDetails.default(visited),
           firewall_policy_arn: 'firewall_policy_arn',
           firewall_policy_id: 'firewall_policy_id',
           firewall_policy_name: 'firewall_policy_name',
@@ -3247,11 +3247,11 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('FirewallPolicyDetails')
         visited = visited + ['FirewallPolicyDetails']
         {
-          stateful_rule_group_references: Stubs::FirewallPolicyStatefulRuleGroupReferencesList.default(visited),
-          stateless_custom_actions: Stubs::FirewallPolicyStatelessCustomActionsList.default(visited),
-          stateless_default_actions: Stubs::NonEmptyStringList.default(visited),
-          stateless_fragment_default_actions: Stubs::NonEmptyStringList.default(visited),
-          stateless_rule_group_references: Stubs::FirewallPolicyStatelessRuleGroupReferencesList.default(visited),
+          stateful_rule_group_references: FirewallPolicyStatefulRuleGroupReferencesList.default(visited),
+          stateless_custom_actions: FirewallPolicyStatelessCustomActionsList.default(visited),
+          stateless_default_actions: NonEmptyStringList.default(visited),
+          stateless_fragment_default_actions: NonEmptyStringList.default(visited),
+          stateless_rule_group_references: FirewallPolicyStatelessRuleGroupReferencesList.default(visited),
         }
       end
 
@@ -3273,7 +3273,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('FirewallPolicyStatelessRuleGroupReferencesList')
         visited = visited + ['FirewallPolicyStatelessRuleGroupReferencesList']
         [
-          Stubs::FirewallPolicyStatelessRuleGroupReferencesDetails.default(visited)
+          FirewallPolicyStatelessRuleGroupReferencesDetails.default(visited)
         ]
       end
 
@@ -3313,7 +3313,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('FirewallPolicyStatelessCustomActionsList')
         visited = visited + ['FirewallPolicyStatelessCustomActionsList']
         [
-          Stubs::FirewallPolicyStatelessCustomActionsDetails.default(visited)
+          FirewallPolicyStatelessCustomActionsDetails.default(visited)
         ]
       end
 
@@ -3333,7 +3333,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('FirewallPolicyStatelessCustomActionsDetails')
         visited = visited + ['FirewallPolicyStatelessCustomActionsDetails']
         {
-          action_definition: Stubs::StatelessCustomActionDefinition.default(visited),
+          action_definition: StatelessCustomActionDefinition.default(visited),
           action_name: 'action_name',
         }
       end
@@ -3353,7 +3353,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('FirewallPolicyStatefulRuleGroupReferencesList')
         visited = visited + ['FirewallPolicyStatefulRuleGroupReferencesList']
         [
-          Stubs::FirewallPolicyStatefulRuleGroupReferencesDetails.default(visited)
+          FirewallPolicyStatefulRuleGroupReferencesDetails.default(visited)
         ]
       end
 
@@ -3396,10 +3396,10 @@ module AWS::SDK::SecurityHub
           cluster_status: 'cluster_status',
           endpoint: 'endpoint',
           name: 'name',
-          resources_vpc_config: Stubs::AwsEksClusterResourcesVpcConfigDetails.default(visited),
+          resources_vpc_config: AwsEksClusterResourcesVpcConfigDetails.default(visited),
           role_arn: 'role_arn',
           version: 'version',
-          logging: Stubs::AwsEksClusterLoggingDetails.default(visited),
+          logging: AwsEksClusterLoggingDetails.default(visited),
         }
       end
 
@@ -3425,7 +3425,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsEksClusterLoggingDetails')
         visited = visited + ['AwsEksClusterLoggingDetails']
         {
-          cluster_logging: Stubs::AwsEksClusterLoggingClusterLoggingList.default(visited),
+          cluster_logging: AwsEksClusterLoggingClusterLoggingList.default(visited),
         }
       end
 
@@ -3443,7 +3443,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsEksClusterLoggingClusterLoggingList')
         visited = visited + ['AwsEksClusterLoggingClusterLoggingList']
         [
-          Stubs::AwsEksClusterLoggingClusterLoggingDetails.default(visited)
+          AwsEksClusterLoggingClusterLoggingDetails.default(visited)
         ]
       end
 
@@ -3464,7 +3464,7 @@ module AWS::SDK::SecurityHub
         visited = visited + ['AwsEksClusterLoggingClusterLoggingDetails']
         {
           enabled: false,
-          types: Stubs::NonEmptyStringList.default(visited),
+          types: NonEmptyStringList.default(visited),
         }
       end
 
@@ -3483,8 +3483,8 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsEksClusterResourcesVpcConfigDetails')
         visited = visited + ['AwsEksClusterResourcesVpcConfigDetails']
         {
-          security_group_ids: Stubs::NonEmptyStringList.default(visited),
-          subnet_ids: Stubs::NonEmptyStringList.default(visited),
+          security_group_ids: NonEmptyStringList.default(visited),
+          subnet_ids: NonEmptyStringList.default(visited),
         }
       end
 
@@ -3504,9 +3504,9 @@ module AWS::SDK::SecurityHub
         visited = visited + ['AwsEcrRepositoryDetails']
         {
           arn: 'arn',
-          image_scanning_configuration: Stubs::AwsEcrRepositoryImageScanningConfigurationDetails.default(visited),
+          image_scanning_configuration: AwsEcrRepositoryImageScanningConfigurationDetails.default(visited),
           image_tag_mutability: 'image_tag_mutability',
-          lifecycle_policy: Stubs::AwsEcrRepositoryLifecyclePolicyDetails.default(visited),
+          lifecycle_policy: AwsEcrRepositoryLifecyclePolicyDetails.default(visited),
           repository_name: 'repository_name',
           repository_policy_text: 'repository_policy_text',
         }
@@ -3574,7 +3574,7 @@ module AWS::SDK::SecurityHub
           rate_key: 'rate_key',
           rate_limit: 1,
           rule_id: 'rule_id',
-          match_predicates: Stubs::AwsWafRegionalRateBasedRuleMatchPredicateList.default(visited),
+          match_predicates: AwsWafRegionalRateBasedRuleMatchPredicateList.default(visited),
         }
       end
 
@@ -3597,7 +3597,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsWafRegionalRateBasedRuleMatchPredicateList')
         visited = visited + ['AwsWafRegionalRateBasedRuleMatchPredicateList']
         [
-          Stubs::AwsWafRegionalRateBasedRuleMatchPredicate.default(visited)
+          AwsWafRegionalRateBasedRuleMatchPredicate.default(visited)
         ]
       end
 
@@ -3644,7 +3644,7 @@ module AWS::SDK::SecurityHub
           rate_key: 'rate_key',
           rate_limit: 1,
           rule_id: 'rule_id',
-          match_predicates: Stubs::AwsWafRateBasedRuleMatchPredicateList.default(visited),
+          match_predicates: AwsWafRateBasedRuleMatchPredicateList.default(visited),
         }
       end
 
@@ -3667,7 +3667,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsWafRateBasedRuleMatchPredicateList')
         visited = visited + ['AwsWafRateBasedRuleMatchPredicateList']
         [
-          Stubs::AwsWafRateBasedRuleMatchPredicate.default(visited)
+          AwsWafRateBasedRuleMatchPredicate.default(visited)
         ]
       end
 
@@ -3732,16 +3732,16 @@ module AWS::SDK::SecurityHub
         visited = visited + ['AwsEc2VpcEndpointServiceDetails']
         {
           acceptance_required: false,
-          availability_zones: Stubs::NonEmptyStringList.default(visited),
-          base_endpoint_dns_names: Stubs::NonEmptyStringList.default(visited),
+          availability_zones: NonEmptyStringList.default(visited),
+          base_endpoint_dns_names: NonEmptyStringList.default(visited),
           manages_vpc_endpoints: false,
-          gateway_load_balancer_arns: Stubs::NonEmptyStringList.default(visited),
-          network_load_balancer_arns: Stubs::NonEmptyStringList.default(visited),
+          gateway_load_balancer_arns: NonEmptyStringList.default(visited),
+          network_load_balancer_arns: NonEmptyStringList.default(visited),
           private_dns_name: 'private_dns_name',
           service_id: 'service_id',
           service_name: 'service_name',
           service_state: 'service_state',
-          service_type: Stubs::AwsEc2VpcEndpointServiceServiceTypeList.default(visited),
+          service_type: AwsEc2VpcEndpointServiceServiceTypeList.default(visited),
         }
       end
 
@@ -3769,7 +3769,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsEc2VpcEndpointServiceServiceTypeList')
         visited = visited + ['AwsEc2VpcEndpointServiceServiceTypeList']
         [
-          Stubs::AwsEc2VpcEndpointServiceServiceTypeDetails.default(visited)
+          AwsEc2VpcEndpointServiceServiceTypeDetails.default(visited)
         ]
       end
 
@@ -3813,14 +3813,14 @@ module AWS::SDK::SecurityHub
           id: 'id',
           domain_endpoint: 'domain_endpoint',
           engine_version: 'engine_version',
-          encryption_at_rest_options: Stubs::AwsOpenSearchServiceDomainEncryptionAtRestOptionsDetails.default(visited),
-          node_to_node_encryption_options: Stubs::AwsOpenSearchServiceDomainNodeToNodeEncryptionOptionsDetails.default(visited),
-          service_software_options: Stubs::AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.default(visited),
-          cluster_config: Stubs::AwsOpenSearchServiceDomainClusterConfigDetails.default(visited),
-          domain_endpoint_options: Stubs::AwsOpenSearchServiceDomainDomainEndpointOptionsDetails.default(visited),
-          vpc_options: Stubs::AwsOpenSearchServiceDomainVpcOptionsDetails.default(visited),
-          log_publishing_options: Stubs::AwsOpenSearchServiceDomainLogPublishingOptionsDetails.default(visited),
-          domain_endpoints: Stubs::FieldMap.default(visited),
+          encryption_at_rest_options: AwsOpenSearchServiceDomainEncryptionAtRestOptionsDetails.default(visited),
+          node_to_node_encryption_options: AwsOpenSearchServiceDomainNodeToNodeEncryptionOptionsDetails.default(visited),
+          service_software_options: AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.default(visited),
+          cluster_config: AwsOpenSearchServiceDomainClusterConfigDetails.default(visited),
+          domain_endpoint_options: AwsOpenSearchServiceDomainDomainEndpointOptionsDetails.default(visited),
+          vpc_options: AwsOpenSearchServiceDomainVpcOptionsDetails.default(visited),
+          log_publishing_options: AwsOpenSearchServiceDomainLogPublishingOptionsDetails.default(visited),
+          domain_endpoints: FieldMap.default(visited),
         }
       end
 
@@ -3851,9 +3851,9 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsOpenSearchServiceDomainLogPublishingOptionsDetails')
         visited = visited + ['AwsOpenSearchServiceDomainLogPublishingOptionsDetails']
         {
-          index_slow_logs: Stubs::AwsOpenSearchServiceDomainLogPublishingOption.default(visited),
-          search_slow_logs: Stubs::AwsOpenSearchServiceDomainLogPublishingOption.default(visited),
-          audit_logs: Stubs::AwsOpenSearchServiceDomainLogPublishingOption.default(visited),
+          index_slow_logs: AwsOpenSearchServiceDomainLogPublishingOption.default(visited),
+          search_slow_logs: AwsOpenSearchServiceDomainLogPublishingOption.default(visited),
+          audit_logs: AwsOpenSearchServiceDomainLogPublishingOption.default(visited),
         }
       end
 
@@ -3893,8 +3893,8 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsOpenSearchServiceDomainVpcOptionsDetails')
         visited = visited + ['AwsOpenSearchServiceDomainVpcOptionsDetails']
         {
-          security_group_ids: Stubs::NonEmptyStringList.default(visited),
-          subnet_ids: Stubs::NonEmptyStringList.default(visited),
+          security_group_ids: NonEmptyStringList.default(visited),
+          subnet_ids: NonEmptyStringList.default(visited),
         }
       end
 
@@ -3943,7 +3943,7 @@ module AWS::SDK::SecurityHub
           warm_enabled: false,
           warm_count: 1,
           dedicated_master_enabled: false,
-          zone_awareness_config: Stubs::AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails.default(visited),
+          zone_awareness_config: AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails.default(visited),
           dedicated_master_count: 1,
           instance_type: 'instance_type',
           warm_type: 'warm_type',
@@ -4067,7 +4067,7 @@ module AWS::SDK::SecurityHub
           repository_name: 'repository_name',
           architecture: 'architecture',
           image_digest: 'image_digest',
-          image_tags: Stubs::NonEmptyStringList.default(visited),
+          image_tags: NonEmptyStringList.default(visited),
           image_published_at: 'image_published_at',
         }
       end
@@ -4098,9 +4098,9 @@ module AWS::SDK::SecurityHub
           type: 'type',
           vpn_gateway_id: 'vpn_gateway_id',
           category: 'category',
-          vgw_telemetry: Stubs::AwsEc2VpnConnectionVgwTelemetryList.default(visited),
-          options: Stubs::AwsEc2VpnConnectionOptionsDetails.default(visited),
-          routes: Stubs::AwsEc2VpnConnectionRoutesList.default(visited),
+          vgw_telemetry: AwsEc2VpnConnectionVgwTelemetryList.default(visited),
+          options: AwsEc2VpnConnectionOptionsDetails.default(visited),
+          routes: AwsEc2VpnConnectionRoutesList.default(visited),
           transit_gateway_id: 'transit_gateway_id',
         }
       end
@@ -4129,7 +4129,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsEc2VpnConnectionRoutesList')
         visited = visited + ['AwsEc2VpnConnectionRoutesList']
         [
-          Stubs::AwsEc2VpnConnectionRoutesDetails.default(visited)
+          AwsEc2VpnConnectionRoutesDetails.default(visited)
         ]
       end
 
@@ -4170,7 +4170,7 @@ module AWS::SDK::SecurityHub
         visited = visited + ['AwsEc2VpnConnectionOptionsDetails']
         {
           static_routes_only: false,
-          tunnel_options: Stubs::AwsEc2VpnConnectionOptionsTunnelOptionsList.default(visited),
+          tunnel_options: AwsEc2VpnConnectionOptionsTunnelOptionsList.default(visited),
         }
       end
 
@@ -4189,7 +4189,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsEc2VpnConnectionOptionsTunnelOptionsList')
         visited = visited + ['AwsEc2VpnConnectionOptionsTunnelOptionsList']
         [
-          Stubs::AwsEc2VpnConnectionOptionsTunnelOptionsDetails.default(visited)
+          AwsEc2VpnConnectionOptionsTunnelOptionsDetails.default(visited)
         ]
       end
 
@@ -4210,15 +4210,15 @@ module AWS::SDK::SecurityHub
         visited = visited + ['AwsEc2VpnConnectionOptionsTunnelOptionsDetails']
         {
           dpd_timeout_seconds: 1,
-          ike_versions: Stubs::NonEmptyStringList.default(visited),
+          ike_versions: NonEmptyStringList.default(visited),
           outside_ip_address: 'outside_ip_address',
-          phase1_dh_group_numbers: Stubs::IntegerList.default(visited),
-          phase1_encryption_algorithms: Stubs::NonEmptyStringList.default(visited),
-          phase1_integrity_algorithms: Stubs::NonEmptyStringList.default(visited),
+          phase1_dh_group_numbers: IntegerList.default(visited),
+          phase1_encryption_algorithms: NonEmptyStringList.default(visited),
+          phase1_integrity_algorithms: NonEmptyStringList.default(visited),
           phase1_lifetime_seconds: 1,
-          phase2_dh_group_numbers: Stubs::IntegerList.default(visited),
-          phase2_encryption_algorithms: Stubs::NonEmptyStringList.default(visited),
-          phase2_integrity_algorithms: Stubs::NonEmptyStringList.default(visited),
+          phase2_dh_group_numbers: IntegerList.default(visited),
+          phase2_encryption_algorithms: NonEmptyStringList.default(visited),
+          phase2_integrity_algorithms: NonEmptyStringList.default(visited),
           phase2_lifetime_seconds: 1,
           pre_shared_key: 'pre_shared_key',
           rekey_fuzz_percentage: 1,
@@ -4277,7 +4277,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsEc2VpnConnectionVgwTelemetryList')
         visited = visited + ['AwsEc2VpnConnectionVgwTelemetryList']
         [
-          Stubs::AwsEc2VpnConnectionVgwTelemetryDetails.default(visited)
+          AwsEc2VpnConnectionVgwTelemetryDetails.default(visited)
         ]
       end
 
@@ -4326,24 +4326,24 @@ module AWS::SDK::SecurityHub
         visited = visited + ['AwsAutoScalingLaunchConfigurationDetails']
         {
           associate_public_ip_address: false,
-          block_device_mappings: Stubs::AwsAutoScalingLaunchConfigurationBlockDeviceMappingsList.default(visited),
+          block_device_mappings: AwsAutoScalingLaunchConfigurationBlockDeviceMappingsList.default(visited),
           classic_link_vpc_id: 'classic_link_vpc_id',
-          classic_link_vpc_security_groups: Stubs::NonEmptyStringList.default(visited),
+          classic_link_vpc_security_groups: NonEmptyStringList.default(visited),
           created_time: 'created_time',
           ebs_optimized: false,
           iam_instance_profile: 'iam_instance_profile',
           image_id: 'image_id',
-          instance_monitoring: Stubs::AwsAutoScalingLaunchConfigurationInstanceMonitoringDetails.default(visited),
+          instance_monitoring: AwsAutoScalingLaunchConfigurationInstanceMonitoringDetails.default(visited),
           instance_type: 'instance_type',
           kernel_id: 'kernel_id',
           key_name: 'key_name',
           launch_configuration_name: 'launch_configuration_name',
           placement_tenancy: 'placement_tenancy',
           ramdisk_id: 'ramdisk_id',
-          security_groups: Stubs::NonEmptyStringList.default(visited),
+          security_groups: NonEmptyStringList.default(visited),
           spot_price: 'spot_price',
           user_data: 'user_data',
-          metadata_options: Stubs::AwsAutoScalingLaunchConfigurationMetadataOptions.default(visited),
+          metadata_options: AwsAutoScalingLaunchConfigurationMetadataOptions.default(visited),
         }
       end
 
@@ -4419,7 +4419,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsAutoScalingLaunchConfigurationBlockDeviceMappingsList')
         visited = visited + ['AwsAutoScalingLaunchConfigurationBlockDeviceMappingsList']
         [
-          Stubs::AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails.default(visited)
+          AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails.default(visited)
         ]
       end
 
@@ -4440,7 +4440,7 @@ module AWS::SDK::SecurityHub
         visited = visited + ['AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails']
         {
           device_name: 'device_name',
-          ebs: Stubs::AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails.default(visited),
+          ebs: AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails.default(visited),
           no_device: false,
           virtual_name: 'virtual_name',
         }
@@ -4491,27 +4491,27 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsEcsServiceDetails')
         visited = visited + ['AwsEcsServiceDetails']
         {
-          capacity_provider_strategy: Stubs::AwsEcsServiceCapacityProviderStrategyList.default(visited),
+          capacity_provider_strategy: AwsEcsServiceCapacityProviderStrategyList.default(visited),
           cluster: 'cluster',
-          deployment_configuration: Stubs::AwsEcsServiceDeploymentConfigurationDetails.default(visited),
-          deployment_controller: Stubs::AwsEcsServiceDeploymentControllerDetails.default(visited),
+          deployment_configuration: AwsEcsServiceDeploymentConfigurationDetails.default(visited),
+          deployment_controller: AwsEcsServiceDeploymentControllerDetails.default(visited),
           desired_count: 1,
           enable_ecs_managed_tags: false,
           enable_execute_command: false,
           health_check_grace_period_seconds: 1,
           launch_type: 'launch_type',
-          load_balancers: Stubs::AwsEcsServiceLoadBalancersList.default(visited),
+          load_balancers: AwsEcsServiceLoadBalancersList.default(visited),
           name: 'name',
-          network_configuration: Stubs::AwsEcsServiceNetworkConfigurationDetails.default(visited),
-          placement_constraints: Stubs::AwsEcsServicePlacementConstraintsList.default(visited),
-          placement_strategies: Stubs::AwsEcsServicePlacementStrategiesList.default(visited),
+          network_configuration: AwsEcsServiceNetworkConfigurationDetails.default(visited),
+          placement_constraints: AwsEcsServicePlacementConstraintsList.default(visited),
+          placement_strategies: AwsEcsServicePlacementStrategiesList.default(visited),
           platform_version: 'platform_version',
           propagate_tags: 'propagate_tags',
           role: 'role',
           scheduling_strategy: 'scheduling_strategy',
           service_arn: 'service_arn',
           service_name: 'service_name',
-          service_registries: Stubs::AwsEcsServiceServiceRegistriesList.default(visited),
+          service_registries: AwsEcsServiceServiceRegistriesList.default(visited),
           task_definition: 'task_definition',
         }
       end
@@ -4551,7 +4551,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsEcsServiceServiceRegistriesList')
         visited = visited + ['AwsEcsServiceServiceRegistriesList']
         [
-          Stubs::AwsEcsServiceServiceRegistriesDetails.default(visited)
+          AwsEcsServiceServiceRegistriesDetails.default(visited)
         ]
       end
 
@@ -4595,7 +4595,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsEcsServicePlacementStrategiesList')
         visited = visited + ['AwsEcsServicePlacementStrategiesList']
         [
-          Stubs::AwsEcsServicePlacementStrategiesDetails.default(visited)
+          AwsEcsServicePlacementStrategiesDetails.default(visited)
         ]
       end
 
@@ -4635,7 +4635,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsEcsServicePlacementConstraintsList')
         visited = visited + ['AwsEcsServicePlacementConstraintsList']
         [
-          Stubs::AwsEcsServicePlacementConstraintsDetails.default(visited)
+          AwsEcsServicePlacementConstraintsDetails.default(visited)
         ]
       end
 
@@ -4675,7 +4675,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsEcsServiceNetworkConfigurationDetails')
         visited = visited + ['AwsEcsServiceNetworkConfigurationDetails']
         {
-          aws_vpc_configuration: Stubs::AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails.default(visited),
+          aws_vpc_configuration: AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails.default(visited),
         }
       end
 
@@ -4694,8 +4694,8 @@ module AWS::SDK::SecurityHub
         visited = visited + ['AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails']
         {
           assign_public_ip: 'assign_public_ip',
-          security_groups: Stubs::NonEmptyStringList.default(visited),
-          subnets: Stubs::NonEmptyStringList.default(visited),
+          security_groups: NonEmptyStringList.default(visited),
+          subnets: NonEmptyStringList.default(visited),
         }
       end
 
@@ -4715,7 +4715,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsEcsServiceLoadBalancersList')
         visited = visited + ['AwsEcsServiceLoadBalancersList']
         [
-          Stubs::AwsEcsServiceLoadBalancersDetails.default(visited)
+          AwsEcsServiceLoadBalancersDetails.default(visited)
         ]
       end
 
@@ -4777,7 +4777,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsEcsServiceDeploymentConfigurationDetails')
         visited = visited + ['AwsEcsServiceDeploymentConfigurationDetails']
         {
-          deployment_circuit_breaker: Stubs::AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetails.default(visited),
+          deployment_circuit_breaker: AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetails.default(visited),
           maximum_percent: 1,
           minimum_healthy_percent: 1,
         }
@@ -4819,7 +4819,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsEcsServiceCapacityProviderStrategyList')
         visited = visited + ['AwsEcsServiceCapacityProviderStrategyList']
         [
-          Stubs::AwsEcsServiceCapacityProviderStrategyDetails.default(visited)
+          AwsEcsServiceCapacityProviderStrategyDetails.default(visited)
         ]
       end
 
@@ -4864,10 +4864,10 @@ module AWS::SDK::SecurityHub
           cust_subscription_id: 'cust_subscription_id',
           customer_aws_id: 'customer_aws_id',
           enabled: false,
-          event_categories_list: Stubs::NonEmptyStringList.default(visited),
+          event_categories_list: NonEmptyStringList.default(visited),
           event_subscription_arn: 'event_subscription_arn',
           sns_topic_arn: 'sns_topic_arn',
-          source_ids_list: Stubs::NonEmptyStringList.default(visited),
+          source_ids_list: NonEmptyStringList.default(visited),
           source_type: 'source_type',
           status: 'status',
           subscription_creation_time: 'subscription_creation_time',
@@ -4921,20 +4921,20 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsEcsTaskDefinitionDetails')
         visited = visited + ['AwsEcsTaskDefinitionDetails']
         {
-          container_definitions: Stubs::AwsEcsTaskDefinitionContainerDefinitionsList.default(visited),
+          container_definitions: AwsEcsTaskDefinitionContainerDefinitionsList.default(visited),
           cpu: 'cpu',
           execution_role_arn: 'execution_role_arn',
           family: 'family',
-          inference_accelerators: Stubs::AwsEcsTaskDefinitionInferenceAcceleratorsList.default(visited),
+          inference_accelerators: AwsEcsTaskDefinitionInferenceAcceleratorsList.default(visited),
           ipc_mode: 'ipc_mode',
           memory: 'memory',
           network_mode: 'network_mode',
           pid_mode: 'pid_mode',
-          placement_constraints: Stubs::AwsEcsTaskDefinitionPlacementConstraintsList.default(visited),
-          proxy_configuration: Stubs::AwsEcsTaskDefinitionProxyConfigurationDetails.default(visited),
-          requires_compatibilities: Stubs::NonEmptyStringList.default(visited),
+          placement_constraints: AwsEcsTaskDefinitionPlacementConstraintsList.default(visited),
+          proxy_configuration: AwsEcsTaskDefinitionProxyConfigurationDetails.default(visited),
+          requires_compatibilities: NonEmptyStringList.default(visited),
           task_role_arn: 'task_role_arn',
-          volumes: Stubs::AwsEcsTaskDefinitionVolumesList.default(visited),
+          volumes: AwsEcsTaskDefinitionVolumesList.default(visited),
         }
       end
 
@@ -4965,7 +4965,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsEcsTaskDefinitionVolumesList')
         visited = visited + ['AwsEcsTaskDefinitionVolumesList']
         [
-          Stubs::AwsEcsTaskDefinitionVolumesDetails.default(visited)
+          AwsEcsTaskDefinitionVolumesDetails.default(visited)
         ]
       end
 
@@ -4985,9 +4985,9 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsEcsTaskDefinitionVolumesDetails')
         visited = visited + ['AwsEcsTaskDefinitionVolumesDetails']
         {
-          docker_volume_configuration: Stubs::AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails.default(visited),
-          efs_volume_configuration: Stubs::AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails.default(visited),
-          host: Stubs::AwsEcsTaskDefinitionVolumesHostDetails.default(visited),
+          docker_volume_configuration: AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails.default(visited),
+          efs_volume_configuration: AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails.default(visited),
+          host: AwsEcsTaskDefinitionVolumesHostDetails.default(visited),
           name: 'name',
         }
       end
@@ -5027,7 +5027,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails')
         visited = visited + ['AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails']
         {
-          authorization_config: Stubs::AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails.default(visited),
+          authorization_config: AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails.default(visited),
           filesystem_id: 'filesystem_id',
           root_directory: 'root_directory',
           transit_encryption: 'transit_encryption',
@@ -5075,8 +5075,8 @@ module AWS::SDK::SecurityHub
         {
           autoprovision: false,
           driver: 'driver',
-          driver_opts: Stubs::FieldMap.default(visited),
-          labels: Stubs::FieldMap.default(visited),
+          driver_opts: FieldMap.default(visited),
+          labels: FieldMap.default(visited),
           scope: 'scope',
         }
       end
@@ -5100,7 +5100,7 @@ module AWS::SDK::SecurityHub
         visited = visited + ['AwsEcsTaskDefinitionProxyConfigurationDetails']
         {
           container_name: 'container_name',
-          proxy_configuration_properties: Stubs::AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesList.default(visited),
+          proxy_configuration_properties: AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesList.default(visited),
           type: 'type',
         }
       end
@@ -5121,7 +5121,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesList')
         visited = visited + ['AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesList']
         [
-          Stubs::AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails.default(visited)
+          AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails.default(visited)
         ]
       end
 
@@ -5161,7 +5161,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsEcsTaskDefinitionPlacementConstraintsList')
         visited = visited + ['AwsEcsTaskDefinitionPlacementConstraintsList']
         [
-          Stubs::AwsEcsTaskDefinitionPlacementConstraintsDetails.default(visited)
+          AwsEcsTaskDefinitionPlacementConstraintsDetails.default(visited)
         ]
       end
 
@@ -5201,7 +5201,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsEcsTaskDefinitionInferenceAcceleratorsList')
         visited = visited + ['AwsEcsTaskDefinitionInferenceAcceleratorsList']
         [
-          Stubs::AwsEcsTaskDefinitionInferenceAcceleratorsDetails.default(visited)
+          AwsEcsTaskDefinitionInferenceAcceleratorsDetails.default(visited)
         ]
       end
 
@@ -5241,7 +5241,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsEcsTaskDefinitionContainerDefinitionsList')
         visited = visited + ['AwsEcsTaskDefinitionContainerDefinitionsList']
         [
-          Stubs::AwsEcsTaskDefinitionContainerDefinitionsDetails.default(visited)
+          AwsEcsTaskDefinitionContainerDefinitionsDetails.default(visited)
         ]
       end
 
@@ -5261,44 +5261,44 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsEcsTaskDefinitionContainerDefinitionsDetails')
         visited = visited + ['AwsEcsTaskDefinitionContainerDefinitionsDetails']
         {
-          command: Stubs::NonEmptyStringList.default(visited),
+          command: NonEmptyStringList.default(visited),
           cpu: 1,
-          depends_on: Stubs::AwsEcsTaskDefinitionContainerDefinitionsDependsOnList.default(visited),
+          depends_on: AwsEcsTaskDefinitionContainerDefinitionsDependsOnList.default(visited),
           disable_networking: false,
-          dns_search_domains: Stubs::NonEmptyStringList.default(visited),
-          dns_servers: Stubs::NonEmptyStringList.default(visited),
-          docker_labels: Stubs::FieldMap.default(visited),
-          docker_security_options: Stubs::NonEmptyStringList.default(visited),
-          entry_point: Stubs::NonEmptyStringList.default(visited),
-          environment: Stubs::AwsEcsTaskDefinitionContainerDefinitionsEnvironmentList.default(visited),
-          environment_files: Stubs::AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesList.default(visited),
+          dns_search_domains: NonEmptyStringList.default(visited),
+          dns_servers: NonEmptyStringList.default(visited),
+          docker_labels: FieldMap.default(visited),
+          docker_security_options: NonEmptyStringList.default(visited),
+          entry_point: NonEmptyStringList.default(visited),
+          environment: AwsEcsTaskDefinitionContainerDefinitionsEnvironmentList.default(visited),
+          environment_files: AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesList.default(visited),
           essential: false,
-          extra_hosts: Stubs::AwsEcsTaskDefinitionContainerDefinitionsExtraHostsList.default(visited),
-          firelens_configuration: Stubs::AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails.default(visited),
-          health_check: Stubs::AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails.default(visited),
+          extra_hosts: AwsEcsTaskDefinitionContainerDefinitionsExtraHostsList.default(visited),
+          firelens_configuration: AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails.default(visited),
+          health_check: AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails.default(visited),
           hostname: 'hostname',
           image: 'image',
           interactive: false,
-          links: Stubs::NonEmptyStringList.default(visited),
-          linux_parameters: Stubs::AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.default(visited),
-          log_configuration: Stubs::AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails.default(visited),
+          links: NonEmptyStringList.default(visited),
+          linux_parameters: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.default(visited),
+          log_configuration: AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails.default(visited),
           memory: 1,
           memory_reservation: 1,
-          mount_points: Stubs::AwsEcsTaskDefinitionContainerDefinitionsMountPointsList.default(visited),
+          mount_points: AwsEcsTaskDefinitionContainerDefinitionsMountPointsList.default(visited),
           name: 'name',
-          port_mappings: Stubs::AwsEcsTaskDefinitionContainerDefinitionsPortMappingsList.default(visited),
+          port_mappings: AwsEcsTaskDefinitionContainerDefinitionsPortMappingsList.default(visited),
           privileged: false,
           pseudo_terminal: false,
           readonly_root_filesystem: false,
-          repository_credentials: Stubs::AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails.default(visited),
-          resource_requirements: Stubs::AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsList.default(visited),
-          secrets: Stubs::AwsEcsTaskDefinitionContainerDefinitionsSecretsList.default(visited),
+          repository_credentials: AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails.default(visited),
+          resource_requirements: AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsList.default(visited),
+          secrets: AwsEcsTaskDefinitionContainerDefinitionsSecretsList.default(visited),
           start_timeout: 1,
           stop_timeout: 1,
-          system_controls: Stubs::AwsEcsTaskDefinitionContainerDefinitionsSystemControlsList.default(visited),
-          ulimits: Stubs::AwsEcsTaskDefinitionContainerDefinitionsUlimitsList.default(visited),
+          system_controls: AwsEcsTaskDefinitionContainerDefinitionsSystemControlsList.default(visited),
+          ulimits: AwsEcsTaskDefinitionContainerDefinitionsUlimitsList.default(visited),
           user: 'user',
-          volumes_from: Stubs::AwsEcsTaskDefinitionContainerDefinitionsVolumesFromList.default(visited),
+          volumes_from: AwsEcsTaskDefinitionContainerDefinitionsVolumesFromList.default(visited),
           working_directory: 'working_directory',
         }
       end
@@ -5355,7 +5355,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsEcsTaskDefinitionContainerDefinitionsVolumesFromList')
         visited = visited + ['AwsEcsTaskDefinitionContainerDefinitionsVolumesFromList']
         [
-          Stubs::AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails.default(visited)
+          AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails.default(visited)
         ]
       end
 
@@ -5395,7 +5395,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsEcsTaskDefinitionContainerDefinitionsUlimitsList')
         visited = visited + ['AwsEcsTaskDefinitionContainerDefinitionsUlimitsList']
         [
-          Stubs::AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails.default(visited)
+          AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails.default(visited)
         ]
       end
 
@@ -5437,7 +5437,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsEcsTaskDefinitionContainerDefinitionsSystemControlsList')
         visited = visited + ['AwsEcsTaskDefinitionContainerDefinitionsSystemControlsList']
         [
-          Stubs::AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetails.default(visited)
+          AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetails.default(visited)
         ]
       end
 
@@ -5477,7 +5477,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsEcsTaskDefinitionContainerDefinitionsSecretsList')
         visited = visited + ['AwsEcsTaskDefinitionContainerDefinitionsSecretsList']
         [
-          Stubs::AwsEcsTaskDefinitionContainerDefinitionsSecretsDetails.default(visited)
+          AwsEcsTaskDefinitionContainerDefinitionsSecretsDetails.default(visited)
         ]
       end
 
@@ -5517,7 +5517,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsList')
         visited = visited + ['AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsList']
         [
-          Stubs::AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails.default(visited)
+          AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails.default(visited)
         ]
       end
 
@@ -5575,7 +5575,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsEcsTaskDefinitionContainerDefinitionsPortMappingsList')
         visited = visited + ['AwsEcsTaskDefinitionContainerDefinitionsPortMappingsList']
         [
-          Stubs::AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails.default(visited)
+          AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails.default(visited)
         ]
       end
 
@@ -5617,7 +5617,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsEcsTaskDefinitionContainerDefinitionsMountPointsList')
         visited = visited + ['AwsEcsTaskDefinitionContainerDefinitionsMountPointsList']
         [
-          Stubs::AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails.default(visited)
+          AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails.default(visited)
         ]
       end
 
@@ -5660,8 +5660,8 @@ module AWS::SDK::SecurityHub
         visited = visited + ['AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails']
         {
           log_driver: 'log_driver',
-          options: Stubs::FieldMap.default(visited),
-          secret_options: Stubs::AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsList.default(visited),
+          options: FieldMap.default(visited),
+          secret_options: AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsList.default(visited),
         }
       end
 
@@ -5681,7 +5681,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsList')
         visited = visited + ['AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsList']
         [
-          Stubs::AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails.default(visited)
+          AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails.default(visited)
         ]
       end
 
@@ -5721,13 +5721,13 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails')
         visited = visited + ['AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails']
         {
-          capabilities: Stubs::AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails.default(visited),
-          devices: Stubs::AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesList.default(visited),
+          capabilities: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails.default(visited),
+          devices: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesList.default(visited),
           init_process_enabled: false,
           max_swap: 1,
           shared_memory_size: 1,
           swappiness: 1,
-          tmpfs: Stubs::AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsList.default(visited),
+          tmpfs: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsList.default(visited),
         }
       end
 
@@ -5751,7 +5751,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsList')
         visited = visited + ['AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsList']
         [
-          Stubs::AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails.default(visited)
+          AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails.default(visited)
         ]
       end
 
@@ -5772,7 +5772,7 @@ module AWS::SDK::SecurityHub
         visited = visited + ['AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails']
         {
           container_path: 'container_path',
-          mount_options: Stubs::NonEmptyStringList.default(visited),
+          mount_options: NonEmptyStringList.default(visited),
           size: 1,
         }
       end
@@ -5793,7 +5793,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesList')
         visited = visited + ['AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesList']
         [
-          Stubs::AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails.default(visited)
+          AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails.default(visited)
         ]
       end
 
@@ -5815,7 +5815,7 @@ module AWS::SDK::SecurityHub
         {
           container_path: 'container_path',
           host_path: 'host_path',
-          permissions: Stubs::NonEmptyStringList.default(visited),
+          permissions: NonEmptyStringList.default(visited),
         }
       end
 
@@ -5835,8 +5835,8 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails')
         visited = visited + ['AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails']
         {
-          add: Stubs::NonEmptyStringList.default(visited),
-          drop: Stubs::NonEmptyStringList.default(visited),
+          add: NonEmptyStringList.default(visited),
+          drop: NonEmptyStringList.default(visited),
         }
       end
 
@@ -5855,7 +5855,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails')
         visited = visited + ['AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails']
         {
-          command: Stubs::NonEmptyStringList.default(visited),
+          command: NonEmptyStringList.default(visited),
           interval: 1,
           retries: 1,
           start_period: 1,
@@ -5881,7 +5881,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails')
         visited = visited + ['AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails']
         {
-          options: Stubs::FieldMap.default(visited),
+          options: FieldMap.default(visited),
           type: 'type',
         }
       end
@@ -5901,7 +5901,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsEcsTaskDefinitionContainerDefinitionsExtraHostsList')
         visited = visited + ['AwsEcsTaskDefinitionContainerDefinitionsExtraHostsList']
         [
-          Stubs::AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails.default(visited)
+          AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails.default(visited)
         ]
       end
 
@@ -5941,7 +5941,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesList')
         visited = visited + ['AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesList']
         [
-          Stubs::AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails.default(visited)
+          AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails.default(visited)
         ]
       end
 
@@ -5981,7 +5981,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsEcsTaskDefinitionContainerDefinitionsEnvironmentList')
         visited = visited + ['AwsEcsTaskDefinitionContainerDefinitionsEnvironmentList']
         [
-          Stubs::AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetails.default(visited)
+          AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetails.default(visited)
         ]
       end
 
@@ -6021,7 +6021,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsEcsTaskDefinitionContainerDefinitionsDependsOnList')
         visited = visited + ['AwsEcsTaskDefinitionContainerDefinitionsDependsOnList']
         [
-          Stubs::AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails.default(visited)
+          AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails.default(visited)
         ]
       end
 
@@ -6061,10 +6061,10 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsEcsClusterDetails')
         visited = visited + ['AwsEcsClusterDetails']
         {
-          capacity_providers: Stubs::NonEmptyStringList.default(visited),
-          cluster_settings: Stubs::AwsEcsClusterClusterSettingsList.default(visited),
-          configuration: Stubs::AwsEcsClusterConfigurationDetails.default(visited),
-          default_capacity_provider_strategy: Stubs::AwsEcsClusterDefaultCapacityProviderStrategyList.default(visited),
+          capacity_providers: NonEmptyStringList.default(visited),
+          cluster_settings: AwsEcsClusterClusterSettingsList.default(visited),
+          configuration: AwsEcsClusterConfigurationDetails.default(visited),
+          default_capacity_provider_strategy: AwsEcsClusterDefaultCapacityProviderStrategyList.default(visited),
         }
       end
 
@@ -6085,7 +6085,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsEcsClusterDefaultCapacityProviderStrategyList')
         visited = visited + ['AwsEcsClusterDefaultCapacityProviderStrategyList']
         [
-          Stubs::AwsEcsClusterDefaultCapacityProviderStrategyDetails.default(visited)
+          AwsEcsClusterDefaultCapacityProviderStrategyDetails.default(visited)
         ]
       end
 
@@ -6127,7 +6127,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsEcsClusterConfigurationDetails')
         visited = visited + ['AwsEcsClusterConfigurationDetails']
         {
-          execute_command_configuration: Stubs::AwsEcsClusterConfigurationExecuteCommandConfigurationDetails.default(visited),
+          execute_command_configuration: AwsEcsClusterConfigurationExecuteCommandConfigurationDetails.default(visited),
         }
       end
 
@@ -6146,7 +6146,7 @@ module AWS::SDK::SecurityHub
         visited = visited + ['AwsEcsClusterConfigurationExecuteCommandConfigurationDetails']
         {
           kms_key_id: 'kms_key_id',
-          log_configuration: Stubs::AwsEcsClusterConfigurationExecuteCommandConfigurationLogConfigurationDetails.default(visited),
+          log_configuration: AwsEcsClusterConfigurationExecuteCommandConfigurationLogConfigurationDetails.default(visited),
           logging: 'logging',
         }
       end
@@ -6193,7 +6193,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsEcsClusterClusterSettingsList')
         visited = visited + ['AwsEcsClusterClusterSettingsList']
         [
-          Stubs::AwsEcsClusterClusterSettingsDetails.default(visited)
+          AwsEcsClusterClusterSettingsDetails.default(visited)
         ]
       end
 
@@ -6234,13 +6234,13 @@ module AWS::SDK::SecurityHub
         visited = visited + ['AwsRdsDbClusterDetails']
         {
           allocated_storage: 1,
-          availability_zones: Stubs::StringList.default(visited),
+          availability_zones: StringList.default(visited),
           backup_retention_period: 1,
           database_name: 'database_name',
           status: 'status',
           endpoint: 'endpoint',
           reader_endpoint: 'reader_endpoint',
-          custom_endpoints: Stubs::StringList.default(visited),
+          custom_endpoints: StringList.default(visited),
           multi_az: false,
           engine: 'engine',
           engine_version: 'engine_version',
@@ -6248,27 +6248,27 @@ module AWS::SDK::SecurityHub
           master_username: 'master_username',
           preferred_backup_window: 'preferred_backup_window',
           preferred_maintenance_window: 'preferred_maintenance_window',
-          read_replica_identifiers: Stubs::StringList.default(visited),
-          vpc_security_groups: Stubs::AwsRdsDbInstanceVpcSecurityGroups.default(visited),
+          read_replica_identifiers: StringList.default(visited),
+          vpc_security_groups: AwsRdsDbInstanceVpcSecurityGroups.default(visited),
           hosted_zone_id: 'hosted_zone_id',
           storage_encrypted: false,
           kms_key_id: 'kms_key_id',
           db_cluster_resource_id: 'db_cluster_resource_id',
-          associated_roles: Stubs::AwsRdsDbClusterAssociatedRoles.default(visited),
+          associated_roles: AwsRdsDbClusterAssociatedRoles.default(visited),
           cluster_create_time: 'cluster_create_time',
-          enabled_cloud_watch_logs_exports: Stubs::StringList.default(visited),
+          enabled_cloud_watch_logs_exports: StringList.default(visited),
           engine_mode: 'engine_mode',
           deletion_protection: false,
           http_endpoint_enabled: false,
           activity_stream_status: 'activity_stream_status',
           copy_tags_to_snapshot: false,
           cross_account_clone: false,
-          domain_memberships: Stubs::AwsRdsDbDomainMemberships.default(visited),
+          domain_memberships: AwsRdsDbDomainMemberships.default(visited),
           db_cluster_parameter_group: 'db_cluster_parameter_group',
           db_subnet_group: 'db_subnet_group',
-          db_cluster_option_group_memberships: Stubs::AwsRdsDbClusterOptionGroupMemberships.default(visited),
+          db_cluster_option_group_memberships: AwsRdsDbClusterOptionGroupMemberships.default(visited),
           db_cluster_identifier: 'db_cluster_identifier',
-          db_cluster_members: Stubs::AwsRdsDbClusterMembers.default(visited),
+          db_cluster_members: AwsRdsDbClusterMembers.default(visited),
           iam_database_authentication_enabled: false,
         }
       end
@@ -6323,7 +6323,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsRdsDbClusterMembers')
         visited = visited + ['AwsRdsDbClusterMembers']
         [
-          Stubs::AwsRdsDbClusterMember.default(visited)
+          AwsRdsDbClusterMember.default(visited)
         ]
       end
 
@@ -6367,7 +6367,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsRdsDbClusterOptionGroupMemberships')
         visited = visited + ['AwsRdsDbClusterOptionGroupMemberships']
         [
-          Stubs::AwsRdsDbClusterOptionGroupMembership.default(visited)
+          AwsRdsDbClusterOptionGroupMembership.default(visited)
         ]
       end
 
@@ -6407,7 +6407,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsRdsDbDomainMemberships')
         visited = visited + ['AwsRdsDbDomainMemberships']
         [
-          Stubs::AwsRdsDbDomainMembership.default(visited)
+          AwsRdsDbDomainMembership.default(visited)
         ]
       end
 
@@ -6451,7 +6451,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsRdsDbClusterAssociatedRoles')
         visited = visited + ['AwsRdsDbClusterAssociatedRoles']
         [
-          Stubs::AwsRdsDbClusterAssociatedRole.default(visited)
+          AwsRdsDbClusterAssociatedRole.default(visited)
         ]
       end
 
@@ -6491,7 +6491,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsRdsDbInstanceVpcSecurityGroups')
         visited = visited + ['AwsRdsDbInstanceVpcSecurityGroups']
         [
-          Stubs::AwsRdsDbInstanceVpcSecurityGroup.default(visited)
+          AwsRdsDbInstanceVpcSecurityGroup.default(visited)
         ]
       end
 
@@ -6531,7 +6531,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsRdsDbClusterSnapshotDetails')
         visited = visited + ['AwsRdsDbClusterSnapshotDetails']
         {
-          availability_zones: Stubs::StringList.default(visited),
+          availability_zones: StringList.default(visited),
           snapshot_create_time: 'snapshot_create_time',
           engine: 'engine',
           allocated_storage: 1,
@@ -6608,7 +6608,7 @@ module AWS::SDK::SecurityHub
           kms_key_id: 'kms_key_id',
           timezone: 'timezone',
           iam_database_authentication_enabled: false,
-          processor_features: Stubs::AwsRdsDbProcessorFeatures.default(visited),
+          processor_features: AwsRdsDbProcessorFeatures.default(visited),
           dbi_resource_id: 'dbi_resource_id',
         }
       end
@@ -6653,7 +6653,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsRdsDbProcessorFeatures')
         visited = visited + ['AwsRdsDbProcessorFeatures']
         [
-          Stubs::AwsRdsDbProcessorFeature.default(visited)
+          AwsRdsDbProcessorFeature.default(visited)
         ]
       end
 
@@ -6695,7 +6695,7 @@ module AWS::SDK::SecurityHub
         {
           name: 'name',
           default_action: 'default_action',
-          rules: Stubs::AwsWafWebAclRuleList.default(visited),
+          rules: AwsWafWebAclRuleList.default(visited),
           web_acl_id: 'web_acl_id',
         }
       end
@@ -6717,7 +6717,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsWafWebAclRuleList')
         visited = visited + ['AwsWafWebAclRuleList']
         [
-          Stubs::AwsWafWebAclRule.default(visited)
+          AwsWafWebAclRule.default(visited)
         ]
       end
 
@@ -6737,9 +6737,9 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsWafWebAclRule')
         visited = visited + ['AwsWafWebAclRule']
         {
-          action: Stubs::WafAction.default(visited),
-          excluded_rules: Stubs::WafExcludedRuleList.default(visited),
-          override_action: Stubs::WafOverrideAction.default(visited),
+          action: WafAction.default(visited),
+          excluded_rules: WafExcludedRuleList.default(visited),
+          override_action: WafOverrideAction.default(visited),
           priority: 1,
           rule_id: 'rule_id',
           type: 'type',
@@ -6783,7 +6783,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('WafExcludedRuleList')
         visited = visited + ['WafExcludedRuleList']
         [
-          Stubs::WafExcludedRule.default(visited)
+          WafExcludedRule.default(visited)
         ]
       end
 
@@ -6864,7 +6864,7 @@ module AWS::SDK::SecurityHub
         visited = visited + ['AwsSnsTopicDetails']
         {
           kms_master_key_id: 'kms_master_key_id',
-          subscription: Stubs::AwsSnsTopicSubscriptionList.default(visited),
+          subscription: AwsSnsTopicSubscriptionList.default(visited),
           topic_name: 'topic_name',
           owner: 'owner',
         }
@@ -6887,7 +6887,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsSnsTopicSubscriptionList')
         visited = visited + ['AwsSnsTopicSubscriptionList']
         [
-          Stubs::AwsSnsTopicSubscription.default(visited)
+          AwsSnsTopicSubscription.default(visited)
         ]
       end
 
@@ -6927,7 +6927,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsRdsDbInstanceDetails')
         visited = visited + ['AwsRdsDbInstanceDetails']
         {
-          associated_roles: Stubs::AwsRdsDbInstanceAssociatedRoles.default(visited),
+          associated_roles: AwsRdsDbInstanceAssociatedRoles.default(visited),
           ca_certificate_identifier: 'ca_certificate_identifier',
           db_cluster_identifier: 'db_cluster_identifier',
           db_instance_identifier: 'db_instance_identifier',
@@ -6936,7 +6936,7 @@ module AWS::SDK::SecurityHub
           dbi_resource_id: 'dbi_resource_id',
           db_name: 'db_name',
           deletion_protection: false,
-          endpoint: Stubs::AwsRdsDbInstanceEndpoint.default(visited),
+          endpoint: AwsRdsDbInstanceEndpoint.default(visited),
           engine: 'engine',
           engine_version: 'engine_version',
           iam_database_authentication_enabled: false,
@@ -6945,7 +6945,7 @@ module AWS::SDK::SecurityHub
           publicly_accessible: false,
           storage_encrypted: false,
           tde_credential_arn: 'tde_credential_arn',
-          vpc_security_groups: Stubs::AwsRdsDbInstanceVpcSecurityGroups.default(visited),
+          vpc_security_groups: AwsRdsDbInstanceVpcSecurityGroups.default(visited),
           multi_az: false,
           enhanced_monitoring_resource_arn: 'enhanced_monitoring_resource_arn',
           db_instance_status: 'db_instance_status',
@@ -6953,25 +6953,25 @@ module AWS::SDK::SecurityHub
           allocated_storage: 1,
           preferred_backup_window: 'preferred_backup_window',
           backup_retention_period: 1,
-          db_security_groups: Stubs::StringList.default(visited),
-          db_parameter_groups: Stubs::AwsRdsDbParameterGroups.default(visited),
+          db_security_groups: StringList.default(visited),
+          db_parameter_groups: AwsRdsDbParameterGroups.default(visited),
           availability_zone: 'availability_zone',
-          db_subnet_group: Stubs::AwsRdsDbSubnetGroup.default(visited),
+          db_subnet_group: AwsRdsDbSubnetGroup.default(visited),
           preferred_maintenance_window: 'preferred_maintenance_window',
-          pending_modified_values: Stubs::AwsRdsDbPendingModifiedValues.default(visited),
+          pending_modified_values: AwsRdsDbPendingModifiedValues.default(visited),
           latest_restorable_time: 'latest_restorable_time',
           auto_minor_version_upgrade: false,
           read_replica_source_db_instance_identifier: 'read_replica_source_db_instance_identifier',
-          read_replica_db_instance_identifiers: Stubs::StringList.default(visited),
-          read_replica_db_cluster_identifiers: Stubs::StringList.default(visited),
+          read_replica_db_instance_identifiers: StringList.default(visited),
+          read_replica_db_cluster_identifiers: StringList.default(visited),
           license_model: 'license_model',
           iops: 1,
-          option_group_memberships: Stubs::AwsRdsDbOptionGroupMemberships.default(visited),
+          option_group_memberships: AwsRdsDbOptionGroupMemberships.default(visited),
           character_set_name: 'character_set_name',
           secondary_availability_zone: 'secondary_availability_zone',
-          status_infos: Stubs::AwsRdsDbStatusInfos.default(visited),
+          status_infos: AwsRdsDbStatusInfos.default(visited),
           storage_type: 'storage_type',
-          domain_memberships: Stubs::AwsRdsDbDomainMemberships.default(visited),
+          domain_memberships: AwsRdsDbDomainMemberships.default(visited),
           copy_tags_to_snapshot: false,
           monitoring_interval: 1,
           monitoring_role_arn: 'monitoring_role_arn',
@@ -6980,9 +6980,9 @@ module AWS::SDK::SecurityHub
           performance_insights_enabled: false,
           performance_insights_kms_key_id: 'performance_insights_kms_key_id',
           performance_insights_retention_period: 1,
-          enabled_cloud_watch_logs_exports: Stubs::StringList.default(visited),
-          processor_features: Stubs::AwsRdsDbProcessorFeatures.default(visited),
-          listener_endpoint: Stubs::AwsRdsDbInstanceEndpoint.default(visited),
+          enabled_cloud_watch_logs_exports: StringList.default(visited),
+          processor_features: AwsRdsDbProcessorFeatures.default(visited),
+          listener_endpoint: AwsRdsDbInstanceEndpoint.default(visited),
           max_allocated_storage: 1,
         }
       end
@@ -7079,7 +7079,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsRdsDbStatusInfos')
         visited = visited + ['AwsRdsDbStatusInfos']
         [
-          Stubs::AwsRdsDbStatusInfo.default(visited)
+          AwsRdsDbStatusInfo.default(visited)
         ]
       end
 
@@ -7123,7 +7123,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsRdsDbOptionGroupMemberships')
         visited = visited + ['AwsRdsDbOptionGroupMemberships']
         [
-          Stubs::AwsRdsDbOptionGroupMembership.default(visited)
+          AwsRdsDbOptionGroupMembership.default(visited)
         ]
       end
 
@@ -7176,8 +7176,8 @@ module AWS::SDK::SecurityHub
           storage_type: 'storage_type',
           ca_certificate_identifier: 'ca_certificate_identifier',
           db_subnet_group_name: 'db_subnet_group_name',
-          pending_cloud_watch_logs_exports: Stubs::AwsRdsPendingCloudWatchLogsExports.default(visited),
-          processor_features: Stubs::AwsRdsDbProcessorFeatures.default(visited),
+          pending_cloud_watch_logs_exports: AwsRdsPendingCloudWatchLogsExports.default(visited),
+          processor_features: AwsRdsDbProcessorFeatures.default(visited),
         }
       end
 
@@ -7209,8 +7209,8 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsRdsPendingCloudWatchLogsExports')
         visited = visited + ['AwsRdsPendingCloudWatchLogsExports']
         {
-          log_types_to_enable: Stubs::StringList.default(visited),
-          log_types_to_disable: Stubs::StringList.default(visited),
+          log_types_to_enable: StringList.default(visited),
+          log_types_to_disable: StringList.default(visited),
         }
       end
 
@@ -7233,7 +7233,7 @@ module AWS::SDK::SecurityHub
           db_subnet_group_description: 'db_subnet_group_description',
           vpc_id: 'vpc_id',
           subnet_group_status: 'subnet_group_status',
-          subnets: Stubs::AwsRdsDbSubnetGroupSubnets.default(visited),
+          subnets: AwsRdsDbSubnetGroupSubnets.default(visited),
           db_subnet_group_arn: 'db_subnet_group_arn',
         }
       end
@@ -7257,7 +7257,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsRdsDbSubnetGroupSubnets')
         visited = visited + ['AwsRdsDbSubnetGroupSubnets']
         [
-          Stubs::AwsRdsDbSubnetGroupSubnet.default(visited)
+          AwsRdsDbSubnetGroupSubnet.default(visited)
         ]
       end
 
@@ -7278,7 +7278,7 @@ module AWS::SDK::SecurityHub
         visited = visited + ['AwsRdsDbSubnetGroupSubnet']
         {
           subnet_identifier: 'subnet_identifier',
-          subnet_availability_zone: Stubs::AwsRdsDbSubnetGroupSubnetAvailabilityZone.default(visited),
+          subnet_availability_zone: AwsRdsDbSubnetGroupSubnetAvailabilityZone.default(visited),
           subnet_status: 'subnet_status',
         }
       end
@@ -7317,7 +7317,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsRdsDbParameterGroups')
         visited = visited + ['AwsRdsDbParameterGroups']
         [
-          Stubs::AwsRdsDbParameterGroup.default(visited)
+          AwsRdsDbParameterGroup.default(visited)
         ]
       end
 
@@ -7357,7 +7357,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsRdsDbInstanceAssociatedRoles')
         visited = visited + ['AwsRdsDbInstanceAssociatedRoles']
         [
-          Stubs::AwsRdsDbInstanceAssociatedRole.default(visited)
+          AwsRdsDbInstanceAssociatedRole.default(visited)
         ]
       end
 
@@ -7400,7 +7400,7 @@ module AWS::SDK::SecurityHub
         visited = visited + ['AwsLambdaLayerVersionDetails']
         {
           version: 1,
-          compatible_runtimes: Stubs::NonEmptyStringList.default(visited),
+          compatible_runtimes: NonEmptyStringList.default(visited),
           created_date: 'created_date',
         }
       end
@@ -7421,23 +7421,23 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsLambdaFunctionDetails')
         visited = visited + ['AwsLambdaFunctionDetails']
         {
-          code: Stubs::AwsLambdaFunctionCode.default(visited),
+          code: AwsLambdaFunctionCode.default(visited),
           code_sha256: 'code_sha256',
-          dead_letter_config: Stubs::AwsLambdaFunctionDeadLetterConfig.default(visited),
-          environment: Stubs::AwsLambdaFunctionEnvironment.default(visited),
+          dead_letter_config: AwsLambdaFunctionDeadLetterConfig.default(visited),
+          environment: AwsLambdaFunctionEnvironment.default(visited),
           function_name: 'function_name',
           handler: 'handler',
           kms_key_arn: 'kms_key_arn',
           last_modified: 'last_modified',
-          layers: Stubs::AwsLambdaFunctionLayerList.default(visited),
+          layers: AwsLambdaFunctionLayerList.default(visited),
           master_arn: 'master_arn',
           memory_size: 1,
           revision_id: 'revision_id',
           role: 'role',
           runtime: 'runtime',
           timeout: 1,
-          tracing_config: Stubs::AwsLambdaFunctionTracingConfig.default(visited),
-          vpc_config: Stubs::AwsLambdaFunctionVpcConfig.default(visited),
+          tracing_config: AwsLambdaFunctionTracingConfig.default(visited),
+          vpc_config: AwsLambdaFunctionVpcConfig.default(visited),
           version: 'version',
         }
       end
@@ -7473,8 +7473,8 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsLambdaFunctionVpcConfig')
         visited = visited + ['AwsLambdaFunctionVpcConfig']
         {
-          security_group_ids: Stubs::NonEmptyStringList.default(visited),
-          subnet_ids: Stubs::NonEmptyStringList.default(visited),
+          security_group_ids: NonEmptyStringList.default(visited),
+          subnet_ids: NonEmptyStringList.default(visited),
           vpc_id: 'vpc_id',
         }
       end
@@ -7513,7 +7513,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsLambdaFunctionLayerList')
         visited = visited + ['AwsLambdaFunctionLayerList']
         [
-          Stubs::AwsLambdaFunctionLayer.default(visited)
+          AwsLambdaFunctionLayer.default(visited)
         ]
       end
 
@@ -7553,8 +7553,8 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsLambdaFunctionEnvironment')
         visited = visited + ['AwsLambdaFunctionEnvironment']
         {
-          variables: Stubs::FieldMap.default(visited),
-          error: Stubs::AwsLambdaFunctionEnvironmentError.default(visited),
+          variables: FieldMap.default(visited),
+          error: AwsLambdaFunctionEnvironmentError.default(visited),
         }
       end
 
@@ -7668,13 +7668,13 @@ module AWS::SDK::SecurityHub
         visited = visited + ['AwsIamRoleDetails']
         {
           assume_role_policy_document: 'assume_role_policy_document',
-          attached_managed_policies: Stubs::AwsIamAttachedManagedPolicyList.default(visited),
+          attached_managed_policies: AwsIamAttachedManagedPolicyList.default(visited),
           create_date: 'create_date',
-          instance_profile_list: Stubs::AwsIamInstanceProfileList.default(visited),
-          permissions_boundary: Stubs::AwsIamPermissionsBoundary.default(visited),
+          instance_profile_list: AwsIamInstanceProfileList.default(visited),
+          permissions_boundary: AwsIamPermissionsBoundary.default(visited),
           role_id: 'role_id',
           role_name: 'role_name',
-          role_policy_list: Stubs::AwsIamRolePolicyList.default(visited),
+          role_policy_list: AwsIamRolePolicyList.default(visited),
           max_session_duration: 1,
           path: 'path',
         }
@@ -7703,7 +7703,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsIamRolePolicyList')
         visited = visited + ['AwsIamRolePolicyList']
         [
-          Stubs::AwsIamRolePolicy.default(visited)
+          AwsIamRolePolicy.default(visited)
         ]
       end
 
@@ -7761,7 +7761,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsIamInstanceProfileList')
         visited = visited + ['AwsIamInstanceProfileList']
         [
-          Stubs::AwsIamInstanceProfile.default(visited)
+          AwsIamInstanceProfile.default(visited)
         ]
       end
 
@@ -7786,7 +7786,7 @@ module AWS::SDK::SecurityHub
           instance_profile_id: 'instance_profile_id',
           instance_profile_name: 'instance_profile_name',
           path: 'path',
-          roles: Stubs::AwsIamInstanceProfileRoles.default(visited),
+          roles: AwsIamInstanceProfileRoles.default(visited),
         }
       end
 
@@ -7809,7 +7809,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsIamInstanceProfileRoles')
         visited = visited + ['AwsIamInstanceProfileRoles']
         [
-          Stubs::AwsIamInstanceProfileRole.default(visited)
+          AwsIamInstanceProfileRole.default(visited)
         ]
       end
 
@@ -7857,7 +7857,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsIamAttachedManagedPolicyList')
         visited = visited + ['AwsIamAttachedManagedPolicyList']
         [
-          Stubs::AwsIamAttachedManagedPolicy.default(visited)
+          AwsIamAttachedManagedPolicy.default(visited)
         ]
       end
 
@@ -7897,11 +7897,11 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsIamGroupDetails')
         visited = visited + ['AwsIamGroupDetails']
         {
-          attached_managed_policies: Stubs::AwsIamAttachedManagedPolicyList.default(visited),
+          attached_managed_policies: AwsIamAttachedManagedPolicyList.default(visited),
           create_date: 'create_date',
           group_id: 'group_id',
           group_name: 'group_name',
-          group_policy_list: Stubs::AwsIamGroupPolicyList.default(visited),
+          group_policy_list: AwsIamGroupPolicyList.default(visited),
           path: 'path',
         }
       end
@@ -7925,7 +7925,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsIamGroupPolicyList')
         visited = visited + ['AwsIamGroupPolicyList']
         [
-          Stubs::AwsIamGroupPolicy.default(visited)
+          AwsIamGroupPolicy.default(visited)
         ]
       end
 
@@ -7963,22 +7963,22 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsElbLoadBalancerDetails')
         visited = visited + ['AwsElbLoadBalancerDetails']
         {
-          availability_zones: Stubs::StringList.default(visited),
-          backend_server_descriptions: Stubs::AwsElbLoadBalancerBackendServerDescriptions.default(visited),
+          availability_zones: StringList.default(visited),
+          backend_server_descriptions: AwsElbLoadBalancerBackendServerDescriptions.default(visited),
           canonical_hosted_zone_name: 'canonical_hosted_zone_name',
           canonical_hosted_zone_name_id: 'canonical_hosted_zone_name_id',
           created_time: 'created_time',
           dns_name: 'dns_name',
-          health_check: Stubs::AwsElbLoadBalancerHealthCheck.default(visited),
-          instances: Stubs::AwsElbLoadBalancerInstances.default(visited),
-          listener_descriptions: Stubs::AwsElbLoadBalancerListenerDescriptions.default(visited),
-          load_balancer_attributes: Stubs::AwsElbLoadBalancerAttributes.default(visited),
+          health_check: AwsElbLoadBalancerHealthCheck.default(visited),
+          instances: AwsElbLoadBalancerInstances.default(visited),
+          listener_descriptions: AwsElbLoadBalancerListenerDescriptions.default(visited),
+          load_balancer_attributes: AwsElbLoadBalancerAttributes.default(visited),
           load_balancer_name: 'load_balancer_name',
-          policies: Stubs::AwsElbLoadBalancerPolicies.default(visited),
+          policies: AwsElbLoadBalancerPolicies.default(visited),
           scheme: 'scheme',
-          security_groups: Stubs::StringList.default(visited),
-          source_security_group: Stubs::AwsElbLoadBalancerSourceSecurityGroup.default(visited),
-          subnets: Stubs::StringList.default(visited),
+          security_groups: StringList.default(visited),
+          source_security_group: AwsElbLoadBalancerSourceSecurityGroup.default(visited),
+          subnets: StringList.default(visited),
           vpc_id: 'vpc_id',
         }
       end
@@ -8033,9 +8033,9 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsElbLoadBalancerPolicies')
         visited = visited + ['AwsElbLoadBalancerPolicies']
         {
-          app_cookie_stickiness_policies: Stubs::AwsElbAppCookieStickinessPolicies.default(visited),
-          lb_cookie_stickiness_policies: Stubs::AwsElbLbCookieStickinessPolicies.default(visited),
-          other_policies: Stubs::StringList.default(visited),
+          app_cookie_stickiness_policies: AwsElbAppCookieStickinessPolicies.default(visited),
+          lb_cookie_stickiness_policies: AwsElbLbCookieStickinessPolicies.default(visited),
+          other_policies: StringList.default(visited),
         }
       end
 
@@ -8055,7 +8055,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsElbLbCookieStickinessPolicies')
         visited = visited + ['AwsElbLbCookieStickinessPolicies']
         [
-          Stubs::AwsElbLbCookieStickinessPolicy.default(visited)
+          AwsElbLbCookieStickinessPolicy.default(visited)
         ]
       end
 
@@ -8095,7 +8095,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsElbAppCookieStickinessPolicies')
         visited = visited + ['AwsElbAppCookieStickinessPolicies']
         [
-          Stubs::AwsElbAppCookieStickinessPolicy.default(visited)
+          AwsElbAppCookieStickinessPolicy.default(visited)
         ]
       end
 
@@ -8135,11 +8135,11 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsElbLoadBalancerAttributes')
         visited = visited + ['AwsElbLoadBalancerAttributes']
         {
-          access_log: Stubs::AwsElbLoadBalancerAccessLog.default(visited),
-          connection_draining: Stubs::AwsElbLoadBalancerConnectionDraining.default(visited),
-          connection_settings: Stubs::AwsElbLoadBalancerConnectionSettings.default(visited),
-          cross_zone_load_balancing: Stubs::AwsElbLoadBalancerCrossZoneLoadBalancing.default(visited),
-          additional_attributes: Stubs::AwsElbLoadBalancerAdditionalAttributeList.default(visited),
+          access_log: AwsElbLoadBalancerAccessLog.default(visited),
+          connection_draining: AwsElbLoadBalancerConnectionDraining.default(visited),
+          connection_settings: AwsElbLoadBalancerConnectionSettings.default(visited),
+          cross_zone_load_balancing: AwsElbLoadBalancerCrossZoneLoadBalancing.default(visited),
+          additional_attributes: AwsElbLoadBalancerAdditionalAttributeList.default(visited),
         }
       end
 
@@ -8161,7 +8161,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsElbLoadBalancerAdditionalAttributeList')
         visited = visited + ['AwsElbLoadBalancerAdditionalAttributeList']
         [
-          Stubs::AwsElbLoadBalancerAdditionalAttribute.default(visited)
+          AwsElbLoadBalancerAdditionalAttribute.default(visited)
         ]
       end
 
@@ -8281,7 +8281,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsElbLoadBalancerListenerDescriptions')
         visited = visited + ['AwsElbLoadBalancerListenerDescriptions']
         [
-          Stubs::AwsElbLoadBalancerListenerDescription.default(visited)
+          AwsElbLoadBalancerListenerDescription.default(visited)
         ]
       end
 
@@ -8301,8 +8301,8 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsElbLoadBalancerListenerDescription')
         visited = visited + ['AwsElbLoadBalancerListenerDescription']
         {
-          listener: Stubs::AwsElbLoadBalancerListener.default(visited),
-          policy_names: Stubs::StringList.default(visited),
+          listener: AwsElbLoadBalancerListener.default(visited),
+          policy_names: StringList.default(visited),
         }
       end
 
@@ -8347,7 +8347,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsElbLoadBalancerInstances')
         visited = visited + ['AwsElbLoadBalancerInstances']
         [
-          Stubs::AwsElbLoadBalancerInstance.default(visited)
+          AwsElbLoadBalancerInstance.default(visited)
         ]
       end
 
@@ -8411,7 +8411,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsElbLoadBalancerBackendServerDescriptions')
         visited = visited + ['AwsElbLoadBalancerBackendServerDescriptions']
         [
-          Stubs::AwsElbLoadBalancerBackendServerDescription.default(visited)
+          AwsElbLoadBalancerBackendServerDescription.default(visited)
         ]
       end
 
@@ -8432,7 +8432,7 @@ module AWS::SDK::SecurityHub
         visited = visited + ['AwsElbLoadBalancerBackendServerDescription']
         {
           instance_port: 1,
-          policy_names: Stubs::StringList.default(visited),
+          policy_names: StringList.default(visited),
         }
       end
 
@@ -8457,26 +8457,26 @@ module AWS::SDK::SecurityHub
           cluster_availability_status: 'cluster_availability_status',
           cluster_create_time: 'cluster_create_time',
           cluster_identifier: 'cluster_identifier',
-          cluster_nodes: Stubs::AwsRedshiftClusterClusterNodes.default(visited),
-          cluster_parameter_groups: Stubs::AwsRedshiftClusterClusterParameterGroups.default(visited),
+          cluster_nodes: AwsRedshiftClusterClusterNodes.default(visited),
+          cluster_parameter_groups: AwsRedshiftClusterClusterParameterGroups.default(visited),
           cluster_public_key: 'cluster_public_key',
           cluster_revision_number: 'cluster_revision_number',
-          cluster_security_groups: Stubs::AwsRedshiftClusterClusterSecurityGroups.default(visited),
-          cluster_snapshot_copy_status: Stubs::AwsRedshiftClusterClusterSnapshotCopyStatus.default(visited),
+          cluster_security_groups: AwsRedshiftClusterClusterSecurityGroups.default(visited),
+          cluster_snapshot_copy_status: AwsRedshiftClusterClusterSnapshotCopyStatus.default(visited),
           cluster_status: 'cluster_status',
           cluster_subnet_group_name: 'cluster_subnet_group_name',
           cluster_version: 'cluster_version',
           db_name: 'db_name',
-          deferred_maintenance_windows: Stubs::AwsRedshiftClusterDeferredMaintenanceWindows.default(visited),
-          elastic_ip_status: Stubs::AwsRedshiftClusterElasticIpStatus.default(visited),
+          deferred_maintenance_windows: AwsRedshiftClusterDeferredMaintenanceWindows.default(visited),
+          elastic_ip_status: AwsRedshiftClusterElasticIpStatus.default(visited),
           elastic_resize_number_of_node_options: 'elastic_resize_number_of_node_options',
           encrypted: false,
-          endpoint: Stubs::AwsRedshiftClusterEndpoint.default(visited),
+          endpoint: AwsRedshiftClusterEndpoint.default(visited),
           enhanced_vpc_routing: false,
           expected_next_snapshot_schedule_time: 'expected_next_snapshot_schedule_time',
           expected_next_snapshot_schedule_time_status: 'expected_next_snapshot_schedule_time_status',
-          hsm_status: Stubs::AwsRedshiftClusterHsmStatus.default(visited),
-          iam_roles: Stubs::AwsRedshiftClusterIamRoles.default(visited),
+          hsm_status: AwsRedshiftClusterHsmStatus.default(visited),
+          iam_roles: AwsRedshiftClusterIamRoles.default(visited),
           kms_key_id: 'kms_key_id',
           maintenance_track_name: 'maintenance_track_name',
           manual_snapshot_retention_period: 1,
@@ -8484,17 +8484,17 @@ module AWS::SDK::SecurityHub
           next_maintenance_window_start_time: 'next_maintenance_window_start_time',
           node_type: 'node_type',
           number_of_nodes: 1,
-          pending_actions: Stubs::StringList.default(visited),
-          pending_modified_values: Stubs::AwsRedshiftClusterPendingModifiedValues.default(visited),
+          pending_actions: StringList.default(visited),
+          pending_modified_values: AwsRedshiftClusterPendingModifiedValues.default(visited),
           preferred_maintenance_window: 'preferred_maintenance_window',
           publicly_accessible: false,
-          resize_info: Stubs::AwsRedshiftClusterResizeInfo.default(visited),
-          restore_status: Stubs::AwsRedshiftClusterRestoreStatus.default(visited),
+          resize_info: AwsRedshiftClusterResizeInfo.default(visited),
+          restore_status: AwsRedshiftClusterRestoreStatus.default(visited),
           snapshot_schedule_identifier: 'snapshot_schedule_identifier',
           snapshot_schedule_state: 'snapshot_schedule_state',
           vpc_id: 'vpc_id',
-          vpc_security_groups: Stubs::AwsRedshiftClusterVpcSecurityGroups.default(visited),
-          logging_status: Stubs::AwsRedshiftClusterLoggingStatus.default(visited),
+          vpc_security_groups: AwsRedshiftClusterVpcSecurityGroups.default(visited),
+          logging_status: AwsRedshiftClusterLoggingStatus.default(visited),
         }
       end
 
@@ -8583,7 +8583,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsRedshiftClusterVpcSecurityGroups')
         visited = visited + ['AwsRedshiftClusterVpcSecurityGroups']
         [
-          Stubs::AwsRedshiftClusterVpcSecurityGroup.default(visited)
+          AwsRedshiftClusterVpcSecurityGroup.default(visited)
         ]
       end
 
@@ -8709,7 +8709,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsRedshiftClusterIamRoles')
         visited = visited + ['AwsRedshiftClusterIamRoles']
         [
-          Stubs::AwsRedshiftClusterIamRole.default(visited)
+          AwsRedshiftClusterIamRole.default(visited)
         ]
       end
 
@@ -8811,7 +8811,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsRedshiftClusterDeferredMaintenanceWindows')
         visited = visited + ['AwsRedshiftClusterDeferredMaintenanceWindows']
         [
-          Stubs::AwsRedshiftClusterDeferredMaintenanceWindow.default(visited)
+          AwsRedshiftClusterDeferredMaintenanceWindow.default(visited)
         ]
       end
 
@@ -8877,7 +8877,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsRedshiftClusterClusterSecurityGroups')
         visited = visited + ['AwsRedshiftClusterClusterSecurityGroups']
         [
-          Stubs::AwsRedshiftClusterClusterSecurityGroup.default(visited)
+          AwsRedshiftClusterClusterSecurityGroup.default(visited)
         ]
       end
 
@@ -8917,7 +8917,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsRedshiftClusterClusterParameterGroups')
         visited = visited + ['AwsRedshiftClusterClusterParameterGroups']
         [
-          Stubs::AwsRedshiftClusterClusterParameterGroup.default(visited)
+          AwsRedshiftClusterClusterParameterGroup.default(visited)
         ]
       end
 
@@ -8937,7 +8937,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsRedshiftClusterClusterParameterGroup')
         visited = visited + ['AwsRedshiftClusterClusterParameterGroup']
         {
-          cluster_parameter_status_list: Stubs::AwsRedshiftClusterClusterParameterStatusList.default(visited),
+          cluster_parameter_status_list: AwsRedshiftClusterClusterParameterStatusList.default(visited),
           parameter_apply_status: 'parameter_apply_status',
           parameter_group_name: 'parameter_group_name',
         }
@@ -8959,7 +8959,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsRedshiftClusterClusterParameterStatusList')
         visited = visited + ['AwsRedshiftClusterClusterParameterStatusList']
         [
-          Stubs::AwsRedshiftClusterClusterParameterStatus.default(visited)
+          AwsRedshiftClusterClusterParameterStatus.default(visited)
         ]
       end
 
@@ -9001,7 +9001,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsRedshiftClusterClusterNodes')
         visited = visited + ['AwsRedshiftClusterClusterNodes']
         [
-          Stubs::AwsRedshiftClusterClusterNode.default(visited)
+          AwsRedshiftClusterClusterNode.default(visited)
         ]
       end
 
@@ -9046,25 +9046,25 @@ module AWS::SDK::SecurityHub
           certificate_authority_arn: 'certificate_authority_arn',
           created_at: 'created_at',
           domain_name: 'domain_name',
-          domain_validation_options: Stubs::AwsCertificateManagerCertificateDomainValidationOptions.default(visited),
-          extended_key_usages: Stubs::AwsCertificateManagerCertificateExtendedKeyUsages.default(visited),
+          domain_validation_options: AwsCertificateManagerCertificateDomainValidationOptions.default(visited),
+          extended_key_usages: AwsCertificateManagerCertificateExtendedKeyUsages.default(visited),
           failure_reason: 'failure_reason',
           imported_at: 'imported_at',
-          in_use_by: Stubs::StringList.default(visited),
+          in_use_by: StringList.default(visited),
           issued_at: 'issued_at',
           issuer: 'issuer',
           key_algorithm: 'key_algorithm',
-          key_usages: Stubs::AwsCertificateManagerCertificateKeyUsages.default(visited),
+          key_usages: AwsCertificateManagerCertificateKeyUsages.default(visited),
           not_after: 'not_after',
           not_before: 'not_before',
-          options: Stubs::AwsCertificateManagerCertificateOptions.default(visited),
+          options: AwsCertificateManagerCertificateOptions.default(visited),
           renewal_eligibility: 'renewal_eligibility',
-          renewal_summary: Stubs::AwsCertificateManagerCertificateRenewalSummary.default(visited),
+          renewal_summary: AwsCertificateManagerCertificateRenewalSummary.default(visited),
           serial: 'serial',
           signature_algorithm: 'signature_algorithm',
           status: 'status',
           subject: 'subject',
-          subject_alternative_names: Stubs::StringList.default(visited),
+          subject_alternative_names: StringList.default(visited),
           type: 'type',
         }
       end
@@ -9105,7 +9105,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsCertificateManagerCertificateRenewalSummary')
         visited = visited + ['AwsCertificateManagerCertificateRenewalSummary']
         {
-          domain_validation_options: Stubs::AwsCertificateManagerCertificateDomainValidationOptions.default(visited),
+          domain_validation_options: AwsCertificateManagerCertificateDomainValidationOptions.default(visited),
           renewal_status: 'renewal_status',
           renewal_status_reason: 'renewal_status_reason',
           updated_at: 'updated_at',
@@ -9129,7 +9129,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsCertificateManagerCertificateDomainValidationOptions')
         visited = visited + ['AwsCertificateManagerCertificateDomainValidationOptions']
         [
-          Stubs::AwsCertificateManagerCertificateDomainValidationOption.default(visited)
+          AwsCertificateManagerCertificateDomainValidationOption.default(visited)
         ]
       end
 
@@ -9150,9 +9150,9 @@ module AWS::SDK::SecurityHub
         visited = visited + ['AwsCertificateManagerCertificateDomainValidationOption']
         {
           domain_name: 'domain_name',
-          resource_record: Stubs::AwsCertificateManagerCertificateResourceRecord.default(visited),
+          resource_record: AwsCertificateManagerCertificateResourceRecord.default(visited),
           validation_domain: 'validation_domain',
-          validation_emails: Stubs::StringList.default(visited),
+          validation_emails: StringList.default(visited),
           validation_method: 'validation_method',
           validation_status: 'validation_status',
         }
@@ -9217,7 +9217,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsCertificateManagerCertificateKeyUsages')
         visited = visited + ['AwsCertificateManagerCertificateKeyUsages']
         [
-          Stubs::AwsCertificateManagerCertificateKeyUsage.default(visited)
+          AwsCertificateManagerCertificateKeyUsage.default(visited)
         ]
       end
 
@@ -9255,7 +9255,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsCertificateManagerCertificateExtendedKeyUsages')
         visited = visited + ['AwsCertificateManagerCertificateExtendedKeyUsages']
         [
-          Stubs::AwsCertificateManagerCertificateExtendedKeyUsage.default(visited)
+          AwsCertificateManagerCertificateExtendedKeyUsage.default(visited)
         ]
       end
 
@@ -9295,7 +9295,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsSsmPatchComplianceDetails')
         visited = visited + ['AwsSsmPatchComplianceDetails']
         {
-          patch: Stubs::AwsSsmPatch.default(visited),
+          patch: AwsSsmPatch.default(visited),
         }
       end
 
@@ -9313,7 +9313,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsSsmPatch')
         visited = visited + ['AwsSsmPatch']
         {
-          compliance_summary: Stubs::AwsSsmComplianceSummary.default(visited),
+          compliance_summary: AwsSsmComplianceSummary.default(visited),
         }
       end
 
@@ -9434,10 +9434,10 @@ module AWS::SDK::SecurityHub
           description: 'description',
           created_date: 'created_date',
           version: 'version',
-          binary_media_types: Stubs::NonEmptyStringList.default(visited),
+          binary_media_types: NonEmptyStringList.default(visited),
           minimum_compression_size: 1,
           api_key_source: 'api_key_source',
-          endpoint_configuration: Stubs::AwsApiGatewayEndpointConfiguration.default(visited),
+          endpoint_configuration: AwsApiGatewayEndpointConfiguration.default(visited),
         }
       end
 
@@ -9463,7 +9463,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsApiGatewayEndpointConfiguration')
         visited = visited + ['AwsApiGatewayEndpointConfiguration']
         {
-          types: Stubs::NonEmptyStringList.default(visited),
+          types: NonEmptyStringList.default(visited),
         }
       end
 
@@ -9488,11 +9488,11 @@ module AWS::SDK::SecurityHub
           cache_cluster_enabled: false,
           cache_cluster_size: 'cache_cluster_size',
           cache_cluster_status: 'cache_cluster_status',
-          method_settings: Stubs::AwsApiGatewayMethodSettingsList.default(visited),
-          variables: Stubs::FieldMap.default(visited),
+          method_settings: AwsApiGatewayMethodSettingsList.default(visited),
+          variables: FieldMap.default(visited),
           documentation_version: 'documentation_version',
-          access_log_settings: Stubs::AwsApiGatewayAccessLogSettings.default(visited),
-          canary_settings: Stubs::AwsApiGatewayCanarySettings.default(visited),
+          access_log_settings: AwsApiGatewayAccessLogSettings.default(visited),
+          canary_settings: AwsApiGatewayCanarySettings.default(visited),
           tracing_enabled: false,
           created_date: 'created_date',
           last_updated_date: 'last_updated_date',
@@ -9531,7 +9531,7 @@ module AWS::SDK::SecurityHub
         {
           percent_traffic: 1.0,
           deployment_id: 'deployment_id',
-          stage_variable_overrides: Stubs::FieldMap.default(visited),
+          stage_variable_overrides: FieldMap.default(visited),
           use_stage_cache: false,
         }
       end
@@ -9573,7 +9573,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsApiGatewayMethodSettingsList')
         visited = visited + ['AwsApiGatewayMethodSettingsList']
         [
-          Stubs::AwsApiGatewayMethodSettings.default(visited)
+          AwsApiGatewayMethodSettings.default(visited)
         ]
       end
 
@@ -9633,21 +9633,21 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsDynamoDbTableDetails')
         visited = visited + ['AwsDynamoDbTableDetails']
         {
-          attribute_definitions: Stubs::AwsDynamoDbTableAttributeDefinitionList.default(visited),
-          billing_mode_summary: Stubs::AwsDynamoDbTableBillingModeSummary.default(visited),
+          attribute_definitions: AwsDynamoDbTableAttributeDefinitionList.default(visited),
+          billing_mode_summary: AwsDynamoDbTableBillingModeSummary.default(visited),
           creation_date_time: 'creation_date_time',
-          global_secondary_indexes: Stubs::AwsDynamoDbTableGlobalSecondaryIndexList.default(visited),
+          global_secondary_indexes: AwsDynamoDbTableGlobalSecondaryIndexList.default(visited),
           global_table_version: 'global_table_version',
           item_count: 1,
-          key_schema: Stubs::AwsDynamoDbTableKeySchemaList.default(visited),
+          key_schema: AwsDynamoDbTableKeySchemaList.default(visited),
           latest_stream_arn: 'latest_stream_arn',
           latest_stream_label: 'latest_stream_label',
-          local_secondary_indexes: Stubs::AwsDynamoDbTableLocalSecondaryIndexList.default(visited),
-          provisioned_throughput: Stubs::AwsDynamoDbTableProvisionedThroughput.default(visited),
-          replicas: Stubs::AwsDynamoDbTableReplicaList.default(visited),
-          restore_summary: Stubs::AwsDynamoDbTableRestoreSummary.default(visited),
-          sse_description: Stubs::AwsDynamoDbTableSseDescription.default(visited),
-          stream_specification: Stubs::AwsDynamoDbTableStreamSpecification.default(visited),
+          local_secondary_indexes: AwsDynamoDbTableLocalSecondaryIndexList.default(visited),
+          provisioned_throughput: AwsDynamoDbTableProvisionedThroughput.default(visited),
+          replicas: AwsDynamoDbTableReplicaList.default(visited),
+          restore_summary: AwsDynamoDbTableRestoreSummary.default(visited),
+          sse_description: AwsDynamoDbTableSseDescription.default(visited),
+          stream_specification: AwsDynamoDbTableStreamSpecification.default(visited),
           table_id: 'table_id',
           table_name: 'table_name',
           table_size_bytes: 1,
@@ -9755,7 +9755,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsDynamoDbTableReplicaList')
         visited = visited + ['AwsDynamoDbTableReplicaList']
         [
-          Stubs::AwsDynamoDbTableReplica.default(visited)
+          AwsDynamoDbTableReplica.default(visited)
         ]
       end
 
@@ -9775,9 +9775,9 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsDynamoDbTableReplica')
         visited = visited + ['AwsDynamoDbTableReplica']
         {
-          global_secondary_indexes: Stubs::AwsDynamoDbTableReplicaGlobalSecondaryIndexList.default(visited),
+          global_secondary_indexes: AwsDynamoDbTableReplicaGlobalSecondaryIndexList.default(visited),
           kms_master_key_id: 'kms_master_key_id',
-          provisioned_throughput_override: Stubs::AwsDynamoDbTableProvisionedThroughputOverride.default(visited),
+          provisioned_throughput_override: AwsDynamoDbTableProvisionedThroughputOverride.default(visited),
           region_name: 'region_name',
           replica_status: 'replica_status',
           replica_status_description: 'replica_status_description',
@@ -9821,7 +9821,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsDynamoDbTableReplicaGlobalSecondaryIndexList')
         visited = visited + ['AwsDynamoDbTableReplicaGlobalSecondaryIndexList']
         [
-          Stubs::AwsDynamoDbTableReplicaGlobalSecondaryIndex.default(visited)
+          AwsDynamoDbTableReplicaGlobalSecondaryIndex.default(visited)
         ]
       end
 
@@ -9842,7 +9842,7 @@ module AWS::SDK::SecurityHub
         visited = visited + ['AwsDynamoDbTableReplicaGlobalSecondaryIndex']
         {
           index_name: 'index_name',
-          provisioned_throughput_override: Stubs::AwsDynamoDbTableProvisionedThroughputOverride.default(visited),
+          provisioned_throughput_override: AwsDynamoDbTableProvisionedThroughputOverride.default(visited),
         }
       end
 
@@ -9887,7 +9887,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsDynamoDbTableLocalSecondaryIndexList')
         visited = visited + ['AwsDynamoDbTableLocalSecondaryIndexList']
         [
-          Stubs::AwsDynamoDbTableLocalSecondaryIndex.default(visited)
+          AwsDynamoDbTableLocalSecondaryIndex.default(visited)
         ]
       end
 
@@ -9909,8 +9909,8 @@ module AWS::SDK::SecurityHub
         {
           index_arn: 'index_arn',
           index_name: 'index_name',
-          key_schema: Stubs::AwsDynamoDbTableKeySchemaList.default(visited),
-          projection: Stubs::AwsDynamoDbTableProjection.default(visited),
+          key_schema: AwsDynamoDbTableKeySchemaList.default(visited),
+          projection: AwsDynamoDbTableProjection.default(visited),
         }
       end
 
@@ -9931,7 +9931,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsDynamoDbTableProjection')
         visited = visited + ['AwsDynamoDbTableProjection']
         {
-          non_key_attributes: Stubs::StringList.default(visited),
+          non_key_attributes: StringList.default(visited),
           projection_type: 'projection_type',
         }
       end
@@ -9951,7 +9951,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsDynamoDbTableKeySchemaList')
         visited = visited + ['AwsDynamoDbTableKeySchemaList']
         [
-          Stubs::AwsDynamoDbTableKeySchema.default(visited)
+          AwsDynamoDbTableKeySchema.default(visited)
         ]
       end
 
@@ -9991,7 +9991,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsDynamoDbTableGlobalSecondaryIndexList')
         visited = visited + ['AwsDynamoDbTableGlobalSecondaryIndexList']
         [
-          Stubs::AwsDynamoDbTableGlobalSecondaryIndex.default(visited)
+          AwsDynamoDbTableGlobalSecondaryIndex.default(visited)
         ]
       end
 
@@ -10017,9 +10017,9 @@ module AWS::SDK::SecurityHub
           index_size_bytes: 1,
           index_status: 'index_status',
           item_count: 1,
-          key_schema: Stubs::AwsDynamoDbTableKeySchemaList.default(visited),
-          projection: Stubs::AwsDynamoDbTableProjection.default(visited),
-          provisioned_throughput: Stubs::AwsDynamoDbTableProvisionedThroughput.default(visited),
+          key_schema: AwsDynamoDbTableKeySchemaList.default(visited),
+          projection: AwsDynamoDbTableProjection.default(visited),
+          provisioned_throughput: AwsDynamoDbTableProvisionedThroughput.default(visited),
         }
       end
 
@@ -10065,7 +10065,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsDynamoDbTableAttributeDefinitionList')
         visited = visited + ['AwsDynamoDbTableAttributeDefinitionList']
         [
-          Stubs::AwsDynamoDbTableAttributeDefinition.default(visited)
+          AwsDynamoDbTableAttributeDefinition.default(visited)
         ]
       end
 
@@ -10114,7 +10114,7 @@ module AWS::SDK::SecurityHub
           name: 'name',
           protocol_type: 'protocol_type',
           route_selection_expression: 'route_selection_expression',
-          cors_configuration: Stubs::AwsCorsConfiguration.default(visited),
+          cors_configuration: AwsCorsConfiguration.default(visited),
         }
       end
 
@@ -10141,12 +10141,12 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsCorsConfiguration')
         visited = visited + ['AwsCorsConfiguration']
         {
-          allow_origins: Stubs::NonEmptyStringList.default(visited),
+          allow_origins: NonEmptyStringList.default(visited),
           allow_credentials: false,
-          expose_headers: Stubs::NonEmptyStringList.default(visited),
+          expose_headers: NonEmptyStringList.default(visited),
           max_age: 1,
-          allow_methods: Stubs::NonEmptyStringList.default(visited),
-          allow_headers: Stubs::NonEmptyStringList.default(visited),
+          allow_methods: NonEmptyStringList.default(visited),
+          allow_headers: NonEmptyStringList.default(visited),
         }
       end
 
@@ -10172,13 +10172,13 @@ module AWS::SDK::SecurityHub
           client_certificate_id: 'client_certificate_id',
           created_date: 'created_date',
           description: 'description',
-          default_route_settings: Stubs::AwsApiGatewayV2RouteSettings.default(visited),
+          default_route_settings: AwsApiGatewayV2RouteSettings.default(visited),
           deployment_id: 'deployment_id',
           last_updated_date: 'last_updated_date',
-          route_settings: Stubs::AwsApiGatewayV2RouteSettings.default(visited),
+          route_settings: AwsApiGatewayV2RouteSettings.default(visited),
           stage_name: 'stage_name',
-          stage_variables: Stubs::FieldMap.default(visited),
-          access_log_settings: Stubs::AwsApiGatewayAccessLogSettings.default(visited),
+          stage_variables: FieldMap.default(visited),
+          access_log_settings: AwsApiGatewayAccessLogSettings.default(visited),
           auto_deploy: false,
           last_deployment_status_message: 'last_deployment_status_message',
           api_gateway_managed: false,
@@ -10246,7 +10246,7 @@ module AWS::SDK::SecurityHub
           permissions_boundary_usage_count: 1,
           policy_id: 'policy_id',
           policy_name: 'policy_name',
-          policy_version_list: Stubs::AwsIamPolicyVersionList.default(visited),
+          policy_version_list: AwsIamPolicyVersionList.default(visited),
           update_date: 'update_date',
         }
       end
@@ -10275,7 +10275,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsIamPolicyVersionList')
         visited = visited + ['AwsIamPolicyVersionList']
         [
-          Stubs::AwsIamPolicyVersion.default(visited)
+          AwsIamPolicyVersion.default(visited)
         ]
       end
 
@@ -10317,14 +10317,14 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsIamUserDetails')
         visited = visited + ['AwsIamUserDetails']
         {
-          attached_managed_policies: Stubs::AwsIamAttachedManagedPolicyList.default(visited),
+          attached_managed_policies: AwsIamAttachedManagedPolicyList.default(visited),
           create_date: 'create_date',
-          group_list: Stubs::StringList.default(visited),
+          group_list: StringList.default(visited),
           path: 'path',
-          permissions_boundary: Stubs::AwsIamPermissionsBoundary.default(visited),
+          permissions_boundary: AwsIamPermissionsBoundary.default(visited),
           user_id: 'user_id',
           user_name: 'user_name',
-          user_policy_list: Stubs::AwsIamUserPolicyList.default(visited),
+          user_policy_list: AwsIamUserPolicyList.default(visited),
         }
       end
 
@@ -10349,7 +10349,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsIamUserPolicyList')
         visited = visited + ['AwsIamUserPolicyList']
         [
-          Stubs::AwsIamUserPolicy.default(visited)
+          AwsIamUserPolicy.default(visited)
         ]
       end
 
@@ -10395,7 +10395,7 @@ module AWS::SDK::SecurityHub
           principal_name: 'principal_name',
           account_id: 'account_id',
           access_key_id: 'access_key_id',
-          session_context: Stubs::AwsIamAccessKeySessionContext.default(visited),
+          session_context: AwsIamAccessKeySessionContext.default(visited),
         }
       end
 
@@ -10421,8 +10421,8 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsIamAccessKeySessionContext')
         visited = visited + ['AwsIamAccessKeySessionContext']
         {
-          attributes: Stubs::AwsIamAccessKeySessionContextAttributes.default(visited),
-          session_issuer: Stubs::AwsIamAccessKeySessionContextSessionIssuer.default(visited),
+          attributes: AwsIamAccessKeySessionContextAttributes.default(visited),
+          session_issuer: AwsIamAccessKeySessionContextSessionIssuer.default(visited),
         }
       end
 
@@ -10487,7 +10487,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsSecretsManagerSecretDetails')
         visited = visited + ['AwsSecretsManagerSecretDetails']
         {
-          rotation_rules: Stubs::AwsSecretsManagerSecretRotationRules.default(visited),
+          rotation_rules: AwsSecretsManagerSecretRotationRules.default(visited),
           rotation_occurred_within_frequency: false,
           kms_key_id: 'kms_key_id',
           rotation_enabled: false,
@@ -10593,14 +10593,14 @@ module AWS::SDK::SecurityHub
           owner_name: 'owner_name',
           owner_account_id: 'owner_account_id',
           created_at: 'created_at',
-          server_side_encryption_configuration: Stubs::AwsS3BucketServerSideEncryptionConfiguration.default(visited),
-          bucket_lifecycle_configuration: Stubs::AwsS3BucketBucketLifecycleConfigurationDetails.default(visited),
-          public_access_block_configuration: Stubs::AwsS3AccountPublicAccessBlockDetails.default(visited),
+          server_side_encryption_configuration: AwsS3BucketServerSideEncryptionConfiguration.default(visited),
+          bucket_lifecycle_configuration: AwsS3BucketBucketLifecycleConfigurationDetails.default(visited),
+          public_access_block_configuration: AwsS3AccountPublicAccessBlockDetails.default(visited),
           access_control_list: 'access_control_list',
-          bucket_logging_configuration: Stubs::AwsS3BucketLoggingConfiguration.default(visited),
-          bucket_website_configuration: Stubs::AwsS3BucketWebsiteConfiguration.default(visited),
-          bucket_notification_configuration: Stubs::AwsS3BucketNotificationConfiguration.default(visited),
-          bucket_versioning_configuration: Stubs::AwsS3BucketBucketVersioningConfiguration.default(visited),
+          bucket_logging_configuration: AwsS3BucketLoggingConfiguration.default(visited),
+          bucket_website_configuration: AwsS3BucketWebsiteConfiguration.default(visited),
+          bucket_notification_configuration: AwsS3BucketNotificationConfiguration.default(visited),
+          bucket_versioning_configuration: AwsS3BucketBucketVersioningConfiguration.default(visited),
         }
       end
 
@@ -10649,7 +10649,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsS3BucketNotificationConfiguration')
         visited = visited + ['AwsS3BucketNotificationConfiguration']
         {
-          configurations: Stubs::AwsS3BucketNotificationConfigurationDetails.default(visited),
+          configurations: AwsS3BucketNotificationConfigurationDetails.default(visited),
         }
       end
 
@@ -10667,7 +10667,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsS3BucketNotificationConfigurationDetails')
         visited = visited + ['AwsS3BucketNotificationConfigurationDetails']
         [
-          Stubs::AwsS3BucketNotificationConfigurationDetail.default(visited)
+          AwsS3BucketNotificationConfigurationDetail.default(visited)
         ]
       end
 
@@ -10687,8 +10687,8 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsS3BucketNotificationConfigurationDetail')
         visited = visited + ['AwsS3BucketNotificationConfigurationDetail']
         {
-          events: Stubs::AwsS3BucketNotificationConfigurationEvents.default(visited),
-          filter: Stubs::AwsS3BucketNotificationConfigurationFilter.default(visited),
+          events: AwsS3BucketNotificationConfigurationEvents.default(visited),
+          filter: AwsS3BucketNotificationConfigurationFilter.default(visited),
           destination: 'destination',
           type: 'type',
         }
@@ -10711,7 +10711,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsS3BucketNotificationConfigurationFilter')
         visited = visited + ['AwsS3BucketNotificationConfigurationFilter']
         {
-          s3_key_filter: Stubs::AwsS3BucketNotificationConfigurationS3KeyFilter.default(visited),
+          s3_key_filter: AwsS3BucketNotificationConfigurationS3KeyFilter.default(visited),
         }
       end
 
@@ -10729,7 +10729,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsS3BucketNotificationConfigurationS3KeyFilter')
         visited = visited + ['AwsS3BucketNotificationConfigurationS3KeyFilter']
         {
-          filter_rules: Stubs::AwsS3BucketNotificationConfigurationS3KeyFilterRules.default(visited),
+          filter_rules: AwsS3BucketNotificationConfigurationS3KeyFilterRules.default(visited),
         }
       end
 
@@ -10747,7 +10747,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsS3BucketNotificationConfigurationS3KeyFilterRules')
         visited = visited + ['AwsS3BucketNotificationConfigurationS3KeyFilterRules']
         [
-          Stubs::AwsS3BucketNotificationConfigurationS3KeyFilterRule.default(visited)
+          AwsS3BucketNotificationConfigurationS3KeyFilterRule.default(visited)
         ]
       end
 
@@ -10809,8 +10809,8 @@ module AWS::SDK::SecurityHub
         {
           error_document: 'error_document',
           index_document_suffix: 'index_document_suffix',
-          redirect_all_requests_to: Stubs::AwsS3BucketWebsiteConfigurationRedirectTo.default(visited),
-          routing_rules: Stubs::AwsS3BucketWebsiteConfigurationRoutingRules.default(visited),
+          redirect_all_requests_to: AwsS3BucketWebsiteConfigurationRedirectTo.default(visited),
+          routing_rules: AwsS3BucketWebsiteConfigurationRoutingRules.default(visited),
         }
       end
 
@@ -10831,7 +10831,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsS3BucketWebsiteConfigurationRoutingRules')
         visited = visited + ['AwsS3BucketWebsiteConfigurationRoutingRules']
         [
-          Stubs::AwsS3BucketWebsiteConfigurationRoutingRule.default(visited)
+          AwsS3BucketWebsiteConfigurationRoutingRule.default(visited)
         ]
       end
 
@@ -10851,8 +10851,8 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsS3BucketWebsiteConfigurationRoutingRule')
         visited = visited + ['AwsS3BucketWebsiteConfigurationRoutingRule']
         {
-          condition: Stubs::AwsS3BucketWebsiteConfigurationRoutingRuleCondition.default(visited),
-          redirect: Stubs::AwsS3BucketWebsiteConfigurationRoutingRuleRedirect.default(visited),
+          condition: AwsS3BucketWebsiteConfigurationRoutingRuleCondition.default(visited),
+          redirect: AwsS3BucketWebsiteConfigurationRoutingRuleRedirect.default(visited),
         }
       end
 
@@ -10957,7 +10957,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsS3BucketBucketLifecycleConfigurationDetails')
         visited = visited + ['AwsS3BucketBucketLifecycleConfigurationDetails']
         {
-          rules: Stubs::AwsS3BucketBucketLifecycleConfigurationRulesList.default(visited),
+          rules: AwsS3BucketBucketLifecycleConfigurationRulesList.default(visited),
         }
       end
 
@@ -10975,7 +10975,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsS3BucketBucketLifecycleConfigurationRulesList')
         visited = visited + ['AwsS3BucketBucketLifecycleConfigurationRulesList']
         [
-          Stubs::AwsS3BucketBucketLifecycleConfigurationRulesDetails.default(visited)
+          AwsS3BucketBucketLifecycleConfigurationRulesDetails.default(visited)
         ]
       end
 
@@ -10995,17 +10995,17 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsS3BucketBucketLifecycleConfigurationRulesDetails')
         visited = visited + ['AwsS3BucketBucketLifecycleConfigurationRulesDetails']
         {
-          abort_incomplete_multipart_upload: Stubs::AwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMultipartUploadDetails.default(visited),
+          abort_incomplete_multipart_upload: AwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMultipartUploadDetails.default(visited),
           expiration_date: 'expiration_date',
           expiration_in_days: 1,
           expired_object_delete_marker: false,
-          filter: Stubs::AwsS3BucketBucketLifecycleConfigurationRulesFilterDetails.default(visited),
+          filter: AwsS3BucketBucketLifecycleConfigurationRulesFilterDetails.default(visited),
           id: 'id',
           noncurrent_version_expiration_in_days: 1,
-          noncurrent_version_transitions: Stubs::AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsList.default(visited),
+          noncurrent_version_transitions: AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsList.default(visited),
           prefix: 'prefix',
           status: 'status',
-          transitions: Stubs::AwsS3BucketBucketLifecycleConfigurationRulesTransitionsList.default(visited),
+          transitions: AwsS3BucketBucketLifecycleConfigurationRulesTransitionsList.default(visited),
         }
       end
 
@@ -11033,7 +11033,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsS3BucketBucketLifecycleConfigurationRulesTransitionsList')
         visited = visited + ['AwsS3BucketBucketLifecycleConfigurationRulesTransitionsList']
         [
-          Stubs::AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails.default(visited)
+          AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails.default(visited)
         ]
       end
 
@@ -11075,7 +11075,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsList')
         visited = visited + ['AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsList']
         [
-          Stubs::AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsDetails.default(visited)
+          AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsDetails.default(visited)
         ]
       end
 
@@ -11115,7 +11115,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsS3BucketBucketLifecycleConfigurationRulesFilterDetails')
         visited = visited + ['AwsS3BucketBucketLifecycleConfigurationRulesFilterDetails']
         {
-          predicate: Stubs::AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails.default(visited),
+          predicate: AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails.default(visited),
         }
       end
 
@@ -11133,9 +11133,9 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails')
         visited = visited + ['AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails']
         {
-          operands: Stubs::AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsList.default(visited),
+          operands: AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsList.default(visited),
           prefix: 'prefix',
-          tag: Stubs::AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails.default(visited),
+          tag: AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails.default(visited),
           type: 'type',
         }
       end
@@ -11177,7 +11177,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsList')
         visited = visited + ['AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsList']
         [
-          Stubs::AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails.default(visited)
+          AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails.default(visited)
         ]
       end
 
@@ -11198,7 +11198,7 @@ module AWS::SDK::SecurityHub
         visited = visited + ['AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails']
         {
           prefix: 'prefix',
-          tag: Stubs::AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsTagDetails.default(visited),
+          tag: AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsTagDetails.default(visited),
           type: 'type',
         }
       end
@@ -11257,7 +11257,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsS3BucketServerSideEncryptionConfiguration')
         visited = visited + ['AwsS3BucketServerSideEncryptionConfiguration']
         {
-          rules: Stubs::AwsS3BucketServerSideEncryptionRules.default(visited),
+          rules: AwsS3BucketServerSideEncryptionRules.default(visited),
         }
       end
 
@@ -11275,7 +11275,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsS3BucketServerSideEncryptionRules')
         visited = visited + ['AwsS3BucketServerSideEncryptionRules']
         [
-          Stubs::AwsS3BucketServerSideEncryptionRule.default(visited)
+          AwsS3BucketServerSideEncryptionRule.default(visited)
         ]
       end
 
@@ -11295,7 +11295,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsS3BucketServerSideEncryptionRule')
         visited = visited + ['AwsS3BucketServerSideEncryptionRule']
         {
-          apply_server_side_encryption_by_default: Stubs::AwsS3BucketServerSideEncryptionByDefault.default(visited),
+          apply_server_side_encryption_by_default: AwsS3BucketServerSideEncryptionByDefault.default(visited),
         }
       end
 
@@ -11334,18 +11334,18 @@ module AWS::SDK::SecurityHub
         visited = visited + ['AwsElasticsearchDomainDetails']
         {
           access_policies: 'access_policies',
-          domain_endpoint_options: Stubs::AwsElasticsearchDomainDomainEndpointOptions.default(visited),
+          domain_endpoint_options: AwsElasticsearchDomainDomainEndpointOptions.default(visited),
           domain_id: 'domain_id',
           domain_name: 'domain_name',
           endpoint: 'endpoint',
-          endpoints: Stubs::FieldMap.default(visited),
+          endpoints: FieldMap.default(visited),
           elasticsearch_version: 'elasticsearch_version',
-          elasticsearch_cluster_config: Stubs::AwsElasticsearchDomainElasticsearchClusterConfigDetails.default(visited),
-          encryption_at_rest_options: Stubs::AwsElasticsearchDomainEncryptionAtRestOptions.default(visited),
-          log_publishing_options: Stubs::AwsElasticsearchDomainLogPublishingOptions.default(visited),
-          node_to_node_encryption_options: Stubs::AwsElasticsearchDomainNodeToNodeEncryptionOptions.default(visited),
-          service_software_options: Stubs::AwsElasticsearchDomainServiceSoftwareOptions.default(visited),
-          vpc_options: Stubs::AwsElasticsearchDomainVPCOptions.default(visited),
+          elasticsearch_cluster_config: AwsElasticsearchDomainElasticsearchClusterConfigDetails.default(visited),
+          encryption_at_rest_options: AwsElasticsearchDomainEncryptionAtRestOptions.default(visited),
+          log_publishing_options: AwsElasticsearchDomainLogPublishingOptions.default(visited),
+          node_to_node_encryption_options: AwsElasticsearchDomainNodeToNodeEncryptionOptions.default(visited),
+          service_software_options: AwsElasticsearchDomainServiceSoftwareOptions.default(visited),
+          vpc_options: AwsElasticsearchDomainVPCOptions.default(visited),
         }
       end
 
@@ -11375,9 +11375,9 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsElasticsearchDomainVPCOptions')
         visited = visited + ['AwsElasticsearchDomainVPCOptions']
         {
-          availability_zones: Stubs::NonEmptyStringList.default(visited),
-          security_group_ids: Stubs::NonEmptyStringList.default(visited),
-          subnet_ids: Stubs::NonEmptyStringList.default(visited),
+          availability_zones: NonEmptyStringList.default(visited),
+          security_group_ids: NonEmptyStringList.default(visited),
+          subnet_ids: NonEmptyStringList.default(visited),
           vpc_id: 'vpc_id',
         }
       end
@@ -11447,9 +11447,9 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsElasticsearchDomainLogPublishingOptions')
         visited = visited + ['AwsElasticsearchDomainLogPublishingOptions']
         {
-          index_slow_logs: Stubs::AwsElasticsearchDomainLogPublishingOptionsLogConfig.default(visited),
-          search_slow_logs: Stubs::AwsElasticsearchDomainLogPublishingOptionsLogConfig.default(visited),
-          audit_logs: Stubs::AwsElasticsearchDomainLogPublishingOptionsLogConfig.default(visited),
+          index_slow_logs: AwsElasticsearchDomainLogPublishingOptionsLogConfig.default(visited),
+          search_slow_logs: AwsElasticsearchDomainLogPublishingOptionsLogConfig.default(visited),
+          audit_logs: AwsElasticsearchDomainLogPublishingOptionsLogConfig.default(visited),
         }
       end
 
@@ -11514,7 +11514,7 @@ module AWS::SDK::SecurityHub
           dedicated_master_type: 'dedicated_master_type',
           instance_count: 1,
           instance_type: 'instance_type',
-          zone_awareness_config: Stubs::AwsElasticsearchDomainElasticsearchClusterConfigZoneAwarenessConfigDetails.default(visited),
+          zone_awareness_config: AwsElasticsearchDomainElasticsearchClusterConfigZoneAwarenessConfigDetails.default(visited),
           zone_awareness_enabled: false,
         }
       end
@@ -11585,13 +11585,13 @@ module AWS::SDK::SecurityHub
           endpoint_url: 'endpoint_url',
           environment_arn: 'environment_arn',
           environment_id: 'environment_id',
-          environment_links: Stubs::AwsElasticBeanstalkEnvironmentEnvironmentLinks.default(visited),
+          environment_links: AwsElasticBeanstalkEnvironmentEnvironmentLinks.default(visited),
           environment_name: 'environment_name',
-          option_settings: Stubs::AwsElasticBeanstalkEnvironmentOptionSettings.default(visited),
+          option_settings: AwsElasticBeanstalkEnvironmentOptionSettings.default(visited),
           platform_arn: 'platform_arn',
           solution_stack_name: 'solution_stack_name',
           status: 'status',
-          tier: Stubs::AwsElasticBeanstalkEnvironmentTier.default(visited),
+          tier: AwsElasticBeanstalkEnvironmentTier.default(visited),
           version_label: 'version_label',
         }
       end
@@ -11647,7 +11647,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsElasticBeanstalkEnvironmentOptionSettings')
         visited = visited + ['AwsElasticBeanstalkEnvironmentOptionSettings']
         [
-          Stubs::AwsElasticBeanstalkEnvironmentOptionSetting.default(visited)
+          AwsElasticBeanstalkEnvironmentOptionSetting.default(visited)
         ]
       end
 
@@ -11691,7 +11691,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsElasticBeanstalkEnvironmentEnvironmentLinks')
         visited = visited + ['AwsElasticBeanstalkEnvironmentEnvironmentLinks']
         [
-          Stubs::AwsElasticBeanstalkEnvironmentEnvironmentLink.default(visited)
+          AwsElasticBeanstalkEnvironmentEnvironmentLink.default(visited)
         ]
       end
 
@@ -11731,17 +11731,17 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsElbv2LoadBalancerDetails')
         visited = visited + ['AwsElbv2LoadBalancerDetails']
         {
-          availability_zones: Stubs::AvailabilityZones.default(visited),
+          availability_zones: AvailabilityZones.default(visited),
           canonical_hosted_zone_id: 'canonical_hosted_zone_id',
           created_time: 'created_time',
           dns_name: 'dns_name',
           ip_address_type: 'ip_address_type',
           scheme: 'scheme',
-          security_groups: Stubs::SecurityGroups.default(visited),
-          state: Stubs::LoadBalancerState.default(visited),
+          security_groups: SecurityGroups.default(visited),
+          state: LoadBalancerState.default(visited),
           type: 'type',
           vpc_id: 'vpc_id',
-          load_balancer_attributes: Stubs::AwsElbv2LoadBalancerAttributes.default(visited),
+          load_balancer_attributes: AwsElbv2LoadBalancerAttributes.default(visited),
         }
       end
 
@@ -11769,7 +11769,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsElbv2LoadBalancerAttributes')
         visited = visited + ['AwsElbv2LoadBalancerAttributes']
         [
-          Stubs::AwsElbv2LoadBalancerAttribute.default(visited)
+          AwsElbv2LoadBalancerAttribute.default(visited)
         ]
       end
 
@@ -11849,7 +11849,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AvailabilityZones')
         visited = visited + ['AvailabilityZones']
         [
-          Stubs::AvailabilityZone.default(visited)
+          AvailabilityZone.default(visited)
         ]
       end
 
@@ -11893,8 +11893,8 @@ module AWS::SDK::SecurityHub
           network_acl_id: 'network_acl_id',
           owner_id: 'owner_id',
           vpc_id: 'vpc_id',
-          associations: Stubs::AwsEc2NetworkAclAssociationList.default(visited),
-          entries: Stubs::AwsEc2NetworkAclEntryList.default(visited),
+          associations: AwsEc2NetworkAclAssociationList.default(visited),
+          entries: AwsEc2NetworkAclEntryList.default(visited),
         }
       end
 
@@ -11917,7 +11917,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsEc2NetworkAclEntryList')
         visited = visited + ['AwsEc2NetworkAclEntryList']
         [
-          Stubs::AwsEc2NetworkAclEntry.default(visited)
+          AwsEc2NetworkAclEntry.default(visited)
         ]
       end
 
@@ -11939,9 +11939,9 @@ module AWS::SDK::SecurityHub
         {
           cidr_block: 'cidr_block',
           egress: false,
-          icmp_type_code: Stubs::IcmpTypeCode.default(visited),
+          icmp_type_code: IcmpTypeCode.default(visited),
           ipv6_cidr_block: 'ipv6_cidr_block',
-          port_range: Stubs::PortRangeFromTo.default(visited),
+          port_range: PortRangeFromTo.default(visited),
           protocol: 'protocol',
           rule_action: 'rule_action',
           rule_number: 1,
@@ -12009,7 +12009,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsEc2NetworkAclAssociationList')
         visited = visited + ['AwsEc2NetworkAclAssociationList']
         [
-          Stubs::AwsEc2NetworkAclAssociation.default(visited)
+          AwsEc2NetworkAclAssociation.default(visited)
         ]
       end
 
@@ -12063,7 +12063,7 @@ module AWS::SDK::SecurityHub
           subnet_arn: 'subnet_arn',
           subnet_id: 'subnet_id',
           vpc_id: 'vpc_id',
-          ipv6_cidr_block_association_set: Stubs::Ipv6CidrBlockAssociationList.default(visited),
+          ipv6_cidr_block_association_set: Ipv6CidrBlockAssociationList.default(visited),
         }
       end
 
@@ -12093,7 +12093,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('Ipv6CidrBlockAssociationList')
         visited = visited + ['Ipv6CidrBlockAssociationList']
         [
-          Stubs::Ipv6CidrBlockAssociation.default(visited)
+          Ipv6CidrBlockAssociation.default(visited)
         ]
       end
 
@@ -12171,8 +12171,8 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsEc2VpcDetails')
         visited = visited + ['AwsEc2VpcDetails']
         {
-          cidr_block_association_set: Stubs::CidrBlockAssociationList.default(visited),
-          ipv6_cidr_block_association_set: Stubs::Ipv6CidrBlockAssociationList.default(visited),
+          cidr_block_association_set: CidrBlockAssociationList.default(visited),
+          ipv6_cidr_block_association_set: Ipv6CidrBlockAssociationList.default(visited),
           dhcp_options_id: 'dhcp_options_id',
           state: 'state',
         }
@@ -12195,7 +12195,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('CidrBlockAssociationList')
         visited = visited + ['CidrBlockAssociationList']
         [
-          Stubs::CidrBlockAssociation.default(visited)
+          CidrBlockAssociation.default(visited)
         ]
       end
 
@@ -12243,7 +12243,7 @@ module AWS::SDK::SecurityHub
           snapshot_id: 'snapshot_id',
           status: 'status',
           kms_key_id: 'kms_key_id',
-          attachments: Stubs::AwsEc2VolumeAttachmentList.default(visited),
+          attachments: AwsEc2VolumeAttachmentList.default(visited),
         }
       end
 
@@ -12267,7 +12267,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsEc2VolumeAttachmentList')
         visited = visited + ['AwsEc2VolumeAttachmentList']
         [
-          Stubs::AwsEc2VolumeAttachment.default(visited)
+          AwsEc2VolumeAttachment.default(visited)
         ]
       end
 
@@ -12315,8 +12315,8 @@ module AWS::SDK::SecurityHub
           group_id: 'group_id',
           owner_id: 'owner_id',
           vpc_id: 'vpc_id',
-          ip_permissions: Stubs::AwsEc2SecurityGroupIpPermissionList.default(visited),
-          ip_permissions_egress: Stubs::AwsEc2SecurityGroupIpPermissionList.default(visited),
+          ip_permissions: AwsEc2SecurityGroupIpPermissionList.default(visited),
+          ip_permissions_egress: AwsEc2SecurityGroupIpPermissionList.default(visited),
         }
       end
 
@@ -12339,7 +12339,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsEc2SecurityGroupIpPermissionList')
         visited = visited + ['AwsEc2SecurityGroupIpPermissionList']
         [
-          Stubs::AwsEc2SecurityGroupIpPermission.default(visited)
+          AwsEc2SecurityGroupIpPermission.default(visited)
         ]
       end
 
@@ -12362,10 +12362,10 @@ module AWS::SDK::SecurityHub
           ip_protocol: 'ip_protocol',
           from_port: 1,
           to_port: 1,
-          user_id_group_pairs: Stubs::AwsEc2SecurityGroupUserIdGroupPairList.default(visited),
-          ip_ranges: Stubs::AwsEc2SecurityGroupIpRangeList.default(visited),
-          ipv6_ranges: Stubs::AwsEc2SecurityGroupIpv6RangeList.default(visited),
-          prefix_list_ids: Stubs::AwsEc2SecurityGroupPrefixListIdList.default(visited),
+          user_id_group_pairs: AwsEc2SecurityGroupUserIdGroupPairList.default(visited),
+          ip_ranges: AwsEc2SecurityGroupIpRangeList.default(visited),
+          ipv6_ranges: AwsEc2SecurityGroupIpv6RangeList.default(visited),
+          prefix_list_ids: AwsEc2SecurityGroupPrefixListIdList.default(visited),
         }
       end
 
@@ -12389,7 +12389,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsEc2SecurityGroupPrefixListIdList')
         visited = visited + ['AwsEc2SecurityGroupPrefixListIdList']
         [
-          Stubs::AwsEc2SecurityGroupPrefixListId.default(visited)
+          AwsEc2SecurityGroupPrefixListId.default(visited)
         ]
       end
 
@@ -12427,7 +12427,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsEc2SecurityGroupIpv6RangeList')
         visited = visited + ['AwsEc2SecurityGroupIpv6RangeList']
         [
-          Stubs::AwsEc2SecurityGroupIpv6Range.default(visited)
+          AwsEc2SecurityGroupIpv6Range.default(visited)
         ]
       end
 
@@ -12465,7 +12465,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsEc2SecurityGroupIpRangeList')
         visited = visited + ['AwsEc2SecurityGroupIpRangeList']
         [
-          Stubs::AwsEc2SecurityGroupIpRange.default(visited)
+          AwsEc2SecurityGroupIpRange.default(visited)
         ]
       end
 
@@ -12503,7 +12503,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsEc2SecurityGroupUserIdGroupPairList')
         visited = visited + ['AwsEc2SecurityGroupUserIdGroupPairList']
         [
-          Stubs::AwsEc2SecurityGroupUserIdGroupPair.default(visited)
+          AwsEc2SecurityGroupUserIdGroupPair.default(visited)
         ]
       end
 
@@ -12551,12 +12551,12 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsEc2NetworkInterfaceDetails')
         visited = visited + ['AwsEc2NetworkInterfaceDetails']
         {
-          attachment: Stubs::AwsEc2NetworkInterfaceAttachment.default(visited),
+          attachment: AwsEc2NetworkInterfaceAttachment.default(visited),
           network_interface_id: 'network_interface_id',
-          security_groups: Stubs::AwsEc2NetworkInterfaceSecurityGroupList.default(visited),
+          security_groups: AwsEc2NetworkInterfaceSecurityGroupList.default(visited),
           source_dest_check: false,
-          ip_v6_addresses: Stubs::AwsEc2NetworkInterfaceIpV6AddressList.default(visited),
-          private_ip_addresses: Stubs::AwsEc2NetworkInterfacePrivateIpAddressList.default(visited),
+          ip_v6_addresses: AwsEc2NetworkInterfaceIpV6AddressList.default(visited),
+          private_ip_addresses: AwsEc2NetworkInterfacePrivateIpAddressList.default(visited),
           public_dns_name: 'public_dns_name',
           public_ip: 'public_ip',
         }
@@ -12583,7 +12583,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsEc2NetworkInterfacePrivateIpAddressList')
         visited = visited + ['AwsEc2NetworkInterfacePrivateIpAddressList']
         [
-          Stubs::AwsEc2NetworkInterfacePrivateIpAddressDetail.default(visited)
+          AwsEc2NetworkInterfacePrivateIpAddressDetail.default(visited)
         ]
       end
 
@@ -12623,7 +12623,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsEc2NetworkInterfaceIpV6AddressList')
         visited = visited + ['AwsEc2NetworkInterfaceIpV6AddressList']
         [
-          Stubs::AwsEc2NetworkInterfaceIpV6AddressDetail.default(visited)
+          AwsEc2NetworkInterfaceIpV6AddressDetail.default(visited)
         ]
       end
 
@@ -12661,7 +12661,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsEc2NetworkInterfaceSecurityGroupList')
         visited = visited + ['AwsEc2NetworkInterfaceSecurityGroupList']
         [
-          Stubs::AwsEc2NetworkInterfaceSecurityGroup.default(visited)
+          AwsEc2NetworkInterfaceSecurityGroup.default(visited)
         ]
       end
 
@@ -12733,14 +12733,14 @@ module AWS::SDK::SecurityHub
         {
           type: 'type',
           image_id: 'image_id',
-          ip_v4_addresses: Stubs::StringList.default(visited),
-          ip_v6_addresses: Stubs::StringList.default(visited),
+          ip_v4_addresses: StringList.default(visited),
+          ip_v6_addresses: StringList.default(visited),
           key_name: 'key_name',
           iam_instance_profile_arn: 'iam_instance_profile_arn',
           vpc_id: 'vpc_id',
           subnet_id: 'subnet_id',
           launched_at: 'launched_at',
-          network_interfaces: Stubs::AwsEc2InstanceNetworkInterfacesList.default(visited),
+          network_interfaces: AwsEc2InstanceNetworkInterfacesList.default(visited),
         }
       end
 
@@ -12767,7 +12767,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsEc2InstanceNetworkInterfacesList')
         visited = visited + ['AwsEc2InstanceNetworkInterfacesList']
         [
-          Stubs::AwsEc2InstanceNetworkInterfacesDetails.default(visited)
+          AwsEc2InstanceNetworkInterfacesDetails.default(visited)
         ]
       end
 
@@ -12805,16 +12805,16 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsCloudFrontDistributionDetails')
         visited = visited + ['AwsCloudFrontDistributionDetails']
         {
-          cache_behaviors: Stubs::AwsCloudFrontDistributionCacheBehaviors.default(visited),
-          default_cache_behavior: Stubs::AwsCloudFrontDistributionDefaultCacheBehavior.default(visited),
+          cache_behaviors: AwsCloudFrontDistributionCacheBehaviors.default(visited),
+          default_cache_behavior: AwsCloudFrontDistributionDefaultCacheBehavior.default(visited),
           default_root_object: 'default_root_object',
           domain_name: 'domain_name',
           e_tag: 'e_tag',
           last_modified_time: 'last_modified_time',
-          logging: Stubs::AwsCloudFrontDistributionLogging.default(visited),
-          origins: Stubs::AwsCloudFrontDistributionOrigins.default(visited),
-          origin_groups: Stubs::AwsCloudFrontDistributionOriginGroups.default(visited),
-          viewer_certificate: Stubs::AwsCloudFrontDistributionViewerCertificate.default(visited),
+          logging: AwsCloudFrontDistributionLogging.default(visited),
+          origins: AwsCloudFrontDistributionOrigins.default(visited),
+          origin_groups: AwsCloudFrontDistributionOriginGroups.default(visited),
+          viewer_certificate: AwsCloudFrontDistributionViewerCertificate.default(visited),
           status: 'status',
           web_acl_id: 'web_acl_id',
         }
@@ -12875,7 +12875,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsCloudFrontDistributionOriginGroups')
         visited = visited + ['AwsCloudFrontDistributionOriginGroups']
         {
-          items: Stubs::AwsCloudFrontDistributionOriginGroupsItemList.default(visited),
+          items: AwsCloudFrontDistributionOriginGroupsItemList.default(visited),
         }
       end
 
@@ -12893,7 +12893,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsCloudFrontDistributionOriginGroupsItemList')
         visited = visited + ['AwsCloudFrontDistributionOriginGroupsItemList']
         [
-          Stubs::AwsCloudFrontDistributionOriginGroup.default(visited)
+          AwsCloudFrontDistributionOriginGroup.default(visited)
         ]
       end
 
@@ -12913,7 +12913,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsCloudFrontDistributionOriginGroup')
         visited = visited + ['AwsCloudFrontDistributionOriginGroup']
         {
-          failover_criteria: Stubs::AwsCloudFrontDistributionOriginGroupFailover.default(visited),
+          failover_criteria: AwsCloudFrontDistributionOriginGroupFailover.default(visited),
         }
       end
 
@@ -12931,7 +12931,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsCloudFrontDistributionOriginGroupFailover')
         visited = visited + ['AwsCloudFrontDistributionOriginGroupFailover']
         {
-          status_codes: Stubs::AwsCloudFrontDistributionOriginGroupFailoverStatusCodes.default(visited),
+          status_codes: AwsCloudFrontDistributionOriginGroupFailoverStatusCodes.default(visited),
         }
       end
 
@@ -12949,7 +12949,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsCloudFrontDistributionOriginGroupFailoverStatusCodes')
         visited = visited + ['AwsCloudFrontDistributionOriginGroupFailoverStatusCodes']
         {
-          items: Stubs::AwsCloudFrontDistributionOriginGroupFailoverStatusCodesItemList.default(visited),
+          items: AwsCloudFrontDistributionOriginGroupFailoverStatusCodesItemList.default(visited),
           quantity: 1,
         }
       end
@@ -12989,7 +12989,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsCloudFrontDistributionOrigins')
         visited = visited + ['AwsCloudFrontDistributionOrigins']
         {
-          items: Stubs::AwsCloudFrontDistributionOriginItemList.default(visited),
+          items: AwsCloudFrontDistributionOriginItemList.default(visited),
         }
       end
 
@@ -13007,7 +13007,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsCloudFrontDistributionOriginItemList')
         visited = visited + ['AwsCloudFrontDistributionOriginItemList']
         [
-          Stubs::AwsCloudFrontDistributionOriginItem.default(visited)
+          AwsCloudFrontDistributionOriginItem.default(visited)
         ]
       end
 
@@ -13030,7 +13030,7 @@ module AWS::SDK::SecurityHub
           domain_name: 'domain_name',
           id: 'id',
           origin_path: 'origin_path',
-          s3_origin_config: Stubs::AwsCloudFrontDistributionOriginS3OriginConfig.default(visited),
+          s3_origin_config: AwsCloudFrontDistributionOriginS3OriginConfig.default(visited),
         }
       end
 
@@ -13111,7 +13111,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsCloudFrontDistributionCacheBehaviors')
         visited = visited + ['AwsCloudFrontDistributionCacheBehaviors']
         {
-          items: Stubs::AwsCloudFrontDistributionCacheBehaviorsItemList.default(visited),
+          items: AwsCloudFrontDistributionCacheBehaviorsItemList.default(visited),
         }
       end
 
@@ -13129,7 +13129,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsCloudFrontDistributionCacheBehaviorsItemList')
         visited = visited + ['AwsCloudFrontDistributionCacheBehaviorsItemList']
         [
-          Stubs::AwsCloudFrontDistributionCacheBehavior.default(visited)
+          AwsCloudFrontDistributionCacheBehavior.default(visited)
         ]
       end
 
@@ -13168,14 +13168,14 @@ module AWS::SDK::SecurityHub
         visited = visited + ['AwsCodeBuildProjectDetails']
         {
           encryption_key: 'encryption_key',
-          artifacts: Stubs::AwsCodeBuildProjectArtifactsList.default(visited),
-          environment: Stubs::AwsCodeBuildProjectEnvironment.default(visited),
+          artifacts: AwsCodeBuildProjectArtifactsList.default(visited),
+          environment: AwsCodeBuildProjectEnvironment.default(visited),
           name: 'name',
-          source: Stubs::AwsCodeBuildProjectSource.default(visited),
+          source: AwsCodeBuildProjectSource.default(visited),
           service_role: 'service_role',
-          logs_config: Stubs::AwsCodeBuildProjectLogsConfigDetails.default(visited),
-          vpc_config: Stubs::AwsCodeBuildProjectVpcConfig.default(visited),
-          secondary_artifacts: Stubs::AwsCodeBuildProjectArtifactsList.default(visited),
+          logs_config: AwsCodeBuildProjectLogsConfigDetails.default(visited),
+          vpc_config: AwsCodeBuildProjectVpcConfig.default(visited),
+          secondary_artifacts: AwsCodeBuildProjectArtifactsList.default(visited),
         }
       end
 
@@ -13201,7 +13201,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsCodeBuildProjectArtifactsList')
         visited = visited + ['AwsCodeBuildProjectArtifactsList']
         [
-          Stubs::AwsCodeBuildProjectArtifactsDetails.default(visited)
+          AwsCodeBuildProjectArtifactsDetails.default(visited)
         ]
       end
 
@@ -13256,8 +13256,8 @@ module AWS::SDK::SecurityHub
         visited = visited + ['AwsCodeBuildProjectVpcConfig']
         {
           vpc_id: 'vpc_id',
-          subnets: Stubs::NonEmptyStringList.default(visited),
-          security_group_ids: Stubs::NonEmptyStringList.default(visited),
+          subnets: NonEmptyStringList.default(visited),
+          security_group_ids: NonEmptyStringList.default(visited),
         }
       end
 
@@ -13277,8 +13277,8 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsCodeBuildProjectLogsConfigDetails')
         visited = visited + ['AwsCodeBuildProjectLogsConfigDetails']
         {
-          cloud_watch_logs: Stubs::AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails.default(visited),
-          s3_logs: Stubs::AwsCodeBuildProjectLogsConfigS3LogsDetails.default(visited),
+          cloud_watch_logs: AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails.default(visited),
+          s3_logs: AwsCodeBuildProjectLogsConfigS3LogsDetails.default(visited),
         }
       end
 
@@ -13366,10 +13366,10 @@ module AWS::SDK::SecurityHub
         visited = visited + ['AwsCodeBuildProjectEnvironment']
         {
           certificate: 'certificate',
-          environment_variables: Stubs::AwsCodeBuildProjectEnvironmentEnvironmentVariablesList.default(visited),
+          environment_variables: AwsCodeBuildProjectEnvironmentEnvironmentVariablesList.default(visited),
           privileged_mode: false,
           image_pull_credentials_type: 'image_pull_credentials_type',
-          registry_credential: Stubs::AwsCodeBuildProjectEnvironmentRegistryCredential.default(visited),
+          registry_credential: AwsCodeBuildProjectEnvironmentRegistryCredential.default(visited),
           type: 'type',
         }
       end
@@ -13413,7 +13413,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsCodeBuildProjectEnvironmentEnvironmentVariablesList')
         visited = visited + ['AwsCodeBuildProjectEnvironmentEnvironmentVariablesList']
         [
-          Stubs::AwsCodeBuildProjectEnvironmentEnvironmentVariablesDetails.default(visited)
+          AwsCodeBuildProjectEnvironmentEnvironmentVariablesDetails.default(visited)
         ]
       end
 
@@ -13456,13 +13456,13 @@ module AWS::SDK::SecurityHub
         visited = visited + ['AwsAutoScalingAutoScalingGroupDetails']
         {
           launch_configuration_name: 'launch_configuration_name',
-          load_balancer_names: Stubs::StringList.default(visited),
+          load_balancer_names: StringList.default(visited),
           health_check_type: 'health_check_type',
           health_check_grace_period: 1,
           created_time: 'created_time',
-          mixed_instances_policy: Stubs::AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetails.default(visited),
-          availability_zones: Stubs::AwsAutoScalingAutoScalingGroupAvailabilityZonesList.default(visited),
-          launch_template: Stubs::AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpecification.default(visited),
+          mixed_instances_policy: AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetails.default(visited),
+          availability_zones: AwsAutoScalingAutoScalingGroupAvailabilityZonesList.default(visited),
+          launch_template: AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpecification.default(visited),
           capacity_rebalance: false,
         }
       end
@@ -13511,7 +13511,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsAutoScalingAutoScalingGroupAvailabilityZonesList')
         visited = visited + ['AwsAutoScalingAutoScalingGroupAvailabilityZonesList']
         [
-          Stubs::AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails.default(visited)
+          AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails.default(visited)
         ]
       end
 
@@ -13549,8 +13549,8 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetails')
         visited = visited + ['AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetails']
         {
-          instances_distribution: Stubs::AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetails.default(visited),
-          launch_template: Stubs::AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetails.default(visited),
+          instances_distribution: AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetails.default(visited),
+          launch_template: AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetails.default(visited),
         }
       end
 
@@ -13569,8 +13569,8 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetails')
         visited = visited + ['AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetails']
         {
-          launch_template_specification: Stubs::AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification.default(visited),
-          overrides: Stubs::AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesList.default(visited),
+          launch_template_specification: AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification.default(visited),
+          overrides: AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesList.default(visited),
         }
       end
 
@@ -13589,7 +13589,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesList')
         visited = visited + ['AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesList']
         [
-          Stubs::AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetails.default(visited)
+          AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetails.default(visited)
         ]
       end
 
@@ -13680,7 +13680,7 @@ module AWS::SDK::SecurityHub
         visited = visited + ['DataClassificationDetails']
         {
           detailed_results_location: 'detailed_results_location',
-          result: Stubs::ClassificationResult.default(visited),
+          result: ClassificationResult.default(visited),
         }
       end
 
@@ -13702,9 +13702,9 @@ module AWS::SDK::SecurityHub
           mime_type: 'mime_type',
           size_classified: 1,
           additional_occurrences: false,
-          status: Stubs::ClassificationStatus.default(visited),
-          sensitive_data: Stubs::SensitiveDataResultList.default(visited),
-          custom_data_identifiers: Stubs::CustomDataIdentifiersResult.default(visited),
+          status: ClassificationStatus.default(visited),
+          sensitive_data: SensitiveDataResultList.default(visited),
+          custom_data_identifiers: CustomDataIdentifiersResult.default(visited),
         }
       end
 
@@ -13727,7 +13727,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('CustomDataIdentifiersResult')
         visited = visited + ['CustomDataIdentifiersResult']
         {
-          detections: Stubs::CustomDataIdentifiersDetectionsList.default(visited),
+          detections: CustomDataIdentifiersDetectionsList.default(visited),
           total_count: 1,
         }
       end
@@ -13747,7 +13747,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('CustomDataIdentifiersDetectionsList')
         visited = visited + ['CustomDataIdentifiersDetectionsList']
         [
-          Stubs::CustomDataIdentifiersDetections.default(visited)
+          CustomDataIdentifiersDetections.default(visited)
         ]
       end
 
@@ -13770,7 +13770,7 @@ module AWS::SDK::SecurityHub
           count: 1,
           arn: 'arn',
           name: 'name',
-          occurrences: Stubs::Occurrences.default(visited),
+          occurrences: Occurrences.default(visited),
         }
       end
 
@@ -13791,11 +13791,11 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('Occurrences')
         visited = visited + ['Occurrences']
         {
-          line_ranges: Stubs::Ranges.default(visited),
-          offset_ranges: Stubs::Ranges.default(visited),
-          pages: Stubs::Pages.default(visited),
-          records: Stubs::Records.default(visited),
-          cells: Stubs::Cells.default(visited),
+          line_ranges: Ranges.default(visited),
+          offset_ranges: Ranges.default(visited),
+          pages: Pages.default(visited),
+          records: Records.default(visited),
+          cells: Cells.default(visited),
         }
       end
 
@@ -13817,7 +13817,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('Cells')
         visited = visited + ['Cells']
         [
-          Stubs::Cell.default(visited)
+          Cell.default(visited)
         ]
       end
 
@@ -13861,7 +13861,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('Records')
         visited = visited + ['Records']
         [
-          Stubs::Record.default(visited)
+          Record.default(visited)
         ]
       end
 
@@ -13901,7 +13901,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('Pages')
         visited = visited + ['Pages']
         [
-          Stubs::Page.default(visited)
+          Page.default(visited)
         ]
       end
 
@@ -13922,8 +13922,8 @@ module AWS::SDK::SecurityHub
         visited = visited + ['Page']
         {
           page_number: 1,
-          line_range: Stubs::Range.default(visited),
-          offset_range: Stubs::Range.default(visited),
+          line_range: Range.default(visited),
+          offset_range: Range.default(visited),
         }
       end
 
@@ -13965,7 +13965,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('Ranges')
         visited = visited + ['Ranges']
         [
-          Stubs::Range.default(visited)
+          Range.default(visited)
         ]
       end
 
@@ -13985,7 +13985,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('SensitiveDataResultList')
         visited = visited + ['SensitiveDataResultList']
         [
-          Stubs::SensitiveDataResult.default(visited)
+          SensitiveDataResult.default(visited)
         ]
       end
 
@@ -14006,7 +14006,7 @@ module AWS::SDK::SecurityHub
         visited = visited + ['SensitiveDataResult']
         {
           category: 'category',
-          detections: Stubs::SensitiveDataDetectionsList.default(visited),
+          detections: SensitiveDataDetectionsList.default(visited),
           total_count: 1,
         }
       end
@@ -14027,7 +14027,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('SensitiveDataDetectionsList')
         visited = visited + ['SensitiveDataDetectionsList']
         [
-          Stubs::SensitiveDataDetections.default(visited)
+          SensitiveDataDetections.default(visited)
         ]
       end
 
@@ -14049,7 +14049,7 @@ module AWS::SDK::SecurityHub
         {
           count: 1,
           type: 'type',
-          occurrences: Stubs::Occurrences.default(visited),
+          occurrences: Occurrences.default(visited),
         }
       end
 
@@ -14089,7 +14089,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('ThreatIntelIndicatorList')
         visited = visited + ['ThreatIntelIndicatorList']
         [
-          Stubs::ThreatIntelIndicator.default(visited)
+          ThreatIntelIndicator.default(visited)
         ]
       end
 
@@ -14165,7 +14165,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('NetworkPathList')
         visited = visited + ['NetworkPathList']
         [
-          Stubs::NetworkPathComponent.default(visited)
+          NetworkPathComponent.default(visited)
         ]
       end
 
@@ -14187,8 +14187,8 @@ module AWS::SDK::SecurityHub
         {
           component_id: 'component_id',
           component_type: 'component_type',
-          egress: Stubs::NetworkHeader.default(visited),
-          ingress: Stubs::NetworkHeader.default(visited),
+          egress: NetworkHeader.default(visited),
+          ingress: NetworkHeader.default(visited),
         }
       end
 
@@ -14210,8 +14210,8 @@ module AWS::SDK::SecurityHub
         visited = visited + ['NetworkHeader']
         {
           protocol: 'protocol',
-          destination: Stubs::NetworkPathComponentDetails.default(visited),
-          source: Stubs::NetworkPathComponentDetails.default(visited),
+          destination: NetworkPathComponentDetails.default(visited),
+          source: NetworkPathComponentDetails.default(visited),
         }
       end
 
@@ -14231,8 +14231,8 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('NetworkPathComponentDetails')
         visited = visited + ['NetworkPathComponentDetails']
         {
-          address: Stubs::StringList.default(visited),
-          port_ranges: Stubs::PortRangeList.default(visited),
+          address: StringList.default(visited),
+          port_ranges: PortRangeList.default(visited),
         }
       end
 
@@ -14251,7 +14251,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('PortRangeList')
         visited = visited + ['PortRangeList']
         [
-          Stubs::PortRange.default(visited)
+          PortRange.default(visited)
         ]
       end
 
@@ -14293,7 +14293,7 @@ module AWS::SDK::SecurityHub
         {
           direction: 'direction',
           protocol: 'protocol',
-          open_port_range: Stubs::PortRange.default(visited),
+          open_port_range: PortRange.default(visited),
           source_ip_v4: 'source_ip_v4',
           source_ip_v6: 'source_ip_v6',
           source_port: 1,
@@ -14331,7 +14331,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('MalwareList')
         visited = visited + ['MalwareList']
         [
-          Stubs::Malware.default(visited)
+          Malware.default(visited)
         ]
       end
 
@@ -14375,7 +14375,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('Remediation')
         visited = visited + ['Remediation']
         {
-          recommendation: Stubs::Recommendation.default(visited),
+          recommendation: Recommendation.default(visited),
         }
       end
 
@@ -14435,7 +14435,7 @@ module AWS::SDK::SecurityHub
     class GetInsightResults
       def self.default(visited=[])
         {
-          insight_results: Stubs::InsightResults.default(visited),
+          insight_results: InsightResults.default(visited),
         }
       end
 
@@ -14456,7 +14456,7 @@ module AWS::SDK::SecurityHub
         {
           insight_arn: 'insight_arn',
           group_by_attribute: 'group_by_attribute',
-          result_values: Stubs::InsightResultValueList.default(visited),
+          result_values: InsightResultValueList.default(visited),
         }
       end
 
@@ -14476,7 +14476,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('InsightResultValueList')
         visited = visited + ['InsightResultValueList']
         [
-          Stubs::InsightResultValue.default(visited)
+          InsightResultValue.default(visited)
         ]
       end
 
@@ -14514,7 +14514,7 @@ module AWS::SDK::SecurityHub
     class GetInsights
       def self.default(visited=[])
         {
-          insights: Stubs::InsightList.default(visited),
+          insights: InsightList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -14535,7 +14535,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('InsightList')
         visited = visited + ['InsightList']
         [
-          Stubs::Insight.default(visited)
+          Insight.default(visited)
         ]
       end
 
@@ -14557,7 +14557,7 @@ module AWS::SDK::SecurityHub
         {
           insight_arn: 'insight_arn',
           name: 'name',
-          filters: Stubs::AwsSecurityFindingFilters.default(visited),
+          filters: AwsSecurityFindingFilters.default(visited),
           group_by_attribute: 'group_by_attribute',
         }
       end
@@ -14579,101 +14579,101 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AwsSecurityFindingFilters')
         visited = visited + ['AwsSecurityFindingFilters']
         {
-          product_arn: Stubs::StringFilterList.default(visited),
-          aws_account_id: Stubs::StringFilterList.default(visited),
-          id: Stubs::StringFilterList.default(visited),
-          generator_id: Stubs::StringFilterList.default(visited),
-          region: Stubs::StringFilterList.default(visited),
-          type: Stubs::StringFilterList.default(visited),
-          first_observed_at: Stubs::DateFilterList.default(visited),
-          last_observed_at: Stubs::DateFilterList.default(visited),
-          created_at: Stubs::DateFilterList.default(visited),
-          updated_at: Stubs::DateFilterList.default(visited),
-          severity_product: Stubs::NumberFilterList.default(visited),
-          severity_normalized: Stubs::NumberFilterList.default(visited),
-          severity_label: Stubs::StringFilterList.default(visited),
-          confidence: Stubs::NumberFilterList.default(visited),
-          criticality: Stubs::NumberFilterList.default(visited),
-          title: Stubs::StringFilterList.default(visited),
-          description: Stubs::StringFilterList.default(visited),
-          recommendation_text: Stubs::StringFilterList.default(visited),
-          source_url: Stubs::StringFilterList.default(visited),
-          product_fields: Stubs::MapFilterList.default(visited),
-          product_name: Stubs::StringFilterList.default(visited),
-          company_name: Stubs::StringFilterList.default(visited),
-          user_defined_fields: Stubs::MapFilterList.default(visited),
-          malware_name: Stubs::StringFilterList.default(visited),
-          malware_type: Stubs::StringFilterList.default(visited),
-          malware_path: Stubs::StringFilterList.default(visited),
-          malware_state: Stubs::StringFilterList.default(visited),
-          network_direction: Stubs::StringFilterList.default(visited),
-          network_protocol: Stubs::StringFilterList.default(visited),
-          network_source_ip_v4: Stubs::IpFilterList.default(visited),
-          network_source_ip_v6: Stubs::IpFilterList.default(visited),
-          network_source_port: Stubs::NumberFilterList.default(visited),
-          network_source_domain: Stubs::StringFilterList.default(visited),
-          network_source_mac: Stubs::StringFilterList.default(visited),
-          network_destination_ip_v4: Stubs::IpFilterList.default(visited),
-          network_destination_ip_v6: Stubs::IpFilterList.default(visited),
-          network_destination_port: Stubs::NumberFilterList.default(visited),
-          network_destination_domain: Stubs::StringFilterList.default(visited),
-          process_name: Stubs::StringFilterList.default(visited),
-          process_path: Stubs::StringFilterList.default(visited),
-          process_pid: Stubs::NumberFilterList.default(visited),
-          process_parent_pid: Stubs::NumberFilterList.default(visited),
-          process_launched_at: Stubs::DateFilterList.default(visited),
-          process_terminated_at: Stubs::DateFilterList.default(visited),
-          threat_intel_indicator_type: Stubs::StringFilterList.default(visited),
-          threat_intel_indicator_value: Stubs::StringFilterList.default(visited),
-          threat_intel_indicator_category: Stubs::StringFilterList.default(visited),
-          threat_intel_indicator_last_observed_at: Stubs::DateFilterList.default(visited),
-          threat_intel_indicator_source: Stubs::StringFilterList.default(visited),
-          threat_intel_indicator_source_url: Stubs::StringFilterList.default(visited),
-          resource_type: Stubs::StringFilterList.default(visited),
-          resource_id: Stubs::StringFilterList.default(visited),
-          resource_partition: Stubs::StringFilterList.default(visited),
-          resource_region: Stubs::StringFilterList.default(visited),
-          resource_tags: Stubs::MapFilterList.default(visited),
-          resource_aws_ec2_instance_type: Stubs::StringFilterList.default(visited),
-          resource_aws_ec2_instance_image_id: Stubs::StringFilterList.default(visited),
-          resource_aws_ec2_instance_ip_v4_addresses: Stubs::IpFilterList.default(visited),
-          resource_aws_ec2_instance_ip_v6_addresses: Stubs::IpFilterList.default(visited),
-          resource_aws_ec2_instance_key_name: Stubs::StringFilterList.default(visited),
-          resource_aws_ec2_instance_iam_instance_profile_arn: Stubs::StringFilterList.default(visited),
-          resource_aws_ec2_instance_vpc_id: Stubs::StringFilterList.default(visited),
-          resource_aws_ec2_instance_subnet_id: Stubs::StringFilterList.default(visited),
-          resource_aws_ec2_instance_launched_at: Stubs::DateFilterList.default(visited),
-          resource_aws_s3_bucket_owner_id: Stubs::StringFilterList.default(visited),
-          resource_aws_s3_bucket_owner_name: Stubs::StringFilterList.default(visited),
-          resource_aws_iam_access_key_user_name: Stubs::StringFilterList.default(visited),
-          resource_aws_iam_access_key_principal_name: Stubs::StringFilterList.default(visited),
-          resource_aws_iam_access_key_status: Stubs::StringFilterList.default(visited),
-          resource_aws_iam_access_key_created_at: Stubs::DateFilterList.default(visited),
-          resource_aws_iam_user_user_name: Stubs::StringFilterList.default(visited),
-          resource_container_name: Stubs::StringFilterList.default(visited),
-          resource_container_image_id: Stubs::StringFilterList.default(visited),
-          resource_container_image_name: Stubs::StringFilterList.default(visited),
-          resource_container_launched_at: Stubs::DateFilterList.default(visited),
-          resource_details_other: Stubs::MapFilterList.default(visited),
-          compliance_status: Stubs::StringFilterList.default(visited),
-          verification_state: Stubs::StringFilterList.default(visited),
-          workflow_state: Stubs::StringFilterList.default(visited),
-          workflow_status: Stubs::StringFilterList.default(visited),
-          record_state: Stubs::StringFilterList.default(visited),
-          related_findings_product_arn: Stubs::StringFilterList.default(visited),
-          related_findings_id: Stubs::StringFilterList.default(visited),
-          note_text: Stubs::StringFilterList.default(visited),
-          note_updated_at: Stubs::DateFilterList.default(visited),
-          note_updated_by: Stubs::StringFilterList.default(visited),
-          keyword: Stubs::KeywordFilterList.default(visited),
-          finding_provider_fields_confidence: Stubs::NumberFilterList.default(visited),
-          finding_provider_fields_criticality: Stubs::NumberFilterList.default(visited),
-          finding_provider_fields_related_findings_id: Stubs::StringFilterList.default(visited),
-          finding_provider_fields_related_findings_product_arn: Stubs::StringFilterList.default(visited),
-          finding_provider_fields_severity_label: Stubs::StringFilterList.default(visited),
-          finding_provider_fields_severity_original: Stubs::StringFilterList.default(visited),
-          finding_provider_fields_types: Stubs::StringFilterList.default(visited),
-          sample: Stubs::BooleanFilterList.default(visited),
+          product_arn: StringFilterList.default(visited),
+          aws_account_id: StringFilterList.default(visited),
+          id: StringFilterList.default(visited),
+          generator_id: StringFilterList.default(visited),
+          region: StringFilterList.default(visited),
+          type: StringFilterList.default(visited),
+          first_observed_at: DateFilterList.default(visited),
+          last_observed_at: DateFilterList.default(visited),
+          created_at: DateFilterList.default(visited),
+          updated_at: DateFilterList.default(visited),
+          severity_product: NumberFilterList.default(visited),
+          severity_normalized: NumberFilterList.default(visited),
+          severity_label: StringFilterList.default(visited),
+          confidence: NumberFilterList.default(visited),
+          criticality: NumberFilterList.default(visited),
+          title: StringFilterList.default(visited),
+          description: StringFilterList.default(visited),
+          recommendation_text: StringFilterList.default(visited),
+          source_url: StringFilterList.default(visited),
+          product_fields: MapFilterList.default(visited),
+          product_name: StringFilterList.default(visited),
+          company_name: StringFilterList.default(visited),
+          user_defined_fields: MapFilterList.default(visited),
+          malware_name: StringFilterList.default(visited),
+          malware_type: StringFilterList.default(visited),
+          malware_path: StringFilterList.default(visited),
+          malware_state: StringFilterList.default(visited),
+          network_direction: StringFilterList.default(visited),
+          network_protocol: StringFilterList.default(visited),
+          network_source_ip_v4: IpFilterList.default(visited),
+          network_source_ip_v6: IpFilterList.default(visited),
+          network_source_port: NumberFilterList.default(visited),
+          network_source_domain: StringFilterList.default(visited),
+          network_source_mac: StringFilterList.default(visited),
+          network_destination_ip_v4: IpFilterList.default(visited),
+          network_destination_ip_v6: IpFilterList.default(visited),
+          network_destination_port: NumberFilterList.default(visited),
+          network_destination_domain: StringFilterList.default(visited),
+          process_name: StringFilterList.default(visited),
+          process_path: StringFilterList.default(visited),
+          process_pid: NumberFilterList.default(visited),
+          process_parent_pid: NumberFilterList.default(visited),
+          process_launched_at: DateFilterList.default(visited),
+          process_terminated_at: DateFilterList.default(visited),
+          threat_intel_indicator_type: StringFilterList.default(visited),
+          threat_intel_indicator_value: StringFilterList.default(visited),
+          threat_intel_indicator_category: StringFilterList.default(visited),
+          threat_intel_indicator_last_observed_at: DateFilterList.default(visited),
+          threat_intel_indicator_source: StringFilterList.default(visited),
+          threat_intel_indicator_source_url: StringFilterList.default(visited),
+          resource_type: StringFilterList.default(visited),
+          resource_id: StringFilterList.default(visited),
+          resource_partition: StringFilterList.default(visited),
+          resource_region: StringFilterList.default(visited),
+          resource_tags: MapFilterList.default(visited),
+          resource_aws_ec2_instance_type: StringFilterList.default(visited),
+          resource_aws_ec2_instance_image_id: StringFilterList.default(visited),
+          resource_aws_ec2_instance_ip_v4_addresses: IpFilterList.default(visited),
+          resource_aws_ec2_instance_ip_v6_addresses: IpFilterList.default(visited),
+          resource_aws_ec2_instance_key_name: StringFilterList.default(visited),
+          resource_aws_ec2_instance_iam_instance_profile_arn: StringFilterList.default(visited),
+          resource_aws_ec2_instance_vpc_id: StringFilterList.default(visited),
+          resource_aws_ec2_instance_subnet_id: StringFilterList.default(visited),
+          resource_aws_ec2_instance_launched_at: DateFilterList.default(visited),
+          resource_aws_s3_bucket_owner_id: StringFilterList.default(visited),
+          resource_aws_s3_bucket_owner_name: StringFilterList.default(visited),
+          resource_aws_iam_access_key_user_name: StringFilterList.default(visited),
+          resource_aws_iam_access_key_principal_name: StringFilterList.default(visited),
+          resource_aws_iam_access_key_status: StringFilterList.default(visited),
+          resource_aws_iam_access_key_created_at: DateFilterList.default(visited),
+          resource_aws_iam_user_user_name: StringFilterList.default(visited),
+          resource_container_name: StringFilterList.default(visited),
+          resource_container_image_id: StringFilterList.default(visited),
+          resource_container_image_name: StringFilterList.default(visited),
+          resource_container_launched_at: DateFilterList.default(visited),
+          resource_details_other: MapFilterList.default(visited),
+          compliance_status: StringFilterList.default(visited),
+          verification_state: StringFilterList.default(visited),
+          workflow_state: StringFilterList.default(visited),
+          workflow_status: StringFilterList.default(visited),
+          record_state: StringFilterList.default(visited),
+          related_findings_product_arn: StringFilterList.default(visited),
+          related_findings_id: StringFilterList.default(visited),
+          note_text: StringFilterList.default(visited),
+          note_updated_at: DateFilterList.default(visited),
+          note_updated_by: StringFilterList.default(visited),
+          keyword: KeywordFilterList.default(visited),
+          finding_provider_fields_confidence: NumberFilterList.default(visited),
+          finding_provider_fields_criticality: NumberFilterList.default(visited),
+          finding_provider_fields_related_findings_id: StringFilterList.default(visited),
+          finding_provider_fields_related_findings_product_arn: StringFilterList.default(visited),
+          finding_provider_fields_severity_label: StringFilterList.default(visited),
+          finding_provider_fields_severity_original: StringFilterList.default(visited),
+          finding_provider_fields_types: StringFilterList.default(visited),
+          sample: BooleanFilterList.default(visited),
         }
       end
 
@@ -14785,7 +14785,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('BooleanFilterList')
         visited = visited + ['BooleanFilterList']
         [
-          Stubs::BooleanFilter.default(visited)
+          BooleanFilter.default(visited)
         ]
       end
 
@@ -14823,7 +14823,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('StringFilterList')
         visited = visited + ['StringFilterList']
         [
-          Stubs::StringFilter.default(visited)
+          StringFilter.default(visited)
         ]
       end
 
@@ -14863,7 +14863,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('NumberFilterList')
         visited = visited + ['NumberFilterList']
         [
-          Stubs::NumberFilter.default(visited)
+          NumberFilter.default(visited)
         ]
       end
 
@@ -14905,7 +14905,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('KeywordFilterList')
         visited = visited + ['KeywordFilterList']
         [
-          Stubs::KeywordFilter.default(visited)
+          KeywordFilter.default(visited)
         ]
       end
 
@@ -14943,7 +14943,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('DateFilterList')
         visited = visited + ['DateFilterList']
         [
-          Stubs::DateFilter.default(visited)
+          DateFilter.default(visited)
         ]
       end
 
@@ -14965,7 +14965,7 @@ module AWS::SDK::SecurityHub
         {
           start: 'start',
           end: 'end',
-          date_range: Stubs::DateRange.default(visited),
+          date_range: DateRange.default(visited),
         }
       end
 
@@ -15005,7 +15005,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('MapFilterList')
         visited = visited + ['MapFilterList']
         [
-          Stubs::MapFilter.default(visited)
+          MapFilter.default(visited)
         ]
       end
 
@@ -15047,7 +15047,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('IpFilterList')
         visited = visited + ['IpFilterList']
         [
-          Stubs::IpFilter.default(visited)
+          IpFilter.default(visited)
         ]
       end
 
@@ -15100,7 +15100,7 @@ module AWS::SDK::SecurityHub
     class GetMasterAccount
       def self.default(visited=[])
         {
-          master: Stubs::Invitation.default(visited),
+          master: Invitation.default(visited),
         }
       end
 
@@ -15117,8 +15117,8 @@ module AWS::SDK::SecurityHub
     class GetMembers
       def self.default(visited=[])
         {
-          members: Stubs::MemberList.default(visited),
-          unprocessed_accounts: Stubs::ResultList.default(visited),
+          members: MemberList.default(visited),
+          unprocessed_accounts: ResultList.default(visited),
         }
       end
 
@@ -15138,7 +15138,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('MemberList')
         visited = visited + ['MemberList']
         [
-          Stubs::Member.default(visited)
+          Member.default(visited)
         ]
       end
 
@@ -15186,7 +15186,7 @@ module AWS::SDK::SecurityHub
     class InviteMembers
       def self.default(visited=[])
         {
-          unprocessed_accounts: Stubs::ResultList.default(visited),
+          unprocessed_accounts: ResultList.default(visited),
         }
       end
 
@@ -15203,7 +15203,7 @@ module AWS::SDK::SecurityHub
     class ListEnabledProductsForImport
       def self.default(visited=[])
         {
-          product_subscriptions: Stubs::ProductSubscriptionArnList.default(visited),
+          product_subscriptions: ProductSubscriptionArnList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -15242,7 +15242,7 @@ module AWS::SDK::SecurityHub
     class ListFindingAggregators
       def self.default(visited=[])
         {
-          finding_aggregators: Stubs::FindingAggregatorList.default(visited),
+          finding_aggregators: FindingAggregatorList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -15263,7 +15263,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('FindingAggregatorList')
         visited = visited + ['FindingAggregatorList']
         [
-          Stubs::FindingAggregator.default(visited)
+          FindingAggregator.default(visited)
         ]
       end
 
@@ -15299,7 +15299,7 @@ module AWS::SDK::SecurityHub
     class ListInvitations
       def self.default(visited=[])
         {
-          invitations: Stubs::InvitationList.default(visited),
+          invitations: InvitationList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -15320,7 +15320,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('InvitationList')
         visited = visited + ['InvitationList']
         [
-          Stubs::Invitation.default(visited)
+          Invitation.default(visited)
         ]
       end
 
@@ -15338,7 +15338,7 @@ module AWS::SDK::SecurityHub
     class ListMembers
       def self.default(visited=[])
         {
-          members: Stubs::MemberList.default(visited),
+          members: MemberList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -15357,7 +15357,7 @@ module AWS::SDK::SecurityHub
     class ListOrganizationAdminAccounts
       def self.default(visited=[])
         {
-          admin_accounts: Stubs::AdminAccounts.default(visited),
+          admin_accounts: AdminAccounts.default(visited),
           next_token: 'next_token',
         }
       end
@@ -15378,7 +15378,7 @@ module AWS::SDK::SecurityHub
         return nil if visited.include?('AdminAccounts')
         visited = visited + ['AdminAccounts']
         [
-          Stubs::AdminAccount.default(visited)
+          AdminAccount.default(visited)
         ]
       end
 
@@ -15416,7 +15416,7 @@ module AWS::SDK::SecurityHub
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -15495,7 +15495,7 @@ module AWS::SDK::SecurityHub
           finding_aggregator_arn: 'finding_aggregator_arn',
           finding_aggregation_region: 'finding_aggregation_region',
           region_linking_mode: 'region_linking_mode',
-          regions: Stubs::StringList.default(visited),
+          regions: StringList.default(visited),
         }
       end
 

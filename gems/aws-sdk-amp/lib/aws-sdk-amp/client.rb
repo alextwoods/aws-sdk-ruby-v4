@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::Amp
@@ -68,7 +70,7 @@ module AWS::SDK::Amp
     def create_alert_manager_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateAlertManagerDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateAlertManagerDefinitionInput,
         validate_input: @config.validate_input
@@ -161,7 +163,7 @@ module AWS::SDK::Amp
     def create_rule_groups_namespace(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateRuleGroupsNamespaceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateRuleGroupsNamespaceInput,
         validate_input: @config.validate_input
@@ -245,7 +247,7 @@ module AWS::SDK::Amp
     def create_workspace(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateWorkspaceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateWorkspaceInput,
         validate_input: @config.validate_input
@@ -317,7 +319,7 @@ module AWS::SDK::Amp
     def delete_alert_manager_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAlertManagerDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAlertManagerDefinitionInput,
         validate_input: @config.validate_input
@@ -392,7 +394,7 @@ module AWS::SDK::Amp
     def delete_rule_groups_namespace(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteRuleGroupsNamespaceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteRuleGroupsNamespaceInput,
         validate_input: @config.validate_input
@@ -463,7 +465,7 @@ module AWS::SDK::Amp
     def delete_workspace(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteWorkspaceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteWorkspaceInput,
         validate_input: @config.validate_input
@@ -537,7 +539,7 @@ module AWS::SDK::Amp
     def describe_alert_manager_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAlertManagerDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAlertManagerDefinitionInput,
         validate_input: @config.validate_input
@@ -619,7 +621,7 @@ module AWS::SDK::Amp
     def describe_rule_groups_namespace(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeRuleGroupsNamespaceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeRuleGroupsNamespaceInput,
         validate_input: @config.validate_input
@@ -696,7 +698,7 @@ module AWS::SDK::Amp
     def describe_workspace(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeWorkspaceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeWorkspaceInput,
         validate_input: @config.validate_input
@@ -787,7 +789,7 @@ module AWS::SDK::Amp
     def list_rule_groups_namespaces(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListRuleGroupsNamespacesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListRuleGroupsNamespacesInput,
         validate_input: @config.validate_input
@@ -856,7 +858,7 @@ module AWS::SDK::Amp
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -942,7 +944,7 @@ module AWS::SDK::Amp
     def list_workspaces(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListWorkspacesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListWorkspacesInput,
         validate_input: @config.validate_input
@@ -1020,7 +1022,7 @@ module AWS::SDK::Amp
     def put_alert_manager_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutAlertManagerDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutAlertManagerDefinitionInput,
         validate_input: @config.validate_input
@@ -1107,7 +1109,7 @@ module AWS::SDK::Amp
     def put_rule_groups_namespace(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutRuleGroupsNamespaceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutRuleGroupsNamespaceInput,
         validate_input: @config.validate_input
@@ -1181,7 +1183,7 @@ module AWS::SDK::Amp
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -1255,7 +1257,7 @@ module AWS::SDK::Amp
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -1330,7 +1332,7 @@ module AWS::SDK::Amp
     def update_workspace_alias(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateWorkspaceAliasInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateWorkspaceAliasInput,
         validate_input: @config.validate_input

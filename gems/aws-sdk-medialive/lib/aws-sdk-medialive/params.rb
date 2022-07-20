@@ -744,7 +744,7 @@ module AWS::SDK::MediaLive
         type.log_level = params[:log_level]
         type.maintenance = MaintenanceCreateSettings.build(params[:maintenance], context: "#{context}[:maintenance]") unless params[:maintenance].nil?
         type.name = params[:name]
-        type.request_id = params[:request_id] || SecureRandom.uuid
+        type.request_id = params[:request_id] || ::SecureRandom.uuid
         type.reserved = params[:reserved]
         type.role_arn = params[:role_arn]
         type.tags = Tags.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
@@ -771,7 +771,7 @@ module AWS::SDK::MediaLive
         type.input_security_groups = List____listOf__string.build(params[:input_security_groups], context: "#{context}[:input_security_groups]") unless params[:input_security_groups].nil?
         type.media_connect_flows = List____listOfMediaConnectFlowRequest.build(params[:media_connect_flows], context: "#{context}[:media_connect_flows]") unless params[:media_connect_flows].nil?
         type.name = params[:name]
-        type.request_id = params[:request_id] || SecureRandom.uuid
+        type.request_id = params[:request_id] || ::SecureRandom.uuid
         type.role_arn = params[:role_arn]
         type.sources = List____listOfInputSourceRequest.build(params[:sources], context: "#{context}[:sources]") unless params[:sources].nil?
         type.tags = Tags.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
@@ -816,7 +816,7 @@ module AWS::SDK::MediaLive
         type.availability_zones = List____listOf__string.build(params[:availability_zones], context: "#{context}[:availability_zones]") unless params[:availability_zones].nil?
         type.multiplex_settings = MultiplexSettings.build(params[:multiplex_settings], context: "#{context}[:multiplex_settings]") unless params[:multiplex_settings].nil?
         type.name = params[:name]
-        type.request_id = params[:request_id] || SecureRandom.uuid
+        type.request_id = params[:request_id] || ::SecureRandom.uuid
         type.tags = Tags.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type
       end
@@ -838,7 +838,7 @@ module AWS::SDK::MediaLive
         type.multiplex_id = params[:multiplex_id]
         type.multiplex_program_settings = MultiplexProgramSettings.build(params[:multiplex_program_settings], context: "#{context}[:multiplex_program_settings]") unless params[:multiplex_program_settings].nil?
         type.program_name = params[:program_name]
-        type.request_id = params[:request_id] || SecureRandom.uuid
+        type.request_id = params[:request_id] || ::SecureRandom.uuid
         type
       end
     end
@@ -857,7 +857,7 @@ module AWS::SDK::MediaLive
         Hearth::Validator.validate!(params, ::Hash, Types::CreatePartnerInputInput, context: context)
         type = Types::CreatePartnerInputInput.new
         type.input_id = params[:input_id]
-        type.request_id = params[:request_id] || SecureRandom.uuid
+        type.request_id = params[:request_id] || ::SecureRandom.uuid
         type.tags = Tags.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type
       end
@@ -3262,7 +3262,7 @@ module AWS::SDK::MediaLive
         type.count = params[:count]
         type.name = params[:name]
         type.offering_id = params[:offering_id]
-        type.request_id = params[:request_id] || SecureRandom.uuid
+        type.request_id = params[:request_id] || ::SecureRandom.uuid
         type.start = params[:start]
         type.tags = Tags.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type

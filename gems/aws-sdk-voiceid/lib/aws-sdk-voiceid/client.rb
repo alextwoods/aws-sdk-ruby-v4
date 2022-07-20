@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::VoiceID
@@ -102,7 +104,7 @@ module AWS::SDK::VoiceID
     def create_domain(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDomainInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDomainInput,
         validate_input: @config.validate_input
@@ -170,7 +172,7 @@ module AWS::SDK::VoiceID
     def delete_domain(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDomainInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDomainInput,
         validate_input: @config.validate_input
@@ -242,7 +244,7 @@ module AWS::SDK::VoiceID
     def delete_fraudster(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteFraudsterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteFraudsterInput,
         validate_input: @config.validate_input
@@ -314,7 +316,7 @@ module AWS::SDK::VoiceID
     def delete_speaker(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteSpeakerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteSpeakerInput,
         validate_input: @config.validate_input
@@ -396,7 +398,7 @@ module AWS::SDK::VoiceID
     def describe_domain(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDomainInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDomainInput,
         validate_input: @config.validate_input
@@ -472,7 +474,7 @@ module AWS::SDK::VoiceID
     def describe_fraudster(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeFraudsterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeFraudsterInput,
         validate_input: @config.validate_input
@@ -565,7 +567,7 @@ module AWS::SDK::VoiceID
     def describe_fraudster_registration_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeFraudsterRegistrationJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeFraudsterRegistrationJobInput,
         validate_input: @config.validate_input
@@ -645,7 +647,7 @@ module AWS::SDK::VoiceID
     def describe_speaker(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeSpeakerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeSpeakerInput,
         validate_input: @config.validate_input
@@ -740,7 +742,7 @@ module AWS::SDK::VoiceID
     def describe_speaker_enrollment_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeSpeakerEnrollmentJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeSpeakerEnrollmentJobInput,
         validate_input: @config.validate_input
@@ -841,7 +843,7 @@ module AWS::SDK::VoiceID
     def evaluate_session(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::EvaluateSessionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::EvaluateSessionInput,
         validate_input: @config.validate_input
@@ -935,7 +937,7 @@ module AWS::SDK::VoiceID
     def list_domains(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDomainsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDomainsInput,
         validate_input: @config.validate_input
@@ -1037,7 +1039,7 @@ module AWS::SDK::VoiceID
     def list_fraudster_registration_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListFraudsterRegistrationJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListFraudsterRegistrationJobsInput,
         validate_input: @config.validate_input
@@ -1138,7 +1140,7 @@ module AWS::SDK::VoiceID
     def list_speaker_enrollment_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListSpeakerEnrollmentJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListSpeakerEnrollmentJobsInput,
         validate_input: @config.validate_input
@@ -1229,7 +1231,7 @@ module AWS::SDK::VoiceID
     def list_speakers(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListSpeakersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListSpeakersInput,
         validate_input: @config.validate_input
@@ -1301,7 +1303,7 @@ module AWS::SDK::VoiceID
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -1385,7 +1387,7 @@ module AWS::SDK::VoiceID
     def opt_out_speaker(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::OptOutSpeakerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::OptOutSpeakerInput,
         validate_input: @config.validate_input
@@ -1514,7 +1516,7 @@ module AWS::SDK::VoiceID
     def start_fraudster_registration_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartFraudsterRegistrationJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartFraudsterRegistrationJobInput,
         validate_input: @config.validate_input
@@ -1648,7 +1650,7 @@ module AWS::SDK::VoiceID
     def start_speaker_enrollment_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartSpeakerEnrollmentJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartSpeakerEnrollmentJobInput,
         validate_input: @config.validate_input
@@ -1725,7 +1727,7 @@ module AWS::SDK::VoiceID
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -1799,7 +1801,7 @@ module AWS::SDK::VoiceID
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -1898,7 +1900,7 @@ module AWS::SDK::VoiceID
     def update_domain(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDomainInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDomainInput,
         validate_input: @config.validate_input

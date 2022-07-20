@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::CostExplorer
@@ -137,7 +139,7 @@ module AWS::SDK::CostExplorer
     def create_anomaly_monitor(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateAnomalyMonitorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateAnomalyMonitorInput,
         validate_input: @config.validate_input
@@ -261,7 +263,7 @@ module AWS::SDK::CostExplorer
     def create_anomaly_subscription(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateAnomalySubscriptionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateAnomalySubscriptionInput,
         validate_input: @config.validate_input
@@ -430,7 +432,7 @@ module AWS::SDK::CostExplorer
     def create_cost_category_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateCostCategoryDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateCostCategoryDefinitionInput,
         validate_input: @config.validate_input
@@ -498,7 +500,7 @@ module AWS::SDK::CostExplorer
     def delete_anomaly_monitor(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAnomalyMonitorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAnomalyMonitorInput,
         validate_input: @config.validate_input
@@ -566,7 +568,7 @@ module AWS::SDK::CostExplorer
     def delete_anomaly_subscription(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAnomalySubscriptionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAnomalySubscriptionInput,
         validate_input: @config.validate_input
@@ -636,7 +638,7 @@ module AWS::SDK::CostExplorer
     def delete_cost_category_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteCostCategoryDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteCostCategoryDefinitionInput,
         validate_input: @config.validate_input
@@ -760,7 +762,7 @@ module AWS::SDK::CostExplorer
     def describe_cost_category_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeCostCategoryDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeCostCategoryDefinitionInput,
         validate_input: @config.validate_input
@@ -882,7 +884,7 @@ module AWS::SDK::CostExplorer
     def get_anomalies(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAnomaliesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAnomaliesInput,
         validate_input: @config.validate_input
@@ -991,7 +993,7 @@ module AWS::SDK::CostExplorer
     def get_anomaly_monitors(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAnomalyMonitorsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAnomalyMonitorsInput,
         validate_input: @config.validate_input
@@ -1090,7 +1092,7 @@ module AWS::SDK::CostExplorer
     def get_anomaly_subscriptions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAnomalySubscriptionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAnomalySubscriptionsInput,
         validate_input: @config.validate_input
@@ -1263,7 +1265,7 @@ module AWS::SDK::CostExplorer
     def get_cost_and_usage(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCostAndUsageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCostAndUsageInput,
         validate_input: @config.validate_input
@@ -1438,7 +1440,7 @@ module AWS::SDK::CostExplorer
     def get_cost_and_usage_with_resources(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCostAndUsageWithResourcesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCostAndUsageWithResourcesInput,
         validate_input: @config.validate_input
@@ -1670,7 +1672,7 @@ module AWS::SDK::CostExplorer
     def get_cost_categories(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCostCategoriesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCostCategoriesInput,
         validate_input: @config.validate_input
@@ -1925,7 +1927,7 @@ module AWS::SDK::CostExplorer
     def get_cost_forecast(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCostForecastInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCostForecastInput,
         validate_input: @config.validate_input
@@ -2313,7 +2315,7 @@ module AWS::SDK::CostExplorer
     def get_dimension_values(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDimensionValuesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDimensionValuesInput,
         validate_input: @config.validate_input
@@ -2650,7 +2652,7 @@ module AWS::SDK::CostExplorer
     def get_reservation_coverage(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetReservationCoverageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetReservationCoverageInput,
         validate_input: @config.validate_input
@@ -2919,7 +2921,7 @@ module AWS::SDK::CostExplorer
     def get_reservation_purchase_recommendation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetReservationPurchaseRecommendationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetReservationPurchaseRecommendationInput,
         validate_input: @config.validate_input
@@ -3213,7 +3215,7 @@ module AWS::SDK::CostExplorer
     def get_reservation_utilization(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetReservationUtilizationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetReservationUtilizationInput,
         validate_input: @config.validate_input
@@ -3461,7 +3463,7 @@ module AWS::SDK::CostExplorer
     def get_rightsizing_recommendation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetRightsizingRecommendationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetRightsizingRecommendationInput,
         validate_input: @config.validate_input
@@ -3692,7 +3694,7 @@ module AWS::SDK::CostExplorer
     def get_savings_plans_coverage(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSavingsPlansCoverageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSavingsPlansCoverageInput,
         validate_input: @config.validate_input
@@ -3857,7 +3859,7 @@ module AWS::SDK::CostExplorer
     def get_savings_plans_purchase_recommendation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSavingsPlansPurchaseRecommendationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSavingsPlansPurchaseRecommendationInput,
         validate_input: @config.validate_input
@@ -4051,7 +4053,7 @@ module AWS::SDK::CostExplorer
     def get_savings_plans_utilization(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSavingsPlansUtilizationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSavingsPlansUtilizationInput,
         validate_input: @config.validate_input
@@ -4265,7 +4267,7 @@ module AWS::SDK::CostExplorer
     def get_savings_plans_utilization_details(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSavingsPlansUtilizationDetailsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSavingsPlansUtilizationDetailsInput,
         validate_input: @config.validate_input
@@ -4486,7 +4488,7 @@ module AWS::SDK::CostExplorer
     def get_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetTagsInput,
         validate_input: @config.validate_input
@@ -4736,7 +4738,7 @@ module AWS::SDK::CostExplorer
     def get_usage_forecast(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetUsageForecastInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetUsageForecastInput,
         validate_input: @config.validate_input
@@ -4834,7 +4836,7 @@ module AWS::SDK::CostExplorer
     def list_cost_allocation_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListCostAllocationTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListCostAllocationTagsInput,
         validate_input: @config.validate_input
@@ -4932,7 +4934,7 @@ module AWS::SDK::CostExplorer
     def list_cost_category_definitions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListCostCategoryDefinitionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListCostCategoryDefinitionsInput,
         validate_input: @config.validate_input
@@ -5005,7 +5007,7 @@ module AWS::SDK::CostExplorer
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -5078,7 +5080,7 @@ module AWS::SDK::CostExplorer
     def provide_anomaly_feedback(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ProvideAnomalyFeedbackInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ProvideAnomalyFeedbackInput,
         validate_input: @config.validate_input
@@ -5185,7 +5187,7 @@ module AWS::SDK::CostExplorer
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -5263,7 +5265,7 @@ module AWS::SDK::CostExplorer
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -5337,7 +5339,7 @@ module AWS::SDK::CostExplorer
     def update_anomaly_monitor(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateAnomalyMonitorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateAnomalyMonitorInput,
         validate_input: @config.validate_input
@@ -5434,7 +5436,7 @@ module AWS::SDK::CostExplorer
     def update_anomaly_subscription(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateAnomalySubscriptionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateAnomalySubscriptionInput,
         validate_input: @config.validate_input
@@ -5516,7 +5518,7 @@ module AWS::SDK::CostExplorer
     def update_cost_allocation_tags_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateCostAllocationTagsStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateCostAllocationTagsStatusInput,
         validate_input: @config.validate_input
@@ -5648,7 +5650,7 @@ module AWS::SDK::CostExplorer
     def update_cost_category_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateCostCategoryDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateCostCategoryDefinitionInput,
         validate_input: @config.validate_input

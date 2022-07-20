@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::Codeartifact
@@ -390,7 +392,7 @@ module AWS::SDK::Codeartifact
     def associate_external_connection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateExternalConnectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateExternalConnectionInput,
         validate_input: @config.validate_input
@@ -573,7 +575,7 @@ module AWS::SDK::Codeartifact
     def copy_package_versions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CopyPackageVersionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CopyPackageVersionsInput,
         validate_input: @config.validate_input
@@ -687,7 +689,7 @@ module AWS::SDK::Codeartifact
     def create_domain(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDomainInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDomainInput,
         validate_input: @config.validate_input
@@ -810,7 +812,7 @@ module AWS::SDK::Codeartifact
     def create_repository(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateRepositoryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateRepositoryInput,
         validate_input: @config.validate_input
@@ -900,7 +902,7 @@ module AWS::SDK::Codeartifact
     def delete_domain(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDomainInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDomainInput,
         validate_input: @config.validate_input
@@ -989,7 +991,7 @@ module AWS::SDK::Codeartifact
     def delete_domain_permissions_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDomainPermissionsPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDomainPermissionsPolicyInput,
         validate_input: @config.validate_input
@@ -1134,7 +1136,7 @@ module AWS::SDK::Codeartifact
     def delete_package_versions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeletePackageVersionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeletePackageVersionsInput,
         validate_input: @config.validate_input
@@ -1232,7 +1234,7 @@ module AWS::SDK::Codeartifact
     def delete_repository(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteRepositoryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteRepositoryInput,
         validate_input: @config.validate_input
@@ -1334,7 +1336,7 @@ module AWS::SDK::Codeartifact
     def delete_repository_permissions_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteRepositoryPermissionsPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteRepositoryPermissionsPolicyInput,
         validate_input: @config.validate_input
@@ -1424,7 +1426,7 @@ module AWS::SDK::Codeartifact
     def describe_domain(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDomainInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDomainInput,
         validate_input: @config.validate_input
@@ -1565,7 +1567,7 @@ module AWS::SDK::Codeartifact
     def describe_package_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribePackageVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribePackageVersionInput,
         validate_input: @config.validate_input
@@ -1665,7 +1667,7 @@ module AWS::SDK::Codeartifact
     def describe_repository(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeRepositoryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeRepositoryInput,
         validate_input: @config.validate_input
@@ -1765,7 +1767,7 @@ module AWS::SDK::Codeartifact
     def disassociate_external_connection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateExternalConnectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateExternalConnectionInput,
         validate_input: @config.validate_input
@@ -1927,7 +1929,7 @@ module AWS::SDK::Codeartifact
     def dispose_package_versions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisposePackageVersionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisposePackageVersionsInput,
         validate_input: @config.validate_input
@@ -2033,7 +2035,7 @@ module AWS::SDK::Codeartifact
     def get_authorization_token(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAuthorizationTokenInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAuthorizationTokenInput,
         validate_input: @config.validate_input
@@ -2122,7 +2124,7 @@ module AWS::SDK::Codeartifact
     def get_domain_permissions_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDomainPermissionsPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDomainPermissionsPolicyInput,
         validate_input: @config.validate_input
@@ -2407,7 +2409,7 @@ module AWS::SDK::Codeartifact
     def get_package_version_readme(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetPackageVersionReadmeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetPackageVersionReadmeInput,
         validate_input: @config.validate_input
@@ -2522,7 +2524,7 @@ module AWS::SDK::Codeartifact
     def get_repository_endpoint(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetRepositoryEndpointInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetRepositoryEndpointInput,
         validate_input: @config.validate_input
@@ -2610,7 +2612,7 @@ module AWS::SDK::Codeartifact
     def get_repository_permissions_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetRepositoryPermissionsPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetRepositoryPermissionsPolicyInput,
         validate_input: @config.validate_input
@@ -2696,7 +2698,7 @@ module AWS::SDK::Codeartifact
     def list_domains(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDomainsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDomainsInput,
         validate_input: @config.validate_input
@@ -2850,7 +2852,7 @@ module AWS::SDK::Codeartifact
     def list_package_version_assets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPackageVersionAssetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPackageVersionAssetsInput,
         validate_input: @config.validate_input
@@ -2999,7 +3001,7 @@ module AWS::SDK::Codeartifact
     def list_package_version_dependencies(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPackageVersionDependenciesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPackageVersionDependenciesInput,
         validate_input: @config.validate_input
@@ -3156,7 +3158,7 @@ module AWS::SDK::Codeartifact
     def list_package_versions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPackageVersionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPackageVersionsInput,
         validate_input: @config.validate_input
@@ -3298,7 +3300,7 @@ module AWS::SDK::Codeartifact
     def list_packages(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPackagesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPackagesInput,
         validate_input: @config.validate_input
@@ -3392,7 +3394,7 @@ module AWS::SDK::Codeartifact
     def list_repositories(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListRepositoriesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListRepositoriesInput,
         validate_input: @config.validate_input
@@ -3507,7 +3509,7 @@ module AWS::SDK::Codeartifact
     def list_repositories_in_domain(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListRepositoriesInDomainInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListRepositoriesInDomainInput,
         validate_input: @config.validate_input
@@ -3578,7 +3580,7 @@ module AWS::SDK::Codeartifact
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -3677,7 +3679,7 @@ module AWS::SDK::Codeartifact
     def put_domain_permissions_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutDomainPermissionsPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutDomainPermissionsPolicyInput,
         validate_input: @config.validate_input
@@ -3782,7 +3784,7 @@ module AWS::SDK::Codeartifact
     def put_repository_permissions_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutRepositoryPermissionsPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutRepositoryPermissionsPolicyInput,
         validate_input: @config.validate_input
@@ -3859,7 +3861,7 @@ module AWS::SDK::Codeartifact
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -3933,7 +3935,7 @@ module AWS::SDK::Codeartifact
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -4095,7 +4097,7 @@ module AWS::SDK::Codeartifact
     def update_package_versions_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdatePackageVersionsStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdatePackageVersionsStatusInput,
         validate_input: @config.validate_input
@@ -4211,7 +4213,7 @@ module AWS::SDK::Codeartifact
     def update_repository(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateRepositoryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateRepositoryInput,
         validate_input: @config.validate_input
@@ -4268,7 +4270,7 @@ module AWS::SDK::Codeartifact
       return options[:output_stream] if options[:output_stream]
       return Hearth::BlockIO.new(block) if block
 
-      StringIO.new
+      ::StringIO.new
     end
   end
 end

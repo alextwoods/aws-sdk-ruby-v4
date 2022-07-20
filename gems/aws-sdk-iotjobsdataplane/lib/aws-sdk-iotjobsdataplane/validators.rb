@@ -30,7 +30,7 @@ module AWS::SDK::IoTJobsDataPlane
     class DescribeJobExecutionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeJobExecutionOutput, context: context)
-        Validators::JobExecution.validate!(input[:execution], context: "#{context}[:execution]") unless input[:execution].nil?
+        JobExecution.validate!(input[:execution], context: "#{context}[:execution]") unless input[:execution].nil?
       end
     end
 
@@ -54,8 +54,8 @@ module AWS::SDK::IoTJobsDataPlane
     class GetPendingJobExecutionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetPendingJobExecutionsOutput, context: context)
-        Validators::JobExecutionSummaryList.validate!(input[:in_progress_jobs], context: "#{context}[:in_progress_jobs]") unless input[:in_progress_jobs].nil?
-        Validators::JobExecutionSummaryList.validate!(input[:queued_jobs], context: "#{context}[:queued_jobs]") unless input[:queued_jobs].nil?
+        JobExecutionSummaryList.validate!(input[:in_progress_jobs], context: "#{context}[:in_progress_jobs]") unless input[:in_progress_jobs].nil?
+        JobExecutionSummaryList.validate!(input[:queued_jobs], context: "#{context}[:queued_jobs]") unless input[:queued_jobs].nil?
       end
     end
 
@@ -79,7 +79,7 @@ module AWS::SDK::IoTJobsDataPlane
         Hearth::Validator.validate!(input[:job_id], ::String, context: "#{context}[:job_id]")
         Hearth::Validator.validate!(input[:thing_name], ::String, context: "#{context}[:thing_name]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::DetailsMap.validate!(input[:status_details], context: "#{context}[:status_details]") unless input[:status_details].nil?
+        DetailsMap.validate!(input[:status_details], context: "#{context}[:status_details]") unless input[:status_details].nil?
         Hearth::Validator.validate!(input[:queued_at], ::Integer, context: "#{context}[:queued_at]")
         Hearth::Validator.validate!(input[:started_at], ::Integer, context: "#{context}[:started_at]")
         Hearth::Validator.validate!(input[:last_updated_at], ::Integer, context: "#{context}[:last_updated_at]")
@@ -94,7 +94,7 @@ module AWS::SDK::IoTJobsDataPlane
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::JobExecutionState, context: context)
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::DetailsMap.validate!(input[:status_details], context: "#{context}[:status_details]") unless input[:status_details].nil?
+        DetailsMap.validate!(input[:status_details], context: "#{context}[:status_details]") unless input[:status_details].nil?
         Hearth::Validator.validate!(input[:version_number], ::Integer, context: "#{context}[:version_number]")
       end
     end
@@ -115,7 +115,7 @@ module AWS::SDK::IoTJobsDataPlane
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::JobExecutionSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          JobExecutionSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -138,7 +138,7 @@ module AWS::SDK::IoTJobsDataPlane
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StartNextPendingJobExecutionInput, context: context)
         Hearth::Validator.validate!(input[:thing_name], ::String, context: "#{context}[:thing_name]")
-        Validators::DetailsMap.validate!(input[:status_details], context: "#{context}[:status_details]") unless input[:status_details].nil?
+        DetailsMap.validate!(input[:status_details], context: "#{context}[:status_details]") unless input[:status_details].nil?
         Hearth::Validator.validate!(input[:step_timeout_in_minutes], ::Integer, context: "#{context}[:step_timeout_in_minutes]")
       end
     end
@@ -146,7 +146,7 @@ module AWS::SDK::IoTJobsDataPlane
     class StartNextPendingJobExecutionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StartNextPendingJobExecutionOutput, context: context)
-        Validators::JobExecution.validate!(input[:execution], context: "#{context}[:execution]") unless input[:execution].nil?
+        JobExecution.validate!(input[:execution], context: "#{context}[:execution]") unless input[:execution].nil?
       end
     end
 
@@ -171,7 +171,7 @@ module AWS::SDK::IoTJobsDataPlane
         Hearth::Validator.validate!(input[:job_id], ::String, context: "#{context}[:job_id]")
         Hearth::Validator.validate!(input[:thing_name], ::String, context: "#{context}[:thing_name]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::DetailsMap.validate!(input[:status_details], context: "#{context}[:status_details]") unless input[:status_details].nil?
+        DetailsMap.validate!(input[:status_details], context: "#{context}[:status_details]") unless input[:status_details].nil?
         Hearth::Validator.validate!(input[:step_timeout_in_minutes], ::Integer, context: "#{context}[:step_timeout_in_minutes]")
         Hearth::Validator.validate!(input[:expected_version], ::Integer, context: "#{context}[:expected_version]")
         Hearth::Validator.validate!(input[:include_job_execution_state], ::TrueClass, ::FalseClass, context: "#{context}[:include_job_execution_state]")
@@ -183,7 +183,7 @@ module AWS::SDK::IoTJobsDataPlane
     class UpdateJobExecutionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateJobExecutionOutput, context: context)
-        Validators::JobExecutionState.validate!(input[:execution_state], context: "#{context}[:execution_state]") unless input[:execution_state].nil?
+        JobExecutionState.validate!(input[:execution_state], context: "#{context}[:execution_state]") unless input[:execution_state].nil?
         Hearth::Validator.validate!(input[:job_document], ::String, context: "#{context}[:job_document]")
       end
     end

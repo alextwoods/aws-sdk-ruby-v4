@@ -40,7 +40,7 @@ module AWS::SDK::ConnectParticipant
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AttachmentItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AttachmentItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -48,7 +48,7 @@ module AWS::SDK::ConnectParticipant
     class CompleteAttachmentUploadInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CompleteAttachmentUploadInput, context: context)
-        Validators::AttachmentIdList.validate!(input[:attachment_ids], context: "#{context}[:attachment_ids]") unless input[:attachment_ids].nil?
+        AttachmentIdList.validate!(input[:attachment_ids], context: "#{context}[:attachment_ids]") unless input[:attachment_ids].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
         Hearth::Validator.validate!(input[:connection_token], ::String, context: "#{context}[:connection_token]")
       end
@@ -87,7 +87,7 @@ module AWS::SDK::ConnectParticipant
     class CreateParticipantConnectionInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateParticipantConnectionInput, context: context)
-        Validators::ConnectionTypeList.validate!(input[:type], context: "#{context}[:type]") unless input[:type].nil?
+        ConnectionTypeList.validate!(input[:type], context: "#{context}[:type]") unless input[:type].nil?
         Hearth::Validator.validate!(input[:participant_token], ::String, context: "#{context}[:participant_token]")
         Hearth::Validator.validate!(input[:connect_participant], ::TrueClass, ::FalseClass, context: "#{context}[:connect_participant]")
       end
@@ -96,8 +96,8 @@ module AWS::SDK::ConnectParticipant
     class CreateParticipantConnectionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateParticipantConnectionOutput, context: context)
-        Validators::Websocket.validate!(input[:websocket], context: "#{context}[:websocket]") unless input[:websocket].nil?
-        Validators::ConnectionCredentials.validate!(input[:connection_credentials], context: "#{context}[:connection_credentials]") unless input[:connection_credentials].nil?
+        Websocket.validate!(input[:websocket], context: "#{context}[:websocket]") unless input[:websocket].nil?
+        ConnectionCredentials.validate!(input[:connection_credentials], context: "#{context}[:connection_credentials]") unless input[:connection_credentials].nil?
       end
     end
 
@@ -139,7 +139,7 @@ module AWS::SDK::ConnectParticipant
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:scan_direction], ::String, context: "#{context}[:scan_direction]")
         Hearth::Validator.validate!(input[:sort_order], ::String, context: "#{context}[:sort_order]")
-        Validators::StartPosition.validate!(input[:start_position], context: "#{context}[:start_position]") unless input[:start_position].nil?
+        StartPosition.validate!(input[:start_position], context: "#{context}[:start_position]") unless input[:start_position].nil?
         Hearth::Validator.validate!(input[:connection_token], ::String, context: "#{context}[:connection_token]")
       end
     end
@@ -148,7 +148,7 @@ module AWS::SDK::ConnectParticipant
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetTranscriptOutput, context: context)
         Hearth::Validator.validate!(input[:initial_contact_id], ::String, context: "#{context}[:initial_contact_id]")
-        Validators::Transcript.validate!(input[:transcript], context: "#{context}[:transcript]") unless input[:transcript].nil?
+        Transcript.validate!(input[:transcript], context: "#{context}[:transcript]") unless input[:transcript].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -171,7 +171,7 @@ module AWS::SDK::ConnectParticipant
         Hearth::Validator.validate!(input[:participant_id], ::String, context: "#{context}[:participant_id]")
         Hearth::Validator.validate!(input[:display_name], ::String, context: "#{context}[:display_name]")
         Hearth::Validator.validate!(input[:participant_role], ::String, context: "#{context}[:participant_role]")
-        Validators::Attachments.validate!(input[:attachments], context: "#{context}[:attachments]") unless input[:attachments].nil?
+        Attachments.validate!(input[:attachments], context: "#{context}[:attachments]") unless input[:attachments].nil?
       end
     end
 
@@ -233,7 +233,7 @@ module AWS::SDK::ConnectParticipant
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StartAttachmentUploadOutput, context: context)
         Hearth::Validator.validate!(input[:attachment_id], ::String, context: "#{context}[:attachment_id]")
-        Validators::UploadMetadata.validate!(input[:upload_metadata], context: "#{context}[:upload_metadata]") unless input[:upload_metadata].nil?
+        UploadMetadata.validate!(input[:upload_metadata], context: "#{context}[:upload_metadata]") unless input[:upload_metadata].nil?
       end
     end
 
@@ -257,7 +257,7 @@ module AWS::SDK::ConnectParticipant
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Item.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Item.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -267,7 +267,7 @@ module AWS::SDK::ConnectParticipant
         Hearth::Validator.validate!(input, Types::UploadMetadata, context: context)
         Hearth::Validator.validate!(input[:url], ::String, context: "#{context}[:url]")
         Hearth::Validator.validate!(input[:url_expiry], ::String, context: "#{context}[:url_expiry]")
-        Validators::UploadMetadataSignedHeaders.validate!(input[:headers_to_include], context: "#{context}[:headers_to_include]") unless input[:headers_to_include].nil?
+        UploadMetadataSignedHeaders.validate!(input[:headers_to_include], context: "#{context}[:headers_to_include]") unless input[:headers_to_include].nil?
       end
     end
 

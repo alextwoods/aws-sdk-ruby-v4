@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::ECS
@@ -153,7 +155,7 @@ module AWS::SDK::ECS
     def create_capacity_provider(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateCapacityProviderInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateCapacityProviderInput,
         validate_input: @config.validate_input
@@ -382,7 +384,7 @@ module AWS::SDK::ECS
     def create_cluster(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateClusterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateClusterInput,
         validate_input: @config.validate_input
@@ -987,7 +989,7 @@ module AWS::SDK::ECS
     def create_service(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateServiceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateServiceInput,
         validate_input: @config.validate_input
@@ -1255,7 +1257,7 @@ module AWS::SDK::ECS
     def create_task_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateTaskSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateTaskSetInput,
         validate_input: @config.validate_input
@@ -1342,7 +1344,7 @@ module AWS::SDK::ECS
     def delete_account_setting(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAccountSettingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAccountSettingInput,
         validate_input: @config.validate_input
@@ -1431,7 +1433,7 @@ module AWS::SDK::ECS
     def delete_attributes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAttributesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAttributesInput,
         validate_input: @config.validate_input
@@ -1532,7 +1534,7 @@ module AWS::SDK::ECS
     def delete_capacity_provider(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteCapacityProviderInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteCapacityProviderInput,
         validate_input: @config.validate_input
@@ -1649,7 +1651,7 @@ module AWS::SDK::ECS
     def delete_cluster(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteClusterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteClusterInput,
         validate_input: @config.validate_input
@@ -1862,7 +1864,7 @@ module AWS::SDK::ECS
     def delete_service(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteServiceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteServiceInput,
         validate_input: @config.validate_input
@@ -1995,7 +1997,7 @@ module AWS::SDK::ECS
     def delete_task_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteTaskSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteTaskSetInput,
         validate_input: @config.validate_input
@@ -2148,7 +2150,7 @@ module AWS::SDK::ECS
     def deregister_container_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeregisterContainerInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeregisterContainerInstanceInput,
         validate_input: @config.validate_input
@@ -2409,7 +2411,7 @@ module AWS::SDK::ECS
     def deregister_task_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeregisterTaskDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeregisterTaskDefinitionInput,
         validate_input: @config.validate_input
@@ -2539,7 +2541,7 @@ module AWS::SDK::ECS
     def describe_capacity_providers(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeCapacityProvidersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeCapacityProvidersInput,
         validate_input: @config.validate_input
@@ -2677,7 +2679,7 @@ module AWS::SDK::ECS
     def describe_clusters(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeClustersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeClustersInput,
         validate_input: @config.validate_input
@@ -2824,7 +2826,7 @@ module AWS::SDK::ECS
     def describe_container_instances(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeContainerInstancesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeContainerInstancesInput,
         validate_input: @config.validate_input
@@ -3029,7 +3031,7 @@ module AWS::SDK::ECS
     def describe_services(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeServicesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeServicesInput,
         validate_input: @config.validate_input
@@ -3296,7 +3298,7 @@ module AWS::SDK::ECS
     def describe_task_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTaskDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTaskDefinitionInput,
         validate_input: @config.validate_input
@@ -3442,7 +3444,7 @@ module AWS::SDK::ECS
     def describe_task_sets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTaskSetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTaskSetsInput,
         validate_input: @config.validate_input
@@ -3648,7 +3650,7 @@ module AWS::SDK::ECS
     def describe_tasks(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTasksInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTasksInput,
         validate_input: @config.validate_input
@@ -3727,7 +3729,7 @@ module AWS::SDK::ECS
     def discover_poll_endpoint(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DiscoverPollEndpointInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DiscoverPollEndpointInput,
         validate_input: @config.validate_input
@@ -3822,7 +3824,7 @@ module AWS::SDK::ECS
     def execute_command(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ExecuteCommandInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ExecuteCommandInput,
         validate_input: @config.validate_input
@@ -3942,7 +3944,7 @@ module AWS::SDK::ECS
     def list_account_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAccountSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAccountSettingsInput,
         validate_input: @config.validate_input
@@ -4059,7 +4061,7 @@ module AWS::SDK::ECS
     def list_attributes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAttributesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAttributesInput,
         validate_input: @config.validate_input
@@ -4148,7 +4150,7 @@ module AWS::SDK::ECS
     def list_clusters(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListClustersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListClustersInput,
         validate_input: @config.validate_input
@@ -4261,7 +4263,7 @@ module AWS::SDK::ECS
     def list_container_instances(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListContainerInstancesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListContainerInstancesInput,
         validate_input: @config.validate_input
@@ -4366,7 +4368,7 @@ module AWS::SDK::ECS
     def list_services(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListServicesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListServicesInput,
         validate_input: @config.validate_input
@@ -4440,7 +4442,7 @@ module AWS::SDK::ECS
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -4557,7 +4559,7 @@ module AWS::SDK::ECS
     def list_task_definition_families(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTaskDefinitionFamiliesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTaskDefinitionFamiliesInput,
         validate_input: @config.validate_input
@@ -4673,7 +4675,7 @@ module AWS::SDK::ECS
     def list_task_definitions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTaskDefinitionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTaskDefinitionsInput,
         validate_input: @config.validate_input
@@ -4815,7 +4817,7 @@ module AWS::SDK::ECS
     def list_tasks(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTasksInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTasksInput,
         validate_input: @config.validate_input
@@ -4935,7 +4937,7 @@ module AWS::SDK::ECS
     def put_account_setting(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutAccountSettingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutAccountSettingInput,
         validate_input: @config.validate_input
@@ -5021,7 +5023,7 @@ module AWS::SDK::ECS
     def put_account_setting_default(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutAccountSettingDefaultInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutAccountSettingDefaultInput,
         validate_input: @config.validate_input
@@ -5112,7 +5114,7 @@ module AWS::SDK::ECS
     def put_attributes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutAttributesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutAttributesInput,
         validate_input: @config.validate_input
@@ -5275,7 +5277,7 @@ module AWS::SDK::ECS
     def put_cluster_capacity_providers(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutClusterCapacityProvidersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutClusterCapacityProvidersInput,
         validate_input: @config.validate_input
@@ -5505,7 +5507,7 @@ module AWS::SDK::ECS
     def register_container_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RegisterContainerInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RegisterContainerInstanceInput,
         validate_input: @config.validate_input
@@ -6240,7 +6242,7 @@ module AWS::SDK::ECS
     def register_task_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RegisterTaskDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RegisterTaskDefinitionInput,
         validate_input: @config.validate_input
@@ -6704,7 +6706,7 @@ module AWS::SDK::ECS
     def run_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RunTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RunTaskInput,
         validate_input: @config.validate_input
@@ -7052,7 +7054,7 @@ module AWS::SDK::ECS
     def start_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartTaskInput,
         validate_input: @config.validate_input
@@ -7260,7 +7262,7 @@ module AWS::SDK::ECS
     def stop_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopTaskInput,
         validate_input: @config.validate_input
@@ -7342,7 +7344,7 @@ module AWS::SDK::ECS
     def submit_attachment_state_changes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SubmitAttachmentStateChangesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SubmitAttachmentStateChangesInput,
         validate_input: @config.validate_input
@@ -7449,7 +7451,7 @@ module AWS::SDK::ECS
     def submit_container_state_change(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SubmitContainerStateChangeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SubmitContainerStateChangeInput,
         validate_input: @config.validate_input
@@ -7586,7 +7588,7 @@ module AWS::SDK::ECS
     def submit_task_state_change(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SubmitTaskStateChangeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SubmitTaskStateChangeInput,
         validate_input: @config.validate_input
@@ -7699,7 +7701,7 @@ module AWS::SDK::ECS
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -7775,7 +7777,7 @@ module AWS::SDK::ECS
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -7876,7 +7878,7 @@ module AWS::SDK::ECS
     def update_capacity_provider(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateCapacityProviderInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateCapacityProviderInput,
         validate_input: @config.validate_input
@@ -8013,7 +8015,7 @@ module AWS::SDK::ECS
     def update_cluster(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateClusterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateClusterInput,
         validate_input: @config.validate_input
@@ -8137,7 +8139,7 @@ module AWS::SDK::ECS
     def update_cluster_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateClusterSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateClusterSettingsInput,
         validate_input: @config.validate_input
@@ -8279,7 +8281,7 @@ module AWS::SDK::ECS
     def update_container_agent(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateContainerAgentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateContainerAgentInput,
         validate_input: @config.validate_input
@@ -8470,7 +8472,7 @@ module AWS::SDK::ECS
     def update_container_instances_state(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateContainerInstancesStateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateContainerInstancesStateInput,
         validate_input: @config.validate_input
@@ -8983,7 +8985,7 @@ module AWS::SDK::ECS
     def update_service(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateServiceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateServiceInput,
         validate_input: @config.validate_input
@@ -9114,7 +9116,7 @@ module AWS::SDK::ECS
     def update_service_primary_task_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateServicePrimaryTaskSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateServicePrimaryTaskSetInput,
         validate_input: @config.validate_input
@@ -9250,7 +9252,7 @@ module AWS::SDK::ECS
     def update_task_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateTaskSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateTaskSetInput,
         validate_input: @config.validate_input

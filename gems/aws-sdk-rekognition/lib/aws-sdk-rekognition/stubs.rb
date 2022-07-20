@@ -14,9 +14,9 @@ module AWS::SDK::Rekognition
     class CompareFaces
       def self.default(visited=[])
         {
-          source_image_face: Stubs::ComparedSourceImageFace.default(visited),
-          face_matches: Stubs::CompareFacesMatchList.default(visited),
-          unmatched_faces: Stubs::CompareFacesUnmatchList.default(visited),
+          source_image_face: ComparedSourceImageFace.default(visited),
+          face_matches: CompareFacesMatchList.default(visited),
+          unmatched_faces: CompareFacesUnmatchList.default(visited),
           source_image_orientation_correction: 'source_image_orientation_correction',
           target_image_orientation_correction: 'target_image_orientation_correction',
         }
@@ -40,7 +40,7 @@ module AWS::SDK::Rekognition
         return nil if visited.include?('CompareFacesUnmatchList')
         visited = visited + ['CompareFacesUnmatchList']
         [
-          Stubs::ComparedFace.default(visited)
+          ComparedFace.default(visited)
         ]
       end
 
@@ -60,13 +60,13 @@ module AWS::SDK::Rekognition
         return nil if visited.include?('ComparedFace')
         visited = visited + ['ComparedFace']
         {
-          bounding_box: Stubs::BoundingBox.default(visited),
+          bounding_box: BoundingBox.default(visited),
           confidence: 1.0,
-          landmarks: Stubs::Landmarks.default(visited),
-          pose: Stubs::Pose.default(visited),
-          quality: Stubs::ImageQuality.default(visited),
-          emotions: Stubs::Emotions.default(visited),
-          smile: Stubs::Smile.default(visited),
+          landmarks: Landmarks.default(visited),
+          pose: Pose.default(visited),
+          quality: ImageQuality.default(visited),
+          emotions: Emotions.default(visited),
+          smile: Smile.default(visited),
         }
       end
 
@@ -110,7 +110,7 @@ module AWS::SDK::Rekognition
         return nil if visited.include?('Emotions')
         visited = visited + ['Emotions']
         [
-          Stubs::Emotion.default(visited)
+          Emotion.default(visited)
         ]
       end
 
@@ -192,7 +192,7 @@ module AWS::SDK::Rekognition
         return nil if visited.include?('Landmarks')
         visited = visited + ['Landmarks']
         [
-          Stubs::Landmark.default(visited)
+          Landmark.default(visited)
         ]
       end
 
@@ -258,7 +258,7 @@ module AWS::SDK::Rekognition
         return nil if visited.include?('CompareFacesMatchList')
         visited = visited + ['CompareFacesMatchList']
         [
-          Stubs::CompareFacesMatch.default(visited)
+          CompareFacesMatch.default(visited)
         ]
       end
 
@@ -279,7 +279,7 @@ module AWS::SDK::Rekognition
         visited = visited + ['CompareFacesMatch']
         {
           similarity: 1.0,
-          face: Stubs::ComparedFace.default(visited),
+          face: ComparedFace.default(visited),
         }
       end
 
@@ -298,7 +298,7 @@ module AWS::SDK::Rekognition
         return nil if visited.include?('ComparedSourceImageFace')
         visited = visited + ['ComparedSourceImageFace']
         {
-          bounding_box: Stubs::BoundingBox.default(visited),
+          bounding_box: BoundingBox.default(visited),
           confidence: 1.0,
         }
       end
@@ -430,7 +430,7 @@ module AWS::SDK::Rekognition
     class DeleteFaces
       def self.default(visited=[])
         {
-          deleted_faces: Stubs::FaceIdList.default(visited),
+          deleted_faces: FaceIdList.default(visited),
         }
       end
 
@@ -534,7 +534,7 @@ module AWS::SDK::Rekognition
     class DescribeDataset
       def self.default(visited=[])
         {
-          dataset_description: Stubs::DatasetDescription.default(visited),
+          dataset_description: DatasetDescription.default(visited),
         }
       end
 
@@ -557,7 +557,7 @@ module AWS::SDK::Rekognition
           status: 'status',
           status_message: 'status_message',
           status_message_code: 'status_message_code',
-          dataset_stats: Stubs::DatasetStats.default(visited),
+          dataset_stats: DatasetStats.default(visited),
         }
       end
 
@@ -602,7 +602,7 @@ module AWS::SDK::Rekognition
     class DescribeProjectVersions
       def self.default(visited=[])
         {
-          project_version_descriptions: Stubs::ProjectVersionDescriptions.default(visited),
+          project_version_descriptions: ProjectVersionDescriptions.default(visited),
           next_token: 'next_token',
         }
       end
@@ -622,7 +622,7 @@ module AWS::SDK::Rekognition
         return nil if visited.include?('ProjectVersionDescriptions')
         visited = visited + ['ProjectVersionDescriptions']
         [
-          Stubs::ProjectVersionDescription.default(visited)
+          ProjectVersionDescription.default(visited)
         ]
       end
 
@@ -649,11 +649,11 @@ module AWS::SDK::Rekognition
           status_message: 'status_message',
           billable_training_time_in_seconds: 1,
           training_end_timestamp: Time.now,
-          output_config: Stubs::OutputConfig.default(visited),
-          training_data_result: Stubs::TrainingDataResult.default(visited),
-          testing_data_result: Stubs::TestingDataResult.default(visited),
-          evaluation_result: Stubs::EvaluationResult.default(visited),
-          manifest_summary: Stubs::GroundTruthManifest.default(visited),
+          output_config: OutputConfig.default(visited),
+          training_data_result: TrainingDataResult.default(visited),
+          testing_data_result: TestingDataResult.default(visited),
+          evaluation_result: EvaluationResult.default(visited),
+          manifest_summary: GroundTruthManifest.default(visited),
           kms_key_id: 'kms_key_id',
         }
       end
@@ -684,7 +684,7 @@ module AWS::SDK::Rekognition
         return nil if visited.include?('GroundTruthManifest')
         visited = visited + ['GroundTruthManifest']
         {
-          s3_object: Stubs::S3Object.default(visited),
+          s3_object: S3Object.default(visited),
         }
       end
 
@@ -725,7 +725,7 @@ module AWS::SDK::Rekognition
         visited = visited + ['EvaluationResult']
         {
           f1_score: 1.0,
-          summary: Stubs::Summary.default(visited),
+          summary: Summary.default(visited),
         }
       end
 
@@ -744,7 +744,7 @@ module AWS::SDK::Rekognition
         return nil if visited.include?('Summary')
         visited = visited + ['Summary']
         {
-          s3_object: Stubs::S3Object.default(visited),
+          s3_object: S3Object.default(visited),
         }
       end
 
@@ -762,9 +762,9 @@ module AWS::SDK::Rekognition
         return nil if visited.include?('TestingDataResult')
         visited = visited + ['TestingDataResult']
         {
-          input: Stubs::TestingData.default(visited),
-          output: Stubs::TestingData.default(visited),
-          validation: Stubs::ValidationData.default(visited),
+          input: TestingData.default(visited),
+          output: TestingData.default(visited),
+          validation: ValidationData.default(visited),
         }
       end
 
@@ -784,7 +784,7 @@ module AWS::SDK::Rekognition
         return nil if visited.include?('ValidationData')
         visited = visited + ['ValidationData']
         {
-          assets: Stubs::Assets.default(visited),
+          assets: Assets.default(visited),
         }
       end
 
@@ -802,7 +802,7 @@ module AWS::SDK::Rekognition
         return nil if visited.include?('Assets')
         visited = visited + ['Assets']
         [
-          Stubs::Asset.default(visited)
+          Asset.default(visited)
         ]
       end
 
@@ -822,7 +822,7 @@ module AWS::SDK::Rekognition
         return nil if visited.include?('Asset')
         visited = visited + ['Asset']
         {
-          ground_truth_manifest: Stubs::GroundTruthManifest.default(visited),
+          ground_truth_manifest: GroundTruthManifest.default(visited),
         }
       end
 
@@ -840,7 +840,7 @@ module AWS::SDK::Rekognition
         return nil if visited.include?('TestingData')
         visited = visited + ['TestingData']
         {
-          assets: Stubs::Assets.default(visited),
+          assets: Assets.default(visited),
           auto_create: false,
         }
       end
@@ -860,9 +860,9 @@ module AWS::SDK::Rekognition
         return nil if visited.include?('TrainingDataResult')
         visited = visited + ['TrainingDataResult']
         {
-          input: Stubs::TrainingData.default(visited),
-          output: Stubs::TrainingData.default(visited),
-          validation: Stubs::ValidationData.default(visited),
+          input: TrainingData.default(visited),
+          output: TrainingData.default(visited),
+          validation: ValidationData.default(visited),
         }
       end
 
@@ -882,7 +882,7 @@ module AWS::SDK::Rekognition
         return nil if visited.include?('TrainingData')
         visited = visited + ['TrainingData']
         {
-          assets: Stubs::Assets.default(visited),
+          assets: Assets.default(visited),
         }
       end
 
@@ -918,7 +918,7 @@ module AWS::SDK::Rekognition
     class DescribeProjects
       def self.default(visited=[])
         {
-          project_descriptions: Stubs::ProjectDescriptions.default(visited),
+          project_descriptions: ProjectDescriptions.default(visited),
           next_token: 'next_token',
         }
       end
@@ -938,7 +938,7 @@ module AWS::SDK::Rekognition
         return nil if visited.include?('ProjectDescriptions')
         visited = visited + ['ProjectDescriptions']
         [
-          Stubs::ProjectDescription.default(visited)
+          ProjectDescription.default(visited)
         ]
       end
 
@@ -961,7 +961,7 @@ module AWS::SDK::Rekognition
           project_arn: 'project_arn',
           creation_timestamp: Time.now,
           status: 'status',
-          datasets: Stubs::DatasetMetadataList.default(visited),
+          datasets: DatasetMetadataList.default(visited),
         }
       end
 
@@ -982,7 +982,7 @@ module AWS::SDK::Rekognition
         return nil if visited.include?('DatasetMetadataList')
         visited = visited + ['DatasetMetadataList']
         [
-          Stubs::DatasetMetadata.default(visited)
+          DatasetMetadata.default(visited)
         ]
       end
 
@@ -1034,14 +1034,14 @@ module AWS::SDK::Rekognition
           status_message: 'status_message',
           creation_timestamp: Time.now,
           last_update_timestamp: Time.now,
-          input: Stubs::StreamProcessorInput.default(visited),
-          output: Stubs::StreamProcessorOutput.default(visited),
+          input: StreamProcessorInput.default(visited),
+          output: StreamProcessorOutput.default(visited),
           role_arn: 'role_arn',
-          settings: Stubs::StreamProcessorSettings.default(visited),
-          notification_channel: Stubs::StreamProcessorNotificationChannel.default(visited),
+          settings: StreamProcessorSettings.default(visited),
+          notification_channel: StreamProcessorNotificationChannel.default(visited),
           kms_key_id: 'kms_key_id',
-          regions_of_interest: Stubs::RegionsOfInterest.default(visited),
-          data_sharing_preference: Stubs::StreamProcessorDataSharingPreference.default(visited),
+          regions_of_interest: RegionsOfInterest.default(visited),
+          data_sharing_preference: StreamProcessorDataSharingPreference.default(visited),
         }
       end
 
@@ -1090,7 +1090,7 @@ module AWS::SDK::Rekognition
         return nil if visited.include?('RegionsOfInterest')
         visited = visited + ['RegionsOfInterest']
         [
-          Stubs::RegionOfInterest.default(visited)
+          RegionOfInterest.default(visited)
         ]
       end
 
@@ -1110,8 +1110,8 @@ module AWS::SDK::Rekognition
         return nil if visited.include?('RegionOfInterest')
         visited = visited + ['RegionOfInterest']
         {
-          bounding_box: Stubs::BoundingBox.default(visited),
-          polygon: Stubs::Polygon.default(visited),
+          bounding_box: BoundingBox.default(visited),
+          polygon: Polygon.default(visited),
         }
       end
 
@@ -1130,7 +1130,7 @@ module AWS::SDK::Rekognition
         return nil if visited.include?('Polygon')
         visited = visited + ['Polygon']
         [
-          Stubs::Point.default(visited)
+          Point.default(visited)
         ]
       end
 
@@ -1188,8 +1188,8 @@ module AWS::SDK::Rekognition
         return nil if visited.include?('StreamProcessorSettings')
         visited = visited + ['StreamProcessorSettings']
         {
-          face_search: Stubs::FaceSearchSettings.default(visited),
-          connected_home: Stubs::ConnectedHomeSettings.default(visited),
+          face_search: FaceSearchSettings.default(visited),
+          connected_home: ConnectedHomeSettings.default(visited),
         }
       end
 
@@ -1208,7 +1208,7 @@ module AWS::SDK::Rekognition
         return nil if visited.include?('ConnectedHomeSettings')
         visited = visited + ['ConnectedHomeSettings']
         {
-          labels: Stubs::ConnectedHomeLabels.default(visited),
+          labels: ConnectedHomeLabels.default(visited),
           min_confidence: 1.0,
         }
       end
@@ -1268,8 +1268,8 @@ module AWS::SDK::Rekognition
         return nil if visited.include?('StreamProcessorOutput')
         visited = visited + ['StreamProcessorOutput']
         {
-          kinesis_data_stream: Stubs::KinesisDataStream.default(visited),
-          s3_destination: Stubs::S3Destination.default(visited),
+          kinesis_data_stream: KinesisDataStream.default(visited),
+          s3_destination: S3Destination.default(visited),
         }
       end
 
@@ -1326,7 +1326,7 @@ module AWS::SDK::Rekognition
         return nil if visited.include?('StreamProcessorInput')
         visited = visited + ['StreamProcessorInput']
         {
-          kinesis_video_stream: Stubs::KinesisVideoStream.default(visited),
+          kinesis_video_stream: KinesisVideoStream.default(visited),
         }
       end
 
@@ -1360,7 +1360,7 @@ module AWS::SDK::Rekognition
     class DetectCustomLabels
       def self.default(visited=[])
         {
-          custom_labels: Stubs::CustomLabels.default(visited),
+          custom_labels: CustomLabels.default(visited),
         }
       end
 
@@ -1378,7 +1378,7 @@ module AWS::SDK::Rekognition
         return nil if visited.include?('CustomLabels')
         visited = visited + ['CustomLabels']
         [
-          Stubs::CustomLabel.default(visited)
+          CustomLabel.default(visited)
         ]
       end
 
@@ -1400,7 +1400,7 @@ module AWS::SDK::Rekognition
         {
           name: 'name',
           confidence: 1.0,
-          geometry: Stubs::Geometry.default(visited),
+          geometry: Geometry.default(visited),
         }
       end
 
@@ -1420,8 +1420,8 @@ module AWS::SDK::Rekognition
         return nil if visited.include?('Geometry')
         visited = visited + ['Geometry']
         {
-          bounding_box: Stubs::BoundingBox.default(visited),
-          polygon: Stubs::Polygon.default(visited),
+          bounding_box: BoundingBox.default(visited),
+          polygon: Polygon.default(visited),
         }
       end
 
@@ -1438,7 +1438,7 @@ module AWS::SDK::Rekognition
     class DetectFaces
       def self.default(visited=[])
         {
-          face_details: Stubs::FaceDetailList.default(visited),
+          face_details: FaceDetailList.default(visited),
           orientation_correction: 'orientation_correction',
         }
       end
@@ -1458,7 +1458,7 @@ module AWS::SDK::Rekognition
         return nil if visited.include?('FaceDetailList')
         visited = visited + ['FaceDetailList']
         [
-          Stubs::FaceDetail.default(visited)
+          FaceDetail.default(visited)
         ]
       end
 
@@ -1478,20 +1478,20 @@ module AWS::SDK::Rekognition
         return nil if visited.include?('FaceDetail')
         visited = visited + ['FaceDetail']
         {
-          bounding_box: Stubs::BoundingBox.default(visited),
-          age_range: Stubs::AgeRange.default(visited),
-          smile: Stubs::Smile.default(visited),
-          eyeglasses: Stubs::Eyeglasses.default(visited),
-          sunglasses: Stubs::Sunglasses.default(visited),
-          gender: Stubs::Gender.default(visited),
-          beard: Stubs::Beard.default(visited),
-          mustache: Stubs::Mustache.default(visited),
-          eyes_open: Stubs::EyeOpen.default(visited),
-          mouth_open: Stubs::MouthOpen.default(visited),
-          emotions: Stubs::Emotions.default(visited),
-          landmarks: Stubs::Landmarks.default(visited),
-          pose: Stubs::Pose.default(visited),
-          quality: Stubs::ImageQuality.default(visited),
+          bounding_box: BoundingBox.default(visited),
+          age_range: AgeRange.default(visited),
+          smile: Smile.default(visited),
+          eyeglasses: Eyeglasses.default(visited),
+          sunglasses: Sunglasses.default(visited),
+          gender: Gender.default(visited),
+          beard: Beard.default(visited),
+          mustache: Mustache.default(visited),
+          eyes_open: EyeOpen.default(visited),
+          mouth_open: MouthOpen.default(visited),
+          emotions: Emotions.default(visited),
+          landmarks: Landmarks.default(visited),
+          pose: Pose.default(visited),
+          quality: ImageQuality.default(visited),
           confidence: 1.0,
         }
       end
@@ -1682,7 +1682,7 @@ module AWS::SDK::Rekognition
     class DetectLabels
       def self.default(visited=[])
         {
-          labels: Stubs::Labels.default(visited),
+          labels: Labels.default(visited),
           orientation_correction: 'orientation_correction',
           label_model_version: 'label_model_version',
         }
@@ -1704,7 +1704,7 @@ module AWS::SDK::Rekognition
         return nil if visited.include?('Labels')
         visited = visited + ['Labels']
         [
-          Stubs::Label.default(visited)
+          Label.default(visited)
         ]
       end
 
@@ -1726,8 +1726,8 @@ module AWS::SDK::Rekognition
         {
           name: 'name',
           confidence: 1.0,
-          instances: Stubs::Instances.default(visited),
-          parents: Stubs::Parents.default(visited),
+          instances: Instances.default(visited),
+          parents: Parents.default(visited),
         }
       end
 
@@ -1748,7 +1748,7 @@ module AWS::SDK::Rekognition
         return nil if visited.include?('Parents')
         visited = visited + ['Parents']
         [
-          Stubs::Parent.default(visited)
+          Parent.default(visited)
         ]
       end
 
@@ -1786,7 +1786,7 @@ module AWS::SDK::Rekognition
         return nil if visited.include?('Instances')
         visited = visited + ['Instances']
         [
-          Stubs::Instance.default(visited)
+          Instance.default(visited)
         ]
       end
 
@@ -1806,7 +1806,7 @@ module AWS::SDK::Rekognition
         return nil if visited.include?('Instance')
         visited = visited + ['Instance']
         {
-          bounding_box: Stubs::BoundingBox.default(visited),
+          bounding_box: BoundingBox.default(visited),
           confidence: 1.0,
         }
       end
@@ -1824,9 +1824,9 @@ module AWS::SDK::Rekognition
     class DetectModerationLabels
       def self.default(visited=[])
         {
-          moderation_labels: Stubs::ModerationLabels.default(visited),
+          moderation_labels: ModerationLabels.default(visited),
           moderation_model_version: 'moderation_model_version',
-          human_loop_activation_output: Stubs::HumanLoopActivationOutput.default(visited),
+          human_loop_activation_output: HumanLoopActivationOutput.default(visited),
         }
       end
 
@@ -1847,7 +1847,7 @@ module AWS::SDK::Rekognition
         visited = visited + ['HumanLoopActivationOutput']
         {
           human_loop_arn: 'human_loop_arn',
-          human_loop_activation_reasons: Stubs::HumanLoopActivationReasons.default(visited),
+          human_loop_activation_reasons: HumanLoopActivationReasons.default(visited),
           human_loop_activation_conditions_evaluation_results: 'human_loop_activation_conditions_evaluation_results',
         }
       end
@@ -1888,7 +1888,7 @@ module AWS::SDK::Rekognition
         return nil if visited.include?('ModerationLabels')
         visited = visited + ['ModerationLabels']
         [
-          Stubs::ModerationLabel.default(visited)
+          ModerationLabel.default(visited)
         ]
       end
 
@@ -1929,8 +1929,8 @@ module AWS::SDK::Rekognition
       def self.default(visited=[])
         {
           protective_equipment_model_version: 'protective_equipment_model_version',
-          persons: Stubs::ProtectiveEquipmentPersons.default(visited),
-          summary: Stubs::ProtectiveEquipmentSummary.default(visited),
+          persons: ProtectiveEquipmentPersons.default(visited),
+          summary: ProtectiveEquipmentSummary.default(visited),
         }
       end
 
@@ -1950,9 +1950,9 @@ module AWS::SDK::Rekognition
         return nil if visited.include?('ProtectiveEquipmentSummary')
         visited = visited + ['ProtectiveEquipmentSummary']
         {
-          persons_with_required_equipment: Stubs::ProtectiveEquipmentPersonIds.default(visited),
-          persons_without_required_equipment: Stubs::ProtectiveEquipmentPersonIds.default(visited),
-          persons_indeterminate: Stubs::ProtectiveEquipmentPersonIds.default(visited),
+          persons_with_required_equipment: ProtectiveEquipmentPersonIds.default(visited),
+          persons_without_required_equipment: ProtectiveEquipmentPersonIds.default(visited),
+          persons_indeterminate: ProtectiveEquipmentPersonIds.default(visited),
         }
       end
 
@@ -1992,7 +1992,7 @@ module AWS::SDK::Rekognition
         return nil if visited.include?('ProtectiveEquipmentPersons')
         visited = visited + ['ProtectiveEquipmentPersons']
         [
-          Stubs::ProtectiveEquipmentPerson.default(visited)
+          ProtectiveEquipmentPerson.default(visited)
         ]
       end
 
@@ -2012,8 +2012,8 @@ module AWS::SDK::Rekognition
         return nil if visited.include?('ProtectiveEquipmentPerson')
         visited = visited + ['ProtectiveEquipmentPerson']
         {
-          body_parts: Stubs::BodyParts.default(visited),
-          bounding_box: Stubs::BoundingBox.default(visited),
+          body_parts: BodyParts.default(visited),
+          bounding_box: BoundingBox.default(visited),
           confidence: 1.0,
           id: 1,
         }
@@ -2036,7 +2036,7 @@ module AWS::SDK::Rekognition
         return nil if visited.include?('BodyParts')
         visited = visited + ['BodyParts']
         [
-          Stubs::ProtectiveEquipmentBodyPart.default(visited)
+          ProtectiveEquipmentBodyPart.default(visited)
         ]
       end
 
@@ -2058,7 +2058,7 @@ module AWS::SDK::Rekognition
         {
           name: 'name',
           confidence: 1.0,
-          equipment_detections: Stubs::EquipmentDetections.default(visited),
+          equipment_detections: EquipmentDetections.default(visited),
         }
       end
 
@@ -2078,7 +2078,7 @@ module AWS::SDK::Rekognition
         return nil if visited.include?('EquipmentDetections')
         visited = visited + ['EquipmentDetections']
         [
-          Stubs::EquipmentDetection.default(visited)
+          EquipmentDetection.default(visited)
         ]
       end
 
@@ -2098,10 +2098,10 @@ module AWS::SDK::Rekognition
         return nil if visited.include?('EquipmentDetection')
         visited = visited + ['EquipmentDetection']
         {
-          bounding_box: Stubs::BoundingBox.default(visited),
+          bounding_box: BoundingBox.default(visited),
           confidence: 1.0,
           type: 'type',
-          covers_body_part: Stubs::CoversBodyPart.default(visited),
+          covers_body_part: CoversBodyPart.default(visited),
         }
       end
 
@@ -2140,7 +2140,7 @@ module AWS::SDK::Rekognition
     class DetectText
       def self.default(visited=[])
         {
-          text_detections: Stubs::TextDetectionList.default(visited),
+          text_detections: TextDetectionList.default(visited),
           text_model_version: 'text_model_version',
         }
       end
@@ -2160,7 +2160,7 @@ module AWS::SDK::Rekognition
         return nil if visited.include?('TextDetectionList')
         visited = visited + ['TextDetectionList']
         [
-          Stubs::TextDetection.default(visited)
+          TextDetection.default(visited)
         ]
       end
 
@@ -2185,7 +2185,7 @@ module AWS::SDK::Rekognition
           id: 1,
           parent_id: 1,
           confidence: 1.0,
-          geometry: Stubs::Geometry.default(visited),
+          geometry: Geometry.default(visited),
         }
       end
 
@@ -2220,9 +2220,9 @@ module AWS::SDK::Rekognition
     class GetCelebrityInfo
       def self.default(visited=[])
         {
-          urls: Stubs::Urls.default(visited),
+          urls: Urls.default(visited),
           name: 'name',
-          known_gender: Stubs::KnownGender.default(visited),
+          known_gender: KnownGender.default(visited),
         }
       end
 
@@ -2280,9 +2280,9 @@ module AWS::SDK::Rekognition
         {
           job_status: 'job_status',
           status_message: 'status_message',
-          video_metadata: Stubs::VideoMetadata.default(visited),
+          video_metadata: VideoMetadata.default(visited),
           next_token: 'next_token',
-          celebrities: Stubs::CelebrityRecognitions.default(visited),
+          celebrities: CelebrityRecognitions.default(visited),
         }
       end
 
@@ -2304,7 +2304,7 @@ module AWS::SDK::Rekognition
         return nil if visited.include?('CelebrityRecognitions')
         visited = visited + ['CelebrityRecognitions']
         [
-          Stubs::CelebrityRecognition.default(visited)
+          CelebrityRecognition.default(visited)
         ]
       end
 
@@ -2325,7 +2325,7 @@ module AWS::SDK::Rekognition
         visited = visited + ['CelebrityRecognition']
         {
           timestamp: 1,
-          celebrity: Stubs::CelebrityDetail.default(visited),
+          celebrity: CelebrityDetail.default(visited),
         }
       end
 
@@ -2344,13 +2344,13 @@ module AWS::SDK::Rekognition
         return nil if visited.include?('CelebrityDetail')
         visited = visited + ['CelebrityDetail']
         {
-          urls: Stubs::Urls.default(visited),
+          urls: Urls.default(visited),
           name: 'name',
           id: 'id',
           confidence: 1.0,
-          bounding_box: Stubs::BoundingBox.default(visited),
-          face: Stubs::FaceDetail.default(visited),
-          known_gender: Stubs::KnownGender.default(visited),
+          bounding_box: BoundingBox.default(visited),
+          face: FaceDetail.default(visited),
+          known_gender: KnownGender.default(visited),
         }
       end
 
@@ -2404,8 +2404,8 @@ module AWS::SDK::Rekognition
         {
           job_status: 'job_status',
           status_message: 'status_message',
-          video_metadata: Stubs::VideoMetadata.default(visited),
-          moderation_labels: Stubs::ContentModerationDetections.default(visited),
+          video_metadata: VideoMetadata.default(visited),
+          moderation_labels: ContentModerationDetections.default(visited),
           next_token: 'next_token',
           moderation_model_version: 'moderation_model_version',
         }
@@ -2430,7 +2430,7 @@ module AWS::SDK::Rekognition
         return nil if visited.include?('ContentModerationDetections')
         visited = visited + ['ContentModerationDetections']
         [
-          Stubs::ContentModerationDetection.default(visited)
+          ContentModerationDetection.default(visited)
         ]
       end
 
@@ -2451,7 +2451,7 @@ module AWS::SDK::Rekognition
         visited = visited + ['ContentModerationDetection']
         {
           timestamp: 1,
-          moderation_label: Stubs::ModerationLabel.default(visited),
+          moderation_label: ModerationLabel.default(visited),
         }
       end
 
@@ -2470,9 +2470,9 @@ module AWS::SDK::Rekognition
         {
           job_status: 'job_status',
           status_message: 'status_message',
-          video_metadata: Stubs::VideoMetadata.default(visited),
+          video_metadata: VideoMetadata.default(visited),
           next_token: 'next_token',
-          faces: Stubs::FaceDetections.default(visited),
+          faces: FaceDetections.default(visited),
         }
       end
 
@@ -2494,7 +2494,7 @@ module AWS::SDK::Rekognition
         return nil if visited.include?('FaceDetections')
         visited = visited + ['FaceDetections']
         [
-          Stubs::FaceDetection.default(visited)
+          FaceDetection.default(visited)
         ]
       end
 
@@ -2515,7 +2515,7 @@ module AWS::SDK::Rekognition
         visited = visited + ['FaceDetection']
         {
           timestamp: 1,
-          face: Stubs::FaceDetail.default(visited),
+          face: FaceDetail.default(visited),
         }
       end
 
@@ -2535,8 +2535,8 @@ module AWS::SDK::Rekognition
           job_status: 'job_status',
           status_message: 'status_message',
           next_token: 'next_token',
-          video_metadata: Stubs::VideoMetadata.default(visited),
-          persons: Stubs::PersonMatches.default(visited),
+          video_metadata: VideoMetadata.default(visited),
+          persons: PersonMatches.default(visited),
         }
       end
 
@@ -2558,7 +2558,7 @@ module AWS::SDK::Rekognition
         return nil if visited.include?('PersonMatches')
         visited = visited + ['PersonMatches']
         [
-          Stubs::PersonMatch.default(visited)
+          PersonMatch.default(visited)
         ]
       end
 
@@ -2579,8 +2579,8 @@ module AWS::SDK::Rekognition
         visited = visited + ['PersonMatch']
         {
           timestamp: 1,
-          person: Stubs::PersonDetail.default(visited),
-          face_matches: Stubs::FaceMatchList.default(visited),
+          person: PersonDetail.default(visited),
+          face_matches: FaceMatchList.default(visited),
         }
       end
 
@@ -2600,7 +2600,7 @@ module AWS::SDK::Rekognition
         return nil if visited.include?('FaceMatchList')
         visited = visited + ['FaceMatchList']
         [
-          Stubs::FaceMatch.default(visited)
+          FaceMatch.default(visited)
         ]
       end
 
@@ -2621,7 +2621,7 @@ module AWS::SDK::Rekognition
         visited = visited + ['FaceMatch']
         {
           similarity: 1.0,
-          face: Stubs::Face.default(visited),
+          face: Face.default(visited),
         }
       end
 
@@ -2641,7 +2641,7 @@ module AWS::SDK::Rekognition
         visited = visited + ['Face']
         {
           face_id: 'face_id',
-          bounding_box: Stubs::BoundingBox.default(visited),
+          bounding_box: BoundingBox.default(visited),
           image_id: 'image_id',
           external_image_id: 'external_image_id',
           confidence: 1.0,
@@ -2669,8 +2669,8 @@ module AWS::SDK::Rekognition
         visited = visited + ['PersonDetail']
         {
           index: 1,
-          bounding_box: Stubs::BoundingBox.default(visited),
-          face: Stubs::FaceDetail.default(visited),
+          bounding_box: BoundingBox.default(visited),
+          face: FaceDetail.default(visited),
         }
       end
 
@@ -2690,9 +2690,9 @@ module AWS::SDK::Rekognition
         {
           job_status: 'job_status',
           status_message: 'status_message',
-          video_metadata: Stubs::VideoMetadata.default(visited),
+          video_metadata: VideoMetadata.default(visited),
           next_token: 'next_token',
-          labels: Stubs::LabelDetections.default(visited),
+          labels: LabelDetections.default(visited),
           label_model_version: 'label_model_version',
         }
       end
@@ -2716,7 +2716,7 @@ module AWS::SDK::Rekognition
         return nil if visited.include?('LabelDetections')
         visited = visited + ['LabelDetections']
         [
-          Stubs::LabelDetection.default(visited)
+          LabelDetection.default(visited)
         ]
       end
 
@@ -2737,7 +2737,7 @@ module AWS::SDK::Rekognition
         visited = visited + ['LabelDetection']
         {
           timestamp: 1,
-          label: Stubs::Label.default(visited),
+          label: Label.default(visited),
         }
       end
 
@@ -2756,9 +2756,9 @@ module AWS::SDK::Rekognition
         {
           job_status: 'job_status',
           status_message: 'status_message',
-          video_metadata: Stubs::VideoMetadata.default(visited),
+          video_metadata: VideoMetadata.default(visited),
           next_token: 'next_token',
-          persons: Stubs::PersonDetections.default(visited),
+          persons: PersonDetections.default(visited),
         }
       end
 
@@ -2780,7 +2780,7 @@ module AWS::SDK::Rekognition
         return nil if visited.include?('PersonDetections')
         visited = visited + ['PersonDetections']
         [
-          Stubs::PersonDetection.default(visited)
+          PersonDetection.default(visited)
         ]
       end
 
@@ -2801,7 +2801,7 @@ module AWS::SDK::Rekognition
         visited = visited + ['PersonDetection']
         {
           timestamp: 1,
-          person: Stubs::PersonDetail.default(visited),
+          person: PersonDetail.default(visited),
         }
       end
 
@@ -2820,11 +2820,11 @@ module AWS::SDK::Rekognition
         {
           job_status: 'job_status',
           status_message: 'status_message',
-          video_metadata: Stubs::VideoMetadataList.default(visited),
-          audio_metadata: Stubs::AudioMetadataList.default(visited),
+          video_metadata: VideoMetadataList.default(visited),
+          audio_metadata: AudioMetadataList.default(visited),
           next_token: 'next_token',
-          segments: Stubs::SegmentDetections.default(visited),
-          selected_segment_types: Stubs::SegmentTypesInfo.default(visited),
+          segments: SegmentDetections.default(visited),
+          selected_segment_types: SegmentTypesInfo.default(visited),
         }
       end
 
@@ -2848,7 +2848,7 @@ module AWS::SDK::Rekognition
         return nil if visited.include?('SegmentTypesInfo')
         visited = visited + ['SegmentTypesInfo']
         [
-          Stubs::SegmentTypeInfo.default(visited)
+          SegmentTypeInfo.default(visited)
         ]
       end
 
@@ -2888,7 +2888,7 @@ module AWS::SDK::Rekognition
         return nil if visited.include?('SegmentDetections')
         visited = visited + ['SegmentDetections']
         [
-          Stubs::SegmentDetection.default(visited)
+          SegmentDetection.default(visited)
         ]
       end
 
@@ -2915,8 +2915,8 @@ module AWS::SDK::Rekognition
           start_timecode_smpte: 'start_timecode_smpte',
           end_timecode_smpte: 'end_timecode_smpte',
           duration_smpte: 'duration_smpte',
-          technical_cue_segment: Stubs::TechnicalCueSegment.default(visited),
-          shot_segment: Stubs::ShotSegment.default(visited),
+          technical_cue_segment: TechnicalCueSegment.default(visited),
+          shot_segment: ShotSegment.default(visited),
           start_frame_number: 1,
           end_frame_number: 1,
           duration_frames: 1,
@@ -2988,7 +2988,7 @@ module AWS::SDK::Rekognition
         return nil if visited.include?('AudioMetadataList')
         visited = visited + ['AudioMetadataList']
         [
-          Stubs::AudioMetadata.default(visited)
+          AudioMetadata.default(visited)
         ]
       end
 
@@ -3032,7 +3032,7 @@ module AWS::SDK::Rekognition
         return nil if visited.include?('VideoMetadataList')
         visited = visited + ['VideoMetadataList']
         [
-          Stubs::VideoMetadata.default(visited)
+          VideoMetadata.default(visited)
         ]
       end
 
@@ -3052,8 +3052,8 @@ module AWS::SDK::Rekognition
         {
           job_status: 'job_status',
           status_message: 'status_message',
-          video_metadata: Stubs::VideoMetadata.default(visited),
-          text_detections: Stubs::TextDetectionResults.default(visited),
+          video_metadata: VideoMetadata.default(visited),
+          text_detections: TextDetectionResults.default(visited),
           next_token: 'next_token',
           text_model_version: 'text_model_version',
         }
@@ -3078,7 +3078,7 @@ module AWS::SDK::Rekognition
         return nil if visited.include?('TextDetectionResults')
         visited = visited + ['TextDetectionResults']
         [
-          Stubs::TextDetectionResult.default(visited)
+          TextDetectionResult.default(visited)
         ]
       end
 
@@ -3099,7 +3099,7 @@ module AWS::SDK::Rekognition
         visited = visited + ['TextDetectionResult']
         {
           timestamp: 1,
-          text_detection: Stubs::TextDetection.default(visited),
+          text_detection: TextDetection.default(visited),
         }
       end
 
@@ -3116,10 +3116,10 @@ module AWS::SDK::Rekognition
     class IndexFaces
       def self.default(visited=[])
         {
-          face_records: Stubs::FaceRecordList.default(visited),
+          face_records: FaceRecordList.default(visited),
           orientation_correction: 'orientation_correction',
           face_model_version: 'face_model_version',
-          unindexed_faces: Stubs::UnindexedFaces.default(visited),
+          unindexed_faces: UnindexedFaces.default(visited),
         }
       end
 
@@ -3140,7 +3140,7 @@ module AWS::SDK::Rekognition
         return nil if visited.include?('UnindexedFaces')
         visited = visited + ['UnindexedFaces']
         [
-          Stubs::UnindexedFace.default(visited)
+          UnindexedFace.default(visited)
         ]
       end
 
@@ -3160,8 +3160,8 @@ module AWS::SDK::Rekognition
         return nil if visited.include?('UnindexedFace')
         visited = visited + ['UnindexedFace']
         {
-          reasons: Stubs::Reasons.default(visited),
-          face_detail: Stubs::FaceDetail.default(visited),
+          reasons: Reasons.default(visited),
+          face_detail: FaceDetail.default(visited),
         }
       end
 
@@ -3200,7 +3200,7 @@ module AWS::SDK::Rekognition
         return nil if visited.include?('FaceRecordList')
         visited = visited + ['FaceRecordList']
         [
-          Stubs::FaceRecord.default(visited)
+          FaceRecord.default(visited)
         ]
       end
 
@@ -3220,8 +3220,8 @@ module AWS::SDK::Rekognition
         return nil if visited.include?('FaceRecord')
         visited = visited + ['FaceRecord']
         {
-          face: Stubs::Face.default(visited),
-          face_detail: Stubs::FaceDetail.default(visited),
+          face: Face.default(visited),
+          face_detail: FaceDetail.default(visited),
         }
       end
 
@@ -3238,9 +3238,9 @@ module AWS::SDK::Rekognition
     class ListCollections
       def self.default(visited=[])
         {
-          collection_ids: Stubs::CollectionIdList.default(visited),
+          collection_ids: CollectionIdList.default(visited),
           next_token: 'next_token',
-          face_model_versions: Stubs::FaceModelVersionList.default(visited),
+          face_model_versions: FaceModelVersionList.default(visited),
         }
       end
 
@@ -3298,7 +3298,7 @@ module AWS::SDK::Rekognition
     class ListDatasetEntries
       def self.default(visited=[])
         {
-          dataset_entries: Stubs::DatasetEntries.default(visited),
+          dataset_entries: DatasetEntries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3336,7 +3336,7 @@ module AWS::SDK::Rekognition
     class ListDatasetLabels
       def self.default(visited=[])
         {
-          dataset_label_descriptions: Stubs::DatasetLabelDescriptions.default(visited),
+          dataset_label_descriptions: DatasetLabelDescriptions.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3356,7 +3356,7 @@ module AWS::SDK::Rekognition
         return nil if visited.include?('DatasetLabelDescriptions')
         visited = visited + ['DatasetLabelDescriptions']
         [
-          Stubs::DatasetLabelDescription.default(visited)
+          DatasetLabelDescription.default(visited)
         ]
       end
 
@@ -3377,7 +3377,7 @@ module AWS::SDK::Rekognition
         visited = visited + ['DatasetLabelDescription']
         {
           label_name: 'label_name',
-          label_stats: Stubs::DatasetLabelStats.default(visited),
+          label_stats: DatasetLabelStats.default(visited),
         }
       end
 
@@ -3414,7 +3414,7 @@ module AWS::SDK::Rekognition
     class ListFaces
       def self.default(visited=[])
         {
-          faces: Stubs::FaceList.default(visited),
+          faces: FaceList.default(visited),
           next_token: 'next_token',
           face_model_version: 'face_model_version',
         }
@@ -3436,7 +3436,7 @@ module AWS::SDK::Rekognition
         return nil if visited.include?('FaceList')
         visited = visited + ['FaceList']
         [
-          Stubs::Face.default(visited)
+          Face.default(visited)
         ]
       end
 
@@ -3455,7 +3455,7 @@ module AWS::SDK::Rekognition
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          stream_processors: Stubs::StreamProcessorList.default(visited),
+          stream_processors: StreamProcessorList.default(visited),
         }
       end
 
@@ -3474,7 +3474,7 @@ module AWS::SDK::Rekognition
         return nil if visited.include?('StreamProcessorList')
         visited = visited + ['StreamProcessorList']
         [
-          Stubs::StreamProcessor.default(visited)
+          StreamProcessor.default(visited)
         ]
       end
 
@@ -3512,7 +3512,7 @@ module AWS::SDK::Rekognition
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -3548,8 +3548,8 @@ module AWS::SDK::Rekognition
     class RecognizeCelebrities
       def self.default(visited=[])
         {
-          celebrity_faces: Stubs::CelebrityList.default(visited),
-          unrecognized_faces: Stubs::ComparedFaceList.default(visited),
+          celebrity_faces: CelebrityList.default(visited),
+          unrecognized_faces: ComparedFaceList.default(visited),
           orientation_correction: 'orientation_correction',
         }
       end
@@ -3570,7 +3570,7 @@ module AWS::SDK::Rekognition
         return nil if visited.include?('ComparedFaceList')
         visited = visited + ['ComparedFaceList']
         [
-          Stubs::ComparedFace.default(visited)
+          ComparedFace.default(visited)
         ]
       end
 
@@ -3590,7 +3590,7 @@ module AWS::SDK::Rekognition
         return nil if visited.include?('CelebrityList')
         visited = visited + ['CelebrityList']
         [
-          Stubs::Celebrity.default(visited)
+          Celebrity.default(visited)
         ]
       end
 
@@ -3610,12 +3610,12 @@ module AWS::SDK::Rekognition
         return nil if visited.include?('Celebrity')
         visited = visited + ['Celebrity']
         {
-          urls: Stubs::Urls.default(visited),
+          urls: Urls.default(visited),
           name: 'name',
           id: 'id',
-          face: Stubs::ComparedFace.default(visited),
+          face: ComparedFace.default(visited),
           match_confidence: 1.0,
-          known_gender: Stubs::KnownGender.default(visited),
+          known_gender: KnownGender.default(visited),
         }
       end
 
@@ -3637,7 +3637,7 @@ module AWS::SDK::Rekognition
       def self.default(visited=[])
         {
           searched_face_id: 'searched_face_id',
-          face_matches: Stubs::FaceMatchList.default(visited),
+          face_matches: FaceMatchList.default(visited),
           face_model_version: 'face_model_version',
         }
       end
@@ -3656,9 +3656,9 @@ module AWS::SDK::Rekognition
     class SearchFacesByImage
       def self.default(visited=[])
         {
-          searched_face_bounding_box: Stubs::BoundingBox.default(visited),
+          searched_face_bounding_box: BoundingBox.default(visited),
           searched_face_confidence: 1.0,
-          face_matches: Stubs::FaceMatchList.default(visited),
+          face_matches: FaceMatchList.default(visited),
           face_model_version: 'face_model_version',
         }
       end

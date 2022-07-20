@@ -38,7 +38,7 @@ module AWS::SDK::FinspaceData
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ChangesetSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ChangesetSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -50,11 +50,11 @@ module AWS::SDK::FinspaceData
         Hearth::Validator.validate!(input[:changeset_arn], ::String, context: "#{context}[:changeset_arn]")
         Hearth::Validator.validate!(input[:dataset_id], ::String, context: "#{context}[:dataset_id]")
         Hearth::Validator.validate!(input[:change_type], ::String, context: "#{context}[:change_type]")
-        Validators::SourceParams.validate!(input[:source_params], context: "#{context}[:source_params]") unless input[:source_params].nil?
-        Validators::FormatParams.validate!(input[:format_params], context: "#{context}[:format_params]") unless input[:format_params].nil?
+        SourceParams.validate!(input[:source_params], context: "#{context}[:source_params]") unless input[:source_params].nil?
+        FormatParams.validate!(input[:format_params], context: "#{context}[:format_params]") unless input[:format_params].nil?
         Hearth::Validator.validate!(input[:create_time], ::Integer, context: "#{context}[:create_time]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::ChangesetErrorInfo.validate!(input[:error_info], context: "#{context}[:error_info]") unless input[:error_info].nil?
+        ChangesetErrorInfo.validate!(input[:error_info], context: "#{context}[:error_info]") unless input[:error_info].nil?
         Hearth::Validator.validate!(input[:active_until_timestamp], ::Integer, context: "#{context}[:active_until_timestamp]")
         Hearth::Validator.validate!(input[:active_from_timestamp], ::Integer, context: "#{context}[:active_from_timestamp]")
         Hearth::Validator.validate!(input[:updates_changeset_id], ::String, context: "#{context}[:updates_changeset_id]")
@@ -75,7 +75,7 @@ module AWS::SDK::FinspaceData
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ColumnDefinition.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ColumnDefinition.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -103,8 +103,8 @@ module AWS::SDK::FinspaceData
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
         Hearth::Validator.validate!(input[:dataset_id], ::String, context: "#{context}[:dataset_id]")
         Hearth::Validator.validate!(input[:change_type], ::String, context: "#{context}[:change_type]")
-        Validators::SourceParams.validate!(input[:source_params], context: "#{context}[:source_params]") unless input[:source_params].nil?
-        Validators::FormatParams.validate!(input[:format_params], context: "#{context}[:format_params]") unless input[:format_params].nil?
+        SourceParams.validate!(input[:source_params], context: "#{context}[:source_params]") unless input[:source_params].nil?
+        FormatParams.validate!(input[:format_params], context: "#{context}[:format_params]") unless input[:format_params].nil?
       end
     end
 
@@ -122,10 +122,10 @@ module AWS::SDK::FinspaceData
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
         Hearth::Validator.validate!(input[:dataset_id], ::String, context: "#{context}[:dataset_id]")
         Hearth::Validator.validate!(input[:auto_update], ::TrueClass, ::FalseClass, context: "#{context}[:auto_update]")
-        Validators::SortColumnList.validate!(input[:sort_columns], context: "#{context}[:sort_columns]") unless input[:sort_columns].nil?
-        Validators::PartitionColumnList.validate!(input[:partition_columns], context: "#{context}[:partition_columns]") unless input[:partition_columns].nil?
+        SortColumnList.validate!(input[:sort_columns], context: "#{context}[:sort_columns]") unless input[:sort_columns].nil?
+        PartitionColumnList.validate!(input[:partition_columns], context: "#{context}[:partition_columns]") unless input[:partition_columns].nil?
         Hearth::Validator.validate!(input[:as_of_timestamp], ::Integer, context: "#{context}[:as_of_timestamp]")
-        Validators::DataViewDestinationTypeParams.validate!(input[:destination_type_params], context: "#{context}[:destination_type_params]") unless input[:destination_type_params].nil?
+        DataViewDestinationTypeParams.validate!(input[:destination_type_params], context: "#{context}[:destination_type_params]") unless input[:destination_type_params].nil?
       end
     end
 
@@ -144,10 +144,10 @@ module AWS::SDK::FinspaceData
         Hearth::Validator.validate!(input[:dataset_title], ::String, context: "#{context}[:dataset_title]")
         Hearth::Validator.validate!(input[:kind], ::String, context: "#{context}[:kind]")
         Hearth::Validator.validate!(input[:dataset_description], ::String, context: "#{context}[:dataset_description]")
-        Validators::DatasetOwnerInfo.validate!(input[:owner_info], context: "#{context}[:owner_info]") unless input[:owner_info].nil?
-        Validators::PermissionGroupParams.validate!(input[:permission_group_params], context: "#{context}[:permission_group_params]") unless input[:permission_group_params].nil?
+        DatasetOwnerInfo.validate!(input[:owner_info], context: "#{context}[:owner_info]") unless input[:owner_info].nil?
+        PermissionGroupParams.validate!(input[:permission_group_params], context: "#{context}[:permission_group_params]") unless input[:permission_group_params].nil?
         Hearth::Validator.validate!(input[:alias], ::String, context: "#{context}[:alias]")
-        Validators::SchemaUnion.validate!(input[:schema_definition], context: "#{context}[:schema_definition]") unless input[:schema_definition].nil?
+        SchemaUnion.validate!(input[:schema_definition], context: "#{context}[:schema_definition]") unless input[:schema_definition].nil?
       end
     end
 
@@ -163,7 +163,7 @@ module AWS::SDK::FinspaceData
         Hearth::Validator.validate!(input, Types::CreatePermissionGroupInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::ApplicationPermissionList.validate!(input[:application_permissions], context: "#{context}[:application_permissions]") unless input[:application_permissions].nil?
+        ApplicationPermissionList.validate!(input[:application_permissions], context: "#{context}[:application_permissions]") unless input[:application_permissions].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
       end
     end
@@ -209,7 +209,7 @@ module AWS::SDK::FinspaceData
         Hearth::Validator.validate!(input, Types::DataViewDestinationTypeParams, context: context)
         Hearth::Validator.validate!(input[:destination_type], ::String, context: "#{context}[:destination_type]")
         Hearth::Validator.validate!(input[:s3_destination_export_file_format], ::String, context: "#{context}[:s3_destination_export_file_format]")
-        Validators::S3DestinationFormatOptions.validate!(input[:s3_destination_export_file_format_options], context: "#{context}[:s3_destination_export_file_format_options]") unless input[:s3_destination_export_file_format_options].nil?
+        S3DestinationFormatOptions.validate!(input[:s3_destination_export_file_format_options], context: "#{context}[:s3_destination_export_file_format_options]") unless input[:s3_destination_export_file_format_options].nil?
       end
     end
 
@@ -225,7 +225,7 @@ module AWS::SDK::FinspaceData
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DataViewSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DataViewSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -237,11 +237,11 @@ module AWS::SDK::FinspaceData
         Hearth::Validator.validate!(input[:data_view_arn], ::String, context: "#{context}[:data_view_arn]")
         Hearth::Validator.validate!(input[:dataset_id], ::String, context: "#{context}[:dataset_id]")
         Hearth::Validator.validate!(input[:as_of_timestamp], ::Integer, context: "#{context}[:as_of_timestamp]")
-        Validators::PartitionColumnList.validate!(input[:partition_columns], context: "#{context}[:partition_columns]") unless input[:partition_columns].nil?
-        Validators::SortColumnList.validate!(input[:sort_columns], context: "#{context}[:sort_columns]") unless input[:sort_columns].nil?
+        PartitionColumnList.validate!(input[:partition_columns], context: "#{context}[:partition_columns]") unless input[:partition_columns].nil?
+        SortColumnList.validate!(input[:sort_columns], context: "#{context}[:sort_columns]") unless input[:sort_columns].nil?
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::DataViewErrorInfo.validate!(input[:error_info], context: "#{context}[:error_info]") unless input[:error_info].nil?
-        Validators::DataViewDestinationTypeParams.validate!(input[:destination_type_properties], context: "#{context}[:destination_type_properties]") unless input[:destination_type_properties].nil?
+        DataViewErrorInfo.validate!(input[:error_info], context: "#{context}[:error_info]") unless input[:error_info].nil?
+        DataViewDestinationTypeParams.validate!(input[:destination_type_properties], context: "#{context}[:destination_type_properties]") unless input[:destination_type_properties].nil?
         Hearth::Validator.validate!(input[:auto_update], ::TrueClass, ::FalseClass, context: "#{context}[:auto_update]")
         Hearth::Validator.validate!(input[:create_time], ::Integer, context: "#{context}[:create_time]")
         Hearth::Validator.validate!(input[:last_modified_time], ::Integer, context: "#{context}[:last_modified_time]")
@@ -256,10 +256,10 @@ module AWS::SDK::FinspaceData
         Hearth::Validator.validate!(input[:dataset_title], ::String, context: "#{context}[:dataset_title]")
         Hearth::Validator.validate!(input[:kind], ::String, context: "#{context}[:kind]")
         Hearth::Validator.validate!(input[:dataset_description], ::String, context: "#{context}[:dataset_description]")
-        Validators::DatasetOwnerInfo.validate!(input[:owner_info], context: "#{context}[:owner_info]") unless input[:owner_info].nil?
+        DatasetOwnerInfo.validate!(input[:owner_info], context: "#{context}[:owner_info]") unless input[:owner_info].nil?
         Hearth::Validator.validate!(input[:create_time], ::Integer, context: "#{context}[:create_time]")
         Hearth::Validator.validate!(input[:last_modified_time], ::Integer, context: "#{context}[:last_modified_time]")
-        Validators::SchemaUnion.validate!(input[:schema_definition], context: "#{context}[:schema_definition]") unless input[:schema_definition].nil?
+        SchemaUnion.validate!(input[:schema_definition], context: "#{context}[:schema_definition]") unless input[:schema_definition].nil?
         Hearth::Validator.validate!(input[:alias], ::String, context: "#{context}[:alias]")
       end
     end
@@ -268,7 +268,7 @@ module AWS::SDK::FinspaceData
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Dataset.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Dataset.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -367,11 +367,11 @@ module AWS::SDK::FinspaceData
         Hearth::Validator.validate!(input[:changeset_arn], ::String, context: "#{context}[:changeset_arn]")
         Hearth::Validator.validate!(input[:dataset_id], ::String, context: "#{context}[:dataset_id]")
         Hearth::Validator.validate!(input[:change_type], ::String, context: "#{context}[:change_type]")
-        Validators::SourceParams.validate!(input[:source_params], context: "#{context}[:source_params]") unless input[:source_params].nil?
-        Validators::FormatParams.validate!(input[:format_params], context: "#{context}[:format_params]") unless input[:format_params].nil?
+        SourceParams.validate!(input[:source_params], context: "#{context}[:source_params]") unless input[:source_params].nil?
+        FormatParams.validate!(input[:format_params], context: "#{context}[:format_params]") unless input[:format_params].nil?
         Hearth::Validator.validate!(input[:create_time], ::Integer, context: "#{context}[:create_time]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::ChangesetErrorInfo.validate!(input[:error_info], context: "#{context}[:error_info]") unless input[:error_info].nil?
+        ChangesetErrorInfo.validate!(input[:error_info], context: "#{context}[:error_info]") unless input[:error_info].nil?
         Hearth::Validator.validate!(input[:active_until_timestamp], ::Integer, context: "#{context}[:active_until_timestamp]")
         Hearth::Validator.validate!(input[:active_from_timestamp], ::Integer, context: "#{context}[:active_from_timestamp]")
         Hearth::Validator.validate!(input[:updates_changeset_id], ::String, context: "#{context}[:updates_changeset_id]")
@@ -391,16 +391,16 @@ module AWS::SDK::FinspaceData
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetDataViewOutput, context: context)
         Hearth::Validator.validate!(input[:auto_update], ::TrueClass, ::FalseClass, context: "#{context}[:auto_update]")
-        Validators::PartitionColumnList.validate!(input[:partition_columns], context: "#{context}[:partition_columns]") unless input[:partition_columns].nil?
+        PartitionColumnList.validate!(input[:partition_columns], context: "#{context}[:partition_columns]") unless input[:partition_columns].nil?
         Hearth::Validator.validate!(input[:dataset_id], ::String, context: "#{context}[:dataset_id]")
         Hearth::Validator.validate!(input[:as_of_timestamp], ::Integer, context: "#{context}[:as_of_timestamp]")
-        Validators::DataViewErrorInfo.validate!(input[:error_info], context: "#{context}[:error_info]") unless input[:error_info].nil?
+        DataViewErrorInfo.validate!(input[:error_info], context: "#{context}[:error_info]") unless input[:error_info].nil?
         Hearth::Validator.validate!(input[:last_modified_time], ::Integer, context: "#{context}[:last_modified_time]")
         Hearth::Validator.validate!(input[:create_time], ::Integer, context: "#{context}[:create_time]")
-        Validators::SortColumnList.validate!(input[:sort_columns], context: "#{context}[:sort_columns]") unless input[:sort_columns].nil?
+        SortColumnList.validate!(input[:sort_columns], context: "#{context}[:sort_columns]") unless input[:sort_columns].nil?
         Hearth::Validator.validate!(input[:data_view_id], ::String, context: "#{context}[:data_view_id]")
         Hearth::Validator.validate!(input[:data_view_arn], ::String, context: "#{context}[:data_view_arn]")
-        Validators::DataViewDestinationTypeParams.validate!(input[:destination_type_params], context: "#{context}[:destination_type_params]") unless input[:destination_type_params].nil?
+        DataViewDestinationTypeParams.validate!(input[:destination_type_params], context: "#{context}[:destination_type_params]") unless input[:destination_type_params].nil?
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
       end
     end
@@ -422,7 +422,7 @@ module AWS::SDK::FinspaceData
         Hearth::Validator.validate!(input[:dataset_description], ::String, context: "#{context}[:dataset_description]")
         Hearth::Validator.validate!(input[:create_time], ::Integer, context: "#{context}[:create_time]")
         Hearth::Validator.validate!(input[:last_modified_time], ::Integer, context: "#{context}[:last_modified_time]")
-        Validators::SchemaUnion.validate!(input[:schema_definition], context: "#{context}[:schema_definition]") unless input[:schema_definition].nil?
+        SchemaUnion.validate!(input[:schema_definition], context: "#{context}[:schema_definition]") unless input[:schema_definition].nil?
         Hearth::Validator.validate!(input[:alias], ::String, context: "#{context}[:alias]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
       end
@@ -439,7 +439,7 @@ module AWS::SDK::FinspaceData
     class GetProgrammaticAccessCredentialsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetProgrammaticAccessCredentialsOutput, context: context)
-        Validators::Credentials.validate!(input[:credentials], context: "#{context}[:credentials]") unless input[:credentials].nil?
+        Credentials.validate!(input[:credentials], context: "#{context}[:credentials]") unless input[:credentials].nil?
         Hearth::Validator.validate!(input[:duration_in_minutes], ::Integer, context: "#{context}[:duration_in_minutes]")
       end
     end
@@ -512,7 +512,7 @@ module AWS::SDK::FinspaceData
     class ListChangesetsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListChangesetsOutput, context: context)
-        Validators::ChangesetList.validate!(input[:changesets], context: "#{context}[:changesets]") unless input[:changesets].nil?
+        ChangesetList.validate!(input[:changesets], context: "#{context}[:changesets]") unless input[:changesets].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -530,7 +530,7 @@ module AWS::SDK::FinspaceData
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDataViewsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::DataViewList.validate!(input[:data_views], context: "#{context}[:data_views]") unless input[:data_views].nil?
+        DataViewList.validate!(input[:data_views], context: "#{context}[:data_views]") unless input[:data_views].nil?
       end
     end
 
@@ -545,7 +545,7 @@ module AWS::SDK::FinspaceData
     class ListDatasetsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDatasetsOutput, context: context)
-        Validators::DatasetList.validate!(input[:datasets], context: "#{context}[:datasets]") unless input[:datasets].nil?
+        DatasetList.validate!(input[:datasets], context: "#{context}[:datasets]") unless input[:datasets].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -561,7 +561,7 @@ module AWS::SDK::FinspaceData
     class ListPermissionGroupsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListPermissionGroupsOutput, context: context)
-        Validators::PermissionGroupList.validate!(input[:permission_groups], context: "#{context}[:permission_groups]") unless input[:permission_groups].nil?
+        PermissionGroupList.validate!(input[:permission_groups], context: "#{context}[:permission_groups]") unless input[:permission_groups].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -577,7 +577,7 @@ module AWS::SDK::FinspaceData
     class ListUsersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListUsersOutput, context: context)
-        Validators::UserList.validate!(input[:users], context: "#{context}[:users]") unless input[:users].nil?
+        UserList.validate!(input[:users], context: "#{context}[:users]") unless input[:users].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -597,7 +597,7 @@ module AWS::SDK::FinspaceData
         Hearth::Validator.validate!(input[:permission_group_id], ::String, context: "#{context}[:permission_group_id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::ApplicationPermissionList.validate!(input[:application_permissions], context: "#{context}[:application_permissions]") unless input[:application_permissions].nil?
+        ApplicationPermissionList.validate!(input[:application_permissions], context: "#{context}[:application_permissions]") unless input[:application_permissions].nil?
         Hearth::Validator.validate!(input[:create_time], ::Integer, context: "#{context}[:create_time]")
         Hearth::Validator.validate!(input[:last_modified_time], ::Integer, context: "#{context}[:last_modified_time]")
       end
@@ -607,7 +607,7 @@ module AWS::SDK::FinspaceData
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PermissionGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PermissionGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -616,7 +616,7 @@ module AWS::SDK::FinspaceData
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PermissionGroupParams, context: context)
         Hearth::Validator.validate!(input[:permission_group_id], ::String, context: "#{context}[:permission_group_id]")
-        Validators::ResourcePermissionsList.validate!(input[:dataset_permissions], context: "#{context}[:dataset_permissions]") unless input[:dataset_permissions].nil?
+        ResourcePermissionsList.validate!(input[:dataset_permissions], context: "#{context}[:dataset_permissions]") unless input[:dataset_permissions].nil?
       end
     end
 
@@ -655,7 +655,7 @@ module AWS::SDK::FinspaceData
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ResourcePermission.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ResourcePermission.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -673,15 +673,15 @@ module AWS::SDK::FinspaceData
     class SchemaDefinition
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SchemaDefinition, context: context)
-        Validators::ColumnList.validate!(input[:columns], context: "#{context}[:columns]") unless input[:columns].nil?
-        Validators::ColumnNameList.validate!(input[:primary_key_columns], context: "#{context}[:primary_key_columns]") unless input[:primary_key_columns].nil?
+        ColumnList.validate!(input[:columns], context: "#{context}[:columns]") unless input[:columns].nil?
+        ColumnNameList.validate!(input[:primary_key_columns], context: "#{context}[:primary_key_columns]") unless input[:primary_key_columns].nil?
       end
     end
 
     class SchemaUnion
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SchemaUnion, context: context)
-        Validators::SchemaDefinition.validate!(input[:tabular_schema_config], context: "#{context}[:tabular_schema_config]") unless input[:tabular_schema_config].nil?
+        SchemaDefinition.validate!(input[:tabular_schema_config], context: "#{context}[:tabular_schema_config]") unless input[:tabular_schema_config].nil?
       end
     end
 
@@ -716,8 +716,8 @@ module AWS::SDK::FinspaceData
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
         Hearth::Validator.validate!(input[:dataset_id], ::String, context: "#{context}[:dataset_id]")
         Hearth::Validator.validate!(input[:changeset_id], ::String, context: "#{context}[:changeset_id]")
-        Validators::SourceParams.validate!(input[:source_params], context: "#{context}[:source_params]") unless input[:source_params].nil?
-        Validators::FormatParams.validate!(input[:format_params], context: "#{context}[:format_params]") unless input[:format_params].nil?
+        SourceParams.validate!(input[:source_params], context: "#{context}[:source_params]") unless input[:source_params].nil?
+        FormatParams.validate!(input[:format_params], context: "#{context}[:format_params]") unless input[:format_params].nil?
       end
     end
 
@@ -738,7 +738,7 @@ module AWS::SDK::FinspaceData
         Hearth::Validator.validate!(input[:kind], ::String, context: "#{context}[:kind]")
         Hearth::Validator.validate!(input[:dataset_description], ::String, context: "#{context}[:dataset_description]")
         Hearth::Validator.validate!(input[:alias], ::String, context: "#{context}[:alias]")
-        Validators::SchemaUnion.validate!(input[:schema_definition], context: "#{context}[:schema_definition]") unless input[:schema_definition].nil?
+        SchemaUnion.validate!(input[:schema_definition], context: "#{context}[:schema_definition]") unless input[:schema_definition].nil?
       end
     end
 
@@ -755,7 +755,7 @@ module AWS::SDK::FinspaceData
         Hearth::Validator.validate!(input[:permission_group_id], ::String, context: "#{context}[:permission_group_id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::ApplicationPermissionList.validate!(input[:application_permissions], context: "#{context}[:application_permissions]") unless input[:application_permissions].nil?
+        ApplicationPermissionList.validate!(input[:application_permissions], context: "#{context}[:application_permissions]") unless input[:application_permissions].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
       end
     end
@@ -810,7 +810,7 @@ module AWS::SDK::FinspaceData
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::User.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          User.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

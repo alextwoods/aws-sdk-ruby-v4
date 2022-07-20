@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::GameSparks
   module Validators
 
@@ -45,7 +47,7 @@ module AWS::SDK::GameSparks
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Connection.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Connection.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -56,14 +58,14 @@ module AWS::SDK::GameSparks
         Hearth::Validator.validate!(input[:game_name], ::String, context: "#{context}[:game_name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateGameOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateGameOutput, context: context)
-        Validators::GameDetails.validate!(input[:game], context: "#{context}[:game]") unless input[:game].nil?
+        GameDetails.validate!(input[:game], context: "#{context}[:game]") unless input[:game].nil?
       end
     end
 
@@ -78,7 +80,7 @@ module AWS::SDK::GameSparks
     class CreateSnapshotOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateSnapshotOutput, context: context)
-        Validators::SnapshotDetails.validate!(input[:snapshot], context: "#{context}[:snapshot]") unless input[:snapshot].nil?
+        SnapshotDetails.validate!(input[:snapshot], context: "#{context}[:snapshot]") unless input[:snapshot].nil?
       end
     end
 
@@ -90,14 +92,14 @@ module AWS::SDK::GameSparks
         Hearth::Validator.validate!(input[:role], ::String, context: "#{context}[:role]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateStageOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateStageOutput, context: context)
-        Validators::StageDetails.validate!(input[:stage], context: "#{context}[:stage]") unless input[:stage].nil?
+        StageDetails.validate!(input[:stage], context: "#{context}[:stage]") unless input[:stage].nil?
       end
     end
 
@@ -148,8 +150,8 @@ module AWS::SDK::GameSparks
     class DisconnectPlayerOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DisconnectPlayerOutput, context: context)
-        Validators::ConnectionIdList.validate!(input[:disconnect_successes], context: "#{context}[:disconnect_successes]") unless input[:disconnect_successes].nil?
-        Validators::ConnectionIdList.validate!(input[:disconnect_failures], context: "#{context}[:disconnect_failures]") unless input[:disconnect_failures].nil?
+        ConnectionIdList.validate!(input[:disconnect_successes], context: "#{context}[:disconnect_successes]") unless input[:disconnect_successes].nil?
+        ConnectionIdList.validate!(input[:disconnect_failures], context: "#{context}[:disconnect_failures]") unless input[:disconnect_failures].nil?
       end
     end
 
@@ -197,7 +199,7 @@ module AWS::SDK::GameSparks
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ExtensionDetails.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ExtensionDetails.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -216,7 +218,7 @@ module AWS::SDK::GameSparks
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ExtensionVersionDetails.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ExtensionVersionDetails.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -224,7 +226,7 @@ module AWS::SDK::GameSparks
     class GameConfigurationDetails
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GameConfigurationDetails, context: context)
-        Validators::Sections.validate!(input[:sections], context: "#{context}[:sections]") unless input[:sections].nil?
+        Sections.validate!(input[:sections], context: "#{context}[:sections]") unless input[:sections].nil?
         Hearth::Validator.validate!(input[:created], ::Time, context: "#{context}[:created]")
         Hearth::Validator.validate!(input[:last_updated], ::Time, context: "#{context}[:last_updated]")
       end
@@ -240,7 +242,7 @@ module AWS::SDK::GameSparks
         Hearth::Validator.validate!(input[:last_updated], ::Time, context: "#{context}[:last_updated]")
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
         Hearth::Validator.validate!(input[:enable_termination_protection], ::TrueClass, ::FalseClass, context: "#{context}[:enable_termination_protection]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -250,7 +252,7 @@ module AWS::SDK::GameSparks
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -258,7 +260,7 @@ module AWS::SDK::GameSparks
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::GameSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          GameSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -278,7 +280,7 @@ module AWS::SDK::GameSparks
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::GeneratedCodeJobDetails.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          GeneratedCodeJobDetails.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -303,7 +305,7 @@ module AWS::SDK::GameSparks
     class GetExtensionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetExtensionOutput, context: context)
-        Validators::ExtensionDetails.validate!(input[:extension], context: "#{context}[:extension]") unless input[:extension].nil?
+        ExtensionDetails.validate!(input[:extension], context: "#{context}[:extension]") unless input[:extension].nil?
       end
     end
 
@@ -319,7 +321,7 @@ module AWS::SDK::GameSparks
     class GetExtensionVersionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetExtensionVersionOutput, context: context)
-        Validators::ExtensionVersionDetails.validate!(input[:extension_version], context: "#{context}[:extension_version]") unless input[:extension_version].nil?
+        ExtensionVersionDetails.validate!(input[:extension_version], context: "#{context}[:extension_version]") unless input[:extension_version].nil?
       end
     end
 
@@ -327,14 +329,14 @@ module AWS::SDK::GameSparks
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetGameConfigurationInput, context: context)
         Hearth::Validator.validate!(input[:game_name], ::String, context: "#{context}[:game_name]")
-        Validators::SectionList.validate!(input[:sections], context: "#{context}[:sections]") unless input[:sections].nil?
+        SectionList.validate!(input[:sections], context: "#{context}[:sections]") unless input[:sections].nil?
       end
     end
 
     class GetGameConfigurationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetGameConfigurationOutput, context: context)
-        Validators::GameConfigurationDetails.validate!(input[:game_configuration], context: "#{context}[:game_configuration]") unless input[:game_configuration].nil?
+        GameConfigurationDetails.validate!(input[:game_configuration], context: "#{context}[:game_configuration]") unless input[:game_configuration].nil?
       end
     end
 
@@ -348,7 +350,7 @@ module AWS::SDK::GameSparks
     class GetGameOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetGameOutput, context: context)
-        Validators::GameDetails.validate!(input[:game], context: "#{context}[:game]") unless input[:game].nil?
+        GameDetails.validate!(input[:game], context: "#{context}[:game]") unless input[:game].nil?
       end
     end
 
@@ -364,7 +366,7 @@ module AWS::SDK::GameSparks
     class GetGeneratedCodeJobOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetGeneratedCodeJobOutput, context: context)
-        Validators::GeneratedCodeJobDetails.validate!(input[:generated_code_job], context: "#{context}[:generated_code_job]") unless input[:generated_code_job].nil?
+        GeneratedCodeJobDetails.validate!(input[:generated_code_job], context: "#{context}[:generated_code_job]") unless input[:generated_code_job].nil?
       end
     end
 
@@ -380,7 +382,7 @@ module AWS::SDK::GameSparks
     class GetPlayerConnectionStatusOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetPlayerConnectionStatusOutput, context: context)
-        Validators::ConnectionList.validate!(input[:connections], context: "#{context}[:connections]") unless input[:connections].nil?
+        ConnectionList.validate!(input[:connections], context: "#{context}[:connections]") unless input[:connections].nil?
       end
     end
 
@@ -389,14 +391,14 @@ module AWS::SDK::GameSparks
         Hearth::Validator.validate!(input, Types::GetSnapshotInput, context: context)
         Hearth::Validator.validate!(input[:game_name], ::String, context: "#{context}[:game_name]")
         Hearth::Validator.validate!(input[:snapshot_id], ::String, context: "#{context}[:snapshot_id]")
-        Validators::SectionList.validate!(input[:sections], context: "#{context}[:sections]") unless input[:sections].nil?
+        SectionList.validate!(input[:sections], context: "#{context}[:sections]") unless input[:sections].nil?
       end
     end
 
     class GetSnapshotOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetSnapshotOutput, context: context)
-        Validators::SnapshotDetails.validate!(input[:snapshot], context: "#{context}[:snapshot]") unless input[:snapshot].nil?
+        SnapshotDetails.validate!(input[:snapshot], context: "#{context}[:snapshot]") unless input[:snapshot].nil?
       end
     end
 
@@ -412,7 +414,7 @@ module AWS::SDK::GameSparks
     class GetStageDeploymentOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetStageDeploymentOutput, context: context)
-        Validators::StageDeploymentDetails.validate!(input[:stage_deployment], context: "#{context}[:stage_deployment]") unless input[:stage_deployment].nil?
+        StageDeploymentDetails.validate!(input[:stage_deployment], context: "#{context}[:stage_deployment]") unless input[:stage_deployment].nil?
       end
     end
 
@@ -427,7 +429,7 @@ module AWS::SDK::GameSparks
     class GetStageOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetStageOutput, context: context)
-        Validators::StageDetails.validate!(input[:stage], context: "#{context}[:stage]") unless input[:stage].nil?
+        StageDetails.validate!(input[:stage], context: "#{context}[:stage]") unless input[:stage].nil?
       end
     end
 
@@ -435,14 +437,14 @@ module AWS::SDK::GameSparks
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ImportGameConfigurationInput, context: context)
         Hearth::Validator.validate!(input[:game_name], ::String, context: "#{context}[:game_name]")
-        Validators::ImportGameConfigurationSource.validate!(input[:import_source], context: "#{context}[:import_source]") unless input[:import_source].nil?
+        ImportGameConfigurationSource.validate!(input[:import_source], context: "#{context}[:import_source]") unless input[:import_source].nil?
       end
     end
 
     class ImportGameConfigurationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ImportGameConfigurationOutput, context: context)
-        Validators::GameConfigurationDetails.validate!(input[:game_configuration], context: "#{context}[:game_configuration]") unless input[:game_configuration].nil?
+        GameConfigurationDetails.validate!(input[:game_configuration], context: "#{context}[:game_configuration]") unless input[:game_configuration].nil?
       end
     end
 
@@ -473,7 +475,7 @@ module AWS::SDK::GameSparks
     class ListExtensionVersionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListExtensionVersionsOutput, context: context)
-        Validators::ExtensionVersionDetailsList.validate!(input[:extension_versions], context: "#{context}[:extension_versions]") unless input[:extension_versions].nil?
+        ExtensionVersionDetailsList.validate!(input[:extension_versions], context: "#{context}[:extension_versions]") unless input[:extension_versions].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -489,7 +491,7 @@ module AWS::SDK::GameSparks
     class ListExtensionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListExtensionsOutput, context: context)
-        Validators::ExtensionDetailsList.validate!(input[:extensions], context: "#{context}[:extensions]") unless input[:extensions].nil?
+        ExtensionDetailsList.validate!(input[:extensions], context: "#{context}[:extensions]") unless input[:extensions].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -505,7 +507,7 @@ module AWS::SDK::GameSparks
     class ListGamesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListGamesOutput, context: context)
-        Validators::GameSummaryList.validate!(input[:games], context: "#{context}[:games]") unless input[:games].nil?
+        GameSummaryList.validate!(input[:games], context: "#{context}[:games]") unless input[:games].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -523,7 +525,7 @@ module AWS::SDK::GameSparks
     class ListGeneratedCodeJobsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListGeneratedCodeJobsOutput, context: context)
-        Validators::GeneratedCodeJobDetailsList.validate!(input[:generated_code_jobs], context: "#{context}[:generated_code_jobs]") unless input[:generated_code_jobs].nil?
+        GeneratedCodeJobDetailsList.validate!(input[:generated_code_jobs], context: "#{context}[:generated_code_jobs]") unless input[:generated_code_jobs].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -540,7 +542,7 @@ module AWS::SDK::GameSparks
     class ListSnapshotsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListSnapshotsOutput, context: context)
-        Validators::SnapshotSummaryList.validate!(input[:snapshots], context: "#{context}[:snapshots]") unless input[:snapshots].nil?
+        SnapshotSummaryList.validate!(input[:snapshots], context: "#{context}[:snapshots]") unless input[:snapshots].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -558,7 +560,7 @@ module AWS::SDK::GameSparks
     class ListStageDeploymentsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListStageDeploymentsOutput, context: context)
-        Validators::StageDeploymentList.validate!(input[:stage_deployments], context: "#{context}[:stage_deployments]") unless input[:stage_deployments].nil?
+        StageDeploymentList.validate!(input[:stage_deployments], context: "#{context}[:stage_deployments]") unless input[:stage_deployments].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -575,7 +577,7 @@ module AWS::SDK::GameSparks
     class ListStagesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListStagesOutput, context: context)
-        Validators::StageSummaryList.validate!(input[:stages], context: "#{context}[:stages]") unless input[:stages].nil?
+        StageSummaryList.validate!(input[:stages], context: "#{context}[:stages]") unless input[:stages].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -590,7 +592,7 @@ module AWS::SDK::GameSparks
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -606,7 +608,7 @@ module AWS::SDK::GameSparks
         Hearth::Validator.validate!(input, Types::Section, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:size], ::Integer, context: "#{context}[:size]")
-        Validators::Document.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        Document.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
       end
     end
 
@@ -625,7 +627,7 @@ module AWS::SDK::GameSparks
         Hearth::Validator.validate!(input[:section], ::String, context: "#{context}[:section]")
         Hearth::Validator.validate!(input[:path], ::String, context: "#{context}[:path]")
         Hearth::Validator.validate!(input[:operation], ::String, context: "#{context}[:operation]")
-        Validators::Document.validate!(input[:value], context: "#{context}[:value]") unless input[:value].nil?
+        Document.validate!(input[:value], context: "#{context}[:value]") unless input[:value].nil?
       end
     end
 
@@ -633,7 +635,7 @@ module AWS::SDK::GameSparks
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SectionModification.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SectionModification.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -643,7 +645,7 @@ module AWS::SDK::GameSparks
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::Section.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          Section.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -660,7 +662,7 @@ module AWS::SDK::GameSparks
         Hearth::Validator.validate!(input, Types::SnapshotDetails, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::Sections.validate!(input[:sections], context: "#{context}[:sections]") unless input[:sections].nil?
+        Sections.validate!(input[:sections], context: "#{context}[:sections]") unless input[:sections].nil?
         Hearth::Validator.validate!(input[:created], ::Time, context: "#{context}[:created]")
         Hearth::Validator.validate!(input[:last_updated], ::Time, context: "#{context}[:last_updated]")
       end
@@ -680,7 +682,7 @@ module AWS::SDK::GameSparks
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SnapshotSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SnapshotSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -694,7 +696,7 @@ module AWS::SDK::GameSparks
         Hearth::Validator.validate!(input[:deployment_state], ::String, context: "#{context}[:deployment_state]")
         Hearth::Validator.validate!(input[:created], ::Time, context: "#{context}[:created]")
         Hearth::Validator.validate!(input[:last_updated], ::Time, context: "#{context}[:last_updated]")
-        Validators::DeploymentResult.validate!(input[:deployment_result], context: "#{context}[:deployment_result]") unless input[:deployment_result].nil?
+        DeploymentResult.validate!(input[:deployment_result], context: "#{context}[:deployment_result]") unless input[:deployment_result].nil?
       end
     end
 
@@ -702,7 +704,7 @@ module AWS::SDK::GameSparks
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::StageDeploymentSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          StageDeploymentSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -715,7 +717,7 @@ module AWS::SDK::GameSparks
         Hearth::Validator.validate!(input[:deployment_action], ::String, context: "#{context}[:deployment_action]")
         Hearth::Validator.validate!(input[:deployment_state], ::String, context: "#{context}[:deployment_state]")
         Hearth::Validator.validate!(input[:last_updated], ::Time, context: "#{context}[:last_updated]")
-        Validators::DeploymentResult.validate!(input[:deployment_result], context: "#{context}[:deployment_result]") unless input[:deployment_result].nil?
+        DeploymentResult.validate!(input[:deployment_result], context: "#{context}[:deployment_result]") unless input[:deployment_result].nil?
       end
     end
 
@@ -730,7 +732,7 @@ module AWS::SDK::GameSparks
         Hearth::Validator.validate!(input[:created], ::Time, context: "#{context}[:created]")
         Hearth::Validator.validate!(input[:last_updated], ::Time, context: "#{context}[:last_updated]")
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:log_group], ::String, context: "#{context}[:log_group]")
       end
     end
@@ -742,7 +744,7 @@ module AWS::SDK::GameSparks
         Hearth::Validator.validate!(input[:game_key], ::String, context: "#{context}[:game_key]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -750,7 +752,7 @@ module AWS::SDK::GameSparks
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::StageSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          StageSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -760,7 +762,7 @@ module AWS::SDK::GameSparks
         Hearth::Validator.validate!(input, Types::StartGeneratedCodeJobInput, context: context)
         Hearth::Validator.validate!(input[:game_name], ::String, context: "#{context}[:game_name]")
         Hearth::Validator.validate!(input[:snapshot_id], ::String, context: "#{context}[:snapshot_id]")
-        Validators::Generator.validate!(input[:generator], context: "#{context}[:generator]") unless input[:generator].nil?
+        Generator.validate!(input[:generator], context: "#{context}[:generator]") unless input[:generator].nil?
       end
     end
 
@@ -784,7 +786,7 @@ module AWS::SDK::GameSparks
     class StartStageDeploymentOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StartStageDeploymentOutput, context: context)
-        Validators::StageDeploymentDetails.validate!(input[:stage_deployment], context: "#{context}[:stage_deployment]") unless input[:stage_deployment].nil?
+        StageDeploymentDetails.validate!(input[:stage_deployment], context: "#{context}[:stage_deployment]") unless input[:stage_deployment].nil?
       end
     end
 
@@ -811,7 +813,7 @@ module AWS::SDK::GameSparks
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -832,7 +834,7 @@ module AWS::SDK::GameSparks
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -846,14 +848,14 @@ module AWS::SDK::GameSparks
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateGameConfigurationInput, context: context)
         Hearth::Validator.validate!(input[:game_name], ::String, context: "#{context}[:game_name]")
-        Validators::SectionModificationList.validate!(input[:modifications], context: "#{context}[:modifications]") unless input[:modifications].nil?
+        SectionModificationList.validate!(input[:modifications], context: "#{context}[:modifications]") unless input[:modifications].nil?
       end
     end
 
     class UpdateGameConfigurationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateGameConfigurationOutput, context: context)
-        Validators::GameConfigurationDetails.validate!(input[:game_configuration], context: "#{context}[:game_configuration]") unless input[:game_configuration].nil?
+        GameConfigurationDetails.validate!(input[:game_configuration], context: "#{context}[:game_configuration]") unless input[:game_configuration].nil?
       end
     end
 
@@ -868,7 +870,7 @@ module AWS::SDK::GameSparks
     class UpdateGameOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateGameOutput, context: context)
-        Validators::GameDetails.validate!(input[:game], context: "#{context}[:game]") unless input[:game].nil?
+        GameDetails.validate!(input[:game], context: "#{context}[:game]") unless input[:game].nil?
       end
     end
 
@@ -884,7 +886,7 @@ module AWS::SDK::GameSparks
     class UpdateSnapshotOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateSnapshotOutput, context: context)
-        Validators::SnapshotDetails.validate!(input[:snapshot], context: "#{context}[:snapshot]") unless input[:snapshot].nil?
+        SnapshotDetails.validate!(input[:snapshot], context: "#{context}[:snapshot]") unless input[:snapshot].nil?
       end
     end
 
@@ -901,7 +903,7 @@ module AWS::SDK::GameSparks
     class UpdateStageOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateStageOutput, context: context)
-        Validators::StageDetails.validate!(input[:stage], context: "#{context}[:stage]") unless input[:stage].nil?
+        StageDetails.validate!(input[:stage], context: "#{context}[:stage]") unless input[:stage].nil?
       end
     end
 

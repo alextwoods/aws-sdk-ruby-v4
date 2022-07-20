@@ -441,11 +441,11 @@ module AWS::SDK::Nimble
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.expiration_in_seconds ||= 0
       end
-
     end
 
     # @!attribute stream
@@ -522,6 +522,20 @@ module AWS::SDK::Nimble
     #
     #   @return [String]
     #
+    # @!attribute secure_initialization_role_arn
+    #   <p>An IAM role attached to Studio Component when the system initialization script runs which give the studio component access to AWS resources when the system initialization script runs.</p>
+    #
+    #   Tags: ["studio_component_roles"]
+    #
+    #   @return [String]
+    #
+    # @!attribute runtime_role_arn
+    #   <p>An IAM role attached to a Studio Component that gives the studio component access to AWS resources at anytime while the instance is running. </p>
+    #
+    #   Tags: ["studio_component_roles"]
+    #
+    #   @return [String]
+    #
     CreateStudioComponentInput = ::Struct.new(
       :client_token,
       :configuration,
@@ -534,6 +548,8 @@ module AWS::SDK::Nimble
       :subtype,
       :tags,
       :type,
+      :secure_initialization_role_arn,
+      :runtime_role_arn,
       keyword_init: true
     ) do
       include Hearth::Structure
@@ -550,7 +566,9 @@ module AWS::SDK::Nimble
           "studio_id=#{studio_id || 'nil'}, "\
           "subtype=#{subtype || 'nil'}, "\
           "tags=#{tags || 'nil'}, "\
-          "type=#{type || 'nil'}>"
+          "type=#{type || 'nil'}, "\
+          "secure_initialization_role_arn=#{secure_initialization_role_arn || 'nil'}, "\
+          "runtime_role_arn=#{runtime_role_arn || 'nil'}>"
       end
     end
 
@@ -1670,10 +1688,26 @@ module AWS::SDK::Nimble
     #
     #   @return [String]
     #
+    # @!attribute secure_initialization_role_arn
+    #   <p>An IAM role attached to Studio Component when the system initialization script runs which give the studio component access to AWS resources when the system initialization script runs.</p>
+    #
+    #   Tags: ["studio_component_roles"]
+    #
+    #   @return [String]
+    #
+    # @!attribute runtime_role_arn
+    #   <p>An IAM role attached to a Studio Component that gives the studio component access to AWS resources at anytime while the instance is running. </p>
+    #
+    #   Tags: ["studio_component_roles"]
+    #
+    #   @return [String]
+    #
     LaunchProfileInitializationScript = ::Struct.new(
       :script,
       :studio_component_id,
       :studio_component_name,
+      :secure_initialization_role_arn,
+      :runtime_role_arn,
       keyword_init: true
     ) do
       include Hearth::Structure
@@ -1682,7 +1716,9 @@ module AWS::SDK::Nimble
         "#<struct AWS::SDK::Nimble::Types::LaunchProfileInitializationScript "\
           "script=\"[SENSITIVE]\", "\
           "studio_component_id=#{studio_component_id || 'nil'}, "\
-          "studio_component_name=\"[SENSITIVE]\">"
+          "studio_component_name=\"[SENSITIVE]\", "\
+          "secure_initialization_role_arn=#{secure_initialization_role_arn || 'nil'}, "\
+          "runtime_role_arn=#{runtime_role_arn || 'nil'}>"
       end
     end
 
@@ -2068,11 +2104,11 @@ module AWS::SDK::Nimble
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute members
@@ -2127,11 +2163,11 @@ module AWS::SDK::Nimble
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute launch_profiles
@@ -2282,11 +2318,11 @@ module AWS::SDK::Nimble
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute next_token
@@ -2329,11 +2365,11 @@ module AWS::SDK::Nimble
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute members
@@ -2806,12 +2842,12 @@ module AWS::SDK::Nimble
     #           <p>If the value is missing or set to 0, your sessions can’t be stopped. If you then call
     #                   <code>StopStreamingSession</code>, the session fails. If the time that a session
     #               stays in the READY state exceeds the <code>maxSessionLengthInMinutes</code> value, the
-    #               session will automatically be terminated by AWS (instead of stopped).</p>
+    #               session will automatically be terminated (instead of stopped).</p>
     #           <p>If the value is set to a positive number, the session can be stopped. You can call
     #                   <code>StopStreamingSession</code> to stop sessions in the READY state. If the time
     #               that a session stays in the READY state exceeds the
     #                   <code>maxSessionLengthInMinutes</code> value, the session will automatically be
-    #               stopped by AWS (instead of terminated).</p>
+    #               stopped (instead of terminated).</p>
     #
     #   Tags: ["stop_start_streaming_session"]
     #
@@ -2834,12 +2870,12 @@ module AWS::SDK::Nimble
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_session_length_in_minutes ||= 0
         self.max_stopped_session_length_in_minutes ||= 0
       end
-
     end
 
     # <p>Configuration for streaming workstations created using this launch profile.</p>
@@ -2878,12 +2914,12 @@ module AWS::SDK::Nimble
     #           <p>If the value is missing or set to 0, your sessions can’t be stopped. If you then call
     #                   <code>StopStreamingSession</code>, the session fails. If the time that a session
     #               stays in the READY state exceeds the <code>maxSessionLengthInMinutes</code> value, the
-    #               session will automatically be terminated by AWS (instead of stopped).</p>
+    #               session will automatically be terminated (instead of stopped).</p>
     #           <p>If the value is set to a positive number, the session can be stopped. You can call
     #                   <code>StopStreamingSession</code> to stop sessions in the READY state. If the time
     #               that a session stays in the READY state exceeds the
     #                   <code>maxSessionLengthInMinutes</code> value, the session will automatically be
-    #               stopped by AWS (instead of terminated).</p>
+    #               stopped (instead of terminated).</p>
     #
     #   Tags: ["stop_start_streaming_session"]
     #
@@ -2907,12 +2943,12 @@ module AWS::SDK::Nimble
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_session_length_in_minutes ||= 0
         self.max_stopped_session_length_in_minutes ||= 0
       end
-
     end
 
     # <p>The configuration for a streaming session’s upload storage.</p>
@@ -3877,6 +3913,20 @@ module AWS::SDK::Nimble
     #
     #   @return [String]
     #
+    # @!attribute secure_initialization_role_arn
+    #   <p>An IAM role attached to Studio Component when the system initialization script runs which give the studio component access to AWS resources when the system initialization script runs.</p>
+    #
+    #   Tags: ["studio_component_roles"]
+    #
+    #   @return [String]
+    #
+    # @!attribute runtime_role_arn
+    #   <p>An IAM role attached to a Studio Component that gives the studio component access to AWS resources at anytime while the instance is running. </p>
+    #
+    #   Tags: ["studio_component_roles"]
+    #
+    #   @return [String]
+    #
     StudioComponent = ::Struct.new(
       :arn,
       :configuration,
@@ -3896,6 +3946,8 @@ module AWS::SDK::Nimble
       :type,
       :updated_at,
       :updated_by,
+      :secure_initialization_role_arn,
+      :runtime_role_arn,
       keyword_init: true
     ) do
       include Hearth::Structure
@@ -3919,7 +3971,9 @@ module AWS::SDK::Nimble
           "tags=#{tags || 'nil'}, "\
           "type=#{type || 'nil'}, "\
           "updated_at=#{updated_at || 'nil'}, "\
-          "updated_by=#{updated_by || 'nil'}>"
+          "updated_by=#{updated_by || 'nil'}, "\
+          "secure_initialization_role_arn=#{secure_initialization_role_arn || 'nil'}, "\
+          "runtime_role_arn=#{runtime_role_arn || 'nil'}>"
       end
     end
 
@@ -4785,6 +4839,20 @@ module AWS::SDK::Nimble
     #
     #   @return [String]
     #
+    # @!attribute secure_initialization_role_arn
+    #   <p>An IAM role attached to Studio Component when the system initialization script runs which give the studio component access to AWS resources when the system initialization script runs.</p>
+    #
+    #   Tags: ["studio_component_roles"]
+    #
+    #   @return [String]
+    #
+    # @!attribute runtime_role_arn
+    #   <p>An IAM role attached to a Studio Component that gives the studio component access to AWS resources at anytime while the instance is running. </p>
+    #
+    #   Tags: ["studio_component_roles"]
+    #
+    #   @return [String]
+    #
     UpdateStudioComponentInput = ::Struct.new(
       :client_token,
       :configuration,
@@ -4797,6 +4865,8 @@ module AWS::SDK::Nimble
       :studio_id,
       :subtype,
       :type,
+      :secure_initialization_role_arn,
+      :runtime_role_arn,
       keyword_init: true
     ) do
       include Hearth::Structure
@@ -4813,7 +4883,9 @@ module AWS::SDK::Nimble
           "studio_component_id=#{studio_component_id || 'nil'}, "\
           "studio_id=#{studio_id || 'nil'}, "\
           "subtype=#{subtype || 'nil'}, "\
-          "type=#{type || 'nil'}>"
+          "type=#{type || 'nil'}, "\
+          "secure_initialization_role_arn=#{secure_initialization_role_arn || 'nil'}, "\
+          "runtime_role_arn=#{runtime_role_arn || 'nil'}>"
       end
     end
 

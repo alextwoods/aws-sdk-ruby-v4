@@ -395,13 +395,13 @@ module AWS::SDK::DataBrew
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_capacity ||= 0
         self.max_retries ||= 0
         self.timeout ||= 0
       end
-
     end
 
     # @!attribute name
@@ -621,13 +621,13 @@ module AWS::SDK::DataBrew
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_capacity ||= 0
         self.max_retries ||= 0
         self.timeout ||= 0
       end
-
     end
 
     # @!attribute name
@@ -870,11 +870,11 @@ module AWS::SDK::DataBrew
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.overwrite ||= false
       end
-
     end
 
     # <p>Connection information for dataset input files stored in a database.</p>
@@ -1105,11 +1105,11 @@ module AWS::SDK::DataBrew
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.create_column ||= false
       end
-
     end
 
     # <p>Represents additional options for correct interpretation of datetime parameters used in
@@ -1597,13 +1597,13 @@ module AWS::SDK::DataBrew
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_capacity ||= 0
         self.max_retries ||= 0
         self.timeout ||= 0
       end
-
     end
 
     # @!attribute name
@@ -1753,12 +1753,12 @@ module AWS::SDK::DataBrew
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.attempt ||= 0
         self.execution_time ||= 0
       end
-
     end
 
     # @!attribute name
@@ -2296,11 +2296,11 @@ module AWS::SDK::DataBrew
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_files ||= 0
       end
-
     end
 
     # <p>Represents a structure for defining parameter conditions. Supported conditions are described
@@ -2612,13 +2612,13 @@ module AWS::SDK::DataBrew
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_capacity ||= 0
         self.max_retries ||= 0
         self.timeout ||= 0
       end
-
     end
 
     # <p>Represents one run of a DataBrew job.</p>
@@ -2745,12 +2745,12 @@ module AWS::SDK::DataBrew
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.attempt ||= 0
         self.execution_time ||= 0
       end
-
     end
 
     # Includes enum constants for JobRunState
@@ -2848,11 +2848,11 @@ module AWS::SDK::DataBrew
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.multi_line ||= false
       end
-
     end
 
     # @!attribute max_results
@@ -3332,11 +3332,11 @@ module AWS::SDK::DataBrew
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.overwrite ||= false
       end
-
     end
 
     # Includes enum constants for OutputFormat
@@ -3874,11 +3874,11 @@ module AWS::SDK::DataBrew
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.disabled ||= false
       end
-
     end
 
     # <p>Contains metadata about the ruleset.</p>
@@ -3954,11 +3954,11 @@ module AWS::SDK::DataBrew
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.rule_count ||= 0
       end
-
     end
 
     # <p>Represents an Amazon S3 location (bucket name, bucket owner, and object key) where DataBrew can read
@@ -4168,6 +4168,7 @@ module AWS::SDK::DataBrew
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.preview ||= false
@@ -4322,11 +4323,11 @@ module AWS::SDK::DataBrew
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.assume_control ||= false
       end
-
     end
 
     # @!attribute name
@@ -4485,11 +4486,11 @@ module AWS::SDK::DataBrew
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.value ||= 0
       end
-
     end
 
     # Includes enum constants for ThresholdType
@@ -4704,13 +4705,13 @@ module AWS::SDK::DataBrew
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_capacity ||= 0
         self.max_retries ||= 0
         self.timeout ||= 0
       end
-
     end
 
     # @!attribute name
@@ -4883,13 +4884,13 @@ module AWS::SDK::DataBrew
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_capacity ||= 0
         self.max_retries ||= 0
         self.timeout ||= 0
       end
-
     end
 
     # @!attribute name

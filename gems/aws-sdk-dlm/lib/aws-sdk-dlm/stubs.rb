@@ -44,7 +44,7 @@ module AWS::SDK::DLM
     class GetLifecyclePolicies
       def self.default(visited=[])
         {
-          policies: Stubs::LifecyclePolicySummaryList.default(visited),
+          policies: LifecyclePolicySummaryList.default(visited),
         }
       end
 
@@ -63,7 +63,7 @@ module AWS::SDK::DLM
         return nil if visited.include?('LifecyclePolicySummaryList')
         visited = visited + ['LifecyclePolicySummaryList']
         [
-          Stubs::LifecyclePolicySummary.default(visited)
+          LifecyclePolicySummary.default(visited)
         ]
       end
 
@@ -86,7 +86,7 @@ module AWS::SDK::DLM
           policy_id: 'policy_id',
           description: 'description',
           state: 'state',
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
           policy_type: 'policy_type',
         }
       end
@@ -127,7 +127,7 @@ module AWS::SDK::DLM
     class GetLifecyclePolicy
       def self.default(visited=[])
         {
-          policy: Stubs::LifecyclePolicy.default(visited),
+          policy: LifecyclePolicy.default(visited),
         }
       end
 
@@ -153,8 +153,8 @@ module AWS::SDK::DLM
           execution_role_arn: 'execution_role_arn',
           date_created: Time.now,
           date_modified: Time.now,
-          policy_details: Stubs::PolicyDetails.default(visited),
-          tags: Stubs::TagMap.default(visited),
+          policy_details: PolicyDetails.default(visited),
+          tags: TagMap.default(visited),
           policy_arn: 'policy_arn',
         }
       end
@@ -183,13 +183,13 @@ module AWS::SDK::DLM
         visited = visited + ['PolicyDetails']
         {
           policy_type: 'policy_type',
-          resource_types: Stubs::ResourceTypeValuesList.default(visited),
-          resource_locations: Stubs::ResourceLocationList.default(visited),
-          target_tags: Stubs::TargetTagList.default(visited),
-          schedules: Stubs::ScheduleList.default(visited),
-          parameters: Stubs::Parameters.default(visited),
-          event_source: Stubs::EventSource.default(visited),
-          actions: Stubs::ActionList.default(visited),
+          resource_types: ResourceTypeValuesList.default(visited),
+          resource_locations: ResourceLocationList.default(visited),
+          target_tags: TargetTagList.default(visited),
+          schedules: ScheduleList.default(visited),
+          parameters: Parameters.default(visited),
+          event_source: EventSource.default(visited),
+          actions: ActionList.default(visited),
         }
       end
 
@@ -214,7 +214,7 @@ module AWS::SDK::DLM
         return nil if visited.include?('ActionList')
         visited = visited + ['ActionList']
         [
-          Stubs::Action.default(visited)
+          Action.default(visited)
         ]
       end
 
@@ -235,7 +235,7 @@ module AWS::SDK::DLM
         visited = visited + ['Action']
         {
           name: 'name',
-          cross_region_copy: Stubs::CrossRegionCopyActionList.default(visited),
+          cross_region_copy: CrossRegionCopyActionList.default(visited),
         }
       end
 
@@ -254,7 +254,7 @@ module AWS::SDK::DLM
         return nil if visited.include?('CrossRegionCopyActionList')
         visited = visited + ['CrossRegionCopyActionList']
         [
-          Stubs::CrossRegionCopyAction.default(visited)
+          CrossRegionCopyAction.default(visited)
         ]
       end
 
@@ -275,8 +275,8 @@ module AWS::SDK::DLM
         visited = visited + ['CrossRegionCopyAction']
         {
           target: 'target',
-          encryption_configuration: Stubs::EncryptionConfiguration.default(visited),
-          retain_rule: Stubs::CrossRegionCopyRetainRule.default(visited),
+          encryption_configuration: EncryptionConfiguration.default(visited),
+          retain_rule: CrossRegionCopyRetainRule.default(visited),
         }
       end
 
@@ -337,7 +337,7 @@ module AWS::SDK::DLM
         visited = visited + ['EventSource']
         {
           type: 'type',
-          parameters: Stubs::EventParameters.default(visited),
+          parameters: EventParameters.default(visited),
         }
       end
 
@@ -357,7 +357,7 @@ module AWS::SDK::DLM
         visited = visited + ['EventParameters']
         {
           event_type: 'event_type',
-          snapshot_owner: Stubs::SnapshotOwnerList.default(visited),
+          snapshot_owner: SnapshotOwnerList.default(visited),
           description_regex: 'description_regex',
         }
       end
@@ -418,7 +418,7 @@ module AWS::SDK::DLM
         return nil if visited.include?('ScheduleList')
         visited = visited + ['ScheduleList']
         [
-          Stubs::Schedule.default(visited)
+          Schedule.default(visited)
         ]
       end
 
@@ -440,14 +440,14 @@ module AWS::SDK::DLM
         {
           name: 'name',
           copy_tags: false,
-          tags_to_add: Stubs::TagsToAddList.default(visited),
-          variable_tags: Stubs::VariableTagsList.default(visited),
-          create_rule: Stubs::CreateRule.default(visited),
-          retain_rule: Stubs::RetainRule.default(visited),
-          fast_restore_rule: Stubs::FastRestoreRule.default(visited),
-          cross_region_copy_rules: Stubs::CrossRegionCopyRules.default(visited),
-          share_rules: Stubs::ShareRules.default(visited),
-          deprecate_rule: Stubs::DeprecateRule.default(visited),
+          tags_to_add: TagsToAddList.default(visited),
+          variable_tags: VariableTagsList.default(visited),
+          create_rule: CreateRule.default(visited),
+          retain_rule: RetainRule.default(visited),
+          fast_restore_rule: FastRestoreRule.default(visited),
+          cross_region_copy_rules: CrossRegionCopyRules.default(visited),
+          share_rules: ShareRules.default(visited),
+          deprecate_rule: DeprecateRule.default(visited),
         }
       end
 
@@ -496,7 +496,7 @@ module AWS::SDK::DLM
         return nil if visited.include?('ShareRules')
         visited = visited + ['ShareRules']
         [
-          Stubs::ShareRule.default(visited)
+          ShareRule.default(visited)
         ]
       end
 
@@ -516,7 +516,7 @@ module AWS::SDK::DLM
         return nil if visited.include?('ShareRule')
         visited = visited + ['ShareRule']
         {
-          target_accounts: Stubs::ShareTargetAccountList.default(visited),
+          target_accounts: ShareTargetAccountList.default(visited),
           unshare_interval: 1,
           unshare_interval_unit: 'unshare_interval_unit',
         }
@@ -558,7 +558,7 @@ module AWS::SDK::DLM
         return nil if visited.include?('CrossRegionCopyRules')
         visited = visited + ['CrossRegionCopyRules']
         [
-          Stubs::CrossRegionCopyRule.default(visited)
+          CrossRegionCopyRule.default(visited)
         ]
       end
 
@@ -583,8 +583,8 @@ module AWS::SDK::DLM
           encrypted: false,
           cmk_arn: 'cmk_arn',
           copy_tags: false,
-          retain_rule: Stubs::CrossRegionCopyRetainRule.default(visited),
-          deprecate_rule: Stubs::CrossRegionCopyDeprecateRule.default(visited),
+          retain_rule: CrossRegionCopyRetainRule.default(visited),
+          deprecate_rule: CrossRegionCopyDeprecateRule.default(visited),
         }
       end
 
@@ -631,7 +631,7 @@ module AWS::SDK::DLM
           count: 1,
           interval: 1,
           interval_unit: 'interval_unit',
-          availability_zones: Stubs::AvailabilityZoneList.default(visited),
+          availability_zones: AvailabilityZoneList.default(visited),
         }
       end
 
@@ -697,7 +697,7 @@ module AWS::SDK::DLM
           location: 'location',
           interval: 1,
           interval_unit: 'interval_unit',
-          times: Stubs::TimesList.default(visited),
+          times: TimesList.default(visited),
           cron_expression: 'cron_expression',
         }
       end
@@ -740,7 +740,7 @@ module AWS::SDK::DLM
         return nil if visited.include?('VariableTagsList')
         visited = visited + ['VariableTagsList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -780,7 +780,7 @@ module AWS::SDK::DLM
         return nil if visited.include?('TagsToAddList')
         visited = visited + ['TagsToAddList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -800,7 +800,7 @@ module AWS::SDK::DLM
         return nil if visited.include?('TargetTagList')
         visited = visited + ['TargetTagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -858,7 +858,7 @@ module AWS::SDK::DLM
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 

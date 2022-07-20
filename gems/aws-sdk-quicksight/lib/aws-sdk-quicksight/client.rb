@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::QuickSight
@@ -73,7 +75,7 @@ module AWS::SDK::QuickSight
     def cancel_ingestion(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelIngestionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelIngestionInput,
         validate_input: @config.validate_input
@@ -198,7 +200,7 @@ module AWS::SDK::QuickSight
     def create_account_customization(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateAccountCustomizationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateAccountCustomizationInput,
         validate_input: @config.validate_input
@@ -365,7 +367,7 @@ module AWS::SDK::QuickSight
     def create_analysis(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateAnalysisInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateAnalysisInput,
         validate_input: @config.validate_input
@@ -594,7 +596,7 @@ module AWS::SDK::QuickSight
     def create_dashboard(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDashboardInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDashboardInput,
         validate_input: @config.validate_input
@@ -875,7 +877,7 @@ module AWS::SDK::QuickSight
     def create_data_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDataSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDataSetInput,
         validate_input: @config.validate_input
@@ -1108,7 +1110,7 @@ module AWS::SDK::QuickSight
     def create_data_source(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDataSourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDataSourceInput,
         validate_input: @config.validate_input
@@ -1219,7 +1221,7 @@ module AWS::SDK::QuickSight
     def create_folder(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateFolderInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateFolderInput,
         validate_input: @config.validate_input
@@ -1304,7 +1306,7 @@ module AWS::SDK::QuickSight
     def create_folder_membership(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateFolderMembershipInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateFolderMembershipInput,
         validate_input: @config.validate_input
@@ -1395,7 +1397,7 @@ module AWS::SDK::QuickSight
     def create_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateGroupInput,
         validate_input: @config.validate_input
@@ -1481,7 +1483,7 @@ module AWS::SDK::QuickSight
     def create_group_membership(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateGroupMembershipInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateGroupMembershipInput,
         validate_input: @config.validate_input
@@ -1602,7 +1604,7 @@ module AWS::SDK::QuickSight
     def create_iam_policy_assignment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateIAMPolicyAssignmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateIAMPolicyAssignmentInput,
         validate_input: @config.validate_input
@@ -1694,7 +1696,7 @@ module AWS::SDK::QuickSight
     def create_ingestion(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateIngestionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateIngestionInput,
         validate_input: @config.validate_input
@@ -1794,7 +1796,7 @@ module AWS::SDK::QuickSight
     def create_namespace(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateNamespaceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateNamespaceInput,
         validate_input: @config.validate_input
@@ -1937,7 +1939,7 @@ module AWS::SDK::QuickSight
     def create_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateTemplateInput,
         validate_input: @config.validate_input
@@ -2025,7 +2027,7 @@ module AWS::SDK::QuickSight
     def create_template_alias(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateTemplateAliasInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateTemplateAliasInput,
         validate_input: @config.validate_input
@@ -2191,7 +2193,7 @@ module AWS::SDK::QuickSight
     def create_theme(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateThemeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateThemeInput,
         validate_input: @config.validate_input
@@ -2279,7 +2281,7 @@ module AWS::SDK::QuickSight
     def create_theme_alias(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateThemeAliasInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateThemeAliasInput,
         validate_input: @config.validate_input
@@ -2355,7 +2357,7 @@ module AWS::SDK::QuickSight
     def delete_account_customization(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAccountCustomizationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAccountCustomizationInput,
         validate_input: @config.validate_input
@@ -2454,7 +2456,7 @@ module AWS::SDK::QuickSight
     def delete_analysis(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAnalysisInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAnalysisInput,
         validate_input: @config.validate_input
@@ -2535,7 +2537,7 @@ module AWS::SDK::QuickSight
     def delete_dashboard(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDashboardInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDashboardInput,
         validate_input: @config.validate_input
@@ -2610,7 +2612,7 @@ module AWS::SDK::QuickSight
     def delete_data_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDataSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDataSetInput,
         validate_input: @config.validate_input
@@ -2686,7 +2688,7 @@ module AWS::SDK::QuickSight
     def delete_data_source(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDataSourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDataSourceInput,
         validate_input: @config.validate_input
@@ -2761,7 +2763,7 @@ module AWS::SDK::QuickSight
     def delete_folder(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteFolderInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteFolderInput,
         validate_input: @config.validate_input
@@ -2843,7 +2845,7 @@ module AWS::SDK::QuickSight
     def delete_folder_membership(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteFolderMembershipInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteFolderMembershipInput,
         validate_input: @config.validate_input
@@ -2921,7 +2923,7 @@ module AWS::SDK::QuickSight
     def delete_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteGroupInput,
         validate_input: @config.validate_input
@@ -3003,7 +3005,7 @@ module AWS::SDK::QuickSight
     def delete_group_membership(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteGroupMembershipInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteGroupMembershipInput,
         validate_input: @config.validate_input
@@ -3081,7 +3083,7 @@ module AWS::SDK::QuickSight
     def delete_iam_policy_assignment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteIAMPolicyAssignmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteIAMPolicyAssignmentInput,
         validate_input: @config.validate_input
@@ -3156,7 +3158,7 @@ module AWS::SDK::QuickSight
     def delete_namespace(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteNamespaceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteNamespaceInput,
         validate_input: @config.validate_input
@@ -3237,7 +3239,7 @@ module AWS::SDK::QuickSight
     def delete_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteTemplateInput,
         validate_input: @config.validate_input
@@ -3321,7 +3323,7 @@ module AWS::SDK::QuickSight
     def delete_template_alias(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteTemplateAliasInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteTemplateAliasInput,
         validate_input: @config.validate_input
@@ -3403,7 +3405,7 @@ module AWS::SDK::QuickSight
     def delete_theme(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteThemeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteThemeInput,
         validate_input: @config.validate_input
@@ -3485,7 +3487,7 @@ module AWS::SDK::QuickSight
     def delete_theme_alias(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteThemeAliasInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteThemeAliasInput,
         validate_input: @config.validate_input
@@ -3565,7 +3567,7 @@ module AWS::SDK::QuickSight
     def delete_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteUserInput,
         validate_input: @config.validate_input
@@ -3643,7 +3645,7 @@ module AWS::SDK::QuickSight
     def delete_user_by_principal_id(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteUserByPrincipalIdInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteUserByPrincipalIdInput,
         validate_input: @config.validate_input
@@ -3788,7 +3790,7 @@ module AWS::SDK::QuickSight
     def describe_account_customization(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAccountCustomizationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAccountCustomizationInput,
         validate_input: @config.validate_input
@@ -3864,7 +3866,7 @@ module AWS::SDK::QuickSight
     def describe_account_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAccountSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAccountSettingsInput,
         validate_input: @config.validate_input
@@ -3957,7 +3959,7 @@ module AWS::SDK::QuickSight
     def describe_analysis(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAnalysisInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAnalysisInput,
         validate_input: @config.validate_input
@@ -4039,7 +4041,7 @@ module AWS::SDK::QuickSight
     def describe_analysis_permissions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAnalysisPermissionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAnalysisPermissionsInput,
         validate_input: @config.validate_input
@@ -4147,7 +4149,7 @@ module AWS::SDK::QuickSight
     def describe_dashboard(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDashboardInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDashboardInput,
         validate_input: @config.validate_input
@@ -4230,7 +4232,7 @@ module AWS::SDK::QuickSight
     def describe_dashboard_permissions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDashboardPermissionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDashboardPermissionsInput,
         validate_input: @config.validate_input
@@ -4304,12 +4306,64 @@ module AWS::SDK::QuickSight
     #   resp.data.data_set.created_time #=> Time
     #   resp.data.data_set.last_updated_time #=> Time
     #   resp.data.data_set.physical_table_map #=> Hash<String, PhysicalTable>
-    #   resp.data.data_set.physical_table_map['key'] #=> PhysicalTable
+    #   resp.data.data_set.physical_table_map['key'] #=> Types::PhysicalTable, one of [RelationalTable, CustomSql, S3Source]
+    #   resp.data.data_set.physical_table_map['key'].relational_table #=> Types::RelationalTable
+    #   resp.data.data_set.physical_table_map['key'].relational_table.data_source_arn #=> String
+    #   resp.data.data_set.physical_table_map['key'].relational_table.catalog #=> String
+    #   resp.data.data_set.physical_table_map['key'].relational_table.schema #=> String
+    #   resp.data.data_set.physical_table_map['key'].relational_table.name #=> String
+    #   resp.data.data_set.physical_table_map['key'].relational_table.input_columns #=> Array<InputColumn>
+    #   resp.data.data_set.physical_table_map['key'].relational_table.input_columns[0] #=> Types::InputColumn
+    #   resp.data.data_set.physical_table_map['key'].relational_table.input_columns[0].name #=> String
+    #   resp.data.data_set.physical_table_map['key'].relational_table.input_columns[0].type #=> String, one of ["STRING", "INTEGER", "DECIMAL", "DATETIME", "BIT", "BOOLEAN", "JSON"]
+    #   resp.data.data_set.physical_table_map['key'].custom_sql #=> Types::CustomSql
+    #   resp.data.data_set.physical_table_map['key'].custom_sql.data_source_arn #=> String
+    #   resp.data.data_set.physical_table_map['key'].custom_sql.name #=> String
+    #   resp.data.data_set.physical_table_map['key'].custom_sql.sql_query #=> String
+    #   resp.data.data_set.physical_table_map['key'].custom_sql.columns #=> Array<InputColumn>
+    #   resp.data.data_set.physical_table_map['key'].s3_source #=> Types::S3Source
+    #   resp.data.data_set.physical_table_map['key'].s3_source.data_source_arn #=> String
+    #   resp.data.data_set.physical_table_map['key'].s3_source.upload_settings #=> Types::UploadSettings
+    #   resp.data.data_set.physical_table_map['key'].s3_source.upload_settings.format #=> String, one of ["CSV", "TSV", "CLF", "ELF", "XLSX", "JSON"]
+    #   resp.data.data_set.physical_table_map['key'].s3_source.upload_settings.start_from_row #=> Integer
+    #   resp.data.data_set.physical_table_map['key'].s3_source.upload_settings.contains_header #=> Boolean
+    #   resp.data.data_set.physical_table_map['key'].s3_source.upload_settings.text_qualifier #=> String, one of ["DOUBLE_QUOTE", "SINGLE_QUOTE"]
+    #   resp.data.data_set.physical_table_map['key'].s3_source.upload_settings.delimiter #=> String
+    #   resp.data.data_set.physical_table_map['key'].s3_source.input_columns #=> Array<InputColumn>
     #   resp.data.data_set.logical_table_map #=> Hash<String, LogicalTable>
     #   resp.data.data_set.logical_table_map['key'] #=> Types::LogicalTable
     #   resp.data.data_set.logical_table_map['key'].alias #=> String
     #   resp.data.data_set.logical_table_map['key'].data_transforms #=> Array<TransformOperation>
-    #   resp.data.data_set.logical_table_map['key'].data_transforms[0] #=> TransformOperation
+    #   resp.data.data_set.logical_table_map['key'].data_transforms[0] #=> Types::TransformOperation, one of [ProjectOperation, FilterOperation, CreateColumnsOperation, RenameColumnOperation, CastColumnTypeOperation, TagColumnOperation, UntagColumnOperation]
+    #   resp.data.data_set.logical_table_map['key'].data_transforms[0].project_operation #=> Types::ProjectOperation
+    #   resp.data.data_set.logical_table_map['key'].data_transforms[0].project_operation.projected_columns #=> Array<String>
+    #   resp.data.data_set.logical_table_map['key'].data_transforms[0].project_operation.projected_columns[0] #=> String
+    #   resp.data.data_set.logical_table_map['key'].data_transforms[0].filter_operation #=> Types::FilterOperation
+    #   resp.data.data_set.logical_table_map['key'].data_transforms[0].filter_operation.condition_expression #=> String
+    #   resp.data.data_set.logical_table_map['key'].data_transforms[0].create_columns_operation #=> Types::CreateColumnsOperation
+    #   resp.data.data_set.logical_table_map['key'].data_transforms[0].create_columns_operation.columns #=> Array<CalculatedColumn>
+    #   resp.data.data_set.logical_table_map['key'].data_transforms[0].create_columns_operation.columns[0] #=> Types::CalculatedColumn
+    #   resp.data.data_set.logical_table_map['key'].data_transforms[0].create_columns_operation.columns[0].column_name #=> String
+    #   resp.data.data_set.logical_table_map['key'].data_transforms[0].create_columns_operation.columns[0].column_id #=> String
+    #   resp.data.data_set.logical_table_map['key'].data_transforms[0].create_columns_operation.columns[0].expression #=> String
+    #   resp.data.data_set.logical_table_map['key'].data_transforms[0].rename_column_operation #=> Types::RenameColumnOperation
+    #   resp.data.data_set.logical_table_map['key'].data_transforms[0].rename_column_operation.column_name #=> String
+    #   resp.data.data_set.logical_table_map['key'].data_transforms[0].rename_column_operation.new_column_name #=> String
+    #   resp.data.data_set.logical_table_map['key'].data_transforms[0].cast_column_type_operation #=> Types::CastColumnTypeOperation
+    #   resp.data.data_set.logical_table_map['key'].data_transforms[0].cast_column_type_operation.column_name #=> String
+    #   resp.data.data_set.logical_table_map['key'].data_transforms[0].cast_column_type_operation.new_column_type #=> String, one of ["STRING", "INTEGER", "DECIMAL", "DATETIME"]
+    #   resp.data.data_set.logical_table_map['key'].data_transforms[0].cast_column_type_operation.format #=> String
+    #   resp.data.data_set.logical_table_map['key'].data_transforms[0].tag_column_operation #=> Types::TagColumnOperation
+    #   resp.data.data_set.logical_table_map['key'].data_transforms[0].tag_column_operation.column_name #=> String
+    #   resp.data.data_set.logical_table_map['key'].data_transforms[0].tag_column_operation.tags #=> Array<ColumnTag>
+    #   resp.data.data_set.logical_table_map['key'].data_transforms[0].tag_column_operation.tags[0] #=> Types::ColumnTag
+    #   resp.data.data_set.logical_table_map['key'].data_transforms[0].tag_column_operation.tags[0].column_geographic_role #=> String, one of ["COUNTRY", "STATE", "COUNTY", "CITY", "POSTCODE", "LONGITUDE", "LATITUDE"]
+    #   resp.data.data_set.logical_table_map['key'].data_transforms[0].tag_column_operation.tags[0].column_description #=> Types::ColumnDescription
+    #   resp.data.data_set.logical_table_map['key'].data_transforms[0].tag_column_operation.tags[0].column_description.text #=> String
+    #   resp.data.data_set.logical_table_map['key'].data_transforms[0].untag_column_operation #=> Types::UntagColumnOperation
+    #   resp.data.data_set.logical_table_map['key'].data_transforms[0].untag_column_operation.column_name #=> String
+    #   resp.data.data_set.logical_table_map['key'].data_transforms[0].untag_column_operation.tag_names #=> Array<String>
+    #   resp.data.data_set.logical_table_map['key'].data_transforms[0].untag_column_operation.tag_names[0] #=> String, one of ["COLUMN_GEOGRAPHIC_ROLE", "COLUMN_DESCRIPTION"]
     #   resp.data.data_set.logical_table_map['key'].source #=> Types::LogicalTableSource
     #   resp.data.data_set.logical_table_map['key'].source.join_instruction #=> Types::JoinInstruction
     #   resp.data.data_set.logical_table_map['key'].source.join_instruction.left_operand #=> String
@@ -4369,7 +4423,7 @@ module AWS::SDK::QuickSight
     def describe_data_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDataSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDataSetInput,
         validate_input: @config.validate_input
@@ -4450,7 +4504,7 @@ module AWS::SDK::QuickSight
     def describe_data_set_permissions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDataSetPermissionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDataSetPermissionsInput,
         validate_input: @config.validate_input
@@ -4525,7 +4579,80 @@ module AWS::SDK::QuickSight
     #   resp.data.data_source.status #=> String, one of ["CREATION_IN_PROGRESS", "CREATION_SUCCESSFUL", "CREATION_FAILED", "UPDATE_IN_PROGRESS", "UPDATE_SUCCESSFUL", "UPDATE_FAILED", "DELETED"]
     #   resp.data.data_source.created_time #=> Time
     #   resp.data.data_source.last_updated_time #=> Time
-    #   resp.data.data_source.data_source_parameters #=> DataSourceParameters
+    #   resp.data.data_source.data_source_parameters #=> Types::DataSourceParameters, one of [AmazonElasticsearchParameters, AthenaParameters, AuroraParameters, AuroraPostgreSqlParameters, AwsIotAnalyticsParameters, JiraParameters, MariaDbParameters, MySqlParameters, OracleParameters, PostgreSqlParameters, PrestoParameters, RdsParameters, RedshiftParameters, S3Parameters, ServiceNowParameters, SnowflakeParameters, SparkParameters, SqlServerParameters, TeradataParameters, TwitterParameters, AmazonOpenSearchParameters, ExasolParameters]
+    #   resp.data.data_source.data_source_parameters.amazon_elasticsearch_parameters #=> Types::AmazonElasticsearchParameters
+    #   resp.data.data_source.data_source_parameters.amazon_elasticsearch_parameters.domain #=> String
+    #   resp.data.data_source.data_source_parameters.athena_parameters #=> Types::AthenaParameters
+    #   resp.data.data_source.data_source_parameters.athena_parameters.work_group #=> String
+    #   resp.data.data_source.data_source_parameters.aurora_parameters #=> Types::AuroraParameters
+    #   resp.data.data_source.data_source_parameters.aurora_parameters.host #=> String
+    #   resp.data.data_source.data_source_parameters.aurora_parameters.port #=> Integer
+    #   resp.data.data_source.data_source_parameters.aurora_parameters.database #=> String
+    #   resp.data.data_source.data_source_parameters.aurora_postgre_sql_parameters #=> Types::AuroraPostgreSqlParameters
+    #   resp.data.data_source.data_source_parameters.aurora_postgre_sql_parameters.host #=> String
+    #   resp.data.data_source.data_source_parameters.aurora_postgre_sql_parameters.port #=> Integer
+    #   resp.data.data_source.data_source_parameters.aurora_postgre_sql_parameters.database #=> String
+    #   resp.data.data_source.data_source_parameters.aws_iot_analytics_parameters #=> Types::AwsIotAnalyticsParameters
+    #   resp.data.data_source.data_source_parameters.aws_iot_analytics_parameters.data_set_name #=> String
+    #   resp.data.data_source.data_source_parameters.jira_parameters #=> Types::JiraParameters
+    #   resp.data.data_source.data_source_parameters.jira_parameters.site_base_url #=> String
+    #   resp.data.data_source.data_source_parameters.maria_db_parameters #=> Types::MariaDbParameters
+    #   resp.data.data_source.data_source_parameters.maria_db_parameters.host #=> String
+    #   resp.data.data_source.data_source_parameters.maria_db_parameters.port #=> Integer
+    #   resp.data.data_source.data_source_parameters.maria_db_parameters.database #=> String
+    #   resp.data.data_source.data_source_parameters.my_sql_parameters #=> Types::MySqlParameters
+    #   resp.data.data_source.data_source_parameters.my_sql_parameters.host #=> String
+    #   resp.data.data_source.data_source_parameters.my_sql_parameters.port #=> Integer
+    #   resp.data.data_source.data_source_parameters.my_sql_parameters.database #=> String
+    #   resp.data.data_source.data_source_parameters.oracle_parameters #=> Types::OracleParameters
+    #   resp.data.data_source.data_source_parameters.oracle_parameters.host #=> String
+    #   resp.data.data_source.data_source_parameters.oracle_parameters.port #=> Integer
+    #   resp.data.data_source.data_source_parameters.oracle_parameters.database #=> String
+    #   resp.data.data_source.data_source_parameters.postgre_sql_parameters #=> Types::PostgreSqlParameters
+    #   resp.data.data_source.data_source_parameters.postgre_sql_parameters.host #=> String
+    #   resp.data.data_source.data_source_parameters.postgre_sql_parameters.port #=> Integer
+    #   resp.data.data_source.data_source_parameters.postgre_sql_parameters.database #=> String
+    #   resp.data.data_source.data_source_parameters.presto_parameters #=> Types::PrestoParameters
+    #   resp.data.data_source.data_source_parameters.presto_parameters.host #=> String
+    #   resp.data.data_source.data_source_parameters.presto_parameters.port #=> Integer
+    #   resp.data.data_source.data_source_parameters.presto_parameters.catalog #=> String
+    #   resp.data.data_source.data_source_parameters.rds_parameters #=> Types::RdsParameters
+    #   resp.data.data_source.data_source_parameters.rds_parameters.instance_id #=> String
+    #   resp.data.data_source.data_source_parameters.rds_parameters.database #=> String
+    #   resp.data.data_source.data_source_parameters.redshift_parameters #=> Types::RedshiftParameters
+    #   resp.data.data_source.data_source_parameters.redshift_parameters.host #=> String
+    #   resp.data.data_source.data_source_parameters.redshift_parameters.port #=> Integer
+    #   resp.data.data_source.data_source_parameters.redshift_parameters.database #=> String
+    #   resp.data.data_source.data_source_parameters.redshift_parameters.cluster_id #=> String
+    #   resp.data.data_source.data_source_parameters.s3_parameters #=> Types::S3Parameters
+    #   resp.data.data_source.data_source_parameters.s3_parameters.manifest_file_location #=> Types::ManifestFileLocation
+    #   resp.data.data_source.data_source_parameters.s3_parameters.manifest_file_location.bucket #=> String
+    #   resp.data.data_source.data_source_parameters.s3_parameters.manifest_file_location.key #=> String
+    #   resp.data.data_source.data_source_parameters.service_now_parameters #=> Types::ServiceNowParameters
+    #   resp.data.data_source.data_source_parameters.service_now_parameters.site_base_url #=> String
+    #   resp.data.data_source.data_source_parameters.snowflake_parameters #=> Types::SnowflakeParameters
+    #   resp.data.data_source.data_source_parameters.snowflake_parameters.host #=> String
+    #   resp.data.data_source.data_source_parameters.snowflake_parameters.database #=> String
+    #   resp.data.data_source.data_source_parameters.snowflake_parameters.warehouse #=> String
+    #   resp.data.data_source.data_source_parameters.spark_parameters #=> Types::SparkParameters
+    #   resp.data.data_source.data_source_parameters.spark_parameters.host #=> String
+    #   resp.data.data_source.data_source_parameters.spark_parameters.port #=> Integer
+    #   resp.data.data_source.data_source_parameters.sql_server_parameters #=> Types::SqlServerParameters
+    #   resp.data.data_source.data_source_parameters.sql_server_parameters.host #=> String
+    #   resp.data.data_source.data_source_parameters.sql_server_parameters.port #=> Integer
+    #   resp.data.data_source.data_source_parameters.sql_server_parameters.database #=> String
+    #   resp.data.data_source.data_source_parameters.teradata_parameters #=> Types::TeradataParameters
+    #   resp.data.data_source.data_source_parameters.teradata_parameters.host #=> String
+    #   resp.data.data_source.data_source_parameters.teradata_parameters.port #=> Integer
+    #   resp.data.data_source.data_source_parameters.teradata_parameters.database #=> String
+    #   resp.data.data_source.data_source_parameters.twitter_parameters #=> Types::TwitterParameters
+    #   resp.data.data_source.data_source_parameters.twitter_parameters.query #=> String
+    #   resp.data.data_source.data_source_parameters.twitter_parameters.max_rows #=> Integer
+    #   resp.data.data_source.data_source_parameters.amazon_open_search_parameters #=> Types::AmazonOpenSearchParameters
+    #   resp.data.data_source.data_source_parameters.amazon_open_search_parameters.domain #=> String
+    #   resp.data.data_source.data_source_parameters.exasol_parameters #=> Types::ExasolParameters
+    #   resp.data.data_source.data_source_parameters.exasol_parameters.host #=> String
+    #   resp.data.data_source.data_source_parameters.exasol_parameters.port #=> Integer
     #   resp.data.data_source.alternate_data_source_parameters #=> Array<DataSourceParameters>
     #   resp.data.data_source.vpc_connection_properties #=> Types::VpcConnectionProperties
     #   resp.data.data_source.vpc_connection_properties.vpc_connection_arn #=> String
@@ -4540,7 +4667,7 @@ module AWS::SDK::QuickSight
     def describe_data_source(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDataSourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDataSourceInput,
         validate_input: @config.validate_input
@@ -4620,7 +4747,7 @@ module AWS::SDK::QuickSight
     def describe_data_source_permissions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDataSourcePermissionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDataSourcePermissionsInput,
         validate_input: @config.validate_input
@@ -4702,7 +4829,7 @@ module AWS::SDK::QuickSight
     def describe_folder(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeFolderInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeFolderInput,
         validate_input: @config.validate_input
@@ -4782,7 +4909,7 @@ module AWS::SDK::QuickSight
     def describe_folder_permissions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeFolderPermissionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeFolderPermissionsInput,
         validate_input: @config.validate_input
@@ -4862,7 +4989,7 @@ module AWS::SDK::QuickSight
     def describe_folder_resolved_permissions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeFolderResolvedPermissionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeFolderResolvedPermissionsInput,
         validate_input: @config.validate_input
@@ -4945,7 +5072,7 @@ module AWS::SDK::QuickSight
     def describe_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeGroupInput,
         validate_input: @config.validate_input
@@ -5032,7 +5159,7 @@ module AWS::SDK::QuickSight
     def describe_group_membership(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeGroupMembershipInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeGroupMembershipInput,
         validate_input: @config.validate_input
@@ -5118,7 +5245,7 @@ module AWS::SDK::QuickSight
     def describe_iam_policy_assignment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeIAMPolicyAssignmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeIAMPolicyAssignmentInput,
         validate_input: @config.validate_input
@@ -5214,7 +5341,7 @@ module AWS::SDK::QuickSight
     def describe_ingestion(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeIngestionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeIngestionInput,
         validate_input: @config.validate_input
@@ -5287,7 +5414,7 @@ module AWS::SDK::QuickSight
     def describe_ip_restriction(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeIpRestrictionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeIpRestrictionInput,
         validate_input: @config.validate_input
@@ -5369,7 +5496,7 @@ module AWS::SDK::QuickSight
     def describe_namespace(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeNamespaceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeNamespaceInput,
         validate_input: @config.validate_input
@@ -5490,7 +5617,7 @@ module AWS::SDK::QuickSight
     def describe_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTemplateInput,
         validate_input: @config.validate_input
@@ -5575,7 +5702,7 @@ module AWS::SDK::QuickSight
     def describe_template_alias(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTemplateAliasInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTemplateAliasInput,
         validate_input: @config.validate_input
@@ -5655,7 +5782,7 @@ module AWS::SDK::QuickSight
     def describe_template_permissions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTemplatePermissionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTemplatePermissionsInput,
         validate_input: @config.validate_input
@@ -5790,7 +5917,7 @@ module AWS::SDK::QuickSight
     def describe_theme(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeThemeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeThemeInput,
         validate_input: @config.validate_input
@@ -5872,7 +5999,7 @@ module AWS::SDK::QuickSight
     def describe_theme_alias(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeThemeAliasInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeThemeAliasInput,
         validate_input: @config.validate_input
@@ -5952,7 +6079,7 @@ module AWS::SDK::QuickSight
     def describe_theme_permissions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeThemePermissionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeThemePermissionsInput,
         validate_input: @config.validate_input
@@ -6042,7 +6169,7 @@ module AWS::SDK::QuickSight
     def describe_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeUserInput,
         validate_input: @config.validate_input
@@ -6164,7 +6291,7 @@ module AWS::SDK::QuickSight
     def generate_embed_url_for_anonymous_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GenerateEmbedUrlForAnonymousUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GenerateEmbedUrlForAnonymousUserInput,
         validate_input: @config.validate_input
@@ -6276,7 +6403,7 @@ module AWS::SDK::QuickSight
     def generate_embed_url_for_registered_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GenerateEmbedUrlForRegisteredUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GenerateEmbedUrlForRegisteredUserInput,
         validate_input: @config.validate_input
@@ -6438,7 +6565,7 @@ module AWS::SDK::QuickSight
     def get_dashboard_embed_url(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDashboardEmbedUrlInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDashboardEmbedUrlInput,
         validate_input: @config.validate_input
@@ -6595,7 +6722,7 @@ module AWS::SDK::QuickSight
     def get_session_embed_url(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSessionEmbedUrlInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSessionEmbedUrlInput,
         validate_input: @config.validate_input
@@ -6681,7 +6808,7 @@ module AWS::SDK::QuickSight
     def list_analyses(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAnalysesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAnalysesInput,
         validate_input: @config.validate_input
@@ -6772,7 +6899,7 @@ module AWS::SDK::QuickSight
     def list_dashboard_versions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDashboardVersionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDashboardVersionsInput,
         validate_input: @config.validate_input
@@ -6860,7 +6987,7 @@ module AWS::SDK::QuickSight
     def list_dashboards(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDashboardsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDashboardsInput,
         validate_input: @config.validate_input
@@ -6955,7 +7082,7 @@ module AWS::SDK::QuickSight
     def list_data_sets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDataSetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDataSetsInput,
         validate_input: @config.validate_input
@@ -7035,7 +7162,80 @@ module AWS::SDK::QuickSight
     #   resp.data.data_sources[0].status #=> String, one of ["CREATION_IN_PROGRESS", "CREATION_SUCCESSFUL", "CREATION_FAILED", "UPDATE_IN_PROGRESS", "UPDATE_SUCCESSFUL", "UPDATE_FAILED", "DELETED"]
     #   resp.data.data_sources[0].created_time #=> Time
     #   resp.data.data_sources[0].last_updated_time #=> Time
-    #   resp.data.data_sources[0].data_source_parameters #=> DataSourceParameters
+    #   resp.data.data_sources[0].data_source_parameters #=> Types::DataSourceParameters, one of [AmazonElasticsearchParameters, AthenaParameters, AuroraParameters, AuroraPostgreSqlParameters, AwsIotAnalyticsParameters, JiraParameters, MariaDbParameters, MySqlParameters, OracleParameters, PostgreSqlParameters, PrestoParameters, RdsParameters, RedshiftParameters, S3Parameters, ServiceNowParameters, SnowflakeParameters, SparkParameters, SqlServerParameters, TeradataParameters, TwitterParameters, AmazonOpenSearchParameters, ExasolParameters]
+    #   resp.data.data_sources[0].data_source_parameters.amazon_elasticsearch_parameters #=> Types::AmazonElasticsearchParameters
+    #   resp.data.data_sources[0].data_source_parameters.amazon_elasticsearch_parameters.domain #=> String
+    #   resp.data.data_sources[0].data_source_parameters.athena_parameters #=> Types::AthenaParameters
+    #   resp.data.data_sources[0].data_source_parameters.athena_parameters.work_group #=> String
+    #   resp.data.data_sources[0].data_source_parameters.aurora_parameters #=> Types::AuroraParameters
+    #   resp.data.data_sources[0].data_source_parameters.aurora_parameters.host #=> String
+    #   resp.data.data_sources[0].data_source_parameters.aurora_parameters.port #=> Integer
+    #   resp.data.data_sources[0].data_source_parameters.aurora_parameters.database #=> String
+    #   resp.data.data_sources[0].data_source_parameters.aurora_postgre_sql_parameters #=> Types::AuroraPostgreSqlParameters
+    #   resp.data.data_sources[0].data_source_parameters.aurora_postgre_sql_parameters.host #=> String
+    #   resp.data.data_sources[0].data_source_parameters.aurora_postgre_sql_parameters.port #=> Integer
+    #   resp.data.data_sources[0].data_source_parameters.aurora_postgre_sql_parameters.database #=> String
+    #   resp.data.data_sources[0].data_source_parameters.aws_iot_analytics_parameters #=> Types::AwsIotAnalyticsParameters
+    #   resp.data.data_sources[0].data_source_parameters.aws_iot_analytics_parameters.data_set_name #=> String
+    #   resp.data.data_sources[0].data_source_parameters.jira_parameters #=> Types::JiraParameters
+    #   resp.data.data_sources[0].data_source_parameters.jira_parameters.site_base_url #=> String
+    #   resp.data.data_sources[0].data_source_parameters.maria_db_parameters #=> Types::MariaDbParameters
+    #   resp.data.data_sources[0].data_source_parameters.maria_db_parameters.host #=> String
+    #   resp.data.data_sources[0].data_source_parameters.maria_db_parameters.port #=> Integer
+    #   resp.data.data_sources[0].data_source_parameters.maria_db_parameters.database #=> String
+    #   resp.data.data_sources[0].data_source_parameters.my_sql_parameters #=> Types::MySqlParameters
+    #   resp.data.data_sources[0].data_source_parameters.my_sql_parameters.host #=> String
+    #   resp.data.data_sources[0].data_source_parameters.my_sql_parameters.port #=> Integer
+    #   resp.data.data_sources[0].data_source_parameters.my_sql_parameters.database #=> String
+    #   resp.data.data_sources[0].data_source_parameters.oracle_parameters #=> Types::OracleParameters
+    #   resp.data.data_sources[0].data_source_parameters.oracle_parameters.host #=> String
+    #   resp.data.data_sources[0].data_source_parameters.oracle_parameters.port #=> Integer
+    #   resp.data.data_sources[0].data_source_parameters.oracle_parameters.database #=> String
+    #   resp.data.data_sources[0].data_source_parameters.postgre_sql_parameters #=> Types::PostgreSqlParameters
+    #   resp.data.data_sources[0].data_source_parameters.postgre_sql_parameters.host #=> String
+    #   resp.data.data_sources[0].data_source_parameters.postgre_sql_parameters.port #=> Integer
+    #   resp.data.data_sources[0].data_source_parameters.postgre_sql_parameters.database #=> String
+    #   resp.data.data_sources[0].data_source_parameters.presto_parameters #=> Types::PrestoParameters
+    #   resp.data.data_sources[0].data_source_parameters.presto_parameters.host #=> String
+    #   resp.data.data_sources[0].data_source_parameters.presto_parameters.port #=> Integer
+    #   resp.data.data_sources[0].data_source_parameters.presto_parameters.catalog #=> String
+    #   resp.data.data_sources[0].data_source_parameters.rds_parameters #=> Types::RdsParameters
+    #   resp.data.data_sources[0].data_source_parameters.rds_parameters.instance_id #=> String
+    #   resp.data.data_sources[0].data_source_parameters.rds_parameters.database #=> String
+    #   resp.data.data_sources[0].data_source_parameters.redshift_parameters #=> Types::RedshiftParameters
+    #   resp.data.data_sources[0].data_source_parameters.redshift_parameters.host #=> String
+    #   resp.data.data_sources[0].data_source_parameters.redshift_parameters.port #=> Integer
+    #   resp.data.data_sources[0].data_source_parameters.redshift_parameters.database #=> String
+    #   resp.data.data_sources[0].data_source_parameters.redshift_parameters.cluster_id #=> String
+    #   resp.data.data_sources[0].data_source_parameters.s3_parameters #=> Types::S3Parameters
+    #   resp.data.data_sources[0].data_source_parameters.s3_parameters.manifest_file_location #=> Types::ManifestFileLocation
+    #   resp.data.data_sources[0].data_source_parameters.s3_parameters.manifest_file_location.bucket #=> String
+    #   resp.data.data_sources[0].data_source_parameters.s3_parameters.manifest_file_location.key #=> String
+    #   resp.data.data_sources[0].data_source_parameters.service_now_parameters #=> Types::ServiceNowParameters
+    #   resp.data.data_sources[0].data_source_parameters.service_now_parameters.site_base_url #=> String
+    #   resp.data.data_sources[0].data_source_parameters.snowflake_parameters #=> Types::SnowflakeParameters
+    #   resp.data.data_sources[0].data_source_parameters.snowflake_parameters.host #=> String
+    #   resp.data.data_sources[0].data_source_parameters.snowflake_parameters.database #=> String
+    #   resp.data.data_sources[0].data_source_parameters.snowflake_parameters.warehouse #=> String
+    #   resp.data.data_sources[0].data_source_parameters.spark_parameters #=> Types::SparkParameters
+    #   resp.data.data_sources[0].data_source_parameters.spark_parameters.host #=> String
+    #   resp.data.data_sources[0].data_source_parameters.spark_parameters.port #=> Integer
+    #   resp.data.data_sources[0].data_source_parameters.sql_server_parameters #=> Types::SqlServerParameters
+    #   resp.data.data_sources[0].data_source_parameters.sql_server_parameters.host #=> String
+    #   resp.data.data_sources[0].data_source_parameters.sql_server_parameters.port #=> Integer
+    #   resp.data.data_sources[0].data_source_parameters.sql_server_parameters.database #=> String
+    #   resp.data.data_sources[0].data_source_parameters.teradata_parameters #=> Types::TeradataParameters
+    #   resp.data.data_sources[0].data_source_parameters.teradata_parameters.host #=> String
+    #   resp.data.data_sources[0].data_source_parameters.teradata_parameters.port #=> Integer
+    #   resp.data.data_sources[0].data_source_parameters.teradata_parameters.database #=> String
+    #   resp.data.data_sources[0].data_source_parameters.twitter_parameters #=> Types::TwitterParameters
+    #   resp.data.data_sources[0].data_source_parameters.twitter_parameters.query #=> String
+    #   resp.data.data_sources[0].data_source_parameters.twitter_parameters.max_rows #=> Integer
+    #   resp.data.data_sources[0].data_source_parameters.amazon_open_search_parameters #=> Types::AmazonOpenSearchParameters
+    #   resp.data.data_sources[0].data_source_parameters.amazon_open_search_parameters.domain #=> String
+    #   resp.data.data_sources[0].data_source_parameters.exasol_parameters #=> Types::ExasolParameters
+    #   resp.data.data_sources[0].data_source_parameters.exasol_parameters.host #=> String
+    #   resp.data.data_sources[0].data_source_parameters.exasol_parameters.port #=> Integer
     #   resp.data.data_sources[0].alternate_data_source_parameters #=> Array<DataSourceParameters>
     #   resp.data.data_sources[0].vpc_connection_properties #=> Types::VpcConnectionProperties
     #   resp.data.data_sources[0].vpc_connection_properties.vpc_connection_arn #=> String
@@ -7051,7 +7251,7 @@ module AWS::SDK::QuickSight
     def list_data_sources(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDataSourcesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDataSourcesInput,
         validate_input: @config.validate_input
@@ -7137,7 +7337,7 @@ module AWS::SDK::QuickSight
     def list_folder_members(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListFolderMembersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListFolderMembersInput,
         validate_input: @config.validate_input
@@ -7223,7 +7423,7 @@ module AWS::SDK::QuickSight
     def list_folders(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListFoldersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListFoldersInput,
         validate_input: @config.validate_input
@@ -7314,7 +7514,7 @@ module AWS::SDK::QuickSight
     def list_group_memberships(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListGroupMembershipsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListGroupMembershipsInput,
         validate_input: @config.validate_input
@@ -7403,7 +7603,7 @@ module AWS::SDK::QuickSight
     def list_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListGroupsInput,
         validate_input: @config.validate_input
@@ -7493,7 +7693,7 @@ module AWS::SDK::QuickSight
     def list_iam_policy_assignments(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListIAMPolicyAssignmentsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListIAMPolicyAssignmentsInput,
         validate_input: @config.validate_input
@@ -7586,7 +7786,7 @@ module AWS::SDK::QuickSight
     def list_iam_policy_assignments_for_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListIAMPolicyAssignmentsForUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListIAMPolicyAssignmentsForUserInput,
         validate_input: @config.validate_input
@@ -7688,7 +7888,7 @@ module AWS::SDK::QuickSight
     def list_ingestions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListIngestionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListIngestionsInput,
         validate_input: @config.validate_input
@@ -7776,7 +7976,7 @@ module AWS::SDK::QuickSight
     def list_namespaces(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListNamespacesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListNamespacesInput,
         validate_input: @config.validate_input
@@ -7849,7 +8049,7 @@ module AWS::SDK::QuickSight
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -7936,7 +8136,7 @@ module AWS::SDK::QuickSight
     def list_template_aliases(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTemplateAliasesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTemplateAliasesInput,
         validate_input: @config.validate_input
@@ -8025,7 +8225,7 @@ module AWS::SDK::QuickSight
     def list_template_versions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTemplateVersionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTemplateVersionsInput,
         validate_input: @config.validate_input
@@ -8111,7 +8311,7 @@ module AWS::SDK::QuickSight
     def list_templates(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTemplatesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTemplatesInput,
         validate_input: @config.validate_input
@@ -8198,7 +8398,7 @@ module AWS::SDK::QuickSight
     def list_theme_aliases(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListThemeAliasesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListThemeAliasesInput,
         validate_input: @config.validate_input
@@ -8287,7 +8487,7 @@ module AWS::SDK::QuickSight
     def list_theme_versions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListThemeVersionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListThemeVersionsInput,
         validate_input: @config.validate_input
@@ -8391,7 +8591,7 @@ module AWS::SDK::QuickSight
     def list_themes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListThemesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListThemesInput,
         validate_input: @config.validate_input
@@ -8484,7 +8684,7 @@ module AWS::SDK::QuickSight
     def list_user_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListUserGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListUserGroupsInput,
         validate_input: @config.validate_input
@@ -8580,7 +8780,7 @@ module AWS::SDK::QuickSight
     def list_users(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListUsersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListUsersInput,
         validate_input: @config.validate_input
@@ -8794,7 +8994,7 @@ module AWS::SDK::QuickSight
     def register_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RegisterUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RegisterUserInput,
         validate_input: @config.validate_input
@@ -8870,7 +9070,7 @@ module AWS::SDK::QuickSight
     def restore_analysis(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RestoreAnalysisInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RestoreAnalysisInput,
         validate_input: @config.validate_input
@@ -8970,7 +9170,7 @@ module AWS::SDK::QuickSight
     def search_analyses(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SearchAnalysesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SearchAnalysesInput,
         validate_input: @config.validate_input
@@ -9075,7 +9275,7 @@ module AWS::SDK::QuickSight
     def search_dashboards(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SearchDashboardsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SearchDashboardsInput,
         validate_input: @config.validate_input
@@ -9172,7 +9372,7 @@ module AWS::SDK::QuickSight
     def search_folders(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SearchFoldersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SearchFoldersInput,
         validate_input: @config.validate_input
@@ -9272,7 +9472,7 @@ module AWS::SDK::QuickSight
     def search_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SearchGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SearchGroupsInput,
         validate_input: @config.validate_input
@@ -9373,7 +9573,7 @@ module AWS::SDK::QuickSight
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -9449,7 +9649,7 @@ module AWS::SDK::QuickSight
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -9541,7 +9741,7 @@ module AWS::SDK::QuickSight
     def update_account_customization(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateAccountCustomizationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateAccountCustomizationInput,
         validate_input: @config.validate_input
@@ -9624,7 +9824,7 @@ module AWS::SDK::QuickSight
     def update_account_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateAccountSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateAccountSettingsInput,
         validate_input: @config.validate_input
@@ -9766,7 +9966,7 @@ module AWS::SDK::QuickSight
     def update_analysis(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateAnalysisInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateAnalysisInput,
         validate_input: @config.validate_input
@@ -9865,7 +10065,7 @@ module AWS::SDK::QuickSight
     def update_analysis_permissions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateAnalysisPermissionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateAnalysisPermissionsInput,
         validate_input: @config.validate_input
@@ -10068,7 +10268,7 @@ module AWS::SDK::QuickSight
     def update_dashboard(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDashboardInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDashboardInput,
         validate_input: @config.validate_input
@@ -10172,7 +10372,7 @@ module AWS::SDK::QuickSight
     def update_dashboard_permissions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDashboardPermissionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDashboardPermissionsInput,
         validate_input: @config.validate_input
@@ -10253,7 +10453,7 @@ module AWS::SDK::QuickSight
     def update_dashboard_published_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDashboardPublishedVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDashboardPublishedVersionInput,
         validate_input: @config.validate_input
@@ -10514,7 +10714,7 @@ module AWS::SDK::QuickSight
     def update_data_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDataSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDataSetInput,
         validate_input: @config.validate_input
@@ -10606,7 +10806,7 @@ module AWS::SDK::QuickSight
     def update_data_set_permissions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDataSetPermissionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDataSetPermissionsInput,
         validate_input: @config.validate_input
@@ -10814,7 +11014,7 @@ module AWS::SDK::QuickSight
     def update_data_source(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDataSourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDataSourceInput,
         validate_input: @config.validate_input
@@ -10904,7 +11104,7 @@ module AWS::SDK::QuickSight
     def update_data_source_permissions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDataSourcePermissionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDataSourcePermissionsInput,
         validate_input: @config.validate_input
@@ -10984,7 +11184,7 @@ module AWS::SDK::QuickSight
     def update_folder(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateFolderInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateFolderInput,
         validate_input: @config.validate_input
@@ -11079,7 +11279,7 @@ module AWS::SDK::QuickSight
     def update_folder_permissions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateFolderPermissionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateFolderPermissionsInput,
         validate_input: @config.validate_input
@@ -11167,7 +11367,7 @@ module AWS::SDK::QuickSight
     def update_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateGroupInput,
         validate_input: @config.validate_input
@@ -11288,7 +11488,7 @@ module AWS::SDK::QuickSight
     def update_iam_policy_assignment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateIAMPolicyAssignmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateIAMPolicyAssignmentInput,
         validate_input: @config.validate_input
@@ -11369,7 +11569,7 @@ module AWS::SDK::QuickSight
     def update_ip_restriction(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateIpRestrictionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateIpRestrictionInput,
         validate_input: @config.validate_input
@@ -11445,7 +11645,7 @@ module AWS::SDK::QuickSight
     def update_public_sharing_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdatePublicSharingSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdatePublicSharingSettingsInput,
         validate_input: @config.validate_input
@@ -11560,7 +11760,7 @@ module AWS::SDK::QuickSight
     def update_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateTemplateInput,
         validate_input: @config.validate_input
@@ -11649,7 +11849,7 @@ module AWS::SDK::QuickSight
     def update_template_alias(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateTemplateAliasInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateTemplateAliasInput,
         validate_input: @config.validate_input
@@ -11744,7 +11944,7 @@ module AWS::SDK::QuickSight
     def update_template_permissions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateTemplatePermissionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateTemplatePermissionsInput,
         validate_input: @config.validate_input
@@ -11881,7 +12081,7 @@ module AWS::SDK::QuickSight
     def update_theme(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateThemeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateThemeInput,
         validate_input: @config.validate_input
@@ -11967,7 +12167,7 @@ module AWS::SDK::QuickSight
     def update_theme_alias(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateThemeAliasInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateThemeAliasInput,
         validate_input: @config.validate_input
@@ -12155,7 +12355,7 @@ module AWS::SDK::QuickSight
     def update_theme_permissions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateThemePermissionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateThemePermissionsInput,
         validate_input: @config.validate_input
@@ -12340,7 +12540,7 @@ module AWS::SDK::QuickSight
     def update_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateUserInput,
         validate_input: @config.validate_input

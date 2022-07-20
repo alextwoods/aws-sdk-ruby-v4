@@ -70,7 +70,7 @@ module AWS::SDK::MTurk
     class CreateHIT
       def self.default(visited=[])
         {
-          hit: Stubs::HIT.default(visited),
+          hit: HIT.default(visited),
         }
       end
 
@@ -104,7 +104,7 @@ module AWS::SDK::MTurk
           expiration: Time.now,
           assignment_duration_in_seconds: 1,
           requester_annotation: 'requester_annotation',
-          qualification_requirements: Stubs::QualificationRequirementList.default(visited),
+          qualification_requirements: QualificationRequirementList.default(visited),
           hit_review_status: 'hit_review_status',
           number_of_assignments_pending: 1,
           number_of_assignments_available: 1,
@@ -146,7 +146,7 @@ module AWS::SDK::MTurk
         return nil if visited.include?('QualificationRequirementList')
         visited = visited + ['QualificationRequirementList']
         [
-          Stubs::QualificationRequirement.default(visited)
+          QualificationRequirement.default(visited)
         ]
       end
 
@@ -168,8 +168,8 @@ module AWS::SDK::MTurk
         {
           qualification_type_id: 'qualification_type_id',
           comparator: 'comparator',
-          integer_values: Stubs::IntegerList.default(visited),
-          locale_values: Stubs::LocaleList.default(visited),
+          integer_values: IntegerList.default(visited),
+          locale_values: LocaleList.default(visited),
           required_to_preview: false,
           actions_guarded: 'actions_guarded',
         }
@@ -194,7 +194,7 @@ module AWS::SDK::MTurk
         return nil if visited.include?('LocaleList')
         visited = visited + ['LocaleList']
         [
-          Stubs::Locale.default(visited)
+          Locale.default(visited)
         ]
       end
 
@@ -268,7 +268,7 @@ module AWS::SDK::MTurk
     class CreateHITWithHITType
       def self.default(visited=[])
         {
-          hit: Stubs::HIT.default(visited),
+          hit: HIT.default(visited),
         }
       end
 
@@ -284,7 +284,7 @@ module AWS::SDK::MTurk
     class CreateQualificationType
       def self.default(visited=[])
         {
-          qualification_type: Stubs::QualificationType.default(visited),
+          qualification_type: QualificationType.default(visited),
         }
       end
 
@@ -430,8 +430,8 @@ module AWS::SDK::MTurk
     class GetAssignment
       def self.default(visited=[])
         {
-          assignment: Stubs::Assignment.default(visited),
-          hit: Stubs::HIT.default(visited),
+          assignment: Assignment.default(visited),
+          hit: HIT.default(visited),
         }
       end
 
@@ -504,7 +504,7 @@ module AWS::SDK::MTurk
     class GetHIT
       def self.default(visited=[])
         {
-          hit: Stubs::HIT.default(visited),
+          hit: HIT.default(visited),
         }
       end
 
@@ -520,7 +520,7 @@ module AWS::SDK::MTurk
     class GetQualificationScore
       def self.default(visited=[])
         {
-          qualification: Stubs::Qualification.default(visited),
+          qualification: Qualification.default(visited),
         }
       end
 
@@ -542,7 +542,7 @@ module AWS::SDK::MTurk
           worker_id: 'worker_id',
           grant_time: Time.now,
           integer_value: 1,
-          locale_value: Stubs::Locale.default(visited),
+          locale_value: Locale.default(visited),
           status: 'status',
         }
       end
@@ -564,7 +564,7 @@ module AWS::SDK::MTurk
     class GetQualificationType
       def self.default(visited=[])
         {
-          qualification_type: Stubs::QualificationType.default(visited),
+          qualification_type: QualificationType.default(visited),
         }
       end
 
@@ -582,7 +582,7 @@ module AWS::SDK::MTurk
         {
           next_token: 'next_token',
           num_results: 1,
-          assignments: Stubs::AssignmentList.default(visited),
+          assignments: AssignmentList.default(visited),
         }
       end
 
@@ -602,7 +602,7 @@ module AWS::SDK::MTurk
         return nil if visited.include?('AssignmentList')
         visited = visited + ['AssignmentList']
         [
-          Stubs::Assignment.default(visited)
+          Assignment.default(visited)
         ]
       end
 
@@ -622,7 +622,7 @@ module AWS::SDK::MTurk
         {
           num_results: 1,
           next_token: 'next_token',
-          bonus_payments: Stubs::BonusPaymentList.default(visited),
+          bonus_payments: BonusPaymentList.default(visited),
         }
       end
 
@@ -642,7 +642,7 @@ module AWS::SDK::MTurk
         return nil if visited.include?('BonusPaymentList')
         visited = visited + ['BonusPaymentList']
         [
-          Stubs::BonusPayment.default(visited)
+          BonusPayment.default(visited)
         ]
       end
 
@@ -688,7 +688,7 @@ module AWS::SDK::MTurk
         {
           next_token: 'next_token',
           num_results: 1,
-          hi_ts: Stubs::HITList.default(visited),
+          hi_ts: HITList.default(visited),
         }
       end
 
@@ -708,7 +708,7 @@ module AWS::SDK::MTurk
         return nil if visited.include?('HITList')
         visited = visited + ['HITList']
         [
-          Stubs::HIT.default(visited)
+          HIT.default(visited)
         ]
       end
 
@@ -728,7 +728,7 @@ module AWS::SDK::MTurk
         {
           next_token: 'next_token',
           num_results: 1,
-          hi_ts: Stubs::HITList.default(visited),
+          hi_ts: HITList.default(visited),
         }
       end
 
@@ -748,7 +748,7 @@ module AWS::SDK::MTurk
         {
           num_results: 1,
           next_token: 'next_token',
-          qualification_requests: Stubs::QualificationRequestList.default(visited),
+          qualification_requests: QualificationRequestList.default(visited),
         }
       end
 
@@ -768,7 +768,7 @@ module AWS::SDK::MTurk
         return nil if visited.include?('QualificationRequestList')
         visited = visited + ['QualificationRequestList']
         [
-          Stubs::QualificationRequest.default(visited)
+          QualificationRequest.default(visited)
         ]
       end
 
@@ -816,7 +816,7 @@ module AWS::SDK::MTurk
         {
           num_results: 1,
           next_token: 'next_token',
-          qualification_types: Stubs::QualificationTypeList.default(visited),
+          qualification_types: QualificationTypeList.default(visited),
         }
       end
 
@@ -836,7 +836,7 @@ module AWS::SDK::MTurk
         return nil if visited.include?('QualificationTypeList')
         visited = visited + ['QualificationTypeList']
         [
-          Stubs::QualificationType.default(visited)
+          QualificationType.default(visited)
         ]
       end
 
@@ -855,10 +855,10 @@ module AWS::SDK::MTurk
       def self.default(visited=[])
         {
           hit_id: 'hit_id',
-          assignment_review_policy: Stubs::ReviewPolicy.default(visited),
-          hit_review_policy: Stubs::ReviewPolicy.default(visited),
-          assignment_review_report: Stubs::ReviewReport.default(visited),
-          hit_review_report: Stubs::ReviewReport.default(visited),
+          assignment_review_policy: ReviewPolicy.default(visited),
+          hit_review_policy: ReviewPolicy.default(visited),
+          assignment_review_report: ReviewReport.default(visited),
+          hit_review_report: ReviewReport.default(visited),
           next_token: 'next_token',
         }
       end
@@ -882,8 +882,8 @@ module AWS::SDK::MTurk
         return nil if visited.include?('ReviewReport')
         visited = visited + ['ReviewReport']
         {
-          review_results: Stubs::ReviewResultDetailList.default(visited),
-          review_actions: Stubs::ReviewActionDetailList.default(visited),
+          review_results: ReviewResultDetailList.default(visited),
+          review_actions: ReviewActionDetailList.default(visited),
         }
       end
 
@@ -902,7 +902,7 @@ module AWS::SDK::MTurk
         return nil if visited.include?('ReviewActionDetailList')
         visited = visited + ['ReviewActionDetailList']
         [
-          Stubs::ReviewActionDetail.default(visited)
+          ReviewActionDetail.default(visited)
         ]
       end
 
@@ -954,7 +954,7 @@ module AWS::SDK::MTurk
         return nil if visited.include?('ReviewResultDetailList')
         visited = visited + ['ReviewResultDetailList']
         [
-          Stubs::ReviewResultDetail.default(visited)
+          ReviewResultDetail.default(visited)
         ]
       end
 
@@ -1003,7 +1003,7 @@ module AWS::SDK::MTurk
         visited = visited + ['ReviewPolicy']
         {
           policy_name: 'policy_name',
-          parameters: Stubs::PolicyParameterList.default(visited),
+          parameters: PolicyParameterList.default(visited),
         }
       end
 
@@ -1022,7 +1022,7 @@ module AWS::SDK::MTurk
         return nil if visited.include?('PolicyParameterList')
         visited = visited + ['PolicyParameterList']
         [
-          Stubs::PolicyParameter.default(visited)
+          PolicyParameter.default(visited)
         ]
       end
 
@@ -1043,8 +1043,8 @@ module AWS::SDK::MTurk
         visited = visited + ['PolicyParameter']
         {
           key: 'key',
-          values: Stubs::StringList.default(visited),
-          map_entries: Stubs::ParameterMapEntryList.default(visited),
+          values: StringList.default(visited),
+          map_entries: ParameterMapEntryList.default(visited),
         }
       end
 
@@ -1064,7 +1064,7 @@ module AWS::SDK::MTurk
         return nil if visited.include?('ParameterMapEntryList')
         visited = visited + ['ParameterMapEntryList']
         [
-          Stubs::ParameterMapEntry.default(visited)
+          ParameterMapEntry.default(visited)
         ]
       end
 
@@ -1085,7 +1085,7 @@ module AWS::SDK::MTurk
         visited = visited + ['ParameterMapEntry']
         {
           key: 'key',
-          values: Stubs::StringList.default(visited),
+          values: StringList.default(visited),
         }
       end
 
@@ -1124,7 +1124,7 @@ module AWS::SDK::MTurk
         {
           next_token: 'next_token',
           num_results: 1,
-          hi_ts: Stubs::HITList.default(visited),
+          hi_ts: HITList.default(visited),
         }
       end
 
@@ -1144,7 +1144,7 @@ module AWS::SDK::MTurk
         {
           next_token: 'next_token',
           num_results: 1,
-          worker_blocks: Stubs::WorkerBlockList.default(visited),
+          worker_blocks: WorkerBlockList.default(visited),
         }
       end
 
@@ -1164,7 +1164,7 @@ module AWS::SDK::MTurk
         return nil if visited.include?('WorkerBlockList')
         visited = visited + ['WorkerBlockList']
         [
-          Stubs::WorkerBlock.default(visited)
+          WorkerBlock.default(visited)
         ]
       end
 
@@ -1204,7 +1204,7 @@ module AWS::SDK::MTurk
         {
           next_token: 'next_token',
           num_results: 1,
-          qualifications: Stubs::QualificationList.default(visited),
+          qualifications: QualificationList.default(visited),
         }
       end
 
@@ -1224,7 +1224,7 @@ module AWS::SDK::MTurk
         return nil if visited.include?('QualificationList')
         visited = visited + ['QualificationList']
         [
-          Stubs::Qualification.default(visited)
+          Qualification.default(visited)
         ]
       end
 
@@ -1242,7 +1242,7 @@ module AWS::SDK::MTurk
     class NotifyWorkers
       def self.default(visited=[])
         {
-          notify_workers_failure_statuses: Stubs::NotifyWorkersFailureStatusList.default(visited),
+          notify_workers_failure_statuses: NotifyWorkersFailureStatusList.default(visited),
         }
       end
 
@@ -1260,7 +1260,7 @@ module AWS::SDK::MTurk
         return nil if visited.include?('NotifyWorkersFailureStatusList')
         visited = visited + ['NotifyWorkersFailureStatusList']
         [
-          Stubs::NotifyWorkersFailureStatus.default(visited)
+          NotifyWorkersFailureStatus.default(visited)
         ]
       end
 
@@ -1412,7 +1412,7 @@ module AWS::SDK::MTurk
     class UpdateQualificationType
       def self.default(visited=[])
         {
-          qualification_type: Stubs::QualificationType.default(visited),
+          qualification_type: QualificationType.default(visited),
         }
       end
 

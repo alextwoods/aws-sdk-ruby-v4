@@ -399,11 +399,11 @@ module AWS::SDK::StorageGateway
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.bypass_governance_retention ||= false
       end
-
     end
 
     # @!attribute tape_arn
@@ -665,11 +665,11 @@ module AWS::SDK::StorageGateway
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.worm ||= false
       end
-
     end
 
     # Includes enum constants for AvailabilityMonitorTestStatus
@@ -886,11 +886,11 @@ module AWS::SDK::StorageGateway
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.volume_size_in_bytes ||= 0
       end
-
     end
 
     # <p>CancelArchivalInput</p>
@@ -1121,11 +1121,11 @@ module AWS::SDK::StorageGateway
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.volume_size_in_bytes ||= 0
       end
-
     end
 
     # @!attribute volume_arn
@@ -2012,11 +2012,11 @@ module AWS::SDK::StorageGateway
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.preserve_existing_data ||= false
       end
-
     end
 
     # <p>A JSON object containing the following fields:</p>
@@ -2044,11 +2044,11 @@ module AWS::SDK::StorageGateway
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.volume_size_in_bytes ||= 0
       end
-
     end
 
     # @!attribute pool_name
@@ -2202,11 +2202,11 @@ module AWS::SDK::StorageGateway
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.worm ||= false
       end
-
     end
 
     # <p>CreateTapeOutput</p>
@@ -2326,11 +2326,11 @@ module AWS::SDK::StorageGateway
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.worm ||= false
       end
-
     end
 
     # <p>CreateTapeOutput</p>
@@ -2501,11 +2501,11 @@ module AWS::SDK::StorageGateway
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.force_delete ||= false
       end
-
     end
 
     # <p>DeleteFileShareOutput</p>
@@ -2598,11 +2598,11 @@ module AWS::SDK::StorageGateway
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.bypass_governance_retention ||= false
       end
-
     end
 
     # <p>DeleteTapeArchiveOutput</p>
@@ -2649,11 +2649,11 @@ module AWS::SDK::StorageGateway
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.bypass_governance_retention ||= false
       end
-
     end
 
     # <p>DeleteTapeOutput</p>
@@ -2911,6 +2911,7 @@ module AWS::SDK::StorageGateway
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.cache_allocated_in_bytes ||= 0
@@ -2919,7 +2920,6 @@ module AWS::SDK::StorageGateway
         self.cache_hit_percentage ||= 0
         self.cache_miss_percentage ||= 0
       end
-
     end
 
     # @!attribute volume_ar_ns
@@ -3900,12 +3900,12 @@ module AWS::SDK::StorageGateway
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.upload_buffer_used_in_bytes ||= 0
         self.upload_buffer_allocated_in_bytes ||= 0
       end
-
     end
 
     # <p>DescribeVTLDevicesInput</p>
@@ -4031,12 +4031,12 @@ module AWS::SDK::StorageGateway
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.working_storage_used_in_bytes ||= 0
         self.working_storage_allocated_in_bytes ||= 0
       end
-
     end
 
     # <p>AttachVolumeInput</p>
@@ -4110,12 +4110,12 @@ module AWS::SDK::StorageGateway
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.network_interface_port ||= 0
         self.chap_enabled ||= false
       end
-
     end
 
     # <p>DisableGatewayInput</p>
@@ -4166,11 +4166,11 @@ module AWS::SDK::StorageGateway
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.force_delete ||= false
       end
-
     end
 
     # @!attribute file_system_association_arn
@@ -4245,11 +4245,11 @@ module AWS::SDK::StorageGateway
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.disk_size_in_bytes ||= 0
       end
-
     end
 
     # <p>Specifies network configuration information for the gateway associated with the Amazon FSx file system.</p>
@@ -5889,11 +5889,11 @@ module AWS::SDK::StorageGateway
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.kms_encrypted ||= false
       end
-
     end
 
     # <p>Describes a gateway's network interface.</p>
@@ -6600,11 +6600,11 @@ module AWS::SDK::StorageGateway
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.kms_encrypted ||= false
       end
-
     end
 
     # <p>A list of Active Directory users and groups that have special permissions for SMB file
@@ -6981,12 +6981,12 @@ module AWS::SDK::StorageGateway
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.volume_size_in_bytes ||= 0
         self.preserved_existing_data ||= false
       end
-
     end
 
     # <p>A key-value pair that helps you manage, filter, and search for your resource. Allowed
@@ -7107,11 +7107,11 @@ module AWS::SDK::StorageGateway
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.worm ||= false
       end
-
     end
 
     # <p>Represents a virtual tape that is archived in the virtual tape shelf (VTS).</p>
@@ -7215,11 +7215,11 @@ module AWS::SDK::StorageGateway
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.worm ||= false
       end
-
     end
 
     # <p>Describes a virtual tape.</p>
@@ -8566,11 +8566,11 @@ module AWS::SDK::StorageGateway
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.volume_size_in_bytes ||= 0
       end
-
     end
 
     # <p>Describes a storage volume recovery point object.</p>
@@ -8608,12 +8608,12 @@ module AWS::SDK::StorageGateway
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.volume_size_in_bytes ||= 0
         self.volume_usage_in_bytes ||= 0
       end
-
     end
 
     # <p>Lists iSCSI information about a volume.</p>
@@ -8652,12 +8652,12 @@ module AWS::SDK::StorageGateway
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.network_interface_port ||= 0
         self.chap_enabled ||= false
       end
-
     end
 
   end

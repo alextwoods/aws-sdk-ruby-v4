@@ -213,7 +213,7 @@ module AWS::SDK::AccessAnalyzer
         type = Types::ApplyArchiveRuleInput.new
         type.analyzer_arn = params[:analyzer_arn]
         type.rule_name = params[:rule_name]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -365,7 +365,7 @@ module AWS::SDK::AccessAnalyzer
         type = Types::CreateAccessPreviewInput.new
         type.analyzer_arn = params[:analyzer_arn]
         type.configurations = ConfigurationsMap.build(params[:configurations], context: "#{context}[:configurations]") unless params[:configurations].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -387,7 +387,7 @@ module AWS::SDK::AccessAnalyzer
         type.type = params[:type]
         type.archive_rules = InlineArchiveRulesList.build(params[:archive_rules], context: "#{context}[:archive_rules]") unless params[:archive_rules].nil?
         type.tags = TagsMap.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -408,7 +408,7 @@ module AWS::SDK::AccessAnalyzer
         type.analyzer_name = params[:analyzer_name]
         type.rule_name = params[:rule_name]
         type.filter = FilterCriteriaMap.build(params[:filter], context: "#{context}[:filter]") unless params[:filter].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -438,7 +438,7 @@ module AWS::SDK::AccessAnalyzer
         Hearth::Validator.validate!(params, ::Hash, Types::DeleteAnalyzerInput, context: context)
         type = Types::DeleteAnalyzerInput.new
         type.analyzer_name = params[:analyzer_name]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -457,7 +457,7 @@ module AWS::SDK::AccessAnalyzer
         type = Types::DeleteArchiveRuleInput.new
         type.analyzer_name = params[:analyzer_name]
         type.rule_name = params[:rule_name]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -1350,7 +1350,7 @@ module AWS::SDK::AccessAnalyzer
         type = Types::StartPolicyGenerationInput.new
         type.policy_generation_details = PolicyGenerationDetails.build(params[:policy_generation_details], context: "#{context}[:policy_generation_details]") unless params[:policy_generation_details].nil?
         type.cloud_trail_details = CloudTrailDetails.build(params[:cloud_trail_details], context: "#{context}[:cloud_trail_details]") unless params[:cloud_trail_details].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -1520,7 +1520,7 @@ module AWS::SDK::AccessAnalyzer
         type.analyzer_name = params[:analyzer_name]
         type.rule_name = params[:rule_name]
         type.filter = FilterCriteriaMap.build(params[:filter], context: "#{context}[:filter]") unless params[:filter].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -1541,7 +1541,7 @@ module AWS::SDK::AccessAnalyzer
         type.status = params[:status]
         type.ids = FindingIdList.build(params[:ids], context: "#{context}[:ids]") unless params[:ids].nil?
         type.resource_arn = params[:resource_arn]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end

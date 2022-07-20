@@ -138,11 +138,11 @@ module AWS::SDK::Kafka
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.volume_size_gb ||= 0
       end
-
     end
 
     # @!attribute cloud_watch_logs
@@ -256,11 +256,11 @@ module AWS::SDK::Kafka
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.broker_id ||= 0
       end
-
     end
 
     # <p>Information about the current software installed on the cluster.</p>
@@ -287,11 +287,11 @@ module AWS::SDK::Kafka
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.configuration_revision ||= 0
       end
-
     end
 
     # <p>Includes all client authentication information.</p>
@@ -350,11 +350,11 @@ module AWS::SDK::Kafka
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # <p>Returns information about a cluster.</p>
@@ -551,11 +551,11 @@ module AWS::SDK::Kafka
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.number_of_broker_nodes ||= 0
       end
-
     end
 
     # <p>Returns information about a cluster operation.</p>
@@ -804,11 +804,11 @@ module AWS::SDK::Kafka
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.revision ||= 0
       end
-
     end
 
     # <p>Describes a configuration revision.</p>
@@ -835,11 +835,11 @@ module AWS::SDK::Kafka
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.revision ||= 0
       end
-
     end
 
     # Includes enum constants for ConfigurationState
@@ -963,11 +963,11 @@ module AWS::SDK::Kafka
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.number_of_broker_nodes ||= 0
       end
-
     end
 
     # @!attribute cluster_arn
@@ -1349,11 +1349,11 @@ module AWS::SDK::Kafka
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.revision ||= 0
       end
-
     end
 
     # @!attribute arn
@@ -1391,11 +1391,11 @@ module AWS::SDK::Kafka
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.revision ||= 0
       end
-
     end
 
     # <p>Contains information about the EBS storage volumes attached to Apache Kafka broker nodes.</p>
@@ -1416,11 +1416,11 @@ module AWS::SDK::Kafka
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.volume_size ||= 0
       end
-
     end
 
     # <p>The data-volume encryption details.</p>
@@ -1465,11 +1465,11 @@ module AWS::SDK::Kafka
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.in_cluster ||= false
       end
-
     end
 
     # <p>Includes encryption-related information, such as the AWS KMS key used for encrypting data at rest and whether you want MSK to encrypt your data in transit.</p>
@@ -1546,11 +1546,11 @@ module AWS::SDK::Kafka
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # <p>Returns information about an error.</p>
@@ -1669,11 +1669,11 @@ module AWS::SDK::Kafka
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # <p>Returns information about an error.</p>
@@ -1708,11 +1708,11 @@ module AWS::SDK::Kafka
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled_in_broker ||= false
       end
-
     end
 
     # <p>Indicates whether you want to turn on or turn off the JMX Exporter.</p>
@@ -1727,11 +1727,11 @@ module AWS::SDK::Kafka
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled_in_broker ||= false
       end
-
     end
 
     # @!attribute version
@@ -1786,11 +1786,11 @@ module AWS::SDK::Kafka
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute cluster_operation_info_list
@@ -1834,11 +1834,11 @@ module AWS::SDK::Kafka
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute cluster_info_list
@@ -1889,11 +1889,11 @@ module AWS::SDK::Kafka
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute cluster_info_list
@@ -1938,11 +1938,11 @@ module AWS::SDK::Kafka
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute next_token
@@ -1980,11 +1980,11 @@ module AWS::SDK::Kafka
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute configurations
@@ -2022,11 +2022,11 @@ module AWS::SDK::Kafka
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute kafka_versions
@@ -2068,11 +2068,11 @@ module AWS::SDK::Kafka
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute next_token
@@ -2116,11 +2116,11 @@ module AWS::SDK::Kafka
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute next_token
@@ -2250,11 +2250,11 @@ module AWS::SDK::Kafka
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.number_of_broker_nodes ||= 0
       end
-
     end
 
     # <p>Indicates whether you want to turn on or turn off the Node Exporter.</p>
@@ -2269,11 +2269,11 @@ module AWS::SDK::Kafka
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled_in_broker ||= false
       end
-
     end
 
     # <p>Indicates whether you want to turn on or turn off the Node Exporter.</p>
@@ -2288,11 +2288,11 @@ module AWS::SDK::Kafka
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled_in_broker ||= false
       end
-
     end
 
     # <p>The node information object.</p>
@@ -2505,11 +2505,11 @@ module AWS::SDK::Kafka
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.number_of_broker_nodes ||= 0
       end
-
     end
 
     # <p>Provisioned cluster request.</p>
@@ -2574,11 +2574,11 @@ module AWS::SDK::Kafka
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.number_of_broker_nodes ||= 0
       end
-
     end
 
     # Contains information about provisioned throughput for EBS storage volumes attached to kafka broker nodes.
@@ -2599,12 +2599,12 @@ module AWS::SDK::Kafka
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
         self.volume_throughput ||= 0
       end
-
     end
 
     # Public access control for brokers.
@@ -2678,11 +2678,11 @@ module AWS::SDK::Kafka
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # <p>Details for client authentication using SASL.</p>
@@ -2717,11 +2717,11 @@ module AWS::SDK::Kafka
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # <p>Serverless cluster.</p>
@@ -2885,11 +2885,11 @@ module AWS::SDK::Kafka
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # <p>Returns information about an error.</p>
@@ -2922,11 +2922,11 @@ module AWS::SDK::Kafka
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # <p>Returns information about an error.</p>
@@ -3041,11 +3041,11 @@ module AWS::SDK::Kafka
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.target_number_of_broker_nodes ||= 0
       end
-
     end
 
     # @!attribute cluster_arn
@@ -3488,11 +3488,11 @@ module AWS::SDK::Kafka
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.zookeeper_id ||= 0
       end
-
     end
 
   end

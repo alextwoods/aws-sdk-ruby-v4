@@ -14,7 +14,7 @@ module AWS::SDK::LookoutVision
     class CreateDataset
       def self.default(visited=[])
         {
-          dataset_metadata: Stubs::DatasetMetadata.default(visited),
+          dataset_metadata: DatasetMetadata.default(visited),
         }
       end
 
@@ -55,7 +55,7 @@ module AWS::SDK::LookoutVision
     class CreateModel
       def self.default(visited=[])
         {
-          model_metadata: Stubs::ModelMetadata.default(visited),
+          model_metadata: ModelMetadata.default(visited),
         }
       end
 
@@ -80,7 +80,7 @@ module AWS::SDK::LookoutVision
           description: 'description',
           status: 'status',
           status_message: 'status_message',
-          performance: Stubs::ModelPerformance.default(visited),
+          performance: ModelPerformance.default(visited),
         }
       end
 
@@ -124,7 +124,7 @@ module AWS::SDK::LookoutVision
     class CreateProject
       def self.default(visited=[])
         {
-          project_metadata: Stubs::ProjectMetadata.default(visited),
+          project_metadata: ProjectMetadata.default(visited),
         }
       end
 
@@ -210,7 +210,7 @@ module AWS::SDK::LookoutVision
     class DescribeDataset
       def self.default(visited=[])
         {
-          dataset_description: Stubs::DatasetDescription.default(visited),
+          dataset_description: DatasetDescription.default(visited),
         }
       end
 
@@ -235,7 +235,7 @@ module AWS::SDK::LookoutVision
           last_updated_timestamp: Time.now,
           status: 'status',
           status_message: 'status_message',
-          image_stats: Stubs::DatasetImageStats.default(visited),
+          image_stats: DatasetImageStats.default(visited),
         }
       end
 
@@ -281,7 +281,7 @@ module AWS::SDK::LookoutVision
     class DescribeModel
       def self.default(visited=[])
         {
-          model_description: Stubs::ModelDescription.default(visited),
+          model_description: ModelDescription.default(visited),
         }
       end
 
@@ -306,10 +306,10 @@ module AWS::SDK::LookoutVision
           description: 'description',
           status: 'status',
           status_message: 'status_message',
-          performance: Stubs::ModelPerformance.default(visited),
-          output_config: Stubs::OutputConfig.default(visited),
-          evaluation_manifest: Stubs::OutputS3Object.default(visited),
-          evaluation_result: Stubs::OutputS3Object.default(visited),
+          performance: ModelPerformance.default(visited),
+          output_config: OutputConfig.default(visited),
+          evaluation_manifest: OutputS3Object.default(visited),
+          evaluation_result: OutputS3Object.default(visited),
           evaluation_end_timestamp: Time.now,
           kms_key_id: 'kms_key_id',
         }
@@ -360,7 +360,7 @@ module AWS::SDK::LookoutVision
         return nil if visited.include?('OutputConfig')
         visited = visited + ['OutputConfig']
         {
-          s3_location: Stubs::S3Location.default(visited),
+          s3_location: S3Location.default(visited),
         }
       end
 
@@ -396,7 +396,7 @@ module AWS::SDK::LookoutVision
     class DescribeModelPackagingJob
       def self.default(visited=[])
         {
-          model_packaging_description: Stubs::ModelPackagingDescription.default(visited),
+          model_packaging_description: ModelPackagingDescription.default(visited),
         }
       end
 
@@ -418,10 +418,10 @@ module AWS::SDK::LookoutVision
           job_name: 'job_name',
           project_name: 'project_name',
           model_version: 'model_version',
-          model_packaging_configuration: Stubs::ModelPackagingConfiguration.default(visited),
+          model_packaging_configuration: ModelPackagingConfiguration.default(visited),
           model_packaging_job_description: 'model_packaging_job_description',
           model_packaging_method: 'model_packaging_method',
-          model_packaging_output_details: Stubs::ModelPackagingOutputDetails.default(visited),
+          model_packaging_output_details: ModelPackagingOutputDetails.default(visited),
           status: 'status',
           status_message: 'status_message',
           creation_timestamp: Time.now,
@@ -453,7 +453,7 @@ module AWS::SDK::LookoutVision
         return nil if visited.include?('ModelPackagingOutputDetails')
         visited = visited + ['ModelPackagingOutputDetails']
         {
-          greengrass: Stubs::GreengrassOutputDetails.default(visited),
+          greengrass: GreengrassOutputDetails.default(visited),
         }
       end
 
@@ -493,7 +493,7 @@ module AWS::SDK::LookoutVision
         return nil if visited.include?('ModelPackagingConfiguration')
         visited = visited + ['ModelPackagingConfiguration']
         {
-          greengrass: Stubs::GreengrassConfiguration.default(visited),
+          greengrass: GreengrassConfiguration.default(visited),
         }
       end
 
@@ -513,12 +513,12 @@ module AWS::SDK::LookoutVision
         {
           compiler_options: 'compiler_options',
           target_device: 'target_device',
-          target_platform: Stubs::TargetPlatform.default(visited),
-          s3_output_location: Stubs::S3Location.default(visited),
+          target_platform: TargetPlatform.default(visited),
+          s3_output_location: S3Location.default(visited),
           component_name: 'component_name',
           component_version: 'component_version',
           component_description: 'component_description',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -543,7 +543,7 @@ module AWS::SDK::LookoutVision
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -603,7 +603,7 @@ module AWS::SDK::LookoutVision
     class DescribeProject
       def self.default(visited=[])
         {
-          project_description: Stubs::ProjectDescription.default(visited),
+          project_description: ProjectDescription.default(visited),
         }
       end
 
@@ -625,7 +625,7 @@ module AWS::SDK::LookoutVision
           project_arn: 'project_arn',
           project_name: 'project_name',
           creation_timestamp: Time.now,
-          datasets: Stubs::DatasetMetadataList.default(visited),
+          datasets: DatasetMetadataList.default(visited),
         }
       end
 
@@ -646,7 +646,7 @@ module AWS::SDK::LookoutVision
         return nil if visited.include?('DatasetMetadataList')
         visited = visited + ['DatasetMetadataList']
         [
-          Stubs::DatasetMetadata.default(visited)
+          DatasetMetadata.default(visited)
         ]
       end
 
@@ -664,7 +664,7 @@ module AWS::SDK::LookoutVision
     class DetectAnomalies
       def self.default(visited=[])
         {
-          detect_anomaly_result: Stubs::DetectAnomalyResult.default(visited),
+          detect_anomaly_result: DetectAnomalyResult.default(visited),
         }
       end
 
@@ -683,7 +683,7 @@ module AWS::SDK::LookoutVision
         return nil if visited.include?('DetectAnomalyResult')
         visited = visited + ['DetectAnomalyResult']
         {
-          source: Stubs::ImageSource.default(visited),
+          source: ImageSource.default(visited),
           is_anomalous: false,
           confidence: 1.0,
         }
@@ -721,7 +721,7 @@ module AWS::SDK::LookoutVision
     class ListDatasetEntries
       def self.default(visited=[])
         {
-          dataset_entries: Stubs::DatasetEntryList.default(visited),
+          dataset_entries: DatasetEntryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -760,7 +760,7 @@ module AWS::SDK::LookoutVision
     class ListModelPackagingJobs
       def self.default(visited=[])
         {
-          model_packaging_jobs: Stubs::ModelPackagingJobsList.default(visited),
+          model_packaging_jobs: ModelPackagingJobsList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -781,7 +781,7 @@ module AWS::SDK::LookoutVision
         return nil if visited.include?('ModelPackagingJobsList')
         visited = visited + ['ModelPackagingJobsList']
         [
-          Stubs::ModelPackagingJobMetadata.default(visited)
+          ModelPackagingJobMetadata.default(visited)
         ]
       end
 
@@ -833,7 +833,7 @@ module AWS::SDK::LookoutVision
     class ListModels
       def self.default(visited=[])
         {
-          models: Stubs::ModelMetadataList.default(visited),
+          models: ModelMetadataList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -854,7 +854,7 @@ module AWS::SDK::LookoutVision
         return nil if visited.include?('ModelMetadataList')
         visited = visited + ['ModelMetadataList']
         [
-          Stubs::ModelMetadata.default(visited)
+          ModelMetadata.default(visited)
         ]
       end
 
@@ -872,7 +872,7 @@ module AWS::SDK::LookoutVision
     class ListProjects
       def self.default(visited=[])
         {
-          projects: Stubs::ProjectMetadataList.default(visited),
+          projects: ProjectMetadataList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -893,7 +893,7 @@ module AWS::SDK::LookoutVision
         return nil if visited.include?('ProjectMetadataList')
         visited = visited + ['ProjectMetadataList']
         [
-          Stubs::ProjectMetadata.default(visited)
+          ProjectMetadata.default(visited)
         ]
       end
 
@@ -911,7 +911,7 @@ module AWS::SDK::LookoutVision
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 

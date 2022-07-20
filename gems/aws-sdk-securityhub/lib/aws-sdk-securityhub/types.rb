@@ -210,11 +210,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.port ||= 0
       end
-
     end
 
     # <p>For <code>AwsApiAction</code>, <code>NetworkConnectionAction</code>, and
@@ -277,11 +277,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.port ||= 0
       end
-
     end
 
     # <p>An <code>ActionTarget</code> object.</p>
@@ -530,12 +530,12 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.percent_traffic ||= 0
         self.use_stage_cache ||= false
       end
-
     end
 
     # <p>Contains information about the endpoints for the API.</p>
@@ -652,6 +652,7 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.metrics_enabled ||= false
@@ -663,7 +664,6 @@ module AWS::SDK::SecurityHub
         self.cache_data_encrypted ||= false
         self.require_authorization_for_cache_control ||= false
       end
-
     end
 
     # <p>Contains information about a REST API in version 1 of Amazon API Gateway.</p>
@@ -737,11 +737,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.minimum_compression_size ||= 0
       end
-
     end
 
     # <p>Provides information about a version 1 Amazon API Gateway stage.</p>
@@ -865,12 +865,12 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.cache_cluster_enabled ||= false
         self.tracing_enabled ||= false
       end
-
     end
 
     # <p>Contains information about a version 2 API in Amazon API Gateway.</p>
@@ -1000,6 +1000,7 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.detailed_metrics_enabled ||= false
@@ -1007,7 +1008,6 @@ module AWS::SDK::SecurityHub
         self.throttling_burst_limit ||= 0
         self.throttling_rate_limit ||= 0
       end
-
     end
 
     # <p>Contains information about a version 2 stage for Amazon API Gateway.</p>
@@ -1114,12 +1114,12 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.auto_deploy ||= false
         self.api_gateway_managed ||= false
       end
-
     end
 
     # <p>An Availability Zone for the automatic scaling group.</p>
@@ -1201,12 +1201,12 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.health_check_grace_period ||= 0
         self.capacity_rebalance ||= false
       end
-
     end
 
     # <p>Details about the launch template to use.</p>
@@ -1297,13 +1297,13 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.on_demand_base_capacity ||= 0
         self.on_demand_percentage_above_base_capacity ||= 0
         self.spot_instance_pools ||= 0
       end
-
     end
 
     # <p>Describes a launch template and overrides for a mixed instances policy.</p>
@@ -1404,11 +1404,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.no_device ||= false
       end
-
     end
 
     # <p>Parameters that are used to automatically set up EBS volumes when an instance is launched.</p>
@@ -1470,6 +1470,7 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.delete_on_termination ||= false
@@ -1477,7 +1478,6 @@ module AWS::SDK::SecurityHub
         self.iops ||= 0
         self.volume_size ||= 0
       end
-
     end
 
     # <p>Details about a launch configuration.</p>
@@ -1608,12 +1608,12 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.associate_public_ip_address ||= false
         self.ebs_optimized ||= false
       end
-
     end
 
     # <p>Information about the type of monitoring for instances in the group.</p>
@@ -1631,11 +1631,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # <p>The metadata options for the instances.</p>
@@ -1662,11 +1662,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.http_put_response_hop_limit ||= 0
       end
-
     end
 
     # <p>Provides details about an Certificate Manager certificate.</p>
@@ -2248,12 +2248,12 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
         self.include_cookies ||= false
       end
-
     end
 
     # <p>Information about an origin group for the distribution.</p>
@@ -2302,11 +2302,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.quantity ||= 0
       end
-
     end
 
     # <p>Provides information about origin groups that are associated with the
@@ -2436,11 +2436,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.cloud_front_default_certificate ||= false
       end
-
     end
 
     # <p>Provides details about a CloudTrail trail.</p>
@@ -2543,6 +2543,7 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.has_custom_event_selectors ||= false
@@ -2551,7 +2552,6 @@ module AWS::SDK::SecurityHub
         self.is_organization_trail ||= false
         self.log_file_validation_enabled ||= false
       end
-
     end
 
     # <p>Information about the build artifacts for the CodeBuild project.</p>
@@ -2614,12 +2614,12 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.encryption_disabled ||= false
         self.override_artifact_name ||= false
       end
-
     end
 
     # <p>Information about an CodeBuild project.</p>
@@ -2763,11 +2763,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.privileged_mode ||= false
       end
-
     end
 
     # <p>Information about an environment variable that is available to builds for the build project.</p>
@@ -2891,11 +2891,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.encryption_disabled ||= false
       end
-
     end
 
     # <p>Information about the build input source code for this build project.</p>
@@ -2997,12 +2997,12 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.git_clone_depth ||= 0
         self.insecure_ssl ||= false
       end
-
     end
 
     # <p>Information about the VPC configuration that CodeBuild accesses.</p>
@@ -3074,12 +3074,12 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.allow_credentials ||= false
         self.max_age ||= 0
       end
-
     end
 
     # <p>Contains a definition of an attribute for the table.</p>
@@ -3249,12 +3249,12 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.item_count ||= 0
         self.table_size_bytes ||= 0
       end
-
     end
 
     # <p>Information abut a global secondary index for the table.</p>
@@ -3317,13 +3317,13 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.backfilling ||= false
         self.index_size_bytes ||= 0
         self.item_count ||= 0
       end
-
     end
 
     # <p>A component of the key schema for the DynamoDB table, a global secondary index, or a
@@ -3448,13 +3448,13 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.number_of_decreases_today ||= 0
         self.read_capacity_units ||= 0
         self.write_capacity_units ||= 0
       end
-
     end
 
     # <p>Replica-specific configuration for the provisioned throughput.</p>
@@ -3469,11 +3469,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.read_capacity_units ||= 0
       end
-
     end
 
     # <p>Information about a replica of a DynamoDB table.</p>
@@ -3574,11 +3574,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.restore_in_progress ||= false
       end
-
     end
 
     # <p>Information about the server-side encryption for the table.</p>
@@ -3636,11 +3636,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.stream_enabled ||= false
       end
-
     end
 
     # <p>Information about an Elastic IP address.</p>
@@ -3869,11 +3869,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_default ||= false
       end
-
     end
 
     # <p>A rule for the network ACL. Each rule allows or denies access based on the IP address, traffic direction, port, and protocol.</p>
@@ -3930,12 +3930,12 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.egress ||= false
         self.rule_number ||= 0
       end
-
     end
 
     # <p>Information about the network interface attachment.</p>
@@ -3993,12 +3993,12 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.delete_on_termination ||= false
         self.device_index ||= 0
       end
-
     end
 
     # <p>Details about the network interface</p>
@@ -4055,11 +4055,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.source_dest_check ||= false
       end
-
     end
 
     # <p>Provides information about an IPV6 address that is associated with the network
@@ -4226,12 +4226,12 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.from_port ||= 0
         self.to_port ||= 0
       end
-
     end
 
     # <p>A range of IPv4 addresses.</p>
@@ -4411,6 +4411,7 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.assign_ipv6_address_on_creation ||= false
@@ -4418,7 +4419,6 @@ module AWS::SDK::SecurityHub
         self.default_for_az ||= false
         self.map_public_ip_on_launch ||= false
       end
-
     end
 
     # <p>An attachment to an Amazon EC2 volume.</p>
@@ -4451,11 +4451,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.delete_on_termination ||= false
       end
-
     end
 
     # <p>Details about an EC2 volume.</p>
@@ -4510,12 +4510,12 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.encrypted ||= false
         self.size ||= 0
       end
-
     end
 
     # <p>Details about an EC2 VPC.</p>
@@ -4624,12 +4624,12 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.acceptance_required ||= false
         self.manages_vpc_endpoints ||= false
       end
-
     end
 
     # <p>The service type information for a VPC endpoint service.</p>
@@ -4742,11 +4742,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.static_routes_only ||= false
       end
-
     end
 
     # <p>The VPN tunnel options.</p>
@@ -4860,6 +4860,7 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dpd_timeout_seconds ||= 0
@@ -4869,7 +4870,6 @@ module AWS::SDK::SecurityHub
         self.rekey_margin_time_seconds ||= 0
         self.replay_window_size ||= 0
       end
-
     end
 
     # <p>A static routes associated with
@@ -4939,11 +4939,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.accepted_route_count ||= 0
       end
-
     end
 
     # <p>Information about an Amazon ECR image.</p>
@@ -5050,11 +5050,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.scan_on_push ||= false
       end
-
     end
 
     # <p>Information about the lifecycle policy for the repository.</p>
@@ -5173,12 +5173,12 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.cloud_watch_encryption_enabled ||= false
         self.s3_encryption_enabled ||= false
       end
-
     end
 
     # <p>The default capacity provider strategy for the cluster. The default capacity provider strategy is used when services or tasks are run without a specified launch type or capacity provider strategy.</p>
@@ -5205,12 +5205,12 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.base ||= 0
         self.weight ||= 0
       end
-
     end
 
     # <p>provides details about an ECS cluster.</p>
@@ -5272,12 +5272,12 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.base ||= 0
         self.weight ||= 0
       end
-
     end
 
     # <p>Determines whether a service deployment fails if a service cannot reach a steady state.</p>
@@ -5298,12 +5298,12 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enable ||= false
         self.rollback ||= false
       end
-
     end
 
     # <p>Optional deployment parameters for the service.</p>
@@ -5334,12 +5334,12 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.maximum_percent ||= 0
         self.minimum_healthy_percent ||= 0
       end
-
     end
 
     # <p>Information about the deployment controller type that the service uses.</p>
@@ -5507,6 +5507,7 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.desired_count ||= 0
@@ -5514,7 +5515,6 @@ module AWS::SDK::SecurityHub
         self.enable_execute_command ||= false
         self.health_check_grace_period_seconds ||= 0
       end
-
     end
 
     # <p>Information about a load balancer that the service uses.</p>
@@ -5549,11 +5549,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.container_port ||= 0
       end
-
     end
 
     # <p>For tasks that use the <code>awsvpc</code> networking mode, the VPC subnet and security group configuration.</p>
@@ -5684,12 +5684,12 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.container_port ||= 0
         self.port ||= 0
       end
-
     end
 
     # <p>A dependency that is defined for container startup and shutdown.</p>
@@ -6007,6 +6007,7 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.cpu ||= 0
@@ -6021,7 +6022,6 @@ module AWS::SDK::SecurityHub
         self.start_timeout ||= 0
         self.stop_timeout ||= 0
       end
-
     end
 
     # <p>An environment variable to pass to the container.</p>
@@ -6157,6 +6157,7 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.interval ||= 0
@@ -6164,7 +6165,6 @@ module AWS::SDK::SecurityHub
         self.start_period ||= 0
         self.timeout ||= 0
       end
-
     end
 
     # <p>The Linux capabilities for the container that are added to or dropped from the default configuration provided by Docker.</p>
@@ -6235,6 +6235,7 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.init_process_enabled ||= false
@@ -6242,7 +6243,6 @@ module AWS::SDK::SecurityHub
         self.shared_memory_size ||= 0
         self.swappiness ||= 0
       end
-
     end
 
     # <p>A host device to expose to the container.</p>
@@ -6295,11 +6295,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.size ||= 0
       end
-
     end
 
     # <p>The log configuration specification for the container.</p>
@@ -6374,11 +6374,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.read_only ||= false
       end
-
     end
 
     # <p>A port mapping for the container.</p>
@@ -6405,12 +6405,12 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.container_port ||= 0
         self.host_port ||= 0
       end
-
     end
 
     # <p>The private repository authentication credentials to use.</p>
@@ -6516,12 +6516,12 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.hard_limit ||= 0
         self.soft_limit ||= 0
       end
-
     end
 
     # <p>A data volume to mount from another container.</p>
@@ -6542,11 +6542,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.read_only ||= false
       end
-
     end
 
     # <p>details about a task definition. A task definition describes the container and volume definitions of an Amazon Elastic Container Service task.</p>
@@ -6797,11 +6797,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.autoprovision ||= false
       end
-
     end
 
     # <p></p>
@@ -6860,11 +6860,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.transit_encryption_port ||= 0
       end
-
     end
 
     # <p>Information about a bind mount host volume.</p>
@@ -6961,11 +6961,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # <p>The logging configuration for an Amazon EKS cluster.</p>
@@ -7309,11 +7309,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enforce_https ||= false
       end
-
     end
 
     # <p>details about the configuration of an OpenSearch cluster.</p>
@@ -7364,6 +7364,7 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dedicated_master_count ||= 0
@@ -7371,7 +7372,6 @@ module AWS::SDK::SecurityHub
         self.instance_count ||= 0
         self.zone_awareness_enabled ||= false
       end
-
     end
 
     # <p>Configuration options for zone awareness.</p>
@@ -7386,11 +7386,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.availability_zone_count ||= 0
       end
-
     end
 
     # <p>Details about the configuration for encryption at rest.</p>
@@ -7411,11 +7411,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # <p>configures the CloudWatch Logs to publish for the
@@ -7465,11 +7465,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # <p>Details about the configuration for node-to-node encryption.</p>
@@ -7484,11 +7484,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # <p>Information about the state of the domain relative to the latest service software.</p>
@@ -7540,12 +7540,12 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.cancellable ||= false
         self.update_available ||= false
       end
-
     end
 
     # <p>Information that OpenSearch derives based on <code>VPCOptions</code> for the
@@ -7625,11 +7625,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.cookie_expiration_period ||= 0
       end
-
     end
 
     # <p>Contains information about the access log configuration for the load balancer.</p>
@@ -7664,12 +7664,12 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.emit_interval ||= 0
         self.enabled ||= false
       end
-
     end
 
     # <p>Provides information about additional attributes for the load balancer.</p>
@@ -7758,11 +7758,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.instance_port ||= 0
       end
-
     end
 
     # <p>Contains information about the connection draining configuration for the load
@@ -7785,12 +7785,12 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
         self.timeout ||= 0
       end
-
     end
 
     # <p>Contains connection settings for the load balancer.</p>
@@ -7806,11 +7806,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.idle_timeout ||= 0
       end
-
     end
 
     # <p>Contains cross-zone load balancing settings for the load balancer.</p>
@@ -7825,11 +7825,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # <p>Contains details about a Classic Load Balancer.</p>
@@ -8006,6 +8006,7 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.healthy_threshold ||= 0
@@ -8013,7 +8014,6 @@ module AWS::SDK::SecurityHub
         self.timeout ||= 0
         self.unhealthy_threshold ||= 0
       end
-
     end
 
     # <p>Provides information about an EC2 instance for a load balancer.</p>
@@ -8075,12 +8075,12 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.instance_port ||= 0
         self.load_balancer_port ||= 0
       end
-
     end
 
     # <p>Lists the policies that are enabled for a load balancer listener.</p>
@@ -8364,11 +8364,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.mfa_authenticated ||= false
       end
-
     end
 
     # <p>Information about the entity that created the session.</p>
@@ -8697,13 +8697,13 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.attachment_count ||= 0
         self.is_attachable ||= false
         self.permissions_boundary_usage_count ||= 0
       end
-
     end
 
     # <p>A version of an IAM policy.</p>
@@ -8733,11 +8733,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_default_version ||= false
       end
-
     end
 
     # <p>Contains information about an IAM role, including all of the role's policies.</p>
@@ -8810,11 +8810,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_session_duration ||= 0
       end
-
     end
 
     # <p>An inline policy that is embedded in the role.</p>
@@ -8965,12 +8965,12 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.creation_date ||= 0
         self.key_rotation_status ||= false
       end
-
     end
 
     # <p>The code for the Lambda function. You can specify either an object in Amazon S3, or upload a deployment package directly.</p>
@@ -9136,12 +9136,12 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.memory_size ||= 0
         self.timeout ||= 0
       end
-
     end
 
     # <p>A function's environment variable settings.</p>
@@ -9202,11 +9202,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.code_size ||= 0
       end
-
     end
 
     # <p>The function's X-Ray tracing configuration.</p>
@@ -9282,11 +9282,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.version ||= 0
       end
-
     end
 
     # <p>Details about an Network Firewall firewall.</p>
@@ -9355,13 +9355,13 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.delete_protection ||= false
         self.firewall_policy_change_protection ||= false
         self.subnet_change_protection ||= false
       end
-
     end
 
     # <p>Details about a firewall policy. A firewall policy defines the behavior of a network firewall.</p>
@@ -9466,11 +9466,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.capacity ||= 0
       end
-
     end
 
     # <p>Details about the configuration of an OpenSearch cluster.</p>
@@ -9541,6 +9541,7 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.instance_count ||= 0
@@ -9550,7 +9551,6 @@ module AWS::SDK::SecurityHub
         self.dedicated_master_count ||= 0
         self.zone_awareness_enabled ||= false
       end
-
     end
 
     # <p>Configuration options for zone awareness.</p>
@@ -9565,11 +9565,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.availability_zone_count ||= 0
       end
-
     end
 
     # <p>Information about an Amazon OpenSearch Service domain.</p>
@@ -9701,12 +9701,12 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.custom_endpoint_enabled ||= false
         self.enforce_https ||= false
       end
-
     end
 
     # <p>Details about the configuration for encryption at rest for the OpenSearch domain.</p>
@@ -9727,11 +9727,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # <p>Configuration details for a log publishing option.</p>
@@ -9752,11 +9752,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # <p>Configures the CloudWatch Logs to publish for the OpenSearch domain.</p>
@@ -9797,11 +9797,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # <p>Provides information about the state of the domain relative to the latest service software.</p>
@@ -9858,13 +9858,13 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.cancellable ||= false
         self.update_available ||= false
         self.optional_deployment ||= false
       end
-
     end
 
     # <p>Contains information that OpenSearch Service derives based on the <code>VPCOptions</code> for the domain.</p>
@@ -10155,6 +10155,7 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.allocated_storage ||= 0
@@ -10168,7 +10169,6 @@ module AWS::SDK::SecurityHub
         self.cross_account_clone ||= false
         self.iam_database_authentication_enabled ||= false
       end
-
     end
 
     # <p>Information about an instance in the DB cluster.</p>
@@ -10202,12 +10202,12 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_cluster_writer ||= false
         self.promotion_tier ||= 0
       end
-
     end
 
     # <p>Information about an option group membership for a DB cluster.</p>
@@ -10351,6 +10351,7 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.allocated_storage ||= 0
@@ -10359,7 +10360,6 @@ module AWS::SDK::SecurityHub
         self.storage_encrypted ||= false
         self.iam_database_authentication_enabled ||= false
       end
-
     end
 
     # <p>Information about an Active Directory domain membership record associated with the DB
@@ -10850,6 +10850,7 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.db_instance_port ||= 0
@@ -10869,7 +10870,6 @@ module AWS::SDK::SecurityHub
         self.performance_insights_retention_period ||= 0
         self.max_allocated_storage ||= 0
       end
-
     end
 
     # <p>Specifies the connection endpoint.</p>
@@ -10896,11 +10896,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.port ||= 0
       end
-
     end
 
     # <p>A VPC security groups that the DB instance belongs to.</p>
@@ -11059,6 +11059,7 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.allocated_storage ||= 0
@@ -11067,7 +11068,6 @@ module AWS::SDK::SecurityHub
         self.multi_az ||= false
         self.iops ||= 0
       end
-
     end
 
     # <p>A processor feature.</p>
@@ -11361,6 +11361,7 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.allocated_storage ||= 0
@@ -11370,7 +11371,6 @@ module AWS::SDK::SecurityHub
         self.encrypted ||= false
         self.iam_database_authentication_enabled ||= false
       end
-
     end
 
     # <p>Information about the status of a read replica.</p>
@@ -11403,11 +11403,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.normal ||= false
       end
-
     end
 
     # <p>Information about the subnet group for the database instance.</p>
@@ -11565,11 +11565,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # <p>Identifies the log types to enable and disable.</p>
@@ -11731,12 +11731,12 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.manual_snapshot_retention_period ||= 0
         self.retention_period ||= 0
       end
-
     end
 
     # <p>A time windows during which maintenance was deferred for an Amazon Redshift
@@ -12117,6 +12117,7 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.allow_version_upgrade ||= false
@@ -12127,7 +12128,6 @@ module AWS::SDK::SecurityHub
         self.number_of_nodes ||= 0
         self.publicly_accessible ||= false
       end
-
     end
 
     # <p>The status of the elastic IP (EIP) address for an Amazon Redshift cluster.</p>
@@ -12168,11 +12168,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.port ||= 0
       end
-
     end
 
     # <p>Information about whether an Amazon Redshift cluster finished applying any hardware
@@ -12279,11 +12279,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.logging_enabled ||= false
       end
-
     end
 
     # <p>Changes to the Amazon Redshift cluster that are currently pending.</p>
@@ -12360,6 +12360,7 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.automated_snapshot_retention_period ||= 0
@@ -12367,7 +12368,6 @@ module AWS::SDK::SecurityHub
         self.number_of_nodes ||= 0
         self.publicly_accessible ||= false
       end
-
     end
 
     # <p>Information about the resize operation for the cluster.</p>
@@ -12390,11 +12390,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.allow_cancel_resize ||= false
       end
-
     end
 
     # <p>Information about the status of a cluster restore action. It only applies if the cluster
@@ -12451,6 +12451,7 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.current_restore_rate_in_mega_bytes_per_second ||= 0
@@ -12459,7 +12460,6 @@ module AWS::SDK::SecurityHub
         self.progress_in_mega_bytes ||= 0
         self.snapshot_size_in_mega_bytes ||= 0
       end
-
     end
 
     # <p>A VPC security group that the cluster belongs to, if the cluster is in a VPC.</p>
@@ -12512,6 +12512,7 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.block_public_acls ||= false
@@ -12519,7 +12520,6 @@ module AWS::SDK::SecurityHub
         self.ignore_public_acls ||= false
         self.restrict_public_buckets ||= false
       end
-
     end
 
     # <p>The lifecycle configuration for the objects in the S3 bucket.</p>
@@ -12549,11 +12549,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.days_after_initiation ||= 0
       end
-
     end
 
     # <p>Configuration for a lifecycle rule.</p>
@@ -12636,13 +12636,13 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.expiration_in_days ||= 0
         self.expired_object_delete_marker ||= false
         self.noncurrent_version_expiration_in_days ||= 0
       end
-
     end
 
     # <p>Identifies the objects that a rule applies to.</p>
@@ -12775,11 +12775,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.days ||= 0
       end
-
     end
 
     # <p>A rule for when objects transition to specific storage classes.</p>
@@ -12809,11 +12809,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.days ||= 0
       end
-
     end
 
     # <p>Describes the versioning state of an S3 bucket.</p>
@@ -12834,11 +12834,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_mfa_delete_enabled ||= false
       end
-
     end
 
     # <p>The details of an Amazon S3 bucket.</p>
@@ -13352,13 +13352,13 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.rotation_occurred_within_frequency ||= false
         self.rotation_enabled ||= false
         self.deleted ||= false
       end
-
     end
 
     # <p>Defines the rotation schedule for the secret.</p>
@@ -13373,11 +13373,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.automatically_after_days ||= 0
       end
-
     end
 
     # <p>Provides consistent format for the contents of the Security Hub-aggregated findings.
@@ -13688,13 +13688,13 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.confidence ||= 0
         self.criticality ||= 0
         self.sample ||= false
       end
-
     end
 
     # <p>A collection of attributes that are applied to all active Security Hub-aggregated findings and
@@ -14500,11 +14500,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.kms_data_key_reuse_period_seconds ||= 0
       end
-
     end
 
     # <p>Provides the details about the compliance status for a patch.</p>
@@ -14654,6 +14654,7 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.compliant_critical_count ||= 0
@@ -14669,7 +14670,6 @@ module AWS::SDK::SecurityHub
         self.non_compliant_medium_count ||= 0
         self.non_compliant_unspecified_count ||= 0
       end
-
     end
 
     # <p>Provides details about the compliance for a patch.</p>
@@ -14743,11 +14743,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.rate_limit ||= 0
       end
-
     end
 
     # <p>A match predicate. A predicate might look for characteristics such as specific IP addresses, geographic locations, or sizes.</p>
@@ -14776,11 +14776,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.negated ||= false
       end
-
     end
 
     # <p>contains details about a rate-based rule for Regional resources. A rate-based rule provides settings to indicate when to allow, block, or count a request. Rate-based rules include the number of requests that arrive over a specified period of time.</p>
@@ -14825,11 +14825,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.rate_limit ||= 0
       end
-
     end
 
     # <p>Details for a match predicate. A predicate might look for characteristics such as specific IP addresses, geographic locations, or sizes.</p>
@@ -14857,11 +14857,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.negated ||= false
       end
-
     end
 
     # <p>Details about an WAF WebACL.</p>
@@ -14961,11 +14961,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.priority ||= 0
       end
-
     end
 
     # <p>Information about the encryption configuration for X-Ray.</p>
@@ -15077,12 +15077,12 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.failed_count ||= 0
         self.success_count ||= 0
       end
-
     end
 
     # @!attribute finding_identifiers
@@ -15203,12 +15203,12 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.confidence ||= 0
         self.criticality ||= 0
       end
-
     end
 
     # @!attribute processed_findings
@@ -15268,11 +15268,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.value ||= false
       end
-
     end
 
     # <p>An occurrence of sensitive data detected in a Microsoft Excel workbook, comma-separated value (CSV) file, or tab-separated value (TSV) file.</p>
@@ -15305,12 +15305,12 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.column ||= 0
         self.row ||= 0
       end
-
     end
 
     # <p>An IPv4 CIDR block association.</p>
@@ -15395,12 +15395,12 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.size_classified ||= 0
         self.additional_occurrences ||= false
       end
-
     end
 
     # <p>Provides details about the current status of the sensitive data detection.</p>
@@ -15773,11 +15773,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.count ||= 0
       end
-
     end
 
     # <p>Contains an instance of sensitive data that was detected by a customer-defined identifier.</p>
@@ -15798,11 +15798,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.total_count ||= 0
       end
-
     end
 
     # <p>CVSS scores from the advisory related to the vulnerability.</p>
@@ -15841,11 +15841,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.base_score ||= 0
       end
-
     end
 
     # <p>Provides details about sensitive data that was detected on a resource.</p>
@@ -15914,11 +15914,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.value ||= 0
       end
-
     end
 
     # Includes enum constants for DateRangeUnit
@@ -16098,11 +16098,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute action_targets
@@ -16162,11 +16162,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.auto_enable_controls ||= false
       end
-
     end
 
     DescribeOrganizationConfigurationInput = ::Struct.new(
@@ -16208,12 +16208,12 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.auto_enable ||= false
         self.member_account_limit_reached ||= false
       end
-
     end
 
     # @!attribute next_token
@@ -16242,11 +16242,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute products
@@ -16294,11 +16294,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute controls
@@ -16339,11 +16339,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute standards
@@ -16488,11 +16488,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.blocked ||= false
       end
-
     end
 
     # @!attribute product_arn
@@ -16558,11 +16558,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enable_default_standards ||= false
       end
-
     end
 
     EnableSecurityHubOutput = ::Struct.new(
@@ -16630,12 +16630,12 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.confidence ||= 0
         self.criticality ||= 0
       end
-
     end
 
     # <p>The severity assigned to the finding by the finding provider.</p>
@@ -16754,11 +16754,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.priority ||= 0
       end
-
     end
 
     # <p>Provides the latitude and longitude coordinates of a location.</p>
@@ -16779,12 +16779,12 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.lon ||= 0
         self.lat ||= 0
       end
-
     end
 
     GetAdministratorAccountInput = ::Struct.new(
@@ -16832,11 +16832,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute standards_subscriptions
@@ -16937,11 +16937,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute findings
@@ -17014,11 +17014,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute insights
@@ -17057,11 +17057,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.invitations_count ||= 0
       end
-
     end
 
     GetMasterAccountInput = ::Struct.new(
@@ -17133,12 +17133,12 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.code ||= 0
         self.type ||= 0
       end
-
     end
 
     # <p>The list of the findings that cannot be imported. For each finding, the list provides
@@ -17225,11 +17225,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.count ||= 0
       end
-
     end
 
     # <p>The insight results returned by the <code>GetInsightResults</code> operation.</p>
@@ -17434,11 +17434,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.asn ||= 0
       end
-
     end
 
     # <p>An IPV6 CIDR block association.</p>
@@ -17520,11 +17520,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute product_subscriptions
@@ -17561,11 +17561,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute finding_aggregators
@@ -17608,11 +17608,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute invitations
@@ -17664,12 +17664,12 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.only_associated ||= false
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute members
@@ -17709,11 +17709,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute admin_accounts
@@ -18134,12 +18134,12 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.source_port ||= 0
         self.destination_port ||= 0
       end
-
     end
 
     # <p>Provided if <code>ActionType</code> is <code>NETWORK_CONNECTION</code>. It provides
@@ -18187,11 +18187,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.blocked ||= false
       end
-
     end
 
     # Includes enum constants for NetworkDirection
@@ -18363,13 +18363,13 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.gte ||= 0
         self.lte ||= 0
         self.eq ||= 0
       end
-
     end
 
     # <p>The detected occurrences of sensitive data.</p>
@@ -18434,11 +18434,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.page_number ||= 0
       end
-
     end
 
     # Includes enum constants for Partition
@@ -18542,6 +18542,7 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.installed_count ||= 0
@@ -18551,7 +18552,6 @@ module AWS::SDK::SecurityHub
         self.installed_rejected_count ||= 0
         self.installed_pending_reboot ||= 0
       end
-
     end
 
     # <p>Provided if <code>ActionType</code> is <code>PORT_PROBE</code>. It provides details
@@ -18573,11 +18573,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.blocked ||= false
       end
-
     end
 
     # <p>A port scan that was part of the port probe. For each scan, PortProbeDetails provides
@@ -18626,12 +18626,12 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.begin ||= 0
         self.end ||= 0
       end
-
     end
 
     # <p>A range of ports.</p>
@@ -18652,12 +18652,12 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.from ||= 0
         self.to ||= 0
       end
-
     end
 
     # <p>The details of process-related information about a finding.</p>
@@ -18708,12 +18708,12 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.pid ||= 0
         self.parent_pid ||= 0
       end
-
     end
 
     # <p>Contains details about a product.</p>
@@ -18820,13 +18820,13 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.start ||= 0
         self.end ||= 0
         self.start_column ||= 0
       end
-
     end
 
     # <p>A recommendation on how to remediate the issue identified in a finding.</p>
@@ -18867,11 +18867,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.record_index ||= 0
       end
-
     end
 
     # Includes enum constants for RecordState
@@ -19717,12 +19717,12 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.from_port ||= 0
         self.to_port ||= 0
       end
-
     end
 
     # <p>A destination IP address or range.</p>
@@ -19757,12 +19757,12 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.from_port ||= 0
         self.to_port ||= 0
       end
-
     end
 
     # <p>A source IP addresses and address range to inspect for.</p>
@@ -19837,11 +19837,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.priority ||= 0
       end
-
     end
 
     # <p>Additional settings to use in the specified rules.</p>
@@ -19916,11 +19916,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.count ||= 0
       end
-
     end
 
     # <p>Contains a detected instance of sensitive data that are based on built-in identifiers.</p>
@@ -19947,11 +19947,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.total_count ||= 0
       end
-
     end
 
     # <p>The severity of the finding.</p>
@@ -20068,12 +20068,12 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.product ||= 0
         self.normalized ||= 0
       end
-
     end
 
     # Includes enum constants for SeverityLabel
@@ -20195,12 +20195,12 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.normalized ||= 0
         self.product ||= 0
       end
-
     end
 
     # <p>Information about a software package.</p>
@@ -20322,11 +20322,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled_by_default ||= false
       end
-
     end
 
     # <p>Details for an individual security standard control.</p>
@@ -21107,11 +21107,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.auto_enable ||= false
       end
-
     end
 
     UpdateOrganizationConfigurationOutput = ::Struct.new(
@@ -21135,11 +21135,11 @@ module AWS::SDK::SecurityHub
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.auto_enable_controls ||= false
       end
-
     end
 
     UpdateSecurityHubConfigurationOutput = ::Struct.new(

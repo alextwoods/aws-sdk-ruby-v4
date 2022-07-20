@@ -14,7 +14,7 @@ module AWS::SDK::VoiceID
     class CreateDomain
       def self.default(visited=[])
         {
-          domain: Stubs::Domain.default(visited),
+          domain: Domain.default(visited),
         }
       end
 
@@ -37,10 +37,10 @@ module AWS::SDK::VoiceID
           name: 'name',
           description: 'description',
           domain_status: 'domain_status',
-          server_side_encryption_configuration: Stubs::ServerSideEncryptionConfiguration.default(visited),
+          server_side_encryption_configuration: ServerSideEncryptionConfiguration.default(visited),
           created_at: Time.now,
           updated_at: Time.now,
-          server_side_encryption_update_details: Stubs::ServerSideEncryptionUpdateDetails.default(visited),
+          server_side_encryption_update_details: ServerSideEncryptionUpdateDetails.default(visited),
         }
       end
 
@@ -146,7 +146,7 @@ module AWS::SDK::VoiceID
     class DescribeDomain
       def self.default(visited=[])
         {
-          domain: Stubs::Domain.default(visited),
+          domain: Domain.default(visited),
         }
       end
 
@@ -162,7 +162,7 @@ module AWS::SDK::VoiceID
     class DescribeFraudster
       def self.default(visited=[])
         {
-          fraudster: Stubs::Fraudster.default(visited),
+          fraudster: Fraudster.default(visited),
         }
       end
 
@@ -200,7 +200,7 @@ module AWS::SDK::VoiceID
     class DescribeFraudsterRegistrationJob
       def self.default(visited=[])
         {
-          job: Stubs::FraudsterRegistrationJob.default(visited),
+          job: FraudsterRegistrationJob.default(visited),
         }
       end
 
@@ -223,13 +223,13 @@ module AWS::SDK::VoiceID
           job_status: 'job_status',
           domain_id: 'domain_id',
           data_access_role_arn: 'data_access_role_arn',
-          registration_config: Stubs::RegistrationConfig.default(visited),
-          input_data_config: Stubs::InputDataConfig.default(visited),
-          output_data_config: Stubs::OutputDataConfig.default(visited),
+          registration_config: RegistrationConfig.default(visited),
+          input_data_config: InputDataConfig.default(visited),
+          output_data_config: OutputDataConfig.default(visited),
           created_at: Time.now,
           ended_at: Time.now,
-          failure_details: Stubs::FailureDetails.default(visited),
-          job_progress: Stubs::JobProgress.default(visited),
+          failure_details: FailureDetails.default(visited),
+          job_progress: JobProgress.default(visited),
         }
       end
 
@@ -352,7 +352,7 @@ module AWS::SDK::VoiceID
     class DescribeSpeaker
       def self.default(visited=[])
         {
-          speaker: Stubs::Speaker.default(visited),
+          speaker: Speaker.default(visited),
         }
       end
 
@@ -398,7 +398,7 @@ module AWS::SDK::VoiceID
     class DescribeSpeakerEnrollmentJob
       def self.default(visited=[])
         {
-          job: Stubs::SpeakerEnrollmentJob.default(visited),
+          job: SpeakerEnrollmentJob.default(visited),
         }
       end
 
@@ -421,13 +421,13 @@ module AWS::SDK::VoiceID
           job_status: 'job_status',
           domain_id: 'domain_id',
           data_access_role_arn: 'data_access_role_arn',
-          enrollment_config: Stubs::EnrollmentConfig.default(visited),
-          input_data_config: Stubs::InputDataConfig.default(visited),
-          output_data_config: Stubs::OutputDataConfig.default(visited),
+          enrollment_config: EnrollmentConfig.default(visited),
+          input_data_config: InputDataConfig.default(visited),
+          output_data_config: OutputDataConfig.default(visited),
           created_at: Time.now,
           ended_at: Time.now,
-          failure_details: Stubs::FailureDetails.default(visited),
-          job_progress: Stubs::JobProgress.default(visited),
+          failure_details: FailureDetails.default(visited),
+          job_progress: JobProgress.default(visited),
         }
       end
 
@@ -457,7 +457,7 @@ module AWS::SDK::VoiceID
         visited = visited + ['EnrollmentConfig']
         {
           existing_enrollment_action: 'existing_enrollment_action',
-          fraud_detection_config: Stubs::EnrollmentJobFraudDetectionConfig.default(visited),
+          fraud_detection_config: EnrollmentJobFraudDetectionConfig.default(visited),
         }
       end
 
@@ -498,8 +498,8 @@ module AWS::SDK::VoiceID
           session_id: 'session_id',
           session_name: 'session_name',
           streaming_status: 'streaming_status',
-          authentication_result: Stubs::AuthenticationResult.default(visited),
-          fraud_detection_result: Stubs::FraudDetectionResult.default(visited),
+          authentication_result: AuthenticationResult.default(visited),
+          fraud_detection_result: FraudDetectionResult.default(visited),
         }
       end
 
@@ -525,10 +525,10 @@ module AWS::SDK::VoiceID
           fraud_detection_result_id: 'fraud_detection_result_id',
           audio_aggregation_started_at: Time.now,
           audio_aggregation_ended_at: Time.now,
-          configuration: Stubs::FraudDetectionConfiguration.default(visited),
+          configuration: FraudDetectionConfiguration.default(visited),
           decision: 'decision',
-          reasons: Stubs::FraudDetectionReasons.default(visited),
-          risk_details: Stubs::FraudRiskDetails.default(visited),
+          reasons: FraudDetectionReasons.default(visited),
+          risk_details: FraudRiskDetails.default(visited),
         }
       end
 
@@ -552,7 +552,7 @@ module AWS::SDK::VoiceID
         return nil if visited.include?('FraudRiskDetails')
         visited = visited + ['FraudRiskDetails']
         {
-          known_fraudster_risk: Stubs::KnownFraudsterRisk.default(visited),
+          known_fraudster_risk: KnownFraudsterRisk.default(visited),
         }
       end
 
@@ -635,7 +635,7 @@ module AWS::SDK::VoiceID
           generated_speaker_id: 'generated_speaker_id',
           decision: 'decision',
           score: 1,
-          configuration: Stubs::AuthenticationConfiguration.default(visited),
+          configuration: AuthenticationConfiguration.default(visited),
         }
       end
 
@@ -676,7 +676,7 @@ module AWS::SDK::VoiceID
     class ListDomains
       def self.default(visited=[])
         {
-          domain_summaries: Stubs::DomainSummaries.default(visited),
+          domain_summaries: DomainSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -696,7 +696,7 @@ module AWS::SDK::VoiceID
         return nil if visited.include?('DomainSummaries')
         visited = visited + ['DomainSummaries']
         [
-          Stubs::DomainSummary.default(visited)
+          DomainSummary.default(visited)
         ]
       end
 
@@ -721,10 +721,10 @@ module AWS::SDK::VoiceID
           name: 'name',
           description: 'description',
           domain_status: 'domain_status',
-          server_side_encryption_configuration: Stubs::ServerSideEncryptionConfiguration.default(visited),
+          server_side_encryption_configuration: ServerSideEncryptionConfiguration.default(visited),
           created_at: Time.now,
           updated_at: Time.now,
-          server_side_encryption_update_details: Stubs::ServerSideEncryptionUpdateDetails.default(visited),
+          server_side_encryption_update_details: ServerSideEncryptionUpdateDetails.default(visited),
         }
       end
 
@@ -748,7 +748,7 @@ module AWS::SDK::VoiceID
     class ListFraudsterRegistrationJobs
       def self.default(visited=[])
         {
-          job_summaries: Stubs::FraudsterRegistrationJobSummaries.default(visited),
+          job_summaries: FraudsterRegistrationJobSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -768,7 +768,7 @@ module AWS::SDK::VoiceID
         return nil if visited.include?('FraudsterRegistrationJobSummaries')
         visited = visited + ['FraudsterRegistrationJobSummaries']
         [
-          Stubs::FraudsterRegistrationJobSummary.default(visited)
+          FraudsterRegistrationJobSummary.default(visited)
         ]
       end
 
@@ -794,8 +794,8 @@ module AWS::SDK::VoiceID
           domain_id: 'domain_id',
           created_at: Time.now,
           ended_at: Time.now,
-          failure_details: Stubs::FailureDetails.default(visited),
-          job_progress: Stubs::JobProgress.default(visited),
+          failure_details: FailureDetails.default(visited),
+          job_progress: JobProgress.default(visited),
         }
       end
 
@@ -818,7 +818,7 @@ module AWS::SDK::VoiceID
     class ListSpeakerEnrollmentJobs
       def self.default(visited=[])
         {
-          job_summaries: Stubs::SpeakerEnrollmentJobSummaries.default(visited),
+          job_summaries: SpeakerEnrollmentJobSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -838,7 +838,7 @@ module AWS::SDK::VoiceID
         return nil if visited.include?('SpeakerEnrollmentJobSummaries')
         visited = visited + ['SpeakerEnrollmentJobSummaries']
         [
-          Stubs::SpeakerEnrollmentJobSummary.default(visited)
+          SpeakerEnrollmentJobSummary.default(visited)
         ]
       end
 
@@ -864,8 +864,8 @@ module AWS::SDK::VoiceID
           domain_id: 'domain_id',
           created_at: Time.now,
           ended_at: Time.now,
-          failure_details: Stubs::FailureDetails.default(visited),
-          job_progress: Stubs::JobProgress.default(visited),
+          failure_details: FailureDetails.default(visited),
+          job_progress: JobProgress.default(visited),
         }
       end
 
@@ -888,7 +888,7 @@ module AWS::SDK::VoiceID
     class ListSpeakers
       def self.default(visited=[])
         {
-          speaker_summaries: Stubs::SpeakerSummaries.default(visited),
+          speaker_summaries: SpeakerSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -908,7 +908,7 @@ module AWS::SDK::VoiceID
         return nil if visited.include?('SpeakerSummaries')
         visited = visited + ['SpeakerSummaries']
         [
-          Stubs::SpeakerSummary.default(visited)
+          SpeakerSummary.default(visited)
         ]
       end
 
@@ -956,7 +956,7 @@ module AWS::SDK::VoiceID
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -974,7 +974,7 @@ module AWS::SDK::VoiceID
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -1012,7 +1012,7 @@ module AWS::SDK::VoiceID
     class OptOutSpeaker
       def self.default(visited=[])
         {
-          speaker: Stubs::Speaker.default(visited),
+          speaker: Speaker.default(visited),
         }
       end
 
@@ -1028,7 +1028,7 @@ module AWS::SDK::VoiceID
     class StartFraudsterRegistrationJob
       def self.default(visited=[])
         {
-          job: Stubs::FraudsterRegistrationJob.default(visited),
+          job: FraudsterRegistrationJob.default(visited),
         }
       end
 
@@ -1044,7 +1044,7 @@ module AWS::SDK::VoiceID
     class StartSpeakerEnrollmentJob
       def self.default(visited=[])
         {
-          job: Stubs::SpeakerEnrollmentJob.default(visited),
+          job: SpeakerEnrollmentJob.default(visited),
         }
       end
 
@@ -1088,7 +1088,7 @@ module AWS::SDK::VoiceID
     class UpdateDomain
       def self.default(visited=[])
         {
-          domain: Stubs::Domain.default(visited),
+          domain: Domain.default(visited),
         }
       end
 

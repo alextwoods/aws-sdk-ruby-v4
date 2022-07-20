@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::Schemas
   module Validators
 
@@ -32,7 +34,7 @@ module AWS::SDK::Schemas
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:source_arn], ::String, context: "#{context}[:source_arn]")
         Hearth::Validator.validate!(input[:cross_account], ::TrueClass, ::FalseClass, context: "#{context}[:cross_account]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -45,7 +47,7 @@ module AWS::SDK::Schemas
         Hearth::Validator.validate!(input[:source_arn], ::String, context: "#{context}[:source_arn]")
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
         Hearth::Validator.validate!(input[:cross_account], ::TrueClass, ::FalseClass, context: "#{context}[:cross_account]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -54,7 +56,7 @@ module AWS::SDK::Schemas
         Hearth::Validator.validate!(input, Types::CreateRegistryInput, context: context)
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:registry_name], ::String, context: "#{context}[:registry_name]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -64,7 +66,7 @@ module AWS::SDK::Schemas
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:registry_arn], ::String, context: "#{context}[:registry_arn]")
         Hearth::Validator.validate!(input[:registry_name], ::String, context: "#{context}[:registry_name]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -75,7 +77,7 @@ module AWS::SDK::Schemas
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:registry_name], ::String, context: "#{context}[:registry_name]")
         Hearth::Validator.validate!(input[:schema_name], ::String, context: "#{context}[:schema_name]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
       end
     end
@@ -88,7 +90,7 @@ module AWS::SDK::Schemas
         Hearth::Validator.validate!(input[:schema_arn], ::String, context: "#{context}[:schema_arn]")
         Hearth::Validator.validate!(input[:schema_name], ::String, context: "#{context}[:schema_name]")
         Hearth::Validator.validate!(input[:schema_version], ::String, context: "#{context}[:schema_version]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
         Hearth::Validator.validate!(input[:version_created_date], ::Time, context: "#{context}[:version_created_date]")
       end
@@ -198,7 +200,7 @@ module AWS::SDK::Schemas
         Hearth::Validator.validate!(input[:source_arn], ::String, context: "#{context}[:source_arn]")
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
         Hearth::Validator.validate!(input[:cross_account], ::TrueClass, ::FalseClass, context: "#{context}[:cross_account]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -215,7 +217,7 @@ module AWS::SDK::Schemas
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:registry_arn], ::String, context: "#{context}[:registry_arn]")
         Hearth::Validator.validate!(input[:registry_name], ::String, context: "#{context}[:registry_name]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -237,7 +239,7 @@ module AWS::SDK::Schemas
         Hearth::Validator.validate!(input[:schema_arn], ::String, context: "#{context}[:schema_arn]")
         Hearth::Validator.validate!(input[:schema_name], ::String, context: "#{context}[:schema_name]")
         Hearth::Validator.validate!(input[:schema_version], ::String, context: "#{context}[:schema_version]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
         Hearth::Validator.validate!(input[:version_created_date], ::Time, context: "#{context}[:version_created_date]")
       end
@@ -251,7 +253,7 @@ module AWS::SDK::Schemas
         Hearth::Validator.validate!(input[:source_arn], ::String, context: "#{context}[:source_arn]")
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
         Hearth::Validator.validate!(input[:cross_account], ::TrueClass, ::FalseClass, context: "#{context}[:cross_account]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -304,7 +306,7 @@ module AWS::SDK::Schemas
     class GetDiscoveredSchemaInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetDiscoveredSchemaInput, context: context)
-        Validators::List____listOfGetDiscoveredSchemaVersionItemInput.validate!(input[:events], context: "#{context}[:events]") unless input[:events].nil?
+        List____listOfGetDiscoveredSchemaVersionItemInput.validate!(input[:events], context: "#{context}[:events]") unless input[:events].nil?
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
       end
     end
@@ -360,7 +362,7 @@ module AWS::SDK::Schemas
     class ListDiscoverersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDiscoverersOutput, context: context)
-        Validators::List____listOfDiscovererSummary.validate!(input[:discoverers], context: "#{context}[:discoverers]") unless input[:discoverers].nil?
+        List____listOfDiscovererSummary.validate!(input[:discoverers], context: "#{context}[:discoverers]") unless input[:discoverers].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -379,7 +381,7 @@ module AWS::SDK::Schemas
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListRegistriesOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::List____listOfRegistrySummary.validate!(input[:registries], context: "#{context}[:registries]") unless input[:registries].nil?
+        List____listOfRegistrySummary.validate!(input[:registries], context: "#{context}[:registries]") unless input[:registries].nil?
       end
     end
 
@@ -397,7 +399,7 @@ module AWS::SDK::Schemas
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListSchemaVersionsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::List____listOfSchemaVersionSummary.validate!(input[:schema_versions], context: "#{context}[:schema_versions]") unless input[:schema_versions].nil?
+        List____listOfSchemaVersionSummary.validate!(input[:schema_versions], context: "#{context}[:schema_versions]") unless input[:schema_versions].nil?
       end
     end
 
@@ -415,7 +417,7 @@ module AWS::SDK::Schemas
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListSchemasOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::List____listOfSchemaSummary.validate!(input[:schemas], context: "#{context}[:schemas]") unless input[:schemas].nil?
+        List____listOfSchemaSummary.validate!(input[:schemas], context: "#{context}[:schemas]") unless input[:schemas].nil?
       end
     end
 
@@ -429,7 +431,7 @@ module AWS::SDK::Schemas
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -491,7 +493,7 @@ module AWS::SDK::Schemas
         Hearth::Validator.validate!(input, Types::RegistrySummary, context: context)
         Hearth::Validator.validate!(input[:registry_arn], ::String, context: "#{context}[:registry_arn]")
         Hearth::Validator.validate!(input[:registry_name], ::String, context: "#{context}[:registry_name]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -501,7 +503,7 @@ module AWS::SDK::Schemas
         Hearth::Validator.validate!(input[:last_modified], ::Time, context: "#{context}[:last_modified]")
         Hearth::Validator.validate!(input[:schema_arn], ::String, context: "#{context}[:schema_arn]")
         Hearth::Validator.validate!(input[:schema_name], ::String, context: "#{context}[:schema_name]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:version_count], ::Integer, context: "#{context}[:version_count]")
       end
     end
@@ -522,7 +524,7 @@ module AWS::SDK::Schemas
         Hearth::Validator.validate!(input[:registry_name], ::String, context: "#{context}[:registry_name]")
         Hearth::Validator.validate!(input[:schema_arn], ::String, context: "#{context}[:schema_arn]")
         Hearth::Validator.validate!(input[:schema_name], ::String, context: "#{context}[:schema_name]")
-        Validators::List____listOfSearchSchemaVersionSummary.validate!(input[:schema_versions], context: "#{context}[:schema_versions]") unless input[:schema_versions].nil?
+        List____listOfSearchSchemaVersionSummary.validate!(input[:schema_versions], context: "#{context}[:schema_versions]") unless input[:schema_versions].nil?
       end
     end
 
@@ -549,7 +551,7 @@ module AWS::SDK::Schemas
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SearchSchemasOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::List____listOfSearchSchemaSummary.validate!(input[:schemas], context: "#{context}[:schemas]") unless input[:schemas].nil?
+        List____listOfSearchSchemaSummary.validate!(input[:schemas], context: "#{context}[:schemas]") unless input[:schemas].nil?
       end
     end
 
@@ -595,7 +597,7 @@ module AWS::SDK::Schemas
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -635,7 +637,7 @@ module AWS::SDK::Schemas
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::List____listOf__string.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        List____listOf__string.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -663,7 +665,7 @@ module AWS::SDK::Schemas
         Hearth::Validator.validate!(input[:source_arn], ::String, context: "#{context}[:source_arn]")
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
         Hearth::Validator.validate!(input[:cross_account], ::TrueClass, ::FalseClass, context: "#{context}[:cross_account]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -681,7 +683,7 @@ module AWS::SDK::Schemas
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:registry_arn], ::String, context: "#{context}[:registry_arn]")
         Hearth::Validator.validate!(input[:registry_name], ::String, context: "#{context}[:registry_name]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -705,7 +707,7 @@ module AWS::SDK::Schemas
         Hearth::Validator.validate!(input[:schema_arn], ::String, context: "#{context}[:schema_arn]")
         Hearth::Validator.validate!(input[:schema_name], ::String, context: "#{context}[:schema_name]")
         Hearth::Validator.validate!(input[:schema_version], ::String, context: "#{context}[:schema_version]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
         Hearth::Validator.validate!(input[:version_created_date], ::Time, context: "#{context}[:version_created_date]")
       end
@@ -715,7 +717,7 @@ module AWS::SDK::Schemas
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DiscovererSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DiscovererSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -733,7 +735,7 @@ module AWS::SDK::Schemas
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RegistrySummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RegistrySummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -742,7 +744,7 @@ module AWS::SDK::Schemas
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SchemaSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SchemaSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -751,7 +753,7 @@ module AWS::SDK::Schemas
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SchemaVersionSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SchemaVersionSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -760,7 +762,7 @@ module AWS::SDK::Schemas
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SearchSchemaSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SearchSchemaSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -769,7 +771,7 @@ module AWS::SDK::Schemas
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SearchSchemaVersionSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SearchSchemaVersionSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

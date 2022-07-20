@@ -260,11 +260,11 @@ module AWS::SDK::S3Outposts
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute endpoints
@@ -309,11 +309,11 @@ module AWS::SDK::S3Outposts
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute endpoints

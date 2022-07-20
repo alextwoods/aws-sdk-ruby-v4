@@ -18,12 +18,12 @@ module AWS::SDK::CognitoIdentity
           identity_pool_name: 'identity_pool_name',
           allow_unauthenticated_identities: false,
           allow_classic_flow: false,
-          supported_login_providers: Stubs::IdentityProviders.default(visited),
+          supported_login_providers: IdentityProviders.default(visited),
           developer_provider_name: 'developer_provider_name',
-          open_id_connect_provider_ar_ns: Stubs::OIDCProviderList.default(visited),
-          cognito_identity_providers: Stubs::CognitoIdentityProviderList.default(visited),
-          saml_provider_ar_ns: Stubs::SAMLProviderList.default(visited),
-          identity_pool_tags: Stubs::IdentityPoolTagsType.default(visited),
+          open_id_connect_provider_ar_ns: OIDCProviderList.default(visited),
+          cognito_identity_providers: CognitoIdentityProviderList.default(visited),
+          saml_provider_ar_ns: SAMLProviderList.default(visited),
+          identity_pool_tags: IdentityPoolTagsType.default(visited),
         }
       end
 
@@ -90,7 +90,7 @@ module AWS::SDK::CognitoIdentity
         return nil if visited.include?('CognitoIdentityProviderList')
         visited = visited + ['CognitoIdentityProviderList']
         [
-          Stubs::CognitoIdentityProvider.default(visited)
+          CognitoIdentityProvider.default(visited)
         ]
       end
 
@@ -170,7 +170,7 @@ module AWS::SDK::CognitoIdentity
     class DeleteIdentities
       def self.default(visited=[])
         {
-          unprocessed_identity_ids: Stubs::UnprocessedIdentityIdList.default(visited),
+          unprocessed_identity_ids: UnprocessedIdentityIdList.default(visited),
         }
       end
 
@@ -188,7 +188,7 @@ module AWS::SDK::CognitoIdentity
         return nil if visited.include?('UnprocessedIdentityIdList')
         visited = visited + ['UnprocessedIdentityIdList']
         [
-          Stubs::UnprocessedIdentityId.default(visited)
+          UnprocessedIdentityId.default(visited)
         ]
       end
 
@@ -241,7 +241,7 @@ module AWS::SDK::CognitoIdentity
       def self.default(visited=[])
         {
           identity_id: 'identity_id',
-          logins: Stubs::LoginsList.default(visited),
+          logins: LoginsList.default(visited),
           creation_date: Time.now,
           last_modified_date: Time.now,
         }
@@ -286,12 +286,12 @@ module AWS::SDK::CognitoIdentity
           identity_pool_name: 'identity_pool_name',
           allow_unauthenticated_identities: false,
           allow_classic_flow: false,
-          supported_login_providers: Stubs::IdentityProviders.default(visited),
+          supported_login_providers: IdentityProviders.default(visited),
           developer_provider_name: 'developer_provider_name',
-          open_id_connect_provider_ar_ns: Stubs::OIDCProviderList.default(visited),
-          cognito_identity_providers: Stubs::CognitoIdentityProviderList.default(visited),
-          saml_provider_ar_ns: Stubs::SAMLProviderList.default(visited),
-          identity_pool_tags: Stubs::IdentityPoolTagsType.default(visited),
+          open_id_connect_provider_ar_ns: OIDCProviderList.default(visited),
+          cognito_identity_providers: CognitoIdentityProviderList.default(visited),
+          saml_provider_ar_ns: SAMLProviderList.default(visited),
+          identity_pool_tags: IdentityPoolTagsType.default(visited),
         }
       end
 
@@ -317,7 +317,7 @@ module AWS::SDK::CognitoIdentity
       def self.default(visited=[])
         {
           identity_id: 'identity_id',
-          credentials: Stubs::Credentials.default(visited),
+          credentials: Credentials.default(visited),
         }
       end
 
@@ -375,8 +375,8 @@ module AWS::SDK::CognitoIdentity
       def self.default(visited=[])
         {
           identity_pool_id: 'identity_pool_id',
-          roles: Stubs::RolesMap.default(visited),
-          role_mappings: Stubs::RoleMappingMap.default(visited),
+          roles: RolesMap.default(visited),
+          role_mappings: RoleMappingMap.default(visited),
         }
       end
 
@@ -396,7 +396,7 @@ module AWS::SDK::CognitoIdentity
         return nil if visited.include?('RoleMappingMap')
         visited = visited + ['RoleMappingMap']
         {
-          test_key: Stubs::RoleMapping.default(visited)
+          test_key: RoleMapping.default(visited)
         }
       end
 
@@ -418,7 +418,7 @@ module AWS::SDK::CognitoIdentity
         {
           type: 'type',
           ambiguous_role_resolution: 'ambiguous_role_resolution',
-          rules_configuration: Stubs::RulesConfigurationType.default(visited),
+          rules_configuration: RulesConfigurationType.default(visited),
         }
       end
 
@@ -438,7 +438,7 @@ module AWS::SDK::CognitoIdentity
         return nil if visited.include?('RulesConfigurationType')
         visited = visited + ['RulesConfigurationType']
         {
-          rules: Stubs::MappingRulesList.default(visited),
+          rules: MappingRulesList.default(visited),
         }
       end
 
@@ -456,7 +456,7 @@ module AWS::SDK::CognitoIdentity
         return nil if visited.include?('MappingRulesList')
         visited = visited + ['MappingRulesList']
         [
-          Stubs::MappingRule.default(visited)
+          MappingRule.default(visited)
         ]
       end
 
@@ -557,7 +557,7 @@ module AWS::SDK::CognitoIdentity
           identity_pool_id: 'identity_pool_id',
           identity_provider_name: 'identity_provider_name',
           use_defaults: false,
-          principal_tags: Stubs::PrincipalTags.default(visited),
+          principal_tags: PrincipalTags.default(visited),
         }
       end
 
@@ -597,7 +597,7 @@ module AWS::SDK::CognitoIdentity
       def self.default(visited=[])
         {
           identity_pool_id: 'identity_pool_id',
-          identities: Stubs::IdentitiesList.default(visited),
+          identities: IdentitiesList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -618,7 +618,7 @@ module AWS::SDK::CognitoIdentity
         return nil if visited.include?('IdentitiesList')
         visited = visited + ['IdentitiesList']
         [
-          Stubs::IdentityDescription.default(visited)
+          IdentityDescription.default(visited)
         ]
       end
 
@@ -639,7 +639,7 @@ module AWS::SDK::CognitoIdentity
         visited = visited + ['IdentityDescription']
         {
           identity_id: 'identity_id',
-          logins: Stubs::LoginsList.default(visited),
+          logins: LoginsList.default(visited),
           creation_date: Time.now,
           last_modified_date: Time.now,
         }
@@ -660,7 +660,7 @@ module AWS::SDK::CognitoIdentity
     class ListIdentityPools
       def self.default(visited=[])
         {
-          identity_pools: Stubs::IdentityPoolsList.default(visited),
+          identity_pools: IdentityPoolsList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -680,7 +680,7 @@ module AWS::SDK::CognitoIdentity
         return nil if visited.include?('IdentityPoolsList')
         visited = visited + ['IdentityPoolsList']
         [
-          Stubs::IdentityPoolShortDescription.default(visited)
+          IdentityPoolShortDescription.default(visited)
         ]
       end
 
@@ -718,7 +718,7 @@ module AWS::SDK::CognitoIdentity
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::IdentityPoolTagsType.default(visited),
+          tags: IdentityPoolTagsType.default(visited),
         }
       end
 
@@ -735,7 +735,7 @@ module AWS::SDK::CognitoIdentity
       def self.default(visited=[])
         {
           identity_id: 'identity_id',
-          developer_user_identifier_list: Stubs::DeveloperUserIdentifierList.default(visited),
+          developer_user_identifier_list: DeveloperUserIdentifierList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -807,7 +807,7 @@ module AWS::SDK::CognitoIdentity
           identity_pool_id: 'identity_pool_id',
           identity_provider_name: 'identity_provider_name',
           use_defaults: false,
-          principal_tags: Stubs::PrincipalTags.default(visited),
+          principal_tags: PrincipalTags.default(visited),
         }
       end
 
@@ -886,12 +886,12 @@ module AWS::SDK::CognitoIdentity
           identity_pool_name: 'identity_pool_name',
           allow_unauthenticated_identities: false,
           allow_classic_flow: false,
-          supported_login_providers: Stubs::IdentityProviders.default(visited),
+          supported_login_providers: IdentityProviders.default(visited),
           developer_provider_name: 'developer_provider_name',
-          open_id_connect_provider_ar_ns: Stubs::OIDCProviderList.default(visited),
-          cognito_identity_providers: Stubs::CognitoIdentityProviderList.default(visited),
-          saml_provider_ar_ns: Stubs::SAMLProviderList.default(visited),
-          identity_pool_tags: Stubs::IdentityPoolTagsType.default(visited),
+          open_id_connect_provider_ar_ns: OIDCProviderList.default(visited),
+          cognito_identity_providers: CognitoIdentityProviderList.default(visited),
+          saml_provider_ar_ns: SAMLProviderList.default(visited),
+          identity_pool_tags: IdentityPoolTagsType.default(visited),
         }
       end
 

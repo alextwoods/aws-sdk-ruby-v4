@@ -1341,11 +1341,11 @@ module AWS::SDK::IoTThingsGraph
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.cloud_metric_enabled ||= false
       end
-
     end
 
     # Includes enum constants for NamespaceDeletionStatus
@@ -2227,12 +2227,12 @@ module AWS::SDK::IoTThingsGraph
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.sync_with_public_namespace ||= false
         self.deprecate_existing_entities ||= false
       end
-
     end
 
     # @!attribute upload_id

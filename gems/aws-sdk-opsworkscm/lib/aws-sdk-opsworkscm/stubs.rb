@@ -30,7 +30,7 @@ module AWS::SDK::OpsWorksCM
     class CreateBackup
       def self.default(visited=[])
         {
-          backup: Stubs::Backup.default(visited),
+          backup: Backup.default(visited),
         }
       end
 
@@ -64,12 +64,12 @@ module AWS::SDK::OpsWorksCM
           s3_data_size: 1,
           s3_data_url: 's3_data_url',
           s3_log_url: 's3_log_url',
-          security_group_ids: Stubs::Strings.default(visited),
+          security_group_ids: Strings.default(visited),
           server_name: 'server_name',
           service_role_arn: 'service_role_arn',
           status: 'status',
           status_description: 'status_description',
-          subnet_ids: Stubs::Strings.default(visited),
+          subnet_ids: Strings.default(visited),
           tools_version: 'tools_version',
           user_arn: 'user_arn',
         }
@@ -130,7 +130,7 @@ module AWS::SDK::OpsWorksCM
     class CreateServer
       def self.default(visited=[])
         {
-          server: Stubs::Server.default(visited),
+          server: Server.default(visited),
         }
       end
 
@@ -158,7 +158,7 @@ module AWS::SDK::OpsWorksCM
           endpoint: 'endpoint',
           engine: 'engine',
           engine_model: 'engine_model',
-          engine_attributes: Stubs::EngineAttributes.default(visited),
+          engine_attributes: EngineAttributes.default(visited),
           engine_version: 'engine_version',
           instance_profile_arn: 'instance_profile_arn',
           instance_type: 'instance_type',
@@ -166,11 +166,11 @@ module AWS::SDK::OpsWorksCM
           maintenance_status: 'maintenance_status',
           preferred_maintenance_window: 'preferred_maintenance_window',
           preferred_backup_window: 'preferred_backup_window',
-          security_group_ids: Stubs::Strings.default(visited),
+          security_group_ids: Strings.default(visited),
           service_role_arn: 'service_role_arn',
           status: 'status',
           status_reason: 'status_reason',
-          subnet_ids: Stubs::Strings.default(visited),
+          subnet_ids: Strings.default(visited),
           server_arn: 'server_arn',
         }
       end
@@ -212,7 +212,7 @@ module AWS::SDK::OpsWorksCM
         return nil if visited.include?('EngineAttributes')
         visited = visited + ['EngineAttributes']
         [
-          Stubs::EngineAttribute.default(visited)
+          EngineAttribute.default(visited)
         ]
       end
 
@@ -278,7 +278,7 @@ module AWS::SDK::OpsWorksCM
     class DescribeAccountAttributes
       def self.default(visited=[])
         {
-          attributes: Stubs::AccountAttributes.default(visited),
+          attributes: AccountAttributes.default(visited),
         }
       end
 
@@ -296,7 +296,7 @@ module AWS::SDK::OpsWorksCM
         return nil if visited.include?('AccountAttributes')
         visited = visited + ['AccountAttributes']
         [
-          Stubs::AccountAttribute.default(visited)
+          AccountAttribute.default(visited)
         ]
       end
 
@@ -336,7 +336,7 @@ module AWS::SDK::OpsWorksCM
     class DescribeBackups
       def self.default(visited=[])
         {
-          backups: Stubs::Backups.default(visited),
+          backups: Backups.default(visited),
           next_token: 'next_token',
         }
       end
@@ -356,7 +356,7 @@ module AWS::SDK::OpsWorksCM
         return nil if visited.include?('Backups')
         visited = visited + ['Backups']
         [
-          Stubs::Backup.default(visited)
+          Backup.default(visited)
         ]
       end
 
@@ -374,7 +374,7 @@ module AWS::SDK::OpsWorksCM
     class DescribeEvents
       def self.default(visited=[])
         {
-          server_events: Stubs::ServerEvents.default(visited),
+          server_events: ServerEvents.default(visited),
           next_token: 'next_token',
         }
       end
@@ -394,7 +394,7 @@ module AWS::SDK::OpsWorksCM
         return nil if visited.include?('ServerEvents')
         visited = visited + ['ServerEvents']
         [
-          Stubs::ServerEvent.default(visited)
+          ServerEvent.default(visited)
         ]
       end
 
@@ -437,7 +437,7 @@ module AWS::SDK::OpsWorksCM
       def self.default(visited=[])
         {
           node_association_status: 'node_association_status',
-          engine_attributes: Stubs::EngineAttributes.default(visited),
+          engine_attributes: EngineAttributes.default(visited),
         }
       end
 
@@ -454,7 +454,7 @@ module AWS::SDK::OpsWorksCM
     class DescribeServers
       def self.default(visited=[])
         {
-          servers: Stubs::Servers.default(visited),
+          servers: Servers.default(visited),
           next_token: 'next_token',
         }
       end
@@ -474,7 +474,7 @@ module AWS::SDK::OpsWorksCM
         return nil if visited.include?('Servers')
         visited = visited + ['Servers']
         [
-          Stubs::Server.default(visited)
+          Server.default(visited)
         ]
       end
 
@@ -508,7 +508,7 @@ module AWS::SDK::OpsWorksCM
     class ExportServerEngineAttribute
       def self.default(visited=[])
         {
-          engine_attribute: Stubs::EngineAttribute.default(visited),
+          engine_attribute: EngineAttribute.default(visited),
           server_name: 'server_name',
         }
       end
@@ -526,7 +526,7 @@ module AWS::SDK::OpsWorksCM
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -546,7 +546,7 @@ module AWS::SDK::OpsWorksCM
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -584,7 +584,7 @@ module AWS::SDK::OpsWorksCM
     class RestoreServer
       def self.default(visited=[])
         {
-          server: Stubs::Server.default(visited),
+          server: Server.default(visited),
         }
       end
 
@@ -600,7 +600,7 @@ module AWS::SDK::OpsWorksCM
     class StartMaintenance
       def self.default(visited=[])
         {
-          server: Stubs::Server.default(visited),
+          server: Server.default(visited),
         }
       end
 
@@ -644,7 +644,7 @@ module AWS::SDK::OpsWorksCM
     class UpdateServer
       def self.default(visited=[])
         {
-          server: Stubs::Server.default(visited),
+          server: Server.default(visited),
         }
       end
 
@@ -660,7 +660,7 @@ module AWS::SDK::OpsWorksCM
     class UpdateServerEngineAttributes
       def self.default(visited=[])
         {
-          server: Stubs::Server.default(visited),
+          server: Server.default(visited),
         }
       end
 

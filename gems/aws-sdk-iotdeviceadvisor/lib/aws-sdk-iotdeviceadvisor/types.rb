@@ -391,11 +391,11 @@ module AWS::SDK::IotDeviceAdvisor
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute suite_definition_information_list
@@ -446,11 +446,11 @@ module AWS::SDK::IotDeviceAdvisor
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute suite_runs_list
@@ -664,11 +664,11 @@ module AWS::SDK::IotDeviceAdvisor
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.intended_for_qualification ||= false
       end
-
     end
 
     # <p>Information about the suite definition.</p>
@@ -707,11 +707,11 @@ module AWS::SDK::IotDeviceAdvisor
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.intended_for_qualification ||= false
       end
-
     end
 
     # <p>Gets suite run configuration.</p>
@@ -738,11 +738,11 @@ module AWS::SDK::IotDeviceAdvisor
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.parallel_run ||= false
       end
-
     end
 
     # <p>Information about the suite run.</p>
@@ -814,12 +814,12 @@ module AWS::SDK::IotDeviceAdvisor
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.passed ||= 0
         self.failed ||= 0
       end
-
     end
 
     # Includes enum constants for SuiteRunStatus

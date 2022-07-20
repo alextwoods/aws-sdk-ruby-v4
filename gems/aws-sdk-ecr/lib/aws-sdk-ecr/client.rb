@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::ECR
@@ -94,7 +96,7 @@ module AWS::SDK::ECR
     def batch_check_layer_availability(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchCheckLayerAvailabilityInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchCheckLayerAvailabilityInput,
         validate_input: @config.validate_input
@@ -192,7 +194,7 @@ module AWS::SDK::ECR
     def batch_delete_image(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchDeleteImageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchDeleteImageInput,
         validate_input: @config.validate_input
@@ -303,7 +305,7 @@ module AWS::SDK::ECR
     def batch_get_image(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchGetImageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchGetImageInput,
         validate_input: @config.validate_input
@@ -388,7 +390,7 @@ module AWS::SDK::ECR
     def batch_get_repository_scanning_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchGetRepositoryScanningConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchGetRepositoryScanningConfigurationInput,
         validate_input: @config.validate_input
@@ -484,7 +486,7 @@ module AWS::SDK::ECR
     def complete_layer_upload(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CompleteLayerUploadInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CompleteLayerUploadInput,
         validate_input: @config.validate_input
@@ -567,7 +569,7 @@ module AWS::SDK::ECR
     def create_pull_through_cache_rule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreatePullThroughCacheRuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreatePullThroughCacheRuleInput,
         validate_input: @config.validate_input
@@ -689,7 +691,7 @@ module AWS::SDK::ECR
     def create_repository(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateRepositoryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateRepositoryInput,
         validate_input: @config.validate_input
@@ -766,7 +768,7 @@ module AWS::SDK::ECR
     def delete_lifecycle_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteLifecyclePolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteLifecyclePolicyInput,
         validate_input: @config.validate_input
@@ -844,7 +846,7 @@ module AWS::SDK::ECR
     def delete_pull_through_cache_rule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeletePullThroughCacheRuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeletePullThroughCacheRuleInput,
         validate_input: @config.validate_input
@@ -909,7 +911,7 @@ module AWS::SDK::ECR
     def delete_registry_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteRegistryPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteRegistryPolicyInput,
         validate_input: @config.validate_input
@@ -1000,7 +1002,7 @@ module AWS::SDK::ECR
     def delete_repository(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteRepositoryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteRepositoryInput,
         validate_input: @config.validate_input
@@ -1077,7 +1079,7 @@ module AWS::SDK::ECR
     def delete_repository_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteRepositoryPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteRepositoryPolicyInput,
         validate_input: @config.validate_input
@@ -1166,7 +1168,7 @@ module AWS::SDK::ECR
     def describe_image_replication_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeImageReplicationStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeImageReplicationStatusInput,
         validate_input: @config.validate_input
@@ -1361,7 +1363,7 @@ module AWS::SDK::ECR
     def describe_image_scan_findings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeImageScanFindingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeImageScanFindingsInput,
         validate_input: @config.validate_input
@@ -1498,7 +1500,7 @@ module AWS::SDK::ECR
     def describe_images(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeImagesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeImagesInput,
         validate_input: @config.validate_input
@@ -1603,7 +1605,7 @@ module AWS::SDK::ECR
     def describe_pull_through_cache_rules(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribePullThroughCacheRulesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribePullThroughCacheRulesInput,
         validate_input: @config.validate_input
@@ -1680,7 +1682,7 @@ module AWS::SDK::ECR
     def describe_registry(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeRegistryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeRegistryInput,
         validate_input: @config.validate_input
@@ -1796,7 +1798,7 @@ module AWS::SDK::ECR
     def describe_repositories(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeRepositoriesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeRepositoriesInput,
         validate_input: @config.validate_input
@@ -1879,7 +1881,7 @@ module AWS::SDK::ECR
     def get_authorization_token(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAuthorizationTokenInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAuthorizationTokenInput,
         validate_input: @config.validate_input
@@ -1965,7 +1967,7 @@ module AWS::SDK::ECR
     def get_download_url_for_layer(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDownloadUrlForLayerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDownloadUrlForLayerInput,
         validate_input: @config.validate_input
@@ -2042,7 +2044,7 @@ module AWS::SDK::ECR
     def get_lifecycle_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetLifecyclePolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetLifecyclePolicyInput,
         validate_input: @config.validate_input
@@ -2171,7 +2173,7 @@ module AWS::SDK::ECR
     def get_lifecycle_policy_preview(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetLifecyclePolicyPreviewInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetLifecyclePolicyPreviewInput,
         validate_input: @config.validate_input
@@ -2236,7 +2238,7 @@ module AWS::SDK::ECR
     def get_registry_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetRegistryPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetRegistryPolicyInput,
         validate_input: @config.validate_input
@@ -2309,7 +2311,7 @@ module AWS::SDK::ECR
     def get_registry_scanning_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetRegistryScanningConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetRegistryScanningConfigurationInput,
         validate_input: @config.validate_input
@@ -2385,7 +2387,7 @@ module AWS::SDK::ECR
     def get_repository_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetRepositoryPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetRepositoryPolicyInput,
         validate_input: @config.validate_input
@@ -2467,7 +2469,7 @@ module AWS::SDK::ECR
     def initiate_layer_upload(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::InitiateLayerUploadInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::InitiateLayerUploadInput,
         validate_input: @config.validate_input
@@ -2581,7 +2583,7 @@ module AWS::SDK::ECR
     def list_images(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListImagesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListImagesInput,
         validate_input: @config.validate_input
@@ -2654,7 +2656,7 @@ module AWS::SDK::ECR
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -2762,7 +2764,7 @@ module AWS::SDK::ECR
     def put_image(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutImageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutImageInput,
         validate_input: @config.validate_input
@@ -2854,7 +2856,7 @@ module AWS::SDK::ECR
     def put_image_scanning_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutImageScanningConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutImageScanningConfigurationInput,
         validate_input: @config.validate_input
@@ -2940,7 +2942,7 @@ module AWS::SDK::ECR
     def put_image_tag_mutability(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutImageTagMutabilityInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutImageTagMutabilityInput,
         validate_input: @config.validate_input
@@ -3022,7 +3024,7 @@ module AWS::SDK::ECR
     def put_lifecycle_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutLifecyclePolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutLifecyclePolicyInput,
         validate_input: @config.validate_input
@@ -3096,7 +3098,7 @@ module AWS::SDK::ECR
     def put_registry_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutRegistryPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutRegistryPolicyInput,
         validate_input: @config.validate_input
@@ -3197,7 +3199,7 @@ module AWS::SDK::ECR
     def put_registry_scanning_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutRegistryScanningConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutRegistryScanningConfigurationInput,
         validate_input: @config.validate_input
@@ -3303,7 +3305,7 @@ module AWS::SDK::ECR
     def put_replication_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutReplicationConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutReplicationConfigurationInput,
         validate_input: @config.validate_input
@@ -3393,7 +3395,7 @@ module AWS::SDK::ECR
     def set_repository_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SetRepositoryPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SetRepositoryPolicyInput,
         validate_input: @config.validate_input
@@ -3484,7 +3486,7 @@ module AWS::SDK::ECR
     def start_image_scan(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartImageScanInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartImageScanInput,
         validate_input: @config.validate_input
@@ -3567,7 +3569,7 @@ module AWS::SDK::ECR
     def start_lifecycle_policy_preview(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartLifecyclePolicyPreviewInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartLifecyclePolicyPreviewInput,
         validate_input: @config.validate_input
@@ -3648,7 +3650,7 @@ module AWS::SDK::ECR
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -3723,7 +3725,7 @@ module AWS::SDK::ECR
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -3824,7 +3826,7 @@ module AWS::SDK::ECR
     def upload_layer_part(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UploadLayerPartInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UploadLayerPartInput,
         validate_input: @config.validate_input

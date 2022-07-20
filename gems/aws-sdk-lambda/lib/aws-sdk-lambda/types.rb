@@ -48,6 +48,7 @@ module AWS::SDK::Lambda
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.total_code_size ||= 0
@@ -55,7 +56,6 @@ module AWS::SDK::Lambda
         self.code_size_zipped ||= 0
         self.concurrent_executions ||= 0
       end
-
     end
 
     # <p>The number of functions and amount of storage in use.</p>
@@ -76,12 +76,12 @@ module AWS::SDK::Lambda
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.total_code_size ||= 0
         self.function_count ||= 0
       end
-
     end
 
     # @!attribute layer_name
@@ -135,11 +135,11 @@ module AWS::SDK::Lambda
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.version_number ||= 0
       end
-
     end
 
     # @!attribute statement
@@ -1228,11 +1228,11 @@ module AWS::SDK::Lambda
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.publish ||= false
       end
-
     end
 
     # <p>Details about a function's configuration.</p>
@@ -1457,11 +1457,11 @@ module AWS::SDK::Lambda
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.code_size ||= 0
       end
-
     end
 
     # @!attribute function_name
@@ -2032,11 +2032,11 @@ module AWS::SDK::Lambda
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.version_number ||= 0
       end
-
     end
 
     DeleteLayerVersionOutput = ::Struct.new(
@@ -2896,11 +2896,11 @@ module AWS::SDK::Lambda
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.code_size ||= 0
       end
-
     end
 
     # @!attribute last_modified
@@ -3709,11 +3709,11 @@ module AWS::SDK::Lambda
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.code_size ||= 0
       end
-
     end
 
     # @!attribute function_name
@@ -4033,11 +4033,11 @@ module AWS::SDK::Lambda
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.version ||= 0
       end
-
     end
 
     # @!attribute layer_name
@@ -4056,11 +4056,11 @@ module AWS::SDK::Lambda
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.version_number ||= 0
       end
-
     end
 
     # @!attribute content
@@ -4122,11 +4122,11 @@ module AWS::SDK::Lambda
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.version ||= 0
       end
-
     end
 
     # @!attribute layer_name
@@ -4145,11 +4145,11 @@ module AWS::SDK::Lambda
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.version_number ||= 0
       end
-
     end
 
     # @!attribute policy
@@ -4580,11 +4580,11 @@ module AWS::SDK::Lambda
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute function_name
@@ -4722,6 +4722,7 @@ module AWS::SDK::Lambda
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status_code ||= 0
@@ -4904,11 +4905,11 @@ module AWS::SDK::Lambda
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.code_size ||= 0
       end
-
     end
 
     # <p>A ZIP archive that contains the contents of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
@@ -4991,11 +4992,11 @@ module AWS::SDK::Lambda
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.code_size ||= 0
       end
-
     end
 
     # <p>Details about a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
@@ -5048,11 +5049,11 @@ module AWS::SDK::Lambda
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.version ||= 0
       end
-
     end
 
     # <p>Details about an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
@@ -6050,11 +6051,11 @@ module AWS::SDK::Lambda
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.version ||= 0
       end
-
     end
 
     # @!attribute function_name
@@ -6331,11 +6332,11 @@ module AWS::SDK::Lambda
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.code_size ||= 0
       end
-
     end
 
     # @!attribute code_signing_config_arn
@@ -6710,11 +6711,11 @@ module AWS::SDK::Lambda
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.version_number ||= 0
       end
-
     end
 
     RemoveLayerVersionPermissionOutput = ::Struct.new(
@@ -7927,6 +7928,7 @@ module AWS::SDK::Lambda
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.publish ||= false
@@ -8170,11 +8172,11 @@ module AWS::SDK::Lambda
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.code_size ||= 0
       end
-
     end
 
     # @!attribute function_name
@@ -8543,11 +8545,11 @@ module AWS::SDK::Lambda
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.code_size ||= 0
       end
-
     end
 
     # @!attribute function_name

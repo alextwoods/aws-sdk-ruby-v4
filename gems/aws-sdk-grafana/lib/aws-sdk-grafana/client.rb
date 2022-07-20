@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::Grafana
@@ -99,7 +101,7 @@ module AWS::SDK::Grafana
     def associate_license(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateLicenseInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateLicenseInput,
         validate_input: @config.validate_input
@@ -287,7 +289,7 @@ module AWS::SDK::Grafana
     def create_workspace(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateWorkspaceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateWorkspaceInput,
         validate_input: @config.validate_input
@@ -375,7 +377,7 @@ module AWS::SDK::Grafana
     def create_workspace_api_key(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateWorkspaceApiKeyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateWorkspaceApiKeyInput,
         validate_input: @config.validate_input
@@ -473,7 +475,7 @@ module AWS::SDK::Grafana
     def delete_workspace(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteWorkspaceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteWorkspaceInput,
         validate_input: @config.validate_input
@@ -546,7 +548,7 @@ module AWS::SDK::Grafana
     def delete_workspace_api_key(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteWorkspaceApiKeyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteWorkspaceApiKeyInput,
         validate_input: @config.validate_input
@@ -643,7 +645,7 @@ module AWS::SDK::Grafana
     def describe_workspace(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeWorkspaceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeWorkspaceInput,
         validate_input: @config.validate_input
@@ -712,7 +714,9 @@ module AWS::SDK::Grafana
     #   resp.data.authentication.saml #=> Types::SamlAuthentication
     #   resp.data.authentication.saml.status #=> String, one of ["CONFIGURED", "NOT_CONFIGURED"]
     #   resp.data.authentication.saml.configuration #=> Types::SamlConfiguration
-    #   resp.data.authentication.saml.configuration.idp_metadata #=> IdpMetadata
+    #   resp.data.authentication.saml.configuration.idp_metadata #=> Types::IdpMetadata, one of [Url, Xml]
+    #   resp.data.authentication.saml.configuration.idp_metadata.url #=> String
+    #   resp.data.authentication.saml.configuration.idp_metadata.xml #=> String
     #   resp.data.authentication.saml.configuration.assertion_attributes #=> Types::AssertionAttributes
     #   resp.data.authentication.saml.configuration.assertion_attributes.name #=> String
     #   resp.data.authentication.saml.configuration.assertion_attributes.login #=> String
@@ -733,7 +737,7 @@ module AWS::SDK::Grafana
     def describe_workspace_authentication(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeWorkspaceAuthenticationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeWorkspaceAuthenticationInput,
         validate_input: @config.validate_input
@@ -834,7 +838,7 @@ module AWS::SDK::Grafana
     def disassociate_license(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateLicenseInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateLicenseInput,
         validate_input: @config.validate_input
@@ -937,7 +941,7 @@ module AWS::SDK::Grafana
     def list_permissions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPermissionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPermissionsInput,
         validate_input: @config.validate_input
@@ -1008,7 +1012,7 @@ module AWS::SDK::Grafana
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -1100,7 +1104,7 @@ module AWS::SDK::Grafana
     def list_workspaces(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListWorkspacesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListWorkspacesInput,
         validate_input: @config.validate_input
@@ -1178,7 +1182,7 @@ module AWS::SDK::Grafana
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -1253,7 +1257,7 @@ module AWS::SDK::Grafana
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -1346,7 +1350,7 @@ module AWS::SDK::Grafana
     def update_permissions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdatePermissionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdatePermissionsInput,
         validate_input: @config.validate_input
@@ -1521,7 +1525,7 @@ module AWS::SDK::Grafana
     def update_workspace(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateWorkspaceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateWorkspaceInput,
         validate_input: @config.validate_input
@@ -1633,7 +1637,9 @@ module AWS::SDK::Grafana
     #   resp.data.authentication.saml #=> Types::SamlAuthentication
     #   resp.data.authentication.saml.status #=> String, one of ["CONFIGURED", "NOT_CONFIGURED"]
     #   resp.data.authentication.saml.configuration #=> Types::SamlConfiguration
-    #   resp.data.authentication.saml.configuration.idp_metadata #=> IdpMetadata
+    #   resp.data.authentication.saml.configuration.idp_metadata #=> Types::IdpMetadata, one of [Url, Xml]
+    #   resp.data.authentication.saml.configuration.idp_metadata.url #=> String
+    #   resp.data.authentication.saml.configuration.idp_metadata.xml #=> String
     #   resp.data.authentication.saml.configuration.assertion_attributes #=> Types::AssertionAttributes
     #   resp.data.authentication.saml.configuration.assertion_attributes.name #=> String
     #   resp.data.authentication.saml.configuration.assertion_attributes.login #=> String
@@ -1654,7 +1660,7 @@ module AWS::SDK::Grafana
     def update_workspace_authentication(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateWorkspaceAuthenticationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateWorkspaceAuthenticationInput,
         validate_input: @config.validate_input
