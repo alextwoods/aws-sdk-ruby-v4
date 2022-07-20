@@ -239,12 +239,6 @@ public class StubsGenerator extends StubsGeneratorBase {
         }
 
         @Override
-        public Void setShape(SetShape shape) {
-            defaultComplexSerializer(shape);
-            return null;
-        }
-
-        @Override
         public Void mapShape(MapShape shape) {
             defaultComplexSerializer(shape);
             return null;

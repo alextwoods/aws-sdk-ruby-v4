@@ -244,20 +244,6 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
         }
 
         @Override
-        public Void setShape(SetShape shape) {
-            if (checkRequired) {
-                writer.write("$1L$2T.build($3L).to_a unless $3L.nil?",
-                        dataSetter, symbolProvider.toSymbol(shape),
-                        inputGetter);
-            } else {
-                writer.write("$1L($2T.build($3L).to_a unless $3L.nil?)",
-                        dataSetter, symbolProvider.toSymbol(shape),
-                        inputGetter);
-            }
-            return null;
-        }
-
-        @Override
         public Void mapShape(MapShape shape) {
             defaultComplexSerializer(shape);
             return null;

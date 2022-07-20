@@ -323,19 +323,6 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
         }
 
         @Override
-        public Void setShape(SetShape shape) {
-            if (memberShape.hasTrait(XmlFlattenedTrait.class) || shape.hasTrait(XmlFlattenedTrait.class)) {
-                defaultComplexSerializer(shape);
-            } else {
-                writer.write("xml << $5T.new($2L, $1T.build('member', $3L)$4L) unless $3L.nil?",
-                        symbolProvider.toSymbol(shape), nodeName,
-                        inputGetter, xmlnsAttribute(), Hearth.XML_NODE);
-            }
-
-            return null;
-        }
-
-        @Override
         public Void mapShape(MapShape shape) {
             if (memberShape.hasTrait(XmlFlattenedTrait.class) || shape.hasTrait(XmlFlattenedTrait.class)) {
                 defaultComplexSerializer(shape);
@@ -418,11 +405,6 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
 
         @Override
         public Void listShape(ListShape shape) {
-            return null;
-        }
-
-        @Override
-        public Void setShape(SetShape shape) {
             return null;
         }
 

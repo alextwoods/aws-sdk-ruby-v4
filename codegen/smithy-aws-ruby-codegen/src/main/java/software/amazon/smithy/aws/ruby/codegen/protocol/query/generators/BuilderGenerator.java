@@ -243,12 +243,6 @@ public class BuilderGenerator extends BuilderGeneratorBase {
         }
 
         @Override
-        public Void setShape(SetShape shape) {
-            defaultCollectionSerializer(shape);
-            return null;
-        }
-
-        @Override
         public Void mapShape(MapShape shape) {
             String name = dataName;
             if (memberShape.hasTrait(XmlNameTrait.class)) {

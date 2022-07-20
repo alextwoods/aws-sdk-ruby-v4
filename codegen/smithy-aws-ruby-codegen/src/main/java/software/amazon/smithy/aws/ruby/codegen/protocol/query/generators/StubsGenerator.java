@@ -408,11 +408,6 @@ public class StubsGenerator extends StubsGeneratorBase {
         }
 
         @Override
-        public Void setShape(SetShape shape) {
-            return null;
-        }
-
-        @Override
         public Void mapShape(MapShape shape) {
             return null;
         }
