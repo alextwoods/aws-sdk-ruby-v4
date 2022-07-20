@@ -82,19 +82,19 @@ public class StubsGenerator extends StubsGeneratorBase {
         Symbol symbol = symbolProvider.toSymbol(shape);
         writer
                 .openBlock("def self.stub(node_name, stub = {})")
-                .write("xml = Hearth::XML::Node.new(node_name)")
+                .write("xml = $T.new(node_name)", Hearth.XML_NODE)
                 .write("case stub");
 
         shape.members().forEach((member) -> {
             writer
-                    .write("when Types::$L::$L", shape.getId().getName(), symbolProvider.toMemberName(member))
+                    .write("when $T", context.symbolProvider().toSymbol(member))
                     .indent();
             renderUnionMemberStubber(shape, member);
             writer.dedent();
         });
         writer.openBlock("else")
-                .write("raise ArgumentError,\n\"Expected input to be one of the subclasses of Types::$L\"",
-                        symbol.getName())
+                .write("raise ArgumentError,\n\"Expected input to be one of the subclasses of $T\"",
+                        context.symbolProvider().toSymbol(shape))
                 .closeBlock("end")
                 .write("")
                 .write("xml")
@@ -182,7 +182,7 @@ public class StubsGenerator extends StubsGeneratorBase {
                     }
                 })
                 .call(() -> renderMemberBuilders(outputShape))
-                .write("http_resp.body = StringIO.new(xml.to_str)")
+                .write("http_resp.body = $T.new(xml.to_str)", RubyImportContainer.STRING_IO)
                 .write("http_resp.status = 200")
                 .closeBlock("end");
     }

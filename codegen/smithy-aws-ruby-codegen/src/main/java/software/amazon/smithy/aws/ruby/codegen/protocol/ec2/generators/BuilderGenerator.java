@@ -60,7 +60,7 @@ public class BuilderGenerator extends BuilderGeneratorBase {
                 .write("params['Action'] = '$L'", symbolProvider.toSymbol(operation).getName())
                 .write("params['Version'] = '$L'", context.service().getVersion())
                 .call(() -> renderMemberBuilders(inputShape))
-                .write("http_req.body = StringIO.new(params.to_s)")
+                .write("http_req.body = $T.new(params.to_s)", RubyImportContainer.STRING_IO)
                 .closeBlock("end");
     }
 
@@ -113,14 +113,14 @@ public class BuilderGenerator extends BuilderGeneratorBase {
 
         shape.members().forEach((member) -> {
             writer
-                    .write("when Types::$L::$L", shape.getId().getName(), symbolProvider.toMemberName(member))
+                    .write("when $T", context.symbolProvider().toSymbol(member))
                     .indent();
             renderUnionMemberBuilder(member);
             writer.dedent();
         });
         writer.openBlock("else")
-                .write("raise ArgumentError,\n\"Expected input to be one of the subclasses of Types::$L\"",
-                        symbol.getName())
+                .write("raise ArgumentError,\n\"Expected input to be one of the subclasses of $T\"",
+                        context.symbolProvider().toSymbol(shape))
                 .closeBlock("end")
                 .closeBlock("end");
     }
